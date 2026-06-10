@@ -1,0 +1,1768 @@
+---
+# corpus-iau-constellations-B.yaml
+# Legolas Mode B Corpus — IAU 88 Constellations, Batch B
+# Entries: 030–058 (Crux through Octans alphabetically)
+# Entry count: 29
+# Crawl date: 2026-06-09
+# Schema: sign_id / sign_name / cultural_tradition / system_metadata /
+#         visual_representation / primitive_association_hints /
+#         mythic_narrative / cultural_sensitivity / provenance
+# Numbering continues from Batch A (001–029, Andromeda through Corona Borealis)
+
+- sign_id: "iau-constellations-030-crux"
+  sign_name:
+    primary: "Crux"
+    abbreviation: "Cru"
+    genitive: "Crucis"
+    native_script: ""
+    variants: ["Southern Cross", "Crux Australis"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Southern Hemisphere navigational astronomy"
+    period_range: "Stars listed by Ptolemy as part of Centaurus; separated as Crux by Augustin Royer 1679; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 30
+    sign_classification:
+      iau_abbreviation: "Cru"
+      iau_area_sq_degrees: 68
+      brightest_star: "Acrux (α Crucis), mag 0.77"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Crux"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Acrux (α Crucis)"
+        bayer: "α Cru"
+        ra_j2000: "12h 26m 36s"
+        dec_j2000: "−63° 05′ 56″"
+        magnitude: 0.77
+      - name: "Mimosa (β Crucis)"
+        bayer: "β Cru"
+        ra_j2000: "12h 47m 43s"
+        dec_j2000: "−59° 41′ 19″"
+        magnitude: 1.25
+      - name: "Gacrux (γ Crucis)"
+        bayer: "γ Cru"
+        ra_j2000: "12h 31m 10s"
+        dec_j2000: "−57° 06′ 47″"
+        magnitude: 1.64
+      - name: "δ Crucis"
+        bayer: "δ Cru"
+        ra_j2000: "12h 15m 09s"
+        dec_j2000: "−58° 44′ 56″"
+        magnitude: 2.79
+    asterism_schematic: "Four bright stars forming a compact cross; smallest IAU constellation by area (68 sq deg); long axis points toward south celestial pole; Coalsack Nebula (dark nebula) lies adjacent"
+    cultural_iconography: "Southern Cross — appears on national flags of Australia, New Zealand, Brazil, Papua New Guinea, and Samoa; primary Southern Hemisphere celestial navigation reference; Andean Chakana (stepped cross) cosmological symbol"
+  primitive_association_hints:
+    suggested_attributes: ["navigation", "southern sky", "cross symbol", "fixed compass", "celestial waypoint"]
+    narrative_archetype: "Anchor of the southern sky; eternal fixed point for the wanderer"
+    game_design_notes: "Crux's Chakana cross-tradition bridge (Andean, Māori, Aboriginal) makes it a strong multi-cultural substrate node; navigation + fixed-orientation mechanics"
+  mythic_narrative: >
+    The four bright stars of Crux were catalogued by Ptolemy as part of Centaurus in the Almagest (~150 CE).
+    Precession slowly carried them below the Mediterranean horizon; by the early medieval period they had
+    vanished from European view. Portuguese navigators rediscovered them in the 15th–16th centuries and
+    called them the Southern Cross, using the long axis to locate the south pole. Augustin Royer formally
+    separated the asterism from Centaurus in 1679. Southern Hemisphere peoples developed independent
+    traditions: Māori called it Māhutonga (the gourd of Māui); Aboriginal Australians identified it as
+    the head of the Emu in the Sky (a dark-constellation tradition); Andean peoples encoded it into the
+    Chakana stepped-cross cosmology, linking it to the agricultural calendar and underworld passage.
+  cultural_sensitivity:
+    flag_level: "none"
+    notes: "Andean Chakana is a living indigenous cosmological symbol — use respectfully; not appropriative in a substrate context"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Crux"
+      - "https://en.wikipedia.org/wiki/Chakana"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-031-cygnus"
+  sign_name:
+    primary: "Cygnus"
+    abbreviation: "Cyg"
+    genitive: "Cygni"
+    native_script: ""
+    variants: ["The Swan", "Northern Cross"]
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Ancient Greece / Babylonia"
+    period_range: "Catalogued by Ptolemy in the Almagest (~150 CE); IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 31
+    sign_classification:
+      iau_abbreviation: "Cyg"
+      iau_area_sq_degrees: 804
+      brightest_star: "Deneb (α Cygni), mag 1.25"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Cygnus_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Deneb (α Cygni)"
+        bayer: "α Cyg"
+        ra_j2000: "20h 41m 26s"
+        dec_j2000: "+45° 16′ 49″"
+        magnitude: 1.25
+      - name: "Sadr (γ Cygni)"
+        bayer: "γ Cyg"
+        ra_j2000: "20h 22m 14s"
+        dec_j2000: "+40° 15′ 24″"
+        magnitude: 2.23
+      - name: "Albireo (β Cygni)"
+        bayer: "β Cyg"
+        ra_j2000: "19h 30m 43s"
+        dec_j2000: "+27° 57′ 35″"
+        magnitude: 3.05
+    asterism_schematic: "Large cross (Northern Cross) within Milky Way; Deneb at top, Albireo at foot (head of swan); Sadr at center crossbar; swan flying south along Milky Way band; Cygnus X-1 (first confirmed black hole candidate) lies within boundaries"
+    cultural_iconography: "Swan in flight along the Milky Way; Zeus disguised as swan; Northern Cross asterism used as seasonal sky marker; Deneb is among the most luminous stars known (~200,000 solar luminosities, ~2,600 light-years distant)"
+  primitive_association_hints:
+    suggested_attributes: ["transformation", "swan", "death/rebirth", "Milky Way river", "divine disguise", "northern sky anchor"]
+    narrative_archetype: "The god in disguise; the swan that crosses the river of stars"
+    game_design_notes: "Zeus-as-swan mythology + Orpheus association (lyre placed near swan after death) links to Lyra; Cygnus X-1 black hole gives astrophysical depth"
+  mythic_narrative: >
+    In Greek myth, Zeus disguised himself as a swan to court Leda, queen of Sparta — an encounter that
+    produced the Dioscuri twins (Castor and Pollux) and Helen of Troy. Another tradition identifies the
+    swan with Orpheus, whose lyre (Lyra, the adjacent constellation) was placed in the sky after his
+    death; Apollo transformed him into a swan and set him near his instrument. A third myth identifies
+    it with Cycnus, a grieving king who mourned the death of Phaethon and was transformed by Apollo.
+    Deneb, the tail star, is one of the most intrinsically luminous naked-eye stars — appearing modest
+    (mag 1.25) only because of its vast distance (~2,600 ly). Cygnus X-1 was the first object identified
+    as a strong black hole candidate (1972), making this constellation a landmark of modern astrophysics.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Cygnus_(constellation)"
+      - "https://en.wikipedia.org/wiki/Deneb"
+      - "https://en.wikipedia.org/wiki/Cygnus_X-1"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-032-delphinus"
+  sign_name:
+    primary: "Delphinus"
+    abbreviation: "Del"
+    genitive: "Delphini"
+    native_script: ""
+    variants: ["The Dolphin", "Job's Coffin"]
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Ancient Greece"
+    period_range: "Catalogued by Ptolemy in the Almagest (~150 CE); IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 32
+    sign_classification:
+      iau_abbreviation: "Del"
+      iau_area_sq_degrees: 189
+      brightest_star: "Rotanev (β Delphini), mag 3.63"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Delphinus"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Rotanev (β Delphini)"
+        bayer: "β Del"
+        ra_j2000: "20h 37m 33s"
+        dec_j2000: "+14° 35′ 43″"
+        magnitude: 3.63
+      - name: "Sualocin (α Delphini)"
+        bayer: "α Del"
+        ra_j2000: "20h 39m 38s"
+        dec_j2000: "+15° 54′ 43″"
+        magnitude: 3.77
+    asterism_schematic: "Compact diamond of four stars (Job's Coffin) forming the dolphin's body, with a fifth star (ε Delphini) as the tail; one of the smallest but most recognizable constellations; Milky Way background"
+    cultural_iconography: "Dolphin leaping; Sualocin and Rotanev star names are Nicolaus Venator (Niccolò Cacciatore, assistant to Piazzi) spelled backwards — inserted into Palermo Star Catalogue 1814; dolphin as sacred messenger of Poseidon/Apollo"
+  primitive_association_hints:
+    suggested_attributes: ["messenger", "sea", "playfulness", "rescue", "divine favor", "hidden name"]
+    narrative_archetype: "The divine messenger who leapt from the sea to deliver a god's plea"
+    game_design_notes: "Sualocin/Rotanev reverse-name Easter egg gives Delphinus a rare 'hidden signature' flavor; dolphin as Poseidon's ambassador"
+  mythic_narrative: >
+    Delphinus carries two competing myths. In one, Poseidon sent a dolphin to find the sea-nymph
+    Amphitrite after she fled his courtship; the dolphin persuaded her to relent, and Poseidon placed
+    the creature in the sky as thanks. In the other, the poet Arion of Lesbos was thrown overboard by
+    pirates after a musical competition; a dolphin, enchanted by his lyre-playing, carried him safely
+    to shore. The star names Sualocin (α) and Rotanev (β) are a celebrated astronomical curiosity:
+    they are Nicolaus Venator — the Latinized name of Niccolò Cacciatore, assistant to Piazzi — spelled
+    backwards, quietly embedded in the 1814 Palermo Star Catalogue.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Delphinus"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-033-dorado"
+  sign_name:
+    primary: "Dorado"
+    abbreviation: "Dor"
+    genitive: "Doradus"
+    native_script: ""
+    variants: ["The Swordfish", "The Goldfish"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Dutch navigational astronomy"
+    period_range: "Created by Petrus Plancius from observations by Pieter Dirkszoon Keyser and Frederick de Houtman c. 1597–1598; published by Johann Bayer in Uranometria 1603; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 33
+    sign_classification:
+      iau_abbreviation: "Dor"
+      iau_area_sq_degrees: 179
+      brightest_star: "α Doradus, mag 3.27"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Dorado"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "α Doradus"
+        bayer: "α Dor"
+        ra_j2000: "04h 33m 60s"
+        dec_j2000: "−55° 02′ 42″"
+        magnitude: 3.27
+      - name: "β Doradus"
+        bayer: "β Dor"
+        ra_j2000: "05h 33m 38s"
+        dec_j2000: "−62° 29′ 23″"
+        magnitude: 3.46
+    asterism_schematic: "Faint constellation; contains the Large Magellanic Cloud (LMC), the largest of the Milky Way's satellite galaxies; Tarantula Nebula (30 Doradus / NGC 2070) lies within — the most active star-forming region in the Local Group"
+    cultural_iconography: "Swordfish or mahi-mahi (dolphinfish); constellation introduced during the Dutch East India Company voyages; contains the Tarantula Nebula, whose apparent size (if relocated to Orion's distance) would cast shadows on Earth"
+  primitive_association_hints:
+    suggested_attributes: ["exploration", "tropics", "deep sky", "stellar nursery", "vast scale", "navigation"]
+    narrative_archetype: "The voyager's fish; the constellation that swallowed a galaxy"
+    game_design_notes: "LMC + Tarantula Nebula give Dorado extreme astrophysical magnitude; good substrate for scale, creation, and stellar-birth themes"
+  mythic_narrative: >
+    Dorado has no ancient mythology — it was created from scratch by Dutch navigator-astronomers Keyser
+    and de Houtman during the first Dutch expedition to the East Indies (1595–1597), mapping the southern
+    sky invisible from Europe. Plancius published it in 1597; Bayer included it in Uranometria (1603).
+    The constellation's enduring scientific significance lies in what it contains: the Large Magellanic
+    Cloud, the Milky Way's largest satellite galaxy at ~160,000 light-years, and within it the Tarantula
+    Nebula (30 Doradus) — the most luminous star-forming region in the Local Group. Had the Tarantula
+    Nebula been as close as the Orion Nebula, it would have been bright enough to cast shadows.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Dorado"
+      - "https://en.wikipedia.org/wiki/Large_Magellanic_Cloud"
+      - "https://en.wikipedia.org/wiki/Tarantula_Nebula"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-034-draco"
+  sign_name:
+    primary: "Draco"
+    abbreviation: "Dra"
+    genitive: "Draconis"
+    native_script: ""
+    variants: ["The Dragon"]
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Ancient Mesopotamia / Greece"
+    period_range: "One of the 48 Ptolemaic constellations (~150 CE); Babylonian precursor Mushussu (horned serpent); IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 34
+    sign_classification:
+      iau_abbreviation: "Dra"
+      iau_area_sq_degrees: 1083
+      brightest_star: "Eltanin (γ Draconis), mag 2.23"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern (circumpolar)"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Draco_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Eltanin (γ Draconis)"
+        bayer: "γ Dra"
+        ra_j2000: "17h 56m 36s"
+        dec_j2000: "+51° 29′ 20″"
+        magnitude: 2.23
+      - name: "Thuban (α Draconis)"
+        bayer: "α Dra"
+        ra_j2000: "14h 04m 23s"
+        dec_j2000: "+64° 22′ 33″"
+        magnitude: 3.65
+      - name: "Rastaban (β Draconis)"
+        bayer: "β Dra"
+        ra_j2000: "17h 30m 26s"
+        dec_j2000: "+52° 18′ 05″"
+        magnitude: 2.79
+    asterism_schematic: "Long sinuous chain of stars wrapping around Ursa Minor; head (quadrilateral of γ, β, ξ, ν Draconis) near Hercules; tail winds between Ursa Major and Ursa Minor; Thuban (α) near midpoint of body, far from head"
+    cultural_iconography: "Dragon or serpent coiled around the north pole; Thuban (α Draconis) was the pole star ~2787–1900 BCE — used by builders of the Great Pyramid of Giza whose descending passage was aligned to it; Ladon (dragon guarding golden apples) in Greek myth"
+  primitive_association_hints:
+    suggested_attributes: ["pole star", "guardianship", "ancient north", "serpentine", "time and precession", "dragon", "pyramid alignment"]
+    narrative_archetype: "The eternal guardian coiled around the axis of the world"
+    game_design_notes: "Thuban as ancient pole star (pyramid-builder alignment) gives extraordinary historical depth; circumpolar never-setting nature = eternal guardian; precessional pole-star cycle = deep-time substrate"
+  mythic_narrative: >
+    Draco wraps around the sky's north pole, never setting for observers in northern latitudes — a
+    circumpolar constellation that appears to revolve around the celestial pole. Its star Thuban
+    (α Draconis) served as the north pole star around 2787–1900 BCE; the descending passage of the
+    Great Pyramid of Giza was precisely aligned to observe Thuban at lower culmination. In Greek myth,
+    Draco was Ladon, the hundred-headed dragon that never slept, set by Hera to guard the golden apples
+    of the Hesperides in the garden at the western edge of the world. Heracles slew it as his eleventh
+    labor. Athena placed the dragon in the sky after Heracles cast it there during the Gigantomachy.
+    The Babylonian equivalent was Mushussu, the horned serpent-dragon of Marduk.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Draco_(constellation)"
+      - "https://en.wikipedia.org/wiki/Thuban"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-035-equuleus"
+  sign_name:
+    primary: "Equuleus"
+    abbreviation: "Equ"
+    genitive: "Equulei"
+    native_script: ""
+    variants: ["The Little Horse", "The Foal"]
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Ancient Greece"
+    period_range: "Catalogued by Ptolemy in the Almagest (~150 CE); second smallest IAU constellation; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 35
+    sign_classification:
+      iau_abbreviation: "Equ"
+      iau_area_sq_degrees: 72
+      brightest_star: "Kitalpha (α Equulei), mag 3.92"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Equuleus"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Kitalpha (α Equulei)"
+        bayer: "α Equ"
+        ra_j2000: "21h 15m 49s"
+        dec_j2000: "+05° 14′ 52″"
+        magnitude: 3.92
+    asterism_schematic: "Tiny asterism of four faint stars representing just the head of a horse; lies adjacent to Pegasus; second smallest constellation by area (72 sq deg); no star brighter than magnitude 3.9"
+    cultural_iconography: "Foal's head only, not a full horse; contrasted with the full winged horse Pegasus to its north; Kitalpha means 'the section of the horse' in Arabic"
+  primitive_association_hints:
+    suggested_attributes: ["youth", "potential", "fragment", "small but noble", "foal", "adjacency to greatness"]
+    narrative_archetype: "The young horse not yet full-grown; potential beside the great winged steed"
+    game_design_notes: "Equuleus's smallness and adjacency to Pegasus create a 'lesser sibling' narrative dynamic useful for contrast mechanics"
+  mythic_narrative: >
+    Equuleus is one of the oldest constellations, catalogued by Ptolemy, yet among the most obscure.
+    Ancient myths are sparse: one tradition identifies it as Celeris, the horse given by Mercury to
+    Castor; another as Philyra's son Hippe (also linked to Equus, the horse of the Dioscuri). Some
+    classical authors saw it as the head of the horse that sprang from Medusa's blood alongside
+    Pegasus — the second, less magnificent animal born from the same source. Its Arabic name Kitalpha
+    (α Equulei, 'the section of the horse') reflects how later astronomers understood it as a fragment
+    of a larger equine image. It remains one of the faintest, smallest, and least storied of Ptolemy's
+    original 48, preserved more by tradition than by prominence.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Equuleus"
+    crawl_date: "2026-06-09"
+    confidence: "medium"
+
+- sign_id: "iau-constellations-036-eridanus"
+  sign_name:
+    primary: "Eridanus"
+    abbreviation: "Eri"
+    genitive: "Eridani"
+    native_script: ""
+    variants: ["The River", "Po (Italian tradition)"]
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Ancient Mesopotamia / Greece"
+    period_range: "Catalogued by Ptolemy in the Almagest (~150 CE); possibly represents the Babylonian Eridu (river of the dead); IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 36
+    sign_classification:
+      iau_abbreviation: "Eri"
+      iau_area_sq_degrees: 1138
+      brightest_star: "Achernar (α Eridani), mag 0.46"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "both (extends from northern to southern)"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Eridanus_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Achernar (α Eridani)"
+        bayer: "α Eri"
+        ra_j2000: "01h 37m 43s"
+        dec_j2000: "−57° 14′ 12″"
+        magnitude: 0.46
+      - name: "Cursa (β Eridani)"
+        bayer: "β Eri"
+        ra_j2000: "05h 07m 51s"
+        dec_j2000: "−05° 05′ 11″"
+        magnitude: 2.79
+      - name: "Acamar (θ Eridani)"
+        bayer: "θ Eri"
+        ra_j2000: "02h 58m 16s"
+        dec_j2000: "−40° 18′ 17″"
+        magnitude: 2.91
+    asterism_schematic: "Long, winding river of stars running from Cursa (near Rigel/Orion) southward to Achernar near the south celestial pole; second largest constellation by area (1138 sq deg); Epsilon Eridani (10.5 ly distant) is the nearest planetary system candidate beyond the Sun"
+    cultural_iconography: "Celestial river; identified with the Nile, Po, Euphrates, or mythic Oceanus in various traditions; Achernar = 'end of the river' in Arabic; 9th brightest star overall; Epsilon Eridani was a primary SETI target"
+  primitive_association_hints:
+    suggested_attributes: ["river", "journey south", "underworld boundary", "Phaethon fall", "vast distance", "SETI mystery"]
+    narrative_archetype: "The great river that flows to the edge of the world"
+    game_design_notes: "Eridanus's extreme latitudinal span (from near Orion to near south pole) = journey/passage theme; Achernar's spin so fast it is oblate by 56%"
+  mythic_narrative: >
+    Eridanus represents a great celestial river stretching from the foot of Orion to the southern
+    horizon. Greek myth linked it to the fall of Phaethon, son of Helios: when Phaethon drove the
+    sun-chariot too close to earth and was struck down by Zeus's thunderbolt, he fell blazing into a
+    river — identified by some as the Po, by others as the Nile or the mythic Oceanus that encircled
+    the world. Arion lamented here; amber-weeping Heliades (Phaethon's sisters) were transformed into
+    poplars along its banks. The name Achernar ('end of the river') confirms Eridanus as a celestial
+    boundary between the known world and the southern void. Epsilon Eridani, just 10.5 light-years
+    away, was one of the first stars targeted in Project Ozma (1960) and SETI searches.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Eridanus_(constellation)"
+      - "https://en.wikipedia.org/wiki/Achernar"
+      - "https://en.wikipedia.org/wiki/Epsilon_Eridani"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-037-fornax"
+  sign_name:
+    primary: "Fornax"
+    abbreviation: "For"
+    genitive: "Fornacis"
+    native_script: ""
+    variants: ["The Furnace", "Fornax Chemica (Chemical Furnace)"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "French Enlightenment astronomy"
+    period_range: "Created by Nicolas Louis de Lacaille, published in his 1756 star catalogue Coelum Australe Stelliferum; named for Antoine Lavoisier's chemical furnace; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 37
+    sign_classification:
+      iau_abbreviation: "For"
+      iau_area_sq_degrees: 398
+      brightest_star: "α Fornacis, mag 3.80"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Fornax"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "α Fornacis"
+        bayer: "α For"
+        ra_j2000: "03h 12m 04s"
+        dec_j2000: "−28° 59′ 15″"
+        magnitude: 3.80
+    asterism_schematic: "Faint constellation within the southern bend of Eridanus; contains the Fornax Cluster of galaxies (~60 member galaxies at ~62 Mly); one of the closest galaxy clusters to the Local Group"
+    cultural_iconography: "Lacaille's chemical furnace — a symbol of Enlightenment scientific instrumentation; Fornax Cluster is one of the key deep-field anchors for extragalactic astronomy"
+  primitive_association_hints:
+    suggested_attributes: ["transformation", "chemistry", "alchemy", "deep cosmic structure", "Enlightenment", "cluster"]
+    narrative_archetype: "The furnace of transformation; where matter is reforged"
+    game_design_notes: "Fornax Cluster = cosmic scale; alchemical furnace = transmutation substrate vector; Lacaille's rationalist naming contrasts sharply with mythological neighbors"
+  mythic_narrative: >
+    Fornax is one of 14 constellations introduced by French astronomer Nicolas Louis de Lacaille
+    following his 1751–1752 observing expedition to the Cape of Good Hope, where he catalogued 9,766
+    southern stars with a half-inch refracting telescope. Lacaille dedicated his new constellations to
+    the instruments of Enlightenment science and industry: telescopes, microscopes, air pumps, and
+    chemical furnaces. Fornax Chemica honored the tabletop furnace used in chemistry — associated with
+    Antoine Lavoisier's revolution in chemical science. The constellation contains the Fornax Cluster,
+    one of the nearest galaxy clusters to the Milky Way, making this modest Enlightenment name the
+    address of one of the great concentrations of matter in the observable universe.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Fornax"
+      - "https://en.wikipedia.org/wiki/Fornax_Cluster"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-038-gemini"
+  sign_name:
+    primary: "Gemini"
+    abbreviation: "Gem"
+    genitive: "Geminorum"
+    native_script: "♊"
+    variants: ["The Twins", "Dioscuri"]
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "Babylonian precursor MASH.TAB.BA.GAL.GAL (Great Twins) ~700 BCE; Ptolemy Almagest ~150 CE; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 38
+    sign_classification:
+      iau_abbreviation: "Gem"
+      iau_area_sq_degrees: 514
+      brightest_star: "Pollux (β Geminorum), mag 1.14"
+      ecliptic_proximity: "zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Gemini_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Pollux (β Geminorum)"
+        bayer: "β Gem"
+        ra_j2000: "07h 45m 19s"
+        dec_j2000: "+28° 01′ 34″"
+        magnitude: 1.14
+      - name: "Castor (α Geminorum)"
+        bayer: "α Gem"
+        ra_j2000: "07h 34m 36s"
+        dec_j2000: "+31° 53′ 18″"
+        magnitude: 1.58
+      - name: "Alhena (γ Geminorum)"
+        bayer: "γ Gem"
+        ra_j2000: "06h 37m 43s"
+        dec_j2000: "+16° 23′ 57″"
+        magnitude: 1.93
+    asterism_schematic: "Two parallel lines of stars running roughly north-south, heads (Castor and Pollux) at top, feet at bottom; Castor and Pollux are visually paired bright stars — though Pollux is now known to be brighter; Castor is a sextuple star system (three spectroscopic binary pairs)"
+    cultural_iconography: "Twins Castor and Pollux (Dioscuri); patrons of sailors; Roman helmets appear on coins with twin stars; Gemini is the radiant of the Geminid meteor shower; NASA Gemini program named for this constellation"
+  primitive_association_hints:
+    suggested_attributes: ["duality", "twins", "sailor's protection", "cooperation", "sextuple star", "zodiacal", "air"]
+    narrative_archetype: "The inseparable twins; one mortal, one divine; bound across the threshold of death"
+    game_design_notes: "Castor-Pollux mortal/immortal duality = split-identity mechanics; sextuple star system = hidden complexity beneath apparent simplicity; zodiacal position gives astrological substrate weight"
+  mythic_narrative: >
+    Castor and Pollux, the Dioscuri, were twin sons of Leda — Pollux fathered by Zeus (immortal),
+    Castor by King Tyndareus (mortal). Together they sailed on the Argo, fought in the Calydonian
+    boar hunt, and rescued their sister Helen. When Castor was killed in a cattle raid, Pollux begged
+    Zeus to share his immortality; Zeus placed them both in the sky to spend alternate days on Olympus
+    and in Hades. As patron protectors of sailors, the Dioscuri were associated with the electrical
+    storm phenomenon St. Elmo's fire. Castor (α Geminorum), though labelled alpha, is the fainter star:
+    it resolves into six components — three spectroscopic binary pairs in mutual orbit — one of the
+    most complex naked-eye star systems known. The sun passes through Gemini in June–July.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Gemini_(constellation)"
+      - "https://en.wikipedia.org/wiki/Castor_(star)"
+      - "https://en.wikipedia.org/wiki/Pollux_(star)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-039-grus"
+  sign_name:
+    primary: "Grus"
+    abbreviation: "Gru"
+    genitive: "Gruis"
+    native_script: ""
+    variants: ["The Crane"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Dutch navigational astronomy"
+    period_range: "Created by Keyser and de Houtman c. 1597–1598; published Bayer Uranometria 1603; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 39
+    sign_classification:
+      iau_abbreviation: "Gru"
+      iau_area_sq_degrees: 366
+      brightest_star: "Alnair (α Gruis), mag 1.74"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Grus_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Alnair (α Gruis)"
+        bayer: "α Gru"
+        ra_j2000: "22h 08m 14s"
+        dec_j2000: "−46° 57′ 40″"
+        magnitude: 1.74
+      - name: "Tiaki (β Gruis)"
+        bayer: "β Gru"
+        ra_j2000: "22h 42m 40s"
+        dec_j2000: "−46° 53′ 05″"
+        magnitude: 2.10
+    asterism_schematic: "Recognizable crane silhouette; Alnair (Arabic 'the bright one') marks the tail; pair of stars δ1 and δ2 Gruis form a visual double; crane's long neck extends toward the south celestial pole region"
+    cultural_iconography: "Crane as symbol of longevity and fidelity in East Asian traditions; Dutch navigators named for the wading bird common in tropical East Indies; Alnair name retained from the star's prior role as part of 'the fish's tail' in Piscis Austrinus"
+  primitive_association_hints:
+    suggested_attributes: ["longevity", "elegance", "migration", "wading", "fidelity", "southern navigation"]
+    narrative_archetype: "The elegant long-necked wader; patient, precise, enduring"
+    game_design_notes: "East Asian crane symbolism (longevity, good fortune, fidelity) cross-tradition link available; stark contrast between Dutch navigational origin and deep Asian cultural resonance"
+  mythic_narrative: >
+    Grus was created by Dutch navigator-astronomers Keyser and de Houtman during the first Dutch
+    expedition to the East Indies. It has no Greek or Roman mythological tradition. In East Asian
+    cultures the crane is a profound symbol: in Chinese and Japanese tradition it represents longevity,
+    good fortune, and fidelity — cranes were said to live a thousand years and carry souls to paradise.
+    In Japanese culture, folding 1,000 origami cranes (senbazuru) is an act of prayer and healing.
+    The bright star Alnair's name derives from an earlier Arabic designation as part of Piscis Austrinus:
+    al-Nayyir min Dhanab al-Hut al-Janubiyy ('the bright one from the tail of the southern fish'),
+    reflecting how Islamic astronomers catalogued stars later reassigned to post-classical constellations.
+  cultural_sensitivity:
+    flag_level: "low"
+    notes: "Crane symbolism in East Asian cultures is deeply meaningful (longevity, healing, fidelity) — handle with cultural respect; not appropriative in substrate context but worth noting origin shift from Dutch navigational to cross-cultural resonance"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Grus_(constellation)"
+      - "https://en.wikipedia.org/wiki/Alnair"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-040-hercules"
+  sign_name:
+    primary: "Hercules"
+    abbreviation: "Her"
+    genitive: "Herculis"
+    native_script: ""
+    variants: ["The Kneeling Man", "Engonasin (Greek: the kneeler)"]
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Ancient Mesopotamia / Greece"
+    period_range: "Catalogued by Ptolemy in the Almagest (~150 CE) as Engonasin; named Hercules by later Latin tradition; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 40
+    sign_classification:
+      iau_abbreviation: "Her"
+      iau_area_sq_degrees: 1225
+      brightest_star: "Kornephoros (β Herculis), mag 2.77"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Hercules_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Kornephoros (β Herculis)"
+        bayer: "β Her"
+        ra_j2000: "16h 30m 13s"
+        dec_j2000: "+21° 29′ 23″"
+        magnitude: 2.77
+      - name: "Zeta Herculis"
+        bayer: "ζ Her"
+        ra_j2000: "16h 41m 17s"
+        dec_j2000: "+31° 36′ 01″"
+        magnitude: 2.81
+      - name: "Rasalgethi (α Herculis)"
+        bayer: "α Her"
+        ra_j2000: "17h 14m 39s"
+        dec_j2000: "+14° 23′ 25″"
+        magnitude: 3.46
+    asterism_schematic: "Fifth largest constellation (1225 sq deg); central 'Keystone' asterism (ε, ζ, η, π Her) forms a trapezoid representing the hero's torso; figure kneeling with one foot on Draco's head; M13 Great Globular Cluster lies on western edge of Keystone"
+    cultural_iconography: "Twelve Labors hero; M13 (Great Hercules Cluster) = one of the finest globular clusters in northern sky, ~300,000 stars; Arecibo Message (1974) was directed toward M13; Rasalgethi = 'head of the kneeler' in Arabic"
+  primitive_association_hints:
+    suggested_attributes: ["heroism", "labor", "endurance", "kneeling victory", "globular cluster", "strength", "trial"]
+    narrative_archetype: "The great hero bent under the weight of impossible tasks; strongest mortal ever to live"
+    game_design_notes: "Hercules Keystone asterism = structural core; M13 Arecibo Message connection gives modern mythology depth; Twelve Labors = structured ordeal system perfect for phase/trial mechanics"
+  mythic_narrative: >
+    Hercules (Heracles in Greek) was the son of Zeus and the mortal Alcmene — the greatest of Greek
+    heroes. Driven mad by Hera, he killed his own children; the Oracle at Delphi prescribed the
+    Twelve Labors as penance. These included slaying the Nemean Lion, the Lernaean Hydra, and the
+    Stymphalian birds; capturing the Cerynitian Hind and the Erymanthian Boar; cleaning the
+    Augean stables; obtaining the girdle of Hippolyta; and capturing Cerberus. Ptolemy drew him as
+    Engonasin, 'the kneeler,' identity uncertain — later tradition made him Hercules with a foot
+    on Draco's head. The Great Globular Cluster M13 — 300,000 stars in a sphere 145 light-years
+    across — lies within his Keystone; in 1974 the Arecibo radio telescope transmitted humanity's
+    first deliberate interstellar message in M13's direction.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Hercules_(constellation)"
+      - "https://en.wikipedia.org/wiki/Messier_13"
+      - "https://en.wikipedia.org/wiki/Arecibo_message"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-041-horologium"
+  sign_name:
+    primary: "Horologium"
+    abbreviation: "Hor"
+    genitive: "Horologii"
+    native_script: ""
+    variants: ["The Clock", "Horologium Oscillitorium (Pendulum Clock)"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "French Enlightenment astronomy"
+    period_range: "Created by Nicolas Louis de Lacaille, Cape of Good Hope expedition 1751–1752; named for Christiaan Huygens's pendulum clock (invented 1656); IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 41
+    sign_classification:
+      iau_abbreviation: "Hor"
+      iau_area_sq_degrees: 249
+      brightest_star: "α Horologii, mag 3.86"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Horologium"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "α Horologii"
+        bayer: "α Hor"
+        ra_j2000: "04h 14m 00s"
+        dec_j2000: "−42° 17′ 40″"
+        magnitude: 3.86
+    asterism_schematic: "Faint elongated constellation in the southern sky between Eridanus and Reticulum; contains the Horologium Supercluster — one of the largest known supercluster structures (~550 Mly wide, ~330 Mly distant)"
+    cultural_iconography: "Pendulum clock — Christiaan Huygens's precision timepiece that revolutionized navigation and astronomy; Lacaille's tribute to Enlightenment precision instrumentation; Horologium Supercluster is among the largest known cosmic structures"
+  primitive_association_hints:
+    suggested_attributes: ["time", "precision", "measurement", "pendulum", "deep cosmic structure", "Enlightenment"]
+    narrative_archetype: "The instrument that tamed time; the clock at the edge of the universe"
+    game_design_notes: "Pendulum clock + Horologium Supercluster = time-measurement from human precision to cosmic scale; strong substrate for time-mechanics or entropy themes"
+  mythic_narrative: >
+    Horologium is one of Lacaille's 14 southern constellations, created to honor the instruments of
+    Enlightenment science. He named it for Horologium Oscillitorium — the pendulum clock invented by
+    Christiaan Huygens in 1656. Huygens's clock, by maintaining accurate time at sea, was central
+    to solving the longitude problem that had cost countless ships their lives. Lacaille's original
+    constellation was larger; it was reduced at the IAU 1930 formalization. Within this faint
+    constellation lies the Horologium Supercluster, a vast filamentary cosmic structure spanning
+    roughly 550 million light-years — one of the most massive known superclusters, containing
+    thousands of galaxy groups including the Fornax Cluster.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Horologium"
+      - "https://en.wikipedia.org/wiki/Horologium_Supercluster"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-042-hydra"
+  sign_name:
+    primary: "Hydra"
+    abbreviation: "Hya"
+    genitive: "Hydrae"
+    native_script: ""
+    variants: ["The Water Snake", "Female Water Snake"]
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Ancient Babylonia / Greece"
+    period_range: "Catalogued by Ptolemy in the Almagest (~150 CE); Babylonian precursor Mush (serpent); IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 42
+    sign_classification:
+      iau_abbreviation: "Hya"
+      iau_area_sq_degrees: 1303
+      brightest_star: "Alphard (α Hydrae), mag 1.98"
+      ecliptic_proximity: "non-zodiacal (but spans zodiacal latitudes)"
+      hemisphere: "both (predominantly southern)"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Hydra_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Alphard (α Hydrae)"
+        bayer: "α Hya"
+        ra_j2000: "09h 27m 35s"
+        dec_j2000: "−08° 39′ 31″"
+        magnitude: 1.98
+    asterism_schematic: "Largest constellation by area (1303 sq deg); extends over 100 degrees of sky from Cancri (head cluster) through Leo, Virgo, and into Libra territory; only one truly bright star (Alphard = 'the solitary one'); Corvus and Crater ride on Hydra's back"
+    cultural_iconography: "The Lernaean Hydra slain by Heracles; Alphard called 'the solitary one' (Arabic) because it stands alone in a sparse field; longest constellation — takes ~7 hours to rise completely"
+  primitive_association_hints:
+    suggested_attributes: ["immensity", "serpent", "persistence", "solitude", "Heracles labor", "the vast and coiling"]
+    narrative_archetype: "The monster that cannot be killed; for every head severed, two more grow"
+    game_design_notes: "Hydra as un-killable monster (regenerating heads) = mechanical recursion or escalating threat; largest constellation = scale-dominant presence; Alphard's solitude = isolated power node"
+  mythic_narrative: >
+    The water snake Hydra is the largest of all 88 IAU constellations, sprawling across 1303 square
+    degrees and requiring nearly seven hours to fully rise above the eastern horizon. Its only bright
+    star, Alphard, was named al-Fard ('the solitary one') by Arabic astronomers for its isolation in
+    a sparse field. In Greek myth Hydra was the monstrous multi-headed water serpent of the Lernaean
+    marshes — the second of Heracles' Twelve Labors. Each time Heracles severed a head, two grew back;
+    only by cauterizing each stump with a torch (with the help of Iolaus) could he defeat it. The
+    adjacent constellations Corvus (the Crow) and Crater (the Cup) ride on Hydra's back in a linked
+    Ptolemaic story: Apollo sent a crow with a cup to fetch water; the crow delayed to eat figs, then
+    blamed a water snake — Apollo punished all three by placing them in the sky together.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Hydra_(constellation)"
+      - "https://en.wikipedia.org/wiki/Alphard"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-043-hydrus"
+  sign_name:
+    primary: "Hydrus"
+    abbreviation: "Hyi"
+    genitive: "Hydri"
+    native_script: ""
+    variants: ["The Little Water Snake", "Male Water Snake"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Dutch navigational astronomy"
+    period_range: "Created by Keyser and de Houtman c. 1597–1598; published Bayer Uranometria 1603; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 43
+    sign_classification:
+      iau_abbreviation: "Hyi"
+      iau_area_sq_degrees: 243
+      brightest_star: "β Hydri, mag 2.80"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern (deep south)"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Hydrus"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "β Hydri"
+        bayer: "β Hyi"
+        ra_j2000: "00h 25m 45s"
+        dec_j2000: "−77° 15′ 15″"
+        magnitude: 2.80
+      - name: "α Hydri"
+        bayer: "α Hyi"
+        ra_j2000: "01h 58m 46s"
+        dec_j2000: "−61° 34′ 11″"
+        magnitude: 2.86
+    asterism_schematic: "Compact triangle in the deep southern sky between the Magellanic Clouds and the south celestial pole; β Hydri is the closest reasonably bright star to the south celestial pole visible to the naked eye from mid-southern latitudes; lies between the Large and Small Magellanic Clouds"
+    cultural_iconography: "Little water snake (distinguished from the massive ancient Hydra to its north); Dutch invention; β Hydri is a solar analog — often studied as a proxy for the Sun's future state (~6.7 Gyr old vs Sun's 4.6 Gyr)"
+  primitive_association_hints:
+    suggested_attributes: ["southern pole", "small serpent", "solar analog", "deep south", "Magellanic Clouds"]
+    narrative_archetype: "The smaller serpent of the southern abyss; the Sun's elder twin"
+    game_design_notes: "β Hydri as solar analog = introspective/future-self substrate; nestled between Magellanic Clouds = cosmic scale anchoring; contrast with giant Hydra = small-versus-vast"
+  mythic_narrative: >
+    Hydrus was created by Dutch navigators Keyser and de Houtman in the late 16th century to name
+    the southern sky they charted during East Indies voyages — it has no ancient mythology. The
+    constellation occupies the deep southern sky between the two Magellanic Clouds. Its brightest
+    star β Hydri, at magnitude 2.80, is one of the closest solar analogs (a star similar to our Sun):
+    it is roughly 6.7 billion years old, compared to the Sun's 4.6 billion, making it a natural model
+    for studying the future evolution of a sun-like star. The name Hydrus ('male water snake') was
+    chosen to pair with the ancient Hydra ('female water snake') of the northern sky, though the
+    two constellations share no mythological connection.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Hydrus"
+      - "https://en.wikipedia.org/wiki/Beta_Hydri"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-044-indus"
+  sign_name:
+    primary: "Indus"
+    abbreviation: "Ind"
+    genitive: "Indi"
+    native_script: ""
+    variants: ["The Indian"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Dutch navigational astronomy"
+    period_range: "Created by Keyser and de Houtman c. 1597–1598; published Bayer Uranometria 1603; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 44
+    sign_classification:
+      iau_abbreviation: "Ind"
+      iau_area_sq_degrees: 294
+      brightest_star: "α Indi, mag 3.11"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Indus_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "α Indi"
+        bayer: "α Ind"
+        ra_j2000: "20h 37m 34s"
+        dec_j2000: "−47° 17′ 29″"
+        magnitude: 3.11
+      - name: "Epsilon Indi"
+        bayer: "ε Ind"
+        ra_j2000: "22h 03m 22s"
+        dec_j2000: "−56° 47′ 10″"
+        magnitude: 4.69
+    asterism_schematic: "Faint constellation in southern sky; Epsilon Indi is an orange K-type star just 11.8 light-years away — one of the closest stars to Earth; Epsilon Indi Ba and Bb are the nearest known binary brown dwarfs to our solar system"
+    cultural_iconography: "Vaguely defined 'Indian' figure — likely referencing indigenous people encountered by Dutch navigators in East Indies or the Americas; Epsilon Indi system is a prime target for nearby planetary system studies"
+  primitive_association_hints:
+    suggested_attributes: ["the distant other", "the encountered stranger", "nearby stars", "brown dwarf", "colonial gaze (complicated)"]
+    narrative_archetype: "The figure seen from the ship's deck — the unknown land made human"
+    game_design_notes: "Epsilon Indi's proximity (11.8 ly) + brown dwarf binary makes it excellent for near-neighbor or alien-sun substrate themes; colonial naming context worth acknowledging"
+  mythic_narrative: >
+    Indus was created by Dutch navigators Keyser and de Houtman and depicts a vague human figure,
+    likely representing indigenous peoples encountered during their East Indies voyages — possibly
+    Native Americans or East Indians. Bayer's Uranometria (1603) shows a figure holding arrows.
+    The constellation carries no Greek or Roman mythology. Its most notable feature is Epsilon Indi,
+    an orange dwarf star just 11.8 light-years away — one of our nearest stellar neighbors. The
+    Epsilon Indi system contains a binary pair of brown dwarfs (Ba and Bb), the nearest brown dwarf
+    binary known, making this obscure Dutch constellation a key address in modern stellar astronomy.
+    The naming of Indus reflects the colonial-era practice of representing 'exotic peoples' as
+    constellation figures, a convention worth acknowledging in its historical context.
+  cultural_sensitivity:
+    flag_level: "medium"
+    notes: "Constellation depicts an indigenous figure in colonial-era framing; treat sensitively; in substrate use, anchor on stellar/astronomical properties rather than ethnographic depiction"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Indus_(constellation)"
+      - "https://en.wikipedia.org/wiki/Epsilon_Indi"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-045-lacerta"
+  sign_name:
+    primary: "Lacerta"
+    abbreviation: "Lac"
+    genitive: "Lacertae"
+    native_script: ""
+    variants: ["The Lizard"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Polish/German astronomy"
+    period_range: "Created by Johannes Hevelius, published in Firmamentum Sobiescianum 1687; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 45
+    sign_classification:
+      iau_abbreviation: "Lac"
+      iau_area_sq_degrees: 201
+      brightest_star: "α Lacertae, mag 3.77"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Lacerta"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "α Lacertae"
+        bayer: "α Lac"
+        ra_j2000: "22h 31m 17s"
+        dec_j2000: "+50° 16′ 57″"
+        magnitude: 3.77
+    asterism_schematic: "Faint zigzag chain of stars squeezed between Cygnus, Cassiopeia, and Andromeda in the northern Milky Way; BL Lacertae (a type of active galactic nucleus with no visible galaxy — the prototypical 'blazar') lies within its boundaries"
+    cultural_iconography: "Hevelius's lizard fills an uncharted gap between larger constellations; BL Lacertae gave its name to the entire class of blazars — variable AGN with jets pointed directly at Earth"
+  primitive_association_hints:
+    suggested_attributes: ["lizard", "gap-filler", "blazar", "cosmic jet", "muted sky region", "interstitial"]
+    narrative_archetype: "The creature that lives in the cracks; the blazar that hides its galaxy"
+    game_design_notes: "BL Lacertae / blazar = hidden power source; jetted cosmic energy; the 'gap between the great constellations' has substrate potential for threshold or transition mechanics"
+  mythic_narrative: >
+    Lacerta was introduced by the Polish astronomer Johannes Hevelius in 1687 to fill a blank patch
+    of Milky Way sky between the larger constellations of Cygnus, Cassiopeia, and Andromeda. Hevelius
+    chose the lizard as a small, convenient shape for the available space. It has no mythological
+    tradition. Its primary scientific significance comes from BL Lacertae — a variable 'star' that was
+    eventually recognized as the prototype of blazars: active galactic nuclei with supermassive black
+    hole jets aimed directly at Earth. BL Lacertae appeared to be an unremarkable variable star until
+    1974, when its extragalactic nature was revealed; the entire class of blazar-type objects is now
+    called BL Lacertae objects in its honor.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Lacerta"
+      - "https://en.wikipedia.org/wiki/BL_Lacertae"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-046-leo"
+  sign_name:
+    primary: "Leo"
+    abbreviation: "Leo"
+    genitive: "Leonis"
+    native_script: "♌"
+    variants: ["The Lion"]
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "Babylonian precursor UR.GU.LA (Great Lion) ~2000 BCE; Ptolemy Almagest ~150 CE; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 46
+    sign_classification:
+      iau_abbreviation: "Leo"
+      iau_area_sq_degrees: 947
+      brightest_star: "Regulus (α Leonis), mag 1.35"
+      ecliptic_proximity: "zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Leo_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Regulus (α Leonis)"
+        bayer: "α Leo"
+        ra_j2000: "10h 08m 22s"
+        dec_j2000: "+11° 58′ 02″"
+        magnitude: 1.35
+      - name: "Denebola (β Leonis)"
+        bayer: "β Leo"
+        ra_j2000: "11h 49m 04s"
+        dec_j2000: "+14° 34′ 19″"
+        magnitude: 2.14
+      - name: "Algieba (γ Leonis)"
+        bayer: "γ Leo"
+        ra_j2000: "10h 19m 58s"
+        dec_j2000: "+19° 50′ 29″"
+        magnitude: 2.08
+    asterism_schematic: "Sickle asterism (reversed question mark) forms lion's head and mane (Regulus at base); Denebola marks the tail; lion in profile facing west; Regulus lies just 0.47° from the ecliptic — closer than any other 1st-magnitude star; Leo Triplet galaxies (M65, M66, NGC 3628) in southern body"
+    cultural_iconography: "The royal lion; Regulus = 'little king' (Latin); Babylonian UR.GU.LA marked the summer solstice ~4000 BCE; Leonid meteor shower radiates from near Regulus each November; Nemean Lion (first Herculean labor)"
+  primitive_association_hints:
+    suggested_attributes: ["royalty", "solar fire", "dominance", "lion", "zodiacal", "Sickle", "Regulus on ecliptic"]
+    narrative_archetype: "The king of beasts enthroned on the ecliptic; the solar lion"
+    game_design_notes: "Regulus's near-exact ecliptic position = maximum astrological weight; Sickle asterism shape = harvest/power; fixed fire sign; Nemean Lion connects to Heracles; Leonid meteor shower = annual celestial event mechanic"
+  mythic_narrative: >
+    Leo is among the most ancient constellations, with Babylonian records showing the Great Lion
+    (UR.GU.LA) marking the summer solstice around 4000 BCE, when the sun rose in Leo at the summer
+    solstice. Ancient Egyptians associated Leo with the annual flooding of the Nile, which began when
+    the sun was in Leo. Regulus ('little king') lies just 0.47° from the ecliptic — closer than any
+    other first-magnitude star — making it easily occulted by the Moon and planets. In Greek myth the
+    lion was the Nemean Lion, an invulnerable beast killed by Heracles as his first labor, its pelt
+    thereafter serving as his armor. Arabic astronomers gave individual stars names that survive:
+    Algieba ('forehead'), Denebola ('tail of the lion'). The Leonid meteor shower, radiating from
+    near Regulus each November, is associated with Comet Tempel-Tuttle.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Leo_(constellation)"
+      - "https://en.wikipedia.org/wiki/Regulus"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-047-leo-minor"
+  sign_name:
+    primary: "Leo Minor"
+    abbreviation: "LMi"
+    genitive: "Leonis Minoris"
+    native_script: ""
+    variants: ["The Little Lion"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Polish/German astronomy"
+    period_range: "Created by Johannes Hevelius, published in Firmamentum Sobiescianum 1687; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 47
+    sign_classification:
+      iau_abbreviation: "LMi"
+      iau_area_sq_degrees: 232
+      brightest_star: "Praecipua (46 Leonis Minoris), mag 3.83"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Leo_Minor"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Praecipua (46 Leonis Minoris)"
+        bayer: "46 LMi"
+        ra_j2000: "10h 53m 19s"
+        dec_j2000: "+34° 12′ 54″"
+        magnitude: 3.83
+      - name: "β Leonis Minoris"
+        bayer: "β LMi"
+        ra_j2000: "10h 27m 53s"
+        dec_j2000: "+36° 42′ 26″"
+        magnitude: 4.21
+    asterism_schematic: "Small faint constellation wedged between Leo (south) and Ursa Major (north); no star officially designated alpha (naming oversight by Flamsteed/Hevelius); Praecipua ('chief') is the traditional brightest star though only 46th in catalogue order"
+    cultural_iconography: "Little Lion; Hevelius used young lion cubs to fill star-poor northern gaps; Praecipua's name is unusual — no alpha-designation star exists in Leo Minor (an IAU cataloguing oversight)"
+  primitive_association_hints:
+    suggested_attributes: ["youth", "minor royalty", "cub", "gap-filling", "overlooked star", "potential"]
+    narrative_archetype: "The young lion not yet crowned; the cub between the great bear and the great lion"
+    game_design_notes: "No alpha star (cataloguing gap) = thematic 'the unnamed leader'; wedged between Ursa Major and Leo = constrained but noble; cub = coming-of-age substrate"
+  mythic_narrative: >
+    Leo Minor was introduced by Hevelius in 1687 to fill the empty space between the Ursa Major and
+    Leo. It has no mythological tradition — Hevelius simply extended the lion theme from Leo to fill
+    a star-poor gap. An unusual cataloguing quirk: Hevelius used Flamsteed numbers, and when John
+    Flamsteed created his catalogue, no star in Leo Minor was designated as alpha, leaving a gap in
+    the Greek-letter sequence that was never corrected. The brightest star, 46 Leonis Minoris, was
+    given the proper name Praecipua ('chief') — the only star in Leo Minor with an IAU-approved
+    proper name, and the only constellation in the 88 with no alpha star.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Leo_Minor"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-048-lepus"
+  sign_name:
+    primary: "Lepus"
+    abbreviation: "Lep"
+    genitive: "Leporis"
+    native_script: ""
+    variants: ["The Hare"]
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Ancient Greece"
+    period_range: "Catalogued by Ptolemy in the Almagest (~150 CE); IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 48
+    sign_classification:
+      iau_abbreviation: "Lep"
+      iau_area_sq_degrees: 290
+      brightest_star: "Arneb (α Leporis), mag 2.58"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Lepus_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Arneb (α Leporis)"
+        bayer: "α Lep"
+        ra_j2000: "05h 32m 44s"
+        dec_j2000: "−17° 49′ 20″"
+        magnitude: 2.58
+      - name: "Nihal (β Leporis)"
+        bayer: "β Lep"
+        ra_j2000: "05h 28m 15s"
+        dec_j2000: "−20° 45′ 34″"
+        magnitude: 2.84
+    asterism_schematic: "Compact quadrilateral below Orion; crouching hare beneath the hunter's feet; Arneb = 'the hare' in Arabic; Nihal = 'thirst-quenching camels' (Arabic); Hinds' Crimson Star (R Leporis) — one of the reddest stars visible, a Mira variable with carbon atmosphere"
+    cultural_iconography: "Hare crouching below Orion the Hunter; Canis Major and Minor pursue from behind; Hinds' Crimson Star is a striking deep red carbon star discovered by John Russell Hind 1845"
+  primitive_association_hints:
+    suggested_attributes: ["swiftness", "evasion", "prey", "hidden", "red star", "crimson", "carbon star"]
+    narrative_archetype: "The prey that hides beneath the hunter's feet; the red flame in the winter sky"
+    game_design_notes: "Hare beneath Orion = perpetual pursuit/evasion dynamic; Hinds' Crimson Star (R Leporis) = vivid visual substrate signal, extremely red carbon variable"
+  mythic_narrative: >
+    Lepus is positioned directly beneath Orion the Hunter, with Orion's hunting dogs (Canis Major and
+    Minor) nearby — an intentional celestial hunting scene that Ptolemy placed in the Almagest. One
+    myth describes Hermes placing a hare here because he loved the speed and reproductive energy of
+    hares; another says it honored the islanders of Leros, who once introduced hares as game animals
+    and were overrun when the population exploded. Its star Arneb ('the hare') and Nihal are Arabic
+    names. The constellation is particularly known for R Leporis — Hinds' Crimson Star — one of the
+    reddest stars visible to the naked eye, a carbon-bearing Mira-type variable that cycles in
+    brightness over approximately 432 days, glowing a deep blood-red at maximum.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Lepus_(constellation)"
+      - "https://en.wikipedia.org/wiki/R_Leporis"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-049-libra"
+  sign_name:
+    primary: "Libra"
+    abbreviation: "Lib"
+    genitive: "Librae"
+    native_script: "♎"
+    variants: ["The Scales", "The Balance"]
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Babylonian / Hellenistic Greece"
+    period_range: "Separated from Scorpius by Roman astronomers ~100 BCE; Babylonian precursor 'claws of the scorpion' (ZIBBA AN.NA); Ptolemy Almagest ~150 CE; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 49
+    sign_classification:
+      iau_abbreviation: "Lib"
+      iau_area_sq_degrees: 538
+      brightest_star: "Zubeneschamali (β Librae), mag 2.61"
+      ecliptic_proximity: "zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Libra_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Zubeneschamali (β Librae)"
+        bayer: "β Lib"
+        ra_j2000: "15h 17m 00s"
+        dec_j2000: "−09° 22′ 59″"
+        magnitude: 2.61
+      - name: "Zubenelgenubi (α Librae)"
+        bayer: "α Lib"
+        ra_j2000: "14h 50m 52s"
+        dec_j2000: "−15° 59′ 50″"
+        magnitude: 2.75
+    asterism_schematic: "Four main stars forming the balance pan suspension; Zubeneschamali and Zubenelgenubi are the two pans of the scale (names from Arabic 'northern claw' and 'southern claw' of the scorpion, reflecting their Scorpius origin); Zubeneschamali reported by some observers to have a faint greenish tint — rare for a naked-eye star"
+    cultural_iconography: "Only zodiacal constellation representing an inanimate object; originally the claws of Scorpius (hence the retained claw-names); associated with Roman goddess Astraea (Justice) holding scales; autumnal equinox was in Libra ~1 BCE"
+  primitive_association_hints:
+    suggested_attributes: ["justice", "balance", "scales", "zodiacal", "autumnal equinox", "judgment", "former scorpion claw"]
+    narrative_archetype: "The scales that weigh souls; the balance point between the living world and the underworld"
+    game_design_notes: "Libra as severed scorpion claw = stolen identity / transformation of meaning; justice mechanics; autumnal equinox = seasonal transition; Zubeneschamali's green tint = unusual visual substrate signal"
+  mythic_narrative: >
+    Libra is unique among the zodiacal constellations: it is the only one depicting an inanimate
+    object, and it was originally part of Scorpius. The Greeks did not recognize Libra as separate —
+    α and β Librae were 'the northern and southern claws of the scorpion' (Zubenelgenubi and
+    Zubeneschamali preserve those Arabic translations today). Roman astronomers separated the claws
+    around the 1st century BCE, associating the scales with Julius Caesar, with the goddess Astraea
+    (divine justice), and with Themis (law). In ancient Egypt this part of the sky was associated
+    with the weighing of the heart ceremony from the Book of the Dead — the heart balanced against a
+    feather to determine worthiness for the afterlife. The autumnal equinox occurred in Libra around
+    1 BCE, linking it to the balance of day and night.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Libra_(constellation)"
+      - "https://en.wikipedia.org/wiki/Zubeneschamali"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-050-lupus"
+  sign_name:
+    primary: "Lupus"
+    abbreviation: "Lup"
+    genitive: "Lupi"
+    native_script: ""
+    variants: ["The Wolf"]
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Ancient Babylonia / Greece"
+    period_range: "Catalogued by Ptolemy in the Almagest (~150 CE) as 'Theria' (the Beast) — unnamed animal speared by Centaurus; Latinized to Lupus; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 50
+    sign_classification:
+      iau_abbreviation: "Lup"
+      iau_area_sq_degrees: 334
+      brightest_star: "α Lupi, mag 2.30"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Lupus_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "α Lupi"
+        bayer: "α Lup"
+        ra_j2000: "14h 41m 56s"
+        dec_j2000: "−47° 23′ 17″"
+        magnitude: 2.30
+      - name: "β Lupi"
+        bayer: "β Lup"
+        ra_j2000: "14h 58m 32s"
+        dec_j2000: "−43° 08′ 02″"
+        magnitude: 2.68
+    asterism_schematic: "Southern constellation between Centaurus and Scorpius; originally depicted as an unnamed beast impaled on Centaurus's spear (or thyrsus); SN 1006 (brightest supernova in recorded human history, ~7000 ly distant) occurred within Lupus boundaries"
+    cultural_iconography: "The speared wolf carried by Centaurus; SN 1006 was recorded by Chinese, Japanese, Egyptian, and Islamic astronomers — briefly visible in daylight at mag −7.5, the brightest transient object in recorded history"
+  primitive_association_hints:
+    suggested_attributes: ["wolf", "speared prey", "wild beast", "supernova", "brief blaze", "brightest recorded event"]
+    narrative_archetype: "The wild beast brought down; the star that blazed brighter than all stars for a season"
+    game_design_notes: "SN 1006 substrate = the once-in-a-millennium blaze; briefly rivaled crescent Moon in brightness; wolf-as-prey (impaled by Centaurus) = power inversion mechanic"
+  mythic_narrative: >
+    Lupus was catalogued by Ptolemy as an unnamed beast (Theria) being carried or speared by the
+    neighboring Centaurus — only later Latin tradition identified the animal as a wolf. It lacks
+    its own Greek mythological story; it is a prop in Centaurus's narrative. What elevates Lupus
+    in historical significance is SN 1006 — the brightest stellar event in recorded human history.
+    On 30 April 1006 CE, a star appeared near β Lupi that shone at approximately magnitude −7.5,
+    bright enough to read by at night and visible for months. It was recorded independently by
+    astronomers in China, Japan, Egypt, Iraq, Switzerland, and France. We now know it was a Type Ia
+    supernova approximately 7,200 light-years away, whose remnant (SNR G327.6+14.6) is still
+    expanding and detectable in radio and X-ray.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Lupus_(constellation)"
+      - "https://en.wikipedia.org/wiki/SN_1006"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-051-lynx"
+  sign_name:
+    primary: "Lynx"
+    abbreviation: "Lyn"
+    genitive: "Lyncis"
+    native_script: ""
+    variants: ["The Lynx"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Polish/German astronomy"
+    period_range: "Created by Johannes Hevelius, published in Firmamentum Sobiescianum 1687; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 51
+    sign_classification:
+      iau_abbreviation: "Lyn"
+      iau_area_sq_degrees: 545
+      brightest_star: "α Lyncis, mag 3.13"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Lynx_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "α Lyncis"
+        bayer: "α Lyn"
+        ra_j2000: "09h 21m 03s"
+        dec_j2000: "+34° 23′ 33″"
+        magnitude: 3.13
+    asterism_schematic: "Large faint constellation (545 sq deg) between Ursa Major and Gemini/Auriga; long wandering chain of faint stars; Hevelius reportedly said 'you need the eyes of a lynx' to see it; contains the Intergalactic Wanderer (NGC 2419), an unusually remote globular cluster 275,000 ly from Earth — farther than the Magellanic Clouds"
+    cultural_iconography: "Lynx animal chosen for its sharp-eyed reputation; NGC 2419 (Intergalactic Wanderer) was once thought possibly unbound from the Milky Way — an apparently stranded globular cluster at extreme distance"
+  primitive_association_hints:
+    suggested_attributes: ["keen sight", "faint but present", "extreme distance", "wanderer", "the barely visible"]
+    narrative_archetype: "Only those with the sharpest eyes shall find what is hidden here"
+    game_design_notes: "NGC 2419 Intergalactic Wanderer = the lost or stranded traveler at extreme remove; 'need lynx-eyes to see' = hidden-knowledge or perception-check substrate"
+  mythic_narrative: >
+    Lynx was introduced by Hevelius in 1687 to fill the large, sparse region between Ursa Major and
+    Auriga/Gemini. Hevelius is said to have remarked that one needed the eyes of a lynx (Lyncaei
+    oculi, 'lynx-eyes' — a Latin idiom for extraordinary sharp sight) to make out its faint stars,
+    explaining his choice of animal. Despite its large area (545 sq deg, among the top 40), it
+    contains no star brighter than magnitude 3.1. Its most remarkable object is NGC 2419, known as
+    the Intergalactic Wanderer — a globular cluster 275,000 light-years from Earth, farther than
+    the Large Magellanic Cloud, in a remote halo orbit. Whether it was once the core of a dwarf
+    galaxy tidally stripped by the Milky Way remains an active question.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Lynx_(constellation)"
+      - "https://en.wikipedia.org/wiki/NGC_2419"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-052-lyra"
+  sign_name:
+    primary: "Lyra"
+    abbreviation: "Lyr"
+    genitive: "Lyrae"
+    native_script: ""
+    variants: ["The Lyre", "Orpheus's Lyre"]
+  cultural_tradition:
+    primary_culture: "Greco-Roman"
+    geographic_origin: "Ancient Greece"
+    period_range: "Catalogued by Ptolemy in the Almagest (~150 CE); IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 52
+    sign_classification:
+      iau_abbreviation: "Lyr"
+      iau_area_sq_degrees: 286
+      brightest_star: "Vega (α Lyrae), mag 0.03"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "northern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Lyra"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "Vega (α Lyrae)"
+        bayer: "α Lyr"
+        ra_j2000: "18h 36m 56s"
+        dec_j2000: "+38° 47′ 01″"
+        magnitude: 0.03
+      - name: "Sulafat (γ Lyrae)"
+        bayer: "γ Lyr"
+        ra_j2000: "18h 58m 57s"
+        dec_j2000: "+32° 41′ 22″"
+        magnitude: 3.25
+      - name: "Sheliak (β Lyrae)"
+        bayer: "β Lyr"
+        ra_j2000: "18h 50m 05s"
+        dec_j2000: "+33° 21′ 46″"
+        magnitude: 3.52
+    asterism_schematic: "Small but bright constellation; Vega (5th brightest overall, 25 ly distant) dominates; small parallelogram of four stars (β, γ, δ, ζ Lyr) forms the lyre body below Vega; M57 Ring Nebula (planetary nebula) lies between β and γ Lyr; Vega will become the north pole star ~13,727 CE due to precession"
+    cultural_iconography: "Orpheus's lyre; Summer Triangle vertex (with Deneb and Altair); Vega was the north pole star ~12,000 BCE; M57 Ring Nebula is one of the most photographed objects in the sky; Vega used as a photometric standard (magnitude 0.0 reference)"
+  primitive_association_hints:
+    suggested_attributes: ["music", "art", "grief", "underworld descent", "pole star cycle", "Ring Nebula", "Orpheus"]
+    narrative_archetype: "The instrument that moved stones, trees, and the dead; the music that almost conquered death"
+    game_design_notes: "Orpheus's failed rescue of Eurydice = tragic near-victory mechanic; Vega as pole-star cycle = deep time axis; Ring Nebula = stellar death leaving a beautiful remnant; Summer Triangle vertex = peak-summer sky anchor"
+  mythic_narrative: >
+    Lyra holds the lyre of Orpheus, the greatest musician in Greek mythology. Orpheus played music so
+    beautiful that rivers stopped, trees uprooted to follow him, and wild animals lay down in peace.
+    When his wife Eurydice died of a serpent bite, Orpheus descended into the underworld and played
+    for Hades and Persephone — the only mortal ever to charm the gods of death. They agreed to release
+    Eurydice on the single condition that he walk ahead and not look back. At the threshold, overcome
+    by doubt, he turned — and lost her forever. After Orpheus was torn apart by Bacchants, Apollo
+    placed his lyre among the stars. The lyre's brightest star, Vega, is the fifth brightest in the
+    sky and served as the reference star for photometric calibration; it was the north pole star around
+    12,000 BCE and will be again in ~13,700 CE due to Earth's axial precession.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Lyra"
+      - "https://en.wikipedia.org/wiki/Vega"
+      - "https://en.wikipedia.org/wiki/Ring_Nebula"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-053-mensa"
+  sign_name:
+    primary: "Mensa"
+    abbreviation: "Men"
+    genitive: "Mensae"
+    native_script: ""
+    variants: ["The Table Mountain", "Table Mountain (Cape of Good Hope)"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "French Enlightenment astronomy"
+    period_range: "Created by Nicolas Louis de Lacaille; originally named Mons Mensae (Table Mountain); published in Coelum Australe Stelliferum 1756; IAU 1930 formalization (shortened to Mensa)"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 53
+    sign_classification:
+      iau_abbreviation: "Men"
+      iau_area_sq_degrees: 153
+      brightest_star: "α Mensae, mag 5.09"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern (deep south)"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Mensa_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "α Mensae"
+        bayer: "α Men"
+        ra_j2000: "06h 10m 14s"
+        dec_j2000: "−74° 45′ 11″"
+        magnitude: 5.09
+    asterism_schematic: "Faintest constellation in the sky — no star brighter than magnitude 5.09; located in the far south between Hydrus, Volans, and Pictor; part of the Large Magellanic Cloud overlaps its northern boundary — Lacaille described this as cloud hovering above the mountain like Cape Town's 'tablecloth'"
+    cultural_iconography: "Named for Table Mountain, Cape Town, South Africa — the flat-topped mountain that was Lacaille's observing site during his 1751–1752 expedition; the overlapping LMC represents the tablecloth cloud that caps the real mountain"
+  primitive_association_hints:
+    suggested_attributes: ["flatness", "table", "foundation", "Cape of Good Hope", "faint but storied", "the cloud on the mountain"]
+    narrative_archetype: "The flat-topped mountain at the end of the world; the table where the sky meets the sea"
+    game_design_notes: "Mensa is the faintest (dimmest stars) constellation — all naked-eye stars below mag 5; unique for being named after a real terrestrial geographic feature; LMC tablecloth = cloud-cap on the mountain top"
+  mythic_narrative: >
+    Mensa is the only constellation named for a specific terrestrial geographic feature: Table Mountain
+    (Tafelberg) in Cape Town, South Africa, where Lacaille set up his observing station during the
+    1751–1752 Cape expedition. The mountain is famous for its flat summit and for the orographic cloud
+    that forms over it in strong winds — locals call it 'the tablecloth.' Lacaille named the
+    constellation Mons Mensae (Table Mountain) in honor of his observing site. The northern part of
+    Mensa overlaps with the Large Magellanic Cloud, which Lacaille described as the cloud sitting on
+    the celestial table — a direct parallel to the tablecloth cloud he watched from the real mountain
+    below. Mensa holds the distinction of containing no naked-eye star brighter than magnitude 5.09:
+    it is the faintest constellation in the entire sky.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Mensa_(constellation)"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-054-microscopium"
+  sign_name:
+    primary: "Microscopium"
+    abbreviation: "Mic"
+    genitive: "Microscopii"
+    native_script: ""
+    variants: ["The Microscope"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "French Enlightenment astronomy"
+    period_range: "Created by Nicolas Louis de Lacaille, published in Coelum Australe Stelliferum 1756; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 54
+    sign_classification:
+      iau_abbreviation: "Mic"
+      iau_area_sq_degrees: 210
+      brightest_star: "γ Microscopii, mag 4.67"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Microscopium"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "γ Microscopii"
+        bayer: "γ Mic"
+        ra_j2000: "21h 01m 17s"
+        dec_j2000: "−32° 15′ 28″"
+        magnitude: 4.67
+    asterism_schematic: "Faint constellation south of Capricornus; no star brighter than magnitude 4.67; quadrilateral of faint stars; γ Microscopii is a giant star that will pass within 1.14 ly of the Sun in approximately 8,000 years — closest near-future stellar approach on record"
+    cultural_iconography: "Compound microscope — Lacaille's tribute to the Enlightenment instrument that revealed the invisible world; γ Microscopii's future flyby will be the closest stellar approach to our solar system in the next 1.36 million years"
+  primitive_association_hints:
+    suggested_attributes: ["the small made large", "invisible world", "Enlightenment", "approaching star", "scientific revelation", "precision"]
+    narrative_archetype: "The instrument that reveals what the naked eye cannot see; the star that is coming"
+    game_design_notes: "γ Microscopii approach (8,000 yr) = approaching threat or harbinger substrate; microscope = revelation of hidden structure; inverse of telescope (Telescopium is a Lacaille neighbor)"
+  mythic_narrative: >
+    Microscopium is one of Lacaille's Enlightenment instrument constellations, honoring the compound
+    microscope that opened the microscopic world to human investigation. Antonie van Leeuwenhoek had
+    demonstrated the existence of microorganisms in the 1670s; by Lacaille's time the microscope was
+    recognized as one of the transformative tools of natural philosophy. The constellation itself is
+    faint and unremarkable visually. Its claim to modern scientific interest is γ Microscopii: a
+    giant star that trajectory calculations indicate will pass within approximately 1.14 light-years
+    of the Sun roughly 8,000 years from now — the closest predicted stellar approach in the next
+    1.36 million years. Such a close pass would gravitationally perturb the Oort Cloud and potentially
+    send a wave of long-period comets into the inner solar system.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Microscopium"
+      - "https://en.wikipedia.org/wiki/Gamma_Microscopii"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-055-monoceros"
+  sign_name:
+    primary: "Monoceros"
+    abbreviation: "Mon"
+    genitive: "Monocerotis"
+    native_script: ""
+    variants: ["The Unicorn"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Dutch/Belgian cartography"
+    period_range: "Earliest known depiction by Petrus Plancius on a globe c. 1612–1613; published by Jakob Bartsch 1624; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 55
+    sign_classification:
+      iau_abbreviation: "Mon"
+      iau_area_sq_degrees: 482
+      brightest_star: "β Monocerotis, mag 3.74"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "equatorial"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Monoceros"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "β Monocerotis"
+        bayer: "β Mon"
+        ra_j2000: "07h 27m 09s"
+        dec_j2000: "−10° 14′ 43″"
+        magnitude: 3.74
+      - name: "α Monocerotis"
+        bayer: "α Mon"
+        ra_j2000: "07h 41m 15s"
+        dec_j2000: "−09° 33′ 04″"
+        magnitude: 3.93
+    asterism_schematic: "Faint constellation occupying the Winter Triangle (Sirius–Procyon–Betelgeuse); embedded in the Milky Way; β Monocerotis is a beautiful triple star system (three components all resolvable by small telescope); Rosette Nebula (NGC 2237, a circular emission nebula) + Christmas Tree Cluster (NGC 2264) within boundaries"
+    cultural_iconography: "Unicorn — purely a mythological creature, no ancient constellation tradition; Rosette Nebula is a striking 1.5° wide circular nebula surrounding NGC 2244 star cluster; Christmas Tree Cluster's distinctive triangular shape; V838 Monocerotis produced a spectacular light echo in 2002"
+  primitive_association_hints:
+    suggested_attributes: ["unicorn", "purity", "hidden beauty", "nebula", "light echo", "rare creature", "Milky Way richness"]
+    narrative_archetype: "The mythical beast hidden in the rich star-field; the rose-shaped nebula that crowns the winter sky"
+    game_design_notes: "Rosette Nebula = circular mandala shape, visually compelling substrate; V838 Monocerotis light echo = one of the most spectacular astronomical events of the 21st century — ripple of light expanding outward; unicorn = purity/rarity emblem"
+  mythic_narrative: >
+    Monoceros has no ancient mythological tradition — the unicorn as a unicorn constellation is a
+    modern creation, first mapped by Plancius around 1612 and popularized by Bartsch in 1624. Bartsch
+    claimed it had Biblical precedent (a unicorn appears in some Hebrew Bible translations), but this
+    appears to be a misidentification of the reem (wild ox). The constellation lies in the rich
+    winter Milky Way between Orion, Canis Major, and Canis Minor. It contains the Rosette Nebula
+    (NGC 2237–2244), a circular emission nebula 130 light-years wide wreathing a star cluster, one
+    of the most spectacular nebulae in the sky. In 2002, V838 Monocerotis — a stellar explosion of
+    uncertain type — produced an astonishing light echo: a shell of light expanding outward through
+    surrounding dust clouds, photographed by Hubble in a time-lapse of stunning visual beauty.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Monoceros"
+      - "https://en.wikipedia.org/wiki/Rosette_Nebula"
+      - "https://en.wikipedia.org/wiki/V838_Monocerotis"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-056-musca"
+  sign_name:
+    primary: "Musca"
+    abbreviation: "Mus"
+    genitive: "Muscae"
+    native_script: ""
+    variants: ["The Fly", "Musca Australis (Southern Fly)"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "Dutch navigational astronomy"
+    period_range: "Created by Keyser and de Houtman c. 1597–1598; originally called Apis (the Bee); renamed Musca Australis by Lacaille 1756; IAU 1930 formalization (shortened to Musca)"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 56
+    sign_classification:
+      iau_abbreviation: "Mus"
+      iau_area_sq_degrees: 138
+      brightest_star: "α Muscae, mag 2.69"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Musca"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "α Muscae"
+        bayer: "α Mus"
+        ra_j2000: "12h 37m 11s"
+        dec_j2000: "−69° 08′ 07″"
+        magnitude: 2.69
+      - name: "β Muscae"
+        bayer: "β Mus"
+        ra_j2000: "12h 46m 17s"
+        dec_j2000: "−68° 06′ 29″"
+        magnitude: 3.05
+    asterism_schematic: "Compact bright constellation south of Crux; diamond-shaped body of five main stars; lies in a rich section of the Milky Way; Coalsack Nebula (dark nebula) lies on its border with Crux; NGC 4833 globular cluster within boundaries"
+    cultural_iconography: "Southern Fly; originally the Bee (Apis) in Dutch charts; Musca is the only insect among the 88 IAU constellations; Coalsack Nebula visible to the naked eye as a dark void in the Milky Way near the Southern Cross"
+  primitive_association_hints:
+    suggested_attributes: ["insect", "dark nebula", "small but vivid", "sole insect constellation", "southern Milky Way", "transformation (bee→fly)"]
+    narrative_archetype: "The sole insect in the celestial bestiary; the fly beside the Southern Cross"
+    game_design_notes: "Only insect IAU constellation = unique substrate niche; bee/fly name-transformation history; Coalsack dark nebula adjacency (void in the Milky Way) = darkness-beside-the-cross imagery"
+  mythic_narrative: >
+    Musca was created by Dutch navigators Keyser and de Houtman as Apis (the Bee) in the late 16th
+    century. Bayer published it as Apis in Uranometria 1603. For over 150 years it was the celestial
+    bee. Lacaille reorganized the southern sky in his 1756 catalogue and renamed it Musca Australis
+    (the Southern Fly) to distinguish it from a northern 'fly' constellation that eventually fell out
+    of use. At the 1930 IAU formalization, 'Australis' was dropped, leaving simply Musca. It remains
+    the only insect among the 88 constellations. It lies adjacent to the Coalsack Nebula — one of the
+    most prominent dark nebulae in the sky, a starless void visible to the naked eye in the Milky Way
+    just south of the Southern Cross, which has been noted by observers worldwide for thousands of
+    years and features in Aboriginal Australian and Andean dark constellation traditions.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Musca"
+      - "https://en.wikipedia.org/wiki/Coalsack_Nebula"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-057-norma"
+  sign_name:
+    primary: "Norma"
+    abbreviation: "Nor"
+    genitive: "Normae"
+    native_script: ""
+    variants: ["The Carpenter's Square", "Norma et Regula (Rule and Square)"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "French Enlightenment astronomy"
+    period_range: "Created by Nicolas Louis de Lacaille, published in Coelum Australe Stelliferum 1756; IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 57
+    sign_classification:
+      iau_abbreviation: "Nor"
+      iau_area_sq_degrees: 165
+      brightest_star: "γ² Normae, mag 4.02"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Norma_(constellation)"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "γ² Normae"
+        bayer: "γ² Nor"
+        ra_j2000: "16h 19m 50s"
+        dec_j2000: "−50° 09′ 20″"
+        magnitude: 4.02
+    asterism_schematic: "Faint small constellation between Scorpius, Lupus, and Ara; lost α and β Normae when IAU 1930 boundary revision assigned those stars to Scorpius; Norma Cluster (Abell 3627) is one of the most massive galaxy clusters known; lies within the 'Great Attractor' region"
+    cultural_iconography: "Carpenter's square or set-square — Lacaille's instrument of precision engineering; Great Attractor: the gravitational anomaly that pulls the Milky Way, Local Group, and thousands of nearby galaxies toward a mass concentration in this direction"
+  primitive_association_hints:
+    suggested_attributes: ["geometry", "precision", "right angle", "Great Attractor", "hidden mass", "the pull toward the unseen"]
+    narrative_archetype: "The instrument of right measure; the hidden gravity that draws all things"
+    game_design_notes: "Great Attractor behind Norma = massive hidden gravitational force behind an unremarkable facade; carpenter's square = foundational geometry; lost alpha/beta stars = diminished but structurally important"
+  mythic_narrative: >
+    Norma et Regula (the carpenter's square and rule) was one of Lacaille's 14 Enlightenment
+    instrument constellations, honoring the precision tools of carpentry and engineering. An
+    irony of IAU boundary rationalization in 1930 is that Norma lost both its alpha and beta stars
+    to Scorpius, leaving it with no star bearing those Bayer designations — the brightest remaining
+    is γ² Normae. Behind Norma in cosmic terms lies one of the most significant structures in
+    the local universe: the Great Attractor, a gravitational anomaly centered near the Norma Cluster
+    (Abell 3627, ~220 million light-years away) that is drawing the Milky Way, the Local Group,
+    and the Virgo Supercluster toward it at approximately 600 km/s. The bulk of the attractor is
+    hidden behind the Milky Way plane (the Zone of Avoidance), making its full mass still uncertain.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Norma_(constellation)"
+      - "https://en.wikipedia.org/wiki/Great_Attractor"
+    crawl_date: "2026-06-09"
+    confidence: "high"
+
+- sign_id: "iau-constellations-058-octans"
+  sign_name:
+    primary: "Octans"
+    abbreviation: "Oct"
+    genitive: "Octantis"
+    native_script: ""
+    variants: ["The Octant", "Hadley's Octant"]
+  cultural_tradition:
+    primary_culture: "Modern/IAU"
+    geographic_origin: "French Enlightenment astronomy"
+    period_range: "Created by Nicolas Louis de Lacaille, published in Coelum Australe Stelliferum 1756; named for Hadley's reflecting octant (navigational instrument); IAU 1930 formalization"
+    status_in_modern_tradition: "active_scientific"
+  system_metadata:
+    system_name: "IAU 88 Constellations"
+    total_signs_in_system: 88
+    position_in_system: 58
+    sign_classification:
+      iau_abbreviation: "Oct"
+      iau_area_sq_degrees: 291
+      brightest_star: "ν Octantis, mag 3.76"
+      ecliptic_proximity: "non-zodiacal"
+      hemisphere: "southern (circumpolar pole)"
+  visual_representation:
+    image_url: "https://en.wikipedia.org/wiki/Octans"
+    image_license: "Public Domain (IAU/Wikipedia)"
+    star_coordinates:
+      - name: "ν Octantis"
+        bayer: "ν Oct"
+        ra_j2000: "21h 41m 29s"
+        dec_j2000: "−77° 23′ 24″"
+        magnitude: 3.76
+      - name: "σ Octantis (South Pole Star)"
+        bayer: "σ Oct"
+        ra_j2000: "21h 08m 47s"
+        dec_j2000: "−88° 57′ 24″"
+        magnitude: 5.45
+    asterism_schematic: "Octans contains the south celestial pole; σ Octantis is the southern pole star but is barely visible at magnitude 5.45 (near naked-eye limit) — roughly 100x fainter than Polaris; the south pole has no bright guardian; pole position moves within Octans due to precession for thousands of years"
+    cultural_iconography: "The south celestial pole — the point around which the entire southern sky revolves; σ Octantis is a mediocre pole star, making southern celestial navigation historically reliant on Crux rather than a pole star; named for Hadley's octant, the navigational reflecting instrument predecessor to the sextant"
+  primitive_association_hints:
+    suggested_attributes: ["south pole", "axis of rotation", "faint anchor", "navigation", "the unremarkable center of the southern cosmos"]
+    narrative_archetype: "The axis of the south — present but invisible; the pole without a bright guardian"
+    game_design_notes: "σ Octantis as faint, undramatic south pole star (vs. Polaris's brilliance) = the overlooked center; Octans as the 'pole constellation' with no special mythology = pure structural role; contrast with Crux's Southern Cross drama"
+  mythic_narrative: >
+    Octans was created by Lacaille and named for Hadley's octant — the reflecting navigational
+    instrument invented by John Hadley in 1731, predecessor to the sextant, used to measure the
+    angle between celestial bodies and the horizon at sea. Lacaille placed the constellation to
+    contain the south celestial pole, giving it cosmographic significance as the southern anchor
+    of the sky's rotation. Unlike the Northern Hemisphere's Polaris (magnitude 1.98, unmistakably
+    bright within 0.7° of the north pole), the south celestial pole has only σ Octantis: a barely
+    naked-eye star at magnitude 5.45, roughly 100 times fainter than Polaris and lying about 1°
+    from the true pole. Southern Hemisphere navigators historically used the Southern Cross (Crux)
+    as an indirect pointer to the south pole rather than any pole star, because no suitable star
+    happened to fall near the southern rotation axis at this epoch of precession.
+  cultural_sensitivity:
+    flag_level: "none"
+  provenance:
+    sources:
+      - "https://en.wikipedia.org/wiki/Octans"
+      - "https://en.wikipedia.org/wiki/Sigma_Octantis"
+      - "https://en.wikipedia.org/wiki/Octant_(instrument)"
+    crawl_date: "2026-06-09"
+    confidence: "high"

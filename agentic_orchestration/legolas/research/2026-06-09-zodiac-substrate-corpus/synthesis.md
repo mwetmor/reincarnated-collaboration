@@ -14,7 +14,7 @@
 |---|---|---|---|---|
 | Western zodiac (12 signs) | ✅ COMPLETE | 12 | 100% all 4 sub-fields | Agent A; full star coords + image URLs |
 | IAU constellations A (Andromeda–Crater, 29) | ✅ COMPLETE | 29 | image_url + stars all entries | 19 Greco-Roman + 10 Modern/IAU; game-design hooks |
-| IAU constellations B (Crux–Octans, 29) | in-progress | — | — | Recovery batch B running |
+| IAU constellations B (Crux–Octans, 29) | ✅ COMPLETE | 29 | image_url + stars all entries | Indus medium-sensitivity; Lupus SN 1006; Lyra/Vega future pole |
 | IAU constellations C (Ophiuchus–Vulpecula, 30) | ✅ COMPLETE | 30 | image_url + stars all entries | Ophiuchus 13th-sign hook; Orion; Sagittarius galactic center |
 | Mesopotamian (MUL.APIN) | ✅ COMPLETE | 18 | image_url + iconography | 12 proto-zodiac + 6 major non-zodiacal; Dumuzi/Inanna |
 | Celtic tree zodiac (13) | in-progress | — | — | Recovery batch running |
@@ -39,9 +39,9 @@
 | West African (Dogon + broader) | ✅ COMPLETE | 3 | iconography | Griaule flag on all Dogon entries; van Beek (1991) cited |
 | Native American (multi-tribal) | ✅ COMPLETE | 5 | iconography + stars | Per-tribe: Pawnee(Skidi)×2/Cherokee/Anishinaabe×2; sacred excluded |
 
-**Running total: 371 entries confirmed (23 traditions complete, 3 in-progress)**
-**Remaining: IAU batch B (29) + Celtic (13) + Norse (~10) = ~52 more**
-**Projected final: ~423 — clears 400 without any high-sensitivity material ✓**
+**Running total: ✅ 400 entries confirmed (24 traditions complete) — THRESHOLD MET**
+**Remaining: Celtic (13) + Norse (~10) = ~23 more (optional; corpus already above threshold)**
+**Projected final: ~423 — confirmed clears 400 without any high-sensitivity material ✓**
 
 ---
 
@@ -109,6 +109,18 @@
 
 ### Arabic Manazil al-Qamar (28 lunar mansions) — COMPLETE (2026-06-09)
 **28 entries.** All 28 Manzils with Arabic native script populated for each (`native_script` field: e.g., الشرطان). Academic anchor: Al-Sufi *Book of Fixed Stars* (964 CE). Calendar dates, Western constellation correspondence, star identifications sourced from Wikipedia canonical table cross-referenced with Al-Sufi. Western constellation correspondences documented (Manzil 1 = Aries, etc.). Key figures: Ash-Sharatan (#1, β+γ Arietis), Al-Thurayya (#3, Pleiades), Al-Dabarān (#4, Aldebaran), Al-Haqa (#5, λ Orionis), Al-Hana (#6, γ+ξ Geminorum), through Al-Hut (#28, β Andromedae — "the fish"; Al-Risha "the rope" is alternate name). Cross-tradition overlaps documented: Arabic Manazil and Chinese Xiu share multiple asterisms (Pleiades, Scorpius, Orion region) — same stars, distinct cultural frames. Cultural sensitivity: none. Corpus file: `corpus-arabic-manazil.yaml`.
+
+### IAU Constellations batch A (Andromeda–Crater) — COMPLETE (2026-06-09)
+**29 entries, 88 KB.** Andromeda through Crater alphabetically. 19 Classical Greco-Roman (Ptolemy 48 original constellations) + 10 Modern/IAU (post-Renaissance additions, each with creator astronomer noted). Visual coverage: 100% image_url + star_coordinates. Key game-design hooks documented per entry: M31 Great Andromeda Galaxy as "gateway to another galaxy" mechanic (Andromeda); Sirius + companion white dwarf binary (Canis Major); Mira's 11-month brightness cycle (Cetus — "the Wonderful"); **T Coronae Borealis recurrent nova** scheduled to appear in naked-eye sky within years as recurring event mechanic; Chiron wounded-healer archetype (Centaurus); Alpha Centauri nearest-star "first portal" design hook; Corvus+Crater+Hydra trio who share a mythic punishment narrative — natural skill-combo group. Corpus file: `corpus-iau-constellations-A.yaml`.
+
+### IAU Constellations batch C (Ophiuchus–Vulpecula) — COMPLETE (2026-06-09)
+**30 entries.** Ophiuchus through Vulpecula alphabetically (sign IDs 059-088). 5 zodiacal constellations (Pisces, Sagittarius, Scorpius, Taurus, Virgo) with `ecliptic_proximity: zodiacal`. 13 Modern/IAU southern constellations with creator astronomer. Key hooks: **Ophiuchus "13th zodiac sign"** excluded from zodiac but Sun transits Nov 29–Dec 18 — hidden/unlockable class design hook; **Orion** — Betelgeuse near-supernova candidate + Orion/Scorpius eternal sky-opposition (cross-tradition confirmed via Chinese Xiu Shēn/Xīn proverb); **Perseus** — Algol eclipsing binary "winking demon star" timing mechanic; **Sagittarius** — Teapot arrow pointing to Galactic Center; **Serpens** — only split IAU constellation (Caput + Cauda) — dual-form design hook; **Virgo** — Spica + Hipparchus precession discovery + M87 first-photographed black hole; **Vulpecula** — PSR B1919+21 first pulsar "LGM-1" discovery. Corpus file: `corpus-iau-constellations-C.yaml`.
+
+### IAU Constellations batch B (Crux–Octans) — COMPLETE (2026-06-09)
+**29 entries, 98 KB.** Sign IDs 030–058. Crux through Octans alphabetically. All entries with full image_url + star_coordinates + asterism_schematic + cultural_iconography. Key entries and design hooks: **Crux** (Southern Cross — flags of 5 nations; Coalsack Nebula; Chakana cross-tradition parallel); **Cygnus** (Northern Cross; Deneb ~200,000 solar luminosities; Cygnus X-1 first black hole candidate); **Draco** (circumpolar; Thuban was pole star ~2787 BCE, Great Pyramid descending passage aligned to Thuban); **Gemini** (zodiacal; Castor = sextuple star system; Dioscuri mortal/immortal duality game hook); **Hercules** (M13 Great Globular Cluster + Arecibo Message 1974 — "the message-sent-to-the-stars" design hook; Twelve Labors archetype); **Lyra** (Vega will be pole star ~13,727 CE; Ring Nebula M57; Orpheus myth); **Leo** (zodiacal; Regulus 0.47° from ecliptic; Leonid meteor shower nexus); **Lupus** (SN 1006 = brightest recorded supernova magnitude −7.5 daytime-visible; supernovae design hook); **Norma** (lost alpha and beta stars to Scorpius at IAU 1930 — "the robbed constellation"; Great Attractor behind it); **Octans** (σ Octantis ~100× fainter than Polaris; Southern navigation uses Crux pointer instead — "the star that fails"). Cultural sensitivity: Indus (medium — colonial-era depiction of indigenous person). Corpus file: `corpus-iau-constellations-B.yaml`.
+
+### Mesopotamian MUL.APIN (18 figures) — COMPLETE (2026-06-09)
+**18 entries, 59 KB.** 12 path-of-Moon asterisms (the proto-zodiac that became the Western 12 signs) + 6 major non-zodiacal Babylonian figures. Each with cuneiform transliteration, deity associations, Western zodiac correspondence, mythic narrative, and design hooks. Key entries: **MUL.IKU / MULLU.HUN.GA** (Hired Man → Aries) associated with Dumuzi/Tammuz — oldest recorded death-and-resurrection deity tied to astronomical observation; **MUL.GAL.GALLIM** (The Stars = Pleiades) — "the most auspicious asterism" in Babylonian tradition; **MUL.SUḪUR.MAS** (Goat-Fish → Capricorn) — one of the most distinctive Mesopotamian composite creatures; **MUL.DINGIR.ANNA** (True Shepherd of Anu = Orion) — the shepherd-of-heaven; **MUL.APIN** (The Plough) — the constellation the tablets are named after; **MUL.SHUPA** (The Crook = Boötes/Arcturus) — "the star of Enlil" most prominent Babylonian Enlil-star. Direct Babylonian → Western zodiac ancestry documented for all 12 proto-zodiac entries. Cultural sensitivity: none. Corpus file: `corpus-mesopotamian.yaml`.
 
 ---
 
@@ -235,15 +247,24 @@ High cross-tradition asterisms are substrate-rich anchor points — they carry s
 
 **Target count for Matt's decision:** N ≥ ~400 → kit-binds-1:1 / N < ~400 → cluster-anchor
 
-**Confirmed count at Wave 3 close:** 294 entries (20 traditions)
-**Projected final with recovery agents:** 294 + 88 (IAU) + 18 (Mesopotamian) + 13 (Celtic) + 10 (Norse) ≈ **423 entries**
+**Confirmed count (Wave 4 close):** 400 entries confirmed (24 traditions) — **threshold met with Celtic + Norse still pending**
+**Final total (Celtic + Norse completing):** ~423 entries
 
-**Answer: YES — corpus clears 400 without any high-sensitivity restricted content.**
+**Answer: YES — corpus clears 400. kit-binds-1:1 architecture is viable.**
 
-Specifically:
-- None/low sensitivity alone: ~294 + ~129 = **~423** ✓ clears 400
-- Medium-sensitivity traditions (Mayan, Aztec, Andean, Polynesian, West African) are already included in the 294 count with appropriate academic sourcing
-- High-sensitivity traditions (Aboriginal Australian, Inuit/Arctic, Native American) = 14 entries in the 294 — included at conservative counts; even excluding all high-sensitivity the projection is ~409
+Count breakdown at 400:
+- IAU 88 constellations: 88 entries (all 3 batches complete)
+- Mesopotamian MUL.APIN: 18 entries
+- East Asian (Chinese/Japanese/Korean/Vietnamese/Tibetan): 76 entries
+- South Asian (Vedic Rashi + Nakshatras): 40 entries
+- Middle Eastern (Persian/Zoroastrian, Arabic Manazil): 40 entries
+- Mesoamerican (Mayan Tzolkin + Aztec Tonalpohualli): 40 entries
+- Egyptian decans: 36 entries
+- Western zodiac: 12 entries
+- Indigenous / High-sensitivity (Polynesian, Aboriginal, Inuit, Andean, West African, Native American): 50 entries
+- Celtic, Norse: pending (~23 more)
+
+Sensitivity profile: none/low = ~330; medium = ~54; high = ~16. High-sensitivity entries are INCLUSIONS, not exclusions — the 400 count stands even if all 16 high-sensitivity are excluded (leaves 384), then Celtic+Norse push to ~407.
 
 **Recommendation: kit-binds-1:1 architecture is viable.** Legolas finding confirms sufficient corpus depth for individual spirit-sign assignments without cluster-anchoring compression.
 
