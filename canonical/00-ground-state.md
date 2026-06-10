@@ -200,6 +200,14 @@ Replaces the per-agent multi-doc Phase-1 reading list with a focused short list.
 | **Mantis Session 3 STRETCH (UE 3.7 follow-on)** | ⏳ IN-FLIGHT at PC — continuing per PC team orchestration; fires post-close into Mantis windowed-mode Niagara verification (Sam WARN-001 resolution; ~30 min) which gates WS2 commission | mantis (PC); david-h orchestrates; radagast critique-pair |
 | **Engine P0 → P1 transition** | OPEN — P0 closed 2026-05-22; P1 hypothesis tests W1.20-W1.22 pending | gamora + jack-ryan |
 
+### 5.1-PC — PC infrastructure (added 2026-06-10)
+
+| Workstream | Status | Owner(s) |
+|---|---|---|
+| **PC permission-model Phase 0 (bypassPermissions matching Mac config)** | ⏳ DEPLOYED 2026-06-10 — pending operational activation at next PC Claude Code session start | gandalf (deployed); David-H (consumes at next session) |
+| **PC infrastructure Phase 2 (WSL2 + Ubuntu + tmux for SSH session persistence)** | ⏳ DEFERRED — fires when SSH session-persistence friction becomes pressing; needs admin + reboot interactively | Matt at PC; gandalf authors docs post-install |
+| **PC `.claude/settings.json` backup** | ✅ at `C:\Users\mhwet\.claude\settings.json.bak-2026-06-10` (rollback path if needed) | (preserved) |
+
 ### 5.1a — Carry-forward queued (post-canonical-amendments)
 
 | Workstream | Status | Owner(s) |
