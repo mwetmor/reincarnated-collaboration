@@ -202,6 +202,14 @@ That's a safe defensive check (verify git state before modifying) but it hits th
       "PowerShell(Get-Content*)",
       "PowerShell(Resolve-Path*)",
 
+      // PowerShell system / hardware introspection (safe; read-only)
+      "PowerShell(Get-WmiObject*)",
+      "PowerShell(Get-CimInstance*)",
+      "PowerShell(Get-ComputerInfo*)",
+      "PowerShell(Get-PSDrive*)",
+      "PowerShell(Get-Service*)",
+      "PowerShell(Get-EventLog*)",
+
       // Common safe Windows commands
       "PowerShell(dir*)",
       "PowerShell(echo *)",
@@ -226,12 +234,68 @@ That's a safe defensive check (verify git state before modifying) but it hits th
 - **MCP user-level tools** — explicit per-tool authorization
 - **Arbitrary script execution** — keep narrow
 
-### 2.5 Estimated friction reduction
+### 2.5 Estimated friction reduction (with honest caveats)
 
-Pre-refinement: ~10-15 per-operation prompts per autonomous wave-cycle.
-Post-refinement: ~1-3 per-operation prompts (only on write operations + scope-amendment moments).
+**For SIMPLE single-cmdlet commands** (git status, where claude, Get-Process node, Get-WmiObject Win32_OperatingSystem):
+- Pre-refinement: hits permission prompt
+- Post-refinement: passes via broad pattern match → ~10-15 prompts → ~1-3 prompts
 
-David-H + Mantis + Sam can run ~1-2 hour autonomous wave-cycles with minimal Matt interruption.
+**For COMPOUND scripts with PowerShell language features** (e.g., the 2026-06-09 RAM-check command + the bridge-ready-polling script):
+- Pre-refinement: hits permission prompt
+- Post-refinement: STILL hits permission prompt — **allowlist refinement does NOT bypass Claude Code's built-in safety checks**
+
+Claude Code surfaces three intentional safety mechanisms for PowerShell that operate INDEPENDENTLY of the settings.local.json allowlist:
+
+| Safety check | Triggered by | Example |
+|---|---|---|
+| **Expandable strings with embedded expressions** | Variable interpolation in strings (`"$var"`); compound `;`-separated statements with variable assignments | `$x = ...; "Result: $x"` |
+| **Subexpressions $()** | PowerShell subexpression syntax (`$(expression)`) — evaluates arbitrary expression and embeds result | `"Timeout: $(6*60)s"` |
+| **Complex control flow** | `for`, `while`, `if/elseif/else`, compound conditionals with multiple cmdlets | The 2026-06-09 evening bridge-ready-polling script |
+
+**These are intentional Claude Code security design — NOT allowlist gaps.** Settings refinement does not bypass them.
+
+**Net friction reduction Phase 1 will deliver:**
+- Simple git read commands: friction near-zero (~80-90% of David-H's diagnostic operations)
+- Simple PowerShell single-cmdlet queries: friction near-zero (with the patterns in § 2.3)
+- Compound PowerShell scripts: friction PERSISTS (will continue to surface per-operation Matt approval)
+
+**Realistic post-Phase-1 estimate:** autonomous wave-cycles drop from ~10-15 per-cycle prompts to ~3-5 per-cycle prompts. NOT ≤2 as I overpromised earlier. The 3-5 residual prompts come from the compound-script operations that hit safety checks beyond allowlist.
+
+### 2.6 Mitigation strategies for compound-script friction (Phase 1.5 candidate)
+
+For the residual ~3-5 compound-script prompts per cycle, three mitigation strategies are available WITHOUT bypassing Claude Code safety:
+
+**Strategy A — Pre-commit common compound scripts as project `.ps1` files**
+
+Author small `.ps1` files in `agentic_orchestration/pc-scripts/` (or similar):
+- `check-ram.ps1` — RAM diagnostic check (replaces the 2026-06-09 inline RAM command)
+- `poll-bridge-ready.ps1` — bridge-ready polling (replaces the bridge-polling script)
+- `windowed-niagara-verify.ps1` — windowed-mode Niagara verification orchestration
+
+Then allowlist the SCRIPT INVOCATION (which is a single fixed-string pattern):
+```json
+"PowerShell(* agentic_orchestration/pc-scripts/check-ram.ps1*)",
+"PowerShell(* agentic_orchestration/pc-scripts/poll-bridge-ready.ps1*)",
+"PowerShell(* agentic_orchestration/pc-scripts/windowed-niagara-verify.ps1*)"
+```
+
+Script CONTENT contains the compound logic (safe under Claude Code rules because it's a file, not an inline command); INVOCATION is the allowlisted operation. David-H + Mantis + Sam can iterate inside the script without re-prompting.
+
+**Tradeoff:** requires one-time gandalf authoring of the scripts. Each script becomes a versioned + audited piece of project infrastructure. Higher upfront cost but eliminates per-operation friction.
+
+**Strategy B — Refactor inline compound scripts into simpler sequential cmdlets**
+
+When David-H + Mantis surface compound-PowerShell needs, refactor into sequential simpler commands. E.g., the RAM check could be split:
+- Step 1: `Get-WmiObject Win32_OperatingSystem | Select-Object FreePhysicalMemory, TotalVisibleMemorySize` (single cmdlet; allowlist passes)
+- Step 2: Claude parses output + computes GB conversion in its own context
+
+Tradeoff: more verbose; more tool calls per operation; but each tool call passes the allowlist cleanly.
+
+**Strategy C — Accept residual friction as audit-discipline cost**
+
+The 3-5 prompts/cycle on compound scripts represent Claude Code surfacing the highest-risk operations for explicit Matt approval. Treating these as intentional Matt-approval moments preserves audit discipline. Strategy A reduces friction at cost of script authoring; Strategy B at cost of verbosity; Strategy C accepts friction in favor of audit clarity.
+
+**Phase 1.5 (DEFERRED) — Script-wrapping infrastructure:** if Phase 1 settings refinement still produces too much friction on compound scripts, fire a Phase 1.5 to author the most-common compound scripts as `.ps1` files + allowlist their invocations. Gandalf-side authoring (~1-2 hours). Empirical trigger: David-H + Sam + Mantis surface ≥3 distinct compound-script-types as recurring friction within 2 autonomous wave-cycles post-Phase-1.
 
 ---
 
