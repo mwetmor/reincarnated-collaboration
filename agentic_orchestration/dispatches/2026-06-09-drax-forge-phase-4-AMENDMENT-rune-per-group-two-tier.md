@@ -208,7 +208,7 @@ Phase 4 amended ADDS:
 | 8 | Mobile-responsive at iPad-class viewport with Tier 1 + Tier 2 | Test on iPad or browser-DevTools touch emulation |
 | 9 | 60 FPS at 2D web rendering layer (preserved from Phase 3) | Browser performance profiler at Vercel preview |
 | 10 | No raw LLM player-facing content (D7 AI-tell line) | Code review; rune library + placeholder icons are hand-curated; no runtime LLM |
-| 11 | `classifyLasso()` scaffold thresholds re-validated against rune-anchor geometry per Phase 3 YELLOW Observation 3 | Lasso classification still produces semantic modes correctly at rune-anchor layout |
+| 11 | `classifyLasso()` scaffold thresholds re-validated against rune-anchor geometry per Phase 3 YELLOW Observation 3 — **priority elevated** vs Phase 3 YELLOW 3 framing because the rune's "large + atmospheric behind primitive cluster" diffuse spatial footprint (§ 1.1) is architecturally different from Phase 3's bounded-canvas nebula; the 4 hardcoded scaffold constants (`within_anchor_centroid_threshold=1100`, `nearby_anchor_threshold=1200`, `cross_buffer_min_lasso_radius=600`, `min_lasso_polygon_points=2`) were calibrated against Phase 3 nebula geometry, not atmospheric diffuse rune | Drax documents rune bounding box (or atmospheric-footprint extent if not bounded) for each of the 6 group runes at Phase 4.1 deployment milestone, BEFORE Phase 4.2 fires; confirms `classifyLasso()` thresholds still produce semantic modes correctly across all 6 rune geometries; surfaces threshold drift in Phase 4 close report if any constant requires recalibration |
 | 12 | Tier 2 placeholder icons FLAGGED as pending canonical design Pattern B (per Discipline #40 scaffold-with-pending-decision) | Code review: PLACEHOLDER comments in code; close report surfaces icon list for Pattern B agenda |
 
 ---
@@ -224,7 +224,7 @@ Phase 4 amended ADDS:
 - Dispatch framing pre-commits to a decision Matt has not ratified (canonical primitive-group lock; canonical rune-per-group lock; canonical per-primitive icon lock — these are scaffold-with-pending-decision per #40)
 - Dispatch introduces a pre-authored taxonomy without justification (#41 candidate — § 1.2 6-group scaffold framing — see § 5.2 Discipline #41 rationale)
 - Dispatch introduces a scaffold value not flagged as pending-decision (#40 candidate — e.g., group cardinality count; rune-per-group canonical choice; per-primitive icon canonical design)
-- **Phase-4-amended-specific:** Phase 4 amendment results do NOT inform canonical Branch A commitment because two-tier complexity at 2D web is structurally insufficient to be predictive of iPad UE-port ergonomic; surface if Phase 4 cannot validate enough of the rune-per-group + two-tier pattern (e.g., requires deeper UE-port validation)
+- **Phase-4-amended-specific:** Phase 4 amendment results do NOT inform canonical Branch A commitment because two-tier complexity at 2D web is structurally insufficient to be predictive of iPad UE-port ergonomic; surface if Phase 4 cannot validate enough of the rune-per-group + two-tier pattern (e.g., requires deeper UE-port validation). **Falsifiable floor:** at minimum, Tier 1 rune-selection must function operationally for all 6 groups (rune-anchor visual register coherent across all 6 even if Tier 2 implementation only covers 2-3 priority groups). If Tier 1 fails at any group, the rune-per-group architectural pattern is structurally unvalidated at the 2D web layer regardless of Tier 2 completion. If Tier 2 cannot achieve coherent per-primitive selection in at least the 2 priority groups (Elements + Movement minimum per criterion 6), the two-tier compositional intent is structurally unvalidated. Additionally, if Tier 1 selection mechanism is tap-only alpha (gesture-draw Option β never prototyped under any group), surface this refutation condition — sign-as-input architectural intent from Tal Rasha recognition is under-validated for canonical Branch A commitment.
 
 ---
 
@@ -236,6 +236,8 @@ Phase 4 amended ADDS:
 ### 5.2 Discipline #41 (pre-authored taxonomy interrogation)
 **Primitive-group selection** is NOT canonically locked. § 1.2 6-group scaffold is starting candidate (drax-discretion-substitutable). **Per-primitive icon selection** is explicitly DEFERRED to Pattern B session per Matt verbatim. Canonical primitive-group lock + canonical rune-per-group lock + canonical per-primitive icon lock all DEFERRED to Pattern B with Matt post-Phase-4. Substrate-led discipline preserved at all three layers.
 
+**Substrate-emergence-insufficiency rationale (per Phase 3 dispatch Gate-1 WARN-3 pattern):** primitive-group emergence from substrate analysis would require (a) canonical primitive-curation pass (which 12-20 of 20 primitive families per atomic-substrate-registry 2026-06-06 become canonical) PLUS (b) post-Hotspot-A substrate-vector-grouping methodology (e.g., UMAP+labeling at substrate-vector layer) — both downstream of Phase 4 timing. Canonical primitive-curation is explicitly DEFERRED to Pattern B with Matt post-cosmograph; substrate-vector-grouping methodology is Hotspot B timing per Elrond Hotspot A forward-compat note (post-Branch-A/B-call; Branch A now selected, so Hotspot B becomes post-Phase-4-amended-GREEN). Phase 4 prototype TESTS the rune-per-group + two-tier architectural pattern with a pre-offered 6-group scaffold; the canonical group-lock question remains substrate-led-resolved at the appropriate downstream layer. Matt's verbatim refinement examples (water drop / lightning bolt for Elements; jumping man / teleport man for Movement) land naturally in the 6-group taxonomy, indicating the scaffold is substrate-adjacent at the player-surface layer even though canonical lock cannot fire pre-Phase-4. Drax close-report subset-bias observation (per § 8 deliverable) surfaces whether the chosen 6-group structure materially shaped architectural-pattern findings — alternation hypothesis input to canonical Pattern B.
+
 ### 5.3 Discipline #25 (semantic-layer rep-audit)
 **Per-rune semantic match per group audit** is load-bearing. gandalf reviews at Vercel preview milestones whether each rune's embedded semantic content actually matches the primitive group's symbolic role. Cross-system rune selection only works if semantic-layer rep-audit validates each selection.
 
@@ -246,6 +248,7 @@ Multiple scaffold values flagged in Phase 4 amendment:
 - § 1.3 Tier 1 selection mechanism (tap / gesture / both; drax discretion)
 - § 1.3 Tier 2 placeholder icons (canonical icon design DEFERRED Pattern B session)
 - § 2.3 placeholder icon library sources (Lucide / Heroicons / SVG; drax discretion)
+- § 1.1 + § 2.2 `visual_render_spec` render parameter values (brush-stroke weight, light-edge intensity, atmospheric diffusion parameters, monochromatic-light luminosity; drax picks reasonable defaults at Phase 4.1; § 1.1 visual register spec is Matt's design direction NOT canonical lock on render parameters; canonical visual-register render-parameter lock DEFERRED to Pattern B post-Phase-4 — composes with WS2 Niagara VFX UE-port scope authoring per § 9 trigger)
 All flagged per Phase 4 close report.
 
 ### 5.5 D7 (AI-tell line; no raw LLM player-facing content)
@@ -297,7 +300,7 @@ Per recognition record § 4 Trigger 2 (Matt architectural-decision call selects 
 | `2026-06-06-atomic-substrate-registry.md` | Phase 4 amendment uses 6 primitive groups as scaffold; canonical primitive-group lock deferred to Pattern B with Matt post-Phase-4-amended |
 | Phase 3 close report YELLOW Observation 3 | Phase 4 amendment § 5.3 re-validates against rune-anchor geometry |
 | Phase 3 close report methodology hotspots | Carry-forward; not in Phase 4 amendment scope; elrond consultation queued |
-| Elrond Hotspot A consultation (substrate-vector proximity metric; force-directed validation; YELLOW 2 corroboration) | Phase 4 amendment ships force-directed as production default per drax seam discretion + Elrond recommendation |
+| Elrond Hotspot A consultation (substrate-vector proximity metric; force-directed validation; element-family-layer substrate-proximity preservation +13pp kNN purity@5) | Phase 4 amendment ships force-directed as production default per drax seam discretion + Elrond recommendation. YELLOW 2 (physical corpus dominance) retracted by Matt 2026-06-09 as ARPG genre-correct (~40-55% physical range per established genre-historical research); no corpus-rebalance commission fires; Elrond's force-directed recommendation stands as production default independent of corpus-rebalance question. |
 
 ---
 
