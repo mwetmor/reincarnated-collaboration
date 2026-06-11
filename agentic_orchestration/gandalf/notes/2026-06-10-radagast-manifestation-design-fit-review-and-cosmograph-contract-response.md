@@ -9,6 +9,8 @@
 **Triggered-by:** Radagast Fable-5 manifestation-moment consult (my commission, Matt-authorized) + the cosmograph contract consultation Radagast filed to my design-spec-as-math authority.
 **Live input:** Matt's Avatar/out-of-body framing refinement (this session) — see § 4, which RE-OPENS Radagast's § 1.2 delta #1 in a way neither of us had.
 
+> **CORRECTION (2026-06-10, post-KR-session):** The forge wind-down that this review assumed (and which would have made the `forge_2d` projection clause + §3.3 forge-provenance question moot) was **narrowed by Matt to "we're only retiring the future plans."** The loadout web app + its 2D cosmograph **stay live, frozen** on Vercel; the original 2D cosmograph form is **retained** (Matt: "I still plan to use the actual original cosmograph form"). **Consequence: the `forge_2d` clause and the §3.3 forge-provenance question are NO LONGER MOOT — they remain in the contract.** The contract stays in its two-surface form (sphere = source-of-truth, 2D forge = deterministic unwrap). No rework needed: the §3.6 schema already carried the per-sign `forge_2d` field, so it is forward-compatible. The shared-canonical-layout amendment in §3 is precisely what keeps the (now-retained) web cosmograph coherent with the UE sky — the clause is the anti-drift mechanism, not the hazard. See `2026-06-10-forge-windown-recommendation-for-kr.md` (CORRECTED) §3 for the full reasoning.
+
 ---
 
 ## 1. Top-line
