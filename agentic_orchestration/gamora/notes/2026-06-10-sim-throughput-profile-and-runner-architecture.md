@@ -169,3 +169,18 @@ After parallelism (the only architecture change needed) and de-LLM-ing (nothing 
 ---
 
 **Sign-off:** gamora. The balance loop's metabolism at 4,000 kit-variants is ~12 minutes under the recommended runner, ~54 minutes even with zero changes run sequentially. Dominant cost is pure-Python tick-loop CPU — parallel-friendly, LLM-free, O(n). No resolver port. Wrap, don't rebuild.
+
+---
+
+## 10. Spatial-fidelity re-profile (2026-06-10 redirect) — SUPERSEDES the headline numbers above for combat-fidelity questions
+
+> Matt correction post-§1–9: the profile above measured the CURRENT fight engine — a **1-vs-1 duel on a 1-D distance line** — not the game's real combat. The surviving spatial engine (`spatial_gauntlet/spatial_engine.py`: 2-D arenas, 3–8 mobs, navigation, collision, AOE geometry, flanking) was re-profiled live against era-matched kits (`exports/season_001010/`) and validity-checked against 7,841 surviving spatial telemetry fights (2026-05-19/20).
+
+Full analysis: **`2026-06-10-spatial-fidelity-reprofile.md`** (companion note, same directory). Summary of corrections:
+
+- **Spatial per-fight cost: 5.8 ms (warm/converged) to 28.4 ms (cold, telemetry-length-normalized)** — i.e. **10.8×–52.9× the 1-D duel**.
+- **The "3-day" fear was REAL for spatial combat:** 4,000 variants × full-tick spatial, sequential, no prune ≈ **2.8 days**. §1's refutation applied only to the 1-D duel. Matt's ~65 s/kit was an accurate memory of spatial cost (61.3 s/kit measured-cold).
+- **The §5 runner architecture kills it without modification:** reduced-tick surrogate search (measured 4.28× cheaper) + full-tick gate on the final 400 + Mac 4.5× parallel ⇒ **0.7–3.5 h on the Mac; 0.3–1.3 h on the PC 20-core (assumed). Cloud not needed.**
+- **New empirical guardrail evidence:** reduced tick flipped a mini_boss WR 0→1 (A3 stability violation, 1/18 cells) — the surrogate is search-grade only; the full-fidelity commit gate is non-negotiable.
+- §6 (no resolver port) and §7 (wrap-don't-rebuild) verdicts **hold** at spatial fidelity.
+- New flag: spatial calibration is stale vs current kit power (WR=1.0 ceilings everywhere; `SPATIAL_DAMAGE_SCALE=4.0`) — recalibration math note required before spatial becomes commit-fidelity.
