@@ -1,11 +1,10 @@
-# Forge / Loadout Web-App — Salvage Note (migrate-forward to UE-side tooling)
+# Forge / Loadout Web-App — Design-Learnings Note (captured as the loadout seam's forward roadmap is paused)
 
-**STATUS:** SALVAGE NOTE — design learnings worth carrying into UE-side tooling at forge/loadout retirement
+**STATUS:** DESIGN-LEARNINGS NOTE — heuristics + interaction models worth carrying into UE-side tooling, captured as active forward development on the loadout web app is paused (no further roadmap)
 **Date:** 2026-06-10
 **Author:** drax (Opus 4.8)
-**Context:** Forge/loadout wind-down (Matt-authorized; dispatch `agentic_orchestration/dispatches/2026-06-10-drax-forge-loadout-wind-down.md` Task 2)
+**Context:** Loadout-seam roadmap pause (Matt-authorized). The app — including the 2D cosmograph (`/forge`) — **stays live on Vercel as-is**, and the **original cosmograph form is explicitly retained** (Matt still plans to use it). This is **frozen, NOT retired and NOT dark.** What is paused is only the FORWARD roadmap; the learnings below remain valuable design knowledge for UE-side tooling even while the web surface lives on. (Scope-corrected 2026-06-10 — an earlier framing of these notes as "salvage before killing the app" was based on an over-broad retirement reading that Matt narrowed to a roadmap freeze.) Dispatch + scope-correction note: `agentic_orchestration/dispatches/2026-06-10-drax-forge-loadout-wind-down.md`.
 **Companion:** gandalf rationale `agentic_orchestration/gandalf/notes/2026-06-10-forge-windown-recommendation-for-kr.md`
-**Archive tag:** `drax/loadout-retired-2026-06-10` @ `aae190a` (in `reincarnated-loadout/`)
 
 ---
 
@@ -47,7 +46,7 @@ From the Phase 5 follow-on (`cascadeData.ts` tier1_commit template edit, commit 
 
 ## 4. Data-shape work (consumer-side schema findings)
 
-- The forge consumed `public/kit-space/kit_star_sign_assignments.json` (rocket/elrond sidecar; injectivity-enforced v1.1 at retirement HEAD `aae190a`) and per-season kit-space exports. The **kit ↔ star-sign 1:1 binding (Branch A)** data shape is validated as renderable — UE inherits the same sidecar contract.
+- The forge consumes `public/kit-space/kit_star_sign_assignments.json` (rocket/elrond sidecar; injectivity-enforced v1.1 at HEAD `aae190a`) and per-season kit-space exports. The **kit ↔ star-sign 1:1 binding (Branch A)** data shape is validated as renderable — UE inherits the same sidecar contract.
 - **Substrate-trace + categorical-label packet shape** (engine pre-generates corpus offline → JSON packet ships kits with substrate-trace + categorical labels + identity content → surface does substrate-selection → character-LOOKUP, NOT generation) is the cosmograph-pivot architecture. The forge proved the consumer side of this packet works; UE consumes the SAME packet shape. No re-derivation needed — the data contract is the durable artifact.
 
 ## 5. Forward-looking discipline note (NOT a drax action item — flag for radagast / mantis / david-h)
@@ -58,4 +57,4 @@ This is a **forward-looking note for radagast / mantis / david-h consideration a
 
 ---
 
-**Sign-off:** drax, 2026-06-10. Salvage captured at forge/loadout retirement. The 2D web surface retires; these heuristics, the cascade/spirit-guide interaction model, the D31 voice-template learnings, and the packet/sidecar data contracts carry forward into UE-side tooling. Composes with the cosmograph-pivot architecture and the Earth-Avatar Creation Moment Architecture § 12 canonical lock.
+**Sign-off:** drax, 2026-06-10. Design-learnings captured as the loadout seam's forward roadmap is paused. The 2D web surface — including the cosmograph — STAYS LIVE; these heuristics, the cascade/spirit-guide interaction model, the D31 voice-template learnings, and the packet/sidecar data contracts carry forward into UE-side tooling as design knowledge. Composes with the cosmograph-pivot architecture and the Earth-Avatar Creation Moment Architecture § 12 canonical lock.

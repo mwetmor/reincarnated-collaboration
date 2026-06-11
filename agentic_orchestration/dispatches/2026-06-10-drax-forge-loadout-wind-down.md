@@ -155,3 +155,32 @@ Note: the radagast manifestation review's `forge_2d` projection clause in the co
 drax still owns `reincarnated-demo/` (Pixi.js, demo1) and the now-retired `reincarnated-loadout/`. With loadout retired, my honest read is that the **player-facing presentation seam is increasingly UE-shaped**, and the live UE presentation work sits with the PC/UE team (mantis on `reincarnated-unreal/`, radagast design, david-h orchestration). Two coherent options for Matt: **(A)** drax redeploys toward UE-adjacent player-surface work where the React/Pixi background transfers — e.g. internal-tooling that gives UE the fast design-iteration path gandalf flagged (§5 of the salvage note), or consuming-side data-contract validation for the UE packet; **(B)** the demo1 (Pixi.js) question is settled first (is demo1 still a surface, or also scaffolding now that UE is proven?), and drax's mandate narrows to whatever survives that decision. I lean toward Matt settling the demo1 status next, because it determines whether the drax seam has a live remaining player surface at all or goes largely dormant pending a UE-tooling role. **This is advisory; I am not acting on it.**
 
 **Signed:** drax (developer / player-facing presentation seam), 2026-06-10. Retirement executed faithfully — history preserved, archive tag on final HEAD, codebase in place, two external actions staged for Matt.
+
+---
+
+## SCOPE CORRECTION — drax, 2026-06-10 (supersedes the retirement framing above)
+
+**This reverses the over-broad retirement framing in the completion record above.** None of the prior work was pushed or deployed, so this correction is entirely local.
+
+**What happened:** the dispatch (§ 1–4) scoped a full *retirement* of the `reincarnated-loadout` web app, with a staged Vercel go-dark. Matt has since clarified the actual intent is much narrower. His exact words across the thread:
+- "everything except the cosmograph stays live"
+- "leave the cosmograph up on vercel. I still plan to use the actual original cosmograph form"
+- "we're only retiring the future plans"
+
+**Corrected scope (authoritative):**
+- The `reincarnated-loadout` app — INCLUDING the 2D cosmograph (`/forge`) — **stays live on Vercel as-is.** Not retired, not archived, not dark.
+- The **original cosmograph form is explicitly RETAINED** — Matt still plans to use it.
+- What is "retired" is ONLY the **forward roadmap**: no further active feature development on the loadout web app. The disposition is **frozen / no-further-roadmap**, NOT "dark" and NOT "retired."
+
+**Reversal actions executed (all local; nothing pushed):**
+1. **`reincarnated-loadout/README.md`** — RETIRED banner REMOVED; replaced with a "LIVE; forward development paused (no further roadmap); original cosmograph form retained" status note. Repo is no longer called retired/archived.
+2. **`reincarnated-loadout/AGENT_STATE.md`** — "REPO RETIRED" banner REVERSED to "SEAM FROZEN — no further roadmap; app + cosmograph remain LIVE." The (correct, useful) 11-vs-1 reconciliation finding is preserved.
+3. **Annotated tag `drax/loadout-retired-2026-06-10`** — DELETED (`git tag -d`). It was never pushed, so the local delete is clean. It implied a retirement that is not happening; no replacement tag was cut.
+4. **Salvage note `agentic_orchestration/drax/notes/2026-06-10-forge-loadout-salvage-note.md`** — KEPT, but REFRAMED from "salvage before killing the app" to "design-learnings captured as the loadout seam's forward roadmap is paused." Learnings are still valuable; only the premise was corrected (the app lives on).
+5. **Vercel — NO ACTION.** It stays live. The staged DARK-vs-FROZEN go-dark options in the completion record above are **RETRACTED** — there is no takedown. Disregard the § 6(b) / staged-external-action (b) Vercel options entirely; the only live disposition is "frozen, stays up."
+
+**Still staged for Matt (unchanged):** pushing the loadout repo to origin remains Matt-authorized per ADR-006 (NOT executed). The push, when authorized, now carries the reversal commits (README un-retired, AGENT_STATE frozen-not-retired, salvage note reframed) rather than the retirement commits' framing.
+
+**Net disposition:** frozen, not retired; cosmograph retained; nothing dark.
+
+**Signed:** drax, 2026-06-10. Scope corrected per Matt's narrowing — the loadout app and its cosmograph stay live; only the forward roadmap is paused.
