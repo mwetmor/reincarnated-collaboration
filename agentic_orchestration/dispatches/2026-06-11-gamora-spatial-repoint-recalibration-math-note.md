@@ -86,4 +86,42 @@ Does this dispatch add, modify, rename, or remove any field on a telemetry schem
 **jack-ryan (DEV-MODE, Gate-2, BLOCK authority)** reviews the completed math-note + implementation + golden-master verification + telemetry tag as one unit. Submit to `agentic_orchestration/qa/pending/`. Gate-2 PASS is acceptance. As the protocol's proving run, jack-ryan also assesses whether the worked reference (corpus fix, predicted-delta convention, re-gate model) is reusable as the template for subsequent § 3 applications.
 
 ## Completion record
-<!-- gamora appends on completion: Completed / Tags shipped / Smoke+golden-master results / MIGRATION.md written / Notes for jack-ryan review -->
+
+**Status:** Phases 0/1/2 COMPLETE + committed (engine repo). Phase 3/4 GATED on Gate-2 approval of the math-note (Discipline #1 + dispatch "Phase 3 — per APPROVED math-note only"). Architecture-fit clean — STOP-clause blocker did NOT fire.
+**Date:** 2026-06-11
+**Author:** gamora
+
+### Phase-by-phase
+
+| Phase | Status | Engine commit |
+|---|---|---|
+| 0 — Kernel interface declaration (HARD GATE) | DONE, standalone commit | `5f2349f` |
+| 1 — Golden-master capture (oracle BEFORE change) | DONE; determinism proven 0/60; 95% WR≥0.9 saturation baseline | `5a7b079` |
+| 2 — Math-note (all 6 contents, measured numbers) | DONE; semantic-shift declared | `2e77c28` |
+| 3 — Re-point + recalibration implementation | GATED on Gate-2 math-note approval | — |
+| 4 — Predicted-delta verify + telemetry tag | follows Phase 3 | — |
+
+### MIGRATION.md
+v1.64 written: `simulate_fight(...)->FightResult` (fight_engine.py:107) + `resolve_skill(...)` (damage_resolver.py:278) declared as enforceable wrap boundary. Satisfies Gate-1 Dimension-1 WARN. Star-lord notified the boundary is now formally named (no schema field change; declaration IS the consumable contract).
+
+### Golden master
+`scripts/gamora_spatial_golden_master_2026_06_11.py` (capture/verify); oracle `spatial_gauntlet/golden_master/spatial_golden_master_season_001010_2026_06_11.json`. Corpus: 10 season_001010 classes × 6 ArenaScenario types = 60 cells; N=10 fights/cell; seed 770011. Self-verify: 0/60 moved (exit 0) — bit-stable. Baseline: 57/60 cells (95%) WR≥0.9 — the saturation symptom.
+
+### Math-note headline numbers (`simulation/math/spatial-repoint-recalibration-2026-06-11.md`)
+- **Predicted-delta (season_001010 corpus):** WR moves DOWN / surface de-saturates / per-fight variance widens / clears slow. Mechanism: simplified flat `dmg_mult×500` (1050–7250 spatial per-hit) one-/two-shots mobs (HP ~2019→3028) → WR=1.0; resolver adds armor/resistance mitigation + attribute scaling + ±15% per-hit variance + effects-differentiation. Geometry-hit counts predicted UNCHANGED (negative contract).
+- **T4 flips predicted SEPARATELY (corpus is pre-T4 — load-bearing):** chaos_immune shadow→0 flips + three-path damage_scaling_type re-ordering require a T4-bearing golden-master follow-on; NOT verifiable in this proving run.
+- **Recalibration:** SPATIAL_DAMAGE_SCALE swept ALONE first (Disc #24), MOB_HP_DIFFICULTY_MULTIPLIER second only if needed. Target shape: per-scenario WR spread ≥0.4; saturation ≤50%; floor ≤30%. Form `SDS_new ≈ 4.0 / r_effective`; VALUE measured at Phase-3 sweep.
+- **Re-gate bound (GATES production sweeps):** `SpatialCost = N·C_s·(1 + F·g)`; F≤0.30, g≤2 ASSUMED → multiplier ≤1.6 → hybrid ≤1.6× filter. F,g MEASURED before any production sweep.
+- **Cost-profile re-check:** per-fight predicted <2×; re-measure trigger pulled iff measured >1.5× (>8.7 ms warm).
+- **PC 12× factor:** SEPARABLE sub-task; remains ASSUMED; combined Mac+PC number NOT banked (BANNED per contract § 8.2.2); flagged to KR behind the manifestation spike wave.
+
+### Architecture-fit resolution (the STOP-clause assessment)
+Production caller `balance_loop._run_spatial_slot:2625` already holds full `PlayerClass`/`Monster` objects (`model_dump()`'d DOWN to dicts only to feed the simplified model's dict interface). The resolver-ready objects are present at the call boundary → **the resolver CAN serve spatial's call pattern without kernel modification.** The STOP-clause named blocker does NOT fire. The export-JSON path is lossy (strict Pydantic fields absent) but is NOT the production path. Phase 3 is a clean caller-side change (adapter + `_apply_skill_damage` rewrite), bounded but multi-day (the adapter requires threading PlayerClass/Monster through `entity_from_class_dict`/`entity_from_monster_dict`, which currently take only dicts — a signature change across `run_spatial_fight` + `_run_spatial_slot` + `gauntlet_modes` + the golden-master harness).
+
+### Star-lord flag
+FIRED (notification only, no schema change yet): the `simulate_fight(...)->FightResult` boundary is now formally named in MIGRATION.md v1.64; star-lord's telemetry + the parallel runner consume through it. NO new fight_log/SpatialFightResult key added in Phase 0–2. Principle-6 watch carried into Phase 3: `resolve_skill` returns `(damage, events)` — the `events` list (e.g. `on_chaos_immune`) is NEW info; default for this proving run is to DROP events (parity with simplified model's information content). If a future change carries events into telemetry, that IS a cross-seam change → MIGRATION.md + star-lord notification before tagging.
+
+### Notes for jack-ryan (Gate-2)
+- Submitted unit for Gate-2: the math-note (Phase 0/1/2 artifacts) — Phase 3 implementation locks values against the approved predicted-delta contract.
+- Semantic-shift declared (Disc #12): spatial WR is no longer the same quantity post-re-point → decisions-log entry requested (R-series recalibration lineage continues).
+- Proving-run template assessment requested: corpus fix (60 cells, seed-pinned, committed oracle, self-verify determinism), predicted-delta convention (direction = contract, magnitude = recalibrated, negative non-movement contract, exit-1=predicted-or-STOP), and re-gate bound model are offered as the reusable template for subsequent § 3 applications (id-substrate rebuild next).
