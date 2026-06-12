@@ -1,8 +1,8 @@
 # 02 — Engine Build Roadmap (Visual-Flow Progress Tracker — Cycle 13 → Engine Completion → Reincarnated-Game Unlock)
 
-> **STATUS:** CURRENT (load-bearing, **LIVING OPERATIONAL TRACKER**) — see `canonical/00-ground-state.md`
+> **STATUS:** HISTORICAL (2026-06-12) — cycle-phase planning frame retired per Matt direction. The cycle-to-phase mapping (Cycle 13/14/15/16 → Phases 1-8) was a vestigial artifact of the 2026-05-26 plan and no longer reflects how work is sequenced. **Operative dispatch model is now `canonical/story/2026-06-11-forward-architecture-contract-wrap-and-extend.md` § 9.** The per-phase status detail in this doc is preserved as historical record; do not update it.
 >
-> **Living-doc protocol:** **knight-rider updates this doc at every commit during cycle execution** through engine build completion. gandalf authors structural changes (new phases, sub-phases, decision points landing in canonical architecture). jack-ryan reviews status transitions for discipline compliance.
+> **Superseded by:** `canonical/story/2026-06-11-forward-architecture-contract-wrap-and-extend.md` (wrap-and-extend contract with kernel-freeze + golden-master spine; § 9 dispatch list is the operative sequencing frame)
 
 **Date:** 2026-05-26 (initial authoring as engine build visual-flow tracker)
 **Author:** gandalf (story-and-design steward; structural author)
