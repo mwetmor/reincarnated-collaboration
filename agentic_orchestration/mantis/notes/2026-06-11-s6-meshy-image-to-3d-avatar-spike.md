@@ -9,6 +9,7 @@
 **Dispatched by:** david-h (Matt-authorized 2026-06-11)
 **Spec:** `agentic_orchestration/gandalf/notes/2026-06-10-ue-manifestation-moment-mvp-framing-brief.md` § 2
 **Scope:** pipeline proof ONLY (no customization, no multiple avatars, no scene work). STOPPED before UE import per dispatch (another mantis lane owns the editor this wave).
+**Import leg (follow-up, 2026-06-11):** UE import COMPLETE — see § 8. `SK_EarthAvatar` staged at `/Game/Characters/EarthAvatar/`, 24-joint Hips-rooted skeleton + material + textures, persisted + verified. Imported the FBX twin (bridge has no GLB/Interchange handler; FBX is the Crusader-proven path; same rigged asset).
 
 ---
 
@@ -146,3 +147,68 @@ Staged under the UE project tree at:
 **Push:** committed in collab repo; NOT pushed (wave-close push is david-h's, accumulated).
 
 **End of S6 findings.**
+
+---
+
+## 8. Import leg (follow-up) — UE import: PASS
+
+> **Added 2026-06-11 by mantis.** Editor lane FREE (S5/S1 closed); david-h dispatched the final leg. Headless `-nullrhi` per environment constraint (windowed crashes on DXGI from SSH/WSL). Import completed, persisted, verified.
+
+### 8.1 Result — PASS
+
+The rigged generic-human avatar is imported and staged as a **persistent reusable skeletal mesh** at `/Game/Characters/EarthAvatar/SK_EarthAvatar` (operator-model reusability — NOT cinematic-bound). All verification checks pass; assets persisted to disk.
+
+### 8.2 Interchange surprise — bridge has no GLB/glTF factory; FBX twin used (same rigged asset)
+
+**The proven Crusader path is FBX-via-`UFbxFactory`, not GLB-via-Interchange.** The UE_MCP_Bridge import handlers (`import_skeletal_mesh` / `import_static_mesh` / `import_animation` / `import_texture`) are ALL `UFbxFactory`-based and force `Task->Factory = FbxFactory` — they will not ingest a `.glb` (UE routes GLB through the Interchange glTF pipeline, which the bridge does not expose a handler for; `create_interchange_pipeline` exists but only spawns a pipeline *asset*, it is not an import path). The MeshyTest Crusader precedent on disk (`SK_Crusader_Idle` + Skeleton + Materials + Textures) was itself an **FBX** import.
+
+So I imported **`earth_avatar_rigged.fbx`** — the FBX twin of the GLB. Both are the same Meshy-rigged asset (identical 24-joint Hips-rooted Mixamo skeleton; § 1.3 parsed the GLB, the FBX carries the same rig). This IS the proven path; the dispatch's "GLB via Interchange" framing was the format-aspiration, the deterministic bridge route is the FBX. No new import risk — exactly the format that produced the clean Crusader skeleton.
+
+If a true GLB/Interchange import is wanted later (provenance-purity: import the literal GLB artifact), it needs either (a) a new bridge handler that runs `ImportAssetTasks` with NO forced factory (lets Interchange auto-select the glTF pipeline), or (b) a windowed/Python-console Interchange import. Flagged for forward-architecture, NOT a blocker for the MVP.
+
+### 8.3 Verification (all empirical via bridge + on-disk)
+
+| Check | Method | Result |
+|---|---|---|
+| Skeletal mesh created | `import_skeletal_mesh` → `importedAssets` | PASS — `/Game/Characters/EarthAvatar/SK_EarthAvatar` (1 asset, created:true) |
+| 24-joint skeleton | `get_skeleton_info` | **PASS — boneCount 24, root `Hips` (index 0, parentIndex -1)** — matches § 1.3 glTF-chunk finding exactly |
+| Skeleton asset bound | `get_mesh_info.skeletonPath` | PASS — `SK_EarthAvatar_Skeleton` |
+| Material imported | `get_mesh_info.materialSlots` | PASS — 1 slot `Material_1`, `isDefaultFallback:false` (real material, not stand-in) |
+| Textures imported | on-disk | PASS — `texture_0` + `texture_0_ncl1_1` (7.5 MB each) |
+| Scale sanity | `get_mesh_info.heightM` | PASS — **1.75 m** (= rig `height_meters` scaffold; clean 1:1, no rescale needed) |
+| Geometry sanity | `get_mesh_info` | vertexCount 97,962; lodCount 1; bounds half-height 87.5 cm (175 cm humanoid) |
+| Persist on disk | `save_all_dirty` + `find` | PASS — see § 8.4 |
+
+`list_bones` returned WARN (param-shape mismatch in my verify script); irrelevant — `get_skeleton_info` is the authoritative bone source and gave 24 + Hips root.
+
+### 8.4 Asset paths (Content Browser + on-disk, sizes)
+
+Content path: `/Game/Characters/EarthAvatar/`
+On-disk: `C:\dev\reincarnated-unreal\Reincarnated\Content\Characters\EarthAvatar\`
+
+| Content Browser | On-disk `.uasset` | Bytes | Role |
+|---|---|---|---|
+| `SK_EarthAvatar` | `SK_EarthAvatar.uasset` | 24,389,515 | **Skeletal mesh — primary persistent reusable asset** |
+| `SK_EarthAvatar_Skeleton` | `SK_EarthAvatar_Skeleton.uasset` | 6,715 | 24-joint Hips-rooted Mixamo skeleton |
+| `SK_EarthAvatar_PhysicsAsset` | `SK_EarthAvatar_PhysicsAsset.uasset` | 27,679 | Auto-generated physics asset |
+| `Material_1` | `Material_1.uasset` | 5,508 | Skin/body material (slot 0) |
+| `texture_0` | `texture_0.uasset` | 7,539,610 | Base color texture |
+| `texture_0_ncl1_1` | `texture_0_ncl1_1.uasset` | 7,539,645 | Second texture map (normal/secondary) |
+
+Import + verify driver: `spike-s5-s1/s6-import-earth-avatar.js` (re-runnable; `bReplaceExisting` on).
+
+### 8.5 What the idle-retarget (downstream) will need
+
+NOT done here per dispatch (render-judgment session needed first). When it fires:
+- **Target skeleton:** `/Game/Characters/EarthAvatar/SK_EarthAvatar_Skeleton` (24-joint Hips-rooted Mixamo convention — IK Retargeter chain mapping is near-automatic; bone names already Mixamo).
+- **Source idle:** Mixamo "Idle"/"Breathing Idle" (Path A, § 2) OR UE Mannequin idle via IKRig. The Meshy walking/running anims (`anim_walking_withSkin.fbx` etc.) can be retargeted onto this same skeleton via `import_animation` (skeletonPath = the skeleton above) — note `import_animation` is FBX-only too, so feed the `.fbx` anim twins, not the `.glb`.
+- **No idle in the import:** the FBX carried the mesh + skeleton + (Meshy `baselayer`/static) — no calm-idle clip. Idle is a separate retarget step. Path C (rest pose) reads as "standing on the knoll" for first assembly.
+- **Scale:** 1.75 m imported clean — no rescale needed before placement into LV_ManifestationKnoll (P1.5 assembly, gated on render session).
+
+### 8.6 What Sam's Gate-2 should look at
+
+1. **FBX-not-GLB substitution** (§ 8.2) — confirm acceptable that the literal imported artifact is the FBX twin, not the GLB named in the dispatch. They are the same Meshy-rigged asset; FBX is the bridge-supported + Crusader-proven format. If provenance-purity wants the literal GLB, that is a new-bridge-handler forward item, not an MVP blocker.
+2. **`reincarnated-unreal` is not git-tracked on this host** (§ 4 note carries forward) — the imported `.uasset` files are staged on disk only, not committed. Only the collab-repo deliverables (this note + AGENT_STATE.md + the driver script under the UE tree) are git-relevant, and the driver script lives under the non-git UE tree. Collab-repo commit covers the findings note + AGENT_STATE.md.
+3. **Scope honored:** no Mixamo idle retarget; no placement into LV_ManifestationKnoll (both downstream/P1.5, render-session-gated).
+
+**Import leg signed off:** mantis 2026-06-11. PASS — `SK_EarthAvatar` persistent reusable skeletal mesh, 24-joint Hips-rooted skeleton, material + textures, 1.75 m clean scale. Headless `-nullrhi` (DXGI windowed constraint honored). Disciplines: #11 empirical (skeleton/material/disk all verified, not assumed); #41 substrate-led (imported the real rigged asset faithfully; flagged the FBX-vs-GLB format reality honestly rather than papering it); #40 (FBX-twin substitution registered as a scaffold-equivalent).
