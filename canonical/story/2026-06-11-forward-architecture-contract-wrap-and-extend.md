@@ -113,6 +113,23 @@ This contract's verdict basis measured throughput/cost. It did NOT measure desig
 | Export packet schema shaped to UE consumption | star-lord (+ PC seam consult) | No — § 7 surface |
 | Gap-register audits → § 8 disposition | rocket + gamora | Read-only |
 
+## 8.1 AMENDMENT 2026-06-11 — § 8 audit disposition (both audits returned same-session)
+
+**Evidence:** `agentic_orchestration/gamora/notes/2026-06-11-gap-register-architecture-fit-audit-simulation.md` (commit `477dee3`) + `agentic_orchestration/rocket/notes/2026-06-11-gap-register-architecture-fit-audit-generation.md` (commit `8910168`).
+
+**Simulation seam: WRAP-CONFIRMED.** 8 cleanly / 2 friction / 0 fights. Kernel boundary drawable TODAY at `fight_engine.simulate_fight(...) → FightResult` — pure function, zero telemetry/DB/LLM/HTTP coupling across all 7 kernel files; `batch_runner.run_batch` already wraps it. Doc-50 BVV targets + doc-47 two-layer T4 are already implemented (`bounded_viability_validation.py`, `gauntlet_sim.py`) — code and cemented architecture co-evolved; no design divergence.
+
+**Generation seam: WRAP-WITH-TARGETED-REBUILDS.** 5 cleanly / 4 friction / 1 fights. Validated core (substrate-identity YAMLs, data-driven element pool, BC-target cell composition, confined downstream naming) is the exact shape the future-state assumes; primitives are accommodated as data. **The one FIGHTS item: the id-generation substrate** — seven process-stateful `global` ID counters (`_class_counter`, `_skill_counter`, `_gear_instance_counter`, `_monster_counter`, `_trial_counter`, …) make generated IDs a function of process invocation order, not content. Fights three cemented axes: delta-naming/cache reuse, the cosmograph stable-kit-id lookup contract, and variant-overlay lineage.
+
+**Dispositions (binding):**
+1. **Id-generation substrate → module-targeted greenfield under oracle** (§ 8.2 path): content-addressed deterministic ids, rebuilt as a module across the 7+ touchpoints, with the existing generators preserved and golden-master id-stability tests on the pinned corpus. § 9's cache-hygiene "boundary case" row is RECLASSIFIED to this disposition — it is not a patch.
+2. **CELL_DEFS → pattern-library loader** named by rocket as the second targeted-rebuild candidate (Phase C consumption path); scope at rocket's seam discretion within § 8.2.
+3. **Spatial damage surface precision flag (gamora):** two damage paths exist — `spatial_gauntlet/spatial_engine.py` (~L886) uses a simplified model (`damage_multiplier × 500.0 × damage_modifier`) bypassing `damage_resolver.resolve_skill`. Commit-grade fidelity currently runs a less-validated damage model than search-grade. Remedy decision folds into the spatial-recalibration math-note (§ 3 first application): (a) designate spatial damage its own kernel post-recalibration, or (b) re-point spatial at `resolve_skill`. **Gandalf design-lean: (b)** — commit-grade combat should run the most-validated damage math; gamora's math-note argues it with numbers.
+4. **Conjunction re-open criterion (rocket-registered, standing):** if the id-substrate rebuild + race-family landing + pattern-library Phase C + cosmograph stable-ids all fire in one window, combined blast radius approaches a generation-spine rebuild — § 8 re-opens for the generation seam at that conjunction. Today each is bounded local work; do not pre-aggregate.
+5. **Gap-register corrections:** entry #19 (`scope_preference`/`is_unique`) already landed in code (`partition_schema.py`, `gear_instance_generator.py`); entry #2 DDA scaffold cleanly module-isolated for Cycle-15 retirement. Synthesis § 9 register stands corrected by these audits as the more-current evidence.
+
+**Net: the § 8 refutation clause is RESOLVED for this cycle.** Big-bang greenfield refuted on both measured axes (throughput 2026-06-10; design divergence 2026-06-11). The audit found the one place clean re-implementation genuinely beats extension — the id substrate — and routed it surgically.
+
 ## 10. Routing + sign-off
 
 - **Gate-1 critique-pair review** → jack-ryan (process/technical stress-test of this contract).
