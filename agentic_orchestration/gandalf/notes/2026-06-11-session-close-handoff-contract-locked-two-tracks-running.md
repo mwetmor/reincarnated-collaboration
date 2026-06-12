@@ -32,6 +32,7 @@
 
 ## 3. Next-session pickup queue (leverage order)
 
+0. **Kernel field/value audit (Matt-authorized STARTER, 2026-06-12 post-close)** — produce the vestigial-ontology register per `gandalf/notes/2026-06-12-vestigial-ontology-discipline-candidate.md` § 6 (field AND value-domain audit; nothing blocks; parallel-safe with Gate-2; should land before/with the Phase 3 dispatch so the § 5 Gate-2 charge line has its register). Same note carries the discipline candidate (jack-ryan routing) + the Gate-2 charge line (KR includes verbatim in the gamora Phase 3/4 dispatch).
 1. **Matt console/RDP sitting at the PC** — one sitting closes: DDC warm + S1 measurements + Rig A/B screenshots + (later) P1.5/#5 mythic-weight judgment. Pi-drive doc is the script. Batches with DH's UE-repo init. CRITICAL PATH for Track A (gates S2→S3→S4).
 2. **Gamora proving-run follow-through** — whatever § 2 leaves open (Phase 3-4 if deferred; star-lord MIGRATION flag if fired; PC parallel-factor measurement when PC is free).
 3. **Star-lord dispatch** (`llm/` infra) — rate-limit tier verification (50 req/min ASSUMED), batching/model-tier options + UE export packet schema per contract § 7. Ready to sequence via KR.
