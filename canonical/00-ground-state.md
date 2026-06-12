@@ -191,14 +191,16 @@ Replaces the per-agent multi-doc Phase-1 reading list with a focused short list.
 
 ## 5. Active workstreams (what's actually in flight)
 
-> **Last refresh 2026-06-12 (gandalf — cycle framing retired per Matt direction; operative sequencing frame is now `canonical/story/2026-06-11-forward-architecture-contract-wrap-and-extend.md` § 9 dispatch list; `canonical/02-roadmap.md` moved to HISTORICAL).**
+> **Last refresh 2026-06-12 (gandalf — cycle framing retired per Matt direction; operative sequencing frame is now `canonical/story/2026-06-11-forward-architecture-contract-wrap-and-extend.md` § 9 dispatch list; `canonical/02-roadmap.md` moved to HISTORICAL). 2026-06-12 afternoon: DEFENSIVE_TRADEOFF reinstated (shadow+holy immunity + mana shield gate); two new algorithmic requirements (enemy elemental distribution + T4-aware gear equipping); Gate-2 on spatial re-point math-note PASS-with-INFO received; Phase 3/4 dispatch cleared to fire.**
 
 ### 5.1 ENGINE/SIM TRACK — forward-architecture contract § 9 dispatches (gamora)
 
 | Workstream | Status | Owner(s) |
 |---|---|---|
-| **Spatial re-point Phases 3/4** | ⏳ GATED — Phases 0-2 complete (kernel declared, oracle pinned, math-note authored); **Gate-2 on `simulation/math/spatial-repoint-recalibration-2026-06-11.md` required before Phase 3 dispatch**; handoff at `agentic_orchestration/gamora/notes/2026-06-11-spatial-repoint-phase-0-1-2-gate-2-handoff.md` | gamora; jack-ryan Gate-2; KR dispatches Phase 3/4 on PASS |
+| **Spatial re-point Phases 3/4** | ✅ GATE-2 PASS-with-INFO — KR authors Phase 3/4 dispatch; includes: vestigial-ontology charge line (`gandalf/notes/2026-06-12-vestigial-ontology-discipline-candidate.md` § 5) + shadow+holy extension to `damage_resolver.py:324`; finding at `agentic_orchestration/qa/findings/2026-06-12-gamora-spatial-repoint-math-note-gate-2.md` | gamora (Phase 3/4); KR (dispatch authoring) |
 | **A3 population audit + PC parallel-factor measurement** | ⏳ QUEUED — parallel-safe with Phase 3/4 | gamora |
+| **Enemy elemental distribution algorithm** | ❌ NOT STARTED — gauntlet must guarantee coverage across all 7 damage types so immunity T4s are testable; separate dispatch; does not block Phase 3/4 | gamora + rocket; KR routes |
+| **T4-aware gear equipping algorithm** | ❌ NOT STARTED — kit construction reads T4 strategy and derives gear priorities (DEFENSIVE_TRADEOFF → mana/HP priority; full design in T4 architecture session); separate dispatch | rocket (gamora validation); gated on T4 architecture session |
 | **Thin parallel runner + surrogate-search / full-fidelity-gate pipeline** | ❌ NOT STARTED — fires after spatial re-point lands | gamora |
 
 ### 5.2 GENERATION TRACK — forward-architecture contract § 9 dispatches (rocket)
@@ -220,8 +222,9 @@ Replaces the per-agent multi-doc Phase-1 reading list with a focused short list.
 
 | Workstream | Status | Owner(s) |
 |---|---|---|
-| **T4 skill-profile design (chains-within-trees)** | ⏳ QUEUED — explicitly upstream of cycling regime (NOT blocking filter regime); T4-native recompose-lever vocabulary declared `T4-profile-native-pending` per contract § 8.2.3 | Matt + gandalf Pattern B |
-| **Vestigial-ontology kernel field/value register** | ⏳ READY — 3-field register (`archetype` NAME-ONLY / `range_profile` STRUCTURAL-BENIGN with dead value-domain / `energy_type` STRUCTURAL-CONSTRAINING closed enum); should land before/with Phase 3 dispatch so Gate-2 charge line has register to cite | gandalf; gamora consuming-site verification |
+| **T4 skill-profile design (chains-within-trees)** | ⏳ QUEUED — explicitly upstream of cycling regime (NOT blocking filter regime); T4-native recompose-lever vocabulary declared `T4-profile-native-pending` per contract § 8.2.3; **now also owns mana shield behavior spec + DEFENSIVE_TRADEOFF mana-shield gate design + T4-aware gear equipping algorithm design** | Matt + gandalf Pattern B |
+| **Vestigial-ontology kernel field/value register** | ⏳ READY — 3-field register (`archetype` NAME-ONLY / `range_profile` STRUCTURAL-BENIGN with dead value-domain / `energy_type` STRUCTURAL-CONSTRAINING closed enum + T4-strategy gate coupling); should land before/with Phase 3 dispatch so Gate-2 charge line has register to cite | gandalf; gamora consuming-site verification |
+| **DEFENSIVE_TRADEOFF reinstatement** | ⏳ QUEUED — reinstated with shadow+holy immunity; gate condition: mana energy type + mana shield in kit; mana shield behavior deferred to T4 architecture session; doc 47 annotation + decisions-log entry routed to jack-ryan; implementation: `damage_resolver.py:324` shadow→shadow+holy in Phase 3/4 dispatch; full gate condition in rocket post-architecture session; capture at `gandalf/notes/2026-06-12-defensive-tradeoff-reinstatement-mana-shield-gate.md` | jack-ryan (doc 47 + decisions-log); gamora Phase 3/4 (shadow+holy extension); rocket (gate condition, post-T4 session) |
 
 ### 5.5 PC / TRACK A
 
