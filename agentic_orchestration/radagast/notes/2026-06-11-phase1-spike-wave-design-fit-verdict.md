@@ -184,3 +184,23 @@ mantis flagged this in S6 § 4, § 8.6, and AGENT_STATE: the UE project has no `
 **Authored:** radagast 2026-06-11, Pattern A-deep design-fit verdict. NOT pushed (david-h wave-close push).
 
 **End of verdict.**
+
+---
+
+## ADDENDUM — 2026-06-11 (Meshy ≠ main-character scope correction)
+
+**Trigger:** Matt scope correction landed after this verdict committed, captured at `agentic_orchestration/gandalf/notes/2026-06-11-asset-pipeline-scope-correction-meshy-vs-modular.md`. The correction narrows a framing this verdict carried in § 1.1 (R1-retirement implications) and § 7 (the Mac-gandalf 6.8-economics routing). **Spike verdicts themselves are UNAFFECTED** (Matt verbatim) — S6 PASS, S5 PASS-with-notes, S1 PASS-with-notes all stand exactly as written. Only the *form-library / 6.8-economics extrapolation* is re-scoped below.
+
+**What changed (Matt verbatim intent via gandalf):** the Meshy image→3D→rig pipeline serves the **bestiary** — enemies, monsters, bosses, maybe an NPC or two — **not** the player-character surface. The main-character pipeline is the already-decided **modular character combo pack** built for character creation. S6's *avatar* was a valid spike subject (it proved the pipeline's legs end-to-end on the clean-humanoid class), but the **shipped player-character surface rides the modular pack, not Meshy.**
+
+**Re-scoping the framings this verdict carried:**
+
+1. **§ 1.1 "R1 RETIRED" — re-scope the win from form-library to BESTIARY corpus.** The retirement is correct and stands — the full text-to-image → image-to-3D → rigging chain is API-scriptable with zero manual steps. But the *value* is **bestiary-corpus economics, not player-form-library economics.** Where § 1.1 read the win as "keep flagged ONLY for corpus-scale non-humanoid kit-forms," re-read it as: ~$2.45/form fully-API-automatable is the **monster/boss/Rift-enemy/seasonal-mob number** — and for *that* corpus it is genuinely excellent (cheap trial-boss gallery, third-faction Rift enemy variety, seasonal mob population). The "kit-form" / player-form-library reading is withdrawn. R1's retirement does not improve player-form economics because player forms never rode Meshy.
+
+2. **§ 7 Mac-gandalf routing — the 6.8 repricing I routed is WITHDRAWN as stated.** My routed framing ("humanoid kit-forms are fully API-pipelineable; non-humanoid forms need separate validation") assumed player kit-forms ride Meshy. They do not. gandalf's "400 survivors × $2.45" 6.8 repricing is withdrawn at the source; player-facing character surfaces ride the modular-pack pipeline and 6.8 economics must be computed against **modular-pack composition**, not Meshy credits. **What I still correctly route to Mac-gandalf:** the bestiary-corpus economics datapoint (Meshy chain is API-clean at ~$2.45/form for the monster/boss/enemy corpus) — that remains a real, useful input for whatever bestiary-scale asset-resolution contract work follows. The non-humanoid validation caveat still applies, but now scoped to the **bestiary** (a quadruped boss, a winged Rift enemy may hit the manual path), not to player kit-forms.
+
+3. **The seasonal-spirit-form boundary is OPEN — do not pre-commit (Matt rules when 6.8 fires).** Which pipeline serves the **seasonal spirit forms** (the forms the player projects into in the Hall of Heroes) is unresolved: humanoid/near-humanoid forms → likely modular pack (character-creation surface); non-humanoid/fantastical forms (slime-class, beast-class isekai staples) → may exceed modular-pack coverage and need Meshy or a hybrid. The hall's emotional weight (each form recognizably the life lived) makes this a **design-significant boundary, not a cost optimization.** This verdict pre-commits neither way; Matt rules at 6.8.
+
+**Unaffected and re-affirmed:** the S6 design-fit verdict (clean-humanoid pipeline proved end-to-end, R1 retired, FBX-twin substitution accepted, D7-clean image→Meshy provenance) stands without qualification. The avatar-as-spike-subject was the right spike. The operator-framing compliance, S5/S1 verdicts, DXGI gate analysis, version-control recommendation, and render-session sequencing (§ 0, 2, 3, 5, 6) are entirely untouched by this correction — they concern scene assembly, not asset-pipeline sourcing.
+
+**Addendum authored:** radagast 2026-06-11, dispatched by david-h. NOT pushed (david-h wave-close push).
