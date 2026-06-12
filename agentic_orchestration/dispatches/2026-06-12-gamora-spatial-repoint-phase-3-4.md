@@ -98,3 +98,23 @@ if element in ("shadow", "holy") and getattr(defender, "t4_chaos_immune", False)
 KR authored this dispatch in the same Pattern-B session as the vestigial-ontology register and kernel field/value audit (2026-06-12). Matt could not open new sessions on mobile. The gamora Phase 3/4 dispatch was listed as the immediate next operational item in the 2026-06-11 session-close handoff.
 
 **Author:** knight-rider (acting), 2026-06-12. Gamora: fire when you next engage.
+
+---
+
+## Completion record (gamora, 2026-06-12)
+
+**STATUS:** COMPLETE — implementation + recalibration + golden-master validation done; routed to jack-ryan Gate-2. Milestone tag pending Gate-2 sign-off.
+
+**Item 1 (shadow+holy, § 2):** `damage_resolver.py:324` shadow-only chaos-immunity extended to shadow+holy. Verified in isolation (shadow+holy→0 vs immune defender; fire passes). No season_001010 golden-master delta (pre-T4 corpus). DONE.
+
+**Item 2 (Phase 3 adapter, § 1):** NEW module `spatial_gauntlet/spatial_resolver_adapter.py` (kernel READ-ONLY caller-side re-point — builds resolver inputs, consumes the damage FLOAT, geometry neutralized to single_target per hit so spatial targets_hit is the sole multi-target model). `SpatialEntity` gains `combatant_state`+`resolver_skills`; `entity_from_class_dict(...,*,player_class=None)` / `entity_from_monster_dict(...,*,monster=None)` thread full objects (production) or build a defaulted projection from the export dict (harness/smoke — export corpus does NOT round-trip `PlayerClass.model_validate`, verified empirically). `_apply_skill_damage` + `run_spatial_fight` + `ConvergenceUsageMode.run_slot` + `_run_spatial_slot` threaded. `SPATIAL_DAMAGE_SCALE` 4.0→**0.6** (Disc #24 single-param sweep; empirical correction Disc #11 — measured r_eff>1, opposite the note's first-order sign because the ×500→magnitude base swap dominates mitigation). DONE.
+
+**Item 3 (vestigial-ontology charge, § 3):** (a) new surface names substrate-truthful, not legacy ontology; (b) NO new required-native kernel-schema field; (c) threaded fields (archetype NAME-ONLY / range_profile BENIGN-default / energy_type as-is, no new value) match register rows. Compliance documented in MIGRATION.md v1.65 + Gate-2 handoff § 4. DONE.
+
+**Item 4 (Phase 4 validation, § 4):** 27/27 spatial structural tests PASS. Golden master re-captured at SDS=0.6 (new commit-grade oracle; self-verify 0/60 — bit-stable; pre-re-point oracle preserved git `5a7b079`). Saturation 95%→65%. 21 WR DOWN + 1 UP (mini_boss::class_0009, § 2.1-predicted) + 38 same; ZERO STOP. Geometry negative-contract HELD (4/60 dominant_geometry changes all TTK-explained). Cost re-check: matched-fight-length 3.41ms (below baseline); raw SDS=0.6 27.9ms=4.8× is fight-length driven; §5 re-measure trigger fires on raw, driver documented. DONE.
+
+**Artifacts:** math note §10/§11 actuals; MIGRATION.md v1.65 (NO cross-seam telemetry schema change); AGENT_STATE.md updated; Gate-2 handoff `gamora/notes/2026-06-12-spatial-repoint-phase-3-4-gate-2-handoff.md`.
+
+**Structural follow-on (out of scope, flagged jack-ryan/KR):** magic_pack saturation is HP-scope (not in MOB_HP_DIFFICULTY_SCENARIOS), not DPS-tunable — separate HP-multiplier-scope decision.
+
+**Smoke-line:** 27/27 spatial structural tests PASS; golden-master self-verify 0/60 (deterministic); 7 pre-existing test_cycle13_wave5_gauntlet_sim.py failures confirmed pre-existing via git-stash (unrelated subsystem; zero new failures).
