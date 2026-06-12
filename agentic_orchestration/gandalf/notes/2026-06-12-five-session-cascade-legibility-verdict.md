@@ -101,4 +101,26 @@ The companion-as-modifier-vector decision (S2 §0) deserves explicit praise and 
 
 ---
 
-**Sign-off:** gandalf, 2026-06-12. Anchors: hypothesis doc (2026-05-31), BC axes lock (2026-05-20), Sessions 1–5 specs, gamora handoff dispatch, session-close handoff. Pattern B verdict; auto-commit per standing discipline.
+## 6. ADDENDUM — kernel-claim verification against engine code (Matt follow-up, same session)
+
+Matt asked whether the mobile session's kernel-extension reasoning was accurate. Read-only inspection of `reincarnated-engine/src/reincarnated/simulation/` (fight_engine.py, combatant.py, fight_result.py, spatial_gauntlet/arena.py):
+
+| Mobile-session claim | Engine reality | Verdict |
+|---|---|---|
+| Current signature `simulate_fight(player: Combatant, enemy: Combatant)` | `simulate_fight(combatant_a: CombatantState, combatant_b: CombatantState, max_duration, seed, action_trace, 3× variance flags)` — fight_engine.py:107. Kernel is **symmetric**; no player/enemy asymmetry | Wrong in detail; additive-kwarg extension still viable. **Recommend `proxies_a`/`proxies_b` symmetric form** — free now, gives S5 L26/L39 enemy adds a future path |
+| Charge-stack = "an `_ENERGY_CONFIGS` entry" | `_ENERGY_CONFIGS: dict[str, tuple[float, bool, float]]` = (pool_max, start_full, regen_per_s) — combatant.py:322. No `regen_on_hit` or `skill_cost_model` concepts exist. Closest precedent: combo +1 on primary-attack **use** (fight_engine.py:750), not on **hit** | Understated. Table entry is trivial; **on-hit accumulation hook + spend-all cost model are new kernel behaviors**. Dispatch Item 4 scope estimate revised upward |
+| "Spatial gauntlet already implements terrain-reactive geometry" (S3 §3.2; dispatch Item 5 premise) | Zero "terrain" occurrences in simulation code. Only zone concept is `ChokeZone` — movement clamping (arena.py:104). No damage-modifying terrain anywhere | **Overclaim — terrain-reactive is greenfield.** Item 5 assessment request stands but premise corrected; S3 scope estimate revised |
+| ProxyCombatant additive; FightResult additive fields; golden-master anchor | FightResult clean dataclass (fight_result.py:37); brownfield-additive matches house style | Accurate |
+
+### 6.1 Charge-stack ruling — recommendation upgraded (supersedes § 2.2 item 2 Option A)
+
+Matt's challenge on the bin-detection conjunct surfaced a better resolution than structural-only detection. The lock's statistical conjunct (mean ≥0.75, var <0.20) deliberately encodes the build-then-HOLD experience; forcing spend-all kits into the bin structurally would pollute experiential coherence. **Upgraded recommendation (Q9 answer):**
+
+- Keep the spend-all threshold mechanic AND add a passive per-stack bonus while held
+- Rocket varies passive-vs-burst magnitudes per kit at generation
+- The optimal-rotation solver then yields hold-optimal kits (mean ≥0.75, low var → land in the locked charge-stack bin naturally) and spend-optimal kits (→ generator-spender bin, legitimately)
+- One energy type, two felt experiences, missing bin fills, **zero lock amendment**, substrate does the sorting — the PoE Discharge hold-vs-dump tension as a generation parameter
+
+---
+
+**Sign-off:** gandalf, 2026-06-12. Anchors: hypothesis doc (2026-05-31), BC axes lock (2026-05-20), Sessions 1–5 specs, gamora handoff dispatch, session-close handoff, engine simulation code (read-only verification, § 6). Pattern B verdict; auto-commit per standing discipline.
