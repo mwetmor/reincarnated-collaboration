@@ -12,6 +12,13 @@
 
 **GAMORA KERNEL HANDOFF:** fires immediately on Session 2 lock. Companion dispatch at `agentic_orchestration/dispatches/2026-06-12-gamora-proxy-kernel-handoff.md`.
 
+> **NORMALIZATION PASS (gandalf, 2026-06-12, Matt-authorized):** axis bin vocabulary re-pointed to the locked definitions in `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` § 3, and kernel premises corrected against engine code (read-only verification, see legibility verdict § 6). Three conventions apply throughout:
+> 1. **Generation-time vs measurement-time:** generation priors below bind to generation-time structural properties (declared `energy_type`, CC effect tags, skill geometry assignments) or to PREDICTED BC bins. Actual bins are measured downstream by the BC pipeline.
+> 2. **Energy types are not Axis 5 bins:** focus/mana/rage are declared `energy_type` values (structural). The locked Axis 5 bins are HP-economy / damage-taken-converts / charge-stack / starved / overflow / generator-spender / steady (measured). Prior tables below label energy rows accordingly.
+> 3. **Axis 2A deferral retirement:** the lock doc marks Axis 2A (Proxy Density) as ALWAYS sim-deferred because the sim was solo-only. The ProxyCombatant kernel extension (§ 3) RETIRES that deferral — once proxies are fight entities, Axis 2A becomes measurable. This is a lock-doc consequence to record at Session 2 ratification, not an amendment to any locked bin.
+>
+> Delta summary: `gandalf/notes/2026-06-12-normalization-pass-delta-summary.md`.
+
 ---
 
 ## 0. Design mandate
@@ -71,7 +78,7 @@ The following 14 types are confirmed mechanically distinct by the proxy taxonomy
 
 - ProxyCombatant is a NEW entity class; NOT an extension of Combatant
 - Proxies are fight-participants, NOT fight opponents (they fight alongside player, not against)
-- Kernel remains brownfield: ProxyCombatant is additive — existing `simulate_fight` path unchanged when `player_proxies=None`
+- Kernel remains brownfield: ProxyCombatant is additive — existing `simulate_fight` path unchanged when `proxies_a=None` and `proxies_b=None`
 - All 14 proxy types map to this single interface using optional feature groups
 
 ### 3.2 Interface spec
@@ -200,18 +207,21 @@ class ProxyThresholdEvent:
 
 ### 3.4 simulate_fight signature extension
 
-Current signature: `simulate_fight(player: Combatant, enemy: Combatant) → FightResult`
+**Actual current signature (verified against `simulation/fight_engine.py:107`):** the kernel is SYMMETRIC — `simulate_fight(combatant_a: Combatant, combatant_b: Combatant, ...)` with additional kwargs (max_duration, seed, spatial/gauntlet parameters). There is no player/enemy asymmetry in the kernel; "player" and "enemy" are caller-side roles.
 
-**Proposed extension:**
+**Proposed extension (symmetric, matching kernel convention):**
 ```python
 def simulate_fight(
-    player: Combatant,
-    enemy: Combatant,
-    player_proxies: list[ProxyCombatant] | None = None,
+    combatant_a: Combatant,
+    combatant_b: Combatant,
+    *,
+    proxies_a: list[ProxyCombatant] | None = None,
+    proxies_b: list[ProxyCombatant] | None = None,
+    # ... existing kwargs unchanged
 ) → FightResult:
 ```
 
-Backward compatibility: `player_proxies=None` produces identical fight behavior to current. Existing golden-master oracle is the regression anchor.
+Symmetry preserves the kernel's design invariant AND gives the validation seam future enemy-side proxies (gauntlet bosses with adds) for free. The player-proxy use case passes `proxies_a` only. Backward compatibility: both default to `None`, producing identical fight behavior to current. Existing golden-master oracle is the regression anchor.
 
 ### 3.5 FightResult extension (telemetry)
 
@@ -250,18 +260,20 @@ NPC/Companion companions are generated via an NPC/Mercenary season. They are FUL
 
 These are prior weights on axis bin selection during rocket's generation phase. Higher weight = higher selection probability. Normal season weight = 1.0 for all bins.
 
-| Axis | Bin | NPC weight | Rationale |
+| Axis / property | Bin / value (locked vocabulary) | NPC weight | Rationale |
 |---|---|---|---|
-| Axis 2B (Control Density) | HIGH CC ratio | 2.5 | Support role; CC primary |
-| Axis 2B (Control Density) | LOW CC ratio | 0.5 | Deprioritize damage-only |
-| Axis 4 (Defensive Profile) | Sustain | 2.0 | NPC must survive; reactive sustain |
-| Axis 4 (Defensive Profile) | Glass Canon | 0.2 | NPC fragility is anti-pattern |
-| Axis 3A (Damage Tempo) | Sustained | 1.5 | Consistent contribution preferred |
-| Axis 3A (Damage Tempo) | Burst | 0.7 | NPC burst risks waste |
-| Axis 5 (Resource Economy) | Focus | 1.8 | Focus energy supports patience |
-| Axis 5 (Resource Economy) | Mana | 1.4 | Mana supports the kit space |
-| Axis 5 (Resource Economy) | Rage | 0.5 | Rage is player-style energy |
-| Axis 1 (Engagement Profile) | All bins | 1.0 | No skew; NPC range varies |
+| Axis 2B (Control Density) | control-pure (predicted; ≥60% control share) | 2.5 | Support role; CC primary |
+| Axis 2B (Control Density) | mixed (predicted; 20–60%) | 1.5 | Hybrid support viable |
+| Axis 2B (Control Density) | damage-pure (predicted; <20%) | 0.5 | Deprioritize damage-only |
+| Axis 4 (Defensive Profile) | mitigator (predicted) | 2.0 | NPC must survive; reactive sustain maps to mitigator |
+| Axis 4 (Defensive Profile) | tank (predicted; eHP ratio ≥5.0) | 1.5 | Durable companion acceptable |
+| Axis 4 (Defensive Profile) | glass (predicted; eHP ratio <2.0) | 0.2 | NPC fragility is anti-pattern |
+| Axis 3B (Amplitude Variance) | flat (predicted; CV <0.3) | 1.5 | Consistent contribution preferred *(original draft said "Axis 3A Sustained" — consistency is a 3B property, not tempo)* |
+| Axis 3B (Amplitude Variance) | spiky (predicted; CV ≥0.7) | 0.7 | NPC burst risks waste |
+| `energy_type` (structural, generation-time — NOT an Axis 5 bin) | focus | 1.8 | Focus energy supports patience |
+| `energy_type` (structural) | mana | 1.4 | Mana supports the kit space |
+| `energy_type` (structural) | rage | 0.5 | Rage is player-style energy |
+| Axis 1 (Engagement) | All 6 bins (close/mid/ranged × fast/slow) | 1.0 | No skew; NPC range varies |
 
 ### 4.3 Faction gating in companion assignment
 
@@ -294,18 +306,18 @@ Monster companions use the Meshy pipeline (JSON → image gen → Meshy 3D model
 
 ### 5.2 Monster BC axis prior weights
 
-| Axis | Bin | Monster weight | Rationale |
+| Axis / property | Bin / value (locked vocabulary) | Monster weight | Rationale |
 |---|---|---|---|
-| Axis 2B (Control Density) | HIGH CC ratio | 3.0 | Monsters are CC specialists |
-| Axis 2B (Control Density) | LOW CC ratio | 0.3 | |
-| Axis 2 (Damage Geometry) | DoT_stack | 1.8 | Monster DoT + CC combination |
-| Axis 2 (Damage Geometry) | AoE_burst | 1.5 | Monster AoE CC |
-| Axis 4 (Defensive Profile) | Glass Canon | 0.1 | Monster fragility invalid |
-| Axis 4 (Defensive Profile) | Evasion | 1.6 | Monster evasion creates tension |
-| Axis 3A (Damage Tempo) | Sustained | 2.0 | Persistent threat model |
-| Axis 3A (Damage Tempo) | Burst | 0.5 | Monster burst punishes player; deprioritize |
-| Axis 5 (Resource Economy) | Rage | 1.5 | Monster rage: primal accumulation |
-| Axis 5 (Resource Economy) | Focus | 1.5 | Monster patience: focus energy |
+| Axis 2B (Control Density) | control-pure (predicted) | 3.0 | Monsters are CC specialists |
+| Axis 2B (Control Density) | damage-pure (predicted) | 0.3 | |
+| Layer 2 `stackability` (structural — NOT an Axis 2 geometry bin) | stacking DoT skills | 1.8 | Monster DoT + CC combination *(original draft mislabeled as "Axis 2 DoT_stack")* |
+| Axis 2 (Damage Geometry) | small-AOE / large-AOE (predicted) | 1.5 | Monster AoE CC |
+| Axis 4 (Defensive Profile) | glass (predicted) | 0.1 | Monster fragility invalid |
+| Axis 4 (Defensive Profile) | dodger (predicted; avoidance ≥0.40) | 1.6 | Monster evasion creates tension *(original draft said "Evasion" — locked bin name is dodger)* |
+| Axis 3B (Amplitude Variance) | flat (predicted; CV <0.3) | 2.0 | Persistent threat model |
+| Axis 3B (Amplitude Variance) | spiky (predicted; CV ≥0.7) | 0.5 | Monster burst punishes player; deprioritize |
+| `energy_type` (structural, generation-time — NOT an Axis 5 bin) | rage | 1.5 | Monster rage: primal accumulation |
+| `energy_type` (structural) | focus | 1.5 | Monster patience: focus energy |
 
 ---
 
@@ -334,14 +346,16 @@ Modifiers compose additively across modifier types (no multiplicative compoundin
 
 A companion kit's BC archetype (its axis signature) determines which modifier types it contributes and at what magnitude. Mapping table (rocket derives modifier vector from companion kit's generated BC archetype):
 
-| Primary companion archetype signature | Dominant modifier type(s) | Secondary modifier type(s) |
+| Primary companion archetype signature (locked vocabulary) | Dominant modifier type(s) | Secondary modifier type(s) |
 |---|---|---|
-| HIGH Axis 2B + Sustain Axis 4 | `cc_duration_mult` (near cap) | `survivability_mod` (mid) |
-| AoE_burst Axis 2 + Burst Axis 3A | `damage_amp` (near cap) | `aoe_radius_mod` (mid) |
-| Focus/Mana Axis 5 + Sustained Axis 3A | `resource_gen_mod` (mid) | `cc_duration_mult` (low) |
-| Evasion Axis 4 + any Axis 2 | `survivability_mod` (near cap) | `aoe_radius_mod` (low) |
-| DoT_stack Axis 2 + HIGH CC Axis 2B | `enemy_cc_mult` (monster only; near cap) | `cc_duration_mult` (high) |
-| Sustain Axis 4 + resource Axis 5 | `resource_gen_mod` (near cap) | `survivability_mod` (mid) |
+| Axis 2B ∈ {control-pure, mixed} + Axis 4 ∈ {mitigator, tank} | `cc_duration_mult` (near cap) | `survivability_mod` (mid) |
+| Axis 2 ∈ {small-AOE, large-AOE} + Axis 3B = spiky | `damage_amp` (near cap) | `aoe_radius_mod` (mid) |
+| `energy_type` ∈ {focus, mana} + Axis 3B = flat | `resource_gen_mod` (mid) | `cc_duration_mult` (low) |
+| Axis 4 = dodger + any Axis 2 | `survivability_mod` (near cap) | `aoe_radius_mod` (low) |
+| Layer 2 stacking-DoT dominant + Axis 2B = control-pure | `enemy_cc_mult` (monster only; near cap) | `cc_duration_mult` (high) |
+| Axis 4 ∈ {mitigator, tank} + Axis 5 ∈ {steady, generator-spender} | `resource_gen_mod` (near cap) | `survivability_mod` (mid) |
+
+*(Note: companion kits HAVE run through the BC pipeline by modifier-derivation time — these are MEASURED bins, not predictions. This is the one table in this spec where measurement-time vocabulary applies directly.)*
 
 Intermediate archetype signatures: interpolate between nearest rows. Rocket computes modifier vector at kit finalization time; modifier vector is stored in kit record as a companion-tagged field.
 
@@ -376,6 +390,8 @@ Faction count: **8 factions** (enough to create meaningful restriction without d
 | **Void Covenant** | Any lineage (liminal / cosmically displaced) | Any period (void-touched) | Cosmic horror, void, void-arcane |
 
 **Void Covenant is a flex faction:** kits whose register = cosmic horror / void can pair with kits from any other faction. This prevents void-register kits from deadlocking the companion pool.
+
+> **Q10 — FACTION COVERAGE GAP (flagged at normalization pass, 2026-06-12):** Session 4's generation directives draw from **14 cultural lineages**, but the 8 factions above cover only the European / East Asian / MENA / Norse-Celtic / Greco-Roman / industrial slices. **Mesoamerican, sub-Saharan African, and South/Southeast Asian lineages have no faction home** — under § 7.3 rule 3 they get nearest-match absorbed into thematically wrong factions (a Mesoamerican obsidian-priest kit lands in "Sunfire Dominion" or "Bronze Sanctum" by tie-break accident). Resolution options: (a) add 1–2 factions covering the gap lineages; (b) define explicit absorption mappings as intentional design; (c) re-derive factions empirically from the generated population (substrate-led). Q10 joins the Session 1 dialogue queue (Q1–Q9). The marginal-lineage tagging discipline (`canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md`) applies: semantic-layer faction identity requires rep-audit, not just nearest-centroid assignment.
 
 ### 7.3 Faction assignment rules (rocket seam)
 
@@ -419,17 +435,21 @@ At Monster season generation, each generated monster kit receives a `binding_cat
 ### 9.1 NPC/Mercenary season skew (applied by rocket at generation time)
 
 ```python
-NPC_AXIS_WEIGHTS = {
-    "axis_2b_high_cc": 2.5,
-    "axis_2b_low_cc": 0.5,
-    "axis_4_sustain": 2.0,
-    "axis_4_glass_cannon": 0.2,
-    "axis_3a_sustained": 1.5,
-    "axis_3a_burst": 0.7,
-    "axis_5_focus": 1.8,
-    "axis_5_mana": 1.4,
-    "axis_5_rage": 0.5,
-    # All unspecified bins: weight = 1.0
+NPC_GENERATION_PRIORS = {
+    # Predicted-BC-bin priors (locked bin names; bins measured downstream)
+    "axis2b_control_pure": 2.5,
+    "axis2b_mixed": 1.5,
+    "axis2b_damage_pure": 0.5,
+    "axis4_mitigator": 2.0,
+    "axis4_tank": 1.5,
+    "axis4_glass": 0.2,
+    "axis3b_flat": 1.5,
+    "axis3b_spiky": 0.7,
+    # Structural generation-time priors (declared energy_type; NOT Axis 5 bins)
+    "energy_type_focus": 1.8,
+    "energy_type_mana": 1.4,
+    "energy_type_rage": 0.5,
+    # All unspecified bins/values: weight = 1.0
 }
 
 NPC_T4_ELIGIBLE = [
@@ -444,18 +464,21 @@ NPC_T4_ELIGIBLE = [
 ### 9.2 Monster season skew (applied by rocket at generation time)
 
 ```python
-MONSTER_AXIS_WEIGHTS = {
-    "axis_2b_high_cc": 3.0,
-    "axis_2b_low_cc": 0.3,
-    "axis_2_dot_stack": 1.8,
-    "axis_2_aoe_burst": 1.5,
-    "axis_4_glass_cannon": 0.1,
-    "axis_4_evasion": 1.6,
-    "axis_3a_sustained": 2.0,
-    "axis_3a_burst": 0.5,
-    "axis_5_rage": 1.5,
-    "axis_5_focus": 1.5,
-    # All unspecified bins: weight = 1.0
+MONSTER_GENERATION_PRIORS = {
+    # Predicted-BC-bin priors (locked bin names; bins measured downstream)
+    "axis2b_control_pure": 3.0,
+    "axis2b_damage_pure": 0.3,
+    "axis2_small_aoe": 1.5,
+    "axis2_large_aoe": 1.5,
+    "axis4_glass": 0.1,
+    "axis4_dodger": 1.6,
+    "axis3b_flat": 2.0,
+    "axis3b_spiky": 0.5,
+    # Structural generation-time priors (Layer 2 + declared energy_type; NOT BC bins)
+    "layer2_stackability_stacking": 1.8,
+    "energy_type_rage": 1.5,
+    "energy_type_focus": 1.5,
+    # All unspecified bins/values: weight = 1.0
 }
 
 MONSTER_T4_ELIGIBLE = [
@@ -501,6 +524,7 @@ Sessions 3 and 4 run in parallel with gamora's kernel extension work.
 | 5 | Win-rate gate alternative for NPC/Monster kits: confirm that modifier vector cap bounds are the correct in-band criterion (replaces win-rate gate) | MEDIUM | Balance architecture |
 | 6 | Faction coverage for monster companions: do monsters share the same faction taxonomy as NPCs, or do monsters use binding categories exclusively for pool gating? | MEDIUM | Architecture decision |
 | 7 | Fragile Escort reward contribution model: reward is described as "resource drops, damage bonus for player while alive." How is resource-drop simulated in fight loop vs loadout layer? | LOW | Gamora boundary |
+| 8 | **Q10 (faction coverage gap):** Mesoamerican / sub-Saharan African / South-SE Asian lineages have no faction home among the 8 factions (§ 7.2 flag). Add factions, define intentional absorption, or derive factions from substrate? | HIGH | Matt call; joins Session 1 dialogue queue |
 
 ---
 

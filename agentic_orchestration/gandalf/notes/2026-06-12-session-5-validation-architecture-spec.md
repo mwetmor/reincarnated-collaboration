@@ -17,6 +17,8 @@
 4. Balance validation protocol for companion system — gamora + rocket seam
 5. 5 hypothesis test specifications with pass/fail criteria
 
+> **NORMALIZATION PASS (gandalf, 2026-06-12, Matt-authorized):** axis bin vocabulary re-pointed to the locked definitions in `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` § 3. Critical methodological correction in Test 3: axes whose bin definition IS a telemetry formula (Axis 3A = damage events/s; Axis 3B = per-event CV) cannot be validated by showing telemetry differences between their bins — that is circular. For those axes the right test is POPULATION COVERAGE (do generated kits actually populate all bins). Behavioral-divergence testing applies to axes where the test metric differs from the bin definition (Axes 1, 2, 2B, 4, 5). A new § 6 maps validation outputs onto the locked 68,040-cell pattern grid. Delta summary: `gandalf/notes/2026-06-12-normalization-pass-delta-summary.md`.
+
 ---
 
 ## 0. Design mandate
@@ -45,7 +47,7 @@ The level code (L1, L13, L26, L39) maps to the hypothesis doc's "power-plane val
 ### 1.2 Enemy mechanics for L26 and L39
 
 **L26 additions:**
-- AoE attacks: enemy gains 1-2 AoE skills (geometry = AoE_burst; 35% of enemy HP-based damage in 5m radius; 8s cooldown each)
+- AoE attacks: enemy gains 1-2 AoE skills (rich geometry `nova` or equivalent circle-spatial AOE; 35% of enemy HP-based damage in 5-tile radius; 8s cooldown each)
 - Shield phase: enemy activates a damage absorption shield at 60% HP; absorbs up to 30% of its remaining HP as incoming damage before breaking; lasts max 6 seconds
 
 **L39 additions (adds to L26 mechanics):**
@@ -53,7 +55,7 @@ The level code (L1, L13, L26, L39) maps to the hypothesis doc's "power-plane val
 - CC skills: enemy gains 1 CC skill (slow or root; applied to player; 2.5s duration; 12s cooldown)
 - Immune phases: at Phase 3 entry and at 10% HP, enemy becomes immune to the player's dominant damage type for 4 seconds (forces damage-type diversity to complete the fight)
 
-**Implementation note (gamora):** L26 and L39 enemy mechanics use existing fight_engine infrastructure applied to enemy Combatant objects. AoE skills: enemy gains skills in its skill list with geometry = AoE_burst. Shield phase: fight_engine adds `damage_absorption_remaining: float` field to Combatant (additive — not a structural change). Phase transitions: threshold_events on enemy (same as ProxyCombatant threshold_events; gamora may reuse the interface). CC skills: enemy uses same CC effect system as player kit. Immune phases: `immune_element_temporary: str | None` field on Combatant; set at Phase 3 entry; cleared after 4 seconds.
+**Implementation note (gamora):** L26 and L39 enemy mechanics use existing fight_engine infrastructure applied to enemy Combatant objects. AoE skills: enemy gains AOE skills in its skill list (circle-spatial rich geometry). Shield phase: fight_engine adds `damage_absorption_remaining: float` field to Combatant (additive — not a structural change). Phase transitions: threshold_events on enemy (same as ProxyCombatant threshold_events; gamora may reuse the interface). CC skills: enemy uses same CC effect system as player kit. Immune phases: `immune_element_temporary: str | None` field on Combatant; set at Phase 3 entry; cleared after 4 seconds.
 
 ### 1.3 Gauntlet configuration spec (gamora interface)
 
@@ -94,7 +96,7 @@ Golden master at L13 remains the primary regression anchor. L26 and L39 results 
 - Enemy mechanics: none beyond basic auto-attack
 - Metric: `fast_clear_rate` AND `mean_fight_duration_s` (two-metric evaluation)
 
-**Speedfarm winner profile:** burst tempo kits (Axis 3A = burst), glass cannon builds, Ravager/Striker labels, MOMENTUM_CASCADE T4 (Cascade bursts short fights).
+**Speedfarm winner profile (locked vocabulary):** front-loaded kits (`front_load_profile` = front-loaded, Session 3 § 5.1), Axis 3B = spiky, Axis 4 = glass, Ravager/Striker labels, MOMENTUM_CASCADE T4 (Cascade bursts short fights).
 
 ### 2.2 Push mode
 
@@ -107,7 +109,7 @@ Golden master at L13 remains the primary regression anchor. L26 and L39 results 
 - Enemy mechanics: L26 mechanics (AoE + shield phase) apply
 - Metric: `win_rate` (standard WR) AND `survival_rate` (fights survived regardless of outcome)
 
-**Push winner profile:** sustained tempo kits, sustain Axis 4, DEFENSIVE_TRADEOFF T4, SACRIFICE_ASCENDANCY (HP economy), Warden/Sentinel labels.
+**Push winner profile (locked vocabulary):** even-output kits (`front_load_profile` = even; Axis 3B = flat), Axis 4 ∈ {mitigator, tank}, DEFENSIVE_TRADEOFF T4, SACRIFICE_ASCENDANCY (HP-economy Axis 5), Warden/Sentinel labels.
 
 ### 2.3 Implementation (gamora seam)
 
@@ -243,8 +245,8 @@ For companion pairings with a valid convergence item (Session 1 § 4):
 
 **Pass criteria:**
 - Top-10 Speedfarm kits and Top-10 Push kits share ≤ 4 kits in common (≤ 40% overlap)
-- Axis 3A = Burst kits have mean Speedfarm fast_clear_rate ≥ 10% above Axis 3A = Sustained mean (burst kits genuinely better at Speedfarm)
-- Axis 4 = Sustain kits have mean Push win_rate ≥ 10% above Axis 4 = Glass_canon mean (sustain kits genuinely better at Push)
+- `front_load_profile` = front-loaded kits have mean Speedfarm fast_clear_rate ≥ 10% above `front_load_profile` = even mean (front-loaded kits genuinely better at Speedfarm)
+- Axis 4 ∈ {mitigator, tank} kits have mean Push win_rate ≥ 10% above Axis 4 = glass mean (durable kits genuinely better at Push)
 
 **Fail criteria / action:**
 - Top-10 overlap > 4 kits: variant diversity not achieved; investigate whether Speedfarm config is differentiated enough (time cap may need lowering; enemy HP may need further reduction)
@@ -257,19 +259,29 @@ For companion pairings with a valid convergence item (Session 1 § 4):
 
 **Question:** Do kits in different BC axis bins actually produce meaningfully different fight experiences in telemetry?
 
-**Setup:**
-- For each BC axis with ≥ 2 bins, compare fight telemetry between the highest and lowest bins
-- Axes to test: Axis 1 (close vs long range), Axis 2 (single_target vs AoE), Axis 2B (HIGH vs LOW control_density), Axis 3A (burst vs sustained), Axis 4 (glass_canon vs sustain)
+**Methodological split (normalization-pass correction):** two test types, by axis category —
 
-**Pass criteria per axis:**
-- Axis 1 (range): close_range kits have mean fight_duration ≤ 0.85 × long_range fight_duration (close kits end fights faster on average)
-- Axis 2 (geometry): AoE kits have mean `enemies_hit_per_skill_use` ≥ 1.5× single_target kits
-- Axis 2B (control density): HIGH CC kits have mean `cc_events_per_fight` ≥ 3× LOW CC kits
-- Axis 3A (tempo): burst kits have mean `t4_capstone_damage_pct` in first 3s ≥ 40%; sustained kits ≤ 20%
-- Axis 4 (defense): sustain kits have mean `player_hp_remaining_pct` at fight end ≥ 1.5× glass_canon kits
+- **Behavioral-divergence tests** apply where the test metric DIFFERS from the bin definition (Axes 1, 2, 2B, 4): showing the bins differ on an independent metric is genuine validation.
+- **Population-coverage tests** apply where the bin definition IS the telemetry formula (Axis 3A = damage events/s; Axis 3B = per-event CV; Axis 5 = resource-trace statistics): a divergence test against the defining metric would be circular (events/s bins differ on events/s, by construction). For these, the validation question is whether generation actually POPULATES the bins.
+
+**Setup:**
+- Divergence axes: compare fight telemetry between extreme bins
+- Coverage axes: count in-band corpus population per bin
+
+**Pass criteria — behavioral divergence:**
+- Axis 1 (engagement): close-bin kits (close-fast/close-slow) have mean fight_duration ≤ 0.85 × ranged-bin kits' fight_duration (close kits end fights faster on average)
+- Axis 2 (geometry): AOE-bin kits (small-AOE/large-AOE) have mean `enemies_hit_per_skill_use` ≥ 1.5× single-target-bin kits
+- Axis 2B (control density): control-pure kits have mean `cc_events_per_fight` ≥ 3× damage-pure kits
+- Axis 4 (defense): mitigator/tank kits have mean `player_hp_remaining_pct` at fight end ≥ 1.5× glass kits
+
+**Pass criteria — population coverage:**
+- Axis 3A: all 3 bins (low/medium/high events-per-second) populated with ≥ 5% of in-band corpus each
+- Axis 3B: all 3 bins (flat/variable/spiky) populated with ≥ 5% of in-band corpus each
+- Axis 5: ≥ 5 of 7 bins populated with ≥ 3% of in-band corpus each; charge-stack bin specifically populated by ≥ N hold-optimal charge-stack kits (N pending Q9 resolution — the hold-vs-spend design determines whether any kit CAN reach the charge-stack bin)
 
 **Fail criteria / action:**
-- Any axis pair shows no significant behavioral difference (< 10% separation on its metric): the BC axis may not be capturing the intended experiential dimension; session produces a finding for Matt and gandalf to revisit the axis definition
+- Divergence axis shows no significant behavioral difference (< 10% separation on its metric): the BC axis may not be capturing the intended experiential dimension; session produces a finding for Matt and gandalf to revisit the axis definition
+- Coverage axis has empty or near-empty bins: generation is not producing kits across the locked bin range; loop to Sessions 3/4 generation directives (priors, Layer 2 assignment rules)
 - Matt reviews per-axis results and rules on whether the axis definitions are sufficiently capturing distinct experiences
 
 ---
@@ -315,7 +327,24 @@ For companion pairings with a valid convergence item (Session 1 § 4):
 
 ---
 
-## 6. Session 5 open questions
+## 6. Validation outputs → pattern-cell mapping (added at normalization pass)
+
+The locked QD pattern grid is **68,040 cells** = Axis 1 (6) × Axis 2 (5) × Axis 2A (3) × Axis 2B (3) × Axis 3A (3) × Axis 3B (3) × Axis 4 (4) × Axis 5 (7). Session 5 outputs must land ON this grid, not beside it:
+
+| Session 5 output | Pattern-cell mapping |
+|---|---|
+| Gauntlet results (L1/L13/L26/L39) | Per-cell WR records: each in-band kit's measured 8-axis bin tuple IS its cell coordinate; difficulty-banded WR attaches to the cell |
+| Speedfarm / Push metrics | Per-cell content-type performance: `fast_clear_rate` and Push `win_rate` attach to occupied cells, enabling "which cell regions excel where" queries |
+| Test 3 coverage results | Per-axis marginal occupancy counts over the grid; empty-region reports (contiguous unoccupied cell volumes) feed Sessions 3/4 generation-directive revision |
+| Attribution tracking (§ 3) | T4-strategy × cell-region cross-tabulation: which T4 strategies live in which cell neighborhoods (validates Session 1 eligibility gates against measured placement) |
+| Axis 2A measurements | NEWLY MEASURABLE post-ProxyCombatant (the lock doc's sim-deferral retires with Session 2 § 3 — record at ratification): proxy-density bins start populating the 2A dimension for proxy-family kits |
+| Predicted-vs-measured deltas | Per-kit comparison of generation-time predicted bins (eligibility gates, priors) vs BC-measured bins; systematic prediction misses are a generation-directive calibration signal, not a sim bug |
+
+**Occupancy expectation discipline:** 400 in-band kits cannot populate 68,040 cells (~0.6% max occupancy). The grid is a COORDINATE SYSTEM, not a fill target. Coverage tests (Test 3) assert per-axis MARGINAL coverage; cell-level sparsity is expected and unremarkable. What matters: no locked bin is structurally unreachable by generation (Q9 is exactly such a structural-reachability question for the charge-stack bin).
+
+---
+
+## 7. Session 5 open questions
 
 | # | Question | Priority |
 |---|---|---|
@@ -329,7 +358,7 @@ For companion pairings with a valid convergence item (Session 1 § 4):
 
 ---
 
-## 7. Session 5 sequencing and session context
+## 8. Session 5 sequencing and session context
 
 | Gate | Required completion before Session 5 runs |
 |---|---|

@@ -16,6 +16,8 @@
 4. Control density measurement methodology (Axis 2B formalization)
 5. Cognitive load metric definition (enables RESONANCE_LOOP and TEMPORAL_CHARGE eligibility gates)
 
+> **NORMALIZATION PASS (gandalf, 2026-06-12, Matt-authorized):** axis vocabulary re-pointed to the locked definitions in `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` § 3; geometry vocabulary re-pointed to the engine's actual three layers (rich 24-type `VALID_GEOMETRY_TYPES` in `generation/geometry_derivation.py` → spatial 6-type enum → Axis 2 BC bins); kernel premises corrected against code. Key corrections in this doc: Axis 5 ALREADY has 7 locked bins including charge-stack (68,040 cells already counts it — the original "6 bins, 81,648 cells" math was wrong); Axis 2B locked bins are damage-pure/mixed/control-pure at 20%/60% effect-budget-weighted (not HIGH/MED/LOW at 50%/25% count-ratio); Axis 3A is locked as damage events-per-second low/medium/high (the first-3-seconds metric here is a NEW proposed "front-load profile" metric, not Axis 3A); Axis 3B is locked as flat/variable/spiky at per-event CV 0.3/0.7 (not HIGH/LOW at 0.60); `beam_channel` EXISTS in engine generation vocabulary (the new work is sim-side beam mechanics, not the geometry type). Delta summary: `gandalf/notes/2026-06-12-normalization-pass-delta-summary.md`.
+
 ---
 
 ## 0. Design mandate
@@ -91,7 +93,7 @@ The four dimensions are assigned at skill generation time. Rules by skill type:
 - `magnitude_pattern ∈ {flat, scaling, escalating}` (escalating for ramp DoTs)
 - `scaling_pattern ∈ {player_level, gear_tier, stack_count}` (stack-count scaling for ramp-up DoTs)
 
-**Burst skills (damage geometry = AoE_burst):**
+**Burst AOE skills (engine spatial geometry ∈ {circle, cone, line}; predicted Axis 2 ∈ {small-AOE, large-AOE}):**
 - `trigger ∈ {on_use, on_hit}` (AoE can be instant or after travel)
 - `stackability = non_stacking` (AoE bursts don't stack with themselves)
 - `magnitude_pattern ∈ {flat, burst_spike, threshold_burst}` (burst-oriented patterns)
@@ -139,49 +141,58 @@ This complements the gamora kernel handoff (§ 4) which defines the `_ENERGY_CON
 | DEFENSIVE_TRADEOFF | NO | DEFENSIVE_TRADEOFF requires `energy_type == mana` (see vestigial-ontology register) |
 | All others | COMPATIBLE | No eligibility conflict with charge-stack unless explicitly noted |
 
-### 2.3 Axis 5 bin assignment
+### 2.3 Axis 5 bin relationship (corrected at normalization pass)
 
-| energy_type | Axis 5 bin |
-|---|---|
-| mana | Mana |
-| rage | Rage |
-| combo | Combo |
-| focus | Focus |
-| stamina-as-resource | Stamina |
-| **charge-stack** | **Charge-Stack (new bin — fills missing Axis 5 slot)** |
+**The original draft's energy_type → Axis 5 bin identity table was wrong on two counts and has been removed:**
 
-QD grid update: Axis 5 now has 6 bins (was 5). The QD grid dimensions expand from 8 axes to accommodate. Total QD cell count delta: existing cells × (6/5) = 68,040 × 1.2 = 81,648 cells at full expansion. This is the generation-side implication of the new energy_type; confirm with gamora + rocket that cell count expansion does not break QD iteration.
+1. **Energy types are NOT Axis 5 bins.** The locked Axis 5 bins (lock doc § 3) are MEASURED resource-usage patterns: **HP-economy / damage-taken-converts / charge-stack / starved / overflow / generator-spender / steady** — 7 bins. Mana/rage/combo/focus are declared `energy_type` values (generation-time structural properties). A mana kit can MEASURE as starved, steady, or generator-spender depending on its rotation economics.
+2. **No grid expansion occurs.** The locked 68,040-cell count (6×5×3×3×3×3×4×7) ALREADY includes the 7-bin Axis 5 with charge-stack. Adding the charge-stack `energy_type` populates an existing bin; it does not add one. The original "6 bins (was 5) → 81,648 cells" arithmetic is retracted.
+
+**Q9 — hold-vs-spend (pending Matt ruling, joins Session 1 dialogue queue):** the locked charge-stack bin detects build-then-HOLD behavior (mean normalized resource ≥0.75, variance <0.20). A spend-all threshold-burst rotation (§ 2.1) produces a sawtooth (mean ≈0.25–0.5, high variance) that would measure as **starved or generator-spender, NOT charge-stack**. Recommended resolution (verdict § 6.1): keep spend-all AND add a passive per-stack bonus while held; rocket varies passive-vs-burst magnitudes per kit so the optimal-rotation solver yields hold-optimal kits (which measure into charge-stack) and spend-optimal kits (which measure into generator-spender). Zero lock amendment; the PoE Discharge hold-vs-spend tension becomes a generation parameter.
 
 ---
 
 ## 3. Damage geometry types: terrain_reactive + beam
 
-### 3.1 Current geometry type catalog
+### 3.1 Geometry vocabulary — three layers (corrected at normalization pass)
 
-| Geometry type | Status | Current sim support |
+The original draft's 5-row geometry catalog ("single_target / AoE_burst / DoT_stack / terrain_reactive / beam") matched no engine layer and has been replaced. The engine has **three geometry layers**:
+
+| Layer | Vocabulary | Where |
 |---|---|---|
-| single_target | BUILT | Yes |
-| AoE_burst | BUILT | Yes |
-| DoT_stack | BUILT | Yes |
-| terrain_reactive | NOT BUILT | Pending gamora assessment (kernel handoff § 5) |
-| beam | NOT BUILT | Session 3 spec |
+| Rich skill geometry (24 types) | `projectile_single`, `melee_single`, `nova`, `cone_spray`, **`beam_channel`**, `chain_lightning`, `totem`, … | `generation/geometry_derivation.py` `VALID_GEOMETRY_TYPES` |
+| Spatial enum (6 types) | circle / cone / line / point / mixed / none | `_RICH_TO_SPATIAL` mapping (`beam_channel` → `line`) |
+| Axis 2 BC bins (5, locked) | single-target / small-AOE / large-AOE / chain / multi-spawn | BC pipeline, damage-weighted argmax |
+
+DoT-stacking is a Layer 2 `stackability` property (§ 1.2), not a geometry, at any layer.
+
+**Build status (code-verified):**
+
+| Item | Status |
+|---|---|
+| `beam_channel` rich geometry type | **EXISTS** in generation vocabulary; maps to spatial `line`. The NEW work is sim-side continuous-beam mechanics (§ 3.3): per-tick damage, duration, path bystanders — the fight engine currently treats it as a discrete-hit line skill |
+| `terrain_reactive` | **GREENFIELD** — not a geometry type at any layer; no terrain-damage interaction exists anywhere in the sim. The only terrain-adjacent mechanic is `ChokeZone` movement clamping in `spatial_gauntlet/arena.py` (movement only; zero damage/element interaction). Pending gamora assessment (kernel handoff § 5) |
 
 ### 3.2 terrain_reactive geometry — implementation contract
 
-**Design intent:** Skills with terrain_reactive geometry deal bonus damage or bonus CC on terrain that matches their element or geometry type. In spatial fights, terrain zones already exist (post-Phase-3 spatial repoint). In standard non-spatial fights, terrain_reactive skills receive a configurable terrain bonus parameter.
+**Design intent:** Skills tagged terrain-reactive deal bonus damage or bonus CC on terrain that matches their element. **Greenfield premise (code-verified at normalization pass):** NO terrain-damage interaction exists in the sim at any layer — the only terrain-adjacent mechanic is `ChokeZone` movement clamping in `spatial_gauntlet/arena.py` (movement-only). The original draft's claim that "terrain zones already exist" overstated this; everything below is new behavior.
 
 **Standard fight implementation (gamora seam):**
 ```python
-# simulate_fight signature extension for terrain support (Session 3 kernel item):
+# simulate_fight kwarg extension for terrain support (Session 3 kernel item);
+# matches the kernel's actual symmetric signature (combatant_a, combatant_b, *, ...):
 def simulate_fight(
-    player: Combatant,
-    enemy: Combatant,
-    player_proxies: list[ProxyCombatant] | None = None,
-    terrain_type: str | None = None,  # NEW: "standard" | "fire_terrain" | "ice_terrain" | "water_terrain" | "elevated" | None
+    combatant_a: Combatant,
+    combatant_b: Combatant,
+    *,
+    proxies_a: list[ProxyCombatant] | None = None,
+    proxies_b: list[ProxyCombatant] | None = None,
+    terrain_type: str | None = None,  # NEW: "fire_terrain" | "ice_terrain" | "water_terrain" | "elevated" | None
+    # ... existing kwargs unchanged
 ) → FightResult:
 ```
 
-`terrain_type=None` = standard fight (no terrain bonus; backward compatible with existing signature).
+`terrain_type=None` = standard fight (no terrain bonus; backward compatible with existing behavior).
 
 **terrain_reactive skill bonus table:**
 
@@ -198,9 +209,11 @@ def simulate_fight(
 
 **Gamora assessment gate:** gamora's terrain-reactive geometry assessment (kernel handoff § 5) determines if `terrain_type` can be a caller-side parameter (preferred) or requires fight_engine branching. If caller-side: above extension applies. If kernel-side: Session 3 authors a kernel-change-protocol item for gamora.
 
-**Rocket generation directive:** skills with geometry = terrain_reactive must have a paired `preferred_terrain` field that matches the element-to-terrain table above. Rocket assigns preferred_terrain at skill generation based on element.
+**Rocket generation directive:** terrain-reactivity is a skill TAG (`terrain_reactive: bool` + paired `preferred_terrain` field matching the element-to-terrain table above), NOT a new geometry type — the skill keeps its rich geometry (nova, cone_spray, beam_channel, …) and gains terrain bonus behavior. Rocket assigns preferred_terrain at skill generation based on element.
 
-### 3.3 beam geometry — implementation contract
+### 3.3 beam mechanics — implementation contract
+
+**Existing substrate (code-verified):** `beam_channel` is ALREADY a rich geometry type in `generation/geometry_derivation.py` (maps to spatial `line`). What does NOT exist — and what this contract specifies — is continuous-beam SIM MECHANICS: duration, per-tick damage, and path-bystander hits. Today the fight engine resolves a beam_channel skill as a discrete hit.
 
 **Design intent:** A beam is a continuous line of effect from the player's position (or skill origin point) toward the primary target. All enemies in the beam path take proportional damage. Beam has a duration (it persists for N seconds, not a single hit).
 
@@ -211,7 +224,7 @@ def simulate_fight(
 - `beam_tick_interval_s: float` — how often each enemy in beam takes a damage tick (default 0.25s)
 - `beam_primary_target_bonus: float` — extra damage multiplier on the primary (aimed-at) target vs path bystanders (default 1.5× — primary target takes 50% more per tick)
 
-**Standard fight (non-spatial) modeling:** beam is modeled as AoE_burst with:
+**Standard fight (non-spatial) modeling:** beam is modeled as a multi-target line hit with:
 - Primary target: full beam damage per tick × beam_primary_target_bonus
 - Secondary targets: up to 2 additional enemies take 60% of primary's per-tick damage
 - Total fight contribution: sum across all ticks × beam_duration_s / beam_tick_interval_s ticks
@@ -238,45 +251,52 @@ def simulate_fight(
 ### 4.1 What counts as a CC skill
 
 A skill is a CC skill if it satisfies ALL of:
-1. Has a `cc_effect` field with a non-null value in Layer 2 dimensions (effect type: stun, root, slow, freeze, fear, silence, or knockback)
+1. Has a `cc_effect` field with a non-null value in Layer 2 dimensions (effect type from the closed enum, § 4.5 — aligned with the locked Axis 2B inclusion list)
 2. The CC applies to the enemy (not self-buff or player-movement skills)
 3. The CC effect duration > 0.5s (instantaneous micro-stuns below 0.5s are NOT counted as CC skills for density purposes; they are damage modifiers)
 
-### 4.2 Control density ratio formula
+### 4.2 Axis 2B — locked measurement methodology (re-pointed at normalization pass)
 
-```
-control_density_ratio = cc_skill_count / total_skill_count
-```
+The Axis 2B bin assignment is **already locked** (lock doc § 3) and is NOT re-derived here:
 
-where `total_skill_count` = all skills in the kit (across all chains).
-
-### 4.3 Axis 2B bin assignment
-
-| control_density_ratio | Axis 2B bin |
+| Control share (effect-budget weighted) | Axis 2B bin (locked) |
 |---|---|
-| ≥ 0.50 | HIGH |
-| 0.25 ≤ ratio < 0.50 | MEDIUM |
-| < 0.25 | LOW |
+| < 20% | damage-pure |
+| 20% – 60% | mixed |
+| ≥ 60% | control-pure |
 
-### 4.4 Measurement implementation (rocket seam)
+"Control share" is **effect-budget weighted** — the fraction of the kit's effect budget allocated to control rather than damage, measured downstream by the BC pipeline from fight behavior. The original draft's HIGH/MEDIUM/LOW bins at 50%/25% with a count-ratio formula conflicted with the lock and are retired.
 
-Rocket measures control_density_ratio at kit finalization (after all skills are assigned). The measurement is:
+### 4.3 Generation-time predictor (rocket seam)
+
+The count-ratio formula survives in a different role — as the cheap **generation-time PREDICTOR** of the measured bin:
+
+```
+predicted_control_share = cc_skill_count / total_skill_count
+```
+
+where `total_skill_count` = all skills in the kit (across all chains). Rocket computes this at kit finalization:
 1. Count skills with non-null `cc_effect` AND `cc_effect.duration_s > 0.5`
 2. Divide by total skill count in kit
-3. Assign Axis 2B bin per table above
-4. Store `control_density_ratio` and `axis_2b_bin` in kit record
+3. Map through the LOCKED thresholds (20% / 60%) to a `predicted_axis2b_bin` ∈ {damage-pure, mixed, control-pure}
+4. Store `predicted_control_share` and `predicted_axis2b_bin` in kit record
 
-QD engine uses `axis_2b_bin` as the BC cell coordinate for Axis 2B.
+The MEASURED Axis 2B bin (effect-budget weighted, from the BC pipeline) is the QD cell coordinate. The predictor serves eligibility gates (e.g., NETWORK_AMPLIFIER) and skew priors only. Predictor-vs-measured divergence is itself telemetry worth tracking (calibrates how well count-ratio approximates effect-budget weighting).
 
-### 4.5 CC effect types (closed enum for rocket + gamora)
+### 4.5 CC effect types (closed enum for rocket + gamora — aligned to locked Axis 2B inclusion list)
 
-Valid `cc_effect` values:
+Valid `cc_effect` values counting toward Axis 2B control share (per lock doc inclusion list):
 - `stun` — target cannot act for duration
 - `root` — target cannot move for duration; can still act
 - `slow` — target movement reduced by configurable % for duration
 - `freeze` — target cannot move OR act for duration; fragile (bonus damage); shorter than stun
 - `fear` — target flees (away from player) for duration; can't act offensively
 - `silence` — target cannot use skills for duration; can still move
+- `blind` — target's attacks miss / accuracy heavily reduced for duration *(in locked inclusion list; was missing from original draft)*
+- `chill` — movement + action speed reduction; counts as CC only at ≥30% slow magnitude *(locked threshold)*
+- `mind_control` / `charm` — target temporarily fights for the player *(in locked inclusion list; rare/T4-adjacent)*
+
+Displacement + aggro effects — valid `cc_effect` values that do NOT count toward Axis 2B control share (not in the locked inclusion list; flag for Session 1 dialogue if Matt wants them counted):
 - `knockback` — target displaced from current position; instantaneous or short-duration
 - `pull` — target displaced toward player; instantaneous
 - `taunt` — enemy preferentially targets the taunting entity (proxy use primarily; not a player kit CC)
@@ -285,44 +305,42 @@ Valid `cc_effect` values:
 
 ## 5. Damage tempo (Axes 3A + 3B) — mechanic formalization
 
-### 5.1 Axis 3A — damage tempo (burst / sustained / mixed)
+### 5.1 Axis 3A — damage tempo (LOCKED) + front-load profile (NEW proposed metric)
 
-Tempo is measured from fight telemetry: what fraction of a kit's total damage in a fight lands in the first 3 seconds vs after?
+**Axis 3A is already locked** (lock doc § 3) as **damage events per second**, measured from fight telemetry:
 
-**Burst:** ≥ 50% of fight damage lands in the first 3 seconds. Kit is explosive on entry; diminishes over time.
-- Characterizes: burst_spike magnitude_pattern skills; front-loaded openers; threshold burst skills used immediately
-- Example kits: TEMPORAL_CHARGE at 5 stacks + first attack; SACRIFICE_ASCENDANCY immediate activation
-
-**Sustained:** ≤ 25% of fight damage lands in the first 3 seconds AND fight DPS variance (std dev / mean) ≤ 0.30. Kit output is relatively flat over fight duration.
-- Characterizes: periodic + DoT stacking kits; scaling magnitude_pattern skills; beam geometry
-- Example kits: DoT-primary casters; mana economy focus kits with periodic resource use
-
-**Mixed:** everything between burst and sustained — typically 25-50% first-3s damage.
-- Most kits land here; mixed is the default bin
-
-**Axis 3A bin assignment:**
-| Condition | Axis 3A bin |
+| Damage events/second | Axis 3A bin (locked) |
 |---|---|
-| first_3s_damage / total_damage ≥ 0.50 | Burst |
-| first_3s_damage / total_damage ≤ 0.25 AND dps_variance ≤ 0.30 | Sustained |
-| otherwise | Mixed |
+| < 2 | low |
+| 2 – 6 | medium |
+| ≥ 6 | high |
 
-### 5.2 Axis 3B — amplitude variance (high / low)
+The original draft's burst/sustained/mixed bins built on first-3-seconds damage share are NOT Axis 3A and the lock is not amended. The first-3s metric is retained as a **NEW proposed metric — `front_load_profile`** — because it captures something Axis 3A genuinely does not (WHEN damage lands, vs how often):
 
-Amplitude variance measures how spikey the damage output is across the fight.
+**front_load_profile (proposed; stored in telemetry, not a QD cell axis unless Session 5 promotes it):**
 
-**Metric:** coefficient of variation of per-tick damage = std_dev(per_tick_damage) / mean(per_tick_damage) across all fight ticks where player dealt damage.
-
-**High variance:** CV > 0.60 — damage has significant spikes (crits, threshold bursts, RESONANCE_LOOP Shatter)
-**Low variance:** CV ≤ 0.60 — damage is relatively consistent per-tick
-
-**Axis 3B bin assignment:**
-| Condition | Axis 3B bin |
+| Condition | front_load_profile |
 |---|---|
-| CV > 0.60 | HIGH amplitude variance |
-| CV ≤ 0.60 | LOW amplitude variance |
+| first_3s_damage / total_damage ≥ 0.50 | front-loaded |
+| first_3s_damage / total_damage ≤ 0.25 AND dps CV ≤ 0.30 | even |
+| otherwise | mixed |
 
-**Measurement implementation (gamora seam):** gamora adds per-tick damage tracking to FightResult (alongside existing proxy_damage additions). `tick_damage_log: list[float]` with all player-dealt per-tick damage values; CV computed in balance_loop or telemetry post-fight.
+- Front-loaded characterizes: burst_spike magnitude_pattern skills; TEMPORAL_CHARGE at 5 stacks + first attack; SACRIFICE_ASCENDANCY immediate activation
+- Even characterizes: periodic + DoT stacking kits; scaling magnitude_pattern; beam mechanics
+
+### 5.2 Axis 3B — amplitude variance (LOCKED: flat / variable / spiky)
+
+**Axis 3B is already locked** (lock doc § 3) as coefficient of variation of **per-EVENT damage magnitudes** (std_dev / mean across all player damage events in the fight — per-event, not per-tick):
+
+| Per-event damage CV | Axis 3B bin (locked) |
+|---|---|
+| < 0.3 | flat |
+| 0.3 – 0.7 | variable |
+| ≥ 0.7 | spiky |
+
+The original draft's two-bin HIGH/LOW split at CV 0.60 conflicted with the lock (3 bins at 0.3/0.7) and is retired.
+
+**Measurement implementation (gamora seam):** gamora adds per-event damage tracking to FightResult (alongside the § Session 2 proxy_damage additions). `damage_event_log: list[float]` with all player-dealt per-EVENT damage magnitudes; CV computed in balance_loop or telemetry post-fight. (Per-event, not per-tick: a beam contributes one event per tick it deals damage; a nova contributes one event per enemy hit — consistent with the locked definition's event basis.)
 
 ---
 
@@ -385,10 +403,11 @@ QD engine uses `cognitive_load_bin` as a secondary axis if a Cognitive Load hypo
 | # | Question | Priority |
 |---|---|---|
 | 1 | Terrain-reactive: gamora boundary assessment needed before session can fully lock (see gamora kernel handoff § 5). Is terrain_type a caller-side parameter to simulate_fight or a kernel branch? | HIGH — gamora assessment gates spec lock |
-| 2 | QD grid cell count expansion from Axis 5 adding charge-stack bin (6 bins vs 5): confirm with rocket that 81,648 → does not break iteration or memory bounds | MEDIUM |
-| 3 | Axis 3A first-3s-damage measurement: is the 3-second window the right burst threshold? PoE uses "hit-count in first 3 skills used" as an alternative | MEDIUM — design preference |
+| 2 | ~~QD grid cell count expansion~~ RETRACTED at normalization pass — the locked 68,040 cells already include the 7-bin Axis 5 with charge-stack; no expansion occurs (§ 2.3). Replaced by **Q9 (hold-vs-spend)** — see § 2.3; joins Session 1 dialogue queue | HIGH — Matt ruling |
+| 3 | `front_load_profile` (NEW metric, § 5.1 — NOT Axis 3A, which is locked): is the 3-second window the right front-load threshold? PoE uses "hit-count in first 3 skills used" as an alternative. Also: promote to QD axis or keep as telemetry-only? | MEDIUM — design preference |
 | 4 | Cognitive load — sequence_depth for chain combos: do chains themselves create sequence requirements, or only T4 strategies? | HIGH — affects most cognitive_load scores |
-| 5 | Axis 3B CV threshold 0.60: derived from gut; needs empirical calibration from existing fight telemetry. Has gamora run CV distribution on Season 001010 corpus? | LOW — calibrate from data |
+| 5 | Axis 3B thresholds are LOCKED at CV 0.3 / 0.7 (per-event) — not open for gut-recalibration. Remaining empirical question: what does the CV distribution on the Season 001010 corpus look like against the locked bins (population coverage, not threshold choice)? | LOW — telemetry read |
+| 6 | Displacement effects (knockback / pull / taunt) are outside the locked Axis 2B inclusion list (§ 4.5): leave uncounted, or propose lock amendment to count them? | MEDIUM — Matt call |
 
 ---
 

@@ -18,6 +18,8 @@
 
 **Blocks:** Kit identity uniqueness guarantee; faction assignment completeness for companion system
 
+> **NORMALIZATION PASS (gandalf, 2026-06-12, Matt-authorized):** axis bin vocabulary re-pointed to the locked definitions in `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` § 3. Conventions: (1) vestigial-label assignment (§ 2) consumes MEASURED BC bins (it fires on the finalized, BC-measured kit — measurement-time vocabulary applies); (2) generation directives (§ 1, § 4, § 5) bind to structural properties or PREDICTED bins; (3) energy types (mana/rage/focus/charge-stack) are declared `energy_type` values, not Axis 5 bins; (4) "sustain"/"evasion"/"glass_cannon" are not Axis 4 bins — the locked bins are tank/mitigator/dodger/glass; (5) "burst/sustained tempo" is not Axis 3A — front-loadedness lives in the proposed `front_load_profile` metric (Session 3 § 5.1) and spikiness in locked Axis 3B (flat/variable/spiky). Q10 (faction coverage gap for mesoamerican / sub-Saharan / south-SE-Asian lineages, § 4.2 vs Session 2 § 7.2) is flagged in Session 2. Delta summary: `gandalf/notes/2026-06-12-normalization-pass-delta-summary.md`.
+
 ---
 
 ## 0. Design mandate
@@ -71,13 +73,13 @@ Not all element pairings are mechanically or thematically coherent. Rocket uses 
 ### 1.4 Skill composition rules (rocket generation directive)
 
 Within a chain (2-4 skills per chain depending on chain count):
-1. **Opener position** (first skill use in chain): geometry = AoE_burst OR single_target; no DoT as opener (DoT openers feel weak)
-2. **Body positions** (middle skills): any geometry; DoT-stack skills preferred here if kit has DoT
+1. **Opener position** (first skill use in chain): direct-hit delivery skill (any rich geometry; immediate damage on use/hit); no stacking-DoT skill (Layer 2 `stackability ∈ {stacking_capped_N, stacking_refreshing_N}` with DoT mechanics) as opener — DoT openers feel weak
+2. **Body positions** (middle skills): any geometry; stacking-DoT skills preferred here if kit has DoT
 3. **Closer position** (last skill in chain, if chain has ≥3 skills): highest-magnitude single hit OR CC skill (the payoff of the chain)
 
 Cross-chain rules:
 - At most 1 CC skill per chain (concentrated CC; avoids CC-spam per-chain feel)
-- If kit has control_density_ratio ≥ 0.50 (HIGH Axis 2B), CC skills are distributed 1 per chain
+- If kit's predicted control share ≥ 0.60 (predicted Axis 2B = control-pure, per Session 3 § 4.3), CC skills are distributed 1 per chain
 - A kit must have at least 1 AoE skill in the full kit (no single-target-only kits except by explicit proxy-delegation: a proxy is handling all AoE; player is single-target)
 
 ---
@@ -99,26 +101,28 @@ Labels are organized in two tiers: primary identity (dominant read) and secondar
 
 **Primary identity labels:**
 
+*(Signatures use MEASURED BC bins — locked vocabulary: Axis 1 close/mid/ranged × fast/slow; Axis 2 single-target/small-AOE/large-AOE/chain/multi-spawn; Axis 2B damage-pure/mixed/control-pure; Axis 3B flat/variable/spiky; Axis 4 tank/mitigator/dodger/glass — plus structural properties: declared `energy_type`, element, T4 strategy, Layer 2 fields.)*
+
 | Label | Dominant substrate signature |
 |---|---|
-| **Striker** | close_range + burst_tempo + single_target + HIGH or LOW Axis 4 |
-| **Ravager** | close_range + burst_tempo + rage economy + glass_cannon Axis 4 |
-| **Ranger** | long_range + single_target + sustained_tempo + non-rage economy |
-| **Arcanist** | mid/long_range + AoE_burst + mana economy + scaling_pattern=player_level primary |
-| **Warden** | HIGH Axis 2B (control_density) + sustained_tempo + sustain Axis 4 |
-| **Berserker** | close_range + HIGH amplitude_variance + rage economy + burst_tempo |
-| **Sentinel** | sustain Axis 4 + single_target dominant + LOW Axis 2B + any range |
-| **Phantom** | evasion Axis 4 + single_target + mid_range + shadow element primary |
-| **Invoker** | proxy-dominant (≥1 proxy-family T4 strategy) + mid_range + sustained |
-| **Templar** | holy element + mana economy + sustain Axis 4 + CC ≥ 1 skill |
-| **Reaver** | hybrid 2-element + decay/escalating magnitude_pattern + mid_range |
+| **Striker** | Axis 1 ∈ {close-fast, close-slow} + front-loaded `front_load_profile` + Axis 2 = single-target + Axis 4 ∈ {tank, glass} (defensive extreme either way) |
+| **Ravager** | Axis 1 close + front-loaded + `energy_type` = rage + Axis 4 = glass |
+| **Ranger** | Axis 1 ∈ {ranged-fast, ranged-slow} + Axis 2 = single-target + Axis 3B = flat + `energy_type` ≠ rage |
+| **Arcanist** | Axis 1 mid/ranged + Axis 2 ∈ {small-AOE, large-AOE} + `energy_type` = mana + scaling_pattern=player_level primary |
+| **Warden** | Axis 2B ∈ {mixed, control-pure} + Axis 3B = flat + Axis 4 = mitigator |
+| **Berserker** | Axis 1 close + Axis 3B = spiky + `energy_type` = rage + front-loaded |
+| **Sentinel** | Axis 4 ∈ {mitigator, tank} + Axis 2 = single-target + Axis 2B = damage-pure + any Axis 1 |
+| **Phantom** | Axis 4 = dodger + Axis 2 = single-target + Axis 1 mid + shadow element primary |
+| **Invoker** | proxy-dominant (≥1 proxy-family T4 strategy) + Axis 1 mid + Axis 3B = flat |
+| **Templar** | holy element + `energy_type` = mana + Axis 4 = mitigator + CC ≥ 1 skill |
+| **Reaver** | hybrid 2-element + decay/escalating magnitude_pattern + Axis 1 mid |
 | **Conduit** | resource_generation focus (Resource Conduit proxy OR focus/mana + resource_gen skills) |
-| **Shadowcaller** | shadow element + AoE + HIGH Axis 2B + shadow binding category eligible |
-| **Windrunner** | wind element + mid_range + evasion Axis 4 + high amplitude_variance |
-| **Earthshaper** | earth element + terrain_reactive geometry at least 1 skill + HIGH Axis 2B |
-| **Stormbringer** | lightning element + AoE_burst OR beam geometry + burst_tempo |
+| **Shadowcaller** | shadow element + Axis 2 AOE bins + Axis 2B ∈ {mixed, control-pure} + shadow binding category eligible |
+| **Windrunner** | wind element + Axis 1 mid + Axis 4 = dodger + Axis 3B = spiky |
+| **Earthshaper** | earth element + ≥1 skill with `terrain_reactive` tag + Axis 2B ∈ {mixed, control-pure} |
+| **Stormbringer** | lightning element + Axis 2 ∈ {small-AOE, large-AOE} OR ≥1 `beam_channel` rich-geometry skill + front-loaded |
 | **Pact-holder** | COMPANION_CONTRACT or MONSTER_PACT T4 as primary strategy |
-| **Threshold** | charge-stack energy_type + TEMPORAL_CHARGE or CHARGED_THRESHOLD_PROXY T4 |
+| **Threshold** | charge-stack `energy_type` + TEMPORAL_CHARGE or CHARGED_THRESHOLD_PROXY T4 |
 
 **Secondary modifier (appended if applicable):**
 
@@ -138,20 +142,22 @@ Example composed labels: "Invoker Sovereign" (proxy-dominant + PROXY_SOVEREIGNTY
 Assignment priority (apply first match wins):
 1. If T4 strategy family = PROXY → `Invoker` (overrides range/other checks; proxy is the defining identity)
 2. If T4 strategy = COMPANION_CONTRACT or MONSTER_PACT → `Pact-holder`
-3. If energy_type = charge-stack AND T4 ∈ {TEMPORAL_CHARGE, RESOURCE_CONVERSION} → `Threshold`
-4. If element = shadow AND Axis 2B = HIGH → `Shadowcaller`
-5. If element = holy AND sustain Axis 4 → `Templar`
-6. If element = earth AND terrain_reactive skill present → `Earthshaper`
-7. If element = wind AND evasion Axis 4 → `Windrunner`
-8. If element = lightning AND AoE dominant → `Stormbringer`
-9. If evasion Axis 4 AND single_target dominant AND element = shadow → `Phantom`
-10. If close_range AND rage AND burst → `Ravager` else if close_range AND burst → `Striker`
-11. If HIGH Axis 2B AND sustain Axis 4 → `Warden`
-12. If long_range AND single_target AND sustained → `Ranger`
-13. If AoE dominant AND mana economy → `Arcanist`
-14. If sustain Axis 4 AND LOW Axis 2B → `Sentinel`
+3. If `energy_type` = charge-stack AND T4 ∈ {TEMPORAL_CHARGE, RESOURCE_CONVERSION} → `Threshold`
+4. If element = shadow AND Axis 2B ∈ {mixed, control-pure} → `Shadowcaller`
+5. If element = holy AND Axis 4 = mitigator → `Templar`
+6. If element = earth AND `terrain_reactive`-tagged skill present → `Earthshaper`
+7. If element = wind AND Axis 4 = dodger → `Windrunner`
+8. If element = lightning AND Axis 2 ∈ {small-AOE, large-AOE} → `Stormbringer`
+9. If Axis 4 = dodger AND Axis 2 = single-target AND element = shadow → `Phantom`
+10. If Axis 1 close AND `energy_type` = rage AND front-loaded → `Ravager` else if Axis 1 close AND front-loaded → `Striker`
+11. If Axis 2B ∈ {mixed, control-pure} AND Axis 4 = mitigator → `Warden`
+12. If Axis 1 ranged AND Axis 2 = single-target AND Axis 3B = flat → `Ranger`
+13. If Axis 2 ∈ {small-AOE, large-AOE} AND `energy_type` = mana → `Arcanist`
+14. If Axis 4 ∈ {mitigator, tank} AND Axis 2B = damage-pure → `Sentinel`
 15. If hybrid 2-element AND decay/escalating magnitude → `Reaver`
 16. Default: `Arcanist` (covers uncategorized caster archetypes)
+
+*(Rule order note: rule 9 (Phantom) is unreachable after rules 4 — shadow + control bins — only for shadow kits that are damage-pure; the ordering stands but rocket should verify reachability per label at implementation, per the vestigial-ontology discipline: labels that never fire are substrate evidence, not bugs.)*
 
 After primary label: check secondary modifier conditions; append if matching.
 
@@ -280,13 +286,13 @@ At kit generation:
 
 **Element + Axis 4 → register affinity weights (excerpt):**
 
-| element | Axis 4 bin | high_fantasy | dark_fantasy | mythological | grimdark | primal_shamanic | cosmic_horror |
+| element | Axis 4 / property condition (locked vocabulary; PREDICTED bins at generation time) | high_fantasy | dark_fantasy | mythological | grimdark | primal_shamanic | cosmic_horror |
 |---|---|---|---|---|---|---|---|
 | shadow | any | 0.5 | 2.0 | 0.5 | 2.5 | 0.3 | 1.5 |
-| holy | sustain | 2.5 | 0.3 | 2.5 | 0.1 | 0.5 | 0.2 |
+| holy | predicted Axis 4 = mitigator | 2.5 | 0.3 | 2.5 | 0.1 | 0.5 | 0.2 |
 | earth | any | 1.5 | 0.8 | 1.0 | 0.8 | 2.5 | 0.1 |
-| fire | glass_cannon | 1.5 | 1.5 | 1.5 | 2.0 | 1.0 | 0.3 |
-| lightning | burst | 1.5 | 1.0 | 2.0 | 1.0 | 1.5 | 0.3 |
+| fire | predicted Axis 4 = glass | 1.5 | 1.5 | 1.5 | 2.0 | 1.0 | 0.3 |
+| lightning | predicted Axis 3B = spiky | 1.5 | 1.0 | 2.0 | 1.0 | 1.5 | 0.3 |
 | any | void_liminal lineage | 0.1 | 0.5 | 0.5 | 0.5 | 0.1 | 2.5 |
 
 ### 4.6 Faction derivation (lookup; references Session 2 § 7.2)
@@ -319,15 +325,15 @@ Investment profile describes how much a kit's effective combat power scales with
 
 Investment profile is assigned at kit finalization based on BC axis values and T4 strategy:
 
-| Condition | Investment profile |
+| Condition (locked vocabulary; measured bins — investment profile assigns at kit finalization post-BC-measurement) | Investment profile |
 |---|---|
-| Axis 4 = glass_cannon | HIGH — glass cannon lives by gear optimization |
-| Axis 3A = burst AND TEMPORAL_CHARGE T4 | HIGH — burst peak depends on gear amplifying the charge burst |
+| Axis 4 = glass | HIGH — glass cannon lives by gear optimization |
+| Axis 3B = spiky AND TEMPORAL_CHARGE T4 | HIGH — burst peak depends on gear amplifying the charge burst |
 | Proxy-primary kit (Invoker label, proxy-family T4) | LOW for player gear; HIGH for proxy gear (separate gear slot if companion) |
 | COMPANION_CONTRACT or MONSTER_PACT T4 | SCALING — convergence item is the high-investment slot; player gear scales normally |
 | RESONANCE_LOOP T4 | HIGH — Resonance requires precise timing; gear reducing cooldowns amplifies the experience |
 | DEFENSIVE_TRADEOFF T4 (mana shield) | HIGH — mana pool size is gear-derived; investment = mana gear |
-| Axis 4 = sustain | SCALING |
+| Axis 4 ∈ {mitigator, tank} | SCALING |
 | NPC/Mercenary season kits | SCALING (companion kits are gear-able by the player; the gear slot IS the investment) |
 | Monster season kits | LOW (monsters are stat-based; no gear slots; flat stat progression) |
 | Default | SCALING |

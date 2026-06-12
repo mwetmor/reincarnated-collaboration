@@ -10,6 +10,11 @@
 - Today's T4 design notes (Pattern B session 2026-06-12)
 - Engine state: flag only — flag issues to Matt, do not let engine state constrain design
 
+> **NORMALIZATION PASS (gandalf, 2026-06-12, Matt-authorized):** this spec was originally authored in a mobile session without access to the BC axes lock doc; axis bin vocabulary has been re-pointed to the locked definitions (`qd-engine-bc-axes-lock-2026-05-20.md` § 3). Two conventions introduced by the pass apply throughout:
+> 1. **Generation-time vs measurement-time:** BC axis bins are MEASURED (from skill metadata weights or fight telemetry). Eligibility gates fire at GENERATION time, so gates below bind to generation-time structural properties (declared `energy_type`, skill geometry metadata, CC tags, cost types); where a bin name appears in a gate it denotes the kit's **predicted** bin computed at generation from skill metadata, not a post-hoc measurement.
+> 2. **Three geometry layers:** engine rich skill-geometry (24-type vocabulary, `generation/geometry_derivation.py` — includes `beam_channel`, `chain_lightning`, `totem`, …) → spatial 6-type enum (circle/cone/line/point/mixed/none) → Axis 2 BC bins (single-target/small-AOE/large-AOE/chain/multi-spawn, damage-weighted argmax). The terms "AoE_burst" and "DoT_stack" used in the original draft belong to NONE of these layers and have been replaced. DoT-stacking is a Layer 2 `stackability` property, not a geometry.
+> Delta summary: `gandalf/notes/2026-06-12-normalization-pass-delta-summary.md`.
+
 ---
 
 ## 0. Design mandate
@@ -38,7 +43,7 @@ The Primary T4 universal slot is retired. All T4 slots draw from the 21-strategy
 | 2 | **ELEMENT_CONVERSION_HYBRID** | Hybrid +25% multiplicative across dual-element coverage | Hybrid 2-element kit architecture | 1.25× LOCKED (doc 47 v1.2) |
 | 3 | **ELEMENT_CONVERSION_PHYSICAL** | Physical +25% additive elemental + ailment trigger per element-support flag | Physical hybrid damage scaling path | 0.25 additive + ailment LOCKED (doc 47 v1.2) |
 | 4 | **DEFENSIVE_TRADEOFF** | shadow + holy immunity (t4_chaos_immune flag); mana shield defensive layer (mana absorbs incoming damage) | energy_type == mana + mana shield skill in chain | REINSTATED 2026-06-12; mana shield behavior deferred to this session |
-| 5 | **GEOMETRY_COLLAPSE** | Collapses kit's secondary geometry into primary for amplification | Dominant geometry type (HIGH Axis 2 bin); ≥4 skills in dominant geometry | Empirical — Session 1 target: derive spec from mechanism |
+| 5 | **GEOMETRY_COLLAPSE** | Collapses kit's secondary geometry into primary for amplification | Dominant geometry: ≥60% of kit's predicted damage share in a single Axis 2 bin (single-target / small-AOE / large-AOE / chain / multi-spawn); ≥4 skills in dominant bin | Empirical — Session 1 target: derive spec from mechanism |
 | 6 | **RESOURCE_CONVERSION** | Converts surplus resource pool into damage or utility output | charge-stack OR overflow resource economy type (Axis 5) | Empirical — Session 1 target: derive spec from mechanism |
 
 **Session 1 action on strategies 5 + 6:** GEOMETRY_COLLAPSE and RESOURCE_CONVERSION are marked "empirical" in doc 47. Session 1 converts them to locked mechanics with explicit pass/fail criteria.
@@ -247,7 +252,7 @@ Monster companion contributes CC/debuff modifier vector (not raw damage): increa
 
 #### MOMENTUM_CASCADE
 
-**Eligibility:** Damage geometry = AoE_burst OR DoT_stack (Axis 2 multi-target bin); damage tempo = burst OR sustained (Axis 3A); kit has ≥2 multi-target skills
+**Eligibility:** Predicted Axis 2 bin ∈ {small-AOE, large-AOE, chain, multi-spawn} (any multi-target geometry bin); kit has ≥2 multi-target skills. *(Normalization note: the original draft's "damage tempo = burst OR sustained" clause was vacuous against the locked Axis 3A bins — low/medium/high events-per-second — and has been dropped; tempo does not gate this strategy.)*
 
 **Capstone mechanic:** Each skill hit adds 1 Momentum stack (max 10). At 10 stacks: a Cascade fires — all enemies hit by any skill in the past 5 skill uses take 40% of the original hit's damage simultaneously. Cascade resets the stack counter. Creates a temporal damage-history explosion: the last 5 skill uses all land again at once.
 
@@ -281,7 +286,7 @@ Monster companion contributes CC/debuff modifier vector (not raw damage): increa
 
 #### SACRIFICE_ASCENDANCY
 
-**Eligibility:** Resource economy type = HP-economy (Axis 5 HP-economy bin); defensive profile ≠ glass-cannon (Axis 4); kit has ≥20% HP above safety floor of 20% at typical gauntlet fight entry
+**Eligibility:** Kit has ≥1 skill with an HP-cost mechanic (generation-time structural property; predicted Axis 5 bin = HP-economy); predicted Axis 4 bin ≠ glass (tank / mitigator / dodger acceptable); kit has ≥20% HP above safety floor of 20% at typical gauntlet fight entry
 
 **Capstone mechanic:** Player voluntarily spends 15% current HP to activate Ascendancy state (15-second duration). During Ascendancy: +60% damage dealt; -30% incoming damage (momentum converts defense to offense). Ascendancy can be extended: re-activating at ≥12 seconds remaining resets the timer (requires another 15% HP). Ascendancy cannot activate below 25% HP (safety floor).
 
@@ -299,12 +304,12 @@ Monster companion contributes CC/debuff modifier vector (not raw damage): increa
 
 #### GEOMETRY_INVERSION
 
-**Eligibility:** Dominant geometry type = HIGH bin in Axis 2 (≥60% of kit's skills in a single geometry type); kit has ≥4 skills in dominant geometry type
+**Eligibility:** Dominant geometry: ≥60% of kit's predicted damage share in a single Axis 2 bin; kit has ≥4 skills in the dominant bin. *(For the Instant Actualization variant only, the gate is a Layer 2 property, not geometry: ≥60% of kit's predicted damage delivered via skills with `stackability = stacking` DoT mechanics.)*
 
-**Capstone mechanic:** T4 capstone skill inverts the kit's primary geometry:
-- AoE_burst dominant → Focused Convergence: all potential AoE targets' damage is summed and delivered to a single designated target (full AoE damage on one enemy; zero on others). Magnitude cap: 4× single-target baseline.
-- Single_target dominant → Resonant Burst: single-target hit radiates 70% of damage as AoE to all enemies within 5m of the primary target.
-- DoT_stack dominant → Instant Actualization: all active DoT stacks on the target are consumed simultaneously for 80% of their remaining damage total as instant damage.
+**Capstone mechanic:** T4 capstone skill inverts the kit's primary delivery mode:
+- AOE dominant (predicted Axis 2 ∈ {small-AOE, large-AOE}) → Focused Convergence: all potential AoE targets' damage is summed and delivered to a single designated target (full AoE damage on one enemy; zero on others). Magnitude cap: 4× single-target baseline.
+- Single-target dominant (predicted Axis 2 = single-target) → Resonant Burst: single-target hit radiates 70% of damage as AoE to all enemies within 5 tiles of the primary target.
+- DoT-stacking dominant (Layer 2 `stackability = stacking`; this is a mechanism-structural property, NOT an Axis 2 geometry bin) → Instant Actualization: all active DoT stacks on the target are consumed simultaneously for 80% of their remaining damage total as instant damage.
 
 **Pass/fail criteria (gamora + rocket):**
 - Capstone skill demonstrates inverted geometry behavior
@@ -318,9 +323,9 @@ Monster companion contributes CC/debuff modifier vector (not raw damage): increa
 
 #### TEMPORAL_CHARGE
 
-**Eligibility:** Resource economy type = charge-stack (Axis 5 charge-stack bin); kit has ≥1 skill with cast_time > 0 (not instant)
+**Eligibility:** Declared `energy_type` = charge-stack (generation-time structural property; predicted Axis 5 bin = charge-stack — note the hold-vs-spend design question, Q9: whether a given charge-stack kit MEASURES into the Axis 5 charge-stack bin depends on its hold-vs-spend optimal rotation); kit has ≥1 skill with cast_time > 0 (not instant)
 
-**Capstone mechanic:** Skills with cast_time > 0 gain a Charge Phase. Holding the skill input for 0.5s builds 1 Charge stack (max 5). Each Charge stack adds +25% damage multiplicatively. At 5 stacks (full charge), the skill's geometry upgrades one tier: single_target → AoE_burst; AoE_burst → full-screen AoE; DoT → DoT with instant trigger (applies full DoT damage immediately). Releasing before max charge uses partial stacks proportionally.
+**Capstone mechanic:** Skills with cast_time > 0 gain a Charge Phase. Holding the skill input for 0.5s builds 1 Charge stack (max 5). Each Charge stack adds +25% damage multiplicatively. At 5 stacks (full charge), the skill's delivery upgrades one tier (engine rich-geometry terms): single-target delivery (e.g., `projectile_single`, `melee_single`) → circle AOE of radius 3 tiles at the target; existing AOE geometries → radius ×2, capped at arena-wide; DoT-applying skills → instant trigger (applies full DoT damage immediately). Releasing before max charge uses partial stacks proportionally.
 
 **Pass/fail criteria (gamora):**
 - Charge stacks accumulate at 1 per 0.5s while held; release at any stack count
@@ -335,7 +340,7 @@ Monster companion contributes CC/debuff modifier vector (not raw damage): increa
 
 #### NETWORK_AMPLIFIER
 
-**Eligibility:** Control density = HIGH (Axis 2B HIGH bin; ≥50% CC skills in kit); kit has ≥3 distinct CC effect types (must cover at least 3 of: stun, root, slow, freeze, fear, silence)
+**Eligibility:** Predicted Axis 2B bin ∈ {mixed, control-pure} (locked bins: damage-pure <20% / mixed 20–60% / control-pure ≥60% control share, effect-budget weighted); kit has ≥3 distinct CC effect types drawn from the locked CC closed enum (stun, root, slow, freeze, fear, silence, blind, chill ≥30%, mind-control/charm — see Session 3 § 4)
 
 **Capstone mechanic:** CC effects applied by the player generate a Network tag on the target. Tagged enemies take +35% damage from all sources (player and proxy) for the CC duration. On tagged enemy death: Network tag transfers to the nearest non-tagged enemy within 8m (1 transfer only; tag does not re-transfer). Network tag expires when CC duration expires or on tag-transfer death.
 
