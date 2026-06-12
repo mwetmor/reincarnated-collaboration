@@ -108,7 +108,7 @@ This contract's verdict basis measured throughput/cost. It did NOT measure desig
 | Spatial recalibration math-note + golden-master (first § 3 application) | gamora | **Yes — protocol test case** |
 | A3 population audit + PC parallel-factor measurement | gamora | No |
 | Naming deferral behind sim gate + batched element-adaptation delta path + naming concurrency ~10 | rocket | No — orchestration over generation core |
-| Cache-hygiene fix (process-stateful skill-id counters → 50% disk-cache miss) | rocket | Boundary case — classify via audit; if counter state lives inside generation core, fix routes through § 3 |
+| Cache-hygiene fix (process-stateful skill-id counters → 50% disk-cache miss) | rocket | **RECLASSIFIED per § 8.1 disposition 1** — not a patch; subsumed by the id-generation-substrate module-targeted greenfield under oracle |
 | Rate-limit tier verification + cache-key hygiene + batching/model-tier options | star-lord | No — `llm/` infra |
 | Export packet schema shaped to UE consumption | star-lord (+ PC seam consult) | No — § 7 surface |
 | Gap-register audits → § 8 disposition | rocket + gamora | Read-only |
