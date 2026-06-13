@@ -203,3 +203,26 @@ After Items 1+2 implementation and smoke:
 ---
 
 **Author:** gandalf, 2026-06-12. Matt-authorized gamora kernel handoff; Session 2 cascade. Gamora: fire when you next engage.
+
+---
+
+## Completion record
+
+**Completed by:** gamora, 2026-06-12. All five items delivered + empirically validated.
+
+| Item | Status | Gate evidence |
+|---|---|---|
+| 1. ProxyCombatant entity model | ✓ complete | proxy smoke 16/16; 14/14 type instantiation; fail-loud on unknown type; PROXY_FISSION lineage cap 4; bodyguard intercept threshold-gated |
+| 2. simulate_fight extension | ✓ complete | golden-master self-verify **0/60** on `proxies_a=None, proxies_b=None` (bit-identical brownfield); FightResult additions additive default-neutral; owner-DPS damage basis (Disc #11 correction, contribution re-measured 0.556 ≥ 0.45 gate) |
+| 3. Companion modifier vector (caller-side) | ✓ complete | companion smoke 15/15; NO kernel edit; golden-master 0/60; NPC/monster cap columns; cc via deepcopy-isolated control-duration scaling; WR-delta guard |
+| 4. Charge-stack energy type (kernel-change-protocol) | ✓ complete | charge-stack smoke 8/8 (passive ratio EXACTLY 1.5, burst EXACTLY 6.0); golden-master 0/60 (§6.6 dead-code-for-mana-corpus confirmed); semantic-ordering note (Disc #12) |
+| 5. Terrain-reactive assessment | ✓ delivered | 1-page note; greenfield confirmed; Session-3 recommendation = caller-side `terrain_type` kwarg |
+
+**Brownfield guarantee held at EVERY gate** — golden-master 0/60 after Items 1+2, after Item 4, after Item 3. Three smoke harnesses green. No star-lord schema change (proxy FightResult fields internal-to-seam; export surfacing deferred to a separate dispatch).
+
+**Engine commits:** `3102363` (Items 1+2), `dae0349` (Item 4), `e00cb6d` (Item 3), `d2ea435` (MIGRATION v1.66 + AGENT_STATE checkpoint).
+**Collab commit:** `2dc8efd` (Gate-2 handoff + terrain assessment notes).
+**Artifacts:** math note `simulation/math/proxy-kernel-extension-2026-06-12.md` (§0–§11, code-line citations); MIGRATION.md v1.66; Gate-2 handoff `gamora/notes/2026-06-12-proxy-kernel-handoff-gate-2.md` (7 design-latitude calls recorded); terrain assessment `gamora/notes/2026-06-12-terrain-reactive-geometry-assessment.md`.
+**Routes to jack-ryan:** decisions-log entry for charge-stack semantic ordering (Disc #12) + new `energy_type` value; Gate-2 review of the three smokes + golden-master evidence against the ratified §3 interface + three riders; confirm the latitude calls sit within Matt-granted HOW-latitude.
+**No tag** — milestone tag pending jack-ryan Gate-2.
+**Follow-ons queued behind Gate-2:** live COMPANION_CONTRACT/MONSTER_PACT pairing wiring (rocket emits companion records); Session-3 terrain_type caller kwarg; proxy export-surfacing dispatch (star-lord); T4/proxy-magnitude reachability measurement (rocket).
