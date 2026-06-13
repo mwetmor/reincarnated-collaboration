@@ -203,6 +203,31 @@ Each pool is **role-complementary and dual-damage-free** where the primary is a 
 - **Scaling-cap discipline (Legolas Finding 10 — PoE 3.8→3.15 cautionary history):** the bonus is **capped** (e.g., +X% per allied proxy, hard cap at +Y% total) and is **one** independent scaling layer, not stacked atop multiple multiplicative proxy-scaling sources. This is the explicit guard against the genre's summoner power-explosion failure mode.
 - Note: Golem appears in many DUAL_PROXY pools as the tank complement — its bridge identity makes it the natural anchor of proxy-primary kits, which is thematically correct (the Necromancer's golem is the army's keystone).
 
+### 4.3-bis Replicative bridge — Baby Good Mimic (Q7-b extension; Matt-authorized 2026-06-12)
+
+**A second bridge archetype.** Where the Golem (§ 4.3) is the *aggregative* bridge — scaling off army **count** — the **Baby Good Mimic** is the *replicative* bridge: it becomes a **copy of a sibling proxy.** Sourced from *Enter the Gungeon*'s Baby Good Mimic familiar (the friendly mimic that takes the form of one of your other companions); flagged by Legolas as a top **reincarnation-thematic fit** — a creature whose entire nature is to take another's form, which is the game's central metaphor (Earth-Self form-library / spirit-swap / reincarnation) embodied in a single unit.
+
+**Not a 15th main type.** The Baby Good Mimic was cut from the 14 main proxy types precisely because it has **no standalone identity** — you cannot build a kit around "a copy of something else." That disqualification is exactly the job description for a bridge (a bridge exists only in relation to the army around it), so it re-enters as a **special bridge-role connector**, not a buildable-around primary.
+
+**Mechanic:**
+- At spawn, it takes a **static snapshot** of the **highest-value non-bridge allied proxy** — "**copy your best**" (Matt ruling 2026-06-12; **deterministic, NOT random**) — and becomes a second instance of it: a copy of that proxy's base profile (HP, `damage_multiplier`, behavioral tier, skills / zone / targeting) as of copy-time.
+- **Snapshot, not a live pointer:** later buffs to the original do not propagate to the copy (and vice versa). This is the PoE Raise-Spectre discipline — copy a fixed template, never a dynamic-scaling target.
+- The **value metric** for "best" (highest `damage_multiplier` vs highest effective-DPS contribution) and tie-break are seam-tuning details (rocket / gamora) resolved at BC measurement; the **deterministic-best rule is ratified.**
+
+**Build incentive — the deliberate counter-pull to the Golem:**
+- Golem rewards army **diversity** (more distinct proxies → bigger aggregate bonus) → go **wide.**
+- Baby Good Mimic rewards army **concentration** (a free second copy of your strongest unit) → go **deep.**
+- Diversity-vs-concentration is the proxy-primary type's **build-defining fork** — genre-canonical (D2 skeleton-mastery-go-wide vs golem-one-big-body; PoE Carrion-Golem-diversity vs spectre-copy-the-best).
+
+**Hard guardrails (generation + kernel — non-negotiable):**
+- **Scaler-exclusion (structural, not tuned):** the copyable set is **non-bridge proxies only.** The Baby Good Mimic **CANNOT** copy the Golem (aggregative bridge) or another Baby Good Mimic. This breaks the multiplicative feedback loop (Mimic-copies-Golem → +1 to army count → both Golems' per-proxy bonus rises → spiral) that is the exact PoE 3.8→3.15 failure mode § 4.3's cap exists to prevent.
+- **One scaling layer, same cap as § 4.3.** The Mimic-copy is itself an allied proxy, so by default it counts as +1 toward the Golem's per-proxy bonus — a single bounded increment (safe, because it copied a non-scaler), capped by § 4.3. *(BC-measurement check: confirm "counts as +1" vs "excluded from Golem's count"; default = counts, one layer.)*
+- **Copyable-sibling guarantee:** generation includes a Baby Good Mimic only when the kit has **≥ 1 non-bridge proxy** to copy (rocket gate). Defensive kernel fallback: if no copyable sibling is alive at spawn, the Mimic stays in an inert minimal "baby" form contributing nothing until one is available — for offline-generated kits this is a generation-time guarantee, so the fallback is purely defensive.
+
+**Coexists with the Golem — both bridges retained** (Matt ruling 2026-06-12). Two keystones with opposite build incentives is richer than one cleaner keystone; the diversity-vs-concentration tension is the payoff.
+
+**DRAFT pending BC-measurement keystone** — the "best" value-metric, the count-toward-Golem question, and whether a snapshot-mimic lands inside the ~0.80 proxy-primary centroid (recognition record § 5.2) all resolve at the corpus run.
+
 ---
 
 ## 5. Exception rows flagged for Matt review
@@ -214,13 +239,14 @@ Per the ruling ("Matt reviews exception rows only"), the items that warrant a lo
 3. **Shielded-Augmenter reframe** — the canonical spec example moved from "absorbs AND buffs at 70% efficiency of each" to an emergent absorb-to-buff conversion (§ 3.3, C×D). Confirm the reframe reads right.
 4. **DUAL_PROXY § 3.1 supersession** (§ 4.1) — the three original spec pool examples are replaced. Flagging because it's a visible change to a ratified spec's illustrative content (the *mechanism* is unchanged; only the example pools change to honor Q7-a).
 5. **Merge-formula multiplier** (§ 3.1) — damage parity at × 1.0, balance-loop range [0.9, 1.1]. The principle (parity, not penalty) is ratified; the specific range is my proposal, tunable.
+6. **Replicative bridge — Baby Good Mimic (§ 4.3-bis)** — *ADDED + Matt-AUTHORIZED in dialogue 2026-06-12 (not pending review).* A second bridge archetype (replicative, copies-your-best) coexisting with the Golem's aggregative bridge; deterministic best-copy rule ratified; scaler-exclusion guardrail hard-set. Logged here for the review trail; the open sub-decisions (value-metric for "best," count-toward-Golem) resolve at BC measurement.
 
 ---
 
 ## 6. Seam handoff (when this lands)
 
-- **rocket** (generation): the valid-pair gate (§ 3.3 — only listed pairs are generatable PROXY_CONVERGENCE kits); the 14 DUAL_PROXY pools (§ 4.2) as config tables; the Golem bridge-bonus generation flag (§ 4.3). The § 3.1 merge-formula values are config, not constants.
-- **gamora** (kernel): the Convergent Proxy entity behaviors (§ 3.3 — each emergent behavior is a ProxyCombatant behavioral spec; ~33 to implement, batchable by family-pair); the revised merge stat-formula (§ 3.1); the Golem bridge per-proxy bonus (capped) in the fight loop.
+- **rocket** (generation): the valid-pair gate (§ 3.3 — only listed pairs are generatable PROXY_CONVERGENCE kits); the 14 DUAL_PROXY pools (§ 4.2) as config tables; the Golem bridge-bonus generation flag (§ 4.3). The § 3.1 merge-formula values are config, not constants. Also the **Baby Good Mimic** replicative-bridge unit (§ 4.3-bis): include only when the kit has ≥ 1 non-bridge proxy; it does NOT occupy a main-type slot (an add-on bridge flag, like the Golem bridge-bonus); mark which proxies are copyable (non-bridge) and designate the highest-value non-bridge sibling as the copy-target.
+- **gamora** (kernel): the Convergent Proxy entity behaviors (§ 3.3 — each emergent behavior is a ProxyCombatant behavioral spec; ~33 to implement, batchable by family-pair); the revised merge stat-formula (§ 3.1); the Golem bridge per-proxy bonus (capped) in the fight loop. Also the **Baby Good Mimic** copy-at-spawn behavior (§ 4.3-bis): snapshot the designated highest-value non-bridge sibling's base profile into the Mimic instance; enforce scaler-exclusion in copy-target selection (never the Golem or another Mimic); snapshot semantics (no live propagation); same § 4.3 cap discipline.
 - These fold into the **proxy-primary generation-prior** work (recognition record § 5.2) — DUAL_PROXY role-separation is literally how a ~0.80-centroid proxy-primary kit composes a coherent summoner (damage-proxy + tank/control-proxy = the Summonmancer pattern).
 
 ---
