@@ -60,3 +60,87 @@ jack-ryan gates the RUN outputs per seam protocol (his lane) once the corpus lan
 ---
 
 **Author:** knight-rider, 2026-06-13. Anchors: rocket-generation-handoff cascade spec + held-criteria; Gate-2 PASS 2026-06-13; Session-3 §§ 6/7 (early-win deliverable).
+
+---
+
+## Completion record (rocket, 2026-06-13)
+
+**Status:** CORPUS GENERATED + EMITTED. Keystone generation link delivered. Committed engine main
+(not pushed — Matt's gate).
+
+**Corpus:** Season 001010 live Session 3/4 cascade — **240 in-band player kits**, event
+`kse_20260613_001` (kit_space chronicle), 0 validation errors. **Tag intent** `rocket/v-season-001010-gen-1`
+(milestone tag held for Matt/push, per dispatch).
+
+**How it was built:** the 8 Gate-2-PASS cascade modules are validators/finalizers, not a single
+orchestrator — no integrated run-script existed. I built one (`scripts/season_001010_cascade_gen_20260613.py`)
+composing ClassGenerator base content (EAA-5 wiring) + the cascade as a finalization layer
+(Layer2 → predicted Axis-2B → T4 capstone from the Session-3 catalog → coupling → cogload →
+identity/faction). NO cascade code changed (RUN, not code-change). Math-before-code note precedes it:
+`src/reincarnated/generation/math/season-001010-cascade-corpus-finalization-2026-06-13.md`.
+
+**Projection (Discipline #1.1):** LLM-FREE (all cascade fields deterministic/structural; identity = local
+RNG; faction = table lookup). Actual: **$0 LLM, 0.5s wall-clock for 240 kits, <500 MB**. Far inside a
+routine envelope — no down-scale needed. Size N=240 chosen to clear the Item-9 player-faction floor
+(≥10/faction × 9) with margin and populate the cogload×coupling grid; the Q4 question is
+distributional, doesn't need thousands.
+
+**Faction state at fire-time: LIVE** (elrond bd64ad9, 637 records / 9 factions). 185 exact + 55 Void
+override; **zero UNASSIGNED**.
+
+### THE Q4 EARLY-WIN (route to gandalf) — cognitive_load × coupling_depth (N=240)
+
+| cogload\cd | cd=1 | cd=2 | cd=3 | cd=4 | row total | row % |
+|---|---|---|---|---|---|---|
+| LOW    | 1 | 3   | 0  | 0 | 4   | 1.7% |
+| MEDIUM | 3 | 49  | 5  | 0 | 57  | 23.8% |
+| HIGH   | 3 | 107 | 64 | 5 | 179 | 74.6% |
+| col total | 7 | 159 | 69 | 5 | | |
+
+**Q4 flip analysis (does turning `INCLUDE_COUPLING_IN_SEQUENCE_DEPTH` ON move bins?):**
+Δscore = 2.0 × max(0, coupling_depth−1). **26/240 (10.8%) of kits would flip a bin** — ALL coupled
+(cd≥2), clustered at MEDIUM→HIGH (e.g. score 13.0→17.0 under cd=3) and 3 at LOW→MEDIUM. Boundary-proximity:
+40 of 240 sit within ≤4 of a boundary; the 26 in-flip-zone kits ALL carry coupling.
+**Read: coupled kits DO cluster near the bin boundaries the coupling term would cross → points toward
+Q4 FLIP, not CLOSE.** gandalf rules. (Caveat surfaced below: ClassGenerator's 11-skill kits push the
+baseline distribution HIGH-heavy; the flip signal lives in the MEDIUM band that survives.)
+
+### Flags (presence/absence)
+
+- **charge-stack kit (`energy_type=='charge-stack'`): ABSENT** (0). ClassGenerator emits mana/rage energy;
+  no charge-stack kit in this corpus → gamora Part B live-wiring stays blocked. **A targeted charge-stack
+  generation pass is needed to unblock it** (flag to KR).
+- **companion records: ABSENT** (0 COMPANION_CONTRACT capstones drawn). gamora proxy-kernel companion
+  follow-on stays blocked.
+- **bridge-bearing summoner (Golem/Mimic proxy): PRESENT** (16 kits carry PROXY_FISSION/MONSTER_PACT/
+  DUAL_PROXY capstones; PROXY_FISSION's Layer2 row is `capstone_owner: gamora_kernel`). **Feeds gandalf's
+  Gate 3 (bridge math) conditional.**
+- **Item 11:** HIGH share 74.6% ≥ 8% **PASS**; RESONANCE 7.8% of HIGH ≤ 50% **PASS** (flag-only, weights
+  untouched).
+- **Item 9:** all player-faction floors met; max share 0.229 < 0.30 cap. NPC/monster floors N/A
+  (separate corpora, not this player-kit RUN). (flag-only, weights untouched).
+
+### Walls / caveats hit
+
+1. **No integrated cascade orchestrator existed** — built the composition (above). The base generator's
+   own T4 system (`t4_alteration_output`) uses an older strategy set not in `CAPSTONE_LAYER2`; I select
+   Session-3 capstones from the 14-strategy catalog instead (latitude = HOW; did not invent a new
+   substrate-T4 path = WHAT).
+2. **ClassGenerator emits ~11-skill kits; cognitive-load is calibrated on ~5-skill fixtures (§ 6.4).**
+   skill_count alone pushes most kits to MEDIUM/HIGH (74.6% HIGH). This is the LOCKED formula behaving on
+   this generator's granularity — a **generation-scale finding to route to gandalf**, NOT a cogload bug.
+   The Q4 flip signal is still clean in the MEDIUM band. If gandalf wants a bin-balanced corpus, the kit
+   needs trimming to chain-kit scale (design-intent call — surfaced, not self-resolved).
+3. **23/240 kits fail the Item-4 AoE floor** (no area-damage skill, no AoE geometry, not proxy-delegated)
+   — a genuine ClassGenerator property, flagged (not a generator bug; ~9.6%).
+4. **One stale test flipped:** `test_identity_sampling::test_shipped_stub_loads_empty` asserted the
+   faction table is empty (pre-elrond-populate). Now live → renamed `test_shipped_table_loads_populated`.
+5. **Two debug-emit events (001/002) were produced during fix iteration, then removed** (chronicle +
+   480 kit files) so the chronicle carries exactly ONE clean authoritative event. Final = `kse_20260613_001`.
+
+**Out-of-scope held (per dispatch):** Items 7/8 measurement-time RUN + Part B measured-split — wait for
+the gamora BC-measurement pipeline.
+
+**Commit (engine main):** `ae247af` (corpus + run-script + math note + test fix + 240 kit JSONs +
+chronicle + Q4 report) + `8810a8d` (AGENT_STATE checkpoint). Not pushed (Matt's gate).
+**Report (full):** `output/season_001010_cascade_20260613/q4_cogload_coupling_report.json`.
