@@ -19,7 +19,7 @@ their distinctive component intentionally-outside the mechanical archive. **None
 |---|---|---|---|
 | 1 | **RETRIBUTION_ENGINE** | **AXISED** | Axis 5 — the `damage-taken-converts` bin EXISTS for exactly this mechanic |
 | 2 | **PHASE_MOMENTUM** | **AXISED** (cross-capture) | Axis 1 × 3A × 3B (as built); Axis 4 iframe IF untargetability is intended (design fork) |
-| 3 | **GEOMETRY_PROPAGATION** | **AXISED** (cross-capture) + scope note | Axis 2 × 3A × 3B in-fight; pack-clear identity is a BC scope boundary |
+| 3 | **GEOMETRY_PROPAGATION** | **AXISED** (cross-capture) + scope note | Axis 2 × 3A × 3B in-fight; cascade invisible to BC (BC panel = 1D boss-duels; cascade unbuilt in both engines) — home is the spatial engine, see §2.3 amendment |
 | 4 | **PERSISTENCE_ENGINE** | **AXISED** (cross-capture) | Axis 3A × 3B — same machinery as the lock's charge-up-and-release hybrid |
 | 5 | **COMPANION_CONTRACT / MONSTER_PACT** | **SPLIT** | in-fight proxy → Axis 2A; companion meta-identity → OUTSIDE (Earth-meta) |
 
@@ -101,6 +101,20 @@ measure pack-clear without a pack-clear gauntlet, which is a different instrumen
 expects BC to differentiate clear-speed builds. The detonator identity is real; it lives outside BC's measurement
 context, by BC's design.
 
+> **Amendment 2026-06-13 (premise correction — Matt-flagged; conclusion UNCHANGED).** The reason above is
+> corrected; the ruling is not. I originally reasoned as if "no pack sim exists" / "you cannot measure pack-clear
+> without building a different instrument." **WRONG** — a real 2D spatial pack-gauntlet already exists
+> (`simulation/spatial_gauntlet/spatial_engine.py`: positional x/y, AOE-by-radius, `swarm`/`magic_pack`/`elite_pack`/
+> `boss_with_adds`). The correct reason GEOMETRY_PROPAGATION is invisible to BC is **two-layer**: (1) BC measurement
+> is wired to the **1D `fight_engine` against a fixed 2-boss-tier DUEL panel** (gamora full-corpus run 2026-06-13,
+> `simulation/AGENT_STATE.md` Session 4; boss-tier chosen because lesser mobs die to opening burst before landing a
+> hit) — the spatial pack-gauntlet is a *secondary* hypothesis-test surface (`spatial_engine` docstring: "R2
+> sub-gauntlet … the 1D engine is the primary convergence substrate"), **not on the BC measurement path**; and
+> (2) corpse-cascade has **no sim implementation in either engine** (grep: zero on-death-burst code; the only
+> on-death machinery is player-proxy fission). So the cascade is invisible to BC because BC reads boss-duels, AND
+> the mechanic is unbuilt everywhere. The home for cascade identity is therefore the **spatial engine + its own
+> `GauntletArchive`** (a gamora build/measurement question), which *strengthens* "no new BC axis."
+
 ### 2.4 PERSISTENCE_ENGINE → AXISED (Axis 3A × 3B cross-capture)
 
 **Mechanic (catalog):** two variants — UPTIME (damage ramps +5%/sec to +40% over 4s of sustained output) and
@@ -144,6 +158,12 @@ Hall-of-Heroes layer I'm ruling it into.
    snowball-detonator builds register only weakly in the gauntlet. Not a bug, not a new axis — a documented limit
    of what BC measures. If clear-speed identity ever needs archive coverage, that is a separate pack-clear
    instrument, not an axis on the duel archive.
+   **Amendment 2026-06-13 (Matt-flagged):** "a separate pack-clear instrument" — that instrument **substantially
+   exists** (`simulation/spatial_gauntlet/`, real packs + positions; secondary R2 hypothesis-test surface with its
+   own `GauntletArchive`, off the BC measurement path). So pack-clear / cascade identity is a **gamora spatial-engine
+   + spatial-archive** question (implement the on-death cascade; decide whether the spatial archive captures
+   clear-speed identity or it merges with BC), NOT a BC-axis question. Corrects "would need a separate instrument" →
+   "the instrument exists, off the BC path"; *strengthens* the no-new-axis verdict.
 
 2. **PHASE_MOMENTUM's potential avoidance identity lands on the lock's DEFERRED iframe/stealth avoidance path
    (Axis 4).** The Axis-4 bridge (in flight to rocket) fixes the *evasion* avoidance term; iframe/stealth/
