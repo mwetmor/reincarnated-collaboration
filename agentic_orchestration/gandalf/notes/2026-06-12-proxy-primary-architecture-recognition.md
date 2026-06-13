@@ -71,6 +71,36 @@ That requires rocket Item 1 (generation) + a measurement pass over a real smoke 
 
 **Net:** the amendment below (Session 4 § 1.1) moves from *empirically-gated PENDING* → *DRAFT commit, cheap path, pending corpus-population validation.*
 
+## 5.2 Identity-centroid decision — HIGH-CENTROID summoner (Matt-ratified 2026-06-12)
+
+**Source:** Legolas Mode A proxy-summoner genre-precedent research (`legolas/research/2026-06-12-proxy-summoner-genre-precedent/findings.md`, Findings 7 + 9 + 11); Pattern B threshold dialogue, Matt-ratified ("high-centroid with the enablement-loop commitment").
+
+**The question this resolves.** The original spec used `proxy_contribution_pct ≥ ~0.5` as the *defining property* of proxy-primary. That number was silently doing two different jobs: the **bin boundary** (where a kit starts counting as proxy-primary) and the **identity centroid** (what the typical generated proxy-primary kit aims at). The genre evidence forces them apart.
+
+**The genre band.** Dedicated summoners run **90%+ minion damage**; their player hotbars carry **zero direct-damage skills** — only curses, offerings, auras, convocation, re-summon (Findings 7, 9). The three identity markers: (1) stat budget → proxy modifiers not player offense; (2) player active skills = enablement, not direct damage; (3) defensive survival investment.
+
+**Why 0.5 fails by construction.** Marker (2) is load-bearing and **enablement skills deal no damage.** A kit at 0.5 contribution must produce the *other half* of its damage somehow — and the only source is player **direct-damage** skills, which violates marker (2). So a 0.5 kit is a **hybrid by mathematical necessity** (half caster, half proxy) wearing a proxy-primary label — *"a caster with strong pets,"* not the third chair. Only at a centroid high enough that the player's residual damage is **enablement-incidental** (a curse that chips, a sacrifice-trigger that bursts) do the markers hold. That floor is ~0.75+.
+
+**Decision (Matt-ratified):**
+
+| Parameter | Value | Status |
+|---|---|---|
+| **Axis 2A bin boundary** (supplemental → proxy-primary) | majority ≥ 0.5 | UNMOVED (locked vocabulary respected) |
+| **Generation-target centroid** (the prior for the `proxy_primary` architecture type) | **~0.80** (population ~0.65–0.95) | RATIFIED |
+| **Enablement-action loop** (player agency = command, not damage) | scope obligation on Session 3 + T4 PROXY family | ACCEPTED |
+| **Rathma guardrail** | proxy-primary player payoff is COMMAND, never a player damage nuke (no minions-as-resource → player-ultimate drift; Finding 11) | RECORDED |
+
+**The Necromancer / Warlock mapping (Matt's framing).** The two Axis 2A bins are not a quantity slider — they are **two recognized genre archetypes:**
+
+- **Supplemental bin (~0.2–0.4)** = the **Warlock** position: a caster who *also* fields strong summons that hold space and pressure, but the damage lives with the player. Already supported for free as the bolt-on hybridization case.
+- **Proxy-primary bin (~0.80 centroid)** = the **Necromancer** position: the player *is* his proxies; player skills command. The new architecture type.
+
+We ship both. This confirms the locked Axis 2A axis was structurally right — we had merely not named what each bin *was.*
+
+**Corpus-validation consequence (sharpens, does not weaken, § 5.1's open sub-question).** The hard-commit gate's reachability target moves from ~0.5 to **~0.80**. Gamora's 0.556 proved the kernel *can* represent majority share; 0.80 is a harder generation bar. The measurement pass (rocket Item 1 + corpus) must now show realistically-stacked PROXY kits clustering at ~0.80, not merely crossing 0.5. The doc-47 proxy-scaling lane's relevance rises accordingly (Finding 10: cap independent multiplicative scaling layers at 2–3 with a shared ceiling, per the PoE 3.8→3.15 cautionary history) — still tuning-time, not a precondition, but more likely to be wanted.
+
+**Q7 / Q6 carry-throughs from the same research (for the upcoming dialogue):** Q7 DUAL_PROXY pools should encode **role complementarity** (tank + damage), not hard type-pair gating — the PoE Carrion Golem "bridge unit" is the cleanest precedent (Finding 6). Q6 PROXY_CONVERGENCE is genre-novel territory (LE Abomination is the sole precedent, a pre-combat ritual); our **averaged-stats** combination is the balance-safer choice (Finding 1). These are flagged for the Q6/Q7 session, not resolved here.
+
 ---
 
 *Sign-off: gandalf, 2026-06-12. The genre kept three chairs at this table for twenty years; we built the room with three chair-shadows on the floor and only two chairs. The recognition is that the shadow was always load-bearing. Gamora's 0.556 confirms the third chair will hold weight — what remains is to prove the room fills it the way the genre's rooms always have.*
