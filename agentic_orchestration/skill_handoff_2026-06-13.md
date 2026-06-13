@@ -84,6 +84,26 @@ Drove the dispatches to EXECUTION (a committed dispatch has no autonomous consum
 4. gamora: continue BC build (adapter → corpus driver → full run); then Items 7/8 fire.
 5. HIGH-heavy cogload (74.6%) calibration question — gandalf future Pattern B; ACCEPTED non-gating for now.
 
+## CYCLE 4 — bounded-front close (representative corpus + parallel trio)
+
+Matt directive: HOLD the full BC run; fire the rocket representative-corpus pass (cost-discovery-scoped) + the parallel-safe trio; full BC run waits for the representative corpus. All three fires returned.
+
+**EXECUTED + LANDED:**
+- **rocket Q4 flip — LANDED.** `INCLUDE_COUPLING_IN_SEQUENCE_DEPTH = True` set in `generation/kit_finalization.py`. 235 tests PASS. Re-bin N=96: 78 HIGH / 18 MEDIUM. Commit `22478c2`.
+- **rocket representative corpus — GENERATED.** 96 kits, chronicle event `kse_20260613_002`, tag `rocket/v-season-001010-rep-1`. $0 / 0.2s deterministic. Does NOT clobber `kse_20260613_001`. Contents verified: **12 charge-stack kits** (6 hold / 6 spend — Axis-5 split), **12 companion records** (6 COMPANION_CONTRACT + 6 MONSTER_PACT), full **Axis-4×Axis-3B spread** (tank/mitigator/dodger/glass = 24 each; flat/variable/spiky = 32 each; all 12 cells populated). New gen script `scripts/season_001010_representative_gen_20260613.py` + math note `season-001010-representative-corpus-2026-06-13.md`. Commit `8e79119`.
+- **jack-ryan canonical writes — LANDED.** Write 1 (Q4 cogload-coupling decisions-log entry) `def5ac3`. Write 3 (cheatsheet §2 reconcile: Axis-3B 0.2/0.6→0.3/0.7; Axis-3A 2–8→2–6) `0d88fb2`. Write 2 (Q1–Q10) found ALREADY EXISTENT (gandalf authored in Pattern-B batch) — left untouched, flagged stale task. jack-ryan also flagged: **rocket should NOT self-author a decisions-log entry** (dispatch line 81 said "generates its own decisions-log entry" — decisions-log is jack-ryan's sole lane; corrected).
+- **gamora BC-build — ~90%, READY-TO-RUN.** Adapter `fight_result_to_telemetry` + corpus driver `run_bc_measurement_over_corpus` landed; 8 telemetry fields emission wired (dodger + Axis-3B now measurable via `BCSignals` accumulator on `CombatantState`); subset-smoke **17/17 PASS** on real `simulate_fight(measure_bc=True)`; brownfield invariant proven (30-fight md5 byte-identical). Commits `3136fd7` + `60cce7a`.
+- **gamora Gate-3 bridge balance — CHECKED, IN-BAND.** Army power bounded **2.92× owner base**, `recursion_cap=4` load-bearing, no multiplicative spiral. Note `gamora/notes/2026-06-13-gate-3-bridge-balance-check.md`, commit `8c41a8f`.
+
+**BLOCKER CLEARED:** the full BC-measurement run was HELD pending a representative corpus carrying charge-stack + companion + full profile spread. **That corpus now exists (`kse_20260613_002`).** gamora's pipeline is READY-TO-RUN — a single `run_bc_measurement_over_corpus(...)` invocation binding the provider to the gauntlet. **The hold's precondition is satisfied; releasing the hold is Matt's call** (held full run was an explicit Matt directive — KR does not auto-fire it).
+
+**OPEN ITEMS NEEDING ROUTING:**
+- **jack-ryan Gate-2 on gamora `3136fd7`** — gamora flagged the BC-pipeline commit gates that commit. Fires when KR routes it (post full-run is natural, or now on the landed pipeline).
+- **COMPANION_CONTRACT / MONSTER_PACT have no CAPSTONE_LAYER2 row** — catalog gap (why the 240-kit keystone run drew 0 companions). rocket tagged closers without self-authoring canonical Layer2 data → flagged to gandalf/elrond. Representative corpus injected companions by other means for the BC run; the canonical catalog gap remains for gandalf/elrond to close.
+- **Schema note for gamora:** kit-space drops top-level `energy_type`; charge-stack identified via `substrate_trace.charge_stack` + spend-skill fields.
+
 ## Push posture
 
-NOT pushed. All 2026-06-13 commits (collab: faction script `a511222`, dispatches `f5a68d0`, corpus `761fb60`, handoff; engine: `bd64ad9`, `ae247af`, `8810a8d`, `3422be2`, `ce433aa`, `51a69c5`, `3da0400`) accumulate; Matt gates the keystone-close push. Production telemetry.db v2.17 apply also Matt-gated (ADR-006).
+NOT pushed. All 2026-06-13 commits accumulate; Matt gates the keystone-close push. Production telemetry.db v2.17 apply also Matt-gated (ADR-006).
+- Cycle 1–3 engine: `bd64ad9`, `ae247af`, `8810a8d`, `3422be2`, `ce433aa`, `51a69c5`, `3da0400`; collab: `a511222`, `f5a68d0`, `761fb60`.
+- Cycle 4 engine: `22478c2`, `8e79119`, `def5ac3`, `0d88fb2` (collab), `3136fd7`, `60cce7a`, `8c41a8f`.
