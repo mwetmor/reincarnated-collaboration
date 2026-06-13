@@ -4,7 +4,7 @@
 
 **Date:** 2026-06-13
 **Author:** gandalf (story-and-design steward)
-**Status:** v1 — design-spec-as-architecture; Matt-authorized for authoring 2026-06-13 ("yes please, and then the golden oracle for 2D")
+**Status:** v1.1 — design-spec-as-architecture; Matt-authorized for authoring 2026-06-13 ("yes please, and then the golden oracle for 2D"). **v1.1 amendment (same day, per Matt challenge):** inserted wave phase **W-C.5** (coverage-audit + Bucket-B ruling) as the named gate between W-C and W-D; W-D now wires the complete-surface tuple (arity per W-C.5), not a presumed 8-tuple; § 5 reflects the two-cert RESOLVE/MEASURE split.
 **Authority:** Matt 2026-06-13 — authored from the Pattern-B combat-sim-architecture dialogue (this session); the *architectural change it describes* (1D deletion) is gated on the empirical trigger in § 4.3, NOT committed by this doc's existence.
 **Companion docs:**
 - `canonical/story/2026-06-11-forward-architecture-contract-wrap-and-extend.md` — § 5 combat-fidelity lock (this doc operationalizes § 5 as a *type*, not a sentence); § 2 kernel-freeze; § 8 refutation clause
@@ -128,11 +128,19 @@ The wave that the deletion rides. Phases sequence; owners in brackets; jack-ryan
 | **W-A** | Author the golden oracle (the known-correct scenarios + reference kits + tolerances) | gandalf (design authority) | companion doc ratified; reference-kit expected results pinned |
 | **W-B** | Type-wall + fidelity-stamp + rename (§ 3, the TODAY moves) | gamora + star-lord + gandalf | § 3.1 type-error test passes |
 | **W-C** | Bring the spatial engine to **first successful run** against the golden master, module-by-module (keep what passes the golden master, rebuild only modules that fail it — the golden master votes, no ideological keep-vs-rewrite) | gamora | each of the 6 scenarios reproduces its golden result within tolerance |
-| **W-D** | Wire **commit-grade BC**: compute the 8-axis bin from *spatial* telemetry, replacing the placeholder `bc_cell`; mint `CommitGradeVerdict` | gamora + star-lord | spatial path emits the 8-tuple; identity authority consumes only commit-grade |
+| **W-C.5** | **Coverage-audit + Bucket-B ruling — settle the axis-surface arity** before any tuple is wired. Run the BC measurement-coverage audit: does the lock's 8-axis surface still *cover* what generation now builds (proxy / charge-stack / T4 / companion)? **Runs in parallel with W-B/W-C — does NOT need the spatial engine** (Bucket-B is a design question; Bucket-A is a measurement-wiring check). | rocket (gen surface) + gamora (measurement wiring) + **gandalf (Bucket-B ruling)** | axis-surface arity LOCKED (8 or 8+N); oracle § 5 reference-kit set updated if arity grew; **blocks W-D** |
+| **W-D** | Wire **commit-grade BC**: compute the **complete-surface tuple** (arity per W-C.5) from *spatial* telemetry, replacing the placeholder `bc_cell`; mint `CommitGradeVerdict`. Every axis **wired, not default-valued** (Bucket-A check, spatial seam). | gamora + star-lord | spatial path emits the complete-surface tuple (arity per W-C.5); identity authority consumes only commit-grade |
 | **W-E** | Throughput proof (§ 4.3 #2) | gamora | commit-grade batch cost bounded + tolerable |
 | **W-F** | **Delete the 1D engine + callsites; re-validate the defensive bridge commit-grade in the boss room** | gamora | 1D gone (jack-ryan verifies); bridge's tank/mitigator/dodger/glass separation holds in `boss_with_adds` at commit-grade |
 
 **W-C is the validate-then-extend core.** It is neither greenfield (don't re-render the captured requirements: 6 scenarios, arena physics, AOE taxonomy, aggro/leash — re-rendering is the silent-omission mechanism that deleted the battle simulator last cycle) nor naive wrap-and-trust (you cannot freeze-and-build on an oracle never seen to be correct). The golden master resolves keep-vs-rewrite **per module, by evidence**, which is the substrate-led discipline applied to the engine itself.
+
+**The cert gate is two certs, sequenced (oracle § 6; W-C.5 amendment 2026-06-13 per Matt challenge).** The oracle certifies two engine responsibilities and they gate different phases:
+
+- **RESOLVE** (oracle § 6.1 — does the engine produce the right *fight outcome*: KPM / clear-rate / survival) is the **W-C exit**. It is **orthogonal to the orphan/coverage question** — the reference kits are hand-authored, bypassing generation orphans — and it is the prerequisite for the orphan re-validation *itself* (W-F's defensive-bridge commit-grade re-check needs a working engine). RESOLVE is unblocked critical path.
+- **MEASURE** (oracle § 6.2 — does the engine produce the right *identity tuple*) is the **W-D + W-F exit**, and is **downstream of W-C.5**: the tuple's arity is whatever the Bucket-B ruling settles, not a presumed 8.
+
+This is the resolution to *"is there any point in the oracle before we've checked orphans?"* — there is, for the RESOLVE half (the deepest prerequisite, since 2D has never run); and the MEASURE half is now explicitly gated on the coverage audit (W-C.5), so it can never certify an identity surface blind to a dimension generation already builds. W-C.5 runs **now, in parallel** — it does not wait on the spatial engine.
 
 ---
 

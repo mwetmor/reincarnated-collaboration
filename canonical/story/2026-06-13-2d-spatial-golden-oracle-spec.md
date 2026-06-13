@@ -4,7 +4,7 @@
 
 **Date:** 2026-06-13
 **Author:** gandalf (story-and-design steward; design authority for the oracle)
-**Status:** v1 — design-spec-as-math; Matt-authorized 2026-06-13 ("and then the golden oracle for 2D"). gamora executes the validation; this doc is the acceptance authority.
+**Status:** v1.1 — design-spec-as-math; Matt-authorized 2026-06-13 ("and then the golden oracle for 2D"). gamora executes the validation; this doc is the acceptance authority. **v1.1 amendment (same day, per Matt challenge):** § 6 cert gate split into RESOLVE (W-C; orthogonal to orphans) + MEASURE (W-D/W-F; downstream of the BC coverage audit); MEASURE arity consumes the Bucket-B ruling, no longer presumes 8 axes.
 **Authority:** Matt 2026-06-13 — authored from the Pattern-B combat-sim-architecture dialogue (this session).
 **Companion docs:**
 - `canonical/story/2026-06-13-combat-fidelity-drift-proofing-and-2d-certification-wave.md` — the wave (§ 5) this oracle gates; the cert wave's W-A authors this, W-C validates against it
@@ -115,17 +115,38 @@ Six known-correct kits. Each cell is the **expected verdict** the engine must re
 
 ---
 
-## 6. The certification gate
+## 6. The certification gate — TWO certs, sequenced
 
-The spatial engine is **certified** (companion doc W-C/W-D exit) when **all** hold:
+> **Amendment 2026-06-13 (v1.1, per Matt challenge):** v1 bundled both certs into one 5-condition gate and hard-coded "the 8-axis bin" in condition 4 — which presumed the BC measurement-coverage audit's answer. It does not. The gate is now split into **RESOLVE** (gates W-C; *not* downstream of orphans) and **MEASURE** (gates W-D/W-F; downstream of the coverage audit), and MEASURE's arity consumes the Bucket-B ruling rather than presuming 8 (§ 6.3).
+
+The oracle certifies two distinct engine responsibilities, and they gate **different wave phases** because one is downstream of the coverage audit and one is not.
+
+### 6.1 RESOLVE cert — gates W-C (orthogonal to orphans)
+
+The spatial engine **resolves combat correctly** when **all** hold:
 
 1. **All six reference kits reproduce their § 5 row** within tolerance (tolerance per § 7).
 2. **All four canary cells** (⚠) produce their required direction — non-negotiable; a near-miss on a canary is a fail.
 3. **The shape-flip manifests** — K2 and K3 swap ranking between open_arena and chokepoint (§ 3.2).
-4. **Commit-grade BC is computed from spatial telemetry** — the 8-axis bin (lock's axes) is assigned from the spatial run, replacing the placeholder `bc_cell`; the result is minted as a `CommitGradeVerdict` (companion § 3.1).
+
+This cert is **independent of the orphan/coverage question.** The reference kits are *hand-authored* known-correct, so they bypass generation's allocator orphans entirely (the built-lever-no-allocator failure that bit the defensive bridge cannot bite a kit constructed by hand). RESOLVE is the **deepest prerequisite in the whole architecture**: the engine has never produced a verified run, and the MEASURE cert below (condition 5, the defensive-bridge commit-grade re-validation) *cannot run until RESOLVE passes* — re-validating anything in the boss room needs a working spatial engine. RESOLVE is therefore **upstream of the orphan work's own final step**, not after it.
+
+### 6.2 MEASURE cert — gates W-D / W-F (downstream of the coverage audit)
+
+The spatial engine **measures kit identity correctly** when **both** hold:
+
+4. **The complete axis surface is computed from spatial telemetry** — every axis *per the Bucket-B coverage ruling (§ 6.3)* is assigned from the spatial run (replacing the placeholder `bc_cell`) and **wired, not default-valued** (the Bucket-A check, on the spatial seam); the result is minted as a `CommitGradeVerdict` (companion § 3.1).
 5. **The defensive bridge re-validates commit-grade** in boss_with_adds — tank/mitigator/dodger/glass separation holds on the spatial boss room, not just the 1D duel panel.
 
-Only when 1–5 pass does "the archive measures the current kit" stop being a claim and become a measured fact — and only then does the 1D engine delete (companion § 4).
+### 6.3 The arity is NOT settled at 8 — it consumes the coverage audit
+
+v1 said "the 8-axis bin." That presumed the May-20 lock's 8 axes still **cover** the current kit surface. They may not: generation has built proxy-density, charge-stack, T4 mechanics, and companion-binding *since* the lock (`agentic_orchestration/gandalf/notes/2026-06-13-bc-measurement-coverage-audit-query.md` — Bucket A re-opened deferrals + Bucket B unaxised features). That audit's own § 7: certifying the archive kit-complete before it runs *"would repeat the keystone's mistake one architectural layer up."* So MEASURE's arity is whatever the **Bucket-B design ruling** (routed to gandalf) determines — 8, or 8+N. If Bucket B promotes (e.g.) proxy-density to a real axis, then condition 4 wires a 9-tuple **and this oracle's reference-kit set (§ 5) grows a 7th kit that varies on the new axis** — without it, the engine would measure two kits that differ only on proxy-density as identical and cull one (the genre-flattening this whole architecture exists to prevent). The **Axis-4 defensive orphan is already handled** — sized + ruled ONE-OFF (`agentic_orchestration/gandalf/notes/2026-06-13-bc-orphan-sizing-ruling.md`), sitting in condition 5; § 6.3 is about the *broader* coverage question the second audit, still in flight, owns.
+
+### 6.4 Wave exit
+
+- **RESOLVE (§ 6.1)** = W-C exit.
+- **MEASURE (§ 6.2)** = W-D exit (condition 4) + W-F exit (condition 5).
+- Only when RESOLVE **and** MEASURE pass does "the archive measures the current kit" stop being a claim and become a measured fact — and only then does the 1D engine delete (companion § 4).
 
 ---
 
