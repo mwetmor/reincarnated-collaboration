@@ -1,6 +1,6 @@
 # Session 1 — T4 Architecture Design Spec
 
-**STATUS:** DRAFT — Matt-authorized 2026-06-12 (Pattern B session); spec translation from hypothesis doc + BC axes lock + today's design decisions; ready for Session 1 architecture session
+**STATUS:** RATIFIED 2026-06-12 (Matt: "I like them all. approved" — Session 1 batch). All § 8 open questions RESOLVED; catalog expanded 21 → 25 strategies. **Authoritative ruling record: `gandalf/notes/2026-06-12-session-1-rulings-q1-q10-t4-catalog-expansion.md`** — that record holds the Q1–Q10 rulings, the four new strategy spec blocks (GEOMETRY_PROPAGATION, RETRIBUTION_ENGINE, PERSISTENCE_ENGINE, PHASE_MOMENTUM), and the validation amendments. This spec is updated in-place where rulings supersede draft text; new-strategy spec blocks live in the ruling record § 2.
 **Author:** gandalf
 **Date:** 2026-06-12
 **Grounding docs:**
@@ -42,11 +42,11 @@ The Primary T4 universal slot is retired. All T4 slots draw from the 21-strategy
 | 1 | **ELEMENT_CONVERSION_MONO** | Single-element +50% multiplicative; composes downstream of element-chain multiplicatives | Single-element kit architecture | 1.50× LOCKED (doc 47 v1.2) |
 | 2 | **ELEMENT_CONVERSION_HYBRID** | Hybrid +25% multiplicative across dual-element coverage | Hybrid 2-element kit architecture | 1.25× LOCKED (doc 47 v1.2) |
 | 3 | **ELEMENT_CONVERSION_PHYSICAL** | Physical +25% additive elemental + ailment trigger per element-support flag | Physical hybrid damage scaling path | 0.25 additive + ailment LOCKED (doc 47 v1.2) |
-| 4 | **DEFENSIVE_TRADEOFF** | shadow + holy immunity (t4_chaos_immune flag); mana shield defensive layer (mana absorbs incoming damage) | energy_type == mana + mana shield skill in chain | REINSTATED 2026-06-12; mana shield behavior deferred to this session |
-| 5 | **GEOMETRY_COLLAPSE** | Collapses kit's secondary geometry into primary for amplification | Dominant geometry: ≥60% of kit's predicted damage share in a single Axis 2 bin (single-target / small-AOE / large-AOE / chain / multi-spawn); ≥4 skills in dominant bin | Empirical — Session 1 target: derive spec from mechanism |
-| 6 | **RESOURCE_CONVERSION** | Converts surplus resource pool into damage or utility output | charge-stack OR overflow resource economy type (Axis 5) | Empirical — Session 1 target: derive spec from mechanism |
+| 4 | **DEFENSIVE_TRADEOFF** | shadow + holy immunity (t4_chaos_immune flag); mana shield defensive layer | energy_type == mana + mana shield skill in chain | **RULED (Q1, 2026-06-12):** 50% absorption split; covers 5 non-immune elements only; spill-to-HP at depletion; always-on; 1:1 mana-per-damage drain, gear-scalable. Full ruling: ruling record § 1 Q1 |
+| 5 | **GEOMETRY_COLLAPSE** | Collapses kit's secondary geometry into primary for amplification | Dominant geometry: ≥60% of kit's predicted damage share in a single Axis 2 bin (single-target / small-AOE / large-AOE / chain / multi-spawn); ≥4 skills in dominant bin | **RULED (Q4, 2026-06-12):** non-dominant-bin skills convert to dominant bin + 1.4× amplification on converted skills; no secondary collapse. Full ruling: ruling record § 1 Q4 |
+| 6 | **RESOURCE_CONVERSION** | Converts surplus resource pool into damage or utility output | charge-stack OR overflow resource economy type (Axis 5) | **RULED (Q5, 2026-06-12):** all energy types eligible; conversion produces damage; competitive-not-superior conversion ratio vs direct spend. Full ruling: ruling record § 1 Q5 |
 
-**Session 1 action on strategies 5 + 6:** GEOMETRY_COLLAPSE and RESOURCE_CONVERSION are marked "empirical" in doc 47. Session 1 converts them to locked mechanics with explicit pass/fail criteria.
+**Session 1 closure on strategies 4–6:** the Q1/Q4/Q5 rulings convert all three from "empirical/deferred" to locked mechanics. Engine-implementable pass/fail criteria live in the ruling record § 1.
 
 ---
 
@@ -56,31 +56,35 @@ The Primary T4 universal slot is retired. All T4 slots draw from the 21-strategy
 
 | Skill chain count | T4 node slots | Selection rule |
 |---|---|---|
-| 2 chains | 1 T4 slot | Pick 1 eligible strategy from 21-strategy catalog |
+| 2 chains | 1 T4 slot | Pick 1 eligible strategy from 25-strategy catalog |
 | 3 chains | 2 T4 slots | Pick 2 eligible strategies; must be from different strategy families (no two proxy-family strategies unless DUAL_PROXY + proxy-family are paired) |
 | 4 chains | 3 T4 slots | Pick 3 eligible strategies; at most 2 from same family |
 
-**Retired:** Primary (universal) slot = DIRECT_DAMAGE_AMPLIFICATION. All slots now draw from the 21-strategy catalog.
+**RULED (Q2, 2026-06-12):** chain count is a **generation parameter** drawn from {2, 3} (4-chain row retained as architecture headroom, not generated in the 4,000-seed run). Full ruling: ruling record § 1 Q2.
+
+**Retired:** Primary (universal) slot = DIRECT_DAMAGE_AMPLIFICATION. All slots now draw from the 25-strategy catalog. **RULED (Q3, 2026-06-12):** Season 001010 corpus kits relying on DDA are re-evaluated against the new catalog, not grandfathered.
 
 **Selection eligibility:** each strategy's eligibility gate must be satisfied by the kit's properties at generation time. Strategies with conflicting eligibility gates (e.g., DEFENSIVE_TRADEOFF requires mana energy_type; RESOURCE_CONVERSION requires charge-stack or overflow energy_type) are mutually exclusive slots.
 
 ### 2.2 T4 strategy families (for multi-slot conflict rules)
 
+**RATIFIED 2026-06-12 — catalog expanded to 25 strategies** (ruling record § 2.6; four additions marked ●):
+
 | Family | Strategies |
 |---|---|
-| ELEMENT | ELEMENT_CONVERSION_MONO, ELEMENT_CONVERSION_HYBRID, ELEMENT_CONVERSION_PHYSICAL, ELEMENTAL_ECHO |
-| DEFENSE | DEFENSIVE_TRADEOFF, SACRIFICE_ASCENDANCY |
-| GEOMETRY | GEOMETRY_COLLAPSE, GEOMETRY_INVERSION |
-| RESOURCE | RESOURCE_CONVERSION, TEMPORAL_CHARGE, MOMENTUM_CASCADE |
-| PROXY | PROXY_ASCENSION, PROXY_SOVEREIGNTY, PROXY_FISSION, PROXY_INVERSION, PROXY_CONVERGENCE, DUAL_PROXY |
-| COMPANION | COMPANION_CONTRACT, MONSTER_PACT |
-| COMBAT | NETWORK_AMPLIFIER, RESONANCE_LOOP, ELEMENTAL_ECHO |
+| ELEMENT (4) | ELEMENT_CONVERSION_MONO, ELEMENT_CONVERSION_HYBRID, ELEMENT_CONVERSION_PHYSICAL, ELEMENTAL_ECHO |
+| DEFENSE (4) | DEFENSIVE_TRADEOFF, SACRIFICE_ASCENDANCY, ● RETRIBUTION_ENGINE, ● PHASE_MOMENTUM |
+| GEOMETRY (3) | GEOMETRY_COLLAPSE, GEOMETRY_INVERSION, ● GEOMETRY_PROPAGATION (variants: `geometry_propagation_cascade`, `geometry_propagation_overkill`) |
+| RESOURCE (3) | RESOURCE_CONVERSION, TEMPORAL_CHARGE, MOMENTUM_CASCADE |
+| PROXY (6) | PROXY_ASCENSION, PROXY_SOVEREIGNTY, PROXY_FISSION, PROXY_INVERSION, PROXY_CONVERGENCE, DUAL_PROXY |
+| COMPANION (2) | COMPANION_CONTRACT, MONSTER_PACT |
+| COMBAT (4) | NETWORK_AMPLIFIER, RESONANCE_LOOP, ELEMENTAL_ECHO, ● PERSISTENCE_ENGINE (variants: `persistence_uptime`, `persistence_saturation`) |
 
-Multi-slot conflict rule: at most 1 strategy from ELEMENT family per kit (variants are mutually exclusive). At most 1 from DEFENSE family. No restriction across families.
+Multi-slot conflict rule: at most 1 strategy from ELEMENT family per kit (variants are mutually exclusive). At most 1 from DEFENSE family (now 4 strategies — max-1 rule carries unchanged). No restriction across families. (ELEMENTAL_ECHO appears in both ELEMENT and COMBAT rows by design; it counts against the ELEMENT max-1 rule.)
 
 ---
 
-## 3. Fifteen new T4 strategies
+## 3. Fifteen new T4 strategies (+ four Session-1 additions — see § 3.4)
 
 ### 3.1 Proxy family (6 strategies)
 
@@ -373,6 +377,21 @@ Monster companion contributes CC/debuff modifier vector (not raw damage): increa
 
 ---
 
+### 3.4 Four Session-1 additions (RATIFIED 2026-06-12 — spec blocks in ruling record § 2)
+
+Authoritative spec blocks (mechanics, eligibility gates, PROVISIONAL magnitudes, Layer 2 capstone assignments) live in `gandalf/notes/2026-06-12-session-1-rulings-q1-q10-t4-catalog-expansion.md` § 2. One-line index:
+
+| Strategy | Family | Fills | One-line mechanic |
+|---|---|---|---|
+| **GEOMETRY_PROPAGATION** (`_cascade` / `_overkill`) | GEOMETRY | Perpendicular-to-collapse design seat (Matt-originated) | Cascade: corpse-burst chain reaction on AOE kits. Overkill: surplus + threshold-hit splash on single-target kits |
+| **RETRIBUTION_ENGINE** | DEFENSE | Gap 1 — dead Axis 5 damage-taken-converts bin | ~40% post-mitigation damage taken → vengeance pool → next-skill discharge (tank/mitigator gate) |
+| **PERSISTENCE_ENGINE** (`_uptime` / `_saturation`) | COMBAT | Gap 2 — no sustained/even-tempo champion | Uptime: damage-continuity ramp. Saturation: DoT-stack threshold bonus + refresh-on-hit |
+| **PHASE_MOMENTUM** | DEFENSE | Gap 3 — empty dodger shelf | Unhit windows build Phase stacks → speed/damage state; next hit consumes stacks and is negated |
+
+Companion validation amendments (Test 3 dodger criterion; Test 5 three-way RESONANCE_LOOP de-confound; Flag 4 generation prior) are at ruling record § 3 and propagated to the Session 5 spec.
+
+---
+
 ## 4. Companion convergence item design
 
 The companion's 4th gear slot is a **convergence item** — the runeword-analog. Zero power on its own. Activates a named convergence effect when companion T4 strategy and player T4 strategy form a compatible pair.
@@ -401,14 +420,14 @@ Compatible pairs are thematically coherent — the companion's T4 amplifies or e
 
 ---
 
-## 5. DEFENSIVE_TRADEOFF mana shield mechanics (Session 1 action)
+## 5. DEFENSIVE_TRADEOFF mana shield mechanics — RULED (Q1, 2026-06-12)
 
-DEFENSIVE_TRADEOFF was reinstated 2026-06-12 with mana shield behavior DEFERRED to this session. Session 1 must lock:
+All four deferred questions locked at Session 1 (full ruling: ruling record § 1 Q1):
 
-1. **Absorption ratio:** what percentage of incoming damage does mana absorb before HP? (Candidate: 100% absorption while mana > 0; transitions to full HP exposure at mana = 0)
-2. **Damage type coverage:** which damage types does mana shield absorb? (Candidates: all types; elemental only; shadow + holy excluded since already immune under t4_chaos_immune)
-3. **Depletion behavior:** when mana reaches 0, does damage spill to HP (spill = damage that would have been absorbed by mana overflows to HP) or does the player take full raw HP damage at that point?
-4. **Passive vs active vs always-on:** always-on per current implementation intent; confirm or revise
+1. **Absorption ratio:** 50% split — mana absorbs 50% of incoming damage, HP takes 50% (not 100%-until-empty; preserves HP pressure and avoids the Energy Shield binary-wall failure)
+2. **Damage type coverage:** the 5 non-immune elements only (shadow + holy already immune under t4_chaos_immune — no double-dipping)
+3. **Depletion behavior:** spill-to-HP — when mana hits 0, the mana-side share spills to HP rather than vanishing
+4. **Activation model:** always-on; **drain rate 1:1 mana per absorbed damage point, gear-scalable** (mana pool + regen affixes become the strategy's investment lane)
 
 ---
 
@@ -451,18 +470,22 @@ NPC/Mercenary season and Monster season kits draw from a SUPPORT-ELIGIBLE subset
 
 ---
 
-## 8. Session 1 open questions (must resolve)
+## 8. Session 1 open questions — ALL RESOLVED 2026-06-12
 
-| # | Question | Priority |
+Resolution mapping (this table's numbering predates the dialogue's Q1–Q10 numbering; ruling record § 1 is authoritative):
+
+| # | Question | Resolution |
 |---|---|---|
-| 1 | GEOMETRY_COLLAPSE and RESOURCE_CONVERSION: derive locked mechanics from mechanism infrastructure + Phase 4 empirical data | HIGH — current strategies need locking, not just "empirical" |
-| 2 | PROXY_CONVERGENCE valid pair matrix: which of the 14×14 proxy type pairs produce valid convergence? What is each named behavior? | HIGH — needed before Session 2 proxy spec |
-| 3 | DUAL_PROXY compatibility pools: per-type secondary proxy pools for all 14 primary types | HIGH — needed before Session 2 |
-| 4 | Companion convergence item full compatibility matrix: 21×21 strategy pairs → select valid pairs + name each convergence effect | MEDIUM — Session 2 gated |
-| 5 | DEFENSIVE_TRADEOFF mana shield behavior: absorption ratio, coverage, depletion, activation model | HIGH — blocks gamora implementation |
-| 6 | Chain count → kit generation rules: how many chains does a kit have? Is chain count a generation parameter or derived from skill count? | HIGH — affects T4 node count per kit |
-| 7 | DIRECT_DAMAGE_AMPLIFICATION retirement migration: kits currently relying on DDA for in-band guarantee — do they get re-evaluated or are they grandfathered? | MEDIUM — Season 001010 corpus decision |
+| 1 | GEOMETRY_COLLAPSE + RESOURCE_CONVERSION locking | **RESOLVED** — ruling record Q4 + Q5 (see § 1.2 above) |
+| 2 | PROXY_CONVERGENCE pair matrix | **PROCESS RULED** — ruling record Q6: principles-then-offline-matrix; fires AFTER proxy-primary empirical gate (recognition record `2026-06-12-proxy-primary-architecture-recognition.md` § 4) |
+| 3 | DUAL_PROXY compatibility pools | **PROCESS RULED** — ruling record Q7: same sequencing as Q6 |
+| 4 | Companion convergence compatibility matrix | **PROCESS RULED** — ruling record Q8: variant-agnostic strategy-pair matrix, offline authoring |
+| 5 | DEFENSIVE_TRADEOFF mana shield behavior | **RESOLVED** — ruling record Q1 (see § 5 above) |
+| 6 | Chain count generation rules | **RESOLVED** — ruling record Q2: generation parameter from {2, 3} |
+| 7 | DDA retirement migration | **RESOLVED** — ruling record Q3: re-evaluate Season 001010 corpus, no grandfathering |
+
+Additionally resolved in the same batch (numbered in dialogue but not in this draft table): **Q9** charge-stack hold-vs-spend (spend-all + passive per-stack held bonus — un-holds gamora Item 4 + rocket Item 10) and **Q10** faction coverage (redraw 8 factions; ONE composite ninth if needed).
 
 ---
 
-**Author:** gandalf, 2026-06-12. Matt-authorized Session 1 spec. Open questions in § 8 resolve in Session 1.
+**Author:** gandalf, 2026-06-12. Matt-authorized Session 1 spec; RATIFIED same-day with all § 8 questions resolved. Authoritative ruling record: `gandalf/notes/2026-06-12-session-1-rulings-q1-q10-t4-catalog-expansion.md`.

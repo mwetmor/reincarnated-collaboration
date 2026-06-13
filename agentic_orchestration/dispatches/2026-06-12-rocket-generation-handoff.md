@@ -1,6 +1,6 @@
 # Dispatch — Rocket: Generation Handoff (Sessions 3 + 4)
 
-**STATUS:** READY TO FIRE (Items 1–9) — Item 10 (charge-stack kit generation) ON HOLD pending Q9 Matt ruling; faction-lookup completeness for 3 lineages flagged on Q10 (gandalf, 2026-06-12; authored post-normalization-pass per legibility verdict § 7.4)
+**STATUS:** READY TO FIRE (ALL items 1–11) — **Session 1 RATIFIED same-day (Matt, 2026-06-12): Item 10 UN-HELD (Q9 ruled); Q2 ruled (chain count = generation parameter from {2,3}); Q10 ruled (faction redraw — see Item 6 note); Item 11 (Flag 4 cognitive-load prior) ADDED.** Ruling record: `gandalf/notes/2026-06-12-session-1-rulings-q1-q10-t4-catalog-expansion.md`. (gandalf, 2026-06-12; authored post-normalization-pass per legibility verdict § 7.4)
 **Authored by:** gandalf (Session 3 + 4 spec author; KR auto-commits per standing pattern)
 **Target agent:** rocket
 **Seam:** generation/, element/, anchor/, foundation/ (+ engine internal canonical library)
@@ -19,7 +19,7 @@ Sessions 3 + 4 of the 5-session architecture cascade are Matt-authorized and spe
 - `gandalf/notes/2026-06-12-session-3-core-combat-mechanics-spec.md` (Layer 2 dimensions; Axis 2B predictor; cognitive load; charge-stack generation rules)
 - `gandalf/notes/2026-06-12-session-4-kit-identity-generation-spec.md` (kit architecture; vestigial-class labels; coupling depth; lineage × period × register; investment profile; faction verification)
 
-Per the session-close handoff, all Session 3 + 4 rocket-seam work is unlocked NOW — it does not wait on Session 1 ratification (Q1–Q8). Two exceptions hold (Item 10 / Q9; faction-table gap / Q10), and one open question is worked with a placeholder (Q2 chain count — see § 11).
+Per the session-close handoff, all Session 3 + 4 rocket-seam work is unlocked NOW. ~~Two exceptions hold (Item 10 / Q9; faction-table gap / Q10), and one open question is worked with a placeholder (Q2 chain count)~~ **SESSION 1 RATIFIED same-day (2026-06-12):** Q9 ruled → Item 10 UN-HELD; Q2 ruled → chain count is a generation parameter from {2, 3} (placeholder replaced by the ruling — see Item 1 + § 12); Q10 ruled → faction redraw in flight (Item 6 mechanism unblocked; table content lands from elrond post-redraw). Catalog is now **25 strategies** (4 Session-1 additions: GEOMETRY_PROPAGATION `_cascade`/`_overkill`, RETRIBUTION_ENGINE, PERSISTENCE_ENGINE `_uptime`/`_saturation`, PHASE_MOMENTUM — Layer 2 capstone rows at Session 3 § 1.5; spec blocks at ruling record § 2). **NEW Item 11 added** (Flag 4 cognitive-load generation prior).
 
 **Vestigial-ontology constraint (applies to every item):** archetype/class labels are NAME-ONLY, derived AFTER generation from substrate observations, never branched on in any generation or kernel path. Per `2026-06-12-vestigial-ontology-discipline-candidate.md` + register.
 
@@ -35,7 +35,9 @@ Per the session-close handoff, all Session 3 + 4 rocket-seam work is unlocked NO
 - 8 triggers (on_use / on_hit / on_kill / on_take_damage / periodic / threshold_stack / threshold_hp / sequence)
 - 6 scaling_patterns (player_level / gear_tier / resource_current / stack_count / enemy_hp_remaining / elapsed_time)
 
-**Assignment rules (Session 3 § 1.5 — implementation contract):** per-skill-type constraint sets for CC skills, DoT skills, Burst AOE skills (spatial geometry ∈ {circle, cone, line}; predicted Axis 2 ∈ {small-AOE, large-AOE}), plus the T4-capstone assignment table (MOMENTUM_CASCADE → `stacking_capped_10` + `threshold_burst`; TEMPORAL_CHARGE → `stacking_capped_5` + `escalating` + `stack_count`; etc. — implement the § 1.5 table verbatim).
+**Assignment rules (Session 3 § 1.5 — implementation contract):** per-skill-type constraint sets for CC skills, DoT skills, Burst AOE skills (spatial geometry ∈ {circle, cone, line}; predicted Axis 2 ∈ {small-AOE, large-AOE}), plus the T4-capstone assignment table (MOMENTUM_CASCADE → `stacking_capped_10` + `threshold_burst`; TEMPORAL_CHARGE → `stacking_capped_5` + `escalating` + `stack_count`; etc. — implement the § 1.5 table verbatim, **including the five Session-1-ratified rows added 2026-06-12:** GEOMETRY_PROPAGATION cascade/overkill, RETRIBUTION_ENGINE, PERSISTENCE_ENGINE, PHASE_MOMENTUM).
+
+**Chain count (Q2 RULED 2026-06-12):** chain count is a **generation parameter sampled from {2, 3}** (2 chains → 1 T4 slot; 3 chains → 2 T4 slots from different families). The 4-chain row in Session 1 § 2.1 is architecture headroom — do NOT generate 4-chain kits in the 4,000-seed run.
 
 **Pass/fail:**
 - Every generated skill carries all four fields with values from the closed enums
@@ -79,7 +81,7 @@ Per the session-close handoff, all Session 3 + 4 rocket-seam work is unlocked NO
 - Sampling order: lineage (uniform unless priors skew) → period (lineage-affinity weighted, § 4.5 table) → register (element × predicted Axis 4 / predicted Axis 3B weighted, § 4.5 table — PREDICTED bins, generation-time)
 - Faction = `FACTION_LOOKUP_TABLE[(lineage, period, register)]` with nearest-match fallback (register > lineage > period) and Void Covenant override (§ 4.6). Table is a DATA FILE loaded at generation time — elrond maintains; you implement the loader + lookup, you do NOT hardcode the table
 
-**Q10 FLAG (do not self-resolve):** mesoamerican, sub_saharan_african, and south_southeast_asian lineages currently have no home among the 8 drafted factions. Implement the lookup + nearest-match mechanism regardless; the table CONTENT for those lineages lands after Matt rules Q10 (add factions / intentional absorption / substrate-derived). Until then, nearest-match will route them — log every nearest-match firing so the Q10 ruling has data.
+**Q10 RULED (2026-06-12, ruling record § 1 Q10):** the 8 factions are being **redrawn so all 14 lineages have a faction home** (ONE composite ninth faction added only if the redraw can't absorb mesoamerican / sub_saharan_african / south_southeast_asian cleanly). Implement the lookup + nearest-match mechanism now; the redrawn table CONTENT lands from elrond. Keep the nearest-match logging — it remains the empirical check that no lineage routes through fallback systematically post-redraw.
 
 ## 7. Investment profile (POST-BC-MEASUREMENT item)
 
@@ -99,31 +101,39 @@ Per the session-close handoff, all Session 3 + 4 rocket-seam work is unlocked NO
 
 **Scope:** Session 4 § 6. Post-generation + QD: verify ≥10 in-band player kits per faction; ≥20 NPC kits per faction; ≥40 monster kits per binding category; no faction >30% of in-band corpus. Log distribution (phase7 summary extension or separate faction report); floors unmet → flag to gandalf/knight-rider for weight adjustment — do NOT self-adjust sampling weights. (Floor values may move per Session 4 Q4; implement as config, not constants.)
 
-## 10. Charge-stack kit generation rules — ON HOLD (Q9)
+## 10. Charge-stack kit generation rules — UN-HELD (Q9 RULED 2026-06-12)
 
-**Scope when it fires:** Session 3 § 2 — exactly 1 `trigger=threshold_stack` spend skill per chain; threshold 5–10 assigned at generation; spend-all model; T4 compatibility table (§ 2.2; DEFENSIVE_TRADEOFF excluded — requires `energy_type == mana` per vestigial-ontology register).
+**Scope:** Session 3 § 2 — exactly 1 `trigger=threshold_stack` spend skill per chain; threshold 5–10 assigned at generation; spend-all model; T4 compatibility table (§ 2.2; DEFENSIVE_TRADEOFF excluded — requires `energy_type == mana` per vestigial-ontology register).
 
-**Why held:** the locked Axis 5 charge-stack bin detects build-then-HOLD (mean ≥0.75, var <0.20); a pure spend-all rotation measures as starved/generator-spender. Recommended resolution (verdict § 6.1, Session 3 § 2.3): spend-all + passive per-stack bonus while held; YOU vary passive-vs-burst magnitudes per kit so the rotation solver yields both hold-optimal and spend-optimal kits. **Do not implement until Matt rules Q9** — this item is paired with gamora kernel handoff Item 4 (also held); both fire together on the same ruling.
+**Q9 ruling (Matt-ratified, ruling record § 1 Q9):** **spend-all PLUS a passive per-stack bonus while stacks are held.** YOU vary passive-vs-burst magnitudes per kit — supply `per_stack_passive_bonus` + threshold-burst magnitude in kit data — so the optimal-rotation solver yields hold-optimal kits (→ Axis 5 charge-stack bin) AND spend-optimal kits (→ generator-spender bin). The kernel reads your magnitudes, never chooses (gamora kernel handoff Item 4 — un-held same ruling; both items fire together, gamora's after Items 1+2 smoke).
+
+## 11. Cognitive-load generation prior (Flag 4 — RATIFIED 2026-06-12, ruling record § 3)
+
+**Scope (NEW item):** generation prior on the cognitive-load distribution of the in-band corpus:
+- HIGH cognitive-load bin (score ≥14) ≥ ~8% of in-band corpus
+- ≤ 50% of the HIGH bin carries RESONANCE_LOOP — force the stacked-state route to HIGH (e.g., TEMPORAL_CHARGE + NETWORK_AMPLIFIER + SACRIFICE_ASCENDANCY = 19.5, no Resonance)
+
+**Why:** Test 5 (Session 5) was amended to a three-way comparison (HIGH-with-Resonance / HIGH-without / LOW) to de-confound complexity penalty from single-strategy tuning; this prior guarantees the HIGH-without-Resonance group is populated. Implement as a generation-target check (like faction floors, Item 9): floors unmet → flag, do NOT self-adjust T4 selection weights.
 
 ---
 
-## 11. Open-question dependencies (work-with-placeholder vs hold)
+## 12. Open-question dependencies (updated post-Session-1 ratification 2026-06-12)
 
 | Q | Item affected | Disposition |
 |---|---|---|
-| Q2 (chain count: generation parameter vs derived) | Items 1, 4 | **Placeholder OK** — implement with current chain-count rules; ruling is a parameter change |
+| Q2 (chain count) | Items 1, 4 | **RULED** — generation parameter from {2, 3}; placeholder retired (see Item 1) |
 | Q4-S3 (chain sequence_depth) | Item 3 | **Placeholder OK** — T4-only contribution for now |
 | Q6 (displacement CC counting) | Item 2 | **Implement as spec'd** (uncounted); amendment is enum-flag flip |
-| Q9 (hold-vs-spend) | Item 10 | **HOLD** |
-| Q10 (faction coverage gap) | Item 6 | **Implement mechanism; table content for 3 lineages held**; log nearest-match firings |
+| Q9 (hold-vs-spend) | Item 10 | **RULED** — un-held; spend-all + passive per-stack held bonus (see Item 10) |
+| Q10 (faction coverage gap) | Item 6 | **RULED** — faction redraw in flight; implement mechanism now; redrawn table content from elrond; keep nearest-match logging |
 | Q1/Q6-S4 (sub-element edge pairs; cosmic_horror gating) | Items 4, 6 | **Implement as spec'd**; default-exclusion stands until Matt rules |
 
-## 12. Sequencing + process
+## 13. Sequencing + process
 
 1. **Item 1 first** (Layer 2 dimensions) — Items 2–5 compose on it
-2. Items 2–6 in any order after Item 1; Item 9 after Item 6
+2. Items 2–6 in any order after Item 1; Item 9 after Item 6; Item 11 alongside Item 9 (both are distribution-floor checks)
 3. Items 7–8 require the BC pipeline pass — sequence after a measurement run exists for the generated corpus
-4. Item 10 waits on Q9
+4. Item 10 fires with gamora kernel handoff Item 4 (post gamora Items 1+2 smoke)
 5. **Regression discipline:** smoke-test before full-regen per engineering-disciplines; no parallel regens of the same seed; tag intermediate states
 6. **MIGRATION.md:** new section documenting kit-record schema additions (`predicted_control_share`, `predicted_axis2b_bin`, `cognitive_load_score/bin`, `coupling_depth`, `cultural_lineage/historical_period/register`, `faction`, `investment_profile`, label fields) — star-lord + elrond consume this schema; vestigial-ontology charge applies (no ontology-named fields with behavioral weight)
 7. **Gate-2:** jack-ryan gates implementation commits per seam protocol; the spec docs themselves are gandalf-authored design artifacts (no Gate-2)

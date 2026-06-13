@@ -111,6 +111,13 @@ The four dimensions are assigned at skill generation time. Rules by skill type:
 | RESONANCE_LOOP | `trigger=sequence`, `stackability=non_stacking`, `magnitude_pattern=threshold_burst` (2.5× on Shatter) |
 | GEOMETRY_INVERSION | `trigger=on_use`, `stackability=non_stacking`, `magnitude_pattern=burst_spike` |
 | PROXY_FISSION | `trigger` is a death event (gamora-handled; not a player skill trigger) | |
+| **GEOMETRY_PROPAGATION (cascade)** ● | `trigger=on_kill` (corpse-burst; gamora kill-event hook; recursion cap 3 is kernel-enforced, not Layer 2), `stackability=non_stacking`, `magnitude_pattern=flat`, `scaling_pattern=player_level` |
+| **GEOMETRY_PROPAGATION (overkill)** ● | `trigger=on_hit`, `stackability=non_stacking`, `magnitude_pattern=scaling`, `scaling_pattern=player_level` |
+| **RETRIBUTION_ENGINE** ● | `trigger=on_take_damage` (vengeance pool, not stacks; shares SACRIFICE_ASCENDANCY hook), `stackability=non_stacking`, `magnitude_pattern=flat`, `scaling_pattern=gear_tier` |
+| **PERSISTENCE_ENGINE** (`_uptime` / `_saturation`) ● | `trigger=periodic`, `stackability=non_stacking`, `magnitude_pattern=escalating`, `scaling_pattern=elapsed_time` |
+| **PHASE_MOMENTUM** ● | `trigger=threshold_stack` (Phase stacks; unhit-window accumulation is gamora-handled), `stackability=stacking_capped_5`, `magnitude_pattern=threshold_burst`, `scaling_pattern=player_level` |
+
+● = Session-1 ratified additions (2026-06-12); authoritative spec blocks at `gandalf/notes/2026-06-12-session-1-rulings-q1-q10-t4-catalog-expansion.md` § 2 / § 2.5.
 
 **Charge-stack energy_type kit skills (rocket directive — complements gamora kernel handoff § 4):**
 - All skills: `trigger ∈ {on_hit, on_use}` for accumulation-contributing skills; `trigger=threshold_stack` for the threshold burst skill
@@ -148,7 +155,7 @@ This complements the gamora kernel handoff (§ 4) which defines the `_ENERGY_CON
 1. **Energy types are NOT Axis 5 bins.** The locked Axis 5 bins (lock doc § 3) are MEASURED resource-usage patterns: **HP-economy / damage-taken-converts / charge-stack / starved / overflow / generator-spender / steady** — 7 bins. Mana/rage/combo/focus are declared `energy_type` values (generation-time structural properties). A mana kit can MEASURE as starved, steady, or generator-spender depending on its rotation economics.
 2. **No grid expansion occurs.** The locked 68,040-cell count (6×5×3×3×3×3×4×7) ALREADY includes the 7-bin Axis 5 with charge-stack. Adding the charge-stack `energy_type` populates an existing bin; it does not add one. The original "6 bins (was 5) → 81,648 cells" arithmetic is retracted.
 
-**Q9 — hold-vs-spend (pending Matt ruling, joins Session 1 dialogue queue):** the locked charge-stack bin detects build-then-HOLD behavior (mean normalized resource ≥0.75, variance <0.20). A spend-all threshold-burst rotation (§ 2.1) produces a sawtooth (mean ≈0.25–0.5, high variance) that would measure as **starved or generator-spender, NOT charge-stack**. Recommended resolution (verdict § 6.1): keep spend-all AND add a passive per-stack bonus while held; rocket varies passive-vs-burst magnitudes per kit so the optimal-rotation solver yields hold-optimal kits (which measure into charge-stack) and spend-optimal kits (which measure into generator-spender). Zero lock amendment; the PoE Discharge hold-vs-spend tension becomes a generation parameter.
+**Q9 — hold-vs-spend: RESOLVED (Matt-ratified 2026-06-12, ruling record § 1 Q9).** The locked charge-stack bin detects build-then-HOLD behavior (mean normalized resource ≥0.75, variance <0.20); a pure spend-all sawtooth never measures into it. **Ruling: keep spend-all AND add a passive per-stack bonus while held.** Rocket varies passive-vs-burst magnitudes per kit so the optimal-rotation solver yields hold-optimal kits (which measure into charge-stack) and spend-optimal kits (which measure into generator-spender). Zero lock amendment; the PoE Discharge hold-vs-spend tension becomes a generation parameter. **Effect: gamora dispatch Item 4 and rocket dispatch Item 10 are UN-HELD.**
 
 ---
 
@@ -403,7 +410,7 @@ QD engine uses `cognitive_load_bin` as a secondary axis if a Cognitive Load hypo
 | # | Question | Priority |
 |---|---|---|
 | 1 | Terrain-reactive: gamora boundary assessment needed before session can fully lock (see gamora kernel handoff § 5). Is terrain_type a caller-side parameter to simulate_fight or a kernel branch? | HIGH — gamora assessment gates spec lock |
-| 2 | ~~QD grid cell count expansion~~ RETRACTED at normalization pass — the locked 68,040 cells already include the 7-bin Axis 5 with charge-stack; no expansion occurs (§ 2.3). Replaced by **Q9 (hold-vs-spend)** — see § 2.3; joins Session 1 dialogue queue | HIGH — Matt ruling |
+| 2 | ~~QD grid cell count expansion~~ RETRACTED at normalization pass — the locked 68,040 cells already include the 7-bin Axis 5 with charge-stack; no expansion occurs (§ 2.3). Replaced by **Q9 (hold-vs-spend)** — **RESOLVED 2026-06-12** (Matt-ratified: spend-all + passive per-stack held bonus; see § 2.3; gamora Item 4 + rocket Item 10 un-held) | ~~HIGH~~ CLOSED |
 | 3 | `front_load_profile` (NEW metric, § 5.1 — NOT Axis 3A, which is locked): is the 3-second window the right front-load threshold? PoE uses "hit-count in first 3 skills used" as an alternative. Also: promote to QD axis or keep as telemetry-only? | MEDIUM — design preference |
 | 4 | Cognitive load — sequence_depth for chain combos: do chains themselves create sequence requirements, or only T4 strategies? | HIGH — affects most cognitive_load scores |
 | 5 | Axis 3B thresholds are LOCKED at CV 0.3 / 0.7 (per-event) — not open for gut-recalibration. Remaining empirical question: what does the CV distribution on the Season 001010 corpus look like against the locked bins (population coverage, not threshold choice)? | LOW — telemetry read |

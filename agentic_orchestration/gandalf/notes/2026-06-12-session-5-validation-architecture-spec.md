@@ -273,11 +273,13 @@ For companion pairings with a valid convergence item (Session 1 § 4):
 - Axis 2 (geometry): AOE-bin kits (small-AOE/large-AOE) have mean `enemies_hit_per_skill_use` ≥ 1.5× single-target-bin kits
 - Axis 2B (control density): control-pure kits have mean `cc_events_per_fight` ≥ 3× damage-pure kits
 - Axis 4 (defense): mitigator/tank kits have mean `player_hp_remaining_pct` at fight end ≥ 1.5× glass kits
+- **Axis 4 dodger criterion (RATIFIED amendment 2026-06-12, ruling record § 3):** dodger-bin kits show divergent damage-avoided telemetry — mean `avoidance_events_per_fight` significantly above mitigator/tank/glass bins. Non-circular (the bin is stat-defined; the metric is behavioral). The prior tank-vs-glass HP-remaining criterion left the dodger bin invisible to Test 3 entirely. Gamora telemetry addition: avoidance-event counting (dodge/miss/negation events, incl. PHASE_MOMENTUM stack-consumption negations)
 
 **Pass criteria — population coverage:**
 - Axis 3A: all 3 bins (low/medium/high events-per-second) populated with ≥ 5% of in-band corpus each
 - Axis 3B: all 3 bins (flat/variable/spiky) populated with ≥ 5% of in-band corpus each
-- Axis 5: ≥ 5 of 7 bins populated with ≥ 3% of in-band corpus each; charge-stack bin specifically populated by ≥ N hold-optimal charge-stack kits (N pending Q9 resolution — the hold-vs-spend design determines whether any kit CAN reach the charge-stack bin)
+- Axis 5: ≥ 5 of 7 bins populated with ≥ 3% of in-band corpus each; charge-stack bin specifically populated by hold-optimal charge-stack kits (**Q9 RESOLVED 2026-06-12:** spend-all + passive per-stack held bonus; rocket varies passive-vs-burst magnitudes so the rotation solver yields BOTH hold-optimal kits → charge-stack bin and spend-optimal kits → generator-spender bin — the bin is now reachable by design)
+- **damage-taken-converts bin (RATIFIED note 2026-06-12):** previously DEAD — no strategy in the 21-catalog routed damage taken into resource conversion. RETRIBUTION_ENGINE (ruling record § 2) is the bin's designed population route; Test 3 coverage should observe RETRIBUTION_ENGINE kits landing in it. If the bin stays empty WITH RETRIBUTION_ENGINE in the catalog, that's a magnitude/eligibility finding, not a coverage finding
 
 **Fail criteria / action:**
 - Divergence axis shows no significant behavioral difference (< 10% separation on its metric): the BC axis may not be capturing the intended experiential dimension; session produces a finding for Matt and gandalf to revisit the axis definition
@@ -310,12 +312,15 @@ For companion pairings with a valid convergence item (Session 1 § 4):
 
 **Question:** Do high-cognitive-load kits (RESONANCE_LOOP, TEMPORAL_CHARGE) perform better in simulation (optimal execution always) than they would in real play?
 
-**Simulation-side test:**
-- Compare WR of HIGH cognitive_load kits vs LOW cognitive_load kits at L13
-- Hypothesis: HIGH cognitive_load kits have ≥ 5% higher sim WR due to perfect execution
+**Simulation-side test (AMENDED to three-way comparison — RATIFIED 2026-06-12, ruling record § 3):**
+- Compare WR across THREE groups at L13: (a) HIGH cognitive_load WITH RESONANCE_LOOP, (b) HIGH cognitive_load WITHOUT RESONANCE_LOOP, (c) LOW cognitive_load
+- Rationale: the original HIGH-vs-LOW design was confounded — RESONANCE_LOOP dominated the HIGH bin, so the test would measure RESONANCE_LOOP tuning, not cognitive-load effects. The three-way de-confounds complexity penalty from single-strategy tuning.
+- **Companion generation prior (Flag 4, rocket dispatch):** HIGH bin ≥ ~8% of in-band corpus with ≤ 50% of the HIGH bin carrying RESONANCE_LOOP — guarantees group (b) is populated (e.g., TEMPORAL_CHARGE + NETWORK_AMPLIFIER + SACRIFICE_ASCENDANCY = 19.5 HIGH, no Resonance)
+- Hypothesis: BOTH HIGH groups show ≥ 5% higher sim WR than LOW due to perfect execution; if only group (a) does, the effect is RESONANCE_LOOP tuning, not cognitive load
 
 **Pass criteria (simulation side only):**
-- HIGH cognitive_load bin kits: mean L13 WR ≥ mean LOW cognitive_load WR + 0.05 (5 WR points advantage for optimal execution)
+- HIGH-without-RESONANCE_LOOP group (b): mean L13 WR ≥ mean LOW cognitive_load WR + 0.05 (the de-confounded test of the hypothesis)
+- HIGH-with-RESONANCE_LOOP group (a): reported alongside; (a) − (b) delta isolates RESONANCE_LOOP-specific tuning
 - RESONANCE_LOOP kits specifically: mean `t4_mechanic_state_activations` ≥ 4 per fight (sequence fires consistently in sim)
 
 **The real-play divergence (Session 5 cannot measure this; flags for future work):**

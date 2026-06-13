@@ -40,6 +40,8 @@ Kit identity uniqueness is the guarantee that the 400+ in-band survivors are max
 | **Hybrid 2-element** | Kit has a primary element and a sub-element; skills distributed across both | ELEMENT_CONVERSION_HYBRID eligible; ELEMENTAL_ECHO eligible |
 | **Physical hybrid** | Kit has at least 1 physical-damage skill + at least 1 elemental skill | ELEMENT_CONVERSION_PHYSICAL eligible |
 
+> **PENDING fourth architecture type — `proxy_primary` (Matt-chartered 2026-06-12; empirically gated).** The canonical ARPG trichotomy is physical vs caster vs proxy/summoner (Legolas research); the measurement layer already reserves the seat (Axis 2A `proxy-primary` bin, Axis 2 `multi-spawn`, the `Invoker` label, the § 5.2 proxy-gear investment row). The commitment fires AFTER the empirical gate resolves: gamora Items 1–2 land + `proxy_contribution_pct` ~0.5 reachability check on a bolt-on smoke population. Full charter: `gandalf/notes/2026-06-12-proxy-primary-architecture-recognition.md`. Do NOT generate against a fourth type until the gate resolves; this table is otherwise unchanged.
+
 ### 1.2 Element ratio rules (hybrid kits)
 
 For hybrid 2-element kits:
@@ -307,6 +309,8 @@ If exact (lineage, period, register) tuple is not in the table: apply nearest-ma
 
 **Rocket implementation note:** FACTION_LOOKUP_TABLE is a data file (not hardcoded); rocket loads it at generation time. Elrond maintains the table as a data steward item when faction assignments need addition or revision.
 
+> **Q10 RULED (Matt-ratified 2026-06-12, ruling record § 1 Q10):** the 8 drafted factions left three lineages homeless (Mesoamerican / sub-Saharan African / South-SE Asian of the 14-lineage catalog). Ruling: **redraw the 8 factions so all 14 lineages have a faction home; add ONE composite ninth faction only if the redraw cannot absorb them cleanly.** The FACTION_LOOKUP_TABLE authoring (elrond) executes against the redrawn set; rocket's nearest-match logging (rocket dispatch Item 6) remains the empirical check that no lineage routes through nearest-match systematically.
+
 ---
 
 ## 5. Investment profile — gear scaling rules
@@ -349,6 +353,8 @@ Investment profile is assigned at kit finalization based on BC axis values and T
 ## 6. Faction-kit assignment — completeness verification
 
 ### 6.1 Guarantee
+
+> **Q10 RULED (2026-06-12):** the 8-faction set is being redrawn so all 14 lineages have a faction home (ONE composite ninth faction only if the redraw can't absorb cleanly — see § 4.6 note). Read "8 factions" below as "the redrawn faction set (8, possibly 9)"; floors apply per-faction unchanged.
 
 After Session 4 generation rules are implemented, rocket must verify that:
 - All 8 factions have ≥ 10 player kit representatives in the in-band 400-kit corpus

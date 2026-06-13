@@ -1,6 +1,6 @@
 # Dispatch — Gamora: Proxy Kernel Handoff (Session 2)
 
-**STATUS:** READY TO FIRE (Items 1, 2, 3, 5) on Session 2 § 3 ratification — Item 4 ON HOLD pending Q9 Matt ruling (gandalf + Matt, 2026-06-12 Pattern B session; normalization pass applied 2026-06-12)
+**STATUS:** READY TO FIRE (ALL items) on Session 2 § 3 ratification — **Item 4 UN-HELD 2026-06-12: Q9 RULED** (Matt-ratified, Session 1 batch: spend-all + passive per-stack bonus while held; ruling record `gandalf/notes/2026-06-12-session-1-rulings-q1-q10-t4-catalog-expansion.md` § 1 Q9). Item 4 still sequences AFTER Items 1+2 smoke per § 8 and remains kernel-change-protocol gated. (gandalf + Matt, 2026-06-12 Pattern B session; normalization pass applied 2026-06-12)
 **Authored by:** gandalf (Session 2 spec author; KR auto-commits per standing pattern)
 **Target agent:** gamora
 **Seam:** simulation/ (fight_engine, combatant, balance_loop, ProxyCombatant new module)
@@ -8,7 +8,7 @@
 
 ---
 
-> **NORMALIZATION PASS (gandalf, 2026-06-12, Matt-authorized):** kernel premises in this dispatch were corrected against engine code (read-only verification; legibility verdict § 6): symmetric `simulate_fight` signature (§ 2); `_ENERGY_CONFIGS` actual 3-tuple shape + new-behavior scope (§ 4); terrain greenfield premise (§ 5). **Item 4 HOLDS on Q9** (hold-vs-spend charge-stack design, Session 3 § 2.3) — do not fire Item 4 until Matt rules. Items 1, 2, 3, 5 fire on Session 2 § 3 ratification.
+> **NORMALIZATION PASS (gandalf, 2026-06-12, Matt-authorized):** kernel premises in this dispatch were corrected against engine code (read-only verification; legibility verdict § 6): symmetric `simulate_fight` signature (§ 2); `_ENERGY_CONFIGS` actual 3-tuple shape + new-behavior scope (§ 4); terrain greenfield premise (§ 5). ~~Item 4 HOLDS on Q9~~ **Q9 RULED same-day (Session 1 ratification): Item 4 UN-HELD** — behavior spec amended per § 4 below. All items fire on Session 2 § 3 ratification (Item 4 post Items 1+2 smoke).
 
 ## 0. Context
 
@@ -113,22 +113,23 @@ star-lord telemetry: FightResult additions are internal-to-seam as long as proxy
 
 ---
 
-## 4. Charge-stack energy type — _ENERGY_CONFIGS entry (kernel-change-protocol item — **ON HOLD pending Q9**)
+## 4. Charge-stack energy type — _ENERGY_CONFIGS entry (kernel-change-protocol item — **UN-HELD: Q9 RULED 2026-06-12**)
 
-**HOLD (normalization pass, 2026-06-12):** do NOT fire this item until Matt rules on **Q9 (hold-vs-spend)** — Session 3 § 2.3. The pure spend-all model below produces a resource sawtooth (mean ≈0.25–0.5, high variance) that would measure into the Axis 5 starved/generator-spender bins, never the locked charge-stack bin (build-then-HOLD: mean ≥0.75, var <0.20). The recommended resolution (verdict § 6.1) adds a passive per-stack bonus while held, making hold-vs-spend a generation parameter; that changes this item's behavior spec. Q9 is in the Session 1 dialogue queue.
+**Q9 RULING (Matt-ratified 2026-06-12, Session 1 batch — ruling record § 1 Q9):** **spend-all PLUS a passive per-stack bonus while stacks are held.** The pure spend-all sawtooth (mean ≈0.25–0.5, high variance) never measures into the locked Axis 5 charge-stack bin (build-then-HOLD: mean ≥0.75, var <0.20); the passive held-bonus makes holding a real strategy. Rocket varies passive-vs-burst magnitudes per kit (rocket dispatch Item 10) so the optimal-rotation solver yields hold-optimal kits (→ charge-stack bin) AND spend-optimal kits (→ generator-spender bin). Zero lock amendment.
 
-**Status:** This item is a KERNEL CHANGE per kernel-change-protocol (adding a new `energy_type` to `_ENERGY_CONFIGS`). It is GATED by: (a) Q9 ruling (above), (b) DEFENSIVE_TRADEOFF gate condition update (per vestigial-ontology register 2026-06-12: any `energy_type` addition requires `_ENERGY_CONFIGS` table edit + DEFENSIVE_TRADEOFF gate condition update), and (c) kernel-change-protocol § 3.
+**Status:** This item is a KERNEL CHANGE per kernel-change-protocol (adding a new `energy_type` to `_ENERGY_CONFIGS`). It is GATED by: (a) ~~Q9 ruling~~ RESOLVED, (b) DEFENSIVE_TRADEOFF gate condition update (per vestigial-ontology register 2026-06-12: any `energy_type` addition requires `_ENERGY_CONFIGS` table edit + DEFENSIVE_TRADEOFF gate condition update), and (c) kernel-change-protocol § 3. Sequencing: fires AFTER Items 1+2 smoke (§ 8).
 
 **Actual `_ENERGY_CONFIGS` shape (verified at `simulation/combatant.py:322`):** `dict[str, tuple[float, bool, float]]` — `(pool_max, start_full, regen_per_s)`. Current entries: rage `(100.0, False, 0.0)`, combo `(5.0, False, 0.0)`, focus `(100.0, True, -5.0)`, stamina-as-resource `(150.0, True, 20.0)`. The original draft's rich dict form (`regen_on_hit`, `decay_rate`, `skill_cost_model`) does NOT exist in the kernel — those are NEW kernel behaviors, not config values:
 
 - **On-HIT accumulation is new.** The closest precedent is combo, which accumulates on primary-attack USE (`fight_engine.py:750`), not on hit-landing. Charge-stack's "+1 per enemy hit" requires a new accumulation hook at the hit-resolution site.
 - **Spend-all cost model is new.** No existing energy type spends its full pool on a threshold skill; per-skill costs are the current model. The threshold-spend-all dispatch is a new mechanism.
 
-**Behavior spec for charge-stack energy type (PROVISIONAL pending Q9):**
-- Pool maximum: 10 stacks → tuple form `(10.0, False, 0.0)` plus the two new behaviors above implemented as code, not config
+**Behavior spec for charge-stack energy type (LOCKED per Q9 ruling 2026-06-12):**
+- Pool maximum: 10 stacks → tuple form `(10.0, False, 0.0)` plus the new behaviors below implemented as code, not config
 - Starting value: 0 stacks
 - Accumulation: +1 per enemy hit (on any player or proxy hit landing on an enemy); no passive regen; no decay
-- Skill cost model: charged threshold skills SPEND all stacks on activation (spend-all); other skills cost 0 stacks — **Q9 may amend this to spend-all + passive per-stack bonus while held**
+- Skill cost model: charged threshold skills SPEND all stacks on activation (spend-all); other skills cost 0 stacks
+- **Passive held-bonus (Q9 ruling — third new kernel behavior):** while stacks are held, the combatant gains a passive per-stack bonus (e.g., +X% damage per stack; magnitude is kit data from rocket, not kernel constant). Implemented as a damage-resolution modifier reading current stack count. Rocket supplies `per_stack_passive_bonus` and threshold-burst magnitudes per kit (rocket dispatch Item 10); the kernel reads, never chooses
 - Overflow: accumulation caps at 10; hits at cap do not add stacks
 
 **Scope honesty:** this item is larger than a one-row table edit. Gamora sizes the accumulation hook + spend dispatch as part of the kernel-change-protocol checklist; if the new hooks touch hit-resolution hot paths, surface the perf implication in the Gate-2 handoff.
@@ -169,10 +170,12 @@ star-lord telemetry: FightResult additions are internal-to-seam as long as proxy
 | 1. ProxyCombatant entity model | BLOCKING | Yes — all proxy-family T4 hypothesis tests | Session 2 lock |
 | 2. simulate_fight extension | BLOCKING | Yes — paired with Item 1 | Session 2 lock |
 | 3. Companion modifier vector | HIGH | No — can parallel with Items 1+2 | Session 2 lock |
-| 4. Charge-stack energy type | **ON HOLD** | Via protocol only | **Q9 Matt ruling** + kernel-change-protocol gate |
+| 4. Charge-stack energy type | **UN-HELD (Q9 ruled 2026-06-12)** | Via protocol only | Items 1+2 smoke + kernel-change-protocol gate |
 | 5. Terrain-reactive assessment | LOW | No — informs Session 3 only | Session 2 lock; assess before Session 3 |
 
-Items 1+2 are the immediate priority. Item 3 can start in parallel. Item 4 HOLDS on Q9 (Session 1 dialogue queue); after Q9 resolves it fires post Items 1+2 smoke, with explicit kernel-change-protocol gate. Item 5 is low-urgency but should land before Session 3 fires.
+Items 1+2 are the immediate priority. Item 3 can start in parallel. Item 4 is UN-HELD (Q9 ruled 2026-06-12) and fires post Items 1+2 smoke, with explicit kernel-change-protocol gate. Item 5 is low-urgency but should land before Session 3 fires. **Note (Session 1 ratification):** the Items 1+2 smoke population additionally services the proxy-primary empirical gate — `proxy_contribution_pct` ~0.5 reachability check per `gandalf/notes/2026-06-12-proxy-primary-architecture-recognition.md` § 5; include the metric in smoke telemetry output.
+
+**Queued behind Items 1–5 (Session 1 catalog expansion, ratified 2026-06-12 — NOT in this dispatch's scope; sized here for visibility):** the four new T4 strategies (ruling record § 2) carry five kernel-side mechanic contracts that will arrive as a follow-on dispatch after this one completes: (a) `on_kill` corpse-burst hook with recursion cap 3 (GEOMETRY_PROPAGATION cascade); (b) overkill-surplus + threshold-hit splash resolution (GEOMETRY_PROPAGATION overkill); (c) vengeance-pool accumulation on the existing `on_take_damage` hook + next-skill discharge (RETRIBUTION_ENGINE — shares SACRIFICE_ASCENDANCY's hook site); (d) damage-continuity / DoT-stack-count state tracking (PERSISTENCE_ENGINE); (e) unhit-window Phase-stack accumulation + stack-consuming hit negation + avoidance-event telemetry (PHASE_MOMENTUM; the avoidance-event log also services the ratified Test 3 dodger criterion). Do not start these now; flagged so Items 1+2 architecture choices don't paint these into a corner.
 
 Sessions 3 and 4 run in parallel with gamora's kernel extension. Gamora does not wait for Sessions 3+4 to complete before beginning Items 1-3.
 
