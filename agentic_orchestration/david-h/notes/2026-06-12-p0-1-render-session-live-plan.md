@@ -1,6 +1,6 @@
 # Live Plan — P0.1 Desktop Render Session (IN PROGRESS, resume marker)
 
-**STATUS:** ACTIVE — Matt at PC console; logging off to correct Windows profile (`mhwet`) then resuming
+**STATUS:** ACTIVE — Matt at PC console on `TheSa` profile (where UE Editor is installed); render session proceeding on `TheSa`. SEE CORRECTION 2026-06-12 below — earlier "switch to mhwet" guidance was WRONG.
 **Date:** 2026-06-12
 **Author:** david-h (PC-side orchestrator)
 **Trigger doc:** `z:\agent-prompts\2026-06-11-p0-1-shader-ddc-warm-directions.md` (gandalf, revised) + my wave-close `2026-06-11-manifestation-phase1-spike-wave-close.md` § 4 forward register
@@ -20,3 +20,13 @@
 - Git SSH key + DDC + repos (junction `C:\Users\mhwet\Games` → `C:\dev`) are `mhwet`-profile-scoped — wrong-profile login was the blocker this session.
 
 **Resume:** a fresh `claude --agent david-h` reads this note + the trigger doc; hold at step-3 trigger until Matt confirms editor up + bridge bound.
+
+## CORRECTION 2026-06-12 (load-bearing — supersedes the Environment note above)
+
+The PC has a **profile split**, and the original note got it backwards:
+
+- **`TheSa` (Matt's son's account) = the RENDER profile.** UE Editor is installed ONLY on `TheSa`. ALL UE render-evidence work has always happened here. The warm DDC lives here too (confirmed this session: launching the project showed NO shader-compile counter → already warm). Logging into `mhwet` would mean NO UE access at all.
+- **`mhwet` = the AGENT/GIT profile.** SSH/WSL headless agent work + the git SSH key live here. `mhwet@192.168.1.133` is the SSH target; git push works from an `mhwet` SSH/WSL context.
+- **Consequence for wave-close push:** render work + local commits happen on `TheSa` (commits are local, no SSH needed). The wave-close `git push` is deferred to an `mhwet` SSH/WSL session, since the SSH key is `mhwet`-profile-scoped and unreachable from `TheSa`. `C:\dev\` is shared on disk across both profiles, so commits made on `TheSa` are visible to the `mhwet` push session.
+- **DXGI gate still holds** but is about GPU-attached interactive desktop (console/RDP), NOT about which user — `TheSa` at the console satisfies it.
+- david-h orchestrating from a `TheSa`-context session can fire mantis as a subagent against the local bridge (`ws://127.0.0.1:9877`) without a cross-session handoff.
