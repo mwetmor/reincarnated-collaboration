@@ -187,3 +187,26 @@ Part B landed + **pushed** to engine main (`452ca29`; `d2ea435..452ca29`). gamor
 - **Cross-seam (flagged to KR):** rocket `threshold_burst_magnitude` ⟷ kernel `charge_burst_per_stack`
   (same per-stack rate). gamora **action:** wire the kit→CombatantState lift when a generated season
   carries a charge-stack kit. See `rocket/notes/2026-06-12-item-10-part-b-landed-and-cross-seam-flag.md`.
+
+### Items 7 + 8 RUN addendum (2026-06-13 — held criterion CLEARED)
+
+gamora's BC-measurement pass is COMPLETE (`bc_measured_bins.json`, season `kse_20260613_002`, 96
+kits, engine commit `edec4c6`). The two POST-BC-MEASUREMENT items RAN. Functions UNCHANGED (landed
+2026-06-12); this is the RUN. Math note RUN addendum § 5 precedes; 40 unit tests green. Per the
+vestigial-ontology constraint + § 2.3, the collapse/inversion is REPORTED as substrate evidence — no
+rule reorder, no generation re-tune.
+
+- **Join (FK, not bare tuple):** `simulatable_corpus.id_map` (96, 1:1, zero FK collisions). Harness
+  `scripts/run_items_7_8_measured.py`.
+- **Item 7:** investment_profile CLUSTERED → **high 95 / scaling 1** (glass collapse drives § 5.2
+  rule 1). Proxy LOW-player/HIGH-proxy split masked on 6 proxy kits. →
+  `output/season_001010_representative_20260613/item7_investment_profile_measured.json`.
+- **Item 8 reachability:** reachable = {Arcanist 68, Pact-holder 12, Stormbringer 8, Invoker 6,
+  Threshold 1, Sentinel 1}; **structurally unreachable = {Berserker, Conduit}**; empirically unfired
+  = {Earthshaper, Phantom, Ranger, Ravager, Reaver, Shadowcaller, Striker, Templar, Warden,
+  Windrunner}. → `item8_vestigial_labels_measured.json` + `measured_vs_predicted_divergence.json`.
+- **Inversion root cause (gandalf Gate 1 input):** `defensive_vitality_scale` has ZERO generation
+  consumers — never wired to the `vitality` stat, which follows energy/element priors instead. The
+  collapse + inversion is one root cause: the defensive-target → stat bridge is absent. Reported,
+  not patched (truth-to-design-around vs fix is gandalf + Matt's call).
+- **Commit:** engine main (NOT pushed — Matt keystone-close gate).
