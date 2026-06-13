@@ -38,3 +38,33 @@ This is the export-seam half of the BC-measurement keystone's cross-seam boundar
 ---
 
 **Author:** knight-rider, 2026-06-13. Sequenced as fast-follow on the gamora BC-measurement build; fires on gamora emit-schema landing.
+
+---
+
+## Completion record
+
+**Completed by:** star-lord, 2026-06-13
+**Engine commit:** `3da0400` — `star-lord: BC-measurement consume-side migration — telemetry v2.17 + export schemas`
+**Tag:** `star-lord/v-bc-measure-consume-1`
+
+### Part A — consume-side schema (COMPLETE)
+
+`ExportKitBCMeasuredBin` + `ExportAxis4DefensiveProfile` + `ExportAxis3BAmplitudeVariance` (Pydantic) added to `src/reincarnated/export/schemas.py`. Matches gamora §v1.67 §A emit shape exactly. Three vocabulary enums (`AXIS4_BIN_ENUM`, `AXIS3B_BIN_ENUM`, `MEASUREMENT_BASIS_ENUM`) enforce Discipline #8 boundary validation. Public API in `export/__init__.py` updated. `export/MIGRATION.md` §v1.75-bc-measured-bin-consume authored — no drax impact (internal artifact; NOT added to ExportSeason).
+
+### Part B — telemetry migration v2.17 (COMPLETE; production apply PENDING Matt)
+
+8 additive `ALTER TABLE class_fight_loadouts` columns. Field form chosen: **accumulator triple** (`a_hit_count` / `a_hit_sum` / `a_hit_sumsq`) over unbounded `a_hit_magnitudes` list. Rationale: CV reconstructs exactly as `sqrt(sumsq/n - (sum/n)^2) / (sum/n)` with no information loss; avoids persisting 180+ floats per fight row; endorses gamora DB-economy recommendation (§v1.67 §B). Remaining 5 fields: `a_evasion_misses`, `a_incoming_attempts`, `a_shield_absorbed`, `a_hot_recovered`, `a_premitigation_damage` — all additive + NULL-default (brownfield pattern). `SCHEMA_VERSION` bumped 2.16 → 2.17. Recorder wiring: 36 → 44 INSERT placeholders. `telemetry/MIGRATION.md` §v2.17 authored.
+
+**Smoke:** 12/12 new tests PASS (`tests/test_telemetry_v217_bc_signals.py`); 224/224 combined PASS; 0 regressions.
+
+**Production DB apply:** PENDING Matt authorization per ADR-006. No write to live `telemetry.db` in this session.
+
+### Gamora spec items
+
+Gamora §v1.67 §A + §B were unambiguous. One informational flag: cheatsheet Axis-3B CV bin edges (0.2/0.6) diverge from lock §3.6 (0.3/0.7). Gamora math note §1.1 already caught and flagged this to KR for gandalf reconciliation. Star-lord noted it in `schemas.py` + export MIGRATION.md. Not a blocking ambiguity for this migration.
+
+### Pending items
+
+- Production `telemetry.db` v2.17 apply — Matt ADR-006 gate
+- Gamora must emit the 8 new fields via `fight_log` dict (bc-measurement kernel, gamora seam) before any rows populate — columns will be NULL until then
+- Cheatsheet Axis-3B CV edge drift — KR routes to gandalf for reconciliation (not star-lord to initiate)
