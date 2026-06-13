@@ -58,6 +58,32 @@ CONDITIONAL:
 - rocket resource-bounds projection on the generation RUN (Disc #1.1) — large corpus + LLM identity calls; surfaced in the dispatch
 - Eventual push-to-remote at keystone-close (Matt's gate — accumulate commits until then)
 
+## DRIVING CYCLE — execution results (same date, second cycle)
+
+Drove the dispatches to EXECUTION (a committed dispatch has no autonomous consumer — KR is the driver).
+
+**EXECUTED + LANDED:**
+- **elrond faction table — POPULATED.** 637 records, 9 factions (8 redrawn + composite "Solar Pantheon" homing mesoamerican / sub_saharan_african / south_southeast_asian). **Zero** nearest-match fallback over all 882 cells, verified against rocket's real loader. Engine `bd64ad9`, collab `a511222`.
+- **rocket Season 001010 corpus — GENERATED.** 240 in-band player kits, chronicle event `kse_20260613_001`, 0 validation errors. LLM-FREE ($0, 0.5s, <500MB — all cascade fields deterministic). Faction state LIVE (185 exact + 55 Void, 0 UNASSIGNED). New orchestrator `scripts/season_001010_cascade_gen_20260613.py` (composed from Gate-2-PASS finalizer modules; no cascade code changed). Engine `ae247af`+`8810a8d`, collab `761fb60`. Tag `rocket/v-season-001010-gen-1` CLEARED to release (Gate-2 PASS-WITH-INFO).
+- **EARLY-WIN distribution — IN-HAND + RULED.** cogload×coupling N=240: LOW 4 / MEDIUM 57 / HIGH 179. 26/240 (10.8%) flip a bin under Δscore=2.0×max(0,cd−1), all coupled, all at MEDIUM→HIGH boundary. **gandalf Q4 ruling: FLIP True, CLOSED** — coupled kits cluster exactly where the term crosses a bin. jack-ryan verified the computation 3 independent ways (script re-run + on-disk recompute + hand-checked flip semantics) → safe-to-consume confirmed.
+- **star-lord telemetry v2.17 + export consume-schema — LANDED.** 8 additive fields (accumulator triple `a_hit_count/sum/sumsq` + 5 scalars), `ExportKitBCMeasuredBin` consume schema matching gamora §v1.67. 12/12 + 224/224 tests PASS. Engine `3da0400`, tag `star-lord/v-bc-measure-consume-1`. **Production telemetry.db apply PENDING Matt (ADR-006).**
+
+**TRACKED-IN-FLIGHT:**
+- **gamora BC-measurement build — ~50%.** Math note landed (`bc-measurement-axis4-axis3b-2026-06-13.md`, `3422be2`); bin counts confirmed against lock; signal audit DONE (the load-bearing step); aggregator/binner scaffold + smoke green (13/13, pre-registered cells). Engine `3422be2`+`ce433aa`+`51a69c5`. **Next session:** FightResult→FightTelemetry adapter; corpus driver; full run.
+
+**BLOCKERS / open dependencies:**
+- gamora **full BC coverage** (Axis-4 dodger + all Axis-3B) was gated on star-lord's 6 fields → **star-lord schema now landed**; remaining: gamora must emit the 8 fields via `fight_log` (gamora seam, next session) + production apply Matt-gate.
+- gamora **Part B live wiring + proxy companion follow-on — BLOCKED:** corpus has NO charge-stack kit, NO companion records. Needs a targeted rocket generation pass emitting both.
+- gandalf **Gate 1 (vestigial reachability) + rocket Items 7/8 — still HELD** behind gamora BC build completion.
+- gandalf **Gate 3 (bridge math) — conditional now UNBLOCKED:** bridge-bearing summoner PRESENT (PROXY_FISSION ×16, gamora_kernel-owned). gamora balance check (army power in-band) can proceed.
+
+**Follow-on actions owned (next cycle head):**
+1. rocket: set `INCLUDE_COUPLING_IN_SEQUENCE_DEPTH = True` (gandalf Q4 ruling) — one-line amendment; re-bins 26 kits HIGH + grants resonance/charge eligibility; generates its own decisions-log entry.
+2. jack-ryan: canonical write reconciling `substrate-vector-cheatsheet` § 2 to the lock (Axis-3B 0.3/0.7; Axis-3A 2–6).
+3. rocket: targeted charge-stack + companion generation pass (unblocks gamora Part B + proxy companion).
+4. gamora: continue BC build (adapter → corpus driver → full run); then Items 7/8 fire.
+5. HIGH-heavy cogload (74.6%) calibration question — gandalf future Pattern B; ACCEPTED non-gating for now.
+
 ## Push posture
 
-NOT pushed. All 2026-06-13 commits accumulate; Matt gates the keystone-close push.
+NOT pushed. All 2026-06-13 commits (collab: faction script `a511222`, dispatches `f5a68d0`, corpus `761fb60`, handoff; engine: `bd64ad9`, `ae247af`, `8810a8d`, `3422be2`, `ce433aa`, `51a69c5`, `3da0400`) accumulate; Matt gates the keystone-close push. Production telemetry.db v2.17 apply also Matt-gated (ADR-006).
