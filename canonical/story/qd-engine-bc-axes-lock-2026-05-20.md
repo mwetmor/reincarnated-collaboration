@@ -5,7 +5,21 @@
 **Status:** CANONICAL — locked through theory-craft session with Matt 2026-05-19/20
 **Author:** gandalf (story-and-design steward)
 **Companion to:** `canonical/story/historical/engine-architecture-vision-qd-profile-2026-05-19.md`
-**Last revised:** 2026-05-20
+**Last revised:** 2026-05-20 (definitions); fidelity note added 2026-06-13 (W-B cert-wave stamp)
+
+> **MEASUREMENT-FIDELITY NOTE (W-B, 2026-06-13 — definitions CURRENT, fidelity stamped).**
+> The 8-axis **definitions, bin counts, thresholds, and cross-axis hybrid-capture machinery in this doc are
+> CURRENT** and the arity is **ratified at 8** (W-C.5 close-ack `agentic_orchestration/cert-wave-2d-W-C5-close-2026-06-13.md`;
+> Bucket-B ruling resolved all 5 post-lock features to ZERO new axes). **Nothing in the definitions is demoted.**
+>
+> What IS stamped is *measurement fidelity*: **measured-bin assignments are commit-grade only in 2D
+> (spatial telemetry); any 1D `bc_measured_bins` figures are `SEARCH-GRADE — commit-grade re-validation pending`
+> scaffolding.** The current `bc_measured_bins.json` (season `kse_20260613_002`) is a 1D run and therefore
+> search-grade. Commit-grade BC is minted only by the spatial path's `CommitGradeVerdict` (cert wave W-D/W-F).
+> This is the legibility half of the drift-proofing; the type-wall (cert wave § 3.1) is the structural half.
+> Authority + mechanism: `canonical/story/2026-06-13-combat-fidelity-drift-proofing-and-2d-certification-wave.md`
+> § 3.2 (stamp table) + § 1.1 (the type-collision the stamp guards against). NOT a HISTORICAL demotion —
+> the discovery work is valid; only the fidelity claim is marked.
 
 ---
 
@@ -16,6 +30,8 @@ The QD-engine MAP-Elites archive operates over **8 Behavior Characteristic (BC) 
 The architecture supports 4 hybrid archetypes (absorber, regenerator, thorns/reflection, self-harmer) plus 5 specialized mechanics (mind-control, damage-taken-converts, charge-stack, charge-up-skill, multi-resource kits) via cross-axis cell-address capture rather than dedicated bins where possible. Where a mechanic is structurally distinct enough to warrant a bin, it gets one (HP-economy, charge-stack, damage-taken-converts).
 
 **Gate-to-rebuild dependencies:** (a) recompose-validation hive ships (in flight 2026-05-19/20); (b) Legolas substrate-sufficiency audit confirms each axis × bin has ≥5× substrate variability OR a costed enrichment path; (c) Discipline #17 empirical calibration of all thresholds on first-deployment telemetry.
+
+**Fidelity (W-B, 2026-06-13):** definitions CURRENT + arity ratified at 8 (see header note). Any 1D-produced `bc_measured_bins` figures are **SEARCH-GRADE — commit-grade re-validation pending**; commit-grade bin assignments are minted only by the spatial path. See header MEASUREMENT-FIDELITY NOTE.
 
 ---
 

@@ -1,8 +1,22 @@
 # BC Bucket-B UNAXISED Rulings — 5 Post-Lock Features
 
+> **MEASUREMENT-FIDELITY STAMP (W-B, 2026-06-13): conclusion (ZERO new axes) HOLDS; measurement premise SEARCH-GRADE.**
+> The **ZERO-new-axes ruling STANDS** and is ratified at arity = 8 (W-C.5 close-ack
+> `agentic_orchestration/cert-wave-2d-W-C5-close-2026-06-13.md`). The ruling is a *design* call (belongs-in-BC
+> vs intentionally-outside), decided against the lock's cross-axis hybrid-capture machinery and the t4_catalog_v2
+> mechanic definitions — NOT against any 1D fight measurement — so the conclusion re-opens for nothing. What is
+> stamped search-grade is the **measurement premise** wherever a ruling references measured-bin behavior: any
+> figures sourced from the 1D `bc_measured_bins` panel (season `kse_20260613_002`) are
+> **SEARCH-GRADE — commit-grade re-validation pending**; the at-risk behaviorally-realized axes this ruling folds
+> features into (Axis 2A proxy, Axis 5 resource, Axis 3A/3B tempo/variance) reach commit-grade only via spatial
+> telemetry (cert wave W-D). NOT a HISTORICAL demotion — the discovery + ruling work is valid.
+> Authority: `canonical/story/2026-06-13-combat-fidelity-drift-proofing-and-2d-certification-wave.md` § 3.2.
+> Composes with the structural type-wall (cert wave § 3.1).
+
 **Type:** design ruling (the gandalf calls the coverage audit routed to me). Item 3 of the BC-orphan family; consumes the structural read (item 2) as its measurability criterion.
 **Date:** 2026-06-13
 **Author:** gandalf (story-and-design steward)
+**Fidelity:** conclusion (ZERO new axes) HOLDS @ arity = 8; measurement premise SEARCH-GRADE where it references 1D `bc_measured_bins` (see top stamp).
 **Triggered by:** coverage audit Bucket B — 5 generation features that map to no existing BC axis, surfaced for a belongs-in-BC vs intentionally-outside ruling. Per Matt's "route the rulings to me," KR captured the inventory and did NOT pre-decide.
 **Grounded in (read, this session):** `reincarnated-engine/src/reincarnated/generation/t4_catalog_v2.py` (the actual T4 mechanic definitions + PROVISIONAL magnitudes, lines 30–183) — NOT just KR's one-line glosses.
 **Criterion source:** `agentic_orchestration/gandalf/notes/2026-06-13-bc-predicted-vs-measured-structural-read.md` (the predicted-vs-measured framework) + `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` § 3 hybrid cross-axis capture philosophy.

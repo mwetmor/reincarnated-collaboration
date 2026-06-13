@@ -1,8 +1,21 @@
 # BC Orphan-Lever Sizing Ruling — ONE-OFF RATIFIED
 
+> **MEASUREMENT-FIDELITY STAMP (W-B, 2026-06-13): SEARCH-GRADE-VALID — conclusion HOLDS; measurement premise search-grade.**
+> The **ONE-OFF (Axis-4 only) verdict STANDS** — it is a generation-side allocator-orphan finding decided on
+> the SILENT-by-axis subtraction (5 on Axis-4, 0 everywhere), not on any 1D fight measurement, so the verdict
+> is fidelity-independent and re-opens for nothing. What is stamped search-grade is the **measurement panel the
+> downstream bridge acceptance reads against**: the defensive bridge's measured tank/mitigator/dodger/glass
+> separation (the **25/22/23/26** result) is a **SEARCH-GRADE result on the 1D boss-duel panel** — it
+> re-validates **commit-grade in W-F's boss room** (`boss_with_adds`, spatial). The § 4 acceptance criterion
+> (MEASURED Axis-4 with dodger independently reachable) is therefore satisfied at search-grade now and pends
+> commit-grade re-validation in W-F. NOT a HISTORICAL demotion — the discovery + sizing work is valid.
+> Authority: `canonical/story/2026-06-13-combat-fidelity-drift-proofing-and-2d-certification-wave.md` § 3.2 +
+> § 5 (W-F). Composes with the structural type-wall (cert wave § 3.1).
+
 **Type:** sizing ruling (the gate this query instrument was built to fire); NOT the bridge spec
 **Date:** 2026-06-13
 **Author:** gandalf (story-and-design steward)
+**Fidelity:** SEARCH-GRADE-VALID — conclusion holds; 25/22/23/26 is a 1D-panel result, commit-grade re-validation in W-F (see top stamp).
 **Gates:** the eventual defensive-bridge design-spec-as-math (next step; this ruling sizes it)
 **Inputs:**
 - query instrument — `agentic_orchestration/gandalf/notes/2026-06-13-bc-orphan-lever-inventory-query.md` (commit `33d4fcf`)
