@@ -1,6 +1,6 @@
 # Session 2 — Proxy + Companion Architecture Spec
 
-**STATUS:** DRAFT — Matt-authorized 2026-06-12 (Pattern B session, architecture cascade); locks after Session 1 ratification; gamora kernel handoff fires immediately on lock
+**STATUS:** § 3 RATIFIED 2026-06-12 (Matt, with three riders — see § 3 stamp below); **gamora kernel handoff FIRED on § 3 ratification.** Session 1 ratified same-day (ruling record: `gandalf/notes/2026-06-12-session-1-rulings-q1-q10-t4-catalog-expansion.md`; Q10 of § 11 ruled there). Remaining § 11 open questions (Q1–Q7) ride the dispatch as gamora boundary assessments or queue for later Matt rulings; none block the kernel work.
 **Author:** gandalf
 **Date:** 2026-06-12
 **Grounding docs:**
@@ -74,6 +74,11 @@ The following 14 types are confirmed mechanically distinct by the proxy taxonomy
 
 ## 3. ProxyCombatant interface spec (gamora kernel handoff — primary artifact)
 
+> **RATIFIED (Matt, 2026-06-12) with three riders applied:**
+> 1. `"summon"` STRUCK from ProxyThresholdEvent event types (§ 3.2) — conflicted with the proxies-of-proxies ruling (ruling record § 4: NO; PROXY_FISSION death-split is the sole bounded exception)
+> 2. Fission bounds ADDED to ProxyDeathEvent (§ 3.2/§ 3.3): recursion cap 4 total entities + 30s sub-proxy expiry, kernel-enforced (same pattern as GEOMETRY_PROPAGATION's cap-3)
+> 3. Smoke-population composition rider on the gamora dispatch: deliberately proxy-stacked kits required so the proxy-primary empirical gate has evidence (`2026-06-12-proxy-primary-architecture-recognition.md` § 5)
+
 ### 3.1 Design constraints
 
 - ProxyCombatant is a NEW entity class; NOT an extension of Combatant
@@ -125,13 +130,15 @@ class ProxyCombatant:
     # --- Death event ---
     death_event: ProxyDeathEvent | None = None
     # ProxyDeathEvent contains: event_type ("fission" | "explosion" | "transfer" | "none");
-    #   fission: fission_count, stat_fraction, sub_proxy_template
+    #   fission: fission_count, stat_fraction, sub_proxy_template,
+    #            recursion cap 4 TOTAL entities + 30s sub-proxy expiry (KERNEL-ENFORCED — rider 2)
     #   explosion: damage_multiplier, radius_m, element
     
     # --- Threshold events ---
     threshold_events: list[ProxyThresholdEvent] = field(default_factory=list)
     # ProxyThresholdEvent: hp_threshold (fraction of base_hp) OR stack_threshold (int);
-    #   event_type ("burst" | "cc" | "transform" | "summon"); magnitude
+    #   event_type ("burst" | "cc" | "transform"); magnitude
+    #   ("summon" struck per rider 1 — proxies do not summon; FISSION death-split is the sole exception)
     
     # --- Accumulation state (Charged Threshold Proxy, TEMPORAL_CHARGE if proxy uses skill) ---
     accumulation_state: ProxyAccumulationState | None = None
@@ -192,6 +199,8 @@ class ProxyDeathEvent:
     event_type: str            # "fission" | "explosion" | "none"
     fission_count: int = 2
     fission_stat_fraction: float = 0.60
+    fission_recursion_cap: int = 4     # rider 2: max TOTAL fission entities (kernel-enforced)
+    fission_expiry_s: float = 30.0     # rider 2: sub-proxy lifetime (kernel-enforced)
     explosion_damage_mult: float = 0.0
     explosion_radius_m: float = 0.0
     explosion_element: str = ""
