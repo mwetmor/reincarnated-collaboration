@@ -102,8 +102,44 @@ Matt directive: HOLD the full BC run; fire the rocket representative-corpus pass
 - **COMPANION_CONTRACT / MONSTER_PACT have no CAPSTONE_LAYER2 row** — catalog gap (why the 240-kit keystone run drew 0 companions). rocket tagged closers without self-authoring canonical Layer2 data → flagged to gandalf/elrond. Representative corpus injected companions by other means for the BC run; the canonical catalog gap remains for gandalf/elrond to close.
 - **Schema note for gamora:** kit-space drops top-level `energy_type`; charge-stack identified via `substrate_trace.charge_stack` + spend-skill fields.
 
+## CYCLE 5 — full BC run driven through to gandalf Gate 1 (TERMINAL GATE REACHED)
+
+Matt RELEASED THE HOLD: "fire the full BC run. Gate-2 folds into post-run acceptance. Drive it through to gandalf's Gate 1." Drove the full chain. Keystone COMPLETE through its terminal gate.
+
+**Chain executed:** gamora full BC run → [jack-ryan Gate-2 ∥ rocket Items 7/8] → gandalf Gate 1.
+
+**Two cost-discoveries surfaced + resolved mid-chain (in-scope, KR sequenced):**
+1. gamora's first run BLOCKED — kit-space corpus is a lossy down-projection (drops `stat_distribution` + full skill bodies), cannot drive `simulate_fight`. gamora refused to fabricate generation primitives (Disc #4). → rocket emitted a **simulatable sibling corpus** (`output/season_001010_representative_20260613/simulatable_corpus.json`, 96/96 round-trip, $0/0.21s, serialization-only, commit `891b49d`). Join is NOT shared kit_id — uses `kit_space_kit_id` FK (bare substrate_trace tuple has 3 collisions).
+
+**THE HEADLINE FINDING — Axis-4 collapse + inversion, root cause = missing defensive bridge:**
+- MEASURED Axis-4: glass 94 / mitigator 2 / dodger 0 / tank 0 (targeted 24/24/24/24). Axis-3B: spiky 81 / variable 8 / flat 7 (targeted 32/32/32).
+- Kits intended as glass measured TANKIEST (eHP_ratio glass 1.202 > dodger 1.091 > mitigator 1.029 > tank 0.982).
+- **ROOT CAUSE (rocket diagnosis, jack-ryan + gandalf corroborated):** `defensive_vitality_scale` (1.8 tank → 0.55 glass) + `shield_buffer_est`/`regen_per_sec_est`/`is_dodge_built` are WRITTEN to `substrate_trace` but have **ZERO generation-side consumers** — no stat allocator reads them. Vitality is driven by energy/element priors, decoupled from the defensive label. ONE root cause for both collapse and inversion.
+
+**jack-ryan Gate-2: PASS-WITH-INFO** (combined pipeline `3136fd7` + run `edec4c6`). Reproduced the inversion 3 ways; certified measurement methodologically sound (boss-only panel legitimate per Disc #4; brownfield invariant byte-identical; 96/96 schema-valid; locked edges intact). Finding `e879586`. INFO-1 (load-bearing): "glass takes lowest damage" holds ONLY on the 4 physical fights; on full 8-fight basis glass takes HIGHEST damage — inversion survives because HP dominates. Design around **"glass HP advantage dominates," NOT "glass is more defensive."** INFO-2: cosmetic stale md5 in AGENT_STATE.
+
+**rocket Items 7/8 RAN** (engine `02f84bd`, collab `befa550`). Item 7 investment_profile collapsed to high 95 / scaling 1; proxy LOW-player/HIGH-proxy signal MASKED (glass rule precedes proxy rule). Item 8 reachability: fired = Arcanist 68 / Pact-holder 12 / Stormbringer 8 / Invoker 6 / Threshold 1 / Sentinel 1. Companion 6-vs-12 flag → EXPECTED (12 summoner kits; companion_records counts summoned-entity bindings).
+
+**gandalf Gate 1: PASS-ON-CLEAN / DEFER-CONTAMINATED / BOUNCE-BERSERKER** (note `6640f56`). Framing-audit caught a stale-code divergence the report buried:
+- **Berserker is a STALE-CODE BUG, not vestigial.** gandalf authored the Berserker rule into canon last session (`f2fee41` S4 §2.3 rule 10: close+rage+front-loaded+spiky → Berserker). rocket's `vestigial_labels.py:189` still has the OLD pre-`f2fee41` rule routing to Ravager + hardcodes Berserker in `STRUCTURALLY_UNREACHABLE_LABELS`. "Implement verbatim" transcribed a stale spec. → **rocket re-syncs rule 10 to canon, then re-judge.**
+- **Conduit:** CONFIRMED truth-to-design-around (intentionally retired, name-only) → keep.
+- **Windrunner / Phantom:** CONFIRMED bug-blocked (dodger-gated; 0 dodger kits from the collapse) → DEFER pending bridge fix + re-run.
+- **Control/terrain/hybrid/Axis-1 labels:** CONFIRMED clean (deliberate corpus scope) → PASS now.
+- **Bridge fix call: WIRE IT, don't redesign** — sound intent, missing wire. Matt ratifies direction.
+- **Player-experience flag:** glass-as-tankiest breaks build-identity contract (defensive labels currently cosmetic); fix must restore DIFFERENTIATED defense, not HP-bloat. Arcanist 68/96 dominance = identity-label-as-theater risk if production skews mana-caster.
+- **Single re-run closes 3 deferred questions:** MEASURED Axis-4 populates all 4 bins + Axis-1 measured → tests Windrunner/Phantom reachability + Berserker true reachability + corpus-identity diversity.
+
+## KEYSTONE STATUS: COMPLETE through terminal gate. Decision points now in front of Matt:
+
+1. **Defensive-bridge fix (rocket seam)** — wire `defensive_vitality_scale` et al. into the stat allocator. gandalf recommends WIRE not redesign; jack-ryan INFO-1 is the guardrail (validate against MEASURED Axis-4 → 24/24/24/24, not a damage proxy). Plausibly in-scope cost-discovery to "produce trustworthy reachability substrate," OR Matt scopes it as a fresh cycle. **KR did NOT auto-fire — it's a new workstream past the keystone's terminal gate.**
+2. **Berserker rule-10 re-sync (rocket seam)** — code predates canon `f2fee41`; re-sync + re-judge. Small, well-bounded.
+3. **BC re-run** — after (1)+(2), re-run the BC measurement; closes the deferred partition.
+4. **Production telemetry.db v2.17 apply** — Matt ADR-006 gate (still pending).
+5. **Keystone-close push** — all 2026-06-13 commits are local; this is the natural push moment (Matt's explicit gate).
+
 ## Push posture
 
 NOT pushed. All 2026-06-13 commits accumulate; Matt gates the keystone-close push. Production telemetry.db v2.17 apply also Matt-gated (ADR-006).
 - Cycle 1–3 engine: `bd64ad9`, `ae247af`, `8810a8d`, `3422be2`, `ce433aa`, `51a69c5`, `3da0400`; collab: `a511222`, `f5a68d0`, `761fb60`.
 - Cycle 4 engine: `22478c2`, `8e79119`, `def5ac3`, `0d88fb2` (collab), `3136fd7`, `60cce7a`, `8c41a8f`.
+- Cycle 5 engine: `9660f7d`, `edec4c6`, `891b49d`, `02f84bd`; collab: `286e373`, `e879586`, `befa550`, `6640f56`.
