@@ -64,12 +64,12 @@ version: 0.1.0
 - Bins: damage-pure (control < 20%); mixed (20-60%); control-pure (> 60%)
 
 ### Axis 3A — Damage tempo
-- Hits-per-second across kit
-- Bins: low (< 2 hits/sec); medium (2-8); high (> 8)
+- Hits-per-second (damage-event rate) across kit
+- Bins: low (< 2 events/sec); medium (2–6); high (> 6)
 
 ### Axis 3B — Damage amplitude variance
 - Coefficient of variation across damage instances
-- Bins: flat (CV < 0.2); variable (0.2-0.6); spiky (> 0.6)
+- Bins: flat (CV < 0.3); variable (CV 0.3–0.7); spiky (CV ≥ 0.7)
 
 ### Axis 4 — Defensive profile
 - Composite of HP buffer / DR / dodge-chance / iframe-uptime
@@ -163,6 +163,9 @@ This skill evolves when:
 - Measurement methodology amendments land
 
 Authored / maintained by **gandalf** (cross-cutting Stream 3 owner + primary BC-axes designer).
+
+**Reconciliation log:**
+- **2026-06-13 (jack-ryan):** § 2 Axis 3A + Axis 3B bin edges corrected to match the LOCKED source (`qd-engine-bc-axes-lock-2026-05-20.md` § 3.5 / § 3.6). Cheatsheet carried stale numbers: Axis 3B CV edges read 0.2/0.6 → corrected to lock's **0.3/0.7** (flat CV<0.3 / variable 0.3–0.7 / spiky CV≥0.7); Axis 3A tempo medium read 2–8 → corrected to lock's **2–6** (low <2 / medium 2–6 / high >6). Drift surfaced by gamora's BC-measurement math note + star-lord; gandalf confirmed the lock is authoritative and routed the reconciliation. No lock change — the cheatsheet was the divergent copy.
 
 ---
 
