@@ -1272,3 +1272,49 @@ Per drax's wiring-track review at `agentic_orchestration/qa/findings/2026-05-16-
 5. **Form-bias gap-fill consideration** — validation pass surfaces thin coverage in `hand-drawn-pixel` for slime / swarm / plant / dragonling / construct / spirit embodiments. Form-bias work (doc 37 § 4) should sequence either targeted Legolas commissions, LLM image generation, or deferred non-humanoid coverage. Surfaced as input, not blocked.
 
 ---
+
+## 2026-06-13 — FACTION_LOOKUP_TABLE Q10 redraw populated (schema_version 1.0 -> 1.1)
+
+**Dispatch:** `agentic_orchestration/dispatches/2026-06-13-elrond-q10-faction-lookup-table-redraw.md` (Gate-1 PASS).
+**Owned data layer:** `reincarnated-engine/data/identity/faction_lookup_table.json` (elrond owns `records[]` content; rocket owns the loader `src/reincarnated/generation/identity_sampling.py`).
+**Builder script (reproducible):** `agentic_orchestration/research/scripts/build_faction_lookup_table_q10_2026_06_13.py` — re-run to regenerate the table verbatim.
+
+### What changed
+- `records[]` populated from empty stub to **637 records** (one exact `(lineage, period, register)` entry per non-void cell the sampler can produce).
+- `schema_version` bumped `1.0 -> 1.1` (content population; NO schema-shape change — the record key contract `{lineage, period, register, faction}` is rocket's existing loader contract, confirmed unchanged before authoring).
+- Added a `factions[]` roster field (9 factions) for legibility; void_override_* fields preserved verbatim from the stub.
+
+### Q10 redraw (Matt-ratified 2026-06-12; executed 2026-06-13)
+8 redrawn faction homes + 1 composite ninth. Faction is **lineage-anchored** per Session 2 § 7.2 (cultural lineage is the primary key; period/register are secondary descriptors):
+
+| Faction | Lineage(s) homed |
+|---|---|
+| Iron Covenant | western_european_germanic |
+| Shadow Courts | western_european_gothic |
+| Rune-Clans | norse_germanic_celtic |
+| Bronze Sanctum | greek_roman |
+| Sunfire Dominion | middle_eastern_persian, north_african_egyptian |
+| Eternal Dynasties | east_asian_chinese, east_asian_japanese, east_asian_korean |
+| Forge Republics | pan_industrial |
+| **Solar Pantheon (composite ninth)** | mesoamerican, sub_saharan_african, south_southeast_asian |
+| Void Covenant (override, not in records) | void_liminal lineage + cosmic_horror/void_arcane registers |
+
+**Why a composite ninth (Solar Pantheon) was needed, not absorption:** the three formerly-homeless lineages are cosmologically distinct from each other AND from the existing eight; the Q10 ruling itself rejects absorbing them (e.g. obsidian-priest -> Sunfire Dominion by tie-break). They share one real, non-token thread — divine-kingship + ancestral pantheons + sun/serpent cosmology rendered in stone and bronze, outside the Euro-Sinitic-MENA axes. Solar Pantheon is a real home with mythological / high_fantasy / primal_shamanic register coherence.
+
+### Loader contract confirmation (cross-seam discipline — done BEFORE authoring)
+Read rocket's `derive_faction` / `FactionTable` in `identity_sampling.py`. Contract: exact index on `(lineage, period, register)`; Void override fires FIRST (before records); nearest-match score `register*4 + lineage*2 + period*1`. **Satisfiable with content alone — no loader shape change needed.** Did NOT touch rocket's loader.
+
+- `void_liminal` lineage + `cosmic_horror`/`void_arcane` registers are **intentionally absent** from records (consumed by the Void Covenant override before record lookup). Emitting them would be dead cells.
+
+### Empirical check (Q10 acceptance — nearest-match never reached by construction)
+Exercised rocket's real loader (`load_faction_table` + `derive_faction`) over the full 14×7×9 = **882-cell** sampler space:
+- exact: **637** | override (Void): **245** | nearest: **0** | unassigned: **0**
+- distinct factions produced: **9** (all 8 record-factions + Void Covenant)
+- **0 nearest-match cells, 0 UNASSIGNED** — no lineage routes through fallback by construction. rocket's nearest-match logging is the standing empirical proof.
+
+### ADR compliance
+- **ADR-004 (MIGRATION.md for cross-seam handoff):** this entry. Loader-contract confirmation logged; no engine-telemetry change; star-lord-side MIGRATION.md unaffected.
+- **Cross-seam contract change?** No — content population of an existing schema shape; rocket's loader untouched.
+- Push to remote deferred to keystone-close (Matt's gate).
+
+---
