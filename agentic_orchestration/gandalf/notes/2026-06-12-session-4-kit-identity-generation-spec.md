@@ -109,7 +109,7 @@ Labels are used:
 - In star-lord telemetry output — as NAME-ONLY freight (never branched on)
 - NOT in fight_engine, damage_resolver, or any kernel path
 
-### 2.2 Label taxonomy (18 labels)
+### 2.2 Label taxonomy (17 primary labels — Conduit retired 2026-06-12; all 17 structurally reachable after the § 2.3 Berserker-rule authoring)
 
 Labels are organized in two tiers: primary identity (dominant read) and secondary modifier (optional flavor append).
 
@@ -130,7 +130,7 @@ Labels are organized in two tiers: primary identity (dominant read) and secondar
 | **Invoker** | proxy-dominant (≥1 proxy-family T4 strategy) + Axis 1 mid + Axis 3B = flat |
 | **Templar** | holy element + `energy_type` = mana + Axis 4 = mitigator + CC ≥ 1 skill |
 | **Reaver** | hybrid 2-element + decay/escalating magnitude_pattern + Axis 1 mid |
-| **Conduit** | resource_generation focus (Resource Conduit proxy OR focus/mana + resource_gen skills) |
+| ~~**Conduit**~~ | **RETIRED 2026-06-12 (gandalf ruling, rocket Item-8 reachability flag).** Resource-generation as a *primary kit identity* is not a viable solo archetype — in solo-only play (design intent: support is gated to multi-actor contexts) a resource-gen-focused kit has no path to clear content; resource generation is a *secondary/support* function, not a headline. Correctly structurally-unreachable, not a bug. The Resource Conduit **proxy** remains available as a DUAL_PROXY economy secondary (§ 4.2 pool 1, 6, 9) and a PROXY_CONVERGENCE parent (Q6 matrix family E) — the mechanic lives on; the *primary label* does not. |
 | **Shadowcaller** | shadow element + Axis 2 AOE bins + Axis 2B ∈ {mixed, control-pure} + shadow binding category eligible |
 | **Windrunner** | wind element + Axis 1 mid + Axis 4 = dodger + Axis 3B = spiky |
 | **Earthshaper** | earth element + ≥1 skill with `terrain_reactive` tag + Axis 2B ∈ {mixed, control-pure} |
@@ -163,7 +163,7 @@ Assignment priority (apply first match wins):
 7. If element = wind AND Axis 4 = dodger → `Windrunner`
 8. If element = lightning AND Axis 2 ∈ {small-AOE, large-AOE} → `Stormbringer`
 9. If Axis 4 = dodger AND Axis 2 = single-target AND element = shadow → `Phantom`
-10. If Axis 1 close AND `energy_type` = rage AND front-loaded → `Ravager` else if Axis 1 close AND front-loaded → `Striker`
+10. If Axis 1 close AND `energy_type` = rage AND front-loaded AND **Axis 3B = spiky** → `Berserker` (NEW 2026-06-12 — authored to recover the structurally-unreachable Berserker per rocket Item-8; the spiky-burst rage-melee is a distinct, genre-iconic identity that was being swallowed by Ravager) else if Axis 1 close AND `energy_type` = rage AND front-loaded → `Ravager` (now the *non-spiky* / flat-variable rage-melee — relentless rather than bursty) else if Axis 1 close AND front-loaded → `Striker`
 11. If Axis 2B ∈ {mixed, control-pure} AND Axis 4 = mitigator → `Warden`
 12. If Axis 1 ranged AND Axis 2 = single-target AND Axis 3B = flat → `Ranger`
 13. If Axis 2 ∈ {small-AOE, large-AOE} AND `energy_type` = mana → `Arcanist`
@@ -171,7 +171,9 @@ Assignment priority (apply first match wins):
 15. If hybrid 2-element AND decay/escalating magnitude → `Reaver`
 16. Default: `Arcanist` (covers uncategorized caster archetypes)
 
-*(Rule order note: rule 9 (Phantom) is unreachable after rules 4 — shadow + control bins — only for shadow kits that are damage-pure; the ordering stands but rocket should verify reachability per label at implementation, per the vestigial-ontology discipline: labels that never fire are substrate evidence, not bugs.)*
+*(Rule order note: rule 9 (Phantom) is reachable only for shadow kits that are damage-pure — rule 4 captures mixed/control-pure shadow first; the ordering stands and Phantom is rare-but-live (rocket Item-8 confirmed). Per the vestigial-ontology discipline, labels that never fire are substrate evidence, not bugs.)*
+
+*(Reachability resolution 2026-06-12, rocket Item-8 flag: **Berserker** was structurally unreachable — recovered via the rule-10 spiky test above (a WHAT change gandalf authored, NOT a HOW reorder rocket could make). **Conduit** was structurally unreachable and stays so — RETIRED (§ 2.2) as a non-viable solo primary, not force-fixed. Net: 17 primary labels, all structurally reachable, Phantom rare. The rule set now emits all 17.)*
 
 After primary label: check secondary modifier conditions; append if matching.
 
@@ -215,7 +217,9 @@ Coupling depth is expressed at skill level via the `prerequisite_skill` field on
 
 Rocket enforces max coupling depth per kit type at generation time: if a generated skill tree exceeds the max depth for the kit's T4 family, the deepest prerequisite link is removed (making that skill independent).
 
-`coupling_depth: int` stored in kit record; used in cognitive_load_score calculation (contributes to `sequence_depth` factor).
+`coupling_depth: int` stored in kit record; surfaced to telemetry as a candidate `sequence_depth` contributor.
+
+> **Reconciliation note (2026-06-12) — coupling→sequence_depth contribution is DEFERRED, not active.** Session 3 § 7 Q4 RULED `sequence_depth` is **T4-rotation-derived only** at baseline (`INCLUDE_COUPLING_IN_SEQUENCE_DEPTH = False`). `coupling_depth` is therefore stored on the kit record and surfaced to telemetry, but does NOT currently feed `sequence_depth` in the LOCKED cognitive_load_score formula (Session 3 § 6.2). The coupling contribution — `sequence_depth += max(0, coupling_depth − 1)` when the flag flips — is gated behind the **BC-measurement keystone** (recognition→validate→commit). Commit criterion: whether BC-measured coupled kits cluster near cognitive-load bin boundaries — i.e., whether T4-only sequence_depth systematically under-counts felt rotation complexity for high-coupling kits. Until that evidence lands, § 3.3's `coupling_depth` is a stored substrate property with no cognitive-load weight. This harmonizes Session 4 § 3.3 with Session 3 Q4: they are one ruling, not two.
 
 ---
 
@@ -287,27 +291,48 @@ At kit generation:
 2. **historical_period** sampling: weighted by cultural_lineage (affinity table below). Sampled after lineage is determined.
 3. **register** sampling: weighted by (element × engagement_profile × Axis 4 defensive_profile). Table below.
 
-**Lineage → historical period affinity weights (excerpt; rocket implements full table):**
+**Table A — Lineage → historical period affinity weights (COMPLETE; authored 2026-06-12; supersedes the prior excerpt).**
 
-| lineage_tag | ancient | medieval | early_modern | industrial | mythic | void_atemporal |
-|---|---|---|---|---|---|---|
-| `western_european_germanic` | 0.5 | 2.0 | 1.5 | 0.5 | 0.5 | 0.1 |
-| `norse_germanic_celtic` | 0.5 | 2.5 | 0.5 | 0.2 | 1.5 | 0.2 |
-| `greek_roman` | 2.5 | 0.5 | 0.5 | 0.1 | 2.0 | 0.1 |
-| `east_asian_japanese` | 0.5 | 2.5 | 1.5 | 0.5 | 1.0 | 0.1 |
-| `pan_industrial` | 0.0 | 0.0 | 0.5 | 3.0 | 0.0 | 0.3 |
-| `void_liminal` | 0.1 | 0.1 | 0.1 | 0.1 | 0.5 | 3.0 |
+Relative sampling weights, normalized at sampling time (NOT probabilities). All 14 lineages × 7 periods are now authored — uniform-default fallback is retired for this table. The `contemporary` column is intentionally low across nearly all rows (modern dress is rare in a fantasy ARPG per § 4.3); the two exceptions are `pan_industrial` and `void_liminal`, the lineages that tolerate modernity. The prior 6 excerpt rows are preserved verbatim in their first 6 values; only the new `contemporary` column and the 8 added lineage rows are new authoring.
 
-**Element + Axis 4 → register affinity weights (excerpt):**
-
-| element | Axis 4 / property condition (locked vocabulary; PREDICTED bins at generation time) | high_fantasy | dark_fantasy | mythological | grimdark | primal_shamanic | cosmic_horror |
+| lineage_tag | ancient | medieval | early_modern | industrial | contemporary | mythic | void_atemporal |
 |---|---|---|---|---|---|---|---|
-| shadow | any | 0.5 | 2.0 | 0.5 | 2.5 | 0.3 | 1.5 |
-| holy | predicted Axis 4 = mitigator | 2.5 | 0.3 | 2.5 | 0.1 | 0.5 | 0.2 |
-| earth | any | 1.5 | 0.8 | 1.0 | 0.8 | 2.5 | 0.1 |
-| fire | predicted Axis 4 = glass | 1.5 | 1.5 | 1.5 | 2.0 | 1.0 | 0.3 |
-| lightning | predicted Axis 3B = spiky | 1.5 | 1.0 | 2.0 | 1.0 | 1.5 | 0.3 |
-| any | void_liminal lineage | 0.1 | 0.5 | 0.5 | 0.5 | 0.1 | 2.5 |
+| `western_european_germanic` | 0.5 | 2.0 | 1.5 | 0.5 | 0.2 | 0.5 | 0.1 |
+| `western_european_gothic` | 0.3 | 2.0 | 1.8 | 1.0 | 0.3 | 1.0 | 0.3 |
+| `norse_germanic_celtic` | 0.5 | 2.5 | 0.5 | 0.2 | 0.1 | 1.5 | 0.2 |
+| `greek_roman` | 2.5 | 0.5 | 0.5 | 0.1 | 0.1 | 2.0 | 0.1 |
+| `middle_eastern_persian` | 2.0 | 2.5 | 1.0 | 0.2 | 0.1 | 1.5 | 0.1 |
+| `north_african_egyptian` | 3.0 | 0.3 | 0.2 | 0.1 | 0.1 | 2.5 | 0.2 |
+| `east_asian_chinese` | 1.5 | 2.0 | 1.5 | 0.3 | 0.2 | 2.0 | 0.1 |
+| `east_asian_japanese` | 0.5 | 2.5 | 1.5 | 0.5 | 0.3 | 1.0 | 0.1 |
+| `east_asian_korean` | 0.8 | 2.0 | 2.0 | 0.3 | 0.2 | 1.5 | 0.1 |
+| `south_southeast_asian` | 2.0 | 1.8 | 1.0 | 0.2 | 0.2 | 2.5 | 0.2 |
+| `mesoamerican` | 2.5 | 1.5 | 0.5 | 0.1 | 0.1 | 2.5 | 0.2 |
+| `sub_saharan_african` | 1.5 | 2.0 | 1.0 | 0.2 | 0.2 | 2.0 | 0.2 |
+| `pan_industrial` | 0.0 | 0.0 | 0.5 | 3.0 | 0.5 | 0.0 | 0.3 |
+| `void_liminal` | 0.1 | 0.1 | 0.1 | 0.1 | 0.3 | 0.5 | 3.0 |
+
+Design intent (per-row): germanic peaks medieval (Arthurian); gothic spreads medieval→industrial (Gothic horror is a later aesthetic — Dracula-era); norse/celtic peaks medieval with strong mythic (Norse cosmology); greek_roman dual-peaks ancient+mythic (classical antiquity + Olympian myth); middle_eastern_persian dual-peaks medieval (Islamic Golden Age) + ancient (Mesopotamia); north_african_egyptian is sharply ancient+mythic (Egypt is *the* ancient civilization, with a god-rich cosmology); the three east-asian lineages spread medieval/early_modern with strong mythic (continuous civilizations, deep mythological corpora — Chinese highest for *Journey to the West*-class material); south_southeast_asian peaks mythic (the Hindu epics are an extraordinarily rich mythological source); mesoamerican dual-peaks ancient+mythic (Classic Maya + Aztec cosmology); sub_saharan_african spreads medieval (Mali/Songhai/Great Zimbabwe) + mythic (rich oral tradition); pan_industrial is definitionally industrial; void_liminal is definitionally void_atemporal.
+
+**Table B — Element → register affinity weights (COMPLETE; authored 2026-06-12; supersedes the prior excerpt).**
+
+All 8 elements now carry a row (full coverage: fire, water, earth, wind, lightning, shadow, holy, physical) plus one lineage-override row. All 9 registers are authored (the prior excerpt's 6 columns are preserved verbatim; `steampunk`, `arcane_modern`, `void_arcane` are new authoring). Uniform-default fallback is retired for any kit whose element appears here.
+
+**Keying / condition semantics (design clarification for rocket — WHAT, not a HOW reorder):** the row is keyed by **element alone**. The "axis-correlation note" column is **documentation** of the dominant axis tendency that motivates the weights — it is NOT a match gate. A `fire` kit that is not glass still uses the `fire` row; the note explains the lean, it does not exclude the row. This guarantees every element-kit receives a defined register distribution and never falls to uniform-default. **Exception — the final row is a LINEAGE override:** when `cultural_lineage = void_liminal`, the `any | void_liminal lineage` row OVERRIDES the element row (matching the § 4.6 void-faction override). If a future empirical pass shows an element needs axis-split register affinities (e.g., glass-fire vs tank-fire leaning to different registers), that is a deferred refinement, not a current gap.
+
+| element | axis-correlation note (documentation) | high_fantasy | dark_fantasy | mythological | grimdark | steampunk | arcane_modern | cosmic_horror | primal_shamanic | void_arcane |
+|---|---|---|---|---|---|---|---|---|---|---|
+| shadow | (skews dodger/single-target) | 0.5 | 2.0 | 0.5 | 2.5 | 0.3 | 1.0 | 1.5 | 0.3 | 2.0 |
+| holy | (skews Axis 4 mitigator) | 2.5 | 0.3 | 2.5 | 0.1 | 0.2 | 0.8 | 0.2 | 0.5 | 1.0 |
+| earth | (skews Axis 4 mitigator/control) | 1.5 | 0.8 | 1.0 | 0.8 | 0.5 | 0.5 | 0.1 | 2.5 | 0.1 |
+| fire | (skews Axis 4 glass) | 1.5 | 1.5 | 1.5 | 2.0 | 2.0 | 1.0 | 0.3 | 1.0 | 0.3 |
+| lightning | (skews Axis 3B spiky) | 1.5 | 1.0 | 2.0 | 1.0 | 2.5 | 1.2 | 0.3 | 1.5 | 0.3 |
+| water | (skews control/sustain) | 1.0 | 1.0 | 1.5 | 0.5 | 1.0 | 1.0 | 1.5 | 2.0 | 0.3 |
+| wind | (skews mobile/spread) | 2.0 | 0.5 | 1.5 | 0.3 | 0.8 | 0.8 | 0.5 | 2.0 | 0.3 |
+| physical | (skews close/front-loaded) | 1.5 | 1.5 | 1.0 | 2.5 | 1.5 | 0.8 | 0.3 | 1.5 | 0.2 |
+| any | **OVERRIDE** when lineage = void_liminal | 0.1 | 0.5 | 0.5 | 0.5 | 0.1 | 0.5 | 2.5 | 0.1 | 3.0 |
+
+Design intent (per-row): shadow leans grimdark/dark_fantasy/void_arcane (shadow is the void-arcane signature); holy leans high_fantasy/mythological (divine register, with a void_arcane echo per § 4.4's "shadow, holy, void"); earth leans primal_shamanic (totemic, grounded); fire leans grimdark/steampunk (forge + aggression — fire is a steampunk-canonical element); lightning leans steampunk hardest (lightning is *the* steampunk element) + mythological (storm-gods); water leans primal_shamanic + cosmic_horror (the Lovecraftian deep — Innsmouth/Cthulhu is a strong water-horror current) + mythological (sea-gods); wind leans high_fantasy + primal_shamanic (§ 4.4 lists wind under both); physical leans grimdark hardest (brutal martial combat is the grimdark mode) + steampunk (mechanized weapons) — both per § 4.4; the void_liminal override concentrates on cosmic_horror + void_arcane.
 
 ### 4.6 Faction derivation (lookup; references Session 2 § 7.2)
 

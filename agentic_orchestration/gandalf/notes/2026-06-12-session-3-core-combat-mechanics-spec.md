@@ -392,10 +392,12 @@ cognitive_load_score =
 |---|---|---|---|---|---|---|
 | Simple fire AoE, no T4 state machines | 3 | 0 | 0 | 0 | 3.0 | LOW |
 | Combo DoT kit, stack tracking | 4 | 0 | 1 (stack count) | 0 | 5.5 | LOW |
-| MOMENTUM_CASCADE kit | 5 | 0 | 1 (momentum stacks) | 1 (Cascade reset timing) | 8.0 | MEDIUM |
+| MOMENTUM_CASCADE kit | 5 | 0 | 1 (momentum stacks) | 1 (Cascade reset timing) | 9.0 | MEDIUM |
 | RESONANCE_LOOP + hybrid element | 5 | 2 (Partner A → Partner B) | 2 (Resonance state; 12s window) | 2 (3s seq window; 12s Res window) | 17.0 | HIGH |
-| TEMPORAL_CHARGE + charge-stack | 5 | 0 | 2 (charge count; threshold state) | 2 (hold timing; threshold window) | 10.5 | MEDIUM |
-| RESONANCE_LOOP + MOMENTUM_CASCADE (3-chain kit) | 6 | 2 | 3 | 3 | 19.5 | HIGH |
+| TEMPORAL_CHARGE + charge-stack | 5 | 0 | 2 (charge count; threshold state) | 2 (hold timing; threshold window) | 13.0 | MEDIUM |
+| RESONANCE_LOOP + MOMENTUM_CASCADE (3-chain kit) | 6 | 2 | 3 | 3 | 22.0 | HIGH |
+
+*(Scores corrected 2026-06-12 to match the LOCKED § 6.2 formula — prior listed 8.0 / 10.5 / 19.5 on rows 3, 5, 6 were authoring arithmetic slips (dropped `timing×2.5` / `state×1.5` terms); rocket Flag 1 confirmed. Bins unaffected — the formula is the source of truth and rocket implemented it exactly; no code change.)*
 
 ### 6.5 Rocket generation directive
 
@@ -412,7 +414,7 @@ QD engine uses `cognitive_load_bin` as a secondary axis if a Cognitive Load hypo
 | 1 | Terrain-reactive: gamora boundary assessment needed before session can fully lock (see gamora kernel handoff § 5). Is terrain_type a caller-side parameter to simulate_fight or a kernel branch? | HIGH — gamora assessment gates spec lock |
 | 2 | ~~QD grid cell count expansion~~ RETRACTED at normalization pass — the locked 68,040 cells already include the 7-bin Axis 5 with charge-stack; no expansion occurs (§ 2.3). Replaced by **Q9 (hold-vs-spend)** — **RESOLVED 2026-06-12** (Matt-ratified: spend-all + passive per-stack held bonus; see § 2.3; gamora Item 4 + rocket Item 10 un-held) | ~~HIGH~~ CLOSED |
 | 3 | `front_load_profile` (NEW metric, § 5.1 — NOT Axis 3A, which is locked): is the 3-second window the right front-load threshold? PoE uses "hit-count in first 3 skills used" as an alternative. Also: promote to QD axis or keep as telemetry-only? | MEDIUM — design preference |
-| 4 | Cognitive load — sequence_depth for chain combos: do chains themselves create sequence requirements, or only T4 strategies? | HIGH — affects most cognitive_load scores |
+| 4 | Cognitive load — sequence_depth for chain combos: do chains themselves create sequence requirements, or only T4 strategies? **RULED 2026-06-12 (gandalf):** stays **T4-only** for now — rocket's `INCLUDE_COUPLING_IN_SEQUENCE_DEPTH = False` is the ratified current state. The coupling→sequence_depth contribution declared in Session 4 § 3.3 is **DEFERRED behind an empirical gate**, not enabled. **Commit criterion (recognition→validate→commit):** the BC-measurement pass on the Season 001010 corpus shows whether coupled kits cluster near cognitive-load bin boundaries (where the `max(0, coupling_depth−1)` contribution would move a bin) — if they do, flip the flag True; if coupling is immaterial to bins, keep T4-only permanently and close Q4. Enabling now would distort RESONANCE_LOOP / TEMPORAL_CHARGE eligibility on an unvalidated weighting. | ~~HIGH~~ DEFERRED — empirical-gated |
 | 5 | Axis 3B thresholds are LOCKED at CV 0.3 / 0.7 (per-event) — not open for gut-recalibration. Remaining empirical question: what does the CV distribution on the Season 001010 corpus look like against the locked bins (population coverage, not threshold choice)? | LOW — telemetry read |
 | 6 | Displacement effects (knockback / pull / taunt) are outside the locked Axis 2B inclusion list (§ 4.5): leave uncounted, or propose lock amendment to count them? | MEDIUM — Matt call |
 
