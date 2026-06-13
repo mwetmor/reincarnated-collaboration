@@ -144,3 +144,28 @@ Per the session-close handoff, all Session 3 + 4 rocket-seam work is unlocked NO
 ---
 
 **Author:** gandalf, 2026-06-12. Authored post-normalization per legibility verdict § 7.4 ("rocket dispatch is authored AFTER normalization — never before"). Anchors: Session 3 + Session 4 specs (normalized); qd-engine-bc-axes-lock § 3; normalization-pass delta summary; vestigial-ontology register.
+
+---
+
+## Completion record (rocket, 2026-06-12)
+
+**Status:** Items 1–11 LANDED; Item 10 Part B + Items 7/8 pipeline-RUN HELD (empirical-criterion
+gated); Item 12 (MIGRATION + Gate-2 handoff) complete. Full Session 3/4 rocket suite **167 passed**.
+
+| Item | Module | Status |
+|---|---|---|
+| 1 | `layer2_dimensions` | landed |
+| 2, 3, 5 | `kit_finalization` | landed |
+| 4 | `kit_architecture` | landed |
+| 6 | `identity_sampling` (+ faction stub data file) | landed |
+| 7 | `investment_profile` | function landed; RUN held (BC measurement) |
+| 8 | `vestigial_labels` | function landed; RUN held; Berserker/Conduit structurally unreachable (reported, not reordered) |
+| 9, 11 | `corpus_floor_verification` | landed (flag-only) |
+| 10 | `charge_stack_generation` | Part A landed; **Part B HELD** (joint fire w/ gamora kernel Item 4, post gamora Items 1+2 smoke) |
+| 12 | MIGRATION.md + AGENT_STATE + Gate-2 handoff | landed |
+
+**Math-before-code:** 8 math notes in `generation/math/` precede the modules.
+**Commits (engine main):** 807022f, 52ca2b4, 6c9daf3, 8647004, 18820d0, 3a122d3, 3dcfff1 (+ Item 1).
+**Gate-2:** `agentic_orchestration/rocket/notes/2026-06-12-session-3-4-generation-cascade-gate-2-handoff.md` — PENDING jack-ryan. No milestone tag pending verdict.
+**Flags (4, `rocket/notes/`):** cogload §6.4 fixture discrepancy; identity §4.5 affinity excerpt + faction-table-pending (elrond); Items 7+8 reachability + kit_kind-gate + modifier-precedence.
+**Held criteria:** Item 10 Part B → gamora Items 1+2 smoke landed; Items 7/8 RUN → BC-measurement pass over the generated corpus (reachability report over Season 001010).
