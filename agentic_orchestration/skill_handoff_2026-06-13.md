@@ -137,9 +137,28 @@ Matt RELEASED THE HOLD: "fire the full BC run. Gate-2 folds into post-run accept
 4. **Production telemetry.db v2.17 apply** — Matt ADR-006 gate (still pending).
 5. **Keystone-close push** — all 2026-06-13 commits are local; this is the natural push moment (Matt's explicit gate).
 
+## DEFENSIVE-BRIDGE LINE — OPENED (distinct from the CLOSED keystone)
+
+Hard boundary: **BC-measurement keystone = CLOSED** (pushed, complete on its own terms). **Defensive-bridge line = OPENED** — remediation of the Axis-4 silent-orphan the keystone characterized. Step 1 = orphan-lever inventory (one-off vs class sizing, BEFORE any fix specced).
+
+**Step 1 — orphan-lever inventory (rocket, engine `343c21b`):** artifact `generation/notes/bc-orphan-lever-inventory-2026-06-13.md`. Audited every measurement-formula input the lock names across all 8 axes (`bc_target` → composition → allocation → sim telemetry), classified WIRED/ORPHAN-gen/MISSING-gen/GAP-sim/DEFERRED-lock + SILENT flag.
+- **SILENT-by-axis: 0/0/0/0/0/0/5/0 — all 5 on Axis 4** (`HP`←`defensive_vitality_scale`, `shield_pool`, `regen_per_sec`, `mitigation_fraction`, `evasion_misses`, all ORPHAN-gen).
+- **Self-check HELD:** Axis-4 eHP rows reproduced ORPHAN-gen/SILENT, none WIRED — `defensive_vitality_scale` greps to ZERO consumers in `src/`. Keystone diagnosis CONFIRMED, not refuted.
+- **Structural root cause:** Axis-4 is the ONLY axis reaching the kit through a STAT objective (`DefensiveObjective`) vs mechanic/skill selection; the objective→stat allocator was never built. All 7 other axes are mechanic-selection (sim measures selected-skill metadata) → all WIRED.
+- **Second orphan:** generation allocates NO evasion-chance (`evasion_high` = abstract budget string, no allocator) → dodger bin dead for an independent second reason (sim `a_evasion_misses` telemetry IS live; kits carry no evasion stat).
+
+**Step 1 sizing — gandalf ruling (collab `0b19cec`):** `gandalf/notes/2026-06-13-bc-orphan-sizing-ruling.md`.
+- **VERDICT RATIFIED: ONE-OFF (Axis-4 only)** → architecturally entailed (one missing component, one axis), not lucky. gamora-confirm on the 2 GAP-sim sim-seam rows does NOT gate the verdict (different seam/bug-class; separable parallel footnote).
+- **Fix shape: CONTAINED defensive-bridge design-spec-as-math, NOT a general allocator-wiring pass.** Scope: build the single missing `DefensiveObjective`→stat allocator (eHP layers HP/shield/regen/mitigation AND evasion-chance) so Axis-4's live formula reads non-default; touches only the Axis-4 stat-objective seam.
+- **Evasion: IN SCOPE as named sub-item** (same allocator; distinct acceptance criterion — eHP orphan flattens tank↔glass, evasion orphan makes dodger bin fully unreachable).
+- **Hand-off guardrails for the eventual spec:** jack-ryan's two (validate MEASURED Axis-4→24/24/24/24 not a damage proxy; differentiate via allocation not HP-bloat) + gandalf's two new (dodger `avoidance_rate>=0.40` as INDEPENDENT acceptance gate; define defensive-objective↔element-prior composition explicitly — scale/override/add — or the next silent inconsistency is born there).
+
+**NEXT STEP (now ungated, NOT auto-fired):** author the defensive-bridge design-spec-as-math (gandalf authors design-spec; rocket executes the allocator). Matt's scope/sequence call — this is past the inventory step his directive set.
+
 ## Push posture
 
 NOT pushed. All 2026-06-13 commits accumulate; Matt gates the keystone-close push. Production telemetry.db v2.17 apply also Matt-gated (ADR-006).
+- Defensive-bridge line (post keystone-close push): engine `343c21b` (rocket inventory); collab `0b19cec` (gandalf sizing ruling). Plus gandalf query note `33d4fcf` (pre-existing, already on remote? — verify before next push).
 - Cycle 1–3 engine: `bd64ad9`, `ae247af`, `8810a8d`, `3422be2`, `ce433aa`, `51a69c5`, `3da0400`; collab: `a511222`, `f5a68d0`, `761fb60`.
 - Cycle 4 engine: `22478c2`, `8e79119`, `def5ac3`, `0d88fb2` (collab), `3136fd7`, `60cce7a`, `8c41a8f`.
 - Cycle 5 engine: `9660f7d`, `edec4c6`, `891b49d`, `02f84bd`; collab: `286e373`, `e879586`, `befa550`, `6640f56`.
