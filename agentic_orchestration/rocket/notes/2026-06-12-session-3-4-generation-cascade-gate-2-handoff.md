@@ -73,20 +73,45 @@ These are routed to gandalf for design ratification; none change a ratified surf
 
 ## 5. Held work (NOT in this gate; flagged for sequencing)
 
-- **Item 10 Part B** (charge-stack magnitude distribution) — joint fire with gamora kernel handoff
-  Item 4, gated on gamora Items 1+2 smoke (not yet landed) + the optimal-rotation solver. KR
-  coordinates the joint fire.
+- ~~**Item 10 Part B**~~ — **LANDED 2026-06-12** (UN-HELD by Matt after gamora kernel Item 4 `dae0349`;
+  "gamora finished item four. Proceed to item 10 and push"). Now IN this gate — see § 5.1 below. Pushed
+  to engine main `452ca29`.
 - **Items 7/8 pipeline RUN** — functions landed + tested; running them in the season pipeline waits
   for a BC-measurement pass over the corpus (the two intentional measurement-time items). The
   dispatch § 8 pass/fail (reachability report over Season 001010) fires when that corpus has measured
-  bins.
+  bins. **Part B's MEASURED Axis-5 split RUN shares this gate** (PREDICTED bin lands now; MEASURED is
+  downstream).
+
+### 5.1 Item 10 Part B — ADDED to this gate (commit `452ca29`)
+
+Charge-stack magnitude distribution (hold-vs-spend). Extends `charge_stack_generation.py` (+ math note
+`session-3-item-10-part-b-charge-stack-magnitude-distribution-2026-06-12.md`). Math-before-code: note
+precedes code. Smoke: charge-stack 26 (13 A + 13 B); full Session 3/4 suite **180 passed** (167 + 13).
+
+- **Model:** HOLD-optimal ⟺ `cbps/psb < α(T)`, `α(T) = S − (T−2)(T−1)/(2T)`, S=10 (kernel cap). Anchored
+  to gamora Item 4 §6.1–6.4 economics (passive `1+stacks·psb` on every hit; spend-all burst
+  `1+stacks·cbps`, no passive on the zeroed-pool burst hit). gamora smoke defaults (psb=0.05, cbps=0.50,
+  T=10) verify spend-optimal under the model (r=10 > α=6.4) — consistency check passes.
+- **do-not-self-adjust:** bands (psb [0.03,0.07]; cbps clamp [0.10,0.90]) + `f_hold=0.50` are PROVISIONAL
+  **config** (dataclass, not module constants). NO telemetry tuning. A measured-split deviation from
+  `f_hold` is FLAGGED for a gandalf ruling, never auto-tuned.
+- **PREDICTED vs MEASURED (Disc #11):** `predicted_axis5_bin(...)` is generation-side first-order; the
+  MEASURED Axis-5 bin is gamora's BC-pipeline + solver output. Labeled distinct in code + math note § 5.
+- **Vestigial-ontology:** psb/cbps are mechanism-structural (drive the kernel damage math), not name-only;
+  the PREDICTED bin string is a generation-side prediction, not a kernel branch. Compliant.
+- **Cross-seam (KR flag):** rocket `threshold_burst_magnitude` ⟷ kernel `charge_burst_per_stack` (same
+  per-stack rate) — HOW-latitude, documented not renamed. gamora kit→CombatantState lift is a follow-on.
 
 ## 6. Suggested gate focus
 
-- ADR-004 schema-addition completeness (MIGRATION downstream-consumer table).
-- Vestigial-ontology charge on the new NAME-ONLY fields.
+- ADR-004 schema-addition completeness (MIGRATION downstream-consumer table) — **now incl. Part B's
+  cross-seam field-name mapping + the gamora wiring-action row**.
+- Vestigial-ontology charge on the new NAME-ONLY fields (and that Part B's psb/cbps are correctly classed
+  mechanism-structural, not name-only).
 - That the 16-rule assignment is transcribed VERBATIM (no reachability-forcing reorder) — § 2.3 vs
   `vestigial_labels.py` rules 1–16.
-- Do-not-self-adjust posture on the two verifiers.
+- Do-not-self-adjust posture on the two verifiers **and Part B's PROVISIONAL bands/f_hold**.
+- Part B: that the α(T) crossover model + margins keep generated kits unambiguously on one Axis-5 side
+  (the intent-preservation sweep test is the empirical guard).
 
-No milestone tag yet — pending your Gate-2 verdict.
+No milestone tag yet — pending your Gate-2 verdict (now covering Parts A **and** B).

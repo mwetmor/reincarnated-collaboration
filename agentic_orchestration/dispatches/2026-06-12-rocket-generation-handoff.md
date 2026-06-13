@@ -149,8 +149,9 @@ Per the session-close handoff, all Session 3 + 4 rocket-seam work is unlocked NO
 
 ## Completion record (rocket, 2026-06-12)
 
-**Status:** Items 1–11 LANDED; Item 10 Part B + Items 7/8 pipeline-RUN HELD (empirical-criterion
-gated); Item 12 (MIGRATION + Gate-2 handoff) complete. Full Session 3/4 rocket suite **167 passed**.
+**Status:** Items 1–11 + **Item 10 Part B** LANDED; Items 7/8 pipeline-RUN + Part B measured-split RUN
+HELD (empirical-criterion gated); Item 12 (MIGRATION + Gate-2 handoff) complete. Full Session 3/4 rocket
+suite **180 passed** (167 + 13 Part B). Item 10 Part B + cascade pushed to engine main.
 
 | Item | Module | Status |
 |---|---|---|
@@ -161,11 +162,28 @@ gated); Item 12 (MIGRATION + Gate-2 handoff) complete. Full Session 3/4 rocket s
 | 7 | `investment_profile` | function landed; RUN held (BC measurement) |
 | 8 | `vestigial_labels` | function landed; RUN held; Berserker/Conduit structurally unreachable (reported, not reordered) |
 | 9, 11 | `corpus_floor_verification` | landed (flag-only) |
-| 10 | `charge_stack_generation` | Part A landed; **Part B HELD** (joint fire w/ gamora kernel Item 4, post gamora Items 1+2 smoke) |
+| 10 | `charge_stack_generation` | Part A landed; **Part B landed** (UN-HELD after gamora kernel Item 4) |
 | 12 | MIGRATION.md + AGENT_STATE + Gate-2 handoff | landed |
 
-**Math-before-code:** 8 math notes in `generation/math/` precede the modules.
-**Commits (engine main):** 807022f, 52ca2b4, 6c9daf3, 8647004, 18820d0, 3a122d3, 3dcfff1 (+ Item 1).
-**Gate-2:** `agentic_orchestration/rocket/notes/2026-06-12-session-3-4-generation-cascade-gate-2-handoff.md` — PENDING jack-ryan. No milestone tag pending verdict.
+**Math-before-code:** 9 math notes in `generation/math/` precede the modules (incl. Part B α(T) crossover).
+**Commits (engine main):** 807022f, 52ca2b4, 6c9daf3, 8647004, 18820d0, 3a122d3, 3dcfff1, **452ca29** (Part B) (+ Item 1).
+**Gate-2:** `agentic_orchestration/rocket/notes/2026-06-12-session-3-4-generation-cascade-gate-2-handoff.md` — PENDING jack-ryan (now covers Parts A+B). No milestone tag pending verdict.
 **Flags (4, `rocket/notes/`):** cogload §6.4 fixture discrepancy; identity §4.5 affinity excerpt + faction-table-pending (elrond); Items 7+8 reachability + kit_kind-gate + modifier-precedence.
-**Held criteria:** Item 10 Part B → gamora Items 1+2 smoke landed; Items 7/8 RUN → BC-measurement pass over the generated corpus (reachability report over Season 001010).
+**Held criteria:** Items 7/8 RUN + Part B measured-split RUN → BC-measurement pass over the generated corpus (reachability report over Season 001010); Part B kit→CombatantState live wiring → gamora follow-on once a charge-stack kit exists in a generated season.
+
+### Item 10 Part B addendum (2026-06-12 — UN-HELD by Matt: "gamora finished item four. Proceed to item 10 and push")
+
+Part B landed + **pushed** to engine main (`452ca29`; `d2ea435..452ca29`). gamora's kernel Item 4
+(`dae0349`) supplied the charge-stack economics; Part B's first-order crossover model anchors to it.
+
+- **Model:** HOLD-optimal ⟺ `cbps/psb < α(T)`, `α(T) = S − (T−2)(T−1)/(2T)`, S=10. Per-kit psb
+  (`per_stack_passive_bonus`, hold reward) + cbps (`threshold_burst_magnitude`, spend burst rate) drawn
+  with a margin off α(T) so each kit is unambiguously hold or spend. PROVISIONAL config bands (psb
+  [0.03,0.07]; cbps clamp [0.10,0.90]; f_hold=0.50) — **do-not-self-adjust** (config not constants;
+  measured-split deviation FLAGGED, never auto-tuned). gamora smoke defaults verified spend-optimal. ✔
+- **PREDICTED vs MEASURED (Disc #11):** rocket emits the PREDICTED Axis-5 bin; the MEASURED hold/spend
+  split is a downstream BC-pipeline RUN (same posture as Items 7/8 RUN).
+- **Smoke:** charge-stack 26 passed (13 A + 13 B); full Session 3/4 suite **180 passed**.
+- **Cross-seam (flagged to KR):** rocket `threshold_burst_magnitude` ⟷ kernel `charge_burst_per_stack`
+  (same per-stack rate). gamora **action:** wire the kit→CombatantState lift when a generated season
+  carries a charge-stack kit. See `rocket/notes/2026-06-12-item-10-part-b-landed-and-cross-seam-flag.md`.
