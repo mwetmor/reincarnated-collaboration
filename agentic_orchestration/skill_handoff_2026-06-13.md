@@ -155,10 +155,46 @@ Hard boundary: **BC-measurement keystone = CLOSED** (pushed, complete on its own
 
 **NEXT STEP (now ungated, NOT auto-fired):** author the defensive-bridge design-spec-as-math (gandalf authors design-spec; rocket executes the allocator). Matt's scope/sequence call — this is past the inventory step his directive set.
 
+## COVERAGE-AUDIT LINE — OPENED (second parallel line; does NOT touch Axis-4 bridge)
+
+Question: does the lock's 8-axis MEASURED surface still COVER what generation now builds? (orphan-lever asked "are the 8 axes wired?"; this asks "do the 8 axes cover the current kit?"). Critical framing: lock's "deferred" stamps treated as STALE 2026-05-20 snapshot — every deferral RE-OPENED, not re-trusted. Query note `3cb8887`.
+
+**rocket gen-side (engine `230366e`)** `generation/notes/bc-measurement-coverage-audit-2026-06-13.md` + **gamora sim-side (engine `547d54e`)** `simulation/math/bc-measurement-coverage-audit-sim-side-2026-06-13.md`.
+
+**STRUCTURAL HEADLINE (gamora):** `bc_measurement.py` is the sim's ONLY measurement-to-bin pipeline and it computes bins for **Axis 4 + Axis 3B ONLY** — 2 of 8. No computed bin for Axis 1, 2A, 2B, 2, 3A, 5. The `bc_*` labels read by `phase7_cohort.py`/`wave5_season_orchestrator.py` are DECLARED TARGET labels, NOT measurements — MAP-Elites currently bins 6 of 8 axes on predicted/declared labels, measured on only 2. **OPEN QUESTION (for gandalf/lock): which of those 6 are legitimately composition-derived/structural (predicted=measured, fine) vs behavioral measurement-gaps?** Do NOT assert all 6 are bugs.
+
+**Bucket A cross-join (built in gen? × sim computes bin?):**
+| Item | Axis | built gen? | sim bin? | CLASS |
+|---|---|---|---|---|
+| Proxy density | 2A | PARTIAL (composer hardwired 0; but 6 PROXY T4 + kernel emit live proxies — 16 PROXY_FISSION kits in keystone) | N | **ORPHAN-measure (SILENT)** |
+| Charge-stack | 5 | Y (wired into rep-gen script; emits PREDICTED axis5 bin only) | N | **ORPHAN-measure (SILENT)** |
+| Mobility | 1 | Y (`movement_displacement_tiles` 3.0–6.0 populated) | N | **ORPHAN-measure (SILENT)** |
+| Damage-taken-converts | 5 econ | N as econ bin (still deferred pool); Y as RETRIBUTION_ENGINE T4 | N | STILL-DEFERRED (econ) / Bucket-B (T4) |
+| Dodger stealth/iframe/reflection | 4 | N (none silently built — both seams confirm) | N | STILL-DEFERRED (legit) |
+
+**ORPHAN-measure count = 3 SILENT** (proxy 2A, charge-stack 5, mobility 1) — built features the archive can't see. Caveat: each is a true bug only if its axis is behavioral (needs measurement) vs structural (predicted OK) — ties to the open question above.
+
+**2 carried GAP-sim rows RESOLVED:** both REAL sim-side gaps (Axis-1 mobility reduction = same as mobility orphan; Axis-5 resource-fraction read). Not "already measured."
+
+**Bucket B — UNAXISED → needs gandalf ruling (5):**
+1. COMPANION_CONTRACT / MONSTER_PACT (+ companion binding — one ruling covers both)
+2. RETRIBUTION_ENGINE (damage-taken-converts as T4; vengeance pool 0.40 post-mit)
+3. GEOMETRY_PROPAGATION (corpse-cascade / overkill-splash recursion — novel)
+4. PERSISTENCE_ENGINE (uptime-ramp / saturation — tempo-adjacent + novel)
+5. PHASE_MOMENTUM (stack-to-phase window — phase/untargetable-adjacent)
+AXISED (no ruling): PROXY T4→2A (axis exists, measurement is the Bucket-A gap); ELEMENT/RESOURCE/COMBAT/DEFENSE T4 families.
+
+**HEADLINE: N — the 8-axis archive does NOT measure the current kit surface.** Two gap classes: (a) MEASUREMENT gaps — 3 ORPHAN-measure + the structural 2-of-8-axes fact; (b) COVERAGE gaps — 5 UNAXISED post-lock T4/companion features. MAP-Elites consequence (the stakes): kits differing only along an unmeasured/uncovered dimension collide → one culled → build space silently homogenized.
+
+**rocket self-correction surfaced:** orphan-lever note line 85 said `charge_stack_generation.py` "called nowhere" — TRUE lock-relative, now FALSE (called from 2026-06-13 rep-gen script). Re-opening the deferral caught what trusting the prior note would have missed. Validates the re-open-don't-retrust framing.
+
+**FLEX POINT (slot 6):** the 5 UNAXISED rulings are gandalf design calls (belongs-in-BC → new axis/extension, or intentionally-outside → document+close). Per Matt's directive, rulings route to Matt — KR captured + reported, did NOT pre-decide whether companion/T4 belong in the archive, did NOT auto-fire gandalf. Also surfaced for Matt: the structural-vs-behavioral open question on the 6 unmeasured axes (gandalf/lock clarification).
+
 ## Push posture
 
 NOT pushed. All 2026-06-13 commits accumulate; Matt gates the keystone-close push. Production telemetry.db v2.17 apply also Matt-gated (ADR-006).
-- Defensive-bridge line (post keystone-close push): engine `343c21b` (rocket inventory); collab `0b19cec` (gandalf sizing ruling). Plus gandalf query note `33d4fcf` (pre-existing, already on remote? — verify before next push).
+- Defensive-bridge line (post keystone-close push): engine `343c21b` (rocket inventory); collab `0b19cec` (gandalf sizing ruling). Plus gandalf query note `33d4fcf`.
+- Coverage-audit line: engine `230366e` (rocket gen-side) + `547d54e` (gamora sim-side); collab query note `3cb8887` + handoff.
 - Cycle 1–3 engine: `bd64ad9`, `ae247af`, `8810a8d`, `3422be2`, `ce433aa`, `51a69c5`, `3da0400`; collab: `a511222`, `f5a68d0`, `761fb60`.
 - Cycle 4 engine: `22478c2`, `8e79119`, `def5ac3`, `0d88fb2` (collab), `3136fd7`, `60cce7a`, `8c41a8f`.
 - Cycle 5 engine: `9660f7d`, `edec4c6`, `891b49d`, `02f84bd`; collab: `286e373`, `e879586`, `befa550`, `6640f56`.
