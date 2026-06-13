@@ -52,6 +52,25 @@ Per recognition → validate → commit, the architectural commitment (fourth ar
 
 The gate is substrate evidence, not time-passage. Whichever branch the reachability check selects, the result routes back to a Pattern B session for the commit decision.
 
+## 5.1 Gate resolution — KERNEL-CEILING sub-question RESOLVED (cheap branch selected)
+
+**Gamora Items 1–2 landed 2026-06-12.** Result: 16/16 ProxyCombatant smoke tests pass; `proxy_contribution_pct = 0.556`; 0/60 golden-master cells moved vs. oracle.
+
+**Reading the 0.556 — precisely what it proves and what it does not:**
+
+- `0.556` is the **deterministic attribution identity** Σdm = 1.25 → 1.25 / 2.25 = 0.556 (proxy contributed 1.25 of 2.25 total damage units in a constructed test). The kernel faithfully attributes whatever proxy damage exists, and the metric **can represent a majority proxy share (> 0.5).** There is **no kernel attribution ceiling.**
+- 0/60 golden-master cells moved → the ProxyCombatant extension is a clean brownfield addition; no existing balance was disturbed.
+
+**Branch selection.** The gate's § 5 reachability check had two branches: (a) metric ceilings well below 0.5 → doc-47 scaling rework is load-bearing-first (EXPENSIVE); (b) metric reaches ~0.5 → fourth type is a generation-prior + identity question (CHEAP). The 0.556 result eliminates branch (a) **at the kernel/attribution layer:** the kernel does not cap proxy share, so the fourth type does not require a doc-47 scaling rework *as a precondition.* **The CHEAP branch is selected.**
+
+**What is NOT yet proven (the honest caveat — recognition → validate → commit still holds).** 0.556 came from a **constructed attribution test**, not from a realistically-sampled generation run. The kernel-ceiling sub-question is resolved; the **corpus-population sub-question is still open:**
+
+> Will realistically-sampled kits that stack PROXY-family strategies actually land `proxy_contribution_pct` ~0.5 **in emergent combat** (not in a constructed test), AND land in-band at the genre-typical ~15–25% trichotomy share?
+
+That requires rocket Item 1 (generation) + a measurement pass over a real smoke corpus. Until that lands, the architecture-type commitment stays a **DRAFT**, not a hard lock. The doc-47 proxy-scaling lane is **downgraded from load-bearing-first to a tuning-time concern** (still likely wanted for balance-loop control of proxy kits, but no longer a gating precondition).
+
+**Net:** the amendment below (Session 4 § 1.1) moves from *empirically-gated PENDING* → *DRAFT commit, cheap path, pending corpus-population validation.*
+
 ---
 
-*Sign-off: gandalf, 2026-06-12. The genre kept three chairs at this table for twenty years; we built the room with three chair-shadows on the floor and only two chairs. The recognition is that the shadow was always load-bearing.*
+*Sign-off: gandalf, 2026-06-12. The genre kept three chairs at this table for twenty years; we built the room with three chair-shadows on the floor and only two chairs. The recognition is that the shadow was always load-bearing. Gamora's 0.556 confirms the third chair will hold weight — what remains is to prove the room fills it the way the genre's rooms always have.*
