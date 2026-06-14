@@ -63,18 +63,35 @@ The label-keyed template lookup collapses the 68,040-cell BC space into a finite
 - **Act 2 — cutover:** re-point the entry + the 5 label-consumption sites; route infeasibility through `None`/`DeferredEvaluation`.
 - **Gate:** jack-ryan Gate-2 + gandalf §2 design review on the cutover + the acceptance proof.
 
-## 5. The vestigial sweep (COMMISSIONED — legolas Mode A, 2026-06-14)
+## 5. The vestigial sweep — legolas Mode A inventory RETURNED 2026-06-14
 
-Read-only legolas Mode A inventory fired 2026-06-14 with the **INPUT-vs-OUTPUT discriminator:** label-as-INPUT = VIOLATION; label-as-derived-OUTPUT (display/export name-on-top) = COMPLIANT; doc sections describing the legacy path as current = STALE-DOC. Scope: generation/ (primary), simulation/ + export/output/telemetry (secondary), generation MIGRATION.md/AGENT_STATE.md + canonical/story docs. Value: (a) completeness-check rocket's cutover re-point list; (b) find violations OUTSIDE the cutover (sim, deprecated-resident modules, stale docs). **Results forthcoming → fold into this ruling §5 + route the cleanup to KR for sequencing.** Brief filed at `agentic_orchestration/legolas/research/2026-06-14-archetype-label-as-input-vestigial-sweep.md`.
+Full inventory at `agentic_orchestration/legolas/research/2026-06-14-archetype-label-as-input-vestigial-sweep.md`. **Counts: 16 VIOLATION (9 live-path, 7 deprecated-resident) · 8 COMPLIANT-OUTPUT · 3 STALE-DOC.** INPUT-vs-OUTPUT discriminator applied as briefed.
+
+**5.1 Generation-layer (rocket cutover scope) — completeness-checked.** V-1..V-9: `class_generator.py:363/371/373/383/413/430/533` (the 7 sites I traced), plus **two I did not enumerate** — `season_orchestrator.py:145` (`_pick_range_profile` pre-derives the label to gate `close` range — a label constraining a generation INPUT before generation begins) and `mechanic_alteration.py:932-1001` (`_bc_view_from_generation_params` reconstructs a synthetic BC-target FROM the label — the lock inverted: should receive a real BC-target from `compose_kit`). Rocket's re-point list is now exhaustive.
+
+**5.2 — THE NEW FINDING: a second disease site in the SIMULATION layer (gamora's seam, NOT in rocket's cutover).** The label-as-input disease is not confined to generation. The fight engine and balance loop key on the label too:
+- **V-S1** `ai_strategies.py:292` — `combatant.archetype in _PLAYER_CONTROLLER_ARCHETYPES` gates control-first skill selection.
+- **V-S2 (load-bearing)** `ai_strategies.py:331` — `ARCHETYPE_ROLE_PRIORITY[archetype]` drives the **AI rotation order — which skills fire, when.** The simulator plays a kit according to its LABEL, not its composed mechanics.
+- **V-S3** `balance_loop.py:1007/1027` — `archetype_tag != "experimental"` string-gates the recompose loops (a boolean would do).
+- **V-S4** `balance_loop.py:2636…` — balance gear stats keyed by `_PHYSICAL_ARCHETYPES` label membership.
+- **V-D7** `balance_loop.py:1886/1948/2030/2183` — template-by-label gates valid geometry/element modifications during recompose.
+
+**V-S2 is the form-bias/label-bias reaching into the MEASUREMENT INSTRUMENT** — the M1.3.5 "discrimination law at the instrument" problem, **third instance** (after generation form-bias and the W-E search-layer). Two kits at *different* BC coordinates that share a legacy label are played *identically* by the AI; a kit labeled with a coordinate-string (post-`synthesize_archetype_label`) matches **no** `ARCHETYPE_ROLE_PRIORITY` key. So even a perfectly axis-composed kit is *measured* through the label's assumed behavior.
+
+**5.3 The generation↔simulation coupling (the key sequencing finding).** The label is the shared currency between the two seams. The moment generation stops emitting recognizable labels (emits coordinate strings instead), the label-keyed simulator (V-S1..S4) breaks. They cannot both go label-agnostic independently. **Staged decoupling:** Stage 1 — rocket's generation cutover composes from a BC-target but emits a PROVISIONAL legacy-style label as a bridge (the sim keeps working); Stage 2 — gamora migrates the sim AI (V-S1/V-S2 especially) to **BC-bin keying** (control-density → control-first; engagement-profile → range behavior; damage-tempo → rotation); then the label is fully demoted to derived display. **Generation-first, simulation-second — sequenced, not simultaneous.**
+
+**5.4 Refined STAGED acceptance (supersedes §0/§2's single test).** Stage 1 (rocket) = composes-from-BC-target + `KitConstraintError → 5-skill fallback` structurally gone + water_mage 1/29 dissolved. Stage 2 (gamora) = sim AI keys on BC bins + label demoted = the **true** "zero label-as-input in the live path." My original acceptance conflated these; the live path includes the simulator, so "zero label-as-input" provably requires Stage 2.
+
+**5.5 Cleanup tail (post-cutover, KR-sequenced).** Deprecated-resident: V-D1 `archetype_composer.py` (deprecated, still imported), V-D2 `archetype_classifier.py` (proxies through it), V-D3 `b6_archetype_templates.py`, V-D4 `b6_kit_builder.py:82` lookup, V-D5 `legacy_archetype_shim.py` (label→BC table, the bridge to retire last), V-D6 `stat_allocator.py:118`. Stale-docs: SD-1 `bc_target_composer.py:871` severance-audit string, SD-2 `AGENT_STATE.md:2371` "confirmed working" block, SD-3 `MIGRATION.md:2848` "CONFIRMED COMPLIANT" framing — all normalize the live violation as current architecture; correct post-cutover. **8 COMPLIANT-OUTPUT sites correctly left untouched** (export/telemetry/display + `synthesize_archetype_label` = the lock done right).
 
 ## 6. Disposition
 
-- **RULING: cut at the root via cutover to the shelf-built `compose_kit`.** Rocket executes (in flight, Matt-sent). gandalf §2 + jack-ryan Gate-2 gate the result.
-- **water_mage 1/29 is ABSORBED into the cutover** — not a standalone tuning item. Its fallback path is removed by the cutover, not patched inside the broken architecture.
-- **Vestigial sweep commissioned** (legolas Mode A); inventory folds into §5; cleanup → KR sequences.
-- **KR:** the wave-unit = rocket cutover (Act 1 probe + Act 2) + the legolas-surfaced vestigial cleanup; they share a code-trace and sequence together.
+- **RULING: cut at the root by completing the W0.2 cutover to `compose_kit`** — design content STANDS; this is now a **multi-seam, two-stage PROGRAM**, not a single rocket re-point (per the Act-1 probe + the Legolas simulation finding).
+- **The program (KR sequences the coupling):** Stage 1 — **rocket** (generation V-1..V-9; compose-from-BC-target + provisional-label bridge; gandalf §2 + jack-ryan Gate-2). Stage 2 — **gamora** (simulation V-S1..V-S4 + V-D7; AI keys on BC bins; label demoted). Then cleanup tail (deprecated V-D1..V-D6) + doc corrections (SD-1..SD-3). Generation-first, simulation-second — sequenced, not simultaneous (§5.3).
+- **water_mage 1/29 is ABSORBED into Stage 1** — fallback path removed by the cutover, not patched.
+- **gandalf-owed design call (expanded, now unblocked by the Legolas return):** the substrate-binding call (§Amendment preview lean) **expands** to a **BC-coordinate-identity call covering both seams** — what is the shared 8-tuple identity that generation *composes from* AND the simulator *keys on*, and how substrate binds at generation (provisional) vs Phase-5. This unblocks BOTH rocket's Stage-1 math note AND gamora's Stage-2 AI-migration spec. I ground the sim-AI keying (`ai_strategies.py`) + the W0.2 substrate section before ruling — not blind.
 - **Still-separate queued gandalf items (NOT in this ruling):** fire_controller status-resist cross-element asymmetry; the Q4 code-flip routing.
-- **Push gate (standing, Matt-gated):** collab (6c99c55, c7b6012, e60f021, + this note) + engine (9a46731, 42e40e4, f48dde8, 525a014) remain push-ready pending Matt authorization.
+- **Push gate (standing, Matt-gated):** collab (6c99c55, c7b6012, e60f021, + this ruling f5e95f9 & amendments) + engine (9a46731, 42e40e4, f48dde8, 525a014) + rocket probe note (bd36d2d) remain push-ready pending Matt authorization.
 
 ---
 
