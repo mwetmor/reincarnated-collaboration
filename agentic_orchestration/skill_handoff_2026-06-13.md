@@ -199,6 +199,36 @@ AXISED (no ruling): PROXY T4→2A (axis exists, measurement is the Bucket-A gap)
 
 **FLEX POINT (slot 6):** the 5 UNAXISED rulings are gandalf design calls (belongs-in-BC → new axis/extension, or intentionally-outside → document+close). Per Matt's directive, rulings route to Matt — KR captured + reported, did NOT pre-decide whether companion/T4 belong in the archive, did NOT auto-fire gandalf. Also surfaced for Matt: the structural-vs-behavioral open question on the 6 unmeasured axes (gandalf/lock clarification).
 
+## CERT-WAVE (2D combat-sim certification) — WAVE-0 COMPLETE + Gate-2 CLEARED
+
+Distinct workstream opened this session: the 2D combat-sim **certification wave** (drift-proofing the recombination trap + certifying the spatial engine). gandalf+Matt closed the Pattern-B combat-sim-architecture dialogue; two CURRENT design specs landed (commits `2ff745f` + `9da7f59`):
+- `canonical/story/2026-06-13-2d-spatial-golden-oracle-spec.md` (v1.1) — the golden oracle (RESOLVE §6.1 / MEASURE §6.2 certs; 6 reference kits; KPM bands §2).
+- `canonical/story/2026-06-13-combat-fidelity-drift-proofing-and-2d-certification-wave.md` (v1.1) — wave table W-A…W-F + §3 TODAY drift-proofing moves.
+
+**Wave-phase map:** W-A (oracle authoring) DONE · W-B (type-wall + fidelity-stamp) DONE this session · W-C.5 (coverage-audit + arity) CLOSED (`cert-wave-2d-W-C5-close-2026-06-13.md`; arity=8 ratified, second audit finding bound into W-D) · W-C (spatial engine→first run) DE-RISKED GO · W-D (build six-axis measurement) / W-E (throughput) / W-F (1D deletion + bridge re-validate, terminal) NOT YET AUTHORED.
+
+**WAVE-0 four dispatches — ALL COMPLETE, auto-committed, NOT pushed:**
+| # | Agent | Tag / commit | Result |
+|---|---|---|---|
+| D1 | gamora | `gamora/v-wb-typewall-rename-1` · engine `a87ffea` | `CommitGradeVerdict`/`SearchGradeEstimate` frozen types + `require_commit_grade` guard at `GauntletArchive.insert_identity`; `fight_engine.py`→`search_estimator.py` + shim; paired admit/reject test; MIGRATION §v1.69 |
+| D2 | star-lord | `star-lord/v-wb-typewall-export-1` · engine `a89f21a` | `fidelity:"search"` stamp on 1D `bc_measured_bins.json`; `ExportCommitGradeVerdictDocument` + `admit_bc_for_identity` (class-identity-first); round-trip on real `kse_20260613_002` (96 kits); MIGRATION §v1.76 |
+| D3 | gandalf | collab `b692570` (doc-only) | 4 1D-measured artifacts stamped SEARCH-GRADE (not historical); no axis defs touched, no conclusions reopened, JSON field left to star-lord (no D2/D3 collision) |
+| D4 | gamora | `gamora/v-wc-derisk-spike-1` · engine `275e7a3` | W-C de-risk spike: first oracle-checked spatial run (K2 @ open_arena KPM 42.9, shape-flip confirmed); module triage 5/6 KEEP (M6 REBUILD-CANDIDATE); **GO validate-then-extend** |
+
+**jack-ryan Gate-2 (this autonomous tick) — ALL PASS, ZERO WARN, ZERO BLOCK.** WAVE-0 cleared phase-complete. Four INFO findings carried forward:
+- **INFO-1 (record-accuracy):** D1 rename is not literal git-R100 (new file + 34-line shim); the real invariant (md5 byte-identity `8f8fa6915f3c49a99825698f37710c1a`) holds. No action.
+- **INFO-2 (cosmetic):** `verdict_types.py:32` docstring cites §v1.68 vs §v1.69 elsewhere. No action.
+- **INFO-3 (carry into W-D):** export `ExportCommitGradeVerdictDocument` markers are Pydantic plain defaults (not re-pinned by validator) — asymmetric with gamora's dataclass `__post_init__`. Load-bearing class-identity wall intact + tested; defense-in-depth only. Cheapest fix if W-D wants symmetry: `@model_validator` pinning markers.
+- **INFO-4 (carry into W-C-full):** spike used a single "Balanced" cohort band; W-C-full RESOLVE must handle per-cohort band assignment when recalibrating.
+
+**THE LOAD-BEARING SPIKE FINDING — KPM-instrument mismatch (jack-ryan independently confirmed REAL, not a masked bug):** all 36 spike cells read below band floor because the spatial engine kills an ≤8-mob pack (KPM ~44, numerator bounded by pack size) while `ENCOUNTER_COHORT_KPM_BAND` was derived from the 1D 1v1-duel kill-rate (floor 150–836). jack-ryan's refuting test: a masked bug yields flat output; the spike shows genre-correct differentiation (shape-flip K2/K3 by room, K6 tank lowest everywhere, mob-kill degrades correctly). To hit floor 150 with 8 kills needs a mechanically-impossible 3.2s clear → structural arithmetic, not under-killing. **Consequence: the W-C-full RESOLVE cert CANNOT pass until `ENCOUNTER_COHORT_KPM_BAND` is recalibrated to the spatial pack-clear instrument** (gandalf seam — the band is an oracle §2 commitment). This is "the single finding that most shapes the W-C-full dispatch KR authors next."
+
+**DECISION IN FRONT OF MATT (asked, awaiting answer):** how to sequence the KPM-band recalibration —
+1. **(KR lean) Recalibrate-then-dispatch:** a short gandalf dispatch recalibrates the band first, keeping the oracle as independent judge; then author W-C-full against the corrected band. Avoids the cert-defines-its-own-target anti-pattern (gamora moving the goalposts she's certified against).
+2. **Fold-into-W-C-full:** author W-C-full now with band-recalibration as gamora's first in-phase task gated on gandalf sign-off.
+
+**NEXT-PHASE DISPATCHES HELD until Matt's routing answer** (W-C-full → W-D → W-E → W-F). W-D scope is pre-bound by the W-C.5 close §3: build measurement for the ~4.5 behaviorally-realized axes (2A pri-1, 5 pri-2, mobility-half of 1, 3A, 2B), confirm-not-rebuild the 2 composition-determined ones (Geometry 2, range-half of 1). Reference-kit set stays at 6 (no 7th — nothing promoted). Carry INFO-3 into W-D, INFO-4 into W-C-full.
+
 ## Push posture
 
 NOT pushed. All 2026-06-13 commits accumulate; Matt gates the keystone-close push. Production telemetry.db v2.17 apply also Matt-gated (ADR-006).
