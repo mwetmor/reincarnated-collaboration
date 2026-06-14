@@ -4,7 +4,7 @@
 
 **Date:** 2026-06-13
 **Author:** gandalf (story-and-design steward; design authority for the oracle)
-**Status:** v1.2 — design-spec-as-math; Matt-authorized 2026-06-13 ("and then the golden oracle for 2D"). gamora executes the validation; this doc is the acceptance authority. **v1.1 amendment (same day, per Matt challenge):** § 6 cert gate split into RESOLVE (W-C; orthogonal to orphans) + MEASURE (W-D/W-F; downstream of the BC coverage audit); MEASURE arity consumes the Bucket-B ruling, no longer presumes 8 axes. **v1.2 amendment (same day, dispatch `2026-06-13-gandalf-wc-kpm-band-recalibration.md`):** the § 2 band is recalibrated to the spatial pack-clear instrument (new § 2-S) after the W-C de-risk spike proved the 1D-unit band reads all-BELOW; the 1D § 2 table is preserved as historical-rationale; RESOLVE reads the new `SPATIAL_ENCOUNTER_KPM_BAND` (§ 2-S.2).
+**Status:** v1.2 — design-spec-as-math; Matt-authorized 2026-06-13 ("and then the golden oracle for 2D"). gamora executes the validation; this doc is the acceptance authority. **v1.1 amendment (same day, per Matt challenge):** § 6 cert gate split into RESOLVE (W-C; orthogonal to orphans) + MEASURE (W-D/W-F; downstream of the BC coverage audit); MEASURE arity consumes the Bucket-B ruling, no longer presumes 8 axes. **v1.2 amendment (same day, dispatch `2026-06-13-gandalf-wc-kpm-band-recalibration.md`):** the § 2 band is recalibrated to the spatial pack-clear instrument (new § 2-S) after the W-C de-risk spike proved the 1D-unit band reads all-BELOW; the 1D § 2 table is preserved as historical-rationale; RESOLVE reads the new `SPATIAL_ENCOUNTER_KPM_BAND` (§ 2-S.2). **v1.3 amendment (same day, parallel hardening per Matt directive):** new § 2-S.0(b-ext) closes the *absolute-scale* half of the circularity guard — the anchor `A` (spike's own output) is cross-checked against the external TMPM-30-50 genre canon (2026-05-17, `aoe-tuning-and-monster-density-genre-canon-validation-2026-05-17.md` § 3.2) via the full-clear KPM↔TMPM equivalence; `A=43` open_arena confirmed in-band. CONFIRMATORY ONLY — no band number, edge, `R`, cohort, or § 5 row changed.
 **Authority:** Matt 2026-06-13 — authored from the Pattern-B combat-sim-architecture dialogue (this session).
 **Companion docs:**
 - `canonical/story/2026-06-13-combat-fidelity-drift-proofing-and-2d-certification-wave.md` — the wave (§ 5) this oracle gates; the cert wave's W-A authors this, W-C validates against it
@@ -79,6 +79,14 @@ In a density room of `N` mobs, a kit's pack-clear rate is governed by how many m
 | mini_boss | **2.5** | K3 2.5 (lone-target kill over the long window) |
 | boss_with_adds | **2.2** | K1 2.2 (boss-kill over 240 s) |
 
+**(b-ext) EXTERNAL scale cross-check — the anchor's absolute magnitude is confirmed against genre canon, not just against itself (closes the absolute-scale half of the circularity guard).** The ordering in (a)→(b)→(c) closes the *relative*-separation half of the circularity guard: `R` is asserted as pack-arithmetic before any spike number enters, so the AOE/single-target *separation* is design-led, not distribution-fitted. But the anchor `A` in (b) is the spike's own per-room output — which is internally circular for the absolute *scale*: "is ~43 KPM the right order of magnitude at all?" cannot be answered from the engine's own distribution. The external answer comes from canon.
+
+In a **full-clear room** — which every density room is, by construction (open_arena/chokepoint are `all-killed`; every spawned mob dies before the room ends) — **kills-per-minute is identically total-monsters-per-minute**: when the kill-count equals the spawn-count over the room window, `KPM = TMPM` by definition. The anchor `A` is therefore directly comparable to the genre's TMPM canon.
+
+**The external anchor: TMPM = 30–50.** Per `canonical/story/historical/aoe-tuning-and-monster-density-genre-canon-validation-2026-05-17.md` § 3.2 (2026-05-17 canon), the demo's fight context (D4-nightmare-dungeon density) targets **30–50 total-monsters-per-minute**, with genre convergence across D4-nightmare / Last Epoch Empowered / Grim Dawn Ultimate at 30–80 TMPM (§ 3.2 reasoning point 4). The open_arena qualifying-clear anchor **`A = 43 KPM ≈ 43 TMPM` sits inside the 30–50 band → the absolute scale is genre-confirmed.** The engine's first verified spatial run produces a qualifying-AOE pack-clear rate at the order of magnitude the genre says a competent AOE clear *should* run in a nightmare-density room. The chokepoint anchor (32.4) is likewise in-band; the mid rooms (35, 15) trend lower with smaller packs and tankier mobs as expected, and the boss rooms (2.5, 2.2) are single-entity windows where TMPM is not the instrument (those rooms judge on SURV + kill, § 2-S.0(c) boss row).
+
+**Circularity guard, both halves now closed:** the *relative separation* is closed by the `R`-ordering (asserted in (a) before any spike number) — the AOE/single-target floor is design-led. The *absolute scale* is closed by this TMPM cross-check — the anchor's magnitude is confirmed from 2026-05-17 canon, not from the engine's own output. **This is CONFIRMATORY ONLY: no band number changes.** The 43-KPM anchor was already in-band; the TMPM cite makes explicit that it was always genre-correct in magnitude, closing the half-guard jack-ryan's Gate-2 would otherwise flag.
+
 **(c) Place the edge by applying `R` to the anchor** — NOT by reading where the cluster falls:
 
 | Room class | Floor rule | Ceiling rule | Why |
@@ -99,7 +107,7 @@ In a density room of `N` mobs, a kit's pack-clear rate is governed by how many m
 | **mini_boss** | **0.6 – 10.0** | boss (SURV) | KPM is a sanity rail; SURV + boss-kill is the verdict. |
 | **boss_with_adds** | **0.6 – 8.8** | boss (SURV) | Defensive-bridge home; SURV + boss-kill is the verdict. |
 
-The separation is asserted in (a) **before** any spike number enters in (b); the floor in (c) is `A` divided by a function of `R`, never "where the cluster sits." The K3-line second-order case (§ 2-S.3) is the proof the ordering bites: a distribution-fit floor would land K3@open_arena IN-with-the-AOE-cluster narration; the `R`-derived floor lands it BELOW, matching the *shape-flip design*, against the §5 pre-spike LOW-EDGE row.
+The separation is asserted in (a) **before** any spike number enters in (b); the floor in (c) is `A` divided by a function of `R`, never "where the cluster sits"; and the anchor's absolute magnitude is cross-checked against external TMPM canon in (b-ext), so the scale is not self-referential either. The K3-line second-order case (§ 2-S.3) is the proof the ordering bites: a distribution-fit floor would land K3@open_arena IN-with-the-AOE-cluster narration; the `R`-derived floor lands it BELOW, matching the *shape-flip design*, against the §5 pre-spike LOW-EDGE row.
 
 ### 2-S.1 Per-cohort reduction (jack-ryan INFO-4) — Balanced only, for RESOLVE
 
@@ -256,6 +264,7 @@ The recalibration's edges were tested for seed-to-seed verdict stability against
 - Forward-architecture contract § 5 (commit-grade = 2D playspace): `canonical/story/2026-06-11-forward-architecture-contract-wrap-and-extend.md`
 - Prior scenario-design authority (the 6 rooms): `canonical/story/gauntlet-arena-scenarios-magic-elite-miniboss-2026-05-21.md`
 - BC axes lock (the 8 axes commit-grade BC computes): `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md`
+- External TMPM scale anchor (§ 2-S.0(b-ext) absolute-scale cross-check): `canonical/story/historical/aoe-tuning-and-monster-density-genre-canon-validation-2026-05-17.md` § 3.2 (TMPM 30-50 demo-context canon)
 - Verified code anchors (2026-06-13): scenarios `spatial_gauntlet/arena.py:283-712`; KPM bands `gauntlet_sim.py:206-311`; throughput `gauntlet_sim.py:318-322`; archive insert `gauntlet_archive.py:208`; placeholder cell `balance_loop.py:2827`
 - ground-state oracle registration: `canonical/00-ground-state.md` § 1
 
