@@ -229,6 +229,26 @@ Distinct workstream opened this session: the 2D combat-sim **certification wave*
 
 **NEXT-PHASE DISPATCHES HELD until Matt's routing answer** (W-C-full → W-D → W-E → W-F). W-D scope is pre-bound by the W-C.5 close §3: build measurement for the ~4.5 behaviorally-realized axes (2A pri-1, 5 pri-2, mobility-half of 1, 3A, 2B), confirm-not-rebuild the 2 composition-determined ones (Geometry 2, range-half of 1). Reference-kit set stays at 6 (no 7th — nothing promoted). Carry INFO-3 into W-D, INFO-4 into W-C-full.
 
+### W-C-prep — KPM-band recalibration + canary-rule consult (Matt chose Option 1: recalibrate-then-author-W-C-full)
+
+Matt approved **Option (1)** — separate gandalf band-recalibration BEFORE W-C-full (verbatim rationale: independence is protected by the band's *structure* — designed AOE/single-target separation + canaries, gandalf-authored — NOT by who runs the numbers; folding into W-C-full makes the cert "the engine matches itself").
+
+**gandalf recalibration — COMPLETE (oracle v1.2, commit `aafb2c1`, NOT pushed).** Dispatch `dispatches/2026-06-13-gandalf-wc-kpm-band-recalibration.md` (Gate-1 PASS — 4 folds: WARN-1 operational circularity-guard *ordering*, WARN-2 consumption-interface naming, WARN-3 two-tier canary disposition, INFO-3 per-cohort in acceptance).
+- New **§2-S** spatial band; old 1D §2 preserved as historical. Ships **PARALLEL** as sibling constant **`SPATIAL_ENCOUNTER_KPM_BAND`** (same shape as 1D constant, one-line lookup swap; gamora wires in W-C-full; 1D band intact until W-F). `gauntlet_sim.py` untouched (gamora seam).
+- **Circularity guard satisfied by ORDERING:** ratio invariant `R` (`R_expected=4` from pack-arithmetic, `R_floor=2.5` design contract) asserted BEFORE opening the spike JSON; spike supplied only the per-room scale anchor; edges = anchor ÷ f(R). Doc written in that order.
+- **Edges (Balanced):** open_arena 21.5–107.5 · chokepoint 20.5–81.0 · magic 8.8–87.5 · elite 3.8–37.5 · mini_boss 0.6–10.0 · boss 0.6–8.8.
+- **Per-cohort REDUCED to Balanced** (all 6 ref kits Balanced; other 3 columns = invented numbers → deferred to W-D/W-F).
+- **Canaries:** 3 open_arena edge-placement canaries (K1 BELOW, K5 IN, K4 IN) reproduce 5/5 stable; shape-flip 5/5; K4≠K6 boss-survival **fixture-blocked** (throwaway-tank DPS limit, not a band gate — re-validates in W-F).
+
+**legolas Mode-A consult — COMPLETE (TRIGGERED per Matt's conditional directive; filed `research/knowledge/2026-06-13-spatial-cert-canary-seed-count-methodology.md`).** Trigger: K1@chokepoint variance-sensitive (4/5 BELOW, one seed at edge).
+- Root: chokepoint funnel boosts K1 to mean 18.78 KPM, only **1.03σ below floor 20.5** → ~0.849 per-seed-BELOW prob (1 in 6 seeds crosses even on a correct engine). Only variance-sensitive cell; open_arena canaries 4–9σ from floor, stable.
+- **The strict "every-seed" canary rule is statistically broken** for this cell (passes a *correct* engine only 44% at N=5). **Retire it for variance-sensitive cells.**
+- **RECOMMENDED rule: one-sided t-test α=0.10** (95.5% power, <0.2% false-pass) — strictly better than 7-of-9 majority (needs N=9). **K1@chokepoint already passes the t-test at N=5** (t=−2.30, p=0.041). Asymmetry: false-PASS (broken engine passing canary) is catastrophic and held <1%; the 4/5 situation was only a false-FAIL risk. §4.A pack-size remains the design lever if K1/K2 chokepoint separation judged too thin.
+
+**OPEN GATE — Matt K3 §5 row nod (the only thing blocking W-C-full authoring).** gandalf flipped **K3 (line-AOE) @ open_arena from LOW-EDGE → BELOW** — design-resolved (line kit in open room ≈ single-target-effective; engine produces K3=18.8 ≈ K1=17.3, so honoring the K1-BELOW canary forces K3 BELOW; chokepoint stays K3's one IN-best room). He seeks Matt's ratification since it changes a reference-kit acceptance verdict. **KR reported + is HOLDING W-C-full on this nod.** The (A)-vs-(B) sequencing question dissolved — the consult KR would've held (A) for is already back, so W-C-full is methodology-unblocked.
+
+**W-C-full scope pre-bound (for when authored):** §2-S band + `SPATIAL_ENCOUNTER_KPM_BAND` wire; t-test α=0.10 canary rule (legolas basis; small oracle §7 reflection rides along as gandalf/gamora seam ratification); §4.B spawn-spread tuning folded in (Risk-B = weak K4≥K2 @ 2/5 seeds, rocket lever — NOT a band issue); per-cohort columns deferred W-D/W-F; gamora confirms final seed count vs spatial variance; INFO-4 carried. Sequence: Matt nods K3 → KR authors W-C-full → jack-ryan Gate-1 → fire gamora.
+
 ## Push posture
 
 NOT pushed. All 2026-06-13 commits accumulate; Matt gates the keystone-close push. Production telemetry.db v2.17 apply also Matt-gated (ADR-006).
@@ -237,3 +257,4 @@ NOT pushed. All 2026-06-13 commits accumulate; Matt gates the keystone-close pus
 - Cycle 1–3 engine: `bd64ad9`, `ae247af`, `8810a8d`, `3422be2`, `ce433aa`, `51a69c5`, `3da0400`; collab: `a511222`, `f5a68d0`, `761fb60`.
 - Cycle 4 engine: `22478c2`, `8e79119`, `def5ac3`, `0d88fb2` (collab), `3136fd7`, `60cce7a`, `8c41a8f`.
 - Cycle 5 engine: `9660f7d`, `edec4c6`, `891b49d`, `02f84bd`; collab: `286e373`, `e879586`, `befa550`, `6640f56`.
+- Cert-wave (2D combat-sim) — engine: `a87ffea` (D1 gamora typewall), `a89f21a` (D2 star-lord export typewall), `275e7a3` (D4 gamora W-C spike). Collab: `b692570` (D3 gandalf stamps), `4afa500`+`b842f83`+`aafb2c1` (KR handoff/close-ack + dispatches; gandalf oracle v1.2 §2-S recalibration) + legolas consult note + this handoff update.
