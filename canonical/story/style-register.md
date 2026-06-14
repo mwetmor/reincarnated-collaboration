@@ -1,25 +1,90 @@
 # Reincarnated — Visual Style Register
 
-> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — see `canonical/00-ground-state.md`
+> **STATUS:** CURRENT (load-bearing) — **REGISTER PIVOTED 2026-06-14** (see § "Register pivot" immediately below). The 2D-pixel HD-2D lock (Candidate B, locked 2026-05-15) is **SUPERSEDED**; everything below the pivot section is preserved as **archaeology**, not current truth. See `canonical/00-ground-state.md`.
 
-**Status:** **Canonical. Locked 2026-05-15 by Matt** in Pattern B dialogue with gandalf. Authored 2026-05-15 by gandalf with empirical grounding from `agentic_orchestration/research/knowledge/asset-catalogues/2026-05-16-pixijs-compatible-2d-vfx-libraries.md` (Legolas-filed catalogue research, Matt-contributed).
+**Status:** **Canonical. Register PIVOTED 2026-06-14 by Matt** in Pattern B dialogue with gandalf — from the 2D-pixel HD-2D lock to **Godot 3D rendered through a fixed 2.5D camera.** The prior lock (Candidate B — hand-drawn pixel-art HD-2D-shaped, locked 2026-05-15) is retired. The new lock + the empirical trigger that overturned the old one are captured in the pivot section directly below. The 2D-lock body that follows the pivot section is preserved verbatim for decision-archaeology per this doc's own Maintenance Protocol + Pivot Insurance — read it for *lineage*, not as *current truth*.
 
-This is the project's **canonical visual style register** — the load-bearing reference for catalogue work, demo2 development, LLM image generation, Court / Spirit Guide presentation, and all downstream visual-asset decisions. Pivoting the register later is possible because Elrond's catalogue is score-don't-filter (per AGENTS.md § "Score-don't-filter principle"), but pivots are operationally expensive once content has been generated against a locked register.
+**The current locked decision (2026-06-14):** **3D assets rendered in Godot 4 through a fixed 2.5D (Diablo/ARPG isometric-ish) camera.** One sub-fork remains **spike-gated-OPEN**: **A = bounded stylized-low-poly-3D** (Synty/KayKit/voxel register; mobile-friendly; the gandalf-leaning default) vs **B = fuller-fidelity 3D** (higher poly/texture budget, still the same 2.5D camera). The A-vs-B fork resolves on a Godot vertical-slice spike, not on argument — see § "Register pivot" → "How A-vs-B resolves."
 
-**The locked decision:** **Hand-drawn pixel-art (HD-2D-shaped) as the single canonical register.** Rationale below.
+**Companion docs (current — for the 3D register):**
+- `canonical/38-downstream-delivery-strategy-2026-05-23.md` § D1 — **CASCADE: D1 locks Unreal 5.7; the Godot pivot supersedes that engine choice. Reconciliation routed to knight-rider (NOT resolved in this doc).**
+- `canonical/story/asset-pipeline-meshy-swap-2026-05-22.md` — **CASCADE: Meshy→Unreal asset pipeline; under the pivot, Meshy→Godot, DEMOTED to reserve-gen for differentiating forms, with Synty/KayKit marketplace packs as the common-case primary. Reconciliation routed to knight-rider.**
+- `canonical/story/cosmology-reincarnated.md` — what the register renders (the cosmological frame; register-agnostic, survives the pivot intact)
+- `canonical/story/court-of-forms.md` — endgame Court presentation (now 3D portraits/dioramas rather than hand-drawn pixel portraits)
+- `canonical/story/enemy-visual-legibility.md` — load-bearing legibility requirement on the register (survives the pivot; now satisfied via 3D silhouette/material/tier-aura distinction rather than pixel-palette-shift — see § "Enemy-legibility cross-reference" below, which is now register-translated)
+- `canonical/story/gandalf-design-lineage.md` Layer 2 + 5 — Diablo / isekai aesthetic precedents (the Diablo lineage is *stronger* under a 3D register, not weaker)
 
-**Pending:**
-- knight-rider to draft a decisions-log entry capturing the lock (per ADR-002; cross-seam by nature — affects Legolas catalogue, Drax demo, Star-lord LLM image generation, future commission scoping)
-- This doc is the canonical reference until the decisions-log entry lands; afterward, the decisions-log entry is the primary lock and this doc is the design-intent expansion
+**Companion docs (archaeology — for the superseded 2D lock):**
+- `agentic_orchestration/research/knowledge/asset-catalogues/2026-05-16-pixijs-compatible-2d-vfx-libraries.md` — the empirical 2D-asset landscape that grounded the superseded lock (now pivot-insurance-only, per the doc's Pivot Insurance section: the catalogue was scored-not-filtered, so the 2D crawl data is retained but no longer the default consumption filter)
 
-**This doc supersedes:** any implicit register defaults inherited from demo1's existing Pixi.js + Super Pixel Effects tooling (which operates in a *retro pixel-art* register that the proposal below moves away from).
+---
 
-**Companion docs:**
-- `cosmology-reincarnated.md` — what the register renders (the cosmological frame)
-- `court-of-forms.md` — where the register matters most at endgame (Court presentation)
-- `enemy-visual-legibility.md` — load-bearing requirement on the register (see § "Enemy-legibility cross-reference" below)
-- `gandalf-design-lineage.md` Layer 2 + 5 — Diablo / isekai aesthetic precedents
-- `agentic_orchestration/research/knowledge/asset-catalogues/2026-05-16-pixijs-compatible-2d-vfx-libraries.md` — the empirical asset landscape
+## ⚠️ Register pivot — 2026-06-14 (Matt-authorized, Pattern B)
+
+> **This section is the current canonical truth. Everything below the next horizontal rule is the superseded 2D-pixel lock, preserved for archaeology.**
+
+### The new lock
+
+**3D assets, rendered in Godot 4, through a fixed 2.5D camera** (Diablo/PoE/Last-Epoch ARPG camera framing — not a free-orbit 3D camera; the camera stays locked at the genre-canonical raised-isometric-ish angle). This is the single canonical register for combat, world, characters, VFX, Court presentation, Spirit Guide presentation, Trial cinematic frames, and ascension moments.
+
+**One sub-fork remains open, spike-gated:**
+
+| Sub-candidate | What it is | gandalf lean |
+|---|---|---|
+| **A — bounded stylized-low-poly-3D** ("AD-3") | Synty Studios / KayKit / voxel-class low-poly register; flat-ish materials; stylized proportions; mobile-and-8GB-friendly; shipped-precedent-dense (the register most stylized-3D ARPGs and roguelites ship in) | **Default.** Start the spike here. |
+| **B — fuller-fidelity 3D** | Higher poly + PBR texture budget, normal maps, richer materials; still the same fixed 2.5D camera | Spike *upward* from A only if the fidelity-scaling knee proves A insufficient — see below. |
+
+### The empirical trigger that overturned the 2D lock
+
+The 2026-05-15 lock (Candidate B, HD-2D pixel-art) was a **hypothesis** — a senior-design call made on the best available reasoning at the time (asset-library volume, isekai-genre-readability, family-pace operability). A locked register is falsifiable. Two pieces of evidence falsified it:
+
+1. **Revealed preference (load-bearing).** Matt: *"the 2D art style didn't do it for me and it's one of the main reasons I probably left the pixi.js demo quickly."* The player-experience anchor this whole doc is built on (every recommendation must trace to what the player would *feel*) returned a verdict from the one player who matters most at this stage. Revealed preference (left the demo) outranks stated preference (the locked rationale). This is not Matt changing his mind — it is the evidence arriving.
+2. **The requirement the 2D register quietly fought.** Reincarnated's hardest technical requirement is **auto-animating an unbounded, LLM-generated form-library** (doc 37 embodiment-archetype / bounded-body-plan work). You cannot hand-rig infinity. A 3D shared-rig retargets generated meshes onto a single `MasterSkeleton` (skin-sharing + `BoneAttachment3D` sockets — see the Godot blueprint in the Pattern-B session record), so one authored animation set drives every form. A 2D skeletal pipeline needs a fixed-topology rig *per form-shape* — it fought the core requirement. **The 3D register doesn't just match Matt's taste; it serves the engine's central job.** This is the stronger of the two reasons and it would have justified the pivot even without (1).
+
+### Why Godot (not Unreal, not Pixi)
+
+- **Pixi.js** was always prototype-only — not commercially viable as a shipped Steam title (browser/WebGL runtime; needs Electron/Tauri wrapping; Matt confirmed the Steam-launch wall 2026-06-14). It never was a ship target; it was the demo1 sketch surface.
+- **Unreal 5.7** (the doc-38 D1 lock) is retired by this pivot for two reasons: (a) the **agentic-authorability** problem — Unreal's `.uasset` is binary, so the agent team cannot *author* scenes; it can only drive the editor (this is the root of the mantis/UE-seam friction). Godot's `.tscn`/`.gd`/`.json` are **human-readable text an agent writes directly** — the engine becomes agentic-native. (b) the **hardware** reality (8GB Mac mini for the dev/agent loop; Godot's Mobile/Vulkan backend + GPUParticles3D fits where Unreal's footprint does not). **Retiring Unreal retires the raison d'être of the PC-resident UE seam (mantis; partly radagast)** — a federated-team structural consequence routed to KR + Matt, NOT decided here.
+- **Godot 4** wins on all three axes that matter now: agentic-native text scenes, 8GB-feasible rendering, native Steam-shippable binaries.
+
+### How A-vs-B resolves (spike, not argument)
+
+The A-vs-B fork is **partly a false binary** — premium ARPG *feel* is carried far more by VFX/lighting/impact "juice" than by mesh poly-count (Diablo II shipped premium-feeling on sprites; Hades feels AAA on stylized 2D — both via juice, not fidelity). The design hypothesis: **lock the A register and invest the saved fidelity budget into S-tier `GPUParticles3D` VFX juice → ~90% of B's premium feel at A's cost and A's mobility.** The spike tests this directly:
+
+- **Start at A** (Synty/KayKit base rig + 2-3 generated forms skin-shared onto one `MasterSkeleton` + `GPUParticles3D` ability VFX + the locked 2.5D camera, running local-on-Mac).
+- **Measure the fidelity-scaling knee:** does adding VFX juice to A close the premium-feel gap, or does the slice still read as under-budget such that B's mesh/material fidelity is actually required? Only spike *upward* toward B if A+juice demonstrably falls short.
+- The spike simultaneously de-risks the **auto-animation crux** (does skin-sharing + bone-socket retargeting actually carry generated meshes onto one rig?) — so it earns its cost twice.
+
+### What the pivot supersedes inside this doc
+
+- **The entire candidate space (Candidates A/B/C/D), "The proposal," "What this means in practice," the two fidelity tiers** — all 2D-register reasoning. Superseded.
+- **All Path A / Path A-prime pixel-scale operationalization** (the ~44px → 1.31× → 2.5× chierit-scale chain; the 100–130px ARPG band; tier midpoints trash 84 / elite 132 / mini-boss 200 / boss 370; nearest-neighbor enforcement). These were *pixel-count* operationalizations of a 2D register that no longer exists. Superseded. (Their underlying *intent* — ARPG-genre-correct on-screen character scale; intra-class silhouette variance as a feature; Diablo tier-stature ratios — **carries forward into 3D** as camera-distance + model-scale tuning, but the pixel-count math is dead.)
+- **Open questions Q1–Q5** — recontextualized for 3D (Q1 fidelity-target → the A-vs-B spike; Q2 Court portraits → 3D portrait/diorama; Q3 animation density → shared-rig animation-set scope; Q4 Spirit Guide → 3D translucent-shader presence; Q5 marketing register → unchanged, still a separate per-asset decision).
+- **"Pixi.js pipeline does NOT need replacement"** (old § "What this locks operationally" → Drax) — reversed. The Godot pipeline replaces the Pixi pipeline for the ship target; Pixi/demo1 remains a throwaway sketch surface only.
+
+### What survives the pivot intact
+
+- **The cosmological frame** (`cosmology-reincarnated.md`) — register-agnostic.
+- **The enemy-legibility requirement** (`enemy-visual-legibility.md`) — survives; now satisfied by 3D silhouette + material + tier-aura distinction rather than pixel-palette-shift. Enemies still must NOT be scaled-up player models; the Mirror-fight exception still holds.
+- **The Diablo + isekai design lineage** — *strengthened* under 3D, not weakened.
+- **The doc-37 form-bias discipline** — the register must not privilege humanoid form; the 3D shared-rig must carry non-humanoid body-plans (slime, swarm, dragonling, cloud-being) as first-class, exactly as the 2D register was required to.
+- **Pivot Insurance itself** — the catalogue was score-don't-filter, so this very pivot costs a *re-filter*, not a re-crawl. The mechanism worked as designed.
+
+### Cascade (routed, NOT resolved here)
+
+1. **doc 38 § D1 (Unreal 5.7 lock) → knight-rider** for reconciliation. Eyes-open: this is a superseded engine lock, not silent staleness.
+2. **`asset-pipeline-meshy-swap-2026-05-22.md` (Meshy→Unreal) → knight-rider** — becomes Meshy→Godot, demoted to reserve-gen; Synty/KayKit marketplace packs become the common-case primary.
+3. **Mantis/UE-seam structural question → knight-rider + Matt** — retiring Unreal retires the PC-UE seam's reason to exist. Org/federated-team decision, not a design-doc decision.
+4. **PC hardware stays valuable → not abandoned** — the RTX 4060 Ti / 32GB / 20-core PC becomes the **Godot render + playtest node** (the strong-GPU leg), with the 8GB Mac mini running the Python engine + agent team. "Retire Unreal" ≠ "abandon the PC."
+5. **decisions-log entry for the overturn → jack-ryan** (cross-seam pivot; ADR-002).
+6. **galadriel** — retire the Octopath/Triangle-Strategy CV reference set; re-benchmark against the new 3D-stylized-ARPG references (the two 2026 Steam titles Matt surfaced).
+7. **drax** — the Godot stylized-low-poly vertical-slice spike (the A-vs-B + auto-animation-crux resolver above).
+
+---
+
+## ⬇⬇⬇ ARCHAEOLOGY BELOW — the SUPERSEDED 2D-pixel lock (2026-05-15 → 2026-06-14) ⬇⬇⬇
+
+> Everything from here to the end of the document is the **prior 2D-pixel HD-2D register lock**, preserved verbatim for decision-archaeology per this doc's Maintenance Protocol + Pivot Insurance. **It is NOT current truth.** The current register is the 3D-Godot-2.5D-camera lock in the pivot section above. Read below only for lineage — how the team reasoned its way to (and through) the 2D register.
 
 ---
 
