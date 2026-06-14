@@ -1,6 +1,6 @@
 # Mantis Dispatch — Celestial-Sphere Rework + Figure-Lighting-Rig Repair (unblocks S1 + S5)
 
-**STATUS:** DRAFT — pending PC-trio ratification (sam Gate-1 + radagast design-fit per Pattern E) before it fires.
+**STATUS:** ACTIVE — PC-trio ratified 2026-06-13 (Pattern E). sam Gate-1 = PASS-WITH-WARN (4 WARN, 0 BLOCK; finding `agentic_orchestration/qa/findings/2026-06-13-mantis-celestial-sphere-rework-gate-1.md`); radagast design-fit = PASS-WITH-WARN (1 amendment, 0 BLOCK; verdict `agentic_orchestration/radagast/notes/2026-06-13-celestial-sphere-rework-design-fit.md`). All WARNs folded below (see § 9 fold-record). FIRE-READY: mantis executes in a dedicated session with Matt at the PC console for render-evidence (DXGI gate; see § 4 tier-A/tier-B split).
 **Date:** 2026-06-13
 **Author:** david-h (PC-side orchestrator)
 **Authority:** david-h PC-seam dispatch authority; empirical findings from 2026-06-13 P0.1 resumed render session (Matt at `TheSa` console + david-h orchestrating).
@@ -49,9 +49,16 @@ File the math/transform note at `reincarnated-unreal/.../docs/` (or AGENT_STATE 
 
 **Note:** this session's CVar disarm (`r.HeterogeneousVolumes 0` / `r.VolumetricFog 0`) was a session-only band-aid. Repair #1.5 makes the nebula **cheap enough to leave ON** so S1 renders the intended sky, not a black void.
 
+**Execution-environment fallback (sam Gate-1 WARN-1 — load-bearing).** Sub-steps 1.2 (CPU→GPU sim) and 1.3 (expose user-params) are Niagara-stack edits, and bridge-into-windowed-editor for that edit class is UNVALIDATED over SSH (per `2026-06-12-...-live-plan.md`). **NEVER open a windowed editor over SSH — it crashes at viewport creation (DXGI; no GPU-attached desktop).** If the headless/bridge path cannot perform a given Niagara edit, mantis STOPS that sub-step and hands Matt a precise manual-BP-step list to execute at the PC console; mantis does not force a windowed editor. Headless `-nullrhi` authoring is the default; the console (Matt present) is the fallback execution surface, not SSH-windowed-editor.
+
 ## 3. Repair #2 — figure-lighting-rig repair
 
 Diagnostics already EXCLUDED live (do not re-chase): exposure (Unlit-visible/Lit-black), light hidden (`RigA_Moonlight` eye-icon ON), lighting channel mismatch (`SK_EarthAvatar` on Channel 0), low intensity (10× still black).
+
+**Design constraint on the repair (radagast design-fit, folding the Mac-gandalf key-light ruling 2026-06-13):** The Earth avatar carries its OWN motivated key light, independent of the sky — its legibility is invariant to the knoll's lighting flux (genre-settled: Diablo char-select, Destiny Tower, Soulslike hubs). Three constraints on HOW:
+1. **Motivated + grounded, not a product-shot spotlight.** Color-matched to the night scene, soft, rim-biased, anchored to the avatar — natural light finding the figure. The fix is not "crank a hard directional"; it is "give the figure a believable night-key + ambient fill that reads as the world lighting an ordinary person on a hill" (§ 4.2 knoll-reads-as-intentional-ordinary-place).
+2. **DISTINCT from the diegetic spirit-glow.** The avatar key = the mundane/grounded pole (the human not-yet-become); `RigB_SpiritGlowOnly` = the supernatural pole (the becoming). The contrast IS the mythic content and must NOT blend — keep the avatar key's temperature/quality readably separate from the spirit-glow's. When both are present, a viewer must be able to tell "this is worldlight on a person" from "this is the spirit's own light."
+3. **Direction-now, values-later.** This dispatch establishes the rig DIRECTION (standalone, motivated, distinct) headless. The VALUES — intensity / temperature / falloff / rim weight — are TUNED in the render-console session downstream of the exposure lock, with Matt at the console (DXGI gate + acceptance #5 mythic-weight judgment). Do NOT attempt to land final values headless.
 
 | Sub-step | Action |
 |---|---|
@@ -62,20 +69,29 @@ Diagnostics already EXCLUDED live (do not re-chase): exposure (Unlit-visible/Lit
 
 **Acceptance #2:** `SK_EarthAvatar` reads clearly in **Lit** under Rig A from `Cam_GroundLookUp`, with the celestial sphere present-and-repositioned (not the old origin cloud).
 
-## 4. Acceptance criteria
+## 4. Acceptance criteria (two-tier per sam Gate-1 WARN-3/WARN-4)
+
+**Tier A — mantis-headless (self-closeable; gates the commit + Sam Gate-2):**
 
 | # | Criterion |
 |---|---|
-| 1 | 1,005,000-particle count root-caused + documented (§ 1) |
-| 2 | Celestial-sphere emitter on GPU sim; no CPU-cap warning |
-| 3 | Stars render on the **R=8,000 sphere** via JSON-driven user-params (Gate-A); origin ±67 cloud gone |
-| 4 | Volumetric nebula renders the look-up view WITHOUT GPU crash at default (no CVar band-aid needed) |
-| 5 | `SK_EarthAvatar` reads in Lit under Rig A from `Cam_GroundLookUp` (figure-lighting repair) |
-| 6 | Rig A/B toggle (`RigA_Moonlight`+`RigA_Skylight` vs `RigB_SpiritGlowOnly`) produces a visible, judgeable lighting difference on the figure (S5 re-shoot enabled) |
-| 7 | `stat gpu` / `stat fps` / `stat unit` captured; performance documented for the repositioned sphere + tamed nebula |
-| 8 | Sam Gate-2 review PASS or PASS-WITH-WARN |
-| 9 | David-H wave-close memo authored + committed; push from `mhwet` context |
-| 10 | No raw LLM player-facing content (D7) |
+| A1 | 1,005,000-particle count root-caused + documented (§ 1) |
+| A2 | Celestial-sphere emitter on GPU sim; no CPU-cap warning |
+| A3 | `BP_CelestialSphere` authored/repaired to load `cosmograph_sphere_001000stars_R8000.json` → drive `StarPositions`/`StarColors` user-params on the R=8,000 sphere (Gate-A wiring complete; origin ±67 cloud removed) |
+| A4 | Figure-lighting rig re-aimed/repaired so `SK_EarthAvatar` is mechanically no-longer-black in Lit under Rig A, with NO `ns.celestialsphere` emissive dependency, as a **standalone motivated night-key + ambient fill** (rig DIRECTION per § 3 constraints 1–2; final VALUES deferred to tier B) |
+| A5 | Rig A/B toggle (`RigA_Moonlight`+`RigA_Skylight` vs `RigB_SpiritGlowOnly`) is wired and switchable; the two rigs are authored as distinct poles (avatar-key vs spirit-glow per § 3 constraint 2) |
+| A6 | No raw LLM player-facing content (D7); stars/runes hand/JSON-authored |
+| A7 | Nebula cost-cut applied (§ 2 repair #1.5); a **`stat gpu` budget threshold** documented as the pass target for tier B (stable frame ≥ a stated N seconds, no rising trend toward `D3D Device Removed`) — sam WARN-2 |
+
+**Tier B — render-confirmed (Matt at PC console / RDP; DXGI gate; does NOT block the commit's Gate-2 or wave-close push — sam WARN-4):**
+
+| # | Criterion |
+|---|---|
+| B1 | Stars visibly render on the R=8,000 sphere in a console render (not headless wiring alone) |
+| B2 | Volumetric nebula renders the look-up view WITHOUT GPU crash at default (no CVar band-aid), meeting the A7 `stat gpu` budget threshold |
+| B3 | `SK_EarthAvatar` reads in Lit under Rig A from `Cam_GroundLookUp` as a standalone motivated night-key + ambient fill, reading as **worldlight-on-an-ordinary-person — NOT a product-shot spotlight**; final intensity/temperature/falloff values console-tuned (§ 3 constraint 3) — radagast amended #5 |
+| B4 | The Rig A avatar-key reads **DISTINCT in temperature/quality from the Rig B spirit-glow** (mundane pole vs supernatural pole; the contrast must not blend), producing a judgeable S5 lighting difference. NOTE: this closes the LIGHTING-RIG question only; the full aesthetic mundane-vs-supernatural contrast read carries forward to when the real ambiguous-spirit visual exists (see § 6 forward item) — radagast amended #6 |
+| B5 | `stat gpu` / `stat fps` / `stat unit` captured at console; performance documented for the repositioned sphere + tamed nebula |
 
 ## 5. Discipline citations
 
@@ -93,12 +109,14 @@ Diagnostics already EXCLUDED live (do not re-chase): exposure (Unlit-visible/Lit
 - ❌ Any change to `SK_EarthAvatar` the asset itself — it renders great in Unlit; the fault is the rig.
 - ❌ Saving session-only CVar/visibility state into the level.
 
+**Forward design item (radagast design-fit (c); NOT this dispatch's scope):** the ambiguous-spirit visual (§ 4.5 Q5 of the creation-moment architecture — `FigureStandIn` is an explicit placeholder particle ball) needs scoping before S5's *aesthetic* mundane-vs-supernatural contrast judgment (B4) can fully close. This is cross-cutting creation-moment refinement (Mac-gandalf primary per radagast drift-discipline). David-H logs it as a forward-register item routed to a **radagast↔Mac-gandalf consult**, triggered by WS2 prototype / art-direction iteration — not now, not here. Mantis must NOT over-read a clean Rig A/B light-toggle on the placeholder as closing the contrast question; A5/B4 close the LIGHTING-RIG question only.
+
 ## 7. Gates (PC-trio Pattern E)
 
-1. **sam Gate-1 (pre-fire):** review this dispatch DRAFT — scope, acceptance testability, math-before-code sufficiency, R48.4 framing. BLOCK authority.
-2. **radagast design-fit:** (a) does repair #1 honor § 2.6 + § 12 sky-surface canon; (b) the standalone design question — should the figure carry its own key light independent of the sky (the rig's sky-dependency is the root of finding #3); (c) is `FigureStandIn`-as-placeholder acceptable for the manifestation spike or does the spirit visual need scoping now.
-3. **Both PASS → dispatch fires** (STATUS → ACTIVE); mantis executes in a dedicated session.
-4. **sam Gate-2 (post-output):** on mantis's tagged commit.
+1. **sam Gate-1 (pre-fire):** ✅ DONE 2026-06-13 — PASS-WITH-WARN (4 WARN, 0 BLOCK). Finding `agentic_orchestration/qa/findings/2026-06-13-mantis-celestial-sphere-rework-gate-1.md`. All four WARNs folded (§ 9).
+2. **radagast design-fit:** ✅ DONE 2026-06-13 — PASS-WITH-WARN (1 amendment, 0 BLOCK). Verdict `agentic_orchestration/radagast/notes/2026-06-13-celestial-sphere-rework-design-fit.md`. § 3 amendment + acceptance #5/#6 reworded; forward Q5 item logged (§ 6).
+3. **Both PASS → dispatch FIRED** (STATUS → ACTIVE per Pattern E autonomous-pair ratification); mantis executes in a dedicated session.
+4. **sam Gate-2 (post-output):** on mantis's tagged commit — reviews **Tier-A criteria only** (A1–A7). Render-gated **Tier-B criteria (B1–B5) confirm post-render with Matt at console and do NOT block the commit's Gate-2 or the wave-close push** (sam WARN-4). Tier-B confirmation is a separate render-evidence pass.
 
 ## 8. Sign-off
 
@@ -107,4 +125,22 @@ Diagnostics already EXCLUDED live (do not re-chase): exposure (Unlit-visible/Lit
 **Routing:** david-h orchestrates; sam Gate-1 + radagast design-fit ratify; mantis executes; sam Gate-2.
 **Cross-host:** P0.1 produced findings not captures; cross-host note to Mac-KR queued (S5 + S1 both gated on this rework).
 **Composition:** preserves all prior canonical commitments; coupled to the WS2 Niagara commission (same celestial-sphere geometry) but distinct scope.
-**End of dispatch (DRAFT).**
+
+---
+
+## 9. Fold-record (PC-trio ratification 2026-06-13)
+
+**sam Gate-1 — PASS-WITH-WARN (4 WARN, 2 INFO, 0 BLOCK):**
+- **WARN-1** (execution-environment hazard) → folded into § 2 "Execution-environment fallback": Niagara-stack edits (1.2/1.3) get an explicit "never windowed-editor-over-SSH; hand Matt a manual-BP-step list if the headless/bridge path can't perform the edit" clause.
+- **WARN-2** (acceptance #4 needs a metric) → folded into A7 + B2: `stat gpu` budget threshold (stable frame ≥ N sec, no rising trend toward device-removed) is the documented pass target.
+- **WARN-3** (partition acceptance into tiers) → § 4 split into Tier-A (mantis-headless A1–A7) vs Tier-B (render-confirmed B1–B5).
+- **WARN-4** (re-sequence gates) → § 7.4: Sam Gate-2 reviews Tier-A only; Tier-B confirms post-render and does not block the commit's Gate-2 or wave-close push.
+
+**radagast design-fit — PASS-WITH-WARN (1 amendment, 0 BLOCK):**
+- **(a) sky-geometry** PASS — R=8,000 interior-sphere reposition corrects TOWARD § 2.6/§ 6.3; nebula-stays-on is canon-required, not optional.
+- **(b) figure key-light** amendment → § 3 design-constraint preamble (the three gandalf-ruling constraints: motivated-not-spotlight / distinct-from-spirit-glow / direction-now-values-later) + acceptance B3 (worldlight-on-ordinary-person, not spotlight; values console-tuned) + B4 (Rig-A key distinct from Rig-B spirit-glow).
+- **(c) FigureStandIn** PASS — placeholder acceptable for the lighting-readability spike; Q5 spirit-visual scoping logged as a forward radagast↔Mac-gandalf consult item (§ 6), not this dispatch.
+
+**Carried ruling:** the Earth-avatar key-light independence call was already made Mac-side by gandalf (handoff design question 1); radagast folded the DIRECTION (not values). No new cross-cutting consult needed for (b); the Q5 spirit-visual consult is the only forward cross-cutting item.
+
+**End of dispatch (ACTIVE — fire-ready).**
