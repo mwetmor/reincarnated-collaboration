@@ -95,5 +95,36 @@ environmental/LLM-auth artifact, given ANTHROPIC_API_KEY was removed 2026-06-12)
     Requested disposition is **doc-grade Gate-2 awareness, NOT a behavior gate**. Diff: 3 assertions
     in one test file (`tests/test_role_orientation.py`, commit `e5a2da1`). No `MIGRATION.md` (no
     schema/API change). No smoke-regen required (no generator behavior touched).
-- **Item #4 (B6 skill-count + `fire_mage` retry-fail) — STILL OPEN.** Separate pending gandalf
-  ruling; NOT touched by commit `e5a2da1` (the remaining 1 failure in the module is exactly this).
+- **2026-06-14 — Item #4 RESOLVED (both halves: structural fix + test rewrite).** gandalf ruled
+  (`agentic_orchestration/gandalf/notes/2026-06-14-two-generation-rulings-b6-kit-band-and-theme-element-flavor-pool.md`,
+  RULING A): the `{5,6}` invariant was a **false-green** masking a real fire_mage B6 fallback defect.
+  Two work-units:
+  - **Structural fix (real behavior change, engine commit `9a46731`).** Diagnosed (Disc #11,
+    `scripts/rocket_fire_mage_b6_constraint_diagnosis_2026_06_14.py`): the **sole** binding constraint
+    was **`no_heal_skill` (38/38 failing attempts)** — NOT the ruling's hypothesised
+    `require_dot_skill`/`require_burn_ailment` (DoT is a *required role* here; burn comes free from
+    fire skills). Root cause: `_sample_free_roles` offered `sustain` to mage/caster archetypes, but
+    fire_mage carries `no_heal_skill`, so every `sustain` draw tripped `_check_no_heal` → ~8% of kits
+    exhausted `MAX_KIT_RETRIES` → fallback (2/29 seeds). Fix: constraint-aware free-role pool drops
+    `sustain` when the template has `no_heal_skill` (gates on the constraint, not a hardcoded name, so
+    water_mage's `require_heal_or_hot` sustain draw is untouched). Math pre-registered in
+    `src/reincarnated/generation/math/fire-mage-b6-no-heal-pool-contradiction-2026-06-14.md`.
+    **Validated: fire_mage fallback 2/29 → 0/29, length-set {10,11,12}, 29/29 first-try; water_mage
+    unaffected.** → **standard Gate-2 (Disc #12)**; jack-ryan review requested.
+  - **Test rewrite (doc-grade, engine commit `f48dde8`):** `test_six_skills_added_in_some_seeds` →
+    `test_fire_mage_kit_size_in_b6_band` asserts `lengths ⊆ {10,11,12}` + variation; greens naturally
+    from the fix (no `xfail` needed). → jack-ryan doc-grade Gate-2 awareness.
+  - **The "B6 retry-fail" was NEVER env/auth.** B6 makes zero LLM calls; the ANTHROPIC_API_KEY removal
+    was causally irrelevant, as the ruling §2.4 stated. The earlier surfacing note's env/auth caveat
+    is hereby corrected — it was a pure constraint contradiction.
+- **NEW observation surfaced (out of fire_mage scope) — `water_mage` 1/29 sub-band kit.** During the
+  fire_mage fix's regression check, `water_mage` showed one seed producing a length-6 kit (1/29) of its
+  own — i.e. an occasional water_mage B6 fallback, independent of and **pre-dating** my change (my gate
+  does not fire for water_mage). Likely `require_heal_or_hot` or `require_chill_or_slow` occasionally
+  binding against the water free-pool. **NOT fixed** (gandalf ruled fire_mage only). Routed to KR for a
+  follow-on gandalf design-contract decision if water_mage reliability matters.
+- **Theme-element drift (sibling note `...theme-element-rotating-failure.md`) — RESOLVED (doc-grade,
+  engine commit `f48dde8`).** gandalf RULING B: `season_theme_element` is a naming-only flavor token
+  post-Q18, not a rotating element. `test_theme_element_is_rotating` →
+  `test_theme_element_is_valid_flavor_token` asserts membership in `data/seasonal_elements/pool.json`
+  token set; `test_determinism` left untouched (still PASS). → jack-ryan doc-grade Gate-2 awareness.
