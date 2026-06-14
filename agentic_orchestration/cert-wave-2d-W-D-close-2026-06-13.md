@@ -29,7 +29,7 @@ Per-seed K4≥K2 margin **accepted as closing-time noise**; the K4≥K2 mechanis
 
 **[KR] SEQUENCED** as a genuine new workstream (movement-AI-scale rework). It is the routed home for Axis-2A's real discrimination — the §4.D sustained-wave fixture (oracle line ~189: hard W-D prerequisite, fixture lands *before* Axis-2A wiring or wiring certifies against noise). Closes part of D1's known-deferred accounting once it lands.
 
-**ARITY HELD for gandalf's Bucket-B ruling (D4 gate):** does proxy-density become a real **9th axis + a 7th §5 reference kit**? Per oracle §6.3, that is gandalf's Bucket-B design ruling, which he owes. **Workstream sequenced; arity question NOT presumed (not 8, not 9) — gated on the ruling.** Full dispatch authoring HELD until Bucket-B resolves the arity.
+**ARITY RESOLVED — gandalf Bucket-B ruling (commit `8974209`): arity STAYS 8.** Proxy-density is the **existing Axis-2A** (a Bucket-A re-opened deferral), **NOT a 9th axis**. D4 therefore wires the 8-tuple's **2A slot** — K5 already exists as the proxy canary, so D4 makes 2A *discriminate*, adding **no new reference kit**. Composes with gandalf's ratified zero-new-axes Bucket-B ruling. **Workstream now UNBLOCKED for dispatch authoring** (was gated on this ruling); held for Matt's W-E-vs-proxy-port prioritization. Multi-seam: gamora (spawn primitive + §4.D actor-lifetime/wave structure) + gandalf (§4.C/§4.D density-design contract) + KR sequences.
 
 ## D5 — rocket reference-kit follow-on — ENDORSED
 
@@ -51,15 +51,19 @@ Per-seed K4≥K2 margin **accepted as closing-time noise**; the K4≥K2 mechanis
 | Item | Owner | State |
 |---|---|---|
 | D1 cond.4=PASS ratify + WARN-clear | KR + jack-ryan | RATIFIED; WARN clears on gamora's 2 doc lines |
-| D1 decompose surfacing | gamora (KR-triggered) | FIRED → hand to gandalf |
-| D1 decompose interpretation + oracle discrimination fix | gandalf | ROUTED (needs decompose) |
+| D1 decompose surfacing | gamora (KR-triggered) | **DONE** (`3e9d3a2`) — 0 category-(e) live obligations |
+| D1 decompose interpretation + oracle discrimination fix | gandalf | **DONE** (`8974209`) — CONCUR; cond.4 4-discrim sub-clause + §6.4 gated on clean decompose |
 | D2 disposition (b) | KR (record) | RATIFIED |
-| D3 §5.2 amendment commit | gandalf | ROUTED (on nod) |
-| D4 proxy-port workstream | KR (sequence) | SEQUENCED; arity held |
-| D4 Bucket-B arity ruling | gandalf | OWED |
-| D5 reference-kit follow-on | rocket (KR-dispatched) | SEQUENCED, arity=8 |
-| D6 grouping-vocab loader fix | rocket (KR-dispatched) | ROUTED w/ diagnosis |
-| W-D-export | star-lord (KR-dispatched) | AUTHORED, gated on MIGRATION v1.31 + D1 |
-| Oracle amendments (§5.2 + cond.4/§6.4) + Bucket-B ruling | gandalf | his canon-write side |
+| D3 §5.2 amendment commit | gandalf | **DONE** (`8974209`) |
+| D4 proxy-port workstream | KR (sequence) | **arity RESOLVED = 8**; unblocked, held for Matt W-E-vs-port priority |
+| D4 Bucket-B arity ruling | gandalf | **DONE** (`8974209`) — arity STAYS 8; proxy-density = existing Axis-2A, no 9th axis, no new kit |
+| D5 reference-kit follow-on | rocket (KR-dispatched) | DISPATCHED, arity=8 RATIFIED |
+| D6 grouping-vocab loader fix | rocket (KR-dispatched) | DISPATCHED w/ diagnosis |
+| W-D-export | star-lord (KR-dispatched) | Gate-1 PASS-WITH-WARN folded (`647de17`); gated on MIGRATION v1.31 + D1 |
+| Oracle amendments (§5.2 + cond.4/§6.4) + Bucket-B ruling | gandalf | **DONE** (`8974209`) |
+
+## Status: W-D CLOSED
+
+All D1–D6 dispositions operationalized. Decompose clean (0 live obligations) → §6.4 stays open-pending-W-F cleanly. Oracle amended (`8974209`): cond.4 discrimination sub-clause + §6.4 gated on clean decompose + §5.2 (b)-close + Bucket-B arity=8. cond.4 = PASS (gate-read). **Remaining open work-streams** (post-W-D): W-D-export (gated on gamora MIGRATION v1.31) → **W-E throughput** (wave critical path); D4 proxy-port (arity=8, unblocked, awaits Matt priority); D5/D6 rocket dispatches ready-to-pick-up; gamora's 2 doc-lines clear the Gate-2 WARN→PASS; mobility lock-edge re-calibration (gandalf, gated on gamora displacement histogram, non-blocking). cond. 5 (defensive-bridge boss re-validation) + §6.4 final close = **W-F**, the 1D-delete gate.
 
 **Push:** all 2026-06-13 commits remain unpushed; Matt gates the keystone-close push.
