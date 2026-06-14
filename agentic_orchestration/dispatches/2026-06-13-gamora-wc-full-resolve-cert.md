@@ -70,3 +70,55 @@ W-C-full formalizes the spike into a certified RESOLVE pass against the recalibr
 ---
 
 **Author:** knight-rider, 2026-06-13. The W-C exit — turns the de-risk spike's GO into a certified RESOLVE pass: the engine resolves combat correctly against the spatial-instrument band, with the three KPM canaries and the shape-flip proven under the t-test rule, and the survival-mechanism canary cleanly deferred to W-F's commit-grade boss room.
+
+---
+
+## Completion record
+
+**Agent:** gamora. **Date:** 2026-06-13. **Tag:** `gamora/v-wc-full-resolve-1` (engine). **Status:** EXECUTED — RESOLVE cert run; one canary sub-clause SURFACED to KR for a disposition call (see below). NOT pushed (Matt wave-close gate).
+
+**Math note:** `reincarnated-engine/src/reincarnated/simulation/math/wc-full-resolve-cert-2026-06-13.md` (authored BEFORE code, Discipline #1).
+**Cert harness:** `reincarnated-engine/scripts/gamora_wc_full_resolve_cert_2026_06_13.py`.
+**Cert output:** `reincarnated-engine/output/wc-full-resolve-n9-2026-06-13.json`.
+**MIGRATION:** `reincarnated-engine/src/reincarnated/simulation/MIGRATION.md` v1.30.
+
+### (a) RESOLVE PASS/FAIL — pre-registration vs result
+
+**36/36 reference-kit §5 rows reproduce their pre-registered side** (N=9, spike-validated layout). Every kit×room cell matches expectation, including the Matt-ratified **K3@open_arena = BELOW** (19.5 < 21.5 floor). The shape-flip manifests, the anchor held, K1/K5 canaries pass cleanly.
+
+**The ONE non-pass: the K4≥K2 ≥-margin sub-clause (6/9 seeds).** K4 IN @open (the actual canary *direction*) is 9/9 IN; K4 ≥ K2 holds on the MEAN (45.2 ≥ 41.1) but not every seed. Diagnosed (Discipline #11) as the **M1 movement-credit gap**: the player AI is "close to the NEAREST mob until in attack range" (`spatial_engine.py:1166-1193`) — there is NO "reposition to GATHER mobs into the AOE" primitive. K4's higher movement_speed only speeds *closing*, not *gathering* → the ≥K2 margin is closing-time noise, NOT spawn-spread-tunable. Four spawn geometries were smoke-tested at N=9 (clump / two-wing / arc / scatter); NONE satisfies K4≥K2-margin AND K3=BELOW AND K5=IN AND anchor simultaneously — the tension is structural (margin wants spread; the other three want clump). Math note §4.5.
+
+### (b) The three KPM canaries under the per-cell rule
+
+| Canary | Rule | Result | Verdict |
+|---|---|---|---|
+| K1 BELOW @ open_arena | strict every-seed | 9/9 below floor 21.5 | **PASS** |
+| K1 BELOW @ chokepoint | one-sided t-test α=0.10 | mean 18.86, **t=−3.75, p=0.0028** (df=8); N=5 baseline reproduced t=−2.30/p=0.041 | **PASS** |
+| K5 IN @ open_arena | strict every-seed | 9/9 in (30.6–38.7) | **PASS** |
+| K4 ≥ K2 @ open_arena | strict every-seed | K4 IN 9/9; **≥K2 margin 6/9** (mean K4 45.2 ≥ K2 41.1) | **DIRECTION PASS / ≥-MARGIN SURFACED** |
+
+K1@chokepoint t-test statistic: **t = −3.75, p = 0.0028** at N=9 (stronger than the N=5 baseline t=−2.30 as legolas predicted; rejects H₀ μ≥floor at α=0.10 → BELOW).
+
+### (c) Shape-flip
+
+**MANIFESTS.** open_arena: K2 41.1 > K3 19.5. chokepoint: K3 33.1 > K2 25.2. Ranking swaps → geometry × room genuinely simulated (M2 real). Stable across all 9 seeds.
+
+### (d) Final seed count + the two legolas open questions
+
+**N=9** (legolas robust count: 95.5% power, CLT-reliable at chokepoint; resource cost trivial — 324 fights ~5s).
+- **Gap 1 (fight-level seed independence) — RESOLVED in-seam:** `seed = base_seed ^ (fight_idx * 0x1337BEEF)`; all RNG streams reseeded per fight (`random.Random(seed)`, `np.random.default_rng(seed)`, `…^0x5F3759DF`); entities rebuilt fresh per fight. No shared spawn-position RNG across fights → effective N = literal N. (Math note §7.1.)
+- **Gap 2 (N=5 CLT-normality vs N=9) — RESOLVED: go to N=9.** The only variance-sensitive cell (K1@chokepoint, 1.03σ) is exactly where CLT matters; N=9 is where legolas says CLT is reliable. The 3 open_arena canaries are 4–9σ from floor → variance-immune at any N≥3, over-covered at N=9 at no risk. (Math note §7.2.)
+
+### (e) K2@open anchor status after the spawn-spread
+
+**A=43 HELD.** The shipped layout is the spike-validated clump; K2@open = **41.06** KPM, within the ±20% anchor gate [34.4, 51.6] and well above the 21.5 floor. **No material anchor shift → the §2-S floor derivation does NOT re-open.** (Note: the rejected arc/scatter geometries DID drop K2 off-anchor — a reason they were not shipped.)
+
+### (f) The M6 boundary + K4≠K6 deferral
+
+**M6 boundary drawn (math note §6):** RESOLVE requires M6 (flanking/survival) to be *non-corrupting of clear-rate* — confirmed, since the canaries + shape-flip live in density/mid rooms where M2/M4/M5 govern KPM, not M6's flanking/eHP path. RESOLVE does NOT require M6 to *correctly distinguish survival mechanisms* (that is W-F). **K4≠K6 boss-survival ⚠C4 cleanly deferred to W-F** — fixture-blocked (throwaway K6 tank str=50 can't out-DPS the 60k boss in 240s; fails a DPS check, is NOT dying), SURV-judged, survival-mechanism identity is commit-grade defensive-bridge re-validation (oracle §3.6). RESOLVE did not gate on it.
+
+### (g) What needs Matt / gandalf before W-D
+
+**THE DISPOSITION CALL (above gamora seam authority — surfaced per dispatch "STOP and surface"):** Does RESOLVE **PASS** with the K4≥K2 ≥-margin recorded as the surfaced M1 movement-credit finding (consistent with oracle §2-S.5 finding 3's edge-placement tier-a disposition + the dispatch two-tier rule: "the IN direction reproduces; the ≥-margin does not robustly reproduce and is surfaced for W-C-full tuning"), or does it **hard-gate** on the literal K4≥K2 canary (→ FAIL until an M1 gather primitive is added)? This is a gandalf design-authority read of the oracle's canary definition (Matt ratified the canary rules). gamora's recommendation: **PASS-WITH-SURFACED-FINDING** — 36/36 §5 rows + 3 clean canaries + shape-flip + held anchor is a robust RESOLVE; the K4≥K2 margin is a *known* M1 gap (pre-flagged twice: oracle §2-S.5 finding 3 + spike note §7), not a new engine fault, and the *fix is outside the spawn-spread lever* (an M1 player-gather primitive, engine-movement seam, W-D/W-F). Routing the M1 gather-primitive item to KR/rocket for W-D/W-F is the design response if the ≥-margin must hard-pass.
+
+**Author:** gamora, 2026-06-13.
