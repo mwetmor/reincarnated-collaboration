@@ -3,7 +3,7 @@
 **From:** knight-rider
 **To:** star-lord
 **Approved by:** Matt 2026-06-13 (D1–D6 dispositions — "author the W-D-export dispatch per your plan").
-**Status:** GATE-1 PENDING (jack-ryan DESIGN-MODE). **GATED — do NOT start** until gamora's `simulation/MIGRATION.md` v1.31 emit-contract section is on disk AND you have read the D1-decompose caveat below.
+**Status:** GATE-1 PASS-WITH-WARN (jack-ryan DESIGN-MODE, 2026-06-13). Two folds applied: a parallel-safe carve for the additive-migration step (WARN); the round-trip fixture source named (INFO). **The consume-wiring half is GATED — do NOT start** until gamora's `simulation/MIGRATION.md` v1.31 emit-contract section is on disk AND you have read the D1-decompose caveat below. **The additive-migration enumerate/document step is PARALLEL-SAFE** (independent of the v1.31 emit contract — start it anytime; see Scope).
 **Estimated effort:** ~hours (consume-side wiring + one schema-migration check).
 
 ## Context
@@ -23,13 +23,14 @@ cond.4 PASSED as a **gate-read** (wired-not-default + mint), but **per Matt's D1
 
 ## Cross-seam contract change? (Principle 6 gate — KR completed at authoring)
 
-**YES.** consume the gamora→star-lord commit-grade BC emit (the v1.31 contract). Round-trip smoke required (Principle 6): take a real spatial-emitted `CommitGradeVerdict` through your export consume boundary and assert (a) it is admitted as commit-grade provenance, AND (b) it is NOT advertised as identity-certified/measures-the-kit (the §6.4-open semantics).
+**YES.** consume the gamora→star-lord commit-grade BC emit (the v1.31 contract). Round-trip smoke required (Principle 6): take a **real spatial-emitted `CommitGradeVerdict`** — the `commit_grade_verdict` record in `reincarnated-engine/output/wd-six-axis-measure-2026-06-13.json` (gamora's `5ec33bb` W-D mint; do NOT synthesize a fixture) — through your export consume boundary and assert (a) it is admitted as commit-grade provenance, AND (b) it is NOT advertised as identity-certified/measures-the-kit (the §6.4-open semantics).
 
 ## Scope
 
-- [ ] Consume gamora's v1.31 commit-grade BC emit field-for-field into the export path (reconcile provenance markers + 8 axis fields to your `ExportCommitGradeVerdictDocument`)
-- [ ] Preserve the §6.4-open semantics — provenance-grade admission, NOT identity-truth advertisement (CAVEAT above)
-- [ ] **INFO (jack-ryan Gate-2 flag):** `spatial_fight_results.total_displacement` additive column (float, default 0.0) needs a **non-breaking** schema migration IF the export DB persists spatial results — enumerate, document, apply the additive migration (additive-only; no destructive change)
+- [ ] **[parallel-safe — start anytime]** `spatial_fight_results.total_displacement` additive-migration **enumerate + document** step (jack-ryan Gate-2 flag): the additive column (float, default 0.0) is needed IF the export DB persists spatial results. The enumeration/documentation is independent of the v1.31 emit contract — do it now. (The *apply* of the migration rides with the consume-wiring half.)
+- [ ] **[v1.31-gated]** Consume gamora's v1.31 commit-grade BC emit field-for-field into the export path (reconcile provenance markers + 8 axis fields to your `ExportCommitGradeVerdictDocument`)
+- [ ] **[v1.31-gated]** Preserve the §6.4-open semantics — provenance-grade admission, NOT identity-truth advertisement (CAVEAT above)
+- [ ] **[v1.31-gated]** Apply the additive `total_displacement` migration (additive-only; no destructive change) if the DB persists spatial results
 - [ ] MIGRATION.md consume-side section reconciling to gamora's v1.31 emit contract
 - [ ] Round-trip smoke per Principle 6 (above)
 - [ ] AGENT_STATE.md updated at session end
