@@ -89,9 +89,90 @@ Full inventory at `agentic_orchestration/legolas/research/2026-06-14-archetype-l
 - **RULING: cut at the root by completing the W0.2 cutover to `compose_kit`** — design content STANDS; this is now a **multi-seam, two-stage PROGRAM**, not a single rocket re-point (per the Act-1 probe + the Legolas simulation finding).
 - **The program (KR sequences the coupling):** Stage 1 — **rocket** (generation V-1..V-9; compose-from-BC-target + provisional-label bridge; gandalf §2 + jack-ryan Gate-2). Stage 2 — **gamora** (simulation V-S1..V-S4 + V-D7; AI keys on BC bins; label demoted). Then cleanup tail (deprecated V-D1..V-D6) + doc corrections (SD-1..SD-3). Generation-first, simulation-second — sequenced, not simultaneous (§5.3).
 - **water_mage 1/29 is ABSORBED into Stage 1** — fallback path removed by the cutover, not patched.
-- **gandalf-owed design call (expanded, now unblocked by the Legolas return):** the substrate-binding call (§Amendment preview lean) **expands** to a **BC-coordinate-identity call covering both seams** — what is the shared 8-tuple identity that generation *composes from* AND the simulator *keys on*, and how substrate binds at generation (provisional) vs Phase-5. This unblocks BOTH rocket's Stage-1 math note AND gamora's Stage-2 AI-migration spec. I ground the sim-AI keying (`ai_strategies.py`) + the W0.2 substrate section before ruling — not blind.
+- **gandalf BC-coordinate-identity design call — MADE (§7, Matt-authorized 2026-06-14).** The shared 8-tuple identity that generation *composes from* AND the simulator *keys on*; substrate binds provisionally at the **adapter** (not the composer — #13a preserved); the label demotes to derived display. Grounded at source (`ai_strategies.py:45/270-347`, the W0.2 substrate section `:405-409/:485`, `damage_resolver.py:328/842`, `skill_schema.py:6-178`) — not blind. Unblocks rocket's Stage-1 adapter+source+substrate math note AND gamora's Stage-2 AI-migration spec.
 - **Still-separate queued gandalf items (NOT in this ruling):** fire_controller status-resist cross-element asymmetry; the Q4 code-flip routing.
-- **Push gate (standing, Matt-gated):** collab (6c99c55, c7b6012, e60f021, + this ruling f5e95f9 & amendments) + engine (9a46731, 42e40e4, f48dde8, 525a014) + rocket probe note (bd36d2d) remain push-ready pending Matt authorization.
+- **Push gate (standing, Matt-gated):** collab (6c99c55, c7b6012, e60f021, + this ruling f5e95f9 & amendments incl. §7) + engine (9a46731, 42e40e4, f48dde8, 525a014) + rocket probe note (bd36d2d) remain push-ready pending Matt authorization.
+
+---
+
+## 7. The complete-cut design call — unified BC-coordinate identity (Matt-authorized 2026-06-14)
+
+Matt: *"yes, trace it and make the design call. We've located the root system, let's design the complete cut and removal."* Ruled after tracing at source (`ai_strategies.py:45/160/270-347`; the W0.2 substrate section `:405-409/:485`; `damage_resolver.py:328/842`; `skill_schema.py:6-178`) — not blind.
+
+### 7.0 The organizing principle — substitute the shared currency
+
+The disease has ONE shape in both seams: **the archetype label is the shared currency.** Generation locks the kit by the label (`ARCHETYPE_TEMPLATES.get(label)`); the simulator pilots the kit by the label (`ARCHETYPE_ROLE_PRIORITY[label]`). The label is the hub both seams pass through — exactly the structural work the lock forbids it.
+
+The complete cut is a single substitution: **make the `bc_target` 8-tuple the shared currency; demote the label to a derived, display-only nameplate.** Generation composes the kit FROM the coordinate (`compose_kit`); the simulator pilots the kit FROM the coordinate (bin-keyed AI). The label rides along, computed last, read as a key by nothing live. Every component below is the mechanical consequence of that one substitution.
+
+This is what a "build" IS in the genre. A Frozen-Orb Sorc and a Blizzard Sorc share the label "Sorceress" and are different builds; what distinguishes them is their mechanical POSITION — geometry, range, tempo — not their nameplate. Making `bc_target` the load-bearing identity makes the engine's data model agree with what a build actually is. Label-as-hub is the D3-set-dungeon (class = fixed template); `bc_target`-as-hub is build-space-region identity (§3).
+
+### 7.1 Component 1 — `bc_target` is first-class identity on BOTH seams
+
+Promote `BcTarget` (the type `compose_kit` already consumes; `mechanic_alteration.py:224` already exposes a `BcTargetView`) to a **load-bearing field on `PlayerClass` (generation output) AND `CombatantState` (simulation input).** The substitution made concrete: the 8-tuple is what generation emits and what the simulator reads; the label is a derived string beside it.
+
+Player consequence: two kits that occupy different cells but today collapse to the same label become — for the first time — distinguishable by the engine end-to-end. The identity the player feels (this one kites, that one face-tanks) is the identity the engine carries.
+
+### 7.2 Component 2 — the Stage-1 zero-label source (behavior-preserving; the smuggling trap; diversification deferred)
+
+The orchestrator emits `(element, energy, role)` (`season_orchestrator.py:1539-44`) + range (`_pick_range_profile`); today these reach a kit only THROUGH `classify_archetype → label → bc_target_for_archetype` (the amendment's blocker #2). The cut needs a **direct `(role, range, energy, element) → bc_target` map** that never materializes a label as a runtime key.
+
+**The smuggling trap (gandalf owns catching this):** the map must NOT be "compute the label, then look up the label's coordinate" — that keeps the label as the structural hub and re-quantizes the space to the ~29 legacy points. The map goes inputs → BINS directly: role drives control-density + defensive-profile; range drives engagement-profile + damage-geometry; energy drives resource-economy + damage-tempo. The cut is the COMPOSITION MECHANISM changing from `ARCHETYPE_TEMPLATES.get(label)` (template-lookup) to `compose_kit(bc_target)` (axis-alignment). Even when a Stage-1 coordinate coincides with a legacy point, the kit is now COMPOSED from the coordinate, not looked up from the label — the coincidence is behavior-preservation, not the disease returning.
+
+**Behavior-preserving, NOT diversifying (the one-variable discipline).** Stage 1 reproduces current behavior through a coordinate-shaped pipe. It does NOT sample off-legacy coordinates. Diversification — feeding the now-agnostic pipe coordinates the legacy labels never reached — is a SEPARATE later effort, gated on the cert-wave spatial substrate proving diversified kits actually discriminate (recognition→validate→commit). Bundling diversification into the cut would conflate the architectural change with a behavioral one — the exact cert-wave error (a regression can't be attributed). Stage 1 changes the PIPE; diversification later changes the CONTENT.
+
+**The element subtlety (named, resolved transitionally).** Today element shapes the kit mechanically — `fire_mage` is a no-heal glass cannon, `water_mage` heals — which is element doing mechanical work the substrate-agnostic principle (#13a) forbids. Locked end state: element is SKIN (Phase-5 cohesion-judge), the coordinate is pure mechanics, a "fire" kit COULD be a sustain build. But removing element-from-mechanics is a BEHAVIORAL change, so it does NOT belong in Stage 1. Stage 1's source keeps element transitionally nudging the bins (fire→burst-tempo/no-sustain, water→sustain) so behavior holds; the nudge is marked TRANSITIONAL, removal trigger = Phase-5 cohesion-judge operational (same trigger as the shim, `w0-2 :639`). True agnosticism (element out of the coordinate) commits when Phase-5 can re-skin. This is NOT the label disease — element nudges the coordinate directly, no label-template-lookup; it is a lesser, clearly-marked, trigger-gated transitional coupling.
+
+### 7.3 Component 3 — provisional substrate binds in the ADAPTER, not the composer (#13a preserved)
+
+`compose_kit` FORBIDS substrate input (`w0-2 :405-409`, the #13a-partition: *"No other inputs are permitted — no substrate identity"*). But `damage_resolver.py:328/842` consumes per-skill `canonical_element` NOW, and `Skill.canonical_element` is a required field (`skill_schema.py:40`). The gap: the composer won't stamp element; the simulator needs it.
+
+**Resolution: substrate binds in the `ComposedKit → PlayerClass` adapter, AFTER `compose_kit` returns the substrate-blind kit, from the season's `dominant_element`.** This keeps the composer pure (substrate-blind, #13a honored), and the adapter is the correct seam: it is exactly where the substrate-agnostic coordinate becomes the substrate-bound playable kit. The binding is PROVISIONAL — marked so, Phase-5 cohesion-judge the re-cohere trigger (it may re-skin to a DIFFERENT element for cohesion). The provisional element is a **Phase-5 stand-in in BOTH roles** — the coordinate-nudge (§7.2) and the skin (here) — and both retire together when Phase-5 lands. Do NOT block the cut on the unbuilt Phase-5; provisional binding feeds the simulator today.
+
+### 7.4 Component 4 — the `PoolMechanic → Skill` adapter is a RESOLUTION layer, not glue (the contract)
+
+Rocket's Act-1 was right that this is the load-bearing blocker, and the schema confirms WHY: `PoolMechanic` carries the MECHANICAL SHAPE (id, geometry, range, cost, cd, cc_tags) — the coordinate-space descriptor; `Skill` (`skill_schema.py:6-178`) is the fully-resolved game object needing `abilities`, `effects`, `timing`, `triggers`, `effect_category`, `power_tier`, `role`, `canonical_element`, presentation stubs. The adapter is not glue — it is the **resolution layer where a coordinate-space descriptor becomes a playable kit**, and architecturally it IS the #13a boundary (substrate-blind in → substrate-bound out).
+
+The adapter CONTRACT I rule (rocket implements field-by-field):
+1. **One `PoolMechanic` → exactly one `Skill`. No label is consulted, ever.**
+2. **Mechanical shape preserved 1:1** — `geometry`, `range_m`, `energy_cost`, `cooldown_seconds`, `cc_effect`/`cc_duration_s`/`cc_slow_magnitude` come straight from the `PoolMechanic`. These ARE the coordinate; they must not be re-derived.
+3. **Substrate binds here** (§7.3): `canonical_element` ← provisional `dominant_element`.
+4. **Gap-field enrichment** (`abilities`, `effects`, `timing`, `triggers`, `effect_category`, `power_tier`, `color_value`, `scaling_attribute`) is keyed on the mechanic's own properties + the coordinate + the provisional substrate — **NEVER on the label.** If rocket reuses the b6 ability-construction machinery, it MUST be re-keyed off the mechanic, not the archetype, or the disease re-enters through the back door.
+5. **`role`** (the per-skill identity field) comes from the mechanic's role + the coordinate's role bin, not a label.
+
+### 7.5 Component 5 — Stage-2 sim-AI keys on BC bins (the discrimination law at the instrument)
+
+The simulator MEASURES a kit by PLAYING it; if it plays by the label, even a perfectly axis-composed kit is measured through the label's ASSUMED behavior (V-S2 — the discrimination-law-at-the-instrument problem, **third instance** after M1.3.5 and the W-E search layer). The cut is incomplete until the instrument reads the coordinate.
+
+The lever already exists and is already non-label: `get_priority_roles(..., preferred_behavior=...)` (`ai_strategies.py:160/331`) — the monster path (`_scripted`, `:331`) already passes a `preferred_behavior` override that bypasses the label. **Stage 2 promotes `preferred_behavior` from a monster-scripting override to the PRIMARY keying mechanism, derived from the `bc_target` bins:**
+- **control-density bin → control-first ordering** — replaces the `_PLAYER_CONTROLLER_ARCHETYPES` membership test (`_common`, `:292/:45`). A kit pilots control-first because it IS control-dense, not because it's labeled controller.
+- **engagement-profile bin → range/positioning** — kite vs face-tank from the actual engagement axis.
+- **damage-tempo bin → rotation cadence** — burst-spike vs sustained from the actual tempo axis.
+
+`ARCHETYPE_ROLE_PRIORITY[label]` (`:331`) and `_PLAYER_CONTROLLER_ARCHETYPES` (`:45`) retire (or demote to a fallback for any not-yet-migrated path). Player consequence: the AI pilots the kit by its mechanical shape, so when diversification later feeds off-legacy coordinates, the AI pilots them correctly — a label-keyed AI would mis-pilot every off-label kit and poison the balance loop.
+
+### 7.6 The staging + the decoupling buffer
+
+The two seams cannot go label-agnostic simultaneously (the label is the shared currency; the moment generation stops emitting a sim-recognizable label, the label-keyed sim breaks). The buffer that decouples them:
+
+- **Stage 1 (rocket, generation):** add `bc_target` to `PlayerClass`; source it via the direct map (§7.2); compose via `compose_kit`; bind provisional substrate + adapt to `Skill`s (§7.3/§7.4). The label becomes OUTPUT (computed from `bc_target`) but KEEPS ITS LEGACY STRING FORMAT as a sim bridge — so the still-label-keyed simulator runs unchanged. The cut (label is OUTPUT, not INPUT) is achieved in Stage 1; the label's string FORMAT is a separate, later, cosmetic flip. water_mage 1/29 + the `KitConstraintError → 5-skill fallback` dissolve here (absorbed, not patched).
+- **Stage 2 (gamora, simulation):** add `bc_target` to `CombatantState`; migrate the AI to bin-keying (§7.5). Once the AI reads the coordinate, the legacy-format bridge is freed — the label may flip to `synthesize_archetype_label`'s coordinate-string (the lock's intended display) or stay a legacy-style nameplate; cosmetic, gandalf-ruled later. THIS stage earns the true *"zero label-as-input in the live path"* (the live path includes the simulator).
+
+Generation-first, simulation-second — sequenced via the legacy-format-output bridge, not simultaneous.
+
+### 7.7 Routing (recommend-don't-rescope)
+
+- **gandalf RULES** this design (§7.0–§7.6) — the substitution, five components, staging, discipline guards. MADE here.
+- **KR SEQUENCES** — Stage 1 (rocket) before Stage 2 (gamora); A4 (v2.15 `ALTER TABLE` adding `archetype_label` + `recompose_energy_calibration_applied`) cross-seam to star-lord+gamora; A3 (shim ≤20%/1-bin calibration) folded into Stage 1's gate.
+- **Matt AUTHORIZES** the program scope.
+- **rocket** owns: the direct-map source, the adapter+substrate-binding math note (Disc #1, against §7.2/§7.3/§7.4), the field-by-field `PoolMechanic → Skill` implementation. **gamora** owns: the `CombatantState.bc_target` field + the AI bin-keying spec (against §7.5). **Gate:** jack-ryan Gate-2 + gandalf §7 review per stage.
+
+### 7.8 The discipline guards (why this cut is bounded + safe)
+
+- **One-variable (cert-wave):** Stage 1 changes only the pipe (label-lookup → coordinate-composition), behavior-preserving. Diversification + element-agnosticism are SEPARATE gated changes.
+- **recognition→validate→commit:** the cut commits now (the lock is violated, the cure is built); diversification commits when the spatial substrate validates discrimination; element-agnosticism commits when Phase-5 can re-skin. Each expansion gated on its own empirical criterion, not bundled.
+- **#13a-partition preserved:** `compose_kit` stays substrate-blind; substrate binds provisionally at the adapter; the residual element-nudge in the source is transitional + Phase-5-trigger-gated.
+- **do-not-rule-blind discharged:** ruled after tracing `ai_strategies.py`, the W0.2 substrate section, `damage_resolver`'s `canonical_element` need, and the `Skill` schema — not before.
 
 ---
 
