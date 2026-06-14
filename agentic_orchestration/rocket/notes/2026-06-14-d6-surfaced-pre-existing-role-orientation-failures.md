@@ -78,3 +78,22 @@ environmental/LLM-auth artifact, given ANTHROPIC_API_KEY was removed 2026-06-12)
   2. B6 skill-count contract + `fire_mage` B6-build retry-failure (#4).
 - Pairs with the two D6 items already surfaced (the `test_integration` theme-element drift in the sibling
   note, and the `historical/`-filed grouping-vocab canon-placement question).
+
+## Resolution log
+
+- **2026-06-14 — Item #1–3 RESOLVED.** gandalf ruled (b) RETIRE the invariant
+  (`agentic_orchestration/gandalf/notes/2026-06-14-controller-vs-caster-primary-stat-ruling.md`):
+  the D3 shared-and-maxed primary cap (160) is ratified; primary stat is damage-only (not
+  control-coupled); controller-vs-caster differentiation lives on the secondary budget (controller
+  tankier VIT> + steadier DEX<). rocket rewrote the 3 assertions in
+  `tests/test_role_orientation.py` accordingly (engine commit `e5a2da1`) — equal primary AND
+  `controller.vit > caster.vit` AND `controller.dex < caster.dex`. **Composition/`config`/roles
+  UNCHANGED — test-contract change only, no production behavior change.** Module result:
+  76 passed / 4 skipped / 1 failed (the 1 = #4, intentionally untouched).
+  - **→ FLAG to jack-ryan (DEV-MODE Gate-2, doc-grade):** per the ruling §4, this is a
+    test-contract change encoding a ratified design contract with zero production behavior delta.
+    Requested disposition is **doc-grade Gate-2 awareness, NOT a behavior gate**. Diff: 3 assertions
+    in one test file (`tests/test_role_orientation.py`, commit `e5a2da1`). No `MIGRATION.md` (no
+    schema/API change). No smoke-regen required (no generator behavior touched).
+- **Item #4 (B6 skill-count + `fire_mage` retry-fail) — STILL OPEN.** Separate pending gandalf
+  ruling; NOT touched by commit `e5a2da1` (the remaining 1 failure in the module is exactly this).
