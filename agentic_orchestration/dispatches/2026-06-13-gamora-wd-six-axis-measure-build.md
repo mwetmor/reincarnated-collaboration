@@ -93,3 +93,53 @@ The movement AI lives in your spatial seam (`spatial_engine.py:1166-1193` advanc
 ---
 
 **Author:** knight-rider, 2026-06-13. W-D — the measurement-instrument build: turns the spatial engine from "resolves combat" (RESOLVE/W-C) into "measures kit identity" (MEASURE cond. 4), by building genuine spatial-telemetry measurement for the behaviorally-realized axes (not wiring predicted labels), confirming the composition-determined ones, landing the sustained-wave fixture Axis-2A needs, and re-closing the K4 mechanism half via the M1 gather-primitive ablation — minting the first commit-grade behavioral identity.
+
+---
+
+## Completion record
+
+**Completed by:** gamora, 2026-06-13. **Tag:** `gamora/v-wd-six-axis-measure-1`. **Did NOT push** (Matt wave-close gate).
+
+**Deliverables (engine seam `~/Games/reincarnated-engine`):**
+- Math note (Discipline #1, before code): `src/reincarnated/simulation/math/wd-six-axis-measure-build-2026-06-13.md` (incl. §1 Axis-2A STOP-and-surface, §5 M1 sub-scope, §8 pre-registration, §10 post-run findings).
+- NEW module: `src/reincarnated/simulation/spatial_gauntlet/spatial_bc_measurement.py` (commit-grade 8-axis reduction from spatial telemetry; parallel to the untouched 1D `bc_measurement.py`).
+- Engine changes: `spatial_engine.py` (M1 `player_gather_primitive` flag + `M1_GATHER_RADIUS_M`; Axis-1 `total_displacement` accumulator); `spatial_telemetry.py` (additive `SpatialFightResult.total_displacement`).
+- Cert harness: `scripts/gamora_wd_six_axis_measure_2026_06_13.py`; output `output/wd-six-axis-measure-2026-06-13.json`.
+- MIGRATION v1.31 (emit contract for star-lord + predicted→measured supersession for rocket).
+- 8 new tests `tests/test_wd_spatial_bc_measurement.py` (8/8 pass; 97/97 spatial+typewall+wd green).
+
+### (a) MEASURE cond. 4 — PASS (the EXIT GATE), with the pre-registration vs result
+
+**EXIT GATE = Bucket-A all-8-wired-not-default + CommitGradeVerdict mint → PASS.** Pre-registration was bin-per-axis-per-kit (Discipline #2, math note §8). Result vs pre-reg:
+- **Geometry (CONFIRM): PASS exactly** — K1/K6 single-target, K2/K4/K5 large-AOE, K3 small-AOE. predicted ≡ measured.
+- **Mobility (BUILD): WIRED+measured, edge mis-calibrated** — raw displacement orders K4 highest (64.4 m/min) as pre-registered, but the lock's 30/min threshold bins ALL kits `fast` (spatial baseline-closing) → Discipline #17 lock-edge re-calibration finding (gandalf).
+- **Defensive (RE-EMIT): WIRED, density-room clear-rate-dominated** — K6 tank reads LOWEST eHP (durability invisible when un-threatened); discrimination = W-F boss room (the oracle's own §6.2 cond.5 boundary), as expected.
+- **Resource/Control (BUILD): WIRED, reference-set-undifferentiated** — uniform stamina / no CC kit, so wired-but-not-exercised.
+The discrimination-reach "misses" on mobility/defensive are predicted-and-explained (axes whose discrimination lives outside density rooms / outside the undifferentiated set), NOT measurement bugs. The GATE (wired-not-default + mint) is the PASS.
+
+### (b) Bucket-A 8-axis wired-not-default — RESULT: all 8 WIRED for all 6 kits
+
+CONFIRM'd: Geometry (2), range-half of Engagement (1). BUILT: Resource (5), mobility-half of Engagement (1), Tempo (3A), Control (2B). RE-EMIT: Variance (3B), Defensive (4). **WIRED-DEFERRED: Axis-2A Proxy** (visible measurable=False flag, not fabricated). **2B did NOT shrink to CONFIRM in general** — it is damage-pure for THIS undifferentiated reference set (no CC kit), but the reduction is a genuine BUILD that would discriminate a CC-bearing kit.
+
+### (c) §4.D fixture outcome — boss_with_adds did NOT suffice; NO new fixture built (correct)
+
+§4.D inspection (Discipline #6): the spatial engine has NO player-side proxy mechanic, and `ArenaScenario` has NO wave/respawn structure (`mob_spawns` is a fixed one-shot list; `boss_with_adds` = 1 boss + 2 adds, boss_killed, 240s). A sustained-wave fixture for a proxy population the engine cannot produce would measure noise/zero (the deeper form of the §4.D "certify against noise" trap). **NO fixture built** — STOP-and-surfaced. The §4.D fixture is gated on the spatial-proxy port (see e/g).
+
+### (d) M1 ablation — NEGATIVE causal result (obligation DISCHARGED, hypothesis disproven)
+
+WITHOUT gather: K4=45.4, K2=41.4, margin +3.99, 6/9. WITH gather: K4=66.1, K2=69.6, margin −3.44, 1/9. The gather primitive INVERTS the margin — it is an AOE-coverage primitive that lifts the STATIONARY nova (K2) MORE than the mobile kit (K4). The oracle §5.2 hypothesis (gather re-closes the margin via K4's movement_speed) is DISPROVEN. Per "causation-proving, not threshold-holds," I report the honest negative direction: the per-seed K4≥K2 margin is NOT a movement-credit gap re-closable by an M1 gather primitive. Obligation discharged with a disproven hypothesis (NOT a cert FAIL). The primitive is left in behind its default-off flag. RESOLVE direction half UNCHANGED (re-confirmed PASS). **Recommended disposition (gandalf, oracle §5.2 amendment): the per-seed margin is closing-time noise that no gather model cleanly converts to setup-credit; the direction stays certified; the W-D obligation closes NEGATIVE.**
+
+### (e) CommitGradeVerdict mint + emit contract for star-lord
+
+Minted via `spatial_bc_measurement.mint_commit_grade_verdict()`: fidelity=commit, engine=spatial (pinned), scenario_set_hash (non-empty sha256), bc_cell = measured 8-tuple. `require_commit_grade()` ADMITS it. The **emit contract (8 axis fields + 4 provenance markers, field-for-field) is written in MIGRATION v1.31** for the SEPARATE W-D-export dispatch (gated on this MIGRATION; star-lord wires the export — I did NOT author the export side).
+
+### (f) Composition-determined divergence (CONFIRM→BUILD finding)
+
+**NONE.** Geometry (2) and range-half of Engagement (1) read back from spatial telemetry as composed — predicted ≡ measured holds, as the structural read predicted. No axis moved from CONFIRM to BUILD.
+
+### (g) Needs Matt/gandalf/rocket before W-E/W-F
+
+- **KR/Matt:** sequence the **spatial-proxy-mechanic port** (Axis-2A + §4.D fixture follow-on — W-D-2A or W-F). A movement-AI-scale rework; gamora-seam kernel code but substantial. Do NOT build §4.D before the port.
+- **gandalf:** (i) oracle §5.2 amendment recording the M1 ablation NEGATIVE result; (ii) Discipline #17 spatial re-calibration of the Axis-1 mobility lock edge (30 tiles/min mis-bins at spatial baseline-closing; spatial displacement distribution 50–64 m/min is the calibration input).
+- **rocket (via KR):** reference-kit-coverage follow-on — a resource/CC/proxy-differentiated reference kit to EXERCISE the Resource/Control/Proxy axes (dispatch-out-of-scope §5 hardening; arity=8 RATIFIED, NO 7th kit).
+- **star-lord (via KR):** the W-D-export dispatch (consume the CommitGradeVerdict emit; MIGRATION v1.31 contract A) + the `spatial_fight_results.total_displacement` additive column.
