@@ -249,6 +249,15 @@ Matt approved **Option (1)** — separate gandalf band-recalibration BEFORE W-C-
 
 **W-C-full scope pre-bound (for when authored):** §2-S band + `SPATIAL_ENCOUNTER_KPM_BAND` wire; t-test α=0.10 canary rule (legolas basis; small oracle §7 reflection rides along as gandalf/gamora seam ratification); §4.B spawn-spread tuning folded in (Risk-B = weak K4≥K2 @ 2/5 seeds, rocket lever — NOT a band issue); per-cohort columns deferred W-D/W-F; gamora confirms final seed count vs spatial variance; INFO-4 carried. Sequence: Matt nods K3 → KR authors W-C-full → jack-ryan Gate-1 → fire gamora.
 
+### W-C-full FIRED (RESOLVE cert in flight) — 2026-06-13
+
+Matt's K3 nod landed (LOW-EDGE→BELOW @ open_arena genre-forced, ratified; t-test rule affirmed; "W-C-full authoring is unblocked now"). Plus a parallel gandalf hardening Matt directed: TMPM-30-50 external scale anchor folded into oracle **v1.3 §2-S.0(b-ext)** (commit `4c27aaa`) — confirmatory only, 43 KPM ≈ 43 TMPM in-band, **no number changed**; closes the absolute-scale half of the circularity guard ahead of jack-ryan Gate-2 (relative-separation half already closed by the R-ordering).
+
+- **Dispatch authored + committed:** `agentic_orchestration/dispatches/2026-06-13-gamora-wc-full-resolve-cert.md` (commit `beb51bd`).
+- **Gate-1: PASS-WITH-WARN (jack-ryan DESIGN-MODE).** Two folds applied: **WARN-1** — the t-test was over-generalized to all three KPM canaries; corrected to a **per-cell rule** (strict-every-seed for the two open_arena canaries + K1@open_arena which are ≥4σ; one-sided t-test α=0.10 for **K1@chokepoint ONLY**, the sole variance-sensitive cell per legolas §3 — my own dispatch line had contradicted itself). **WARN-2** — t-test wiring pinned to legolas §3 Rule B (pooled-mean vs floor, H₀ μ≥floor, one-sided; NOT a per-seed count). Two INFO folded: **anchor-protection** on K2@open_arena (it IS the `A=43` scale anchor the §2-S floor derives from — spawn-spread must not silently drop it) + the two legolas **seed-independence/CLT** open questions (gap 1 fight-level seed independence; gap 2 N=5 CLT adequacy vs N=9 robust fallback).
+- **gamora fired** (background, Agent tool) to execute. Acceptance: RESOLVE cert (oracle §6.1) — 6 ref kits reproduce §5 rows + 3 KPM canaries under per-cell rule + shape-flip; K4≠K6 + M6-rebuild deferred to W-F; tag `gamora/v-wc-full-resolve-1`; no push.
+- **Awaiting gamora completion.** On PASS → report to Matt, then author **W-D** (build six-axis MEASURE per W-C.5 close §3). On FAIL/anchor-shift → surface to Matt/gandalf before proceeding.
+
 ## Push posture
 
 NOT pushed. All 2026-06-13 commits accumulate; Matt gates the keystone-close push. Production telemetry.db v2.17 apply also Matt-gated (ADR-006).
@@ -257,4 +266,4 @@ NOT pushed. All 2026-06-13 commits accumulate; Matt gates the keystone-close pus
 - Cycle 1–3 engine: `bd64ad9`, `ae247af`, `8810a8d`, `3422be2`, `ce433aa`, `51a69c5`, `3da0400`; collab: `a511222`, `f5a68d0`, `761fb60`.
 - Cycle 4 engine: `22478c2`, `8e79119`, `def5ac3`, `0d88fb2` (collab), `3136fd7`, `60cce7a`, `8c41a8f`.
 - Cycle 5 engine: `9660f7d`, `edec4c6`, `891b49d`, `02f84bd`; collab: `286e373`, `e879586`, `befa550`, `6640f56`.
-- Cert-wave (2D combat-sim) — engine: `a87ffea` (D1 gamora typewall), `a89f21a` (D2 star-lord export typewall), `275e7a3` (D4 gamora W-C spike). Collab: `b692570` (D3 gandalf stamps), `4afa500`+`b842f83`+`aafb2c1` (KR handoff/close-ack + dispatches; gandalf oracle v1.2 §2-S recalibration) + legolas consult note + this handoff update.
+- Cert-wave (2D combat-sim) — engine: `a87ffea` (D1 gamora typewall), `a89f21a` (D2 star-lord export typewall), `275e7a3` (D4 gamora W-C spike). Collab: `b692570` (D3 gandalf stamps), `4afa500`+`b842f83`+`aafb2c1` (KR handoff/close-ack + dispatches; gandalf oracle v1.2 §2-S recalibration) + legolas consult note + handoff updates. W-C-full: `4c27aaa` (gandalf oracle v1.3 TMPM anchor), `beb51bd` (KR W-C-full dispatch, Gate-1 PASS-WITH-WARN folded) + this handoff update. gamora W-C-full cert commits PENDING (in flight).
