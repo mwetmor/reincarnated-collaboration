@@ -4,6 +4,22 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-06-14 — BC-coordinate-identity cutover PROGRAM launched (Stage 1 fired; three-stage sequenced)
+
+**Event:** gandalf's class-generator BC-target cutover ruling (§7, `agentic_orchestration/gandalf/notes/2026-06-14-class-generator-bc-target-cutover-ruling.md`) ratified and Matt-authorized 2026-06-14 as a three-stage multi-seam PROGRAM. The cut substitutes the `bc_target` 8-tuple for the legacy `{element}_{role}` archetype label as the shared currency across generation↔simulation: generation composes from the coordinate (`compose_kit`, built+shelved under W0.2 2026-05-21), the simulator pilots from the coordinate (bin-keyed AI), and the legacy label demotes to derived output then is deleted. The player-facing class name (`PlayerClass.name`, the end-of-pipe LLM label) is a SEPARATE artifact, already built, unaffected.
+
+**KR sequencing actions (this session):**
+- **Stage 1 (rocket, generation) — FIRED.** Dispatch `dispatches/2026-06-14-rocket-bc-coordinate-cutover-stage-1.md`. Math-note-first (Disc #1): zero-label `(role,range,energy,element)→bc_target` source, `ComposedKit→PlayerClass` adapter, `PoolMechanic→Skill` resolution layer, provisional substrate-binding in the adapter (#13a preserved), `bc_target` first-class on `PlayerClass`, internal legacy-format label bridge. Absorbs water_mage 1/29. Rocket's Act-1 NO-GO blockers discharged by §7.
+- **A4 (cross-seam) — ROUTED.** Dispatch `dispatches/2026-06-14-star-lord-gamora-a4-v2-15-alter-table.md`. v2.15 `ALTER TABLE` on `class_fight_loadouts` adding `archetype_label` (rocket spec) + `recompose_energy_calibration_applied` (gamora spec); star-lord authors. Runs parallel to the Stage-1 math note; may gate Stage-1 persistence, not the note.
+- **Stage 2 (gamora, simulation) — HELD sequenced-after Stage 1.** AI migration to BC-bin keying (V-S2 discrimination-law-at-the-instrument fix): promote `preferred_behavior` to primary keying; retire `ARCHETYPE_ROLE_PRIORITY` + `_PLAYER_CONTROLLER_ARCHETYPES`. Add `bc_target` to `CombatantState`. Earns the true "zero label-as-input in the live path."
+- **Stage 3 (irreversibility deletion — THE GOAL) — HELD sequenced-after Stage 2, gated prove-then-delete.** Fires only after a full season generates + simulates end-to-end through the coordinate with zero label-input firing (W-E→W-F discipline). Physically deletes `ARCHETYPE_TEMPLATES`/`ARCHETYPE_ROLE_PRIORITY`/`_PLAYER_CONTROLLER_ARCHETYPES`/`legacy_archetype_shim`/V-D1..V-D6, corrects SD-1..SD-3. **drax pre-check** required before Stage 3: verify demo class-archetype VFX overlays (`reincarnated-demo/src/main.ts:1509/2108/2243`) key on `PlayerClass.name`/`classElement`/coordinate, NOT the legacy label (the legolas sweep covered the engine, not the demo repo).
+
+**Per-stage gate:** jack-ryan Gate-2 + gandalf §7 review (on the math note first, then the implementation).
+
+**Push gate:** standing, Matt-gated. The cutover ruling + amendments (collab) + engine commits + rocket probe note remain push-ready pending Matt authorization.
+
+---
+
 ## 2026-06-09 — Pi power-outage recovery pattern captured (knight-rider ops note; D1 still deferred)
 
 **Event:** Power outage during interval left the Pi with sshd in a post-boot degraded state (`kex_exchange_identification: read: Connection reset by peer` despite healthy TCP + ping). Single physical power cycle + 60–90s wait restored SSH cleanly; rootfs came back `rw` with no fsck damage; SMB share remounted via `⌘K → smb://reincarnated-pi.local` (Finder sidebar staleness bypassed). Postgres-not-installed re-confirmed empirically — matches deferred-D1 status from 2026-05-25 recognition record.
