@@ -28,9 +28,10 @@ They proceed **in parallel** and meet at the **entity-packet schema** (Track 2, 
 | Stage | What | Owner | State |
 |---|---|---|---|
 | **M1.1** | W-D six-axis MEASURE — 8 axes wired, decompose clean, cond.4 PASS, arity=8 | gamora + gandalf | **DONE** (oracle v1.6) |
-| **M1.2** | W-E throughput MEASURE — the throughput axis; wave critical path | gamora | **IN-FLIGHT** (Run A) |
+| **M1.2** | W-E throughput proof — commit-grade batch cost BOUNDED + TOLERABLE (~11 s / 34 survivors; ~54× cheaper/fight than 1D) | gamora | **CLOSED** (Run A `02e2a6f`; gandalf design-endorse + jack-ryan Gate-2 WARN→PASS; Matt-ratified 2026-06-14) |
 | **M1.3** | Axis-discrimination closures — graduate the 6-of-8 not-yet-discriminating axes from *wired* → *discriminating* | mixed | **STAGED / partial** |
-| **M1.4** | **W-F — the 1D-delete gate** — cond.5 (defensive-bridge boss re-validation) + §6.4 final close (discrimination accounting CLEAN). On pass: 1D estimator deletes; spatial engine sole authority; `fight_engine.py` tombstone removed | gamora + critique pair | **GATED** (keystone; irreversible — stays human/critique-paired) |
+| **M1.3.5** | **Reduced-spatial inner-loop search substrate** — the cheap, spatially-honest evaluator the recompose loop runs on post-1D. The inner loop runs on **1D today** (`balance_loop.py::_primary_recompose_loop` → `search_estimator.simulate_fight`); §4.2 forbids 1D as the substitute, §4.3 forbids full-2D. **Acceptance spec DONE** (`gandalf/notes/2026-06-14-reduced-spatial-search-substrate-discrimination-floor-acceptance-spec.md`); build pending sequencing. | gandalf (spec) + gamora (build) | **NEXT-CANDIDATE / hard W-F precondition** |
+| **M1.4** | **W-F — the 1D-delete gate** — cond.5 (defensive-bridge boss re-validation) + §6.4 final close (discrimination accounting CLEAN). **Precondition: M1.3.5 must land first** — else the delete strands the recompose inner loop. On pass: 1D estimator deletes; spatial engine sole authority; `fight_engine.py` tombstone removed | gamora + critique pair | **GATED** (keystone; irreversible — stays human/critique-paired) |
 | **M1.5** | Cascade / 7th-kit (§4.C cluster-density) — if promoted via Bucket-B, arity 8→9 | gandalf ruling | **FORWARD** (open design-call, not committed) |
 
 **M1.3 detail — how each non-discriminating axis closes (discrimination-test principle: the lever must MOVE the bin):**
@@ -40,7 +41,7 @@ They proceed **in parallel** and meet at the **entity-packet schema** (Track 2, 
 - **Defensive (Axis-4)** — (c) WRONG-ROOM; inverts in density rooms, discriminates in the **W-F boss room** (cond.5).
 - **Variance** — partial; closes alongside the above.
 
-**Track-1 "done" ≈** W-E closed + all axes discriminate + W-F 1D-delete passed. The engine is then the single trustworthy, *discriminating* balance authority for spatial entities. (The cascade arity question can ride forward without blocking this.)
+**Track-1 "done" ≈** W-E closed [✓ 2026-06-14] + all axes discriminate + reduced-spatial inner-loop substrate built (M1.3.5) + W-F 1D-delete passed. The engine is then the single trustworthy, *discriminating* balance authority for spatial entities. (The cascade arity question can ride forward without blocking this.)
 
 ---
 
@@ -67,9 +68,9 @@ Track 1 produces a **balanced, discriminating entity**. Track 2 **carries it to 
 
 ## 5. Next-session pickup
 
-1. **Review Run A (gamora) output** — W-E throughput result; displacement histogram (unblocks the mobility lock-edge re-cal); the 2 Gate-2 doc-lines (clears the W-D WARN→PASS). The **W-E close returns to the critique pair** (jack-ryan Gate-2 + gandalf design + Matt ratify) — that is a re-engagement step, not an autonomous one.
-2. **Review Run B (rocket) output** — D6 loader fix (9 test modules green again) + D5 reference-kit (now exercises Resource/Control/Tempo).
-3. **Plan the next batch.** Likely candidates, loosely: **D4 proxy-port** (now unblocked — histogram banked + density contract consumed); **W-D-export** (if MIGRATION v1.31 landed); and opening **M2.2 (entity-packet schema)** as the Track-2 keystone. Sequencing is Matt's call against W-E-vs-port priority.
+1. **Run A (gamora) reviewed [✓ 2026-06-14]** — W-E throughput **CLOSED + ratified** (design-endorse + Gate-2 WARN→PASS); displacement histogram banked (REFUTED the clean static/mobile median gap — multimodal, room-geometry-dominated; the mobility lock-edge re-cal is now an instrument-choice, not an edge-tweak — gandalf owes the PENDING-note rework). 2 jack-ryan W-E doc-lines → gamora (async; land before W-F cites the datum).
+2. **Run B (rocket) reviewed [✓ 2026-06-14]** — D6 loader fix (9 modules green) + D5 K7 reference-kit. D6 surfaced 4 pre-existing generation-drift failures → gandalf-gated triage queue (controller-vs-caster 160==160 is the meaty one).
+3. **Plan the next batch.** Candidates, loosely: **M1.3.5 reduced-spatial inner-loop substrate** (NEW — hard W-F precondition; **acceptance spec DONE**, build is gamora's; sequence before W-F); **D4 proxy-port** (unblocked — histogram banked + density contract consumed); **W-D-export** (if MIGRATION v1.31 landed); opening **M2.2 (entity-packet schema)** as the Track-2 keystone. Sequencing is Matt's call (the substrate is the one with a hard downstream gate — W-F — behind it).
 
 ---
 

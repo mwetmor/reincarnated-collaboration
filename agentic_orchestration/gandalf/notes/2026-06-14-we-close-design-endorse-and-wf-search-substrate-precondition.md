@@ -54,10 +54,12 @@ jack-ryan caught that the **commit** path's *reduction* cost is untimed (a gap *
 
 ## 5. Disposition
 
-- **W-E close design half: ENDORSE.** Pairs with jack-ryan Gate-2 WARN→PASS. Ready for Matt ratify.
-- **Two jack-ryan doc-lines → gamora** (rename the per-fight headline off "boss-weighted"; scope the proof as fight-execution-cost-only + note the reduction is unmeasured-but-sub-dominant). Within jack-ryan's doc-only authority; async; do not gate the close.
-- **W-F precondition (this note §3) → KR + Matt.** Add to the W-F gate (or insert W-E.5): build + throughput-prove the reduced-spatial inner-loop substrate before the 1D-delete. Track explicitly so the 54× headline does not carry the delete past it.
-- **W-F unchanged otherwise:** still owes cond.5 (defensive-bridge boss-room re-validation) + §6.4 final discrimination-accounting close.
+> **AMENDMENT 2026-06-14 — Matt ratified.** Matt closed W-E via **"Do all three"** (2026-06-14), which simultaneously (1) ratified this W-E close, (2) authorized the W-F precondition as a named Track-1 milestone, and (3) authorized its acceptance spec. Post-ratification state captured below; the W-F precondition is no longer "(or insert W-E.5)" — it is the named milestone **M1.3.5** with its discrimination-floor acceptance spec authored. jack-ryan's verbatim Gate-2 finding is durably captured at `agentic_orchestration/qa/findings/2026-06-14-gamora-we-throughput-proof-gate2.md` (gandalf scribe; sub-agent ran read-only).
+
+- **W-E close design half: ENDORSE — RATIFIED.** Paired with jack-ryan Gate-2 WARN→PASS; Matt-ratified 2026-06-14 ("Do all three"). The critique pair converged; W-E is **CLOSED**.
+- **Two jack-ryan doc-lines → gamora** (rename the per-fight headline off "boss-weighted" → `flat_mean_ms_per_fight`; scope the proof as fight-execution-cost-only + note the 8-axis reduction is unmeasured-but-sub-dominant, ~440× headroom). Within jack-ryan's doc-only ADR-002 authority; async; **should land before W-F cites the §4.3 #2 datum**; does not gate the close.
+- **W-F precondition (this note §3) → KR (sequence) + Matt (ratified scope).** Now the named milestone **M1.3.5 — reduced-spatial inner-loop search substrate**; discrimination-floor acceptance spec DONE (`agentic_orchestration/gandalf/notes/2026-06-14-reduced-spatial-search-substrate-discrimination-floor-acceptance-spec.md` — gamora builds against §4/§5, gandalf owns §2/§3/§5 the discrimination floor). KR sequences it into a batch **before W-F**; the build strands the recompose loop if W-F's 1D-delete fires first. Tracked on the roadmap handoff (`2026-06-13-session-handoff-...md` M1.3.5 row) so the 54× commit-path headline cannot carry the delete past the unbuilt search path.
+- **W-F unchanged otherwise:** still owes cond.5 (defensive-bridge boss-room re-validation) + §6.4 final discrimination-accounting close — now with M1.3.5 as a hard precondition ahead of the 1D-delete.
 
 ---
 
