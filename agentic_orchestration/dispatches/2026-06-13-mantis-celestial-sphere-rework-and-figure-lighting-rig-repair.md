@@ -116,7 +116,9 @@ Diagnostics already EXCLUDED live (do not re-chase): exposure (Unlit-visible/Lit
 1. **sam Gate-1 (pre-fire):** ✅ DONE 2026-06-13 — PASS-WITH-WARN (4 WARN, 0 BLOCK). Finding `agentic_orchestration/qa/findings/2026-06-13-mantis-celestial-sphere-rework-gate-1.md`. All four WARNs folded (§ 9).
 2. **radagast design-fit:** ✅ DONE 2026-06-13 — PASS-WITH-WARN (1 amendment, 0 BLOCK). Verdict `agentic_orchestration/radagast/notes/2026-06-13-celestial-sphere-rework-design-fit.md`. § 3 amendment + acceptance #5/#6 reworded; forward Q5 item logged (§ 6).
 3. **Both PASS → dispatch FIRED** (STATUS → ACTIVE per Pattern E autonomous-pair ratification); mantis executes in a dedicated session.
-4. **sam Gate-2 (post-output):** on mantis's tagged commit — reviews **Tier-A criteria only** (A1–A7). Render-gated **Tier-B criteria (B1–B5) confirm post-render with Matt at console and do NOT block the commit's Gate-2 or the wave-close push** (sam WARN-4). Tier-B confirmation is a separate render-evidence pass.
+4. **sam Gate-2 (post-output):** ✅ DONE 2026-06-13 (Wave 1) — **PASS-WITH-WARN** (1 WARN, 0 BLOCK) on mantis commit `1828499` / tag `mantis/v1.0-celestial-sphere-rework-tierA-1`, scoped to **Tier-A (A1–A7)**. Finding `agentic_orchestration/qa/findings/2026-06-13-mantis-celestial-sphere-rework-tierA-gate-2.md`. Cross-seam flag stood down (UE-side wiring gap, not engine-JSON defect). Render-gated **Tier-B (B1–B5) remains OPEN for Matt's console session** (Wave 2) and was NOT gated by this verdict.
+
+**WAVE SPLIT (Matt 2026-06-13):** Tier-A banked headless (Wave 1, closed). Tier-B executes at the PC console via the manual-BP-step list `agentic_orchestration/mantis/notes/2026-06-13-celestial-sphere-MANUAL-BP-STEPS-for-matt-console.md` (M1–M7) — Wave 2, Matt's time.
 
 ## 8. Sign-off
 
