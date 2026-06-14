@@ -12,6 +12,14 @@
 > telemetry (cert wave W-D). NOT a HISTORICAL demotion — the discovery + ruling work is valid.
 > Authority: `canonical/story/2026-06-13-combat-fidelity-drift-proofing-and-2d-certification-wave.md` § 3.2.
 > Composes with the structural type-wall (cert wave § 3.1).
+>
+> **W-D ARITY RE-CONFIRMATION (2026-06-13):** the held D4-gate arity question ("does proxy-density / the
+> D4 spatial-proxy port become a 9th axis?") is RULED in the oracle § 6.3: **arity STAYS 8.** Proxy-density is the
+> EXISTING Axis-2A (a Bucket-A re-opened deferral, NOT a Bucket-B unaxised feature); the D4 port wires the 8-tuple's
+> 2A slot, it does not grow a 9th axis. The companion's in-fight proxy contribution was already folded into Axis-2A
+> by ruling § 2.5 below — consistent. D5's rocket reference-kit is arity-8 (exercises existing 2B/5/3A/3B). The
+> ZERO-new-axes conclusion of THIS note composes directly with the arity=8 ruling. Authoritative arity ruling lives
+> in `canonical/story/2026-06-13-2d-spatial-golden-oracle-spec.md` § 6.3.
 
 **Type:** design ruling (the gandalf calls the coverage audit routed to me). Item 3 of the BC-orphan family; consumes the structural read (item 2) as its measurability criterion.
 **Date:** 2026-06-13
