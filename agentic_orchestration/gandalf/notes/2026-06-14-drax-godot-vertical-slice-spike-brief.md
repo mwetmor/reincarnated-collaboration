@@ -50,9 +50,12 @@ Scored on four axes; **composite mean ≥ 3.6/5, with lighting ≥ 4 AND VFX ≥
 - **VFX (highest leverage):** `GPUParticles3D` + a hero-skill bloom via `WorldEnvironment` glow. At least one S-tier hero skill fully juiced — this single element does the most for perceived register.
 - **Material-shading:** a gradient/light-responsive shader over Synty's flat albedo — clear the flat-color floor (a threshold, not a detail grind).
 
-**The non-humanoid long-pole (the hard case — do NOT skip):**
-- Include **at least one non-humanoid SKELETAL form** (quadruped or serpentine — from an available creature pack, e.g. KayKit / Synty POLYGON Dungeon creatures) to test whether a non-humanoid form holds **register-coherence beside the Synty-family humanoids in-frame.** This is where the form-bias discipline (doc 37) AND the register-feasibility question both bite hardest.
-- Flag the **non-skeletal forms** (slime / swarm / cloud-being — squash-stretch / blend-shape / procedural, no shared rig) as the SECOND-tier hard case the spike's findings inform; not required in the first slice.
+**The monster roster — three tiers (Matt's Synty-Sidekick-goblins observation refines this):**
+- **Tier 1 — bipedal monsters (goblins, orcs, skeletons, kobolds, undead):** Matt observed Synty Sidekick advertises goblins/etc. These ride the SAME shared humanoid skeleton + part-swap as the player — so **a large slice of the bestiary is solved by the Synty family at zero extra rig cost.** The spike validates one (a goblin) to confirm a monster reads coherent on the shared rig + lift. (Cheap micro-check available to legolas if wanted: confirm exact Sidekick creature-pack coverage + that they share the player rig — but the spike's asset import reveals it anyway.)
+- **Tier 2 — non-bipedal SKELETAL forms (quadruped, serpentine, dragonling):** different skeleton, still skeletal. Need separate creature packs (e.g. KayKit / Synty POLYGON Dungeon creatures). The spike includes at least one to test **register-coherence beside the Synty-family humanoids in-frame** — the residual long-pole.
+- **Tier 3 — non-skeletal forms (slime, swarm, cloud-being):** squash-stretch / blend-shape / procedural, no shared rig — the genuinely-alien doc-37 body-plans. Flag as the hard case the spike's findings inform; NOT required in the first slice.
+
+This is where the form-bias discipline (doc 37) AND the register-feasibility question bite hardest — but **Matt's goblin observation collapses Tier 1 into the solved humanoid case, shrinking the true long-pole to Tiers 2–3.** First-slice scope: Tier 1 (one goblin) + Tier 2 (one quadruped/serpentine), beside the humanoid player/NPC.
 
 **Camera:** fixed 2.5D ARPG — `Camera3D` at a fixed Diablo-ish angle (orthographic or slight perspective). Lock it; the register reads through THIS frame, not a free camera.
 
