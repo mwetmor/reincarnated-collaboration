@@ -31,7 +31,7 @@ Bank **S5** (figure-lighting Rig A vs Rig B readability on the avatar) safely of
 ## Actor name register (for routing)
 - Earth avatar (S5 subject): **`SK_EarthAvatar`**
 - Celestial sphere Niagara: `ns.celestialsphere:minimal` (system); Outliner actor name TBD (deleted live; recover from level on reload) — likely `NS_/BP_CelestialSphere`.
-- Spirit particle ball: **TBD** (asked Matt; fill on confirm).
+- Spirit particle ball: **`FigureStandIn`** — name confirms it's an explicit *placeholder stand-in* (particle ball), NOT yet an intended ambiguous-spirit mesh. Real spirit visual is a radagast design question.
 - Lights: `RigA_Moonlight`, `RigA_Skylight`, `RigB_SpiritGlowOnly`.
 
 ## Routing (david-h, next)
