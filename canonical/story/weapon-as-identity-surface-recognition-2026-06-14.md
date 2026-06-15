@@ -1,11 +1,11 @@
 # Weapon-as-Identity-Surface — Recognition Record
 
-> **STATUS:** CURRENT (load-bearing as RECOGNITION; architectural commitments DEFERRED per § 6) — see `canonical/00-ground-state.md`
+> **STATUS:** CURRENT (load-bearing; **L1 weapon-family identity-root COMMITTED** — Phase-1 gate-green 2026-06-14 per § 6-bis; kit_size + summon commitments DEFERRED per § 6) — see `canonical/00-ground-state.md`
 
 **Date:** 2026-06-14
 **Author:** gandalf (story-and-design steward; Pattern-B dialogue with Matt)
-**Status:** v1 recognition record — recognition LOCKED, validate DONE, commit DEFERRED
-**Authority:** Matt 2026-06-14 (Pattern-B) — recognition locked verbatim: *"the weapon is the identity-bearing SURFACE"* … *"the most coherent of all the messages above"*; validate authorized verbatim: *"fire the weapon-flow audit."*
+**Status:** v2 recognition record — recognition LOCKED; **L1 identity-root validate+commit DONE** (Phase-1 gate-green-on-built-code 2026-06-14, § 6-bis); kit_size (Pred 1) + summon (Pred 3) commits DEFERRED
+**Authority:** Matt 2026-06-14 (Pattern-B) — recognition locked verbatim: *"the weapon is the identity-bearing SURFACE"* … *"the most coherent of all the messages above"*; validate authorized verbatim: *"fire the weapon-flow audit."* **L1 commit ratified verbatim 2026-06-14:** *"commit the recognition with a note that we need to move the weapon to the root as time allows"* + *"push."*
 **Companion docs:**
 - `agentic_orchestration/gandalf/notes/2026-06-14-stage-3-bc-cutover-scoping-ruling.md` — the BC-coordinate cutover this recognition extends; Stage 3b re-open criterion (physical-pool expansion) is reframed here as the weapon-rooting work.
 - `canonical/37-form-bias-diagnosis-and-recovery.md` — the non-humanoid body-plan discipline that bounds weapon-as-identity to the humanoid branch (§ 5).
@@ -26,7 +26,7 @@
 
 **The load-bearing engineering insight:** weapon-as-identity is not only thematically coherent — it is **substrate-honest.** It relocates the identity root from the **sparse** physical-cost mechanic pools (rage=4 / focus=4 / combo=2 / stamina=2 — the audit's stated deferral blocker) onto the **rich** weapon substrate (89,839 rows; *"weapons have the details needed"*). It roots identity where the substrate can actually support it.
 
-**Commit (DEFERRED per § 6):** re-rooting physical kit identity on the weapon is the **same work** as the Matt-authorized physical-pool-expansion sub-stage already cited in-code (`class_generator.py:620–655`). It needs a design spec (gandalf) → jack-ryan Gate → rocket. Empirical gate + 3 predictions named in §§ 6–7.
+**Commit (L1 DONE 2026-06-14 / kit_size + summon DEFERRED — see § 6-bis):** the **L1 weapon-family identity-root** is BUILT and gate-green on live code (Phase-1: family split 40.74/59.26 in-band; martial-anchor classification 96.67% physical / 0% caster; drift-injection FIRED). Prediction 2 (physical stops being the cutover's straggler / smuggle deleted) is **closed**. The build roots family on an element→scaling-attribute **proxy** (gate-equivalent by an *empirical* data-invariant, not structural) — so the standing note: **move the literal `selected_weapon.weapon_type_family` to the root as time allows.** Still DEFERRED: Pred 1 (kit_size off the sparse mechanic pools — Phase 2) and Pred 3 (summon runtime-label — gamora proxy pass). Empirical gate + 3 predictions in §§ 6–7.
 
 ---
 
@@ -98,6 +98,29 @@ Per recognition → validate → **commit**: the architectural commit is **defer
 
 **Sequencing note:** this is design-spec authoring, not a live-regen change. It does NOT block the in-flight Stage-3 narrow deletion (which deletes only elemental-abandoned machinery and explicitly HOLDS the physical fallback to Stage 3b). The two are consistent: Stage-3 holds the physical fallback; this recognition names what replaces it.
 
+## 6-bis. Phase-1 COMMIT — L1 weapon-family identity-root (Matt ratification 2026-06-14)
+
+**Ratified verbatim (Matt 2026-06-14):** *"commit the recognition with a note that we need to move the weapon to the root as time allows."* This is a **precise partial flip:** the **L1 layer** (weapon-family → physical/caster/hybrid; § 4 row 1) is committed against gate-green-on-built-code. The kit_size (Pred 1) and summon (Pred 3) layers remain DEFERRED on their original empirical gates (§ 6, § 7).
+
+**What was built + gated (Phase-1, rocket implementation + jack-ryan Gate, 2026-06-14):** the generation flow now derives kit identity-family from the scaling-attribute partition rather than smuggling "physical" as a pseudo-element. Gate results reviewed by gandalf:
+
+| Gate | Result | Reads as |
+|---|---|---|
+| **Family split** (§ 4.4) | **40.74% physical / 59.26% caster-side** | In the locked L1 band (40–45% physical / 55–60% caster-side). Identity-root produces the intended distribution. |
+| **Martial-anchor classification** (§ 4.2) | **96.67% physical / 0% caster** | Martial weapon anchors classify physical, never caster. The fork is weapon-rooted, not element-string-rooted. |
+| **Smuggle grep** (§ 4.3) | **clean** | No surviving `dominant_element == "physical"` identity-fork on the built path. |
+| **Drift-injection** (negative control) | **FIRED** (80/20 injected → 18 recasts → corrected to 44/56) | The gate has teeth: an injected mis-distribution is caught and corrected, not silently passed. |
+
+**Prediction 2 is CLOSED:** "physical stops being the cutover's straggler" — the smuggle is deleted on the built path; physical no longer routes through `dominant_element` as a pseudo-element to reach the identity-fork.
+
+**The proxy-bootstrap CAVEAT (the load-bearing "as time allows" note).** The built path derives L1 family via `dominant_element → scaling-attribute (STR/DEX/INT/WIS) → family`, NOT via the *literal* `selected_weapon.weapon_type_family`. jack-ryan (BLOCK authority) cleared this as **provably-equivalent** on two grounds: (a) in live cycle-14 data **no `primary_stat` crosses the physical/caster attribute boundary**, so the attribute partition and the weapon-family partition coincide row-for-row; (b) the gate measures **realized bound weapon families** downstream, so any future divergence between proxy and literal weapon is *caught* by the gate, not silently absorbed. **gandalf's refinement (the reason for the standing note):** this equivalence is **EMPIRICAL, not STRUCTURAL** — it holds because of a current data-invariant, not because the proxy *is* the weapon. If the substrate ever admits a `primary_stat` that crosses the boundary (a STR-scaling caster, a WIS-scaling martial weapon), proxy and literal diverge. So the literal-weapon root is the structurally-honest home: **move identity to root on `selected_weapon.weapon_type_family` as time allows.** Not urgent (the gate guards the gap), but the substrate-honest endpoint.
+
+**Hybrid as the third L1 family (jack-ryan denominator amendment).** L1 is not binary. The caster-side ratio counts **caster-only** rows in its denominator; **hybrid** is bucketed as a distinct third family, not folded into "caster." This keeps the 40–45 / 55–60 lock measuring the physical-vs-caster axis cleanly without hybrid distorting either side. The § 4 model's "physical / caster" row should be read as **physical / caster / hybrid** at the substrate-counting layer.
+
+**What remains DEFERRED (unchanged by this commit):**
+- **Pred 1 — kit_size off the sparse mechanic pools → Phase 2.** The Phase-1 gate validated the identity-root + smuggle-deletion; it did NOT validate that a weapon-rooted kit composes to the 10–13 kit_size band without the sparse rage/combo/focus/stamina pools. That is the § 6 empirical gate, and it fires in Phase 2.
+- **Pred 3 — summon runtime-label → gamora proxy pass.** Layer 2 (skill-composition drives summon-vs-direct as a runtime label) is untouched by Phase 1; it lands in the gamora proxy/companion pass.
+
 ## 7. Predictions registered (for empirical validation at commit)
 
 1. **Substrate relocation dissolves the sparsity blocker.** Rooting physical identity on the weapon substrate (89,839 rows) relocates the kit_size + geometry source off the sparse physical-cost mechanic pools (rage=4 / focus=4 / combo=2 / stamina=2). The audit's stated deferral reason (pool sparsity → degraded 2–5-skill kits) ceases to be the kit_size bottleneck.
@@ -106,7 +129,7 @@ Per recognition → validate → **commit**: the architectural commit is **defer
 
 ## 8. Disposition / routing
 
-- **gandalf:** recognition record authored (this doc); recognition LOCKED + validate DONE captured durably. **Design spec AUTHORED 2026-06-14** (Matt "author both") at `agentic_orchestration/gandalf/notes/2026-06-14-weapon-as-identity-generation-spec.md` — element-coordinate keeps the behavioral 8-tuple; weapon (drawn from the cycle-14 balanced `v1_scope=1` pool) becomes the physical-vs-caster root; skill-composition becomes the summon runtime-label driver; non-humanoid branch flagged for a separate body-plan-as-identity treatment. Next gandalf step: review the rocket gate result → commit or revise.
+- **gandalf:** recognition record authored (this doc); recognition LOCKED + validate DONE captured durably. **Design spec AUTHORED 2026-06-14** (Matt "author both") at `agentic_orchestration/gandalf/notes/2026-06-14-weapon-as-identity-generation-spec.md` — element-coordinate keeps the behavioral 8-tuple; weapon (drawn from the cycle-14 balanced `v1_scope=1` pool) becomes the physical-vs-caster root; skill-composition becomes the summon runtime-label driver; non-humanoid branch flagged for a separate body-plan-as-identity treatment. **Phase-1 gate result reviewed 2026-06-14 → L1 weapon-family identity-root COMMITTED (§ 6-bis); Prediction 2 closed.** Next gandalf steps: (a) Phase-2 kit_size gate (Pred 1); (b) the proxy→literal-`selected_weapon.weapon_type_family` refactor *as time allows* (§ 6-bis caveat).
 - **jack-ryan:** decisions-log entry candidate — "Weapon-as-identity-surface recognition; physical-pool-expansion reframed as weapon-rooting" — and Gate-1 on the design spec when it lands.
 - **rocket:** consumes the design spec at implementation; the weapon-flow audit (this doc § 2) is rocket's own finding, so the seam already holds the code-level map.
 - **knight-rider:** sequences spec → Gate-1 → implementation → Gate-2 when Matt authorizes the commit; aware that this does not block Stage-3 narrow deletion (§ 6 sequencing note).
