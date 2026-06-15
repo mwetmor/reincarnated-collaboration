@@ -1,0 +1,1511 @@
+{
+  "summary": {
+    "capture_set": "13_boss_arena_capture (Godot Movie Maker, 1152x648, 100 frames)",
+    "scene": "SCENARIO_BOSS_WITH_ADDS 30x30 spec-faithful (player(15,25) boss(15,8) adds(3,26)&(27,26)) + lift recipe + CombatFill readability pool + boss-anchored red ritual-sigil CHARGE->ERUPT GPUParticles3D fire column",
+    "commit": "53e6c3c (reincarnated-godot)",
+    "scored_at": "2026-06-15T16:33:04.141Z",
+    "instrument_defs": "BYTE-IDENTICAL to register-metrics.mjs / lifecycle-score.mjs / lifecycle-score-cathedral.mjs (960w inside-fit, gray luma, raw RGB sat; HLF>0.80, SHF<0.12, LDR=p95-p05)",
+    "drax_sim_timing": "sim frames: charge ~30, erupt ~52, collapse ~320 — capture subsamples the lifecycle so capture-frame eruption index differs",
+    "n_frames": 100,
+    "rubric_extracts": {
+      "HLF_peak_pct": 4.013,
+      "HLF_peak_frame": 21,
+      "HLF_floor_pct": 0.359,
+      "HLF_floor_frame": 1,
+      "HLF_threshold_pct": 1.5,
+      "HLF_peak_passes": true,
+      "LDR_peak": 188,
+      "LDR_peak_frame": 21,
+      "LDR_floor": 148,
+      "LDR_floor_frame": 1,
+      "LDR_threshold": 115,
+      "LDR_whole_mean": 175.97,
+      "LDR_whole_mean_passes": true,
+      "LDR_darkwindow_mean": 159.455,
+      "LDR_darkwindow_passes": true,
+      "SHF_threshold_pct": 30,
+      "SHF_floor_pct": 42.44,
+      "SHF_floor_frame": 78,
+      "SHF_whole_mean": 42.737,
+      "SHF_whole_mean_passes": true,
+      "SHF_darkwindow_mean": 42.939,
+      "SHF_darkwindow_passes": true
+    },
+    "whole_sequence": {
+      "HFD": {
+        "mean": 10.527,
+        "min": 10.31,
+        "max": 10.96
+      },
+      "LMV": {
+        "mean": 32.375,
+        "min": 29.65,
+        "max": 33.33
+      },
+      "LDR": {
+        "mean": 175.97,
+        "min": 148,
+        "max": 188
+      },
+      "SAT_mean": {
+        "mean": 0.439,
+        "min": 0.426,
+        "max": 0.491
+      },
+      "SAT_std": {
+        "mean": 0.355,
+        "min": 0.351,
+        "max": 0.359
+      },
+      "HLF_pct": {
+        "mean": 2.96,
+        "min": 0.359,
+        "max": 4.013
+      },
+      "SHF_pct": {
+        "mean": 42.737,
+        "min": 42.44,
+        "max": 43.46
+      },
+      "n_frames": 100
+    },
+    "dark_mood_window": {
+      "frames": "pre-ignition(1-22)+waning-settle(89-100)",
+      "HFD": {
+        "mean": 10.812,
+        "min": 10.59,
+        "max": 10.96
+      },
+      "LMV": {
+        "mean": 30.609,
+        "min": 29.65,
+        "max": 32.33
+      },
+      "LDR": {
+        "mean": 159.455,
+        "min": 148,
+        "max": 176
+      },
+      "SAT_mean": {
+        "mean": 0.46,
+        "min": 0.437,
+        "max": 0.491
+      },
+      "SAT_std": {
+        "mean": 0.357,
+        "min": 0.352,
+        "max": 0.359
+      },
+      "HLF_pct": {
+        "mean": 0.701,
+        "min": 0.359,
+        "max": 2.9
+      },
+      "SHF_pct": {
+        "mean": 42.939,
+        "min": 42.61,
+        "max": 43.46
+      },
+      "n_frames": 22
+    },
+    "phases": {
+      "ember": {
+        "range": "1-8",
+        "HFD": {
+          "mean": 10.9,
+          "min": 10.87,
+          "max": 10.96
+        },
+        "LMV": {
+          "mean": 29.911,
+          "min": 29.65,
+          "max": 30.33
+        },
+        "LDR": {
+          "mean": 149.25,
+          "min": 148,
+          "max": 152
+        },
+        "SAT_mean": {
+          "mean": 0.488,
+          "min": 0.481,
+          "max": 0.491
+        },
+        "SAT_std": {
+          "mean": 0.358,
+          "min": 0.356,
+          "max": 0.359
+        },
+        "HLF_pct": {
+          "mean": 0.471,
+          "min": 0.359,
+          "max": 0.567
+        },
+        "SHF_pct": {
+          "mean": 43.388,
+          "min": 43.28,
+          "max": 43.46
+        },
+        "n_frames": 8
+      },
+      "ignition-rise": {
+        "range": "9-20",
+        "HFD": {
+          "mean": 10.572,
+          "min": 10.46,
+          "max": 10.87
+        },
+        "LMV": {
+          "mean": 32.773,
+          "min": 32.32,
+          "max": 33.05
+        },
+        "LDR": {
+          "mean": 177,
+          "min": 166,
+          "max": 185
+        },
+        "SAT_mean": {
+          "mean": 0.452,
+          "min": 0.439,
+          "max": 0.47
+        },
+        "SAT_std": {
+          "mean": 0.352,
+          "min": 0.351,
+          "max": 0.353
+        },
+        "HLF_pct": {
+          "mean": 3.404,
+          "min": 2.79,
+          "max": 3.85
+        },
+        "SHF_pct": {
+          "mean": 42.858,
+          "min": 42.65,
+          "max": 43.05
+        },
+        "n_frames": 12
+      },
+      "peak-bloom": {
+        "range": "21-34",
+        "HFD": {
+          "mean": 10.499,
+          "min": 10.46,
+          "max": 10.54
+        },
+        "LMV": {
+          "mean": 32.889,
+          "min": 32.82,
+          "max": 33.17
+        },
+        "LDR": {
+          "mean": 183.143,
+          "min": 180,
+          "max": 188
+        },
+        "SAT_mean": {
+          "mean": 0.431,
+          "min": 0.428,
+          "max": 0.438
+        },
+        "SAT_std": {
+          "mean": 0.354,
+          "min": 0.353,
+          "max": 0.354
+        },
+        "HLF_pct": {
+          "mean": 3.722,
+          "min": 3.601,
+          "max": 4.013
+        },
+        "SHF_pct": {
+          "mean": 42.536,
+          "min": 42.47,
+          "max": 42.65
+        },
+        "n_frames": 14
+      },
+      "sustained-burn": {
+        "range": "35-86",
+        "HFD": {
+          "mean": 10.404,
+          "min": 10.31,
+          "max": 10.53
+        },
+        "LMV": {
+          "mean": 32.891,
+          "min": 32.62,
+          "max": 33.33
+        },
+        "LDR": {
+          "mean": 180.788,
+          "min": 178,
+          "max": 185
+        },
+        "SAT_mean": {
+          "mean": 0.43,
+          "min": 0.426,
+          "max": 0.434
+        },
+        "SAT_std": {
+          "mean": 0.355,
+          "min": 0.352,
+          "max": 0.357
+        },
+        "HLF_pct": {
+          "mean": 3.608,
+          "min": 3.317,
+          "max": 3.841
+        },
+        "SHF_pct": {
+          "mean": 42.677,
+          "min": 42.44,
+          "max": 42.89
+        },
+        "n_frames": 52
+      },
+      "waning-settle": {
+        "range": "87-100",
+        "HFD": {
+          "mean": 10.762,
+          "min": 10.59,
+          "max": 10.83
+        },
+        "LMV": {
+          "mean": 31.008,
+          "min": 30.66,
+          "max": 32.33
+        },
+        "LDR": {
+          "mean": 165.286,
+          "min": 162,
+          "max": 176
+        },
+        "SAT_mean": {
+          "mean": 0.445,
+          "min": 0.437,
+          "max": 0.447
+        },
+        "SAT_std": {
+          "mean": 0.356,
+          "min": 0.352,
+          "max": 0.357
+        },
+        "HLF_pct": {
+          "mean": 0.832,
+          "min": 0.532,
+          "max": 2.9
+        },
+        "SHF_pct": {
+          "mean": 42.683,
+          "min": 42.61,
+          "max": 42.73
+        },
+        "n_frames": 14
+      }
+    }
+  },
+  "frames": [
+    {
+      "frame": 1,
+      "file": "13_boss_arena_capture_01.png",
+      "HFD": 10.89,
+      "LMV": 29.65,
+      "LDR": 148,
+      "SAT_mean": 0.491,
+      "SAT_std": 0.359,
+      "HLF_pct": 0.359,
+      "SHF_pct": 43.46,
+      "dims": "960x540"
+    },
+    {
+      "frame": 2,
+      "file": "13_boss_arena_capture_02.png",
+      "HFD": 10.89,
+      "LMV": 29.68,
+      "LDR": 148,
+      "SAT_mean": 0.491,
+      "SAT_std": 0.359,
+      "HLF_pct": 0.395,
+      "SHF_pct": 43.44,
+      "dims": "960x540"
+    },
+    {
+      "frame": 3,
+      "file": "13_boss_arena_capture_03.png",
+      "HFD": 10.88,
+      "LMV": 29.87,
+      "LDR": 149,
+      "SAT_mean": 0.49,
+      "SAT_std": 0.358,
+      "HLF_pct": 0.451,
+      "SHF_pct": 43.42,
+      "dims": "960x540"
+    },
+    {
+      "frame": 4,
+      "file": "13_boss_arena_capture_04.png",
+      "HFD": 10.87,
+      "LMV": 29.99,
+      "LDR": 149,
+      "SAT_mean": 0.489,
+      "SAT_std": 0.358,
+      "HLF_pct": 0.533,
+      "SHF_pct": 43.39,
+      "dims": "960x540"
+    },
+    {
+      "frame": 5,
+      "file": "13_boss_arena_capture_05.png",
+      "HFD": 10.91,
+      "LMV": 30.06,
+      "LDR": 150,
+      "SAT_mean": 0.488,
+      "SAT_std": 0.358,
+      "HLF_pct": 0.567,
+      "SHF_pct": 43.34,
+      "dims": "960x540"
+    },
+    {
+      "frame": 6,
+      "file": "13_boss_arena_capture_06.png",
+      "HFD": 10.91,
+      "LMV": 29.75,
+      "LDR": 149,
+      "SAT_mean": 0.487,
+      "SAT_std": 0.358,
+      "HLF_pct": 0.416,
+      "SHF_pct": 43.41,
+      "dims": "960x540"
+    },
+    {
+      "frame": 7,
+      "file": "13_boss_arena_capture_07.png",
+      "HFD": 10.89,
+      "LMV": 29.96,
+      "LDR": 149,
+      "SAT_mean": 0.484,
+      "SAT_std": 0.358,
+      "HLF_pct": 0.534,
+      "SHF_pct": 43.36,
+      "dims": "960x540"
+    },
+    {
+      "frame": 8,
+      "file": "13_boss_arena_capture_08.png",
+      "HFD": 10.96,
+      "LMV": 30.33,
+      "LDR": 152,
+      "SAT_mean": 0.481,
+      "SAT_std": 0.356,
+      "HLF_pct": 0.516,
+      "SHF_pct": 43.28,
+      "dims": "960x540"
+    },
+    {
+      "frame": 9,
+      "file": "13_boss_arena_capture_09.png",
+      "HFD": 10.87,
+      "LMV": 32.32,
+      "LDR": 166,
+      "SAT_mean": 0.47,
+      "SAT_std": 0.351,
+      "HLF_pct": 2.79,
+      "SHF_pct": 43.05,
+      "dims": "960x540"
+    },
+    {
+      "frame": 10,
+      "file": "13_boss_arena_capture_10.png",
+      "HFD": 10.67,
+      "LMV": 32.67,
+      "LDR": 171,
+      "SAT_mean": 0.464,
+      "SAT_std": 0.351,
+      "HLF_pct": 3.059,
+      "SHF_pct": 42.98,
+      "dims": "960x540"
+    },
+    {
+      "frame": 11,
+      "file": "13_boss_arena_capture_11.png",
+      "HFD": 10.61,
+      "LMV": 32.72,
+      "LDR": 173,
+      "SAT_mean": 0.461,
+      "SAT_std": 0.351,
+      "HLF_pct": 3.252,
+      "SHF_pct": 42.94,
+      "dims": "960x540"
+    },
+    {
+      "frame": 12,
+      "file": "13_boss_arena_capture_12.png",
+      "HFD": 10.6,
+      "LMV": 32.61,
+      "LDR": 173,
+      "SAT_mean": 0.458,
+      "SAT_std": 0.352,
+      "HLF_pct": 3.194,
+      "SHF_pct": 42.97,
+      "dims": "960x540"
+    },
+    {
+      "frame": 13,
+      "file": "13_boss_arena_capture_13.png",
+      "HFD": 10.56,
+      "LMV": 32.78,
+      "LDR": 175,
+      "SAT_mean": 0.454,
+      "SAT_std": 0.353,
+      "HLF_pct": 3.357,
+      "SHF_pct": 42.9,
+      "dims": "960x540"
+    },
+    {
+      "frame": 14,
+      "file": "13_boss_arena_capture_14.png",
+      "HFD": 10.59,
+      "LMV": 32.75,
+      "LDR": 176,
+      "SAT_mean": 0.452,
+      "SAT_std": 0.353,
+      "HLF_pct": 3.376,
+      "SHF_pct": 42.89,
+      "dims": "960x540"
+    },
+    {
+      "frame": 15,
+      "file": "13_boss_arena_capture_15.png",
+      "HFD": 10.53,
+      "LMV": 32.82,
+      "LDR": 178,
+      "SAT_mean": 0.449,
+      "SAT_std": 0.353,
+      "HLF_pct": 3.471,
+      "SHF_pct": 42.86,
+      "dims": "960x540"
+    },
+    {
+      "frame": 16,
+      "file": "13_boss_arena_capture_16.png",
+      "HFD": 10.5,
+      "LMV": 32.86,
+      "LDR": 180,
+      "SAT_mean": 0.447,
+      "SAT_std": 0.353,
+      "HLF_pct": 3.525,
+      "SHF_pct": 42.81,
+      "dims": "960x540"
+    },
+    {
+      "frame": 17,
+      "file": "13_boss_arena_capture_17.png",
+      "HFD": 10.49,
+      "LMV": 32.92,
+      "LDR": 181,
+      "SAT_mean": 0.445,
+      "SAT_std": 0.353,
+      "HLF_pct": 3.598,
+      "SHF_pct": 42.77,
+      "dims": "960x540"
+    },
+    {
+      "frame": 18,
+      "file": "13_boss_arena_capture_18.png",
+      "HFD": 10.49,
+      "LMV": 32.92,
+      "LDR": 183,
+      "SAT_mean": 0.444,
+      "SAT_std": 0.353,
+      "HLF_pct": 3.69,
+      "SHF_pct": 42.74,
+      "dims": "960x540"
+    },
+    {
+      "frame": 19,
+      "file": "13_boss_arena_capture_19.png",
+      "HFD": 10.5,
+      "LMV": 32.86,
+      "LDR": 183,
+      "SAT_mean": 0.442,
+      "SAT_std": 0.353,
+      "HLF_pct": 3.69,
+      "SHF_pct": 42.74,
+      "dims": "960x540"
+    },
+    {
+      "frame": 20,
+      "file": "13_boss_arena_capture_20.png",
+      "HFD": 10.46,
+      "LMV": 33.05,
+      "LDR": 185,
+      "SAT_mean": 0.439,
+      "SAT_std": 0.353,
+      "HLF_pct": 3.85,
+      "SHF_pct": 42.65,
+      "dims": "960x540"
+    },
+    {
+      "frame": 21,
+      "file": "13_boss_arena_capture_21.png",
+      "HFD": 10.46,
+      "LMV": 33.17,
+      "LDR": 188,
+      "SAT_mean": 0.438,
+      "SAT_std": 0.353,
+      "HLF_pct": 4.013,
+      "SHF_pct": 42.6,
+      "dims": "960x540"
+    },
+    {
+      "frame": 22,
+      "file": "13_boss_arena_capture_22.png",
+      "HFD": 10.51,
+      "LMV": 32.85,
+      "LDR": 186,
+      "SAT_mean": 0.437,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.844,
+      "SHF_pct": 42.65,
+      "dims": "960x540"
+    },
+    {
+      "frame": 23,
+      "file": "13_boss_arena_capture_23.png",
+      "HFD": 10.53,
+      "LMV": 32.83,
+      "LDR": 185,
+      "SAT_mean": 0.435,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.79,
+      "SHF_pct": 42.6,
+      "dims": "960x540"
+    },
+    {
+      "frame": 24,
+      "file": "13_boss_arena_capture_24.png",
+      "HFD": 10.51,
+      "LMV": 32.89,
+      "LDR": 186,
+      "SAT_mean": 0.433,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.785,
+      "SHF_pct": 42.57,
+      "dims": "960x540"
+    },
+    {
+      "frame": 25,
+      "file": "13_boss_arena_capture_25.png",
+      "HFD": 10.54,
+      "LMV": 32.86,
+      "LDR": 185,
+      "SAT_mean": 0.432,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.715,
+      "SHF_pct": 42.55,
+      "dims": "960x540"
+    },
+    {
+      "frame": 26,
+      "file": "13_boss_arena_capture_26.png",
+      "HFD": 10.54,
+      "LMV": 32.9,
+      "LDR": 185,
+      "SAT_mean": 0.431,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.758,
+      "SHF_pct": 42.52,
+      "dims": "960x540"
+    },
+    {
+      "frame": 27,
+      "file": "13_boss_arena_capture_27.png",
+      "HFD": 10.51,
+      "LMV": 32.86,
+      "LDR": 183,
+      "SAT_mean": 0.43,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.673,
+      "SHF_pct": 42.54,
+      "dims": "960x540"
+    },
+    {
+      "frame": 28,
+      "file": "13_boss_arena_capture_28.png",
+      "HFD": 10.49,
+      "LMV": 32.83,
+      "LDR": 181,
+      "SAT_mean": 0.429,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.601,
+      "SHF_pct": 42.54,
+      "dims": "960x540"
+    },
+    {
+      "frame": 29,
+      "file": "13_boss_arena_capture_29.png",
+      "HFD": 10.48,
+      "LMV": 32.88,
+      "LDR": 181,
+      "SAT_mean": 0.429,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.634,
+      "SHF_pct": 42.51,
+      "dims": "960x540"
+    },
+    {
+      "frame": 30,
+      "file": "13_boss_arena_capture_30.png",
+      "HFD": 10.5,
+      "LMV": 32.82,
+      "LDR": 181,
+      "SAT_mean": 0.429,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.614,
+      "SHF_pct": 42.49,
+      "dims": "960x540"
+    },
+    {
+      "frame": 31,
+      "file": "13_boss_arena_capture_31.png",
+      "HFD": 10.51,
+      "LMV": 32.83,
+      "LDR": 180,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.63,
+      "SHF_pct": 42.47,
+      "dims": "960x540"
+    },
+    {
+      "frame": 32,
+      "file": "13_boss_arena_capture_32.png",
+      "HFD": 10.46,
+      "LMV": 32.92,
+      "LDR": 181,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.684,
+      "SHF_pct": 42.48,
+      "dims": "960x540"
+    },
+    {
+      "frame": 33,
+      "file": "13_boss_arena_capture_33.png",
+      "HFD": 10.47,
+      "LMV": 32.9,
+      "LDR": 181,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.678,
+      "SHF_pct": 42.49,
+      "dims": "960x540"
+    },
+    {
+      "frame": 34,
+      "file": "13_boss_arena_capture_34.png",
+      "HFD": 10.47,
+      "LMV": 32.91,
+      "LDR": 181,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.684,
+      "SHF_pct": 42.5,
+      "dims": "960x540"
+    },
+    {
+      "frame": 35,
+      "file": "13_boss_arena_capture_35.png",
+      "HFD": 10.51,
+      "LMV": 32.77,
+      "LDR": 180,
+      "SAT_mean": 0.429,
+      "SAT_std": 0.355,
+      "HLF_pct": 3.579,
+      "SHF_pct": 42.55,
+      "dims": "960x540"
+    },
+    {
+      "frame": 36,
+      "file": "13_boss_arena_capture_36.png",
+      "HFD": 10.45,
+      "LMV": 32.83,
+      "LDR": 180,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.355,
+      "HLF_pct": 3.645,
+      "SHF_pct": 42.55,
+      "dims": "960x540"
+    },
+    {
+      "frame": 37,
+      "file": "13_boss_arena_capture_37.png",
+      "HFD": 10.45,
+      "LMV": 32.88,
+      "LDR": 181,
+      "SAT_mean": 0.427,
+      "SAT_std": 0.355,
+      "HLF_pct": 3.665,
+      "SHF_pct": 42.57,
+      "dims": "960x540"
+    },
+    {
+      "frame": 38,
+      "file": "13_boss_arena_capture_38.png",
+      "HFD": 10.42,
+      "LMV": 33.05,
+      "LDR": 182,
+      "SAT_mean": 0.427,
+      "SAT_std": 0.355,
+      "HLF_pct": 3.746,
+      "SHF_pct": 42.59,
+      "dims": "960x540"
+    },
+    {
+      "frame": 39,
+      "file": "13_boss_arena_capture_39.png",
+      "HFD": 10.47,
+      "LMV": 32.89,
+      "LDR": 182,
+      "SAT_mean": 0.427,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.623,
+      "SHF_pct": 42.63,
+      "dims": "960x540"
+    },
+    {
+      "frame": 40,
+      "file": "13_boss_arena_capture_40.png",
+      "HFD": 10.38,
+      "LMV": 32.9,
+      "LDR": 182,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.587,
+      "SHF_pct": 42.68,
+      "dims": "960x540"
+    },
+    {
+      "frame": 41,
+      "file": "13_boss_arena_capture_41.png",
+      "HFD": 10.4,
+      "LMV": 32.96,
+      "LDR": 182,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.595,
+      "SHF_pct": 42.75,
+      "dims": "960x540"
+    },
+    {
+      "frame": 42,
+      "file": "13_boss_arena_capture_42.png",
+      "HFD": 10.37,
+      "LMV": 33.03,
+      "LDR": 183,
+      "SAT_mean": 0.429,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.638,
+      "SHF_pct": 42.79,
+      "dims": "960x540"
+    },
+    {
+      "frame": 43,
+      "file": "13_boss_arena_capture_43.png",
+      "HFD": 10.35,
+      "LMV": 33.16,
+      "LDR": 184,
+      "SAT_mean": 0.429,
+      "SAT_std": 0.357,
+      "HLF_pct": 3.71,
+      "SHF_pct": 42.79,
+      "dims": "960x540"
+    },
+    {
+      "frame": 44,
+      "file": "13_boss_arena_capture_44.png",
+      "HFD": 10.35,
+      "LMV": 33.18,
+      "LDR": 184,
+      "SAT_mean": 0.429,
+      "SAT_std": 0.357,
+      "HLF_pct": 3.713,
+      "SHF_pct": 42.79,
+      "dims": "960x540"
+    },
+    {
+      "frame": 45,
+      "file": "13_boss_arena_capture_45.png",
+      "HFD": 10.33,
+      "LMV": 33.33,
+      "LDR": 185,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.841,
+      "SHF_pct": 42.74,
+      "dims": "960x540"
+    },
+    {
+      "frame": 46,
+      "file": "13_boss_arena_capture_46.png",
+      "HFD": 10.37,
+      "LMV": 33.1,
+      "LDR": 184,
+      "SAT_mean": 0.429,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.696,
+      "SHF_pct": 42.79,
+      "dims": "960x540"
+    },
+    {
+      "frame": 47,
+      "file": "13_boss_arena_capture_47.png",
+      "HFD": 10.31,
+      "LMV": 33.07,
+      "LDR": 184,
+      "SAT_mean": 0.429,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.714,
+      "SHF_pct": 42.81,
+      "dims": "960x540"
+    },
+    {
+      "frame": 48,
+      "file": "13_boss_arena_capture_48.png",
+      "HFD": 10.32,
+      "LMV": 33.14,
+      "LDR": 185,
+      "SAT_mean": 0.43,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.753,
+      "SHF_pct": 42.79,
+      "dims": "960x540"
+    },
+    {
+      "frame": 49,
+      "file": "13_boss_arena_capture_49.png",
+      "HFD": 10.37,
+      "LMV": 33.05,
+      "LDR": 184,
+      "SAT_mean": 0.431,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.679,
+      "SHF_pct": 42.83,
+      "dims": "960x540"
+    },
+    {
+      "frame": 50,
+      "file": "13_boss_arena_capture_50.png",
+      "HFD": 10.35,
+      "LMV": 33.18,
+      "LDR": 183,
+      "SAT_mean": 0.431,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.715,
+      "SHF_pct": 42.84,
+      "dims": "960x540"
+    },
+    {
+      "frame": 51,
+      "file": "13_boss_arena_capture_51.png",
+      "HFD": 10.34,
+      "LMV": 33.11,
+      "LDR": 182,
+      "SAT_mean": 0.432,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.683,
+      "SHF_pct": 42.84,
+      "dims": "960x540"
+    },
+    {
+      "frame": 52,
+      "file": "13_boss_arena_capture_52.png",
+      "HFD": 10.4,
+      "LMV": 32.83,
+      "LDR": 180,
+      "SAT_mean": 0.433,
+      "SAT_std": 0.357,
+      "HLF_pct": 3.473,
+      "SHF_pct": 42.89,
+      "dims": "960x540"
+    },
+    {
+      "frame": 53,
+      "file": "13_boss_arena_capture_53.png",
+      "HFD": 10.33,
+      "LMV": 32.96,
+      "LDR": 181,
+      "SAT_mean": 0.432,
+      "SAT_std": 0.357,
+      "HLF_pct": 3.523,
+      "SHF_pct": 42.88,
+      "dims": "960x540"
+    },
+    {
+      "frame": 54,
+      "file": "13_boss_arena_capture_54.png",
+      "HFD": 10.36,
+      "LMV": 32.97,
+      "LDR": 180,
+      "SAT_mean": 0.432,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.558,
+      "SHF_pct": 42.86,
+      "dims": "960x540"
+    },
+    {
+      "frame": 55,
+      "file": "13_boss_arena_capture_55.png",
+      "HFD": 10.38,
+      "LMV": 32.82,
+      "LDR": 179,
+      "SAT_mean": 0.432,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.553,
+      "SHF_pct": 42.85,
+      "dims": "960x540"
+    },
+    {
+      "frame": 56,
+      "file": "13_boss_arena_capture_56.png",
+      "HFD": 10.33,
+      "LMV": 32.87,
+      "LDR": 179,
+      "SAT_mean": 0.431,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.608,
+      "SHF_pct": 42.83,
+      "dims": "960x540"
+    },
+    {
+      "frame": 57,
+      "file": "13_boss_arena_capture_57.png",
+      "HFD": 10.35,
+      "LMV": 32.82,
+      "LDR": 179,
+      "SAT_mean": 0.432,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.635,
+      "SHF_pct": 42.81,
+      "dims": "960x540"
+    },
+    {
+      "frame": 58,
+      "file": "13_boss_arena_capture_58.png",
+      "HFD": 10.36,
+      "LMV": 32.82,
+      "LDR": 179,
+      "SAT_mean": 0.432,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.657,
+      "SHF_pct": 42.8,
+      "dims": "960x540"
+    },
+    {
+      "frame": 59,
+      "file": "13_boss_arena_capture_59.png",
+      "HFD": 10.35,
+      "LMV": 32.78,
+      "LDR": 179,
+      "SAT_mean": 0.432,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.682,
+      "SHF_pct": 42.79,
+      "dims": "960x540"
+    },
+    {
+      "frame": 60,
+      "file": "13_boss_arena_capture_60.png",
+      "HFD": 10.35,
+      "LMV": 32.81,
+      "LDR": 179,
+      "SAT_mean": 0.431,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.685,
+      "SHF_pct": 42.76,
+      "dims": "960x540"
+    },
+    {
+      "frame": 61,
+      "file": "13_boss_arena_capture_61.png",
+      "HFD": 10.34,
+      "LMV": 32.98,
+      "LDR": 180,
+      "SAT_mean": 0.43,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.808,
+      "SHF_pct": 42.7,
+      "dims": "960x540"
+    },
+    {
+      "frame": 62,
+      "file": "13_boss_arena_capture_62.png",
+      "HFD": 10.39,
+      "LMV": 32.74,
+      "LDR": 179,
+      "SAT_mean": 0.431,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.655,
+      "SHF_pct": 42.75,
+      "dims": "960x540"
+    },
+    {
+      "frame": 63,
+      "file": "13_boss_arena_capture_63.png",
+      "HFD": 10.38,
+      "LMV": 32.72,
+      "LDR": 178,
+      "SAT_mean": 0.431,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.614,
+      "SHF_pct": 42.75,
+      "dims": "960x540"
+    },
+    {
+      "frame": 64,
+      "file": "13_boss_arena_capture_64.png",
+      "HFD": 10.4,
+      "LMV": 32.81,
+      "LDR": 178,
+      "SAT_mean": 0.431,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.594,
+      "SHF_pct": 42.74,
+      "dims": "960x540"
+    },
+    {
+      "frame": 65,
+      "file": "13_boss_arena_capture_65.png",
+      "HFD": 10.39,
+      "LMV": 32.87,
+      "LDR": 179,
+      "SAT_mean": 0.431,
+      "SAT_std": 0.356,
+      "HLF_pct": 3.58,
+      "SHF_pct": 42.75,
+      "dims": "960x540"
+    },
+    {
+      "frame": 66,
+      "file": "13_boss_arena_capture_66.png",
+      "HFD": 10.44,
+      "LMV": 32.95,
+      "LDR": 181,
+      "SAT_mean": 0.432,
+      "SAT_std": 0.355,
+      "HLF_pct": 3.637,
+      "SHF_pct": 42.73,
+      "dims": "960x540"
+    },
+    {
+      "frame": 67,
+      "file": "13_boss_arena_capture_67.png",
+      "HFD": 10.42,
+      "LMV": 32.95,
+      "LDR": 181,
+      "SAT_mean": 0.431,
+      "SAT_std": 0.355,
+      "HLF_pct": 3.63,
+      "SHF_pct": 42.72,
+      "dims": "960x540"
+    },
+    {
+      "frame": 68,
+      "file": "13_boss_arena_capture_68.png",
+      "HFD": 10.42,
+      "LMV": 32.85,
+      "LDR": 181,
+      "SAT_mean": 0.431,
+      "SAT_std": 0.355,
+      "HLF_pct": 3.536,
+      "SHF_pct": 42.73,
+      "dims": "960x540"
+    },
+    {
+      "frame": 69,
+      "file": "13_boss_arena_capture_69.png",
+      "HFD": 10.37,
+      "LMV": 32.89,
+      "LDR": 182,
+      "SAT_mean": 0.431,
+      "SAT_std": 0.355,
+      "HLF_pct": 3.569,
+      "SHF_pct": 42.69,
+      "dims": "960x540"
+    },
+    {
+      "frame": 70,
+      "file": "13_boss_arena_capture_70.png",
+      "HFD": 10.43,
+      "LMV": 32.89,
+      "LDR": 182,
+      "SAT_mean": 0.43,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.569,
+      "SHF_pct": 42.63,
+      "dims": "960x540"
+    },
+    {
+      "frame": 71,
+      "file": "13_boss_arena_capture_71.png",
+      "HFD": 10.46,
+      "LMV": 32.83,
+      "LDR": 181,
+      "SAT_mean": 0.429,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.568,
+      "SHF_pct": 42.57,
+      "dims": "960x540"
+    },
+    {
+      "frame": 72,
+      "file": "13_boss_arena_capture_72.png",
+      "HFD": 10.43,
+      "LMV": 32.9,
+      "LDR": 181,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.622,
+      "SHF_pct": 42.54,
+      "dims": "960x540"
+    },
+    {
+      "frame": 73,
+      "file": "13_boss_arena_capture_73.png",
+      "HFD": 10.44,
+      "LMV": 32.9,
+      "LDR": 181,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.611,
+      "SHF_pct": 42.52,
+      "dims": "960x540"
+    },
+    {
+      "frame": 74,
+      "file": "13_boss_arena_capture_74.png",
+      "HFD": 10.44,
+      "LMV": 32.93,
+      "LDR": 180,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.612,
+      "SHF_pct": 42.49,
+      "dims": "960x540"
+    },
+    {
+      "frame": 75,
+      "file": "13_boss_arena_capture_75.png",
+      "HFD": 10.49,
+      "LMV": 32.88,
+      "LDR": 179,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.561,
+      "SHF_pct": 42.48,
+      "dims": "960x540"
+    },
+    {
+      "frame": 76,
+      "file": "13_boss_arena_capture_76.png",
+      "HFD": 10.53,
+      "LMV": 32.72,
+      "LDR": 178,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.47,
+      "SHF_pct": 42.48,
+      "dims": "960x540"
+    },
+    {
+      "frame": 77,
+      "file": "13_boss_arena_capture_77.png",
+      "HFD": 10.46,
+      "LMV": 32.75,
+      "LDR": 179,
+      "SAT_mean": 0.427,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.512,
+      "SHF_pct": 42.45,
+      "dims": "960x540"
+    },
+    {
+      "frame": 78,
+      "file": "13_boss_arena_capture_78.png",
+      "HFD": 10.42,
+      "LMV": 32.84,
+      "LDR": 179,
+      "SAT_mean": 0.426,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.582,
+      "SHF_pct": 42.44,
+      "dims": "960x540"
+    },
+    {
+      "frame": 79,
+      "file": "13_boss_arena_capture_79.png",
+      "HFD": 10.5,
+      "LMV": 32.7,
+      "LDR": 179,
+      "SAT_mean": 0.427,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.489,
+      "SHF_pct": 42.46,
+      "dims": "960x540"
+    },
+    {
+      "frame": 80,
+      "file": "13_boss_arena_capture_80.png",
+      "HFD": 10.44,
+      "LMV": 32.73,
+      "LDR": 179,
+      "SAT_mean": 0.428,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.532,
+      "SHF_pct": 42.47,
+      "dims": "960x540"
+    },
+    {
+      "frame": 81,
+      "file": "13_boss_arena_capture_81.png",
+      "HFD": 10.42,
+      "LMV": 32.74,
+      "LDR": 180,
+      "SAT_mean": 0.429,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.522,
+      "SHF_pct": 42.51,
+      "dims": "960x540"
+    },
+    {
+      "frame": 82,
+      "file": "13_boss_arena_capture_82.png",
+      "HFD": 10.43,
+      "LMV": 32.62,
+      "LDR": 180,
+      "SAT_mean": 0.43,
+      "SAT_std": 0.354,
+      "HLF_pct": 3.461,
+      "SHF_pct": 42.55,
+      "dims": "960x540"
+    },
+    {
+      "frame": 83,
+      "file": "13_boss_arena_capture_83.png",
+      "HFD": 10.44,
+      "LMV": 32.66,
+      "LDR": 180,
+      "SAT_mean": 0.431,
+      "SAT_std": 0.353,
+      "HLF_pct": 3.518,
+      "SHF_pct": 42.56,
+      "dims": "960x540"
+    },
+    {
+      "frame": 84,
+      "file": "13_boss_arena_capture_84.png",
+      "HFD": 10.45,
+      "LMV": 32.7,
+      "LDR": 181,
+      "SAT_mean": 0.432,
+      "SAT_std": 0.353,
+      "HLF_pct": 3.53,
+      "SHF_pct": 42.58,
+      "dims": "960x540"
+    },
+    {
+      "frame": 85,
+      "file": "13_boss_arena_capture_85.png",
+      "HFD": 10.43,
+      "LMV": 32.78,
+      "LDR": 181,
+      "SAT_mean": 0.432,
+      "SAT_std": 0.352,
+      "HLF_pct": 3.546,
+      "SHF_pct": 42.55,
+      "dims": "960x540"
+    },
+    {
+      "frame": 86,
+      "file": "13_boss_arena_capture_86.png",
+      "HFD": 10.51,
+      "LMV": 32.69,
+      "LDR": 180,
+      "SAT_mean": 0.434,
+      "SAT_std": 0.352,
+      "HLF_pct": 3.317,
+      "SHF_pct": 42.58,
+      "dims": "960x540"
+    },
+    {
+      "frame": 87,
+      "file": "13_boss_arena_capture_87.png",
+      "HFD": 10.59,
+      "LMV": 32.33,
+      "LDR": 176,
+      "SAT_mean": 0.437,
+      "SAT_std": 0.352,
+      "HLF_pct": 2.9,
+      "SHF_pct": 42.66,
+      "dims": "960x540"
+    },
+    {
+      "frame": 88,
+      "file": "13_boss_arena_capture_88.png",
+      "HFD": 10.71,
+      "LMV": 31.78,
+      "LDR": 174,
+      "SAT_mean": 0.441,
+      "SAT_std": 0.353,
+      "HLF_pct": 1.358,
+      "SHF_pct": 42.64,
+      "dims": "960x540"
+    },
+    {
+      "frame": 89,
+      "file": "13_boss_arena_capture_89.png",
+      "HFD": 10.78,
+      "LMV": 30.84,
+      "LDR": 165,
+      "SAT_mean": 0.445,
+      "SAT_std": 0.356,
+      "HLF_pct": 0.635,
+      "SHF_pct": 42.64,
+      "dims": "960x540"
+    },
+    {
+      "frame": 90,
+      "file": "13_boss_arena_capture_90.png",
+      "HFD": 10.76,
+      "LMV": 30.83,
+      "LDR": 164,
+      "SAT_mean": 0.446,
+      "SAT_std": 0.357,
+      "HLF_pct": 0.686,
+      "SHF_pct": 42.63,
+      "dims": "960x540"
+    },
+    {
+      "frame": 91,
+      "file": "13_boss_arena_capture_91.png",
+      "HFD": 10.76,
+      "LMV": 30.92,
+      "LDR": 165,
+      "SAT_mean": 0.445,
+      "SAT_std": 0.357,
+      "HLF_pct": 0.697,
+      "SHF_pct": 42.61,
+      "dims": "960x540"
+    },
+    {
+      "frame": 92,
+      "file": "13_boss_arena_capture_92.png",
+      "HFD": 10.79,
+      "LMV": 30.69,
+      "LDR": 164,
+      "SAT_mean": 0.447,
+      "SAT_std": 0.357,
+      "HLF_pct": 0.533,
+      "SHF_pct": 42.68,
+      "dims": "960x540"
+    },
+    {
+      "frame": 93,
+      "file": "13_boss_arena_capture_93.png",
+      "HFD": 10.79,
+      "LMV": 30.69,
+      "LDR": 164,
+      "SAT_mean": 0.447,
+      "SAT_std": 0.357,
+      "HLF_pct": 0.54,
+      "SHF_pct": 42.7,
+      "dims": "960x540"
+    },
+    {
+      "frame": 94,
+      "file": "13_boss_arena_capture_94.png",
+      "HFD": 10.82,
+      "LMV": 30.74,
+      "LDR": 163,
+      "SAT_mean": 0.447,
+      "SAT_std": 0.356,
+      "HLF_pct": 0.592,
+      "SHF_pct": 42.69,
+      "dims": "960x540"
+    },
+    {
+      "frame": 95,
+      "file": "13_boss_arena_capture_95.png",
+      "HFD": 10.83,
+      "LMV": 30.66,
+      "LDR": 162,
+      "SAT_mean": 0.446,
+      "SAT_std": 0.356,
+      "HLF_pct": 0.532,
+      "SHF_pct": 42.71,
+      "dims": "960x540"
+    },
+    {
+      "frame": 96,
+      "file": "13_boss_arena_capture_96.png",
+      "HFD": 10.79,
+      "LMV": 30.74,
+      "LDR": 162,
+      "SAT_mean": 0.445,
+      "SAT_std": 0.356,
+      "HLF_pct": 0.603,
+      "SHF_pct": 42.71,
+      "dims": "960x540"
+    },
+    {
+      "frame": 97,
+      "file": "13_boss_arena_capture_97.png",
+      "HFD": 10.78,
+      "LMV": 30.82,
+      "LDR": 163,
+      "SAT_mean": 0.445,
+      "SAT_std": 0.356,
+      "HLF_pct": 0.614,
+      "SHF_pct": 42.71,
+      "dims": "960x540"
+    },
+    {
+      "frame": 98,
+      "file": "13_boss_arena_capture_98.png",
+      "HFD": 10.77,
+      "LMV": 30.97,
+      "LDR": 163,
+      "SAT_mean": 0.445,
+      "SAT_std": 0.356,
+      "HLF_pct": 0.65,
+      "SHF_pct": 42.72,
+      "dims": "960x540"
+    },
+    {
+      "frame": 99,
+      "file": "13_boss_arena_capture_99.png",
+      "HFD": 10.74,
+      "LMV": 31.06,
+      "LDR": 164,
+      "SAT_mean": 0.444,
+      "SAT_std": 0.356,
+      "HLF_pct": 0.687,
+      "SHF_pct": 42.73,
+      "dims": "960x540"
+    },
+    {
+      "frame": 100,
+      "file": "13_boss_arena_capture_100.png",
+      "HFD": 10.76,
+      "LMV": 31.04,
+      "LDR": 165,
+      "SAT_mean": 0.444,
+      "SAT_std": 0.357,
+      "HLF_pct": 0.619,
+      "SHF_pct": 42.73,
+      "dims": "960x540"
+    }
+  ]
+}
