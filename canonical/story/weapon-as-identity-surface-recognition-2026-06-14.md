@@ -1,11 +1,11 @@
 # Weapon-as-Identity-Surface — Recognition Record
 
-> **STATUS:** CURRENT (load-bearing; **L1 weapon-family identity-root COMMITTED** — Phase-1 gate-green 2026-06-14 per § 6-bis; kit_size + summon commitments DEFERRED per § 6) — see `canonical/00-ground-state.md`
+> **STATUS:** CURRENT (load-bearing; **L1 identity layer COMMITTED — proxy-rooted; literal-weapon-root DEFERRED as time allows**; the recognition's HEADLINE kit_size gate is NOT yet proven — it is PHASE 2, now firing; summon DEFERRED per § 6) — see `canonical/00-ground-state.md`
 
 **Date:** 2026-06-14
 **Author:** gandalf (story-and-design steward; Pattern-B dialogue with Matt)
-**Status:** v2 recognition record — recognition LOCKED; **L1 identity-root validate+commit DONE** (Phase-1 gate-green-on-built-code 2026-06-14, § 6-bis); kit_size (Pred 1) + summon (Pred 3) commits DEFERRED
-**Authority:** Matt 2026-06-14 (Pattern-B) — recognition locked verbatim: *"the weapon is the identity-bearing SURFACE"* … *"the most coherent of all the messages above"*; validate authorized verbatim: *"fire the weapon-flow audit."* **L1 commit ratified verbatim 2026-06-14:** *"commit the recognition with a note that we need to move the weapon to the root as time allows"* + *"push."*
+**Status:** v3 recognition record — recognition LOCKED; **L1 identity layer COMMITTED (proxy-rooted, L1 only)** 2026-06-14, § 6-bis; **literal-weapon-root DEFERRED as time allows**; **kit_size dissolution (Pred 1 / § 6 headline gate) STILL VALIDATE-IN-PROGRESS under the Phase-2 gate**; summon (Pred 3) DEFERRED. **NOT "weapon-as-identity built."**
+**Authority:** Matt 2026-06-14 (Pattern-B) — recognition locked verbatim: *"the weapon is the identity-bearing SURFACE"* … *"the most coherent of all the messages above"*; validate authorized verbatim: *"fire the weapon-flow audit."* **L1 commit ratified verbatim 2026-06-14, with precise bounding:** *"the commit is L1 only, on an element→scaling-attribute proxy that is gate-equivalent to the literal weapon by an empirical data-invariant, not a structural one. The decisions-log entry should say 'L1 committed; proxy-rooted; literal-weapon-root deferred as time allows' — not 'weapon-as-identity built.'"*
 **Companion docs:**
 - `agentic_orchestration/gandalf/notes/2026-06-14-stage-3-bc-cutover-scoping-ruling.md` — the BC-coordinate cutover this recognition extends; Stage 3b re-open criterion (physical-pool expansion) is reframed here as the weapon-rooting work.
 - `canonical/37-form-bias-diagnosis-and-recovery.md` — the non-humanoid body-plan discipline that bounds weapon-as-identity to the humanoid branch (§ 5).
@@ -26,7 +26,9 @@
 
 **The load-bearing engineering insight:** weapon-as-identity is not only thematically coherent — it is **substrate-honest.** It relocates the identity root from the **sparse** physical-cost mechanic pools (rage=4 / focus=4 / combo=2 / stamina=2 — the audit's stated deferral blocker) onto the **rich** weapon substrate (89,839 rows; *"weapons have the details needed"*). It roots identity where the substrate can actually support it.
 
-**Commit (L1 DONE 2026-06-14 / kit_size + summon DEFERRED — see § 6-bis):** the **L1 weapon-family identity-root** is BUILT and gate-green on live code (Phase-1: family split 40.74/59.26 in-band; martial-anchor classification 96.67% physical / 0% caster; drift-injection FIRED). Prediction 2 (physical stops being the cutover's straggler / smuggle deleted) is **closed**. The build roots family on an element→scaling-attribute **proxy** (gate-equivalent by an *empirical* data-invariant, not structural) — so the standing note: **move the literal `selected_weapon.weapon_type_family` to the root as time allows.** Still DEFERRED: Pred 1 (kit_size off the sparse mechanic pools — Phase 2) and Pred 3 (summon runtime-label — gamora proxy pass). Empirical gate + 3 predictions in §§ 6–7.
+**Commit (L1 identity layer ONLY — proxy-rooted — 2026-06-14; literal-weapon-root + kit_size + summon DEFERRED — see § 6-bis). This is NOT "weapon-as-identity built."** What committed is the **L1 identity layer** (physical / caster / hybrid), and committed via a **PROXY**: `dominant_element → ELEMENT_SCALING_ATTRIBUTE → primary attribute → family-class` — **NOT** the spec's literal `selected_weapon.weapon_type_family` (the orchestrator does not bind a weapon at the identity point). The proxy is gate-equivalent to the literal weapon-root by an **EMPIRICAL DATA-INVARIANT** (the live pool's `primary_stat × weapon_type_family` partition never crosses the physical/caster boundary — verified at Gate-2 by live cross-tab), **NOT a structural guarantee** — the code does not enforce the partition; a future pool change could *silently* break the equivalence. The runtime catch is the § 1.2 realized-bound-family measurement guardrail; the structural fix is the **literal-weapon-root, DEFERRED as time allows** (no gate scheduled). Gate-green on live code (family split 40.74/59.26 in-band; martial-anchor classification 96.67% physical / 0% caster; drift-injection FIRED). Prediction 2 (physical stops being the cutover's straggler / smuggle deleted) is **closed**.
+
+**CRITICAL — the recognition is NOT fully committed.** The recognition's HEADLINE gate (§ 4.1 / § 6 — physical `kit_size` 10–13 off the weapon cross-product **WITHOUT** the sparse mechanic pools; the deferral's ORIGINAL blocker) is **NOT yet proven**. It is **PHASE 2, now firing** — Pred 1 remains **validate-in-progress** under the Phase-2 gate. Also DEFERRED: Pred 3 (summon runtime-label — gamora proxy pass). Empirical gates + 3 predictions in §§ 6–7. Record state: **L1-identity-committed (proxy form) + kit_size-dissolution-still-gated-on-Phase-2.**
 
 ---
 
@@ -98,9 +100,19 @@ Per recognition → validate → **commit**: the architectural commit is **defer
 
 **Sequencing note:** this is design-spec authoring, not a live-regen change. It does NOT block the in-flight Stage-3 narrow deletion (which deletes only elemental-abandoned machinery and explicitly HOLDS the physical fallback to Stage 3b). The two are consistent: Stage-3 holds the physical fallback; this recognition names what replaces it.
 
-## 6-bis. Phase-1 COMMIT — L1 weapon-family identity-root (Matt ratification 2026-06-14)
+## 6-bis. Phase-1 COMMIT — L1 IDENTITY LAYER ONLY, PROXY-ROOTED (Matt ratification 2026-06-14)
 
-**Ratified verbatim (Matt 2026-06-14):** *"commit the recognition with a note that we need to move the weapon to the root as time allows."* This is a **precise partial flip:** the **L1 layer** (weapon-family → physical/caster/hybrid; § 4 row 1) is committed against gate-green-on-built-code. The kit_size (Pred 1) and summon (Pred 3) layers remain DEFERRED on their original empirical gates (§ 6, § 7).
+**Ratified verbatim (Matt 2026-06-14), with precise bounding:** *"the commit is L1 only, on an element→scaling-attribute proxy that is gate-equivalent to the literal weapon by an empirical data-invariant, not a structural one. The decisions-log entry should say 'L1 committed; proxy-rooted; literal-weapon-root deferred as time allows' — not 'weapon-as-identity built.'"*
+
+**This is a PARTIAL, precisely-bounded commit — NOT "weapon-as-identity built."** Three things must not be lost from the permanent record:
+
+1. **L1 identity layer: COMMITTED — proxy-rooted.** Identity (physical / caster / hybrid; § 4 row 1) is committed, but via a **PROXY**: `dominant_element → ELEMENT_SCALING_ATTRIBUTE → primary attribute → family-class`, **NOT** the spec's literal `selected_weapon.weapon_type_family`. The orchestrator does not bind a weapon at the identity point, so the literal weapon is unavailable there; the scaling-attribute partition stands in for it.
+
+2. **Gate-equivalent by an EMPIRICAL DATA-INVARIANT — NOT a structural guarantee (the silent-divergence risk that must not be lost).** The proxy equals the literal weapon-root **only because** the live pool's `primary_stat × weapon_type_family` partition never crosses the physical/caster boundary (verified at Gate-2 by live cross-tab). The **code does not enforce** this partition. A future pool change — a STR-scaling caster, a WIS-scaling martial weapon — could **silently** break the equivalence: proxy and literal would diverge and nothing structural would catch it. The runtime catch is the **§ 1.2 realized-bound-family measurement guardrail** (it measures the *realized bound weapon families* downstream, so a live divergence shows up as an out-of-band ratio). The **structural fix** is rooting identity on the literal `selected_weapon.weapon_type_family`.
+
+3. **Literal-weapon-root: DEFERRED, as-time-allows (no gate scheduled).** This is the proper architecture the proxy stands in for. The standing note is exactly Matt's: **move the weapon to the root as time allows.** Not urgent (the § 1.2 guardrail guards the gap), but it is the substrate-honest endpoint; the proxy is a bootstrap, not the destination.
+
+The kit_size (Pred 1 — § 6 headline gate) and summon (Pred 3) layers remain DEFERRED on their original empirical gates (§ 6, § 7); kit_size is **Phase 2, now firing** (see § 6-ter).
 
 **What was built + gated (Phase-1, rocket implementation + jack-ryan Gate, 2026-06-14):** the generation flow now derives kit identity-family from the scaling-attribute partition rather than smuggling "physical" as a pseudo-element. Gate results reviewed by gandalf:
 
@@ -118,8 +130,18 @@ Per recognition → validate → **commit**: the architectural commit is **defer
 **Hybrid as the third L1 family (jack-ryan denominator amendment).** L1 is not binary. The caster-side ratio counts **caster-only** rows in its denominator; **hybrid** is bucketed as a distinct third family, not folded into "caster." This keeps the 40–45 / 55–60 lock measuring the physical-vs-caster axis cleanly without hybrid distorting either side. The § 4 model's "physical / caster" row should be read as **physical / caster / hybrid** at the substrate-counting layer.
 
 **What remains DEFERRED (unchanged by this commit):**
-- **Pred 1 — kit_size off the sparse mechanic pools → Phase 2.** The Phase-1 gate validated the identity-root + smuggle-deletion; it did NOT validate that a weapon-rooted kit composes to the 10–13 kit_size band without the sparse rage/combo/focus/stamina pools. That is the § 6 empirical gate, and it fires in Phase 2.
+- **Pred 1 — kit_size off the sparse mechanic pools → Phase 2, NOW FIRING (see § 6-ter).** The Phase-1 gate validated the identity-root + smuggle-deletion; it did NOT validate that a weapon-rooted kit composes to the 10–13 kit_size band without the sparse rage/combo/focus/stamina pools. That is the § 6 headline empirical gate — the deferral's ORIGINAL blocker — and it is **validate-in-progress** under the now-firing Phase-2 gate.
 - **Pred 3 — summon runtime-label → gamora proxy pass.** Layer 2 (skill-composition drives summon-vs-direct as a runtime label) is untouched by Phase 1; it lands in the gamora proxy/companion pass.
+
+## 6-ter. The HEADLINE gate is STILL PENDING — Phase 2, now firing (record is NOT fully committed)
+
+**This is the load-bearing not-yet-committed clause.** The recognition's **headline** gate — § 4.1 / § 6: physical `kit_size` lands in the legacy 10–13 band off the **weapon cross-product**, **WITHOUT** drawing kit size from the sparse physical-cost mechanic pools (rage=4 / focus=4 / combo=2 / stamina=2) — is the **original blocker that justified the entire deferral.** It is **NOT yet proven.** Phase 1 committed only the L1 *identity* layer (proxy-rooted); it did **not** touch kit_size.
+
+That gate is **PHASE 2, now firing.** Pred 1 is **validate-in-progress**. Therefore:
+
+> **The recognition is NOT fully committed.** Only the L1 identity layer is committed (proxy form). The kit_size dissolution — the deferral's original blocker — remains **gated on Phase 2.** Record state: **L1-identity-committed (proxy) + kit_size-dissolution-still-gated-on-Phase-2.**
+
+Do not let any downstream artifact (ground-state, decisions-log, dispatch) read this record as "weapon-as-identity built." It is "L1 committed; proxy-rooted; literal-weapon-root deferred as time allows; kit_size dissolution still gated on Phase 2."
 
 ## 7. Predictions registered (for empirical validation at commit)
 
@@ -129,7 +151,7 @@ Per recognition → validate → **commit**: the architectural commit is **defer
 
 ## 8. Disposition / routing
 
-- **gandalf:** recognition record authored (this doc); recognition LOCKED + validate DONE captured durably. **Design spec AUTHORED 2026-06-14** (Matt "author both") at `agentic_orchestration/gandalf/notes/2026-06-14-weapon-as-identity-generation-spec.md` — element-coordinate keeps the behavioral 8-tuple; weapon (drawn from the cycle-14 balanced `v1_scope=1` pool) becomes the physical-vs-caster root; skill-composition becomes the summon runtime-label driver; non-humanoid branch flagged for a separate body-plan-as-identity treatment. **Phase-1 gate result reviewed 2026-06-14 → L1 weapon-family identity-root COMMITTED (§ 6-bis); Prediction 2 closed.** Next gandalf steps: (a) Phase-2 kit_size gate (Pred 1); (b) the proxy→literal-`selected_weapon.weapon_type_family` refactor *as time allows* (§ 6-bis caveat).
+- **gandalf:** recognition record authored (this doc); recognition LOCKED + validate DONE captured durably. **Design spec AUTHORED 2026-06-14** (Matt "author both") at `agentic_orchestration/gandalf/notes/2026-06-14-weapon-as-identity-generation-spec.md` — element-coordinate keeps the behavioral 8-tuple; weapon (drawn from the cycle-14 balanced `v1_scope=1` pool) becomes the physical-vs-caster root; skill-composition becomes the summon runtime-label driver; non-humanoid branch flagged for a separate body-plan-as-identity treatment. **Phase-1 gate result reviewed 2026-06-14 → L1 identity layer COMMITTED — proxy-rooted, L1 only (§ 6-bis); Prediction 2 closed.** Decisions-log framing (Matt verbatim): *"L1 committed; proxy-rooted; literal-weapon-root deferred as time allows"* — **NOT "weapon-as-identity built."** Next gandalf steps: (a) **Phase-2 kit_size gate (Pred 1) — the headline gate, now firing (§ 6-ter);** (b) the proxy→literal-`selected_weapon.weapon_type_family` refactor *as time allows* (§ 6-bis caveat 2/3 — the empirical-not-structural silent-divergence fix).
 - **jack-ryan:** decisions-log entry candidate — "Weapon-as-identity-surface recognition; physical-pool-expansion reframed as weapon-rooting" — and Gate-1 on the design spec when it lands.
 - **rocket:** consumes the design spec at implementation; the weapon-flow audit (this doc § 2) is rocket's own finding, so the seam already holds the code-level map.
 - **knight-rider:** sequences spec → Gate-1 → implementation → Gate-2 when Matt authorizes the commit; aware that this does not block Stage-3 narrow deletion (§ 6 sequencing note).
