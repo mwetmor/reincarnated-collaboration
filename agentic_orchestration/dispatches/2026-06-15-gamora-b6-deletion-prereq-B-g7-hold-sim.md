@@ -45,3 +45,41 @@ Weapon-as-envelope-generated physical kits must clear the balance-loop sim-valid
 ## Sequence
 
 jack-ryan Gate-1 on this dispatch ✅ CLEAR-WITH-AMENDMENTS → gamora math-note (sim-validation criterion) → **HALT, jack-ryan Gate-1 on the "viable fight" criterion (MANDATORY)** → gamora G7 HOLD-SIM run → **jack-ryan Gate-2 on the result (UNCONDITIONAL — B is the hard cross-seam gate licensing a destructive deletion)** → KR carries B's result toward the Decision-2 both-pass tally. Prerequisite A (rocket) runs independently in parallel. On BOTH-pass → gandalf+Matt fire-confirmation → rocket executes the b6 deletion → jack-ryan Gate-2 on the deletion.
+
+---
+
+## Completion record (gamora, 2026-06-15)
+
+**Status: COMPLETE — VERDICT: HONEST_FAIL. Prerequisite B does NOT clear. b6 STAYS.**
+
+This is a RESUMED session: a prior session folded the amendments + built the harness, launched the G7 HOLD-SIM as a BACKGROUND process, and ended its turn — the process DIED with the session, leaving NO verdict and NO commit. This session re-ran FOREGROUND-BLOCKING per the corrected execution discipline and produced a durable, committed verdict.
+
+### 1. Amendments folded + committed
+- Durability commit `03c338e` folded BOTH Gate-1 amendments (finding `604e04a`) into the math-note AND harness BEFORE running, so a second abandonment could not lose the work.
+- **AMENDMENT 1 (BLOCKING):** absolute per-tier floor (math-note §3b/§5.3-b) bolted UNDER the b6-parity comparator — SAME locked `TIER_FLOORS` + kills-only `>0.0`, NO new band, NO Discipline-#12 semantic shift. Verdict is conjunctive: 3a parity AND 3b absolute-floor AND 3c no-envelope-P1 AND boundary-clean. Wired in BOTH the math-note and the harness (`envelope_only_subfloor` per-cell comparison + aggregate `absolute_floor_ok`).
+- **AMENDMENT 2 (non-blocking):** citation drift fixes folded in §4.
+
+### 2. Cross-seam precondition-assert: CLEAN
+All sim-consumed `Skill` fields present, ZERO defects across all 8 evaluated kits (4 b6 + 4 envelope; physical_skirmisher's b6 arm never built). No schema delta. No MIGRATION.md needed (confirmed, not assumed).
+
+### 3. Verdict — HONEST_FAIL (prong-by-prong)
+- **3a relative parity: PASS** — envelope_pass=0 ≥ b6_pass=0 − 1.
+- **3c no-envelope-P1-break: PASS.** Boundary: CLEAN.
+- **3b absolute per-tier floor: FAIL — DECISIVE.** CELL 4 (rogue): b6 arm CARRIES upper tiers (elite 0.75 / mini_boss 0.667 / boss 0.967 kills-only / magic 1.0) while envelope arm COLLAPSES (elite 0.0 / mini_boss 0.0 / boss 0.0 / magic 0.5) → **4 envelope-ONLY sub-floor tiers** on a cell b6 was masking. This is precisely the "parity-to-a-co-weak-baseline force-PASS" surface Amendment 1 exists to catch — parity alone (3a=PASS) would have force-passed it.
+
+**Parity numbers:** envelope_pass_count=0/5, b6_pass_count=0/5. Side-finding (Disc #11): the smoke slice (50-power, single-seed-per-cell) is harsh — neither arm produced a passing kit on any cell; envelope convergence pinned at MODIFIER_SEARCH_FLOOR 0.01 (over-powered → max-suppression) on 3 cells. The verdict does NOT rest on aggregate pass-counts (both zero); it rests on 3b's per-cell envelope-ONLY-degeneracy detection, which is robust to the harsh slice.
+
+**b6 baseline build-fail (telemetry, NOT a gate-failer):** `physical_skirmisher` b6 arm exhausted its internal MAX_KIT_RETRIES (`KitConstraintError: require_mobile_attack`) at seed 7202 — a legacy-net build failure recorded as a non-pass cell; the harness continued (robustness fix this session). 3c scoped to the envelope arm only.
+
+### 4. Run scope executed
+- **Smoke slice (math-note §5):** BalanceLoop smoke_test=True, 30 fights/matchup, 20 doppelganger, max_iter=10, target 0.50, 5 physical archetypes × 2 arms, sequential same-seed. Wall 509s (~8.5 min). FOREGROUND-BLOCKING, completed.
+- **Remaining for a full run:** none required for the verdict — the smoke slice produced a DECISIVE 3b failure (envelope-only degeneracy on rogue), which a full run cannot reverse (it can only add cells, not retract a recorded envelope-only sub-floor). A full regen would only further characterize the harsh-slice both-arm-zero side-finding, which is not load-bearing for the HOLD verdict.
+
+### 5. Artifacts / commits
+- Math-note + harness (amendments folded): `03c338e`
+- Result artifact + harness robustness fix + AGENT_STATE: `<this session's result commit>`
+- Result JSON: `reincarnated-engine/output/g7-hold-sim-b6-prereq-B-20260615.json`
+- Tag: `gamora/v1.3-b6-deletion-prereq-B-g7-hold-sim-1`
+
+### 6. Routing
+HONEST-FAIL → routed to **gandalf + KR**. Prerequisite B HOLDS Decision 2 (b6 stays). The Decision-2 both-pass tally CANNOT close (A passed, B honest-failed). Feeds **jack-ryan Gate-2 (unconditional)** on this result. NO force-pass. NO b6 deletion.
