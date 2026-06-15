@@ -72,5 +72,17 @@ Two design threads to build *toward*, not to resolve in Phase 0:
 
 ---
 
+## 6. Phase-0 RESULTS — the crux PASSED; asset-wall resolved to a free DB (drax `b046ff5`, 2026-06-14)
+
+**Gate #2 (auto-retarget — the load-bearing crux) PASSED** (gandalf-verified, `~/Games/reincarnated-godot-spike/harness_logs/05_retarget_proof.log`): a Synty base FBX imports to `GeneralSkeleton` (88 bones); the jgillich post-import plugin auto-applied bone_map + bone_renamer; **21/21 humanoid-profile bones resolve**; a shared clip drove 6/6 bones; torso+legs+arms expose the SAME skeleton → **one animation set covers the whole modular wardrobe, no per-mesh hand-rigging, no DB.** The "can't hand-rig infinity" crux that broke the 2D path is dissolved. This is the de-risk that actually decides the pivot — it holds on our own Mac + content.
+
+**Design-coherence note (gandalf):** the shared `GeneralSkeleton` that makes retarget work is the SAME rig that hosts the weapon/gear `Attachment*` sockets named in `canonical/story/weapon-as-identity-surface-recognition-2026-06-14.md` § 5 as the visual home of the identity-bearing weapon. Gate #2 therefore validates the asset-layer foundation for BOTH pillars at once: **spirit-swap** (one animation set across infinite forms — the differentiation pillar) AND **weapon-as-identity** (the identity-bearing socket rides the shared rig). The two design threads converge on one honest foundation.
+
+**Gate #1 (DB-half) / #3 / #4 — UNBLOCK PATH TRACED (was the wall Matt hit):** the `Proto_Side_Kick_Data` DB the plugin reads is NOT in the free pack and the plugin cannot build it. drax traced it to a **free public Synty release** (`SyntyStudios/SidekicksToolRelease` 1.0.39 → raw `Synty_Sidekick.db`, 2.25 MB) — Synty's Unity `ToolDownloader.cs` auto-fetches it; the Godot plugin does not; jgillich's itch page never documents it (another user, DRY1994, hit the identical wall, no author reply). drax confirmed in-session: schema-correct, contains every free-pack part, `part_location` matches the extraction layout → drop-in. Two fixups: (a) `part_location` Windows-backslash → forward-slash; (b) `combine()` hardcodes a consolidated `SK_BaseModel.fbx` absent from the free pack → repoint `sk_base_model` at `SK_HUMN_BASE_01_10TORS_HU01.fbx` (within-seam plugin tweak).
+
+**Pending Matt decision (both $0, drax-executable on go):** approve installing the official public `Synty_Sidekick.db` (option 1, ~10 min) + the `sk_base_model` tweak → unblocks gate #3/#4 (the runtime-compose **spirit-swap mechanism** proof, the second load-bearing de-risk). Light steward flag: glance that the free-pack license covers reusing Synty's part-index DB before leaning on it. (Spike is a local throwaway repo — no remote; nothing to push.)
+
+---
+
 **Signed:** gandalf, 2026-06-14
 **For:** the Godot spike Phase-0 free-validation design session — prove the Godot 4.6.3 + jgillich-plugin + Synty-Free-Starter-Pack pipeline works end-to-end on the Mac (install, auto-retarget import, bake-time AND the code-evident runtime composition that confirms the spirit-swap mechanism) at $0 before the paid Phase-1 register-2 vertical slice; drax scaffolds + harnesses + runbooks headlessly, Matt clicks the irreducibly-GUI steps, gandalf interprets the gate.
