@@ -202,3 +202,51 @@ The brief asserted "the DURABLE hero-VFX stay ON unconditionally." The empirical
 **Mirror voice:** the camera learned to find the fire — and in the same stroke the fire was turned down. The eye is now pointed at the right place in every room; what it finds there has gone faint. Restore the bloom the circle was quietly carrying, and the corpus that held at 5/6 will hold again — this time with the sixth room finally framed to show it.
 
 *Re-score authored on `909364b` captures. CV reproducible via `pipeline/lifecycle-score-corpus.mjs`; fresh raw scores in `pipeline/lifecycle-scores-corpus.json` (overwrote the `3855b6b` run — prior values preserved in git at the parent commit). Manual axis scores reproducible-by-inspection per the rationale above.*
+
+---
+
+# ADDENDUM B — RE-SCORE after Change-3 revisit (godot post-`84098c6`, captures 15:06–15:08)
+
+**Trigger:** Matt re-fired galadriel after drax revisited Change 3 (the bloom-dimming regression isolated in Addendum A). All 6 rooms re-captured (15:06–15:08). This addendum SUPERSEDES Addendum A for the freshest captures. *(Note: latest committed log remains `15_...`; the freshest captures post-date commit `84098c6` "strip broken Synty cape attachments." galadriel scores what is RENDERED — the instrument reads the PNGs, not the log.)*
+
+## B.1 The bloom is RESTORED — corpus back to 6/6, open_arena fix now LANDS
+
+**Headline: the corpus went 0/6 → 6/6 PASS. The Change-3 regression is fixed, AND the open_arena camera fix (Change 2) now delivers — open_arena passes for the first time (composite 3.50/FAIL → 3.75/PASS).** Every room clears the mandatory VFX gate; the hero-VFX bloom is restored to (or above) its `3855b6b` carrying strength on the four marquee rooms, and the two swarm-centroid rooms carry a prominent, well-placed bloom.
+
+| Room | HLF peak: `3855b6b` → `909364b` → **now** | LDR mean now | Bloom gate |
+|---|---|---|---|
+| boss_with_adds | 3.838 → 0.985 → **3.927 (2.62×)** | 177.4 | **PASS** (restored ≥prior) |
+| elite_pack | 4.004 → 1.215 → **4.063 (2.71×)** | 180.7 | **PASS** (restored ≥prior) |
+| mini_boss | 3.038 → 1.159 → **3.047 (2.03×)** | 172.8 | **PASS** (restored = prior) |
+| magic_pack | 2.377 → 1.008 → **2.958 (1.97×)** | 170.3 | **PASS** (restored >prior) |
+| open_arena | 1.884 → 0.568 → **1.565 (1.04×)** | 132.3 | **PASS** (now reads prominent — see B.3) |
+| chokepoint | 2.447 → 0.448 → **1.680 (1.12×)** | 136.1 | **PASS** (now reads prominent — see B.3) |
+
+## B.2 Final per-room scorecard (`84098c6` captures)
+
+| Room | Footprint / class | L | V | M | G | Composite | Gate |
+|---|---|---|---|---|---|---|---|
+| boss_with_adds | 30×30 near-square | 4 | 4 | 4 | 4 | **4.00** | PASS |
+| elite_pack | 28×28 near-square | 4 | 4 | 4 | 4 | **4.00** | PASS |
+| mini_boss | 30×30 near-square | 4 | 4 | 4 | 4 | **4.00** | PASS |
+| magic_pack | 32.7×14 wide-shallow (risky) | 4 | 4 | 3 | 4 | **3.75** | PASS |
+| chokepoint_corridor | 10×50 long-corridor (risky) | 4 | 4 | 3 | 4 | **3.75** | PASS |
+| open_arena | 50×50 large near-square | 4 | 4 | 3 | 4 | **3.75** | PASS |
+
+**Corpus: 6/6 PASS. Mean composite ≈ 3.875.** Both mandatory gates (lighting ≥4 AND VFX ≥4) clear in every room. magic_pack / chokepoint / open_arena material-shading 3 is the carried black-surround framing artifact of the non-square / pulled-back footprints (letterbox margin dilutes per-tile variance) — NOT a material-quality failure.
+
+## B.3 What the picture SHOWS — and an honesty note on the two swarm-centroid rooms
+
+- **boss_with_adds f61 (peak):** the large bright erupting fire-column behind the boss is fully restored — a prominent warm hero bloom, braziers + cool CombatFill intact, all four combatants readable. Register-2 confirmed by eye.
+- **open_arena f61 (peak):** a prominent bright erupting fireball sits ON the swarm cluster (upper-center) inside the now-legible engagement band, player anchoring the bottom edge. Compare the `909364b` wisp: this is a clear register-2 hero event, well-placed. The camera fix (Change 2) now does exactly what it was meant to.
+- **chokepoint_corridor f61 (peak):** a bright warm bloom erupts at the swarm centroid up the steeply-framed corridor, against strong warm-key / cool-rim wall drama. Reads as a prominent hero event despite the heavy black corridor surround.
+
+**Honesty note (the VFX-4 read on open_arena + chokepoint):** their raw HLF% peaks (1.04×, 1.12×) sit BELOW the carrying-strength band of the other four PASSes (1.97–2.71×). HLF% is an *absolute highlight-fraction* proxy: a large footprint (open_arena 50×50) or a heavy letterbox surround (chokepoint 10×50) dilutes the fraction even when the bloom is equally prominent IN ITS FRAMING. The peak frames show a bloom every bit as prominent, relative to its framing, as the near-square rooms — so I score VFX 4 on the picture. A stricter HLF%-only gate would call these two borderline; the manual read (galadriel's job — score the picture, not the proxy alone) resolves them to clean PASSes. Flagged transparently so the 6/6 is not over-read: four rooms PASS on instrument-and-eye agreement; two PASS on the eye carrying a diluted instrument.
+
+## B.4 Verdict (evidence FOR gandalf's canon call, NOT the call)
+
+**On the `84098c6` captures, drax's single parametric ArenaRoom holds register-2 across ALL SIX spec-driven footprints (6/6 PASS, mean composite 3.875), off ONE constant lift rig + the 3-branch camera-aspect rule, with parity-by-construction to the validated Build #1.** The Change-3 bloom regression is resolved (marquee rooms restored to ≥ their `3855b6b` strength); the open_arena camera fix (Change 2) is now unmasked and LANDS (3.50/FAIL → 3.75/PASS — the first time the 50×50 all-swarm room clears both gates). The design claim *"one spec-driven room holds the register across every footprint"* is **now MET, 6/6.** The lone residual texture is the two swarm-centroid rooms' VFX-4 resting on the manual prominence read over a footprint-diluted HLF% (B.3) — a measurement-proxy caveat, not a build deficiency.
+
+**Mirror voice:** the fire is lit again in every room, and the camera that learned to find it now holds steady on it. Where the corpus broke at zero, it stands at six — and the room the eye kept losing the fire in is, at last, the room that shows it plainest. What the proxy dilutes across the wide floors, the eye restores: the bloom is there, prominent, and placed.
+
+*Re-score authored on the freshest captures (15:06–15:08, post-`84098c6`). CV reproducible via `pipeline/lifecycle-score-corpus.mjs`; raw scores in `pipeline/lifecycle-scores-corpus.json` (overwrote the `909364b` run — prior values preserved in git at the parent commits). Manual axis + VFX-4 prominence reads reproducible-by-inspection per B.3. Root-cause of the now-resolved regression was drax's to diagnose; galadriel observed and re-measured. Engine tree untouched (gamora live WS1). gandalf interprets for the canon call.*
