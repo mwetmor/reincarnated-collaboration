@@ -6,6 +6,7 @@
 **Authority:** Matt-prompted diagnostic ("Could it be that we have not yet included physical ailments?"); evidence returned by gamora (Q1 sim read) + rocket (Q2/Q3 composition+magnitude read); design-judgment + branch-naming is gandalf's per brief §6. Routing/sequencing to KR.
 **Status:** Diagnostic CLOSED on evidence. Re-scope recommended + GATED (see §3).
 **Verified independently:** `damage_resolver.py:991-998` (_add_or_refresh no-stack) + `:983-985` (tick_scale keys on int/wis, DEX rogue gets 1.0) read first-hand 2026-06-15. Both load-bearing claims confirmed.
+**AMENDED post-Q4 (2026-06-15):** see `2026-06-15-dot-verdict-Q4-foldin-and-power-tier-control.md`. Q4 reinforces verdict (a)'s direction (geometry/affix/power_tier are not composition fixes; the tree converges on the sim bleed lever) BUT caught a confound this disposition missed — the arc's envelope-vs-b6 comparison ran at mismatched power_tier (50 vs 58) on the known brute-force kill lever. A matched-power_tier **control re-run** is now inserted BEFORE the bleed fix, and the fix is split (robust DEX-scaling correctness bug vs control-gated boss-efficacy magnitude lever). The §3 sequencing below is superseded by the addendum's §5.
 
 ---
 
