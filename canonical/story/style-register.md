@@ -1,6 +1,6 @@
 # Reincarnated — Visual Style Register
 
-> **STATUS:** CURRENT (load-bearing) — **REGISTER PIVOTED 2026-06-14** to Godot 3D + fixed 2.5D camera; **A-vs-B sub-fork RESOLVED 2026-06-15 → A (bounded stylized-low-poly-3D / Synty register)**, measured at composite 4.50/5 (see § "Register pivot" → "A-vs-B RESOLVED → A locks"). The 2D-pixel HD-2D lock (Candidate B, locked 2026-05-15) is **SUPERSEDED**; everything below the pivot section is preserved as **archaeology**, not current truth. See `canonical/00-ground-state.md`.
+> **STATUS:** CURRENT (load-bearing) — **REGISTER PIVOTED 2026-06-14** to Godot 3D + fixed 2.5D camera; **A-vs-B sub-fork RESOLVED 2026-06-15 → A (bounded stylized-low-poly-3D / Synty register)**, measured at composite 4.50/5 on a graybox, and **EXTENDED 2026-06-15 to real curated content** (Synty's own `Demo_Cathedral_01` under the unchanged lift recipe, composite **5.00/5** — the score *rose* on the material + geometry axes real content supplies). See § "Register pivot" → "A-vs-B RESOLVED → A locks" + "A-holds EXTENDED to real curated content". The 2D-pixel HD-2D lock (Candidate B, locked 2026-05-15) is **SUPERSEDED**; everything below the pivot section is preserved as **archaeology**, not current truth. See `canonical/00-ground-state.md`.
 
 **Status:** **Canonical. Register PIVOTED 2026-06-14 by Matt** in Pattern B dialogue with gandalf — from the 2D-pixel HD-2D lock to **Godot 3D rendered through a fixed 2.5D camera.** The prior lock (Candidate B — hand-drawn pixel-art HD-2D-shaped, locked 2026-05-15) is retired. The new lock + the empirical trigger that overturned the old one are captured in the pivot section directly below. The 2D-lock body that follows the pivot section is preserved verbatim for decision-archaeology per this doc's own Maintenance Protocol + Pivot Insurance — read it for *lineage*, not as *current truth*.
 
@@ -64,6 +64,29 @@ This is the genre truth re-evidenced on our own content: Diablo II shipped premi
 3. **Live combat loop.** This was a deterministic capture for the *register* question (galadriel: the bloom is pose-agnostic). An input-driven multi-form combat scene is a separate *integration* milestone.
 
 These scope the ruling; they do not weaken it. The A-vs-B question was always "does the cheap geometry read premium under the lift?" — answered **yes, measured.**
+
+### A-holds EXTENDED to real curated content (2026-06-15)
+
+> **The A-holds lock was proven on a dungeon GRAYBOX. It is now extended to one real curated SHIPPING environment — and the composite *rose*.** Full ruling: `agentic_orchestration/gandalf/notes/2026-06-15-a-holds-extension-real-curated-content-ruling.md`. Evidence: `agentic_orchestration/galadriel/reports/2026-06-15-cathedral-register2-scorecard.md`.
+
+**The residual A-holds left open** was *"does the recipe hold on REAL curated content, or only on a hand-built graybox?"* drax instanced Synty's **own** `Demo_Cathedral_01.tscn` (real shipping geometry — arches, altar, pillars, ritual dais), applied the **unchanged** `lift_render.tscn` recipe 1:1, and added a body-anchored hero VFX (a red pentagram that charges → erupts a `GPUParticles3D` summon fire column). galadriel lifecycle-scored the 100-frame capture (`scenes/dark_fantasy_cathedral.tscn`):
+
+| Axis | Graybox (A-holds) | **Cathedral (extension)** | Move |
+|---|---|---|---|
+| Lighting drama | 5 | **5** (LDR 231.9, 2× thr; floor clears 115 every frame) | held at ceiling |
+| VFX presence | 5 | **5** (HLF peak 9.35%, 6.2× thr; clean charge→erupt→burn→ember) | held at ceiling |
+| Material-shading | 4 | **5** | **+1 (real content)** |
+| Geometry register | 4 | **5** | **+1 (real content)** |
+| **Composite** | **4.50** | **5.00** | **+0.50** |
+
+**The reading (not "survived" — *improved*):** lighting + VFX held at 5 because the recipe owns them and the recipe is unchanged — **the controllable layer is content-portable.** Material + geometry rose 4→5 because a real curated environment is strictly richer than a graybox on exactly the two axes a graybox is thin on. The graybox was A-holds's *floor*, not its ceiling. The fidelity-budget-in-lighting+VFX bet is confirmed a second time, now portable across content.
+
+**Marketing-render caveat — SATISFIED.** The Synty reference frames are Synty's own Unity marketing renders (calibration anchor, NOT pass bar). drax did NOT pixel-match the Unity-post glowing pentagram — he drove the proven hero-glow lever; galadriel scored vs the rubric, lifecycle-sampled (not still-vs-still). The trap (chase the post → burn budget, or feel falsely short) was avoided.
+
+**Scope honesty (what the extension does NOT yet claim):**
+1. **"All real content."** This is **ONE** real environment (an enclosed cathedral). galadriel: *"this real curated content, decisively — not all real content."* The **named next hardening gate** is a **second real biome** — ideally an **exterior** (the routing note's Build #2: Map-3 portal/descent + fog + horde + verticality, which also tests the harder outdoor-register problem). A second biome moves content-agnostic from *inference → demonstration*. *(Empirical gate: a second real curated environment scores register-2 under the same recipe.)*
+2. **The three original A-holds exclusions are UNCHANGED** — non-humanoid coherence, generative-self/Meshy coherence, live combat loop. Each separately gated.
+3. **UI / HUD layer not evidenced** — register-2 of the *rendered world* holds; the UI chrome is a separate, not-yet-evidenced surface.
 
 ### The empirical trigger that overturned the 2D lock
 
