@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgalshootdescent"]
+
+; galadriel lifecycle-capture harness bootstrap. Instances the baked, inert
+; scenes/arena_descent.tscn and walks each preserved capture camera, grabbing a
+; windowed sample per view (particle-plume peak). Pure observation — touches nothing
+; in the scene/engine. opengl3 driver to match drax's iter1 capture path.
+
+[ext_resource type="Script" path="res://scripts/galadriel_capture_descent.gd" id="1_galcap"]
+
+[node name="GalCaptureDescent" type="Node3D"]
+script = ExtResource("1_galcap")

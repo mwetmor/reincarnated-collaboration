@@ -1,0 +1,129 @@
+extends Node3D
+# ============================================================================
+# galadriel_capture_descent.gd — galadriel's lifecycle-capture instrument for the
+# CONNECTED descent (scenes/arena_descent.tscn).
+#
+# NOT a self-score and NOT production code: this is galadriel's read-only capture
+# harness (parallel to pipeline/lifecycle-score-corpus.mjs). It instances the baked,
+# INERT descent scene (its ride-along builder does not rebuild) and walks each
+# preserved capture camera, dwelling a window and grabbing MULTIPLE frames per view
+# so the particle-plume peak is caught. The SummonGlow light is frozen at charge in
+# the bake (render_descent_scene.gd:456), but FX_Fire_Large_01 / FX_Fog_01 / FX_Smoke_01
+# are GPUParticles that animate frame-to-frame — so a short windowed sample per zone
+# (not a single still) captures the highlight-fraction (HLF) peak, per galadriel F1.
+#
+# It touches NOTHING in the scene tree, the engine, or any production file. It only
+# flips camera.current and reads get_viewport().get_texture() — pure observation.
+#
+# Cameras walked (descent order):
+#   ZoneCam under Zone1_open_arena ... Zone6_boss_with_adds  (the 6 per-zone cams)
+#   EstablishingCamera / _Overview / _DeepLook                (the 3 establishing cams)
+#
+# Usage (GL compatibility driver, matches drax's iter1 capture path):
+#   /Applications/Godot.app/Contents/MacOS/Godot --rendering-driver opengl3 \
+#       --path <proj> scenes/galadriel_shoot.tscn --quit-after 600
+# Frames -> user://gal_descent_<tag>_<NN>.png  (run script copies to harness_logs/).
+# ============================================================================
+
+const BAKED := "res://scenes/arena_descent.tscn"
+const SETTLE := 26          # let lights + particles settle before the first dwell
+const DWELL := 40           # frames to dwell on each camera (particle window)
+const GRAB_EVERY := 6       # within a dwell, grab a frame every N frames (-> ~6 grabs/cam)
+
+# Descent-order zone cameras, by their parent zone node name (Zone1..Zone6).
+# Tag = descent-order label the brief uses (zone0..zone5) + footprint identity.
+const ZONE_ORDER := [
+	["Zone1_open_arena",          "zone0_threshold"],
+	["Zone2_magic_pack",          "zone1_arcane"],
+	["Zone3_elite_pack",          "zone2_warhall"],
+	["Zone4_chokepoint_corridor", "zone3_oubliette"],
+	["Zone5_mini_boss",           "zone4_antechamber"],
+	["Zone6_boss_with_adds",      "zone5_sanctum"],
+]
+const ESTABLISH_CAMS := [
+	["EstablishingCamera",          "establish_primary"],
+	["EstablishingCamera_Overview", "establish_overview"],
+	["EstablishingCamera_DeepLook", "establish_deeplook"],
+]
+
+var _root: Node3D
+var _frame := 0
+var _views: Array = []       # [{cam:Camera3D, tag:String}]
+var _view_idx := -1
+var _dwell_clock := 0
+var _grab_n := 0
+
+func _ready() -> void:
+	if not ResourceLoader.exists(BAKED):
+		push_error("[gal-cap] baked scene missing: %s — run bake_descent_scene.sh first." % BAKED)
+		get_tree().quit(1)
+		return
+	_root = load(BAKED).instantiate()
+	add_child(_root)
+	_collect_views()
+	print("[gal-cap] descent loaded; %d capture views queued." % _views.size())
+
+func _collect_views() -> void:
+	# Per-zone cameras (find the ZoneCam child under each named zone node).
+	for entry in ZONE_ORDER:
+		var zone_name: String = entry[0]
+		var tag: String = entry[1]
+		var cam := _find_zonecam(_root, zone_name)
+		if cam:
+			_views.append({"cam": cam, "tag": tag})
+		else:
+			push_warning("[gal-cap] ZoneCam not found under %s" % zone_name)
+	# Establishing cameras (named children of the descent root).
+	for entry in ESTABLISH_CAMS:
+		var cam := _root.find_child(entry[0], true, false) as Camera3D
+		if cam:
+			_views.append({"cam": cam, "tag": entry[1]})
+		else:
+			push_warning("[gal-cap] establishing cam not found: %s" % entry[0])
+
+# Find the ZoneCam directly under the named zone node (descent-order disambiguation).
+func _find_zonecam(node: Node, zone_name: String) -> Camera3D:
+	var zone := node.find_child(zone_name, true, false)
+	if zone == null:
+		return null
+	for c in zone.get_children():
+		if c is Camera3D and String(c.name) == "ZoneCam":
+			return c as Camera3D
+	return null
+
+func _process(_dt: float) -> void:
+	_frame += 1
+	if _frame < SETTLE:
+		return
+	# Start the first view once settled.
+	if _view_idx == -1:
+		_view_idx = 0
+		_activate(_view_idx)
+		_dwell_clock = 0
+		return
+	_dwell_clock += 1
+	# Grab on the cadence inside the dwell.
+	if _dwell_clock % GRAB_EVERY == 0:
+		_grab(_views[_view_idx]["tag"])
+	# Advance to the next view at the end of the dwell.
+	if _dwell_clock >= DWELL:
+		_view_idx += 1
+		if _view_idx >= _views.size():
+			print("[gal-cap] capture complete (%d views)." % _views.size())
+			get_tree().quit(0)
+			return
+		_activate(_view_idx)
+		_dwell_clock = 0
+		_grab_n = 0
+
+func _activate(i: int) -> void:
+	for v in _views:
+		(v["cam"] as Camera3D).current = false
+	(_views[i]["cam"] as Camera3D).current = true
+
+func _grab(tag: String) -> void:
+	_grab_n += 1
+	var img := get_viewport().get_texture().get_image()
+	var path := "user://gal_descent_%s_%02d.png" % [tag, _grab_n]
+	img.save_png(path)
+	print("[gal-cap] %s grab %d -> %s (%dx%d)" % [tag, _grab_n, path, img.get_width(), img.get_height()])

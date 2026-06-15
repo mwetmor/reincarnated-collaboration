@@ -1,0 +1,830 @@
+{
+  "scored_at": "2026-06-15T21:17:17.828Z",
+  "corpus": "CONNECTED descent — gal_descent_<zone>_01..06 (scenes/arena_descent.tscn, iter1 mood-lift). 6 frames/zone windowed for particle peak.",
+  "instrument_defs": "BYTE-IDENTICAL to register-metrics.mjs / lifecycle-score-corpus.mjs",
+  "prior_baseline": "ADDENDUM B (6 SEPARATE rooms, godot 84098c6) — 6/6 PASS, mean composite 3.875",
+  "zones": [
+    {
+      "tag": "zone0_threshold",
+      "footprint": "open_arena 50x50",
+      "identity": "threshold (graveyard)",
+      "kind": "swarm",
+      "prior_HLF": 1.565,
+      "prior_LDR": 132.3,
+      "prior_L": 4,
+      "prior_V": 4,
+      "prior_M": 3,
+      "prior_G": 4,
+      "n_frames": 6,
+      "whole": {
+        "HFD": {
+          "mean": 7.415,
+          "min": 7.4,
+          "max": 7.44
+        },
+        "LMV": {
+          "mean": 20.832,
+          "min": 20.65,
+          "max": 21.08
+        },
+        "LDR": {
+          "mean": 103.167,
+          "min": 103,
+          "max": 104
+        },
+        "SAT_mean": {
+          "mean": 0.509,
+          "min": 0.509,
+          "max": 0.509
+        },
+        "SAT_std": {
+          "mean": 0.27,
+          "min": 0.269,
+          "max": 0.27
+        },
+        "HLF_pct": {
+          "mean": 0.167,
+          "min": 0.129,
+          "max": 0.226
+        },
+        "SHF_pct": {
+          "mean": 25.478,
+          "min": 25.47,
+          "max": 25.48
+        },
+        "n_frames": 6
+      },
+      "extracts": {
+        "LDR_mean": 103.167,
+        "LDR_floor": 103,
+        "LDR_peak": 104,
+        "LDR_pass_115": false,
+        "SHF_mean": 25.478,
+        "SHF_floor": 25.47,
+        "SHF_pass_30": false,
+        "HLF_peak": 0.226,
+        "HLF_peak_frame": 3,
+        "HLF_peak_pass_1p5": false,
+        "HLF_peak_x_threshold": 0.15,
+        "LMV_mean": 20.832,
+        "SAT_mean": 0.509,
+        "dHLF_peak": -1.339,
+        "dLDR_mean": -29.1,
+        "dHLFx": -0.89
+      },
+      "frames": [
+        {
+          "frame": 1,
+          "HFD": 7.4,
+          "LMV": 20.65,
+          "LDR": 103,
+          "SAT_mean": 0.509,
+          "SAT_std": 0.27,
+          "HLF_pct": 0.129,
+          "SHF_pct": 25.48,
+          "dims": "960x540"
+        },
+        {
+          "frame": 2,
+          "HFD": 7.41,
+          "LMV": 20.81,
+          "LDR": 103,
+          "SAT_mean": 0.509,
+          "SAT_std": 0.27,
+          "HLF_pct": 0.144,
+          "SHF_pct": 25.48,
+          "dims": "960x540"
+        },
+        {
+          "frame": 3,
+          "HFD": 7.42,
+          "LMV": 21.08,
+          "LDR": 104,
+          "SAT_mean": 0.509,
+          "SAT_std": 0.269,
+          "HLF_pct": 0.226,
+          "SHF_pct": 25.48,
+          "dims": "960x540"
+        },
+        {
+          "frame": 4,
+          "HFD": 7.41,
+          "LMV": 20.91,
+          "LDR": 103,
+          "SAT_mean": 0.509,
+          "SAT_std": 0.269,
+          "HLF_pct": 0.172,
+          "SHF_pct": 25.48,
+          "dims": "960x540"
+        },
+        {
+          "frame": 5,
+          "HFD": 7.44,
+          "LMV": 20.74,
+          "LDR": 103,
+          "SAT_mean": 0.509,
+          "SAT_std": 0.27,
+          "HLF_pct": 0.154,
+          "SHF_pct": 25.48,
+          "dims": "960x540"
+        },
+        {
+          "frame": 6,
+          "HFD": 7.41,
+          "LMV": 20.8,
+          "LDR": 103,
+          "SAT_mean": 0.509,
+          "SAT_std": 0.27,
+          "HLF_pct": 0.179,
+          "SHF_pct": 25.47,
+          "dims": "960x540"
+        }
+      ]
+    },
+    {
+      "tag": "zone1_arcane",
+      "footprint": "magic_pack 32.7x14",
+      "identity": "arcane chamber",
+      "kind": "near",
+      "prior_HLF": 2.958,
+      "prior_LDR": 170.3,
+      "prior_L": 4,
+      "prior_V": 4,
+      "prior_M": 3,
+      "prior_G": 4,
+      "n_frames": 6,
+      "whole": {
+        "HFD": {
+          "mean": 7.1,
+          "min": 7.07,
+          "max": 7.13
+        },
+        "LMV": {
+          "mean": 24.49,
+          "min": 24.42,
+          "max": 24.6
+        },
+        "LDR": {
+          "mean": 97.167,
+          "min": 97,
+          "max": 98
+        },
+        "SAT_mean": {
+          "mean": 0.672,
+          "min": 0.671,
+          "max": 0.672
+        },
+        "SAT_std": {
+          "mean": 0.267,
+          "min": 0.267,
+          "max": 0.267
+        },
+        "HLF_pct": {
+          "mean": 0.195,
+          "min": 0.181,
+          "max": 0.225
+        },
+        "SHF_pct": {
+          "mean": 48.107,
+          "min": 48.08,
+          "max": 48.12
+        },
+        "n_frames": 6
+      },
+      "extracts": {
+        "LDR_mean": 97.167,
+        "LDR_floor": 97,
+        "LDR_peak": 98,
+        "LDR_pass_115": false,
+        "SHF_mean": 48.107,
+        "SHF_floor": 48.08,
+        "SHF_pass_30": true,
+        "HLF_peak": 0.225,
+        "HLF_peak_frame": 6,
+        "HLF_peak_pass_1p5": false,
+        "HLF_peak_x_threshold": 0.15,
+        "LMV_mean": 24.49,
+        "SAT_mean": 0.672,
+        "dHLF_peak": -2.733,
+        "dLDR_mean": -73.1,
+        "dHLFx": -1.82
+      },
+      "frames": [
+        {
+          "frame": 1,
+          "HFD": 7.11,
+          "LMV": 24.42,
+          "LDR": 97,
+          "SAT_mean": 0.672,
+          "SAT_std": 0.267,
+          "HLF_pct": 0.184,
+          "SHF_pct": 48.12,
+          "dims": "960x540"
+        },
+        {
+          "frame": 2,
+          "HFD": 7.09,
+          "LMV": 24.49,
+          "LDR": 97,
+          "SAT_mean": 0.672,
+          "SAT_std": 0.267,
+          "HLF_pct": 0.195,
+          "SHF_pct": 48.08,
+          "dims": "960x540"
+        },
+        {
+          "frame": 3,
+          "HFD": 7.11,
+          "LMV": 24.51,
+          "LDR": 97,
+          "SAT_mean": 0.672,
+          "SAT_std": 0.267,
+          "HLF_pct": 0.199,
+          "SHF_pct": 48.11,
+          "dims": "960x540"
+        },
+        {
+          "frame": 4,
+          "HFD": 7.13,
+          "LMV": 24.46,
+          "LDR": 97,
+          "SAT_mean": 0.672,
+          "SAT_std": 0.267,
+          "HLF_pct": 0.181,
+          "SHF_pct": 48.12,
+          "dims": "960x540"
+        },
+        {
+          "frame": 5,
+          "HFD": 7.09,
+          "LMV": 24.46,
+          "LDR": 97,
+          "SAT_mean": 0.672,
+          "SAT_std": 0.267,
+          "HLF_pct": 0.183,
+          "SHF_pct": 48.11,
+          "dims": "960x540"
+        },
+        {
+          "frame": 6,
+          "HFD": 7.07,
+          "LMV": 24.6,
+          "LDR": 98,
+          "SAT_mean": 0.671,
+          "SAT_std": 0.267,
+          "HLF_pct": 0.225,
+          "SHF_pct": 48.1,
+          "dims": "960x540"
+        }
+      ]
+    },
+    {
+      "tag": "zone2_warhall",
+      "footprint": "elite_pack 28x28",
+      "identity": "war hall",
+      "kind": "near",
+      "prior_HLF": 4.063,
+      "prior_LDR": 180.7,
+      "prior_L": 4,
+      "prior_V": 4,
+      "prior_M": 4,
+      "prior_G": 4,
+      "n_frames": 6,
+      "whole": {
+        "HFD": {
+          "mean": 8.552,
+          "min": 8.54,
+          "max": 8.57
+        },
+        "LMV": {
+          "mean": 24.132,
+          "min": 23.99,
+          "max": 24.27
+        },
+        "LDR": {
+          "mean": 98,
+          "min": 98,
+          "max": 98
+        },
+        "SAT_mean": {
+          "mean": 0.554,
+          "min": 0.554,
+          "max": 0.554
+        },
+        "SAT_std": {
+          "mean": 0.267,
+          "min": 0.267,
+          "max": 0.267
+        },
+        "HLF_pct": {
+          "mean": 0.433,
+          "min": 0.385,
+          "max": 0.467
+        },
+        "SHF_pct": {
+          "mean": 27.987,
+          "min": 27.96,
+          "max": 28
+        },
+        "n_frames": 6
+      },
+      "extracts": {
+        "LDR_mean": 98,
+        "LDR_floor": 98,
+        "LDR_peak": 98,
+        "LDR_pass_115": false,
+        "SHF_mean": 27.987,
+        "SHF_floor": 27.96,
+        "SHF_pass_30": false,
+        "HLF_peak": 0.467,
+        "HLF_peak_frame": 3,
+        "HLF_peak_pass_1p5": false,
+        "HLF_peak_x_threshold": 0.31,
+        "LMV_mean": 24.132,
+        "SAT_mean": 0.554,
+        "dHLF_peak": -3.596,
+        "dLDR_mean": -82.7,
+        "dHLFx": -2.4
+      },
+      "frames": [
+        {
+          "frame": 1,
+          "HFD": 8.54,
+          "LMV": 23.99,
+          "LDR": 98,
+          "SAT_mean": 0.554,
+          "SAT_std": 0.267,
+          "HLF_pct": 0.399,
+          "SHF_pct": 28,
+          "dims": "960x540"
+        },
+        {
+          "frame": 2,
+          "HFD": 8.54,
+          "LMV": 24.19,
+          "LDR": 98,
+          "SAT_mean": 0.554,
+          "SAT_std": 0.267,
+          "HLF_pct": 0.459,
+          "SHF_pct": 27.99,
+          "dims": "960x540"
+        },
+        {
+          "frame": 3,
+          "HFD": 8.57,
+          "LMV": 24.27,
+          "LDR": 98,
+          "SAT_mean": 0.554,
+          "SAT_std": 0.267,
+          "HLF_pct": 0.467,
+          "SHF_pct": 27.97,
+          "dims": "960x540"
+        },
+        {
+          "frame": 4,
+          "HFD": 8.55,
+          "LMV": 24.23,
+          "LDR": 98,
+          "SAT_mean": 0.554,
+          "SAT_std": 0.267,
+          "HLF_pct": 0.447,
+          "SHF_pct": 27.96,
+          "dims": "960x540"
+        },
+        {
+          "frame": 5,
+          "HFD": 8.56,
+          "LMV": 24.11,
+          "LDR": 98,
+          "SAT_mean": 0.554,
+          "SAT_std": 0.267,
+          "HLF_pct": 0.441,
+          "SHF_pct": 28,
+          "dims": "960x540"
+        },
+        {
+          "frame": 6,
+          "HFD": 8.55,
+          "LMV": 24,
+          "LDR": 98,
+          "SAT_mean": 0.554,
+          "SAT_std": 0.267,
+          "HLF_pct": 0.385,
+          "SHF_pct": 28,
+          "dims": "960x540"
+        }
+      ]
+    },
+    {
+      "tag": "zone3_oubliette",
+      "footprint": "chokepoint 10x50",
+      "identity": "oubliette (corridor)",
+      "kind": "swarm",
+      "prior_HLF": 1.68,
+      "prior_LDR": 136.1,
+      "prior_L": 4,
+      "prior_V": 4,
+      "prior_M": 3,
+      "prior_G": 4,
+      "n_frames": 6,
+      "whole": {
+        "HFD": {
+          "mean": 3.112,
+          "min": 3.1,
+          "max": 3.12
+        },
+        "LMV": {
+          "mean": 10.967,
+          "min": 10.93,
+          "max": 11.05
+        },
+        "LDR": {
+          "mean": 77.333,
+          "min": 77,
+          "max": 78
+        },
+        "SAT_mean": {
+          "mean": 0.803,
+          "min": 0.803,
+          "max": 0.803
+        },
+        "SAT_std": {
+          "mean": 0.218,
+          "min": 0.218,
+          "max": 0.219
+        },
+        "HLF_pct": {
+          "mean": 0.103,
+          "min": 0.096,
+          "max": 0.12
+        },
+        "SHF_pct": {
+          "mean": 77.98,
+          "min": 77.97,
+          "max": 77.99
+        },
+        "n_frames": 6
+      },
+      "extracts": {
+        "LDR_mean": 77.333,
+        "LDR_floor": 77,
+        "LDR_peak": 78,
+        "LDR_pass_115": false,
+        "SHF_mean": 77.98,
+        "SHF_floor": 77.97,
+        "SHF_pass_30": true,
+        "HLF_peak": 0.12,
+        "HLF_peak_frame": 6,
+        "HLF_peak_pass_1p5": false,
+        "HLF_peak_x_threshold": 0.08,
+        "LMV_mean": 10.967,
+        "SAT_mean": 0.803,
+        "dHLF_peak": -1.56,
+        "dLDR_mean": -58.8,
+        "dHLFx": -1.04
+      },
+      "frames": [
+        {
+          "frame": 1,
+          "HFD": 3.12,
+          "LMV": 10.93,
+          "LDR": 77,
+          "SAT_mean": 0.803,
+          "SAT_std": 0.219,
+          "HLF_pct": 0.097,
+          "SHF_pct": 77.99,
+          "dims": "960x540"
+        },
+        {
+          "frame": 2,
+          "HFD": 3.1,
+          "LMV": 10.94,
+          "LDR": 77,
+          "SAT_mean": 0.803,
+          "SAT_std": 0.219,
+          "HLF_pct": 0.104,
+          "SHF_pct": 77.98,
+          "dims": "960x540"
+        },
+        {
+          "frame": 3,
+          "HFD": 3.1,
+          "LMV": 10.94,
+          "LDR": 77,
+          "SAT_mean": 0.803,
+          "SAT_std": 0.219,
+          "HLF_pct": 0.104,
+          "SHF_pct": 77.98,
+          "dims": "960x540"
+        },
+        {
+          "frame": 4,
+          "HFD": 3.11,
+          "LMV": 10.97,
+          "LDR": 78,
+          "SAT_mean": 0.803,
+          "SAT_std": 0.218,
+          "HLF_pct": 0.099,
+          "SHF_pct": 77.98,
+          "dims": "960x540"
+        },
+        {
+          "frame": 5,
+          "HFD": 3.12,
+          "LMV": 10.97,
+          "LDR": 77,
+          "SAT_mean": 0.803,
+          "SAT_std": 0.218,
+          "HLF_pct": 0.096,
+          "SHF_pct": 77.98,
+          "dims": "960x540"
+        },
+        {
+          "frame": 6,
+          "HFD": 3.12,
+          "LMV": 11.05,
+          "LDR": 78,
+          "SAT_mean": 0.803,
+          "SAT_std": 0.218,
+          "HLF_pct": 0.12,
+          "SHF_pct": 77.97,
+          "dims": "960x540"
+        }
+      ]
+    },
+    {
+      "tag": "zone4_antechamber",
+      "footprint": "mini_boss 30x30",
+      "identity": "antechamber (soulfire)",
+      "kind": "near",
+      "prior_HLF": 3.047,
+      "prior_LDR": 172.8,
+      "prior_L": 4,
+      "prior_V": 4,
+      "prior_M": 4,
+      "prior_G": 4,
+      "n_frames": 6,
+      "whole": {
+        "HFD": {
+          "mean": 7.963,
+          "min": 7.94,
+          "max": 7.99
+        },
+        "LMV": {
+          "mean": 23.678,
+          "min": 23.61,
+          "max": 23.79
+        },
+        "LDR": {
+          "mean": 116,
+          "min": 116,
+          "max": 116
+        },
+        "SAT_mean": {
+          "mean": 0.574,
+          "min": 0.574,
+          "max": 0.574
+        },
+        "SAT_std": {
+          "mean": 0.252,
+          "min": 0.252,
+          "max": 0.252
+        },
+        "HLF_pct": {
+          "mean": 0.198,
+          "min": 0.178,
+          "max": 0.241
+        },
+        "SHF_pct": {
+          "mean": 24.142,
+          "min": 24.14,
+          "max": 24.15
+        },
+        "n_frames": 6
+      },
+      "extracts": {
+        "LDR_mean": 116,
+        "LDR_floor": 116,
+        "LDR_peak": 116,
+        "LDR_pass_115": true,
+        "SHF_mean": 24.142,
+        "SHF_floor": 24.14,
+        "SHF_pass_30": false,
+        "HLF_peak": 0.241,
+        "HLF_peak_frame": 4,
+        "HLF_peak_pass_1p5": false,
+        "HLF_peak_x_threshold": 0.16,
+        "LMV_mean": 23.678,
+        "SAT_mean": 0.574,
+        "dHLF_peak": -2.806,
+        "dLDR_mean": -56.8,
+        "dHLFx": -1.87
+      },
+      "frames": [
+        {
+          "frame": 1,
+          "HFD": 7.96,
+          "LMV": 23.63,
+          "LDR": 116,
+          "SAT_mean": 0.574,
+          "SAT_std": 0.252,
+          "HLF_pct": 0.178,
+          "SHF_pct": 24.14,
+          "dims": "960x540"
+        },
+        {
+          "frame": 2,
+          "HFD": 7.94,
+          "LMV": 23.64,
+          "LDR": 116,
+          "SAT_mean": 0.574,
+          "SAT_std": 0.252,
+          "HLF_pct": 0.188,
+          "SHF_pct": 24.14,
+          "dims": "960x540"
+        },
+        {
+          "frame": 3,
+          "HFD": 7.95,
+          "LMV": 23.71,
+          "LDR": 116,
+          "SAT_mean": 0.574,
+          "SAT_std": 0.252,
+          "HLF_pct": 0.198,
+          "SHF_pct": 24.14,
+          "dims": "960x540"
+        },
+        {
+          "frame": 4,
+          "HFD": 7.97,
+          "LMV": 23.79,
+          "LDR": 116,
+          "SAT_mean": 0.574,
+          "SAT_std": 0.252,
+          "HLF_pct": 0.241,
+          "SHF_pct": 24.14,
+          "dims": "960x540"
+        },
+        {
+          "frame": 5,
+          "HFD": 7.97,
+          "LMV": 23.69,
+          "LDR": 116,
+          "SAT_mean": 0.574,
+          "SAT_std": 0.252,
+          "HLF_pct": 0.197,
+          "SHF_pct": 24.15,
+          "dims": "960x540"
+        },
+        {
+          "frame": 6,
+          "HFD": 7.99,
+          "LMV": 23.61,
+          "LDR": 116,
+          "SAT_mean": 0.574,
+          "SAT_std": 0.252,
+          "HLF_pct": 0.184,
+          "SHF_pct": 24.14,
+          "dims": "960x540"
+        }
+      ]
+    },
+    {
+      "tag": "zone5_sanctum",
+      "footprint": "boss_with_adds 30x30",
+      "identity": "sanctum (boss bloom)",
+      "kind": "near",
+      "prior_HLF": 3.927,
+      "prior_LDR": 177.4,
+      "prior_L": 4,
+      "prior_V": 4,
+      "prior_M": 4,
+      "prior_G": 4,
+      "n_frames": 6,
+      "whole": {
+        "HFD": {
+          "mean": 7.208,
+          "min": 7.18,
+          "max": 7.23
+        },
+        "LMV": {
+          "mean": 21.777,
+          "min": 21.65,
+          "max": 21.96
+        },
+        "LDR": {
+          "mean": 105.5,
+          "min": 105,
+          "max": 106
+        },
+        "SAT_mean": {
+          "mean": 0.552,
+          "min": 0.552,
+          "max": 0.552
+        },
+        "SAT_std": {
+          "mean": 0.264,
+          "min": 0.264,
+          "max": 0.265
+        },
+        "HLF_pct": {
+          "mean": 0.127,
+          "min": 0.098,
+          "max": 0.161
+        },
+        "SHF_pct": {
+          "mean": 24.683,
+          "min": 24.64,
+          "max": 24.77
+        },
+        "n_frames": 6
+      },
+      "extracts": {
+        "LDR_mean": 105.5,
+        "LDR_floor": 105,
+        "LDR_peak": 106,
+        "LDR_pass_115": false,
+        "SHF_mean": 24.683,
+        "SHF_floor": 24.64,
+        "SHF_pass_30": false,
+        "HLF_peak": 0.161,
+        "HLF_peak_frame": 3,
+        "HLF_peak_pass_1p5": false,
+        "HLF_peak_x_threshold": 0.11,
+        "LMV_mean": 21.777,
+        "SAT_mean": 0.552,
+        "dHLF_peak": -3.766,
+        "dLDR_mean": -71.9,
+        "dHLFx": -2.51
+      },
+      "frames": [
+        {
+          "frame": 1,
+          "HFD": 7.21,
+          "LMV": 21.66,
+          "LDR": 105,
+          "SAT_mean": 0.552,
+          "SAT_std": 0.265,
+          "HLF_pct": 0.108,
+          "SHF_pct": 24.77,
+          "dims": "960x540"
+        },
+        {
+          "frame": 2,
+          "HFD": 7.19,
+          "LMV": 21.78,
+          "LDR": 106,
+          "SAT_mean": 0.552,
+          "SAT_std": 0.264,
+          "HLF_pct": 0.13,
+          "SHF_pct": 24.67,
+          "dims": "960x540"
+        },
+        {
+          "frame": 3,
+          "HFD": 7.21,
+          "LMV": 21.96,
+          "LDR": 106,
+          "SAT_mean": 0.552,
+          "SAT_std": 0.264,
+          "HLF_pct": 0.161,
+          "SHF_pct": 24.64,
+          "dims": "960x540"
+        },
+        {
+          "frame": 4,
+          "HFD": 7.23,
+          "LMV": 21.93,
+          "LDR": 106,
+          "SAT_mean": 0.552,
+          "SAT_std": 0.264,
+          "HLF_pct": 0.142,
+          "SHF_pct": 24.64,
+          "dims": "960x540"
+        },
+        {
+          "frame": 5,
+          "HFD": 7.23,
+          "LMV": 21.65,
+          "LDR": 105,
+          "SAT_mean": 0.552,
+          "SAT_std": 0.264,
+          "HLF_pct": 0.098,
+          "SHF_pct": 24.68,
+          "dims": "960x540"
+        },
+        {
+          "frame": 6,
+          "HFD": 7.18,
+          "LMV": 21.68,
+          "LDR": 105,
+          "SAT_mean": 0.552,
+          "SAT_std": 0.264,
+          "HLF_pct": 0.123,
+          "SHF_pct": 24.7,
+          "dims": "960x540"
+        }
+      ]
+    }
+  ]
+}

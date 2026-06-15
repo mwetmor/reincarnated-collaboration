@@ -1,0 +1,122 @@
+{
+  "scored_at": "2026-06-15T22:00:34.721Z",
+  "purpose": "gold-over-green full-frame hue-mass balance (S*V-weighted); tests the hue-INVERSION correction the bright-point counter is partially blind to",
+  "reference_centroid": {
+    "warm_mass_pct": 45.71,
+    "green_mass_pct": 28.31,
+    "warm_green_ratio": 227.946,
+    "warm_mid_pct": 20.351,
+    "warm_bright_pct": 6.145
+  },
+  "per_ref": [
+    {
+      "f": "Screenshot 2026-06-15 at 8.36.17 AM.png",
+      "warm_mass_pct": 34.86,
+      "green_mass_pct": 53.04,
+      "warm_green_ratio": 0.657,
+      "warm_mid_pct": 10.762,
+      "warm_bright_pct": 2.242
+    },
+    {
+      "f": "Screenshot 2026-06-15 at 8.36.26 AM.png",
+      "warm_mass_pct": 2.75,
+      "green_mass_pct": 62.84,
+      "warm_green_ratio": 0.044,
+      "warm_mid_pct": 0.568,
+      "warm_bright_pct": 0.255
+    },
+    {
+      "f": "Screenshot 2026-06-15 at 8.37.53 AM.png",
+      "warm_mass_pct": 36.18,
+      "green_mass_pct": 45.99,
+      "warm_green_ratio": 0.787,
+      "warm_mid_pct": 10.129,
+      "warm_bright_pct": 4.536
+    },
+    {
+      "f": "Screenshot 2026-06-15 at 8.38.06 AM.png",
+      "warm_mass_pct": 64.75,
+      "green_mass_pct": 0.27,
+      "warm_green_ratio": 243.216,
+      "warm_mid_pct": 32.7,
+      "warm_bright_pct": 9.583
+    },
+    {
+      "f": "Screenshot 2026-06-15 at 8.40.41 AM.png",
+      "warm_mass_pct": 28.33,
+      "green_mass_pct": 35.7,
+      "warm_green_ratio": 0.794,
+      "warm_mid_pct": 7.826,
+      "warm_bright_pct": 4.909
+    },
+    {
+      "f": "Screenshot 2026-06-15 at 8.41.12 AM.png",
+      "warm_mass_pct": 87.44,
+      "green_mass_pct": 0.08,
+      "warm_green_ratio": 1054.818,
+      "warm_mid_pct": 48.689,
+      "warm_bright_pct": 14.991
+    },
+    {
+      "f": "Screenshot 2026-06-15 at 8.42.08 AM.png",
+      "warm_mass_pct": 65.69,
+      "green_mass_pct": 0.22,
+      "warm_green_ratio": 295.304,
+      "warm_mid_pct": 31.782,
+      "warm_bright_pct": 6.501
+    }
+  ],
+  "pairs": [
+    {
+      "view": "establish_primary",
+      "iter1": {
+        "warm_mass_pct": 8.65,
+        "green_mass_pct": 86.16,
+        "warm_green_ratio": 0.1,
+        "warm_mid_pct": 4.51,
+        "warm_bright_pct": 0.672
+      },
+      "iter2fix": {
+        "warm_mass_pct": 17.67,
+        "green_mass_pct": 62.17,
+        "warm_green_ratio": 0.284,
+        "warm_mid_pct": 6.39,
+        "warm_bright_pct": 1.074
+      }
+    },
+    {
+      "view": "zone0",
+      "iter1": {
+        "warm_mass_pct": 33.87,
+        "green_mass_pct": 57.43,
+        "warm_green_ratio": 0.59,
+        "warm_mid_pct": 14.404,
+        "warm_bright_pct": 4.396
+      },
+      "iter2fix": {
+        "warm_mass_pct": 55.23,
+        "green_mass_pct": 26.24,
+        "warm_green_ratio": 2.105,
+        "warm_mid_pct": 27.869,
+        "warm_bright_pct": 3.302
+      }
+    },
+    {
+      "view": "zone2",
+      "iter1": {
+        "warm_mass_pct": 37.24,
+        "green_mass_pct": 36.1,
+        "warm_green_ratio": 1.031,
+        "warm_mid_pct": 20.478,
+        "warm_bright_pct": 1.122
+      },
+      "iter2fix": {
+        "warm_mass_pct": 57.58,
+        "green_mass_pct": 17.92,
+        "warm_green_ratio": 3.213,
+        "warm_mid_pct": 35.926,
+        "warm_bright_pct": 2.356
+      }
+    }
+  ]
+}

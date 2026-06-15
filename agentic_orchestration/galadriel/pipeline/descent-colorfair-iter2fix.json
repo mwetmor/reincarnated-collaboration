@@ -1,0 +1,93 @@
+{
+  "scored_at": "2026-06-15T22:01:21.935Z",
+  "purpose": "register-2 color-fair LIGHTING gate read on iter2fix static frames (establish/zone0/zone2) vs matched iter1 frames; VFX hero-bloom PEAK captured separately",
+  "pairs": [
+    {
+      "view": "establish_primary",
+      "iter1": {
+        "LDR_gray": 68.5,
+        "LDR_val": 79,
+        "SHF_val": 0.03,
+        "HLF_gray": 0.072,
+        "HLF_val": 0.124,
+        "HLF_R": 0.113,
+        "HLF_G": 0.096,
+        "HLF_B": 0.001,
+        "warm_pct": 0.3,
+        "green_pct": 0.137,
+        "redbloom_pct": 0.271
+      },
+      "iter2fix": {
+        "LDR_gray": 92.9,
+        "LDR_val": 103,
+        "SHF_val": 65.06,
+        "HLF_gray": 0.049,
+        "HLF_val": 0.079,
+        "HLF_R": 0.077,
+        "HLF_G": 0.059,
+        "HLF_B": 0.025,
+        "warm_pct": 0.844,
+        "green_pct": 0.035,
+        "redbloom_pct": 0.576
+      }
+    },
+    {
+      "view": "zone0",
+      "iter1": {
+        "LDR_gray": 109.2,
+        "LDR_val": 114,
+        "SHF_val": 0.01,
+        "HLF_gray": 0.166,
+        "HLF_val": 0.46,
+        "HLF_R": 0.455,
+        "HLF_G": 0.185,
+        "HLF_B": 0.008,
+        "warm_pct": 2.441,
+        "green_pct": 0.093,
+        "redbloom_pct": 2.618
+      },
+      "iter2fix": {
+        "LDR_gray": 116.4,
+        "LDR_val": 127,
+        "SHF_val": 23.34,
+        "HLF_gray": 0.105,
+        "HLF_val": 0.241,
+        "HLF_R": 0.238,
+        "HLF_G": 0.12,
+        "HLF_B": 0.013,
+        "warm_pct": 2.335,
+        "green_pct": 0.052,
+        "redbloom_pct": 1.983
+      }
+    },
+    {
+      "view": "zone2",
+      "iter1": {
+        "LDR_gray": 100.9,
+        "LDR_val": 106,
+        "SHF_val": 4.77,
+        "HLF_gray": 0.414,
+        "HLF_val": 0.638,
+        "HLF_R": 0.617,
+        "HLF_G": 0.501,
+        "HLF_B": 0.005,
+        "warm_pct": 0.331,
+        "green_pct": 0.289,
+        "redbloom_pct": 0.28
+      },
+      "iter2fix": {
+        "LDR_gray": 116.5,
+        "LDR_val": 129,
+        "SHF_val": 26.62,
+        "HLF_gray": 0.156,
+        "HLF_val": 0.304,
+        "HLF_R": 0.3,
+        "HLF_G": 0.214,
+        "HLF_B": 0.005,
+        "warm_pct": 0.722,
+        "green_pct": 0.046,
+        "redbloom_pct": 0.601
+      }
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "scored_at": "2026-06-15T21:59:23.506Z",
+  "note": "iter2fix vs iter1 — APPLES-TO-APPLES per VIEW (3 matched views). Scene-mean over these 3 views ONLY (NOT comparable to the iter1 7-view scene-mean in descent-similarity-vs-reference.json).",
+  "reference_set": {
+    "dir": "/Users/admin/Games/reincarnated-godot/Assets/Synty/polygon-dark-fantasy-01/modular_asset_idea_pictures/maps",
+    "files": [
+      "Screenshot 2026-06-15 at 8.36.17 AM.png",
+      "Screenshot 2026-06-15 at 8.36.26 AM.png",
+      "Screenshot 2026-06-15 at 8.37.53 AM.png",
+      "Screenshot 2026-06-15 at 8.38.06 AM.png",
+      "Screenshot 2026-06-15 at 8.40.41 AM.png",
+      "Screenshot 2026-06-15 at 8.41.12 AM.png",
+      "Screenshot 2026-06-15 at 8.42.08 AM.png"
+    ],
+    "n": 7
+  },
+  "reference_stats": {
+    "warm_pct": 5.46,
+    "green_pct": 0.749,
+    "bright_pct": 8.824,
+    "sat_mean": 0.599,
+    "ldr_val": 152.286,
+    "shadow_pct": 14.623,
+    "edge_pct": 18.684
+  },
+  "pairs": [
+    {
+      "view": "establish_primary",
+      "iter1": {
+        "hueCos": 0.1686,
+        "warm_pct": 0.3,
+        "green_pct": 0.077,
+        "bright_pct": 0.77,
+        "sat_mean": 0.772,
+        "ldr_val": 79,
+        "shadow_pct": 0.03,
+        "edge_pct": 5.203,
+        "r_lightpoint": 0.061,
+        "r_dressing": 0.278,
+        "r_contrast": 0.519
+      },
+      "iter2fix": {
+        "hueCos": 0.2487,
+        "warm_pct": 0.844,
+        "green_pct": 0.014,
+        "bright_pct": 1.18,
+        "sat_mean": 0.792,
+        "ldr_val": 103,
+        "shadow_pct": 65.06,
+        "edge_pct": 7.181,
+        "r_lightpoint": 0.138,
+        "r_dressing": 0.384,
+        "r_contrast": 0.676
+      }
+    },
+    {
+      "view": "zone0",
+      "iter1": {
+        "hueCos": 0.3938,
+        "warm_pct": 2.441,
+        "green_pct": 0.047,
+        "bright_pct": 4.61,
+        "sat_mean": 0.509,
+        "ldr_val": 114,
+        "shadow_pct": 0.01,
+        "edge_pct": 9.462,
+        "r_lightpoint": 0.401,
+        "r_dressing": 0.506,
+        "r_contrast": 0.749
+      },
+      "iter2fix": {
+        "hueCos": 0.4253,
+        "warm_pct": 2.335,
+        "green_pct": 0.013,
+        "bright_pct": 3.627,
+        "sat_mean": 0.55,
+        "ldr_val": 127,
+        "shadow_pct": 23.34,
+        "edge_pct": 13.796,
+        "r_lightpoint": 0.378,
+        "r_dressing": 0.738,
+        "r_contrast": 0.834
+      }
+    },
+    {
+      "view": "zone2",
+      "iter1": {
+        "hueCos": 0.4108,
+        "warm_pct": 0.331,
+        "green_pct": 0.115,
+        "bright_pct": 1.363,
+        "sat_mean": 0.554,
+        "ldr_val": 106,
+        "shadow_pct": 4.77,
+        "edge_pct": 12.76,
+        "r_lightpoint": 0.072,
+        "r_dressing": 0.683,
+        "r_contrast": 0.696
+      },
+      "iter2fix": {
+        "hueCos": 0.333,
+        "warm_pct": 0.722,
+        "green_pct": 0.013,
+        "bright_pct": 3.064,
+        "sat_mean": 0.6,
+        "ldr_val": 129,
+        "shadow_pct": 26.62,
+        "edge_pct": 15.12,
+        "r_lightpoint": 0.118,
+        "r_dressing": 0.809,
+        "r_contrast": 0.847
+      }
+    }
+  ],
+  "scene_mean_3view": {
+    "iter1": {
+      "hueCos": 0.3244,
+      "warm_pct": 1.024,
+      "r_lightpoint": 0.178,
+      "r_dressing": 0.489,
+      "r_contrast": 0.655
+    },
+    "iter2fix": {
+      "hueCos": 0.3357,
+      "warm_pct": 1.3,
+      "r_lightpoint": 0.211,
+      "r_dressing": 0.644,
+      "r_contrast": 0.786
+    }
+  }
+}
