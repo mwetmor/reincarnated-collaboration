@@ -150,3 +150,55 @@ Adopt R1–R4 as a formal additive readability axis for battle-room scoring, sco
 ---
 
 *galadriel SCORES. The canon call — whether the parametric room extends A-holds to "spec-driven multi-footprint" (5/6 register-2, both risky footprints holding, the 1 failure isolated to a fixable camera branch) — is gandalf's, on this evidence. Recognition fires on the SCORE, not the build.*
+
+---
+
+# ADDENDUM — RE-SCORE of drax's open_arena fix (godot `909364b`, captures 14:49)
+
+**Trigger:** Matt re-fired galadriel after drax's brief `e3cd053` / log `15_arena_bake_and_open_arena_fix.log` — three changes to `render_arena_room.gd` only: (1) bake-to-scene, (2) open_arena camera + swarm-centroid bloom anchor, (3) ritual-circle placeholder flag → `false`. All 6 rooms re-captured. This addendum re-scores the FRESH corpus and SUPERSEDES §§ 3–4 above for the `909364b` captures (the original scores stand for the `3855b6b` captures).
+
+## A.1 The fix-target (open_arena camera) WORKED — but the corpus REGRESSED
+
+**Headline: all 6 rooms now FAIL the VFX gate. The corpus went from 5/6 PASS → 0/6 PASS.** This is a regression, not a fix landing. The hero-VFX bloom (HLF) collapsed to ~25–35% of its prior magnitude across EVERY room, including the three near-square rooms whose cameras were explicitly UNCHANGED ("EXACT Build #1 parity").
+
+| Room | HLF peak prior (`3855b6b`) | HLF peak now (`909364b`) | LDR mean prior → now | VFX gate |
+|---|---|---|---|---|
+| boss_with_adds | 3.838 (2.56×) | **0.985 (0.66×)** | 175.9 → 165.2 | PASS → **FAIL** |
+| elite_pack | 4.004 (2.67×) | **1.215 (0.81×)** | 181.6 → 171.6 | PASS → **FAIL** |
+| mini_boss | 3.038 (2.03×) | **1.159 (0.77×)** | 173.1 → 166.2 | PASS → **FAIL** |
+| open_arena | 1.884 (1.26×) | **0.568 (0.38×)** | 129.7 → 125.4 | FAIL → **FAIL (worse)** |
+| magic_pack | 2.377 (1.58×) | **1.008 (0.67×)** | 171.0 → 162.9 | PASS → **FAIL** |
+| chokepoint | 2.447 (1.63×) | **0.448 (0.30×)** | 140.3 → 123.2 | PASS → **FAIL** |
+
+## A.2 Causal isolation — the regression source is Change 3, NOT Change 2
+
+**Clean isolation by construction:** Change 2 (camera + swarm-centroid) touched ONLY open_arena's camera branch + the open_arena/chokepoint marquee anchor. boss_with_adds, elite_pack, mini_boss cameras are byte-for-byte unchanged ("EXACT Build #1 parity," log §2a). Yet those three rooms' HLF dropped ~70%. **The only change that touched all six rooms is Change 3** — the ritual-circle placeholder flag (`USE_RITUAL_CIRCLE_PLACEHOLDER := false`) + the `_process()` glow-ramp decouple. Therefore the corpus-wide bloom collapse originates in Change 3.
+
+The brief asserted "the DURABLE hero-VFX stay ON unconditionally." The empirical evidence contradicts this: the durable bloom (SummonGlow + SummonFireColumn) is now emitting ~⅓ of its prior highlight contribution. Either the now-disabled ritual-circle red ground decal + sigil was a far larger HLF contributor than the brief assumed, OR the glow-ramp decouple changed the column/glow intensity, OR the bake-freeze-at-CHARGE logic altered the capture-path erupt state. **Root cause is drax's to diagnose** (galadriel observes, does not modify) — but the data points squarely at the Change-3 block.
+
+## A.3 What the picture SHOWS (empirical inspection, peak frames)
+
+- **boss_with_adds f45 (peak):** braziers + cool CombatFill pool intact; the hero fire-column behind the boss is a **thin reddish wisp**, not the prior erupting bloom. The dark-mood register and figure-readability hold; the VFX is gutted.
+- **open_arena f85 (peak):** the camera fix is **visibly working** — the engagement band (player bottom-edge → swarm cluster upper-center) is now framed at readable scale, and the bloom sits ON the swarm centroid, not the empty geometric center. But the bloom is a small faint warm patch. Change 2's framing succeeded; Change 3 starved the bloom it was meant to showcase.
+
+## A.4 open_arena re-score (the fix-target room)
+
+| Axis | Prior (`3855b6b`) | Now (`909364b`) | Note |
+|---|---|---|---|
+| Lighting drama | 4 | 4 | LDR mean 125 (>115), SHF 32.5% (>30); LDR floor 106 dips below 115 — borderline |
+| VFX presence | 3 | **2** | HLF peak 0.38× — a wisp; the bloom regressed despite better framing |
+| Material-shading | 3 | 3 | LMV 20.4 (large floor + black surround at pull-back) |
+| Geometry register | 4 | 4 | Arena reads coherent; engagement band now legible |
+| **Composite** | **3.50** | **3.25** | **FAIL** (VFX gate 2<4; composite 3.25<3.6) |
+
+**open_arena net: framing improved, VFX magnitude regressed, composite DOWN 3.50 → 3.25.** The camera change is the right fix and should be KEPT; it is being masked by the corpus-wide Change-3 bloom regression.
+
+## A.5 Recommendation (evidence FOR gandalf/drax, NOT the call)
+
+1. **KEEP Change 2** (open_arena camera + swarm-centroid anchor) — proven to work; the engagement band is legible and the bloom is correctly placed.
+2. **REVISIT Change 3** — the ritual-circle flag + glow-ramp decouple dimmed the durable hero-VFX ~70% corpus-wide, dropping all six rooms below the mandatory VFX gate. The durable SummonFireColumn/SummonGlow needs to carry the highlight contribution the disabled ritual-circle decal was evidently providing (raise column emission / glow energy / bloom strength so HLF peak clears ~1.5× across the corpus, as it did at `3855b6b`).
+3. **Re-fire galadriel** after the Change-3 bloom is restored — a single corpus re-run re-validates all 6. The canon call on "one spec-driven room holds register across every footprint" should wait for that pass; on the `909364b` captures the answer is **0/6** and the design claim is NOT currently met.
+
+**Mirror voice:** the camera learned to find the fire — and in the same stroke the fire was turned down. The eye is now pointed at the right place in every room; what it finds there has gone faint. Restore the bloom the circle was quietly carrying, and the corpus that held at 5/6 will hold again — this time with the sixth room finally framed to show it.
+
+*Re-score authored on `909364b` captures. CV reproducible via `pipeline/lifecycle-score-corpus.mjs`; fresh raw scores in `pipeline/lifecycle-scores-corpus.json` (overwrote the `3855b6b` run — prior values preserved in git at the parent commit). Manual axis scores reproducible-by-inspection per the rationale above.*
