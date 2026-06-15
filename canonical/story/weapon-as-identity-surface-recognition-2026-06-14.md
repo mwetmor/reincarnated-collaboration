@@ -12,6 +12,7 @@
 - `canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md` — the precedent pattern (LLM composes from the curated weapon substrate; the rich substrate this recognition relocates identity onto).
 - `canonical/story/2026-06-14-godot-pivot-modular-asset-strategy-and-dual-machine-workflow-recognition.md` — the Synty `Attachment*` weapon-sockets are the visual-layer home of the identity-bearing weapon (§ 5).
 - `canonical/story/2026-06-06-atomic-substrate-registry.md` — the 89,839-row weapon-substrate library + `bc_attribute` (STR/DEX/INT/WIS) the weapon-rooting builds on.
+- `agentic_orchestration/gandalf/notes/2026-06-14-weapon-as-identity-generation-spec.md` — **the buildable validate step** (rocket hand-off): roots identity on the cycle-14 BALANCED pool (`v1_scope=1`=2,499, with the manually-created caster rows), specifies the § 2 code change + the § 4 gate this record defers on (authored per Matt "author both" 2026-06-14).
 
 ---
 
@@ -105,7 +106,7 @@ Per recognition → validate → **commit**: the architectural commit is **defer
 
 ## 8. Disposition / routing
 
-- **gandalf:** recognition record authored (this doc); recognition LOCKED + validate DONE captured durably. Next gandalf step on Matt's go: author the **weapon-as-identity generation design spec** (the deferred commit's first artifact) — element-coordinate keeps the behavioral 8-tuple; weapon becomes the physical-vs-caster root; skill-composition becomes the summon runtime-label driver; non-humanoid branch flagged for a separate body-plan-as-identity treatment.
+- **gandalf:** recognition record authored (this doc); recognition LOCKED + validate DONE captured durably. **Design spec AUTHORED 2026-06-14** (Matt "author both") at `agentic_orchestration/gandalf/notes/2026-06-14-weapon-as-identity-generation-spec.md` — element-coordinate keeps the behavioral 8-tuple; weapon (drawn from the cycle-14 balanced `v1_scope=1` pool) becomes the physical-vs-caster root; skill-composition becomes the summon runtime-label driver; non-humanoid branch flagged for a separate body-plan-as-identity treatment. Next gandalf step: review the rocket gate result → commit or revise.
 - **jack-ryan:** decisions-log entry candidate — "Weapon-as-identity-surface recognition; physical-pool-expansion reframed as weapon-rooting" — and Gate-1 on the design spec when it lands.
 - **rocket:** consumes the design spec at implementation; the weapon-flow audit (this doc § 2) is rocket's own finding, so the seam already holds the code-level map.
 - **knight-rider:** sequences spec → Gate-1 → implementation → Gate-2 when Matt authorizes the commit; aware that this does not block Stage-3 narrow deletion (§ 6 sequencing note).
