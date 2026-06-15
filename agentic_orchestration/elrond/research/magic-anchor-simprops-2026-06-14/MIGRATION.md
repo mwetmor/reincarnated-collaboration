@@ -38,7 +38,7 @@ One row authored per weapon_id (FK `weapon_id → weapon_knowledge_entries.id`).
 
 | Column | Value |
 |---|---|
-| `weapon_type_family` | `caster-arcane` (76) / `caster-faith` (18) / `hybrid` (8) |
+| `weapon_type_family` | `caster-arcane` (82) / `caster-faith` (12) / `hybrid` (8) — *as-authored 76/18/8; post-§5.3+§5.4 adjudication 82/12/8* |
 | `primary_stat` | INT (arcane) / WIS (faith) / STR (hybrid) — single-stat-per-caster-family preserved |
 | `secondary_stat` | `none` for pure casters; `WIS` (faith overlay) for the 8 hybrid/STR rows |
 | `range_min_units` / `range_max_units` | per template (see § 4) |
@@ -67,7 +67,7 @@ One row authored per weapon_id (FK `weapon_id → weapon_knowledge_entries.id`).
 
 - No new columns on either table (existing `weapon_type_family` free-TEXT column + SC-6b columns sufficient).
 - No schema migration. `weapon_type_family ∈ {caster-arcane, caster-faith, hybrid}` uses pre-existing pool values; no new family value introduced.
-- The single-stat-per-caster-family invariant is PRESERVED: post-pass caster-arcane = INT (311/311), caster-faith = WIS (246/246). No off-stat caster rows created.
+- The single-stat-per-caster-family invariant is PRESERVED: post-pass (incl. § 5.3 + § 5.4 adjudication) caster-arcane = INT (317/317), caster-faith = WIS (240/240). No off-stat caster rows created.
 - No changes to engine telemetry (`reincarnated-engine/data/telemetry.db` — distinct DB, star-lord seam).
 - No changes to canonical docs, clustering algorithm, or character JSON output schema.
 
@@ -98,15 +98,16 @@ Values are proven sibling-row conventions pulled live 2026-06-14; NOT invented.
 
 ## 5. Family-resolution rule applied (spec § 2)
 
-| proxy_attribute_class | n | Resolution applied |
+| proxy_attribute_class | n | Resolution applied (as-authored) |
 |---|---|---|
 | `INT` | 7 | → caster-arcane / INT |
-| `WIS` | 6 | → caster-faith / WIS (3 ancient/medieval deity-regalia sceptres + 3 modern sci-fi sceptres) |
-| `INT_or_WIS` | 81 | per-row discriminator: deity-anchored **elemental/cosmic** foci → caster-arcane; **ritual-implement form** (censer/distaff/pestle/sigil/broom/athame/seiðstafr/cauldron-ladle/reliquary/banner/oriflamme) → caster-faith |
+| `WIS` | 6 | → caster-faith / WIS as-authored (3 ancient/medieval deity-regalia sceptres + 3 modern sci-fi sceptres). **§ 5.4 adjudication:** the 3 sci-fi sceptres FLIP to caster-arcane / INT (tech-arcane power). Post-adjudication: 3 faith + 3 arcane. |
+| `INT_or_WIS` | 81 | per-row discriminator: deity-anchored **elemental/cosmic** foci → caster-arcane; **ritual-implement form** (censer/distaff/pestle/sigil/broom/athame/seiðstafr/cauldron-ladle/reliquary/banner/oriflamme) → caster-faith. **§ 5.3 adjudication:** 3 occult-power ritual forms (censer/athame/seiðstafr) FLIP to caster-arcane by element-coupling; 3 (reliquary/pestle/broom) STAY faith. |
 | `STR_or_WIS` | 6 | all named-legendary martial **swords** → hybrid / STR + WIS-secondary (template F) |
 | `STR` | 2 | reliquary-swords (San Pietro, Curtana) → hybrid / STR + WIS-secondary (template F) |
 
-**Final family split (102):** caster-arcane **76** · caster-faith **18** · hybrid **8**.
+**Family split (102) — as-authored:** caster-arcane **76** · caster-faith **18** · hybrid **8**.
+**Family split (102) — post § 5.3 + § 5.4 adjudication (LIVE):** caster-arcane **82** · caster-faith **12** · hybrid **8** (6 rows flipped faith→arcane).
 
 ### 5.1 The 5 gun-casters (spec § 5 — Matt-visible flag)
 
@@ -129,33 +130,60 @@ because the actual content of the 102 is **overwhelmingly elemental-arcane** (de
 foci + sci-fi tech-casters), not devotional-faith. The faith routings are by ritual-implement
 FORM (per spec § 4 keyword map), not by literal theology. This is the honest content read.
 
-### 5.3 Closest-to-50/50 calls — gandalf adjudicates (per spec § 2)
+### 5.3 Closest-to-50/50 calls — RESOLVED (gandalf adjudicated 2026-06-14, Matt-approved)
 
-These INT_or_WIS rows were routed to **caster-faith / D** on the strength of their **ritual-implement
-form**, but their underlying power is **occult-arcane, not devotional-divine** — the genuine
-form-vs-theology tension. Listed for gandalf review:
+These six INT_or_WIS rows were routed to **caster-faith / D** on the strength of their
+**ritual-implement form**, but their underlying power is **occult-arcane, not devotional-divine**
+— the genuine form-vs-theology tension. Surfaced for gandalf; **adjudicated 2026-06-14**.
 
-| id | name | routed | tension |
-|---|---|---|---|
-| 226113 | Witch's Brimstone Censer | caster-faith / D | witch-fire occult, but censer-form = ritual implement |
-| 226135 | Grimoire Athame of Solomon | caster-faith / D | Solomonic conjuration (arcane), but athame-form = ritual implement |
-| 226138 | Seiðstafr of the Völva | caster-faith / D | Norse seiðr (arcane-occult), but seiðstafr = ritual staff |
-| 226140 | Inquisitor's Iron Maiden Reliquary | caster-faith / D | Inquisition-coded; reliquary-form = faith, but darker register |
-| 226122 | Geomancer's Sigil-Pestle | caster-faith / D | geomancy (earth-divination, arcane), but sigil-pestle = ritual |
-| 226124 | Witch-Storm Broom-Stave | caster-faith / D | witch-storm (occult), but broom-form = folk-ritual implement |
+**Adjudication principle (locked weapon-as-identity model):** the weapon FORM establishes CASTER
+at L1 (locked), but within "caster" the row's **POWER ELEMENT** decides arcane-vs-faith via the
+engine's own locked element→attribute coupling (`element_biases.py:28`):
+`fire/water/lightning/shadow → INT/caster-arcane`; `earth/wind/holy → WIS/caster-faith`.
 
-If gandalf prefers any of these in caster-arcane (treating occult-witch/grimoire/seiðr as arcane
-rather than faith-ritual), the change is a per-row UPDATE (family `caster-faith→caster-arcane`,
-stat `WIS→INT`, template `D→A` or `B`). The single-stat invariant is honored under either routing.
+**Verdict: 3 FLIP, 3 STAY.**
 
-### 5.4 The 3 modern WIS sceptres — register tension flagged
+| id | name | element | verdict | new family / stat / template |
+|---|---|---|---|---|
+| 226113 | Witch's Brimstone Censer | fire | **FLIP** | caster-arcane / INT / **B** (censer = area form; range moved into arcane band 5.0–18.0, area aoe/charge profile preserved) |
+| 226135 | Grimoire Athame of Solomon | shadow | **FLIP** | caster-arcane / INT / **A** (athame = single implement → arcane single-target) |
+| 226138 | Seiðstafr of the Völva | shadow | **FLIP** | caster-arcane / INT / **A** (seiðstafr = single staff → arcane single-target) |
+| 226140 | Inquisitor's Iron Maiden Reliquary | holy-dark (holy) | STAY | caster-faith / WIS / D (holy → WIS keeps it faith) |
+| 226122 | Geomancer's Sigil-Pestle | earth | STAY | caster-faith / WIS / D (earth → WIS keeps it faith) |
+| 226124 | Witch-Storm Broom-Stave | wind | STAY | caster-faith / WIS / D (wind → WIS keeps it faith) |
+
+The 3 flipped rows moved `caster-faith→caster-arcane`, `WIS→INT`, `D→A` (athame, seiðstafr) or
+`D→B` (censer). `sim_viability_notes` on each records the new template letter plus
+`gandalf-adjudicated 2026-06-14: faith→arcane by element-coupling`. The single-stat invariant is
+preserved (caster-arcane = INT only after the flip). **`element_affinity_modifiers_json` LEFT
+UNCHANGED** — the power element is what DROVE the flip and is a per-instance flavor tag
+(Discipline #14: tagged-not-encoded), not a family-encoder; the live pool already carries dozens
+of caster-arcane rows on holy/wind/earth affinities, so no contradiction is introduced.
+
+### 5.4 The 3 modern WIS sceptres — RESOLVED (gandalf adjudicated 2026-06-14, Matt-approved)
 
 `EMP Channeler Sceptre` (226174) · `Prism Array Sceptre` (226178) · `Blackhole Containment Sceptre`
-(226188) were authored `WIS` by gandalf with an explicit **regalia/ceremonial-sceptre** register.
-Per the single-stat invariant a WIS row must be caster-faith. Routed to **caster-faith / D**
-(sceptre = regalia ritual implement) and tagged `wis_caster_register_tension_scifi` — the element
-is sci-fi tech, not devotional, so the "faith" here is register/form, not theology. Greppable for
-gandalf review; revertable to caster-arcane/INT if the sci-fi register should override the WIS coding.
+(226188) were authored `WIS` by gandalf with an explicit **regalia/ceremonial-sceptre** register,
+routed to **caster-faith / D**, and tagged `wis_caster_register_tension_scifi`.
+
+**Verdict: all 3 FLIP to caster-arcane / INT.** The power is **tech-arcane** (EMP / prism /
+blackhole), not devotional; the ceremonial-sceptre form was a flourish — under the locked
+element-coupling, INT wins. Each row's combat profile is preserved: all three carried an **area**
+profile (charge 1.2 / aoe 3.5 present), so each maps **D→B** (arcane area), range moved into the
+arcane band (5.0–18.0).
+
+| id | name | element | new family / stat / template |
+|---|---|---|---|
+| 226174 | EMP Channeler Sceptre | lightning | caster-arcane / INT / **B** |
+| 226178 | Prism Array Sceptre | radiant/light ("array" = area) | caster-arcane / INT / **B** |
+| 226188 | Blackhole Containment Sceptre | gravity/shadow ("blackhole" = area) | caster-arcane / INT / **B** |
+
+The `wis_caster_register_tension_scifi` tag is **RESOLVED** on all three (they are arcane now);
+`sim_viability_notes` records `template=B`, the element-coupling rationale, and
+`wis_caster_register_tension_scifi RESOLVED`. The single-stat invariant is preserved.
+`element_affinity_modifiers_json` LEFT UNCHANGED (incl. 226178's `{"holy":15}` flavor tag —
+12 caster-arcane rows already carry holy in the live pool; the affinity column is not a
+family-encoder).
 
 ---
 
@@ -169,13 +197,19 @@ gandalf review; revertable to caster-arcane/INT if the sci-fi register should ov
 |---|---|---|---|
 | Total `v1_scope=1` (live cycle-14 BALANCED pool) | 2,499 | **2,601** | +102 |
 | caster/hybrid share of pool | 21.3% (533/2499) | **24.4%** (635/2601) | +3.1pp |
-| caster-arcane (whole pool, all v1_scope) | 235 | **311** | +76 |
-| caster-faith | 228 | **246** | +18 |
+| caster-arcane (whole pool, all v1_scope) | 235 | **311** → **317** (post-adj.) | +76, then +6 |
+| caster-faith | 228 | **246** → **240** (post-adj.) | +18, then −6 |
 | hybrid | 70 | **78** | +8 |
 | martial-heavy / martial-light / ranged | unchanged | unchanged | 0 |
 
 This is **directionally aligned** with the deliberate caster-enrichment trajectory (pool was
 85.8% martial pre-206-enrichment) — GOOD, not a violation.
+
+> **Post-adjudication note (§ 5.3 + § 5.4, 2026-06-14):** the 6 faith→arcane flips move rows
+> *within* the caster families, so the `+102` total, the caster/hybrid pool share (24.4%), and
+> the v1_scope membership are UNCHANGED. Only the arcane/faith split shifts: whole-pool
+> caster-arcane 311→**317**, caster-faith 246→**240**. Single-stat invariant intact
+> (caster-arcane=INT 317/317; caster-faith=WIS 240/240).
 
 **ONE-UPDATE REVERSIBLE.** If Matt prefers cycle-14 frozen, revert with a single statement
 (rows then stay ready-but-staged; all sim_props/family/quality authoring REMAINS in place):
@@ -233,22 +267,23 @@ without inflating S. Reproducible from the ingest script (`tier_for_score`).
 | Ingest script | `agentic_orchestration/elrond/research/magic-anchor-simprops-2026-06-14/scripts/ingest_magic_anchor_simprops_2026_06_14.py` |
 | Pre-run backup | `~/Games/reincarnated-loadout/data/telemetry.db.pre-magic-anchor-simprops-2026-06-14.bak` (216 MB; full-DB rollback path) |
 | Sim-props tag | `gandalf_magic_anchor_simprops_v1_2026_06_14` (in `sim_viability_notes` + composition_trace) |
-| Rows authored | 102 `weapon_sim_props` rows (76 caster-arcane / 18 caster-faith / 8 hybrid) |
-| Quality scored | 102/102 (A 59 / B 43) |
-| v1_scope flipped | 102/102 (0→1; pool 2,499 → 2,601) — one-UPDATE reversible per § 6 |
-| Single-stat invariant | PRESERVED (caster-arcane=INT 311/311; caster-faith=WIS 246/246) |
+| Rows authored | 102 `weapon_sim_props` rows — as-authored 76 caster-arcane / 18 caster-faith / 8 hybrid; **post § 5.3+§ 5.4 adjudication 82 / 12 / 8** |
+| Quality scored | 102/102 (A 59 / B 43) — unchanged by adjudication (flips touch family/stat/template, not quality_tier) |
+| v1_scope flipped | 102/102 (0→1; pool 2,499 → 2,601) — one-UPDATE reversible per § 6; UNCHANGED by adjudication |
+| Single-stat invariant | PRESERVED (post-adjudication caster-arcane=INT 317/317; caster-faith=WIS 240/240) |
 | Gun-caster flags | 5/5 (`gun_caster_identity_forced`) |
-| Register-tension flags | 3 (`wis_caster_register_tension_scifi` — modern WIS sceptres) |
-| 50/50 calls surfaced for gandalf | 6 ritual-form-vs-occult-theology rows (§ 5.3) |
+| Register-tension flags | 3 `wis_caster_register_tension_scifi` — **RESOLVED 2026-06-14** (all 3 flipped to caster-arcane per § 5.4) |
+| 50/50 calls surfaced for gandalf | 6 ritual-form-vs-occult-theology rows (§ 5.3) — **ADJUDICATED 2026-06-14: 3 flip, 3 stay** |
+| Adjudication apply pass | 6 rows UPDATED 2026-06-14 (script `adjudicate_50_50_flips_2026_06_14.sql`); pre-pass backup `telemetry.db.pre-50-50-adjudication-2026-06-14.bak` |
 | Schema migration | NONE |
-| Status | COMPLETE (pending gandalf review of family resolutions + relay of v1_scope choice to Matt) |
+| Status | COMPLETE — sim_props authored + § 5.3/§ 5.4 adjudication applied (gandalf-ruled, Matt-approved 2026-06-14). Push pending (gandalf handles). |
 
 ### 9.1 Acceptance criteria (spec § 6) — all met
 
 1. ✅ All 102 carry a `weapon_sim_props` row with `weapon_type_family ∈ {caster-arcane, caster-faith, hybrid}` + non-null `primary_stat`.
-2. ✅ Family split honors § 2; the 5 gun-casters carry the § 5 flag.
+2. ✅ Family split honors § 2 + the § 5.3/§ 5.4 adjudication; the 5 gun-casters carry the § 5 flag; the 3 register-tension sceptres RESOLVED.
 3. ✅ `quality_tier` non-null on all 102.
-4. ✅ Pool family counts re-reported: caster-arcane 235→311, caster-faith 228→246, hybrid 70→78. (caster-faith lighter than spec's ~290 guess — content-driven, see § 5.2.)
+4. ✅ Pool family counts re-reported: caster-arcane 235→311→**317** (post-adj.), caster-faith 228→246→**240** (post-adj.), hybrid 70→78. (caster-faith lighter than spec's ~290 guess — content-driven, see § 5.2.)
 
 ### 9.2 Validation queries
 
@@ -258,7 +293,8 @@ SELECT sp.weapon_type_family, sp.primary_stat, COUNT(*)
 FROM weapon_sim_props sp JOIN weapon_knowledge_entries wke ON sp.weapon_id=wke.id
 WHERE wke.source_library LIKE 'gandalf-authored-magic-anchor%'
 GROUP BY sp.weapon_type_family, sp.primary_stat;
--- Expect: caster-arcane/INT 76 | caster-faith/WIS 18 | hybrid/STR 8
+-- Expect (post § 5.3+§ 5.4 adjudication): caster-arcane/INT 82 | caster-faith/WIS 12 | hybrid/STR 8
+--   (as-authored, pre-adjudication, was: 76 | 18 | 8)
 
 -- quality_tier non-null
 SELECT quality_tier, COUNT(*) FROM weapon_knowledge_entries
@@ -268,7 +304,7 @@ WHERE source_library LIKE 'gandalf-authored-magic-anchor%' GROUP BY quality_tier
 -- Single-stat invariant intact
 SELECT weapon_type_family, primary_stat, COUNT(*) FROM weapon_sim_props
 WHERE weapon_type_family IN ('caster-arcane','caster-faith') GROUP BY 1,2;
--- Expect: caster-arcane|INT|311 ; caster-faith|WIS|246 (no off-stat rows)
+-- Expect (post-adjudication): caster-arcane|INT|317 ; caster-faith|WIS|240 (no off-stat rows)
 
 -- Pool growth
 SELECT COUNT(*) FROM weapon_knowledge_entries WHERE v1_scope=1;  -- Expect 2601
