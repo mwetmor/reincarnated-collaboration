@@ -51,6 +51,18 @@
 
 ---
 
+## Reference set 3 — POLYGON Dark Fantasy crypt/cathedral anchor — 2026-06-15 (dark-fantasy environment + architectural-grammar anchor)
+
+**Provenance (all rows):** Synty Studios POLYGON Dark Fantasy asset-pack store-page / idea-frame imagery (the modular_asset_idea_pictures shipped with the asset pack the project licenses). Fair-use justification: genre-environment-register + architectural-grammar comparison for non-commercial internal benchmarking of the Godot descent scene built FROM this same Synty pack. Not redistributed; not embedded in any shipped product. The 7-frame `maps/` set lives in the godot repo at `reincarnated-godot/Assets/Synty/polygon-dark-fantasy-01/modular_asset_idea_pictures/maps/` (the asset-pack idea-frames — NOT copied into this tree; they are the operational reference centroid for the iter2fix/iter3 descent similarity scoring). Image #65 (the canon crypt bay Matt re-anchored on 2026-06-15) is copied into this tree as the load-bearing architectural-grammar reference.
+
+| File | State | Date | Resolution | Notes |
+|---|---|---|---|---|
+| `polygon-dark-fantasy-crypt-canon-matt-65.png` | **Crypt/cathedral bay (the canon)** — ruined gothic crypt: compound pier at left springing a traceried pointed arch set INTO the wall plane; receding arcade behind; raised gallery storey top-right (statue + gold votives + balustrade) reached by stairs; god-rays entering THROUGH the arched openings; coping-topped low walls + fallen rubble; gold-lit treasure center. | placed 2026-06-15 (Matt) | 1995×1124 | **THE architectural-grammar canon** — Matt re-anchored on this 2026-06-15 ("we've under-used its architecture — columns + arches as a coherent BUILT structure"). Scored against in `reports/2026-06-15-descent-architectural-grammar-gap.md` (the 5-dimension built-architecture GAP review). The `maps/` set twin is `8.37.53` (ref_2). |
+
+**`maps/` set companions (godot-repo-resident; the iter2fix/iter3 similarity-scoring reference centroid — registered here for provenance, files NOT copied into this tree):** 7 frames `Screenshot 2026-06-15 at 8.{36.17, 36.26, 37.53, 38.06, 40.41, 41.12, 42.08} AM.png`. Architectural-grammar standouts: `8.38.06` (cathedral interior — full arcade both sides + traceried stained-glass window row + gallery storey; the most complete grammar demonstrator); `8.42.08` (balustraded gallery storey on an arched span + window with light through it); `8.40.41` (timber post-and-beam built frame + colonnade rhythm); `8.36.17` (graveyard — mausoleum facade + coping walls + fallen rubble). **Filename caveat:** macOS screenshot names contain a U+202F narrow-no-break-space before "AM" — copy to ASCII-named temp files before any pipeline probe (the temp copies are Synty-derivative IP and must be removed post-run, never committed).
+
+---
+
 ## Galadriel reference-use rules
 
 1. **Two reference roles, post-pivot.** DoE set = **feel/HUD/service-surface** anchor (survives pivot; register-agnostic gameplay reads). 3D-stylized-ARPG set = **visual-register** anchor (post-pivot premium-stylized-3D target). Do not conflate: a Godot spike capture is scored for *register* against set 2, and for *combat-feedback density / HUD* against set 1.
