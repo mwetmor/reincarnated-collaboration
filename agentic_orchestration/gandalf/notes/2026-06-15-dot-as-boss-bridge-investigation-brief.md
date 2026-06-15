@@ -59,10 +59,10 @@ This complements the role-floor work, it does not compete with it: **role floor 
 ## 6. Roles / acceptance
 
 - **gamora:** Q1 — trace b6's boss-kill damage source (DoT ticks vs direct hits at power_tier 58).
-- **rocket:** Q2 + Q3 — does the envelope rogue's composition SELECT bleed/DoT; is the 0.12 affix flavor or primary relative to a boss HP pool.
+- **rocket:** Q2 + Q3 + **Q4** — does the envelope rogue's composition SELECT bleed/DoT; is the 0.12 affix flavor or primary relative to a boss HP pool; **AND (Q4, same pass) what is its skill-geometry / power_tier / affix profile diffed against the b6 answer key** (free on the same kit-read; the landing spot if DoT falsifies).
 - **gandalf:** design-judgment on the "primary-tier" target + which decision-tree branch we're in + whether a re-scope is warranted.
-- **KR:** route + sequence per §5; hold any change for post-role-floor clean attribution.
-- **Acceptance (diagnostic):** the three questions answered with code/sim evidence + the decision-tree branch named. NOT a balance change — that's a separate, sequenced follow-on gated on the read.
+- **KR:** route + sequence per §5; hold any change for post-role-floor clean attribution. **Q4 is NOT a separate dispatch — it rides on rocket's Q2 kit-read.**
+- **Acceptance (diagnostic):** the four questions answered with code/sim evidence + the decision-tree branch named. NOT a balance change — that's a separate, sequenced follow-on gated on the read.
 
 ---
 
