@@ -1,6 +1,6 @@
 # Dispatch — 2026-06-15 — rocket — b6-deletion Prerequisite A: adversarial/thin-pool envelope kit_size stress-run
 
-**Status:** ⛔ HELD — NOT FIRED. Teed up by KR per Matt 2026-06-15 ("you may tee up A + B, but do NOT fire them"). The "drive toward b6 deletion" go is Matt's separate call. **Do NOT pick this up until KR marks it FIRED.**
+**Status:** 🔥 FIRED — Matt authorized the drive toward b6 deletion 2026-06-15 ("Fire"); jack-ryan Gate-1 CLEAR-WITH-AMENDMENTS (finding `2026-06-15-gate1-rocket-b6-prereq-A-thin-pool-stress-run.md`, amendment folded in below).
 **From:** knight-rider
 **To:** rocket
 **Pre-fire gate:** jack-ryan Gate-1 (DESIGN-MODE) on this dispatch BEFORE it fires (Pattern-B discipline).
@@ -29,7 +29,7 @@ Re-run the kit_size floor gate (recognition record § 4.1 — geometry-only-dist
 
 ## Scope
 
-- [ ] **Math-note FIRST (Discipline #1)** — define the adversarial-pool construction (what makes it hostile: thin physical-weapon coverage, wide bc-cell spread), code-cited, and the expected floor behavior. HALT for jack-ryan Gate-2 on the result (per brief § 2 A owner line). [The pre-fire Gate-1 on THIS dispatch is separate, by jack-ryan, before firing.]
+- [ ] **Math-note FIRST (Discipline #1)** — define the adversarial-pool construction (what makes it hostile: thin physical-weapon coverage, wide bc-cell spread), code-cited, and the expected floor behavior. **HALT for jack-ryan Gate-1 on the adversarial-pool construction — MANDATORY, not conditional** (jack-ryan Gate-1 amendment: the pool-hostility construction is the load-bearing decision guarding "don't re-run a friendly pool and call it stressed"; it must be validated BEFORE the multi-day run, not only at Gate-2 after). Then HALT for jack-ryan Gate-2 on the result (per brief § 2 A owner line).
 - [ ] Construct/select the adversarial physical-weapon pool.
 - [ ] Run the § 4.1 floor gate (mechanic-pool path AST-disabled) against it; report geometry-only-distinct separately from the triple.
 - [ ] Gate-result artifact (JSON + script) parallel to the Phase-2 one.
@@ -45,4 +45,4 @@ Re-run the kit_size floor gate (recognition record § 4.1 — geometry-only-dist
 
 ## Sequence
 
-[pre-fire: jack-ryan Gate-1 on this dispatch] → rocket math-note (adversarial-pool construction) → [HALT, jack-ryan Gate-1 if math warrants] → rocket stress-run → **jack-ryan Gate-2 on the result** → KR carries A's result toward the Decision-2 both-pass tally. Prerequisite B (gamora) runs independently in parallel.
+jack-ryan Gate-1 on this dispatch ✅ CLEAR-WITH-AMENDMENTS → rocket math-note (adversarial-pool construction) → **HALT, jack-ryan Gate-1 on the adversarial-pool construction (MANDATORY)** → rocket stress-run → **jack-ryan Gate-2 on the result** → KR carries A's result toward the Decision-2 both-pass tally. Prerequisite B (gamora) runs independently in parallel.

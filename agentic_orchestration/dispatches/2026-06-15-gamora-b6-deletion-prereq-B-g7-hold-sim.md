@@ -1,6 +1,6 @@
 # Dispatch — 2026-06-15 — gamora — b6-deletion Prerequisite B: G7 HOLD-SIM sim-validation of envelope kits
 
-**Status:** ⛔ HELD — NOT FIRED. Teed up by KR per Matt 2026-06-15 ("you may tee up A + B, but do NOT fire them"). The "drive toward b6 deletion" go is Matt's separate call. **Do NOT pick this up until KR marks it FIRED.**
+**Status:** 🔥 FIRED — Matt authorized the drive toward b6 deletion 2026-06-15 ("Fire"); jack-ryan Gate-1 CLEAR-WITH-AMENDMENTS (finding `2026-06-15-gate1-gamora-b6-prereq-B-g7-hold-sim.md`, amendments folded in below).
 **From:** knight-rider
 **To:** gamora
 **Pre-fire gate:** jack-ryan Gate-1 (DESIGN-MODE) on this dispatch BEFORE it fires (Pattern-B discipline).
@@ -29,7 +29,7 @@ Weapon-as-envelope-generated physical kits must clear the balance-loop sim-valid
 
 ## Scope
 
-- [ ] **Math-note FIRST (Discipline #1)** — define the measurable sim-validation pass criterion ("viable fight" operationalized: win-rate band? fight-length band? non-degenerate damage resolution?), code-cited against `balance_loop.py`. HALT for jack-ryan Gate-1 if the criterion warrants.
+- [ ] **Math-note FIRST (Discipline #1)** — define the measurable sim-validation pass criterion ("viable fight" operationalized: win-rate band? fight-length band? non-degenerate damage resolution?), code-cited against `balance_loop.py`. **HALT for jack-ryan Gate-1 on the "viable fight" criterion — MANDATORY** (jack-ryan Gate-1 amendment: the criterion definition is the decisive act; a soft definition is the force-pass vector, so it is validated BEFORE the run).
 - [ ] Run envelope-generated physical kits through the G7 HOLD-SIM balance-loop sim-validation.
 - [ ] Report PASS / HONEST-FAIL against the operationalized criterion, with the sim metrics.
 - [ ] Confirm the cross-seam boundary is clean (envelope kits' shared-Skill-dict fields present + consumed correctly at the sim boundary; no MIGRATION needed per Gate-2 — verify, don't assume).
@@ -44,4 +44,4 @@ Weapon-as-envelope-generated physical kits must clear the balance-loop sim-valid
 
 ## Sequence
 
-[pre-fire: jack-ryan Gate-1 on this dispatch] → gamora math-note (sim-validation criterion) → [HALT, jack-ryan Gate-1 if warranted] → gamora G7 HOLD-SIM run → **jack-ryan Gate-2 on the result if it gates** → KR carries B's result toward the Decision-2 both-pass tally. Prerequisite A (rocket) runs independently in parallel. On BOTH-pass → gandalf+Matt fire-confirmation → rocket executes the b6 deletion → jack-ryan Gate-2 on the deletion.
+jack-ryan Gate-1 on this dispatch ✅ CLEAR-WITH-AMENDMENTS → gamora math-note (sim-validation criterion) → **HALT, jack-ryan Gate-1 on the "viable fight" criterion (MANDATORY)** → gamora G7 HOLD-SIM run → **jack-ryan Gate-2 on the result (UNCONDITIONAL — B is the hard cross-seam gate licensing a destructive deletion)** → KR carries B's result toward the Decision-2 both-pass tally. Prerequisite A (rocket) runs independently in parallel. On BOTH-pass → gandalf+Matt fire-confirmation → rocket executes the b6 deletion → jack-ryan Gate-2 on the deletion.
