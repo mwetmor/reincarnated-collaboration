@@ -1,10 +1,10 @@
 # Reincarnated — Visual Style Register
 
-> **STATUS:** CURRENT (load-bearing) — **REGISTER PIVOTED 2026-06-14** (see § "Register pivot" immediately below). The 2D-pixel HD-2D lock (Candidate B, locked 2026-05-15) is **SUPERSEDED**; everything below the pivot section is preserved as **archaeology**, not current truth. See `canonical/00-ground-state.md`.
+> **STATUS:** CURRENT (load-bearing) — **REGISTER PIVOTED 2026-06-14** to Godot 3D + fixed 2.5D camera; **A-vs-B sub-fork RESOLVED 2026-06-15 → A (bounded stylized-low-poly-3D / Synty register)**, measured at composite 4.50/5 (see § "Register pivot" → "A-vs-B RESOLVED → A locks"). The 2D-pixel HD-2D lock (Candidate B, locked 2026-05-15) is **SUPERSEDED**; everything below the pivot section is preserved as **archaeology**, not current truth. See `canonical/00-ground-state.md`.
 
 **Status:** **Canonical. Register PIVOTED 2026-06-14 by Matt** in Pattern B dialogue with gandalf — from the 2D-pixel HD-2D lock to **Godot 3D rendered through a fixed 2.5D camera.** The prior lock (Candidate B — hand-drawn pixel-art HD-2D-shaped, locked 2026-05-15) is retired. The new lock + the empirical trigger that overturned the old one are captured in the pivot section directly below. The 2D-lock body that follows the pivot section is preserved verbatim for decision-archaeology per this doc's own Maintenance Protocol + Pivot Insurance — read it for *lineage*, not as *current truth*.
 
-**The current locked decision (2026-06-14):** **3D assets rendered in Godot 4 through a fixed 2.5D (Diablo/ARPG isometric-ish) camera.** One sub-fork remains **spike-gated-OPEN**: **A = bounded stylized-low-poly-3D** (Synty/KayKit/voxel register; mobile-friendly; the gandalf-leaning default) vs **B = fuller-fidelity 3D** (higher poly/texture budget, still the same 2.5D camera). The A-vs-B fork resolves on a Godot vertical-slice spike, not on argument — see § "Register pivot" → "How A-vs-B resolves."
+**The current locked decision (2026-06-14, sub-fork RESOLVED 2026-06-15):** **3D assets rendered in Godot 4 through a fixed 2.5D (Diablo/ARPG isometric-ish) camera.** The A-vs-B sub-fork is **RESOLVED → A (bounded stylized-low-poly-3D; Synty register).** A Godot vertical-slice spike (drax build + galadriel scoring) measured the cheap-modular-geometry-plus-lift slice at **composite 4.50/5, both mandatory gates [lighting ≥ 4, VFX ≥ 4] at 5, 2× CV margin** → register-2 reached on register-1 geometry. Path B (fuller-fidelity / per-part hand-painting) is **demoted to a per-asset reserve lever, not the roster strategy.** See § "Register pivot" → "A-vs-B RESOLVED → A locks (2026-06-15)" below; full ruling at `agentic_orchestration/gandalf/notes/2026-06-15-godot-register2-a-holds-ruling.md`.
 
 **Companion docs (current — for the 3D register):**
 - `canonical/38-downstream-delivery-strategy-2026-05-23.md` § D1 — **CASCADE: D1 locks Unreal 5.7; the Godot pivot supersedes that engine choice. Reconciliation routed to knight-rider (NOT resolved in this doc).**
@@ -34,6 +34,37 @@
 | **A — bounded stylized-low-poly-3D** ("AD-3") | Synty Studios / KayKit / voxel-class low-poly register; flat-ish materials; stylized proportions; mobile-and-8GB-friendly; shipped-precedent-dense (the register most stylized-3D ARPGs and roguelites ship in) | **Default.** Start the spike here. |
 | **B — fuller-fidelity 3D** | Higher poly + PBR texture budget, normal maps, richer materials; still the same fixed 2.5D camera | Spike *upward* from A only if the fidelity-scaling knee proves A insufficient — see below. |
 
+### A-vs-B RESOLVED → A locks (2026-06-15)
+
+> **The sub-fork is closed. A is the register.** This subsection is the resolution; the "How A-vs-B resolves" subsection below describes the spike that produced it.
+
+**The ruling (gandalf 2026-06-15, on galadriel's measured evidence):** **A holds.** Register-1 Synty modular geometry — flat per-face color, cheapest-possible mesh — lifted in the lighting + VFX + material-shading layer and framed through the fixed 2.5D camera, **reaches register-2** (premium-stylized ARPG). Full ruling: `agentic_orchestration/gandalf/notes/2026-06-15-godot-register2-a-holds-ruling.md`.
+
+**The evidence (drax build → galadriel score):** a Godot vertical-slice — the composed Synty knight in a dark POLYGON dungeon graybox, dark-mood key/rim lighting, a body-anchored `FX_Fire_Large_01` S-tier hero-skill bloom, light-responsive procedural material, captured as a 100-frame motion sequence — scored against galadriel's register-2 rubric:
+
+| Axis | Score | CV margin |
+|---|---|---|
+| Lighting drama | **5** | LDR 231.6 (thr 115) + SHF 60.7% (thr 30%) — 2× over both |
+| VFX presence | **5** | HLF peak 14.4% (thr 1.5%) — 9.6× over |
+| Material-shading | **4** | variance distributed across lit interiors, not face-boundaries |
+| Geometry register | **4** | silhouette legible; low-poly *correct* for register-2 |
+| **Composite** | **4.50 / 5** | ≥ 3.6 PASS; **both mandatory gates [lighting ≥ 4, VFX ≥ 4] at 5** |
+
+This is the genre truth re-evidenced on our own content: Diablo II shipped premium on **sprites**; Hades reads AAA on **stylized 2D**; Torchlight Infinite (the *cheapest* geometry of galadriel's eleven reference frames) read the **most** premium. Premium ARPG feel is ~40% lighting + ~30% VFX + ~20% material + ~10% geometry — and the slice clears the bar with one hero-skill bloom and a dark-mood light rig on a zero-extra-cost modular knight. **The fidelity budget belongs in lighting + VFX, now measured, not asserted.**
+
+**What A-locking means operationally:**
+- The roster ships on **register-1 modular geometry, uniformly lifted.** No per-part hand-painting as the default path to premium.
+- The saved fidelity budget invests in **S-tier `GPUParticles3D` VFX juice + dramatic GI lighting** — the proven levers.
+- The `scenes/lift_render.tscn` lighting/VFX recipe is the **register-2 baseline recipe** for the roster, not a one-off; galadriel's rubric instruments (`register-metrics.mjs` / `lifecycle-score.mjs`) are the standing register-2 acceptance harness.
+- **Path B is DEMOTED, not deleted** — it survives as a **per-asset reserve lever**: a signature boss / marquee ascended form / Court centerpiece MAY earn selective per-part hand-painting scoped to its parts, but B is never the roster strategy.
+
+**Scope honesty (what A-holds does NOT yet claim — each a separately-gated downstream milestone):**
+1. **Non-humanoid coherence.** The slice validated a HUMANOID form on the shared rig. Doc-37 Tier-2 (skeletal: quadruped/serpentine/dragonling) + Tier-3 (non-skeletal: slime/swarm/cloud-being) are NOT proven to lift coherently beside humanoids in-frame. Residual long-pole.
+2. **Generative-self (Meshy) coherence.** A Meshy-generated whole-form must clear this same lift AND sit coherently beside Synty geometry in one frame. The curated-Synty roster is validated; the generative-self roster is a distinct coherence proof still owed.
+3. **Live combat loop.** This was a deterministic capture for the *register* question (galadriel: the bloom is pose-agnostic). An input-driven multi-form combat scene is a separate *integration* milestone.
+
+These scope the ruling; they do not weaken it. The A-vs-B question was always "does the cheap geometry read premium under the lift?" — answered **yes, measured.**
+
 ### The empirical trigger that overturned the 2D lock
 
 The 2026-05-15 lock (Candidate B, HD-2D pixel-art) was a **hypothesis** — a senior-design call made on the best available reasoning at the time (asset-library volume, isekai-genre-readability, family-pace operability). A locked register is falsifiable. Two pieces of evidence falsified it:
@@ -48,6 +79,8 @@ The 2026-05-15 lock (Candidate B, HD-2D pixel-art) was a **hypothesis** — a se
 - **Godot 4** wins on all three axes that matter now: agentic-native text scenes, 8GB-feasible rendering, native Steam-shippable binaries.
 
 ### How A-vs-B resolves (spike, not argument)
+
+> **RESOLVED 2026-06-15 → A (see the "A-vs-B RESOLVED" subsection above).** The hypothesis below was confirmed by the spike: the design bet (lock A, invest in juice) measured composite 4.50/5 with both mandatory gates at 5. This subsection is preserved as the *method* that produced the ruling.
 
 The A-vs-B fork is **partly a false binary** — premium ARPG *feel* is carried far more by VFX/lighting/impact "juice" than by mesh poly-count (Diablo II shipped premium-feeling on sprites; Hades feels AAA on stylized 2D — both via juice, not fidelity). The design hypothesis: **lock the A register and invest the saved fidelity budget into S-tier `GPUParticles3D` VFX juice → ~90% of B's premium feel at A's cost and A's mobility.** The spike tests this directly:
 
@@ -78,7 +111,7 @@ The A-vs-B fork is **partly a false binary** — premium ARPG *feel* is carried 
 4. **PC hardware stays valuable → not abandoned** — the RTX 4060 Ti / 32GB / 20-core PC becomes the **Godot render + playtest node** (the strong-GPU leg), with the 8GB Mac mini running the Python engine + agent team. "Retire Unreal" ≠ "abandon the PC."
 5. **decisions-log entry for the overturn → jack-ryan** (cross-seam pivot; ADR-002).
 6. **galadriel** — retire the Octopath/Triangle-Strategy CV reference set; re-benchmark against the new 3D-stylized-ARPG references (the two 2026 Steam titles Matt surfaced).
-7. **drax** — the Godot stylized-low-poly vertical-slice spike (the A-vs-B + auto-animation-crux resolver above).
+7. **drax** — the Godot stylized-low-poly vertical-slice spike (the A-vs-B + auto-animation-crux resolver above). **DONE 2026-06-15:** spike built (`reincarnated-godot/scenes/lift_render.tscn`), galadriel-scored 4.50/5, A-vs-B ruled → A (see "A-vs-B RESOLVED" subsection). Auto-animation/compose crux cleared on the shared Synty rig; non-humanoid Tier-2/3 retarget remains the residual.
 
 ---
 
