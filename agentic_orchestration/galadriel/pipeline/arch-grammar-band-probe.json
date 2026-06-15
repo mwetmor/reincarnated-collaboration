@@ -26,5 +26,22 @@
   "our_iter3_summary": {
     "arcadeRhythm_periodicPeaks_range": "0-1 (5 of 6 frames = 0; only zone2 = 1). NO built rhythm — consistent with scattered verticals / no arcade / no balustrade.",
     "interpretation": "edge densities are HIGH (often above reference) because our dense floor+perimeter dressing clutter generates edges — but the clutter is NOT organized into a periodic built rhythm. The probe corroborates: we have BUSYNESS, not BUILT-COHERENCE. The absence of periodic peaks across the corpus is the objective backing for the (a) load-path and (b) arcade gap reads."
+  },
+  "our_iter4_descent": {
+    "_note": "Re-run 2026-06-15 for the iter4 architectural-grammar RE-SCORE (AFTER Drax's WS2 second wave: pier->arch arcade, windows-in-wall, gallery storey + balustrade, full floor tile, rubble-only free verticals). Same probe, same threshold (40), same 6 matched set positions as iter3 (establish_01 + zone0/1/2/4/5) PLUS the 3 iter3 did not run (establish_02/03, zone3).",
+    "establish_01": {"upperBand_edgeDensity": 0.0179, "lowerBand_edgeDensity": 0.1664, "storeyRatio": 0.107, "upperBand_columnProfile_CV": 1.866, "arcadeRhythm_periodicPeaks": 0, "maxAutocorr": 0.913},
+    "establish_02": {"upperBand_edgeDensity": 0.0179, "lowerBand_edgeDensity": 0.166, "storeyRatio": 0.108, "upperBand_columnProfile_CV": 1.865, "arcadeRhythm_periodicPeaks": 0, "maxAutocorr": 0.915},
+    "establish_03": {"upperBand_edgeDensity": 0.0179, "lowerBand_edgeDensity": 0.1649, "storeyRatio": 0.108, "upperBand_columnProfile_CV": 1.864, "arcadeRhythm_periodicPeaks": 0, "maxAutocorr": 0.915},
+    "zone0_threshold_04": {"upperBand_edgeDensity": 0.1942, "lowerBand_edgeDensity": 0.2145, "storeyRatio": 0.905, "upperBand_columnProfile_CV": 0.682, "arcadeRhythm_periodicPeaks": 0, "maxAutocorr": 0.875},
+    "zone1_arcane_05": {"upperBand_edgeDensity": 0.2609, "lowerBand_edgeDensity": 0.2334, "storeyRatio": 1.118, "upperBand_columnProfile_CV": 0.5, "arcadeRhythm_periodicPeaks": 1, "maxAutocorr": 0.856},
+    "zone2_warhall_06": {"upperBand_edgeDensity": 0.2513, "lowerBand_edgeDensity": 0.275, "storeyRatio": 0.914, "upperBand_columnProfile_CV": 0.44, "arcadeRhythm_periodicPeaks": 1, "maxAutocorr": 0.778},
+    "zone3_oubliette_07": {"upperBand_edgeDensity": 0.1531, "lowerBand_edgeDensity": 0.1431, "storeyRatio": 1.07, "upperBand_columnProfile_CV": 1.298, "arcadeRhythm_periodicPeaks": 0, "maxAutocorr": 0.957},
+    "zone4_antechamber_08": {"upperBand_edgeDensity": 0.2829, "lowerBand_edgeDensity": 0.2151, "storeyRatio": 1.315, "upperBand_columnProfile_CV": 0.487, "arcadeRhythm_periodicPeaks": 0, "maxAutocorr": 0.857},
+    "zone5_sanctum_09": {"upperBand_edgeDensity": 0.2508, "lowerBand_edgeDensity": 0.2062, "storeyRatio": 1.216, "upperBand_columnProfile_CV": 0.501, "arcadeRhythm_periodicPeaks": 0, "maxAutocorr": 0.876}
+  },
+  "our_iter4_summary": {
+    "arcadeRhythm_periodicPeaks_range_matched_6set": "0-1 (4 of 6 = 0; zone1 AND zone2 = 1). iter3 was 0-1 (5/6 = 0; only zone2 = 1). The probe moved from one frame-at-peak-1 to two frames-at-peak-1 — but the MAXIMUM is still 1; it did NOT reach the reference's 2-4 band.",
+    "probe_verdict_CAVEAT_GOVERNS": "The probe did NOT discriminate the iter4 build the way it discriminated the iter3 gap, and this is a known limitation of the instrument for THIS framing — NOT evidence the arcade is absent. The probe measures vertical-edge periodicity in the UPPER THIRD of the frame as clean vertical columns; iter4's arcade/balustrade/gallery rhythm runs DIAGONALLY and FORESHORTENED across near-overhead per-zone framings (the camera looks DOWN INTO the chambers, not side-on along a colonnade), so a real periodic rhythm lands in the lower-two-thirds at an angle the upper-band column-autocorrelation cannot see. The MANUAL close-read (6x upscaled wall crops) is the gate per Discipline #4 and the method caveat, and it CONFIRMS the built arcade/storey/windows the probe under-counts — see report sections 2-3. The single objective signal that DID move correctly: zone1 went 0->1 (a balustrade/arcade rhythm now registers where iter3 read flat), corroborating the manual read that zone1 gained a real built gallery+balustrade.",
+    "edge_density_note": "edge densities remain HIGH and similar to iter3 — busyness is unchanged; the architecture build replaced clutter-edges with structure-edges at similar density, exactly why edge-density is the WRONG instrument and the manual coherence read is the gate."
   }
 }
