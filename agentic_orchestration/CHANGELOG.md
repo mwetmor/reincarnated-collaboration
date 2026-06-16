@@ -32,6 +32,17 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 - **⚠️ COORDINATION FINDING (KR → Matt):** `ARCHETYPE_TEMPLATES` is ALSO the deletion target of the pending **BC-cutover Stage 3** (CHANGELOG 2026-06-14; `2026-06-14-rocket-bc-coordinate-cutover-stage-3.md`). Convergence-retirement and BC-Stage-3 target the same symbol from opposite seams — they MUST be reconciled (merge vs. order) before either fires. Flagged in the convergence-retirement dispatch as a coordination gate; awaiting Matt's pin.
 - **New sequence:** ✅gamora → rocket b6-gen → AOE-reconciliation → convergence-retirement(+BC-Stage-3 coord) → star-lord output reconcile → jack-ryan Gate-2 across the set. Superseded 2026-06-15 b6-deletion-prereq dispatches stamped ⛔.
 
+### Re-CONSOLIDATION (same session) — gandalf path audit collapses 3 dispatches → 1 outright-delete
+
+gandalf's generative-side path audit (dispatch 2026-06-16) reframed the whole b6-stack deletion: the live 2D spatial sim feeds `season_generation_pipeline → per_skill_emitter` (entirely b6-free; physical kits generated positionally with STR scaling). The ENTIRE b6 stack is reached by exactly ONE live path — `class_generator → b6_builder.build()`, instantiated only at `season_orchestrator.py:230`, imported only by `cli.py:182` (legacy generate-season). Sever that path → `ARCHETYPE_TEMPLATES`/`BIAS_*`/`TIER_SCALING_BANDS`/`AOE_GEOMETRIES`/PHYSICAL+HYBRID templates all delete OUTRIGHT — no carve-out, no data-table re-home. **This DISSOLVES the earlier "changes convergence for every class" + "must re-home shared symbols" worries: the convergence stack is vestigial (only the legacy path reached it).**
+
+- **Consolidated dispatch authored:** `dispatches/2026-06-16-b6-stack-outright-deletion.md` (gamora Phase 1 sim-side AOE turn-off → rocket Phase 2 outright deletion; guards keep `mechanic_alteration`/`skill_tree`/`balance_loop` modules, delete only dead sub-symbols; verification gate = clean physical+caster generation, zero live grep hits, no ImportError).
+- **3 earlier 2026-06-16 dispatches stamped 🔄 SUPERSEDED-BY-CONSOLIDATION:** `rocket-b6-archetype-deletion`, `aoe-membership-reconciliation`, `convergence-retirement`.
+- **KR disk-verification of gandalf's premise:** CONFIRMED single live path (`B6KitBuilder` ← only `class_generator:21`; `ClassGenerator` ← only `season_orchestrator:30`).
+- **KR found 3 snags gandalf's audit missed, baked into the consolidated dispatch:** (1) `class_generator:21` import's `noqa` "HELD for Stage 3b" is OVERRIDDEN by the ruling; (2) **`SeasonOutput` cross-seam break** — `output/season_writer.py:16` + `output/summary_formatter.py:2` (star-lord's LIVE output seam) import `SeasonOutput` from `season_orchestrator`; deleting it wholesale breaks star-lord → re-home or confirm legacy-death FIRST; (3) **`balance_loop` is a STAYS-module** (live spatial importers: gauntlet_archive, spatial_engine) — delete convergence sub-symbols only; the empirical verification gate is the arbiter of the gamora-vs-gandalf convergence tension.
+- **BC-Stage-3 reconciliation:** the consolidated deletion SUBSUMES BC-Stage-3's `legacy_archetype_shim` + `ARCHETYPE_TEMPLATES`; its other targets checked against the surface. BC-Stage-3 to be reconciled against this, not run parallel.
+- **Status:** consolidated dispatch ready; gamora Phase 1 NOT yet fired (awaiting Matt go).
+
 ---
 
 ## 2026-06-14 — BC-coordinate-identity cutover PROGRAM launched (Stage 1 fired; three-stage sequenced)

@@ -52,3 +52,14 @@ rocket b6-gen dispatch RE-SCOPED: delete the b6 kit-GENERATION path only; leave 
 **⚠️ OPEN Matt decision:** `ARCHETYPE_TEMPLATES` is also the BC-cutover Stage-3 deletion target (`2026-06-14-rocket-bc-coordinate-cutover-stage-3.md`, pending). Convergence-retirement and BC-Stage-3 hit the same symbol — MERGE or ORDER them before either fires. Flagged in the convergence dispatch; awaiting Matt's pin.
 
 **Sequence:** ✅gamora → rocket b6-gen → AOE-reconciliation → convergence-retirement(+BC-Stage-3 coord) → star-lord → jack-ryan Gate-2 across set. **rocket b6-gen NOT yet fired** (awaiting Matt go + BC-Stage-3 coordination read).
+
+### RE-CONSOLIDATED (same session) — gandalf path audit → 1 outright-delete dispatch
+gandalf's audit: live spatial sim = `season_generation_pipeline → per_skill_emitter` (b6-free). Whole b6 stack reached by ONE legacy path (`class_generator → b6_builder → season_orchestrator:230 → cli:182`). Sever it → delete the stack OUTRIGHT (convergence stack is vestigial — DISSOLVES the "changes convergence" + "re-home shared symbols" worries + the BC-Stage-3 merge-vs-order question).
+
+**Consolidated dispatch:** `2026-06-16-b6-stack-outright-deletion.md` (gamora Phase 1 AOE turn-off → rocket Phase 2 outright delete). 3 earlier dispatches 🔄 SUPERSEDED-BY-CONSOLIDATION.
+
+**KR verified premise** (single live path) + **found 3 snags baked into the dispatch:** (1) `class_generator:21` noqa "HELD for Stage 3b" overridden; (2) **`SeasonOutput` cross-seam break** — star-lord's `season_writer.py:16` + `summary_formatter.py:2` import it from `season_orchestrator`; re-home or confirm legacy-death before deleting; (3) **`balance_loop` is a STAYS-module** (live spatial importers) — delete convergence sub-symbols only; verification gate is the arbiter.
+
+**Guards:** mechanic_alteration / skill_tree / balance_loop modules STAY (live), dead sub-symbols only. **Gate:** verification (clean physical+caster gen, zero live grep hits, no ImportError) → jack-ryan Gate-2.
+
+**Status: consolidated dispatch ready; gamora Phase 1 NOT yet fired (awaiting Matt go).**

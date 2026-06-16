@@ -1,3 +1,5 @@
+> 🔄 **SUPERSEDED-BY-CONSOLIDATION 2026-06-16.** gandalf's path audit found the convergence stack is vestigial (only the legacy season_orchestrator path reached it), so it deletes OUTRIGHT in Phase 2 of `2026-06-16-b6-stack-outright-deletion.md` (balance_loop module STAYS; convergence sub-symbols go; empirical verification gate is the arbiter). The "changes convergence for every class" concern referred to the legacy path, not the live spatial path. Do NOT execute this standalone. Retained as historical record.
+
 # Dispatch — 2026-06-16 — gamora (lead) + rocket — Convergence retirement (recompose machinery + ARCHETYPE_TEMPLATES/TIER_SCALING/BIAS)
 
 **From:** knight-rider

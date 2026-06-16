@@ -1,3 +1,5 @@
+> 🔄 **SUPERSEDED-BY-CONSOLIDATION 2026-06-16.** gandalf's path audit collapsed the b6-stack deletion into one outright-delete plan. The AOE turn-off is now Phase 1 of `2026-06-16-b6-stack-outright-deletion.md` (Matt's AOE-Gate preserved there). Do NOT execute this standalone. Retained as historical record.
+
 # Dispatch — 2026-06-16 — rocket (+ gamora hand-off) — AOE-membership reconciliation → delete AOE_GEOMETRIES
 
 **From:** knight-rider

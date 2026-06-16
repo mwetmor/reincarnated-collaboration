@@ -1,3 +1,5 @@
+> 🔄 **SUPERSEDED-BY-CONSOLIDATION 2026-06-16.** gandalf's path audit proved the whole b6 stack is dead on the live path and deletable OUTRIGHT (no carve-out, no data-table re-home) once the single legacy `season_orchestrator → cli generate-season` path is severed. rocket's generation cuts are now Phase 2 of `2026-06-16-b6-stack-outright-deletion.md`. Do NOT execute this standalone. Retained as historical record.
+
 # Dispatch — 2026-06-16 — rocket — DELETE the b6 archetype processes (generation seam)
 
 **From:** knight-rider
