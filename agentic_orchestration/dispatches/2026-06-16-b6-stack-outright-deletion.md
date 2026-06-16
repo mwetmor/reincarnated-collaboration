@@ -56,3 +56,27 @@ Turn off the use → confirm zero importers → delete. Never leave a dangling i
 
 ## Gate
 Verification gate above → jack-ryan Gate-2 across the Phase 1 + Phase 2 commits (two-witness: clean physical+caster generation + spatial-sim-green). gandalf design-endorse NOT required for the deletion (settled); the audit IS the design witness.
+
+---
+
+## Completion record — Phase 1 (gamora, 2026-06-16)
+
+**Status:** ⚖️ Matt AOE-Gate STOP — NO re-point performed. Surfaced to knight-rider for jack-ryan Gate on the membership disposition (per dispatch step 2: "If they DIFFER on any geometry … STOP and surface … this needs a jack-ryan Gate before you re-point. Do NOT silently absorb a membership change").
+
+**Membership diff result — DIFFER (the key decision point):**
+- `geometry_derivation.py` defines NO AOE-membership frozenset over the rich 24-type vocab. It owns `VALID_GEOMETRY_TYPES` (rich vocab) and `_RICH_TO_SPATIAL` (24→6 spatial enum) only. The dispatch's premise — that geometry_derivation is already a canonical AOE-membership source — does not hold on disk.
+- Both sim consumers test `skill.geometry in AOE_GEOMETRIES` over the RICH vocab. The closest derivable membership (spatial in {circle,cone,line} = `layer2_dimensions.BURST_AOE_SPATIAL_GEOMETRIES`) **DIFFERS on 5 geometries:** LOSE pack-proxy mult + GEOMETRY_COLLAPSE = `dash_attack, ground_slam, leap_strike, multi_projectile`; GAIN = `aura`. (The looser {circle,cone} derivation differs on 10.) Dying `AOE_GEOMETRIES` = 16 entries.
+- This is a behavior change to the B10.2 Model C pack-proxy AOE multiplier (`damage_resolver.py:459/:502`) and GEOMETRY_COLLAPSE ×1.5 (`combatant.py:697`) → affects win-rate vs `pack_proxy_size>0` defenders → feeds the convergence balance modifier. NOT a pure pointer move.
+
+**Re-pointed:** NOTHING. The two consumers (`damage_resolver.py:33`, `combatant.py:693`) remain on `b6_archetype_templates.AOE_GEOMETRIES`, unchanged, pending Gate disposition.
+
+**Recommendation carried to Gate:** verbatim re-home of the exact 16-entry frozenset to a surviving non-b6 module (`generation/geometry_constants.py` or `foundation/` — rocket's seam) = ZERO behavior change, b6 still dies in Phase 2. Re-confirms the v1.70 BLOCKING contract (`AOE_GEOMETRIES` must survive the b6 deletion). The spatial re-derivation is a SEPARATE deliberate balance change, out of scope for turn-off-then-delete.
+
+**Spatial smoke (unchanged baseline):** `tests/test_spatial_gauntlet_scenarios.py` → 27 passed in 0.23s. Pack-proxy / AOE membership path intact (no change made).
+
+**Artifacts:**
+- Math note: `reincarnated-engine/src/reincarnated/simulation/math/b6stack-phase1-aoe-membership-gate-2026-06-16.md`
+- MIGRATION: `reincarnated-engine/src/reincarnated/simulation/MIGRATION.md` v1.72 (NB: dispatch named v1.71, but v1.71 was already consumed by the Telegraph emit-contract entry; took next free number v1.72 — flagged to KR).
+- Tag: `gamora/v1.1-b6stack-phase1-aoe-turnoff`
+
+**Phase-2 (rocket) is BLOCKED on this Gate:** do NOT delete `b6_archetype_templates.py` until `AOE_GEOMETRIES` is re-homed per the Gate disposition and the two sim imports re-pointed.
