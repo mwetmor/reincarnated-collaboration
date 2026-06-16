@@ -21,6 +21,17 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 **Paired forward-work (SEPARATE dispatch, sequenced after/with deletion):** proxy SKILLS in chain/skill generation; proxy GEAR MODIFIERS in the capability toolkit (doc 40 §3.3 — extend `spatial-adjusting` or add proxy scope); Proxy-Commander as SET PROFILE #6 (all six profiles ship; proxy NOT deferred). gandalf authors the design spec on request.
 
+### Execution UPDATE (same session) — gamora COMPLETE + b6 file-deletion split into 3 sequenced dispatches
+
+- **gamora COMPLETE — Gate-2 PASS (engine `a8b28a1`, not pushed):** 4 files deleted (`fight_engine`, `search_estimator`, `proxy_combatant`, `batch_runner`), 1D refs excised, balance_loop atomically rewired to the 2D spatial gauntlet as sole battle path. Two-witness: clean import + 27/27 spatial scenario tests. MIGRATION v1.70 authored.
+- **gamora finding → `b6_archetype_templates.py` is NOT cleanly deletable.** It holds two data tables consumed by SURVIVING code: `AOE_GEOMETRIES` (spatial consumers `damage_resolver` + `combatant`) and `ARCHETYPE_TEMPLATES`/`TIER_SCALING_BANDS`/`BIAS_*` (balance_loop recompose machinery).
+- **Matt rulings 2026-06-16 — two follow-on dispatches authored:**
+  - **(1) AOE-membership reconciliation** (`dispatches/2026-06-16-aoe-membership-reconciliation.md`, rocket-lead + gamora hand-off, **carries a Gate**): rule canonical AOE-membership for the 4 disputed geometries → reconcile `geometry_derivation.py` as canonical authority → re-point the 2 live spatial consumers → THEN delete `AOE_GEOMETRIES`. "Do not delete until resolved."
+  - **(2) Convergence retirement** (`dispatches/2026-06-16-convergence-retirement.md`, gamora-lead + rocket, QUEUED-sequenced): remove balance_loop recompose machinery + `ARCHETYPE_TEMPLATES`/`TIER_SCALING`/`BIAS` consumers; delete it all. Changes convergence for every class → math-note + Gate-2 + gandalf endorse.
+- **rocket b6-archetype dispatch RE-SCOPED:** deletes the b6 kit-GENERATION path only (`b6_kit_builder.py` + b6 branches + sidecars); LEAVES the two shared data tables in `b6_archetype_templates.py` until dispatches (1)+(2) retire them; the file is physically deleted as the tail of whichever lands last.
+- **⚠️ COORDINATION FINDING (KR → Matt):** `ARCHETYPE_TEMPLATES` is ALSO the deletion target of the pending **BC-cutover Stage 3** (CHANGELOG 2026-06-14; `2026-06-14-rocket-bc-coordinate-cutover-stage-3.md`). Convergence-retirement and BC-Stage-3 target the same symbol from opposite seams — they MUST be reconciled (merge vs. order) before either fires. Flagged in the convergence-retirement dispatch as a coordination gate; awaiting Matt's pin.
+- **New sequence:** ✅gamora → rocket b6-gen → AOE-reconciliation → convergence-retirement(+BC-Stage-3 coord) → star-lord output reconcile → jack-ryan Gate-2 across the set. Superseded 2026-06-15 b6-deletion-prereq dispatches stamped ⛔.
+
 ---
 
 ## 2026-06-14 — BC-coordinate-identity cutover PROGRAM launched (Stage 1 fired; three-stage sequenced)

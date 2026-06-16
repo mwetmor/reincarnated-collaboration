@@ -39,3 +39,16 @@ The convergent gate from the parking lot above (§6 → real loadouts → cond.5
 **Keystone NOT orphaned:** representative-loadout keystone (§6 = 6b, Matt-ruled 2026-06-16) redirects to the 2D spatial sim; node-wire (15/5) + gear materialization carry forward unchanged. Real loadouts matter MORE in the survivor.
 
 **Paired forward-work queued (SEPARATE dispatch, after/with deletion):** proxy SKILLS (rocket, chain/skill gen) + proxy GEAR MODIFIERS (capability toolkit, doc 40 §3.3) + Proxy-Commander SET PROFILE #6 (all six ship; not deferred). gandalf authors the design spec on request — NOT yet commissioned.
+
+### Execution state (same session)
+✅ **gamora COMPLETE — Gate-2 PASS** (engine `a8b28a1`, NOT pushed). 4 files deleted + balance_loop atomically rewired to 2D spatial sole path; 27/27 spatial tests green; MIGRATION v1.70.
+
+**`b6_archetype_templates.py` is NOT a clean delete** — holds `AOE_GEOMETRIES` (spatial consumers) + `ARCHETYPE_TEMPLATES`/`TIER_SCALING`/`BIAS` (recompose machinery). Matt split the file-deletion into two gated follow-on dispatches (both authored):
+- `2026-06-16-aoe-membership-reconciliation.md` — rocket+gamora, carries a Gate. Rule 4 disputed geometries → reconcile geometry_derivation → re-point 2 spatial consumers → delete AOE_GEOMETRIES.
+- `2026-06-16-convergence-retirement.md` — gamora+rocket, QUEUED. Remove recompose machinery + ARCHETYPE_TEMPLATES/TIER_SCALING/BIAS; delete it all.
+
+rocket b6-gen dispatch RE-SCOPED: delete the b6 kit-GENERATION path only; leave the 2 data tables until the above dispatches retire them; file physically deleted last.
+
+**⚠️ OPEN Matt decision:** `ARCHETYPE_TEMPLATES` is also the BC-cutover Stage-3 deletion target (`2026-06-14-rocket-bc-coordinate-cutover-stage-3.md`, pending). Convergence-retirement and BC-Stage-3 hit the same symbol — MERGE or ORDER them before either fires. Flagged in the convergence dispatch; awaiting Matt's pin.
+
+**Sequence:** ✅gamora → rocket b6-gen → AOE-reconciliation → convergence-retirement(+BC-Stage-3 coord) → star-lord → jack-ryan Gate-2 across set. **rocket b6-gen NOT yet fired** (awaiting Matt go + BC-Stage-3 coordination read).
