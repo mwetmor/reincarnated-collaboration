@@ -1,6 +1,6 @@
 # Dispatch — 2026-06-15 — drax — Godot: render telegraphs + wire dodge input (close the round-trip)
 
-**Status:** ✅ FIRE-READY — jack-ryan Gate-1 (DESIGN-MODE) CLEAR 2026-06-15 (cleanest deferred-playtest boundary in the chain; no folds). Fires after dispatch 4 round-trip-PASSES. Gate-2 watch-item below.
+**Status:** ✅ FIRE-READY — jack-ryan Gate-1 (DESIGN-MODE) CLEAR 2026-06-15 (cleanest deferred-playtest boundary in the chain; no folds). Fires after dispatch 4 round-trip-PASSES. **v1.1 NOTE: transitively cert-gated — the whole telegraph critical path follows dispatch 3, which now gates on the 2D-cert wave (§7.4). The geometry you render is SPATIAL-MINTED commit-grade at the source; your render==JSON==sim chain (§8.1) inherits §7.4's single-geometry-source provenance. No drax-side action — the gate lives upstream at dispatch 3.** Gate-2 watch-item below.
 **From:** knight-rider
 **To:** drax (Godot battle-room seam — `reincarnated-godot/`, per WS2 precedent)
 **Pre-fire gate:** jack-ryan Gate-1 (DESIGN-MODE) on this dispatch BEFORE it fires.

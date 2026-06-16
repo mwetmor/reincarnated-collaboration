@@ -1,6 +1,6 @@
 # Dispatch — 2026-06-15 — rocket (+ gamora) — bake the guaranteed-intrinsic dodge into glass-close-ST
 
-**Status:** ✅ FIRE-READY — jack-ryan Gate-1 (DESIGN-MODE) CLEAR-WITH-AMENDMENTS 2026-06-15 (A2-1, A2-2, A2-3, CL-1 folded); fire-able on Matt's go. Parallel with dispatch 1.
+**Status:** ✅ FIRE-READY — jack-ryan Gate-1 (DESIGN-MODE) CLEAR-WITH-AMENDMENTS 2026-06-15 (A2-1, A2-2, A2-3, CL-1 folded); fire-able on Matt's go. Parallel with dispatch 1. **v1.1 NOTE: cert-INDEPENDENT — Move 2 bakes a dodge skill into composition (rocket) + verifies a sim-boundary no-op (gamora B′); it mints NO telegraph geometry and needs no certified spatial surface. Fires NOW alongside dispatch 1. The dodge it bakes is CONSUMED by the cert-gated critical path downstream (its export-survival A2-2 handoff feeds dispatch 4), but THIS dispatch does not gate on cert. The A2-2 export-survival finding is cert-INDEPENDENT to PRODUCE — surface it now; only its CONSUMER (dispatch 4) waits on the cert gate.**
 **From:** knight-rider
 **To:** rocket (primary) + gamora (coupled no-op verification, B′)
 **Pre-fire gate:** jack-ryan Gate-1 (DESIGN-MODE) on this dispatch BEFORE it fires.

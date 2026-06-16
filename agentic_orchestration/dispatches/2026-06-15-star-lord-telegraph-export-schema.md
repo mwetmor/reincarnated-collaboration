@@ -1,6 +1,6 @@
 # Dispatch — 2026-06-15 — star-lord — telegraph export to JSON + the no-drift schema contract
 
-**Status:** ✅ FIRE-READY — jack-ryan Gate-1 (DESIGN-MODE) CLEAR 2026-06-15 (best-hardened dispatch in the chain; no folds). Fires after dispatch 3 lands. Gate-2 watch-item below.
+**Status:** ✅ FIRE-READY — jack-ryan Gate-1 (DESIGN-MODE) CLEAR 2026-06-15 (best-hardened dispatch in the chain; no folds). Fires after dispatch 3 lands. **v1.1 NOTE: transitively cert-gated — dispatch 3 (the TelegraphSpec source) now gates on the 2D-cert wave (§7.4), so this dispatch's fire-moment follows it. The TelegraphSpec you serialize is SPATIAL-MINTED commit-grade geometry (`CommitGradeVerdict`-class), never 1D-estimator geometry; the no-drift contract you own (§7.1) inherits §7.4's single-geometry-source provenance at the source.** Gate-2 watch-item below.
 **From:** knight-rider
 **To:** star-lord
 **Pre-fire gate:** jack-ryan Gate-1 (DESIGN-MODE) on this dispatch BEFORE it fires.

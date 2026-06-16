@@ -1,6 +1,6 @@
 # Dispatch — 2026-06-15 — gamora — delete the archetype auto-amp; install flag-and-defer
 
-**Status:** ✅ FIRE-READY — jack-ryan Gate-1 (DESIGN-MODE) CLEAR-WITH-AMENDMENTS 2026-06-15 (A1-1, A1-2, CL-1, CL-3-related folded); fire-able on Matt's go.
+**Status:** ✅ FIRE-READY — jack-ryan Gate-1 (DESIGN-MODE) CLEAR-WITH-AMENDMENTS 2026-06-15 (A1-1, A1-2, CL-1, CL-3-related folded); fire-able on Matt's go. **v1.1 NOTE: Move 1 is INDEPENDENT of the 2D-cert wave — it carries NO cert-wave dependency and fires NOW. Only the telegraph critical path (dispatches 3/4/5) gates on cert (§7.4/§9). This dispatch is sim-internal balance-loop honesty; it touches no telegraph geometry and needs no certified spatial surface.**
 **From:** knight-rider
 **To:** gamora
 **Pre-fire gate:** jack-ryan Gate-1 (DESIGN-MODE) on this dispatch BEFORE it fires.
