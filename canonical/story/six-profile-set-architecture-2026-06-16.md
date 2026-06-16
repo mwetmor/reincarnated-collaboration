@@ -34,7 +34,7 @@ Sets are **mechanically profile-keyed (element-agnostic) and visually element-fl
 | 3 | **Stormcaller** | RESOURCE_CONVERSION · ranged · area · element-conversion | **D3 Tal Rasha's** | "The elemental engine" |
 | 4 | **Reaper** | RESOURCE_CONVERSION · mid · sustained · DoT/ailment | PoE ailment/DoT | "Attrition; they rot as they come" |
 | 5 | **Controller** | DEFENSIVE_TRADEOFF · mid/kiting · CC/zone-denial | D3 Inna's / PoE trapper | "I own the battlefield" |
-| 6 | **Proxy-Commander** | multi-spawn geometry · proxy-T4 · skill-composition summon | D2 Necro army / D3 gargantuans | "My constructs are extensions of me" |
+| 6 | **Proxy-Commander** | caster subset, proxy-DOMINANT output (hypothesis-test-flagged — § 2.6 / § 3.2) · proxy-T4 · skill-composition summon | D2 Necro army / D3 gargantuans | "My constructs are extensions of me" |
 
 ---
 
@@ -106,9 +106,9 @@ Each profile is defined by its **dominant substrate signature** (the axis that m
 
 ### 2.6 Profile 6 — Proxy-Commander (multi-spawn) — FULL MEMBER, NOT DEFERRED
 
-- **Substrate signature:** multi-spawn geometry (the proxy/summon BC bin — **now LIVE**: proxy battle is wired into the 2D spatial sim, proxy is in the T4 capstones) · proxy-keyed T4 · **summon identity from skill-composition** (weapon-as-identity § 4 three-layer model: skill-composition → summon runtime-label, D2/D4/Last-Epoch genre-true, retiring the old deferred proxy-bin).
+- **Membership signature (the load-bearing correction — Matt 2026-06-16):** unlike profiles 1–5, the Proxy-Commander is **NOT** read off a generation-time substrate predicate. It is a **subset of CASTER kits, flagged by the `proxy_primary` hypothesis test** — those whose proxies do ≥ ~0.5 of the work (`proxy_contribution_pct` measured in the 2D spatial sim). Summon skills compose into the caster rotation (`summon` is a recognized effect_category; `multi-spawn` is a substrate-voted *geometry*, **now LIVE**: proxy battle is wired into the 2D spatial sim and proxy is in the T4 capstones); the sim then measures which casters are proxy-DOMINANT. *Having a summon skill ≠ being a Proxy-Commander.* The summon identity itself is the **skill-composition-derived runtime label** (weapon-as-identity § 4 three-layer model, D2/D4/Last-Epoch genre-true). See § 3.2 for why this profile is sim-flagged, not predicate-determined. (proxy-keyed T4 carries forward unchanged.)
 - **Genre touchstone:** D2 Necromancer skeleton army, D3 Helltooth gargantuans + Inna's mystic allies, PoE summoner/totem, Last Epoch minion builds.
-- **Membership evidence (doc 48):** Wildhunter's Beast-Bond is the in-roster proto-proxy; the full profile is completed by the **proxy-add work** (proxy skills + proxy gear modifiers) Matt directed 2026-06-16 — authored as a paired design spec.
+- **Membership evidence (doc 48 + proxy-add spec):** there is no pre-built proxy-primary archetype-shape to point at — membership is established **empirically** by the proxy-add work (proxy skills + gear) plus the hypothesis test. The canonical illustration of `has-a-summon-skill ≠ is-proxy-dominant` is **Beast Taming** (Matt 2026-06-16): ONE summon skill that populates *physical-ranged hunter* kits — the hunter captures an enemy beast-type combatant and uses it as a proxy — but it *supplements* the bow rather than replacing it, so the sim is *expected* to flag it **sub-threshold**. It carries a proxy skill and is NOT a Proxy-Commander. The proxy-add spec § 4.5 authors Beast Taming; the caster-side profile is completed by the proxy-add work Matt directed 2026-06-16.
 - **Matt ruling (verbatim intent):** "we just wired proxy battle into the 2D spatial sim and we just added proxy to T4 capstones … I will not skip proxy." Doc 48's "multi-spawn DEFERRED to v1.1" is a v1-framing artifact, **superseded** under v1.1-current. Proxy is first-class.
 - **Scarcity discipline (composition with `2026-06-13-companion-as-hall-of-heroes-ally-commitment.md` corollary 1):** the Proxy-Commander's army is **generic constructs**, NOT Hall-of-Heroes ascended forms. Proxies may be *flavored* as form-echoes but must never be literal Hall entries — the singular companion's reverence must not be diluted by disposable swarms. The Proxy-Commander set amplifies the constructs; it does not summon past selves.
 - **Player consequence:** "I don't fight directly. My constructs do — and the better I command, the more they become extensions of me."
@@ -120,14 +120,26 @@ Each profile is defined by its **dominant substrate signature** (the axis that m
 The six profiles are **not assigned by a designer to kits.** They are computed:
 
 1. **A kit's substrate tuple** (BC engagement profile + T4 Category-A strategy + Category-B/C + geometry bin) is already produced by generation.
-2. **Each profile is a substrate PREDICATE** over that tuple (§ 2's "substrate signature" rows are the predicates). The predicates partition the relevant region of substrate space; a kit's tuple falls in exactly one dominant profile (with a secondary lean where tuples straddle — see § 3.1).
+2. **Each profile is a substrate PREDICATE** over that tuple (§ 2's "substrate signature" rows are the predicates). The predicates partition the relevant region of substrate space; a kit's tuple falls in exactly one dominant profile (with a secondary lean where tuples straddle — see § 3.1). **(Exception: the Proxy-Commander, profile 6, is NOT predicate-determined — it is sim-flagged on measured proxy-contribution; see § 3.2.)**
 3. **The match is the keying.** Layer 8's set-keying mechanism (preserved) reads the kit's tuple and matches it to the profile-set whose predicate it satisfies. No class layer, no smart-loot filter, no hand-assignment.
 
-This is the substrate-honest version of "six core profiles": the six are player-legible *labels* for six predicate-defined regions, and the substrate votes which region a kit lands in. Discipline #36 holds (sets key to substrate dimensions). The no-class recommitment holds (no identity layer between substrate and kit).
+This is the substrate-honest version of "six core profiles": the profiles are player-legible *labels* for substrate-defined regions, and the substrate votes which region a kit lands in. Discipline #36 holds (sets key to substrate dimensions). The no-class recommitment holds (no identity layer between substrate and kit). **Note the asymmetry:** five of the six emerge from a generation-time predicate; the Proxy-Commander (§ 3.2) is **sim-flagged** on measured contribution rather than predicate-matched — because proxy-dominance is emergent and cannot be read off the static tuple.
 
 ### 3.1 Straddle handling — dominant + lean, never forced
 
 A kit whose tuple straddles two regions (e.g., DEFENSIVE_CONVERSION + burst tempo straddles Juggernaut/Berserker) takes the profile its **dominant** axis selects, and may *benefit partially* from the adjacent profile's set (2pc only — the entry bonus) without completing it. This mirrors D3's "you can run a 2pc of one set + a 6pc of another" flexibility and PoE's hybrid builds. **We do not force a kit into a profile its substrate doesn't support** — that would be the categorical pre-imposition the substrate-led discipline retired. The semantic-layer rep-audit discipline (OP § 4.4) applies: audit the profile assignment at the rep level, not just the geometry-purity score.
+
+### 3.2 Proxy-Commander is sim-FLAGGED, not generation-predicate-determined (corrected per Matt 2026-06-16)
+
+Profiles 1–5 emerge from a generation-time substrate predicate over the kit tuple (§ 3, step 2). The Proxy-Commander does not — and the earlier framing that treated "multi-spawn geometry" as its tuple-predicate was a drift Matt corrected. The honest mechanism:
+
+1. **Add proxy/summon skills to the caster rotation** (generation; ships now — the "I will not skip proxy" deliverable). One summon skill, **Beast Taming**, also populates the physical-ranged hunter rotation (proxy-add spec § 4.5).
+2. **The `proxy_primary` hypothesis test** — run in the 2D spatial sim on a proxy CONTRIBUTION measure — **flags which caster kits are proxy-DOMINANT** (proxies do ≥ ~0.5 of the work).
+3. **The flagged kits ARE the Proxy-Commander members** — they get the #6 set + the proxy-primary T4 capstone skills.
+
+**Proxy-primary kits are a subset of CASTER kits, not a separated tuple.** You cannot read proxy-dominance off the static tuple — *having a summon skill ≠ being proxy-dominant* (a caster with one minor summon among many is not; a Beast-Taming hunter supplementing its bow is not). Only the sim, measuring where the kit's output actually comes from, can flag it. **The test is the assignment engine, not an obstacle the profile "ships around."**
+
+**Why this asymmetry is correct, not a special-case hack.** Proxy-dominance is *emergent* — it lives in measured behavior, not in the generation-time coordinate. This is exactly the regime the golden-oracle architecture covers (the spatial sim is the behavioral-identity authority) and the weapon-as-identity § 4 model already locks (summon = a skill-composition-derived RUNTIME label, not a generation-time class). Reading the profile off a tuple-predicate would have re-imposed the very generation-time class the canon retired — so sim-flagging *is* the substrate-led move here, with the *behavioral* substrate (the sim) casting the vote instead of the *generative* substrate (the tuple). Whether `proxy_primary` is implemented as a 4th `Architecture` enum value or as a runtime flag layered on the kit's caster architecture is rocket's call (proxy-add spec § 8); membership resolves either way.
 
 ---
 
