@@ -52,3 +52,30 @@ cond.4 PASSED as a **gate-read** (wired-not-default + mint), but **per Matt's D1
 ---
 
 **Author:** knight-rider, 2026-06-13. Export-side consume of the W-D commit-grade mint, with the §6.4-open discrimination caveat enforced so provenance-grade is not mistaken for identity-truth.
+
+---
+
+## Completion record
+
+**Completed by:** star-lord, 2026-06-16
+**Commit:** (pending — tag star-lord/v-wd-export-1)
+**Gate-2:** pending (jack-ryan — consume boundary + round-trip + additive migration)
+
+### What was done
+
+- `consume_spatial_commit_grade_verdict(raw_verdict: dict) → ExportCommitGradeVerdictDocument` added to `export/schemas.py`. Wires the W-D produce→consume loop: takes gamora's CommitGradeVerdict dict, constructs ExportCommitGradeVerdictDocument, admits via `admit_bc_for_identity()`.
+- §6.4-open semantics enforced in docstring and test assertions: provenance-grade (fidelity=commit, engine=spatial), NOT identity-certified. No `identity_certified` / `measures_the_kit` attributes present.
+- `_V2_18` migration block authored in `telemetry/migrations.py` (`ALTER TABLE spatial_fight_results ADD COLUMN total_displacement REAL NOT NULL DEFAULT 0.0`). NOT applied (ADR-006 gate; DB empty; v2.17 still pending Matt auth).
+- `export/MIGRATION.md §v1.78-wd-export-consume` authored (field-for-field reconciliation to v1.31, §6.4-open guard, additive-migration disposition, round-trip smoke result).
+- `consume_spatial_commit_grade_verdict` exported from `export/__init__.py`.
+
+### Round-trip smoke result (Principle 6)
+
+Real `commit_grade_verdict` from `output/wd-six-axis-measure-2026-06-13.json` (gamora 5ec33bb; K2_radius_aoe; scenario_set_hash `bcc55cf1edc05d3f`):
+- (a) Admitted as commit-grade provenance: PASS
+- (b) NOT advertised as identity-certified: PASS
+- 11/11 new tests PASS; 32/32 combined PASS; 0 regressions
+
+### Additive-migration disposition
+
+ENUMERATE+DOCUMENT (not apply). `spatial_fight_results.total_displacement` now in `_V2_18` migration block in `migrations.py`. Production DB is empty; apply blocked by ADR-006 pending Matt auth (same gate as v2.17). Writer update (SqliteSpatialTelemetryWriter) is a follow-on to the DB apply dispatch.
