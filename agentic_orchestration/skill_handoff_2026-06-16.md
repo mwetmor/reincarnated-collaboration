@@ -20,3 +20,22 @@ W-E already CLOSED (Matt ratified 2026-06-14); M1.3.5 was the real 1D-delete blo
 
 ## Pushed
 Wave 1/2/4 closes pushed (engine + collab) per charter pre-authorization. Cycle-14 working tree left dirty/untouched (`git add <specific files>` only).
+
+---
+
+## LATER (same session) — 1D sim + b6 RETIRED (Matt directive via gandalf); deletion dispatches authored
+
+The convergent gate from the parking lot above (§6 → real loadouts → cond.5(1D) + Option1(b6) prove-then-delete) was **dissolved by Matt directive**, not resolved through it. Matt RETIRED the 1D battle sim + b6 archetype processes outright. **Debate closed; NOT gated on cond.5 / b6-parity / g7-hold-sim / any prior gate.** Rationale: the 2D spatial sim IS the real battle sim (proxy wired in, in T4 capstones); 1D is genuinely superseded; Cycle-14's loadout-blind 1D premise is what made it near-meaningless. **v1 skipped; v1.1 current.**
+
+**The 2026-06-15 prove-then-delete verdict (HONEST_FAIL → "b6 STAYS") is MOOTED** — it measured b6 through the retired 1D instrument. Three 2026-06-15 dispatches stamped ⛔ SUPERSEDED. The parking-lot items "b6 accept-vs-investigate fork" and "cond.5 (1D)" are CLOSED (deletion supersedes both).
+
+**Three deletion dispatches authored (engine-runnable sequencing):**
+- `2026-06-16-gamora-1d-sim-b6-deletion.md` (FIRST/keystone — kernel delete + balance_loop→spatial atomic rewire + sim-side b6 + `simulation/MIGRATION.md` + math-note HISTORICAL stamps)
+- `2026-06-16-rocket-b6-archetype-deletion.md` (SECOND — generation b6 + sidecars + `generation/MIGRATION.md`)
+- `2026-06-16-star-lord-b6-output-reconcile.md` (THIRD — output b6 + `export/MIGRATION.md` reconcile)
+
+**Launch:** gamora first (keystone writes MIGRATION the others read), then rocket, then star-lord. Each: `cd ~/Games/reincarnated-engine && claude --agent <name>`. **Gate:** jack-ryan Gate-2 two-witness (clean-build + spatial-sim-green) after the set. gandalf design-endorse NOT required for the deletion.
+
+**Keystone NOT orphaned:** representative-loadout keystone (§6 = 6b, Matt-ruled 2026-06-16) redirects to the 2D spatial sim; node-wire (15/5) + gear materialization carry forward unchanged. Real loadouts matter MORE in the survivor.
+
+**Paired forward-work queued (SEPARATE dispatch, after/with deletion):** proxy SKILLS (rocket, chain/skill gen) + proxy GEAR MODIFIERS (capability toolkit, doc 40 §3.3) + Proxy-Commander SET PROFILE #6 (all six ship; not deferred). gandalf authors the design spec on request — NOT yet commissioned.

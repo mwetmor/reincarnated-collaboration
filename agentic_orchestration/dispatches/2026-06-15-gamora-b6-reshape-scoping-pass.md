@@ -1,3 +1,5 @@
+> ⛔ **SUPERSEDED 2026-06-16 — DO NOT EXECUTE.** Matt RETIRED the b6 archetype processes and the 1D battle sim outright (relayed via gandalf). b6-reshape is moot — b6 is being DELETED, not reshaped; the prove-then-delete / reshape fork is closed. See `2026-06-16-gamora-1d-sim-b6-deletion.md`. Retained as historical record only.
+
 # Dispatch — 2026-06-15 — gamora — b6-reshape scoping pass (per-tier-shape degeneracy characterization)
 
 **Status:** 🔥 FIRED — Matt-authorized 2026-06-15 ("agreed on both" — push + author the reshape scoping-pass dispatch); jack-ryan Gate-1 CLEAR-WITH-AMENDMENTS (finding `2026-06-15-gate1-gamora-b6-reshape-scoping-pass.md`, commit `fdd8057`; amendments A1/A2/A3 folded below — they target the signature math-note and are re-checked at the MANDATORY signature Gate-1).

@@ -1,3 +1,5 @@
+> ⛔ **SUPERSEDED 2026-06-16 — verdict MOOTED.** This dispatch returned HONEST_FAIL → "b6 STAYS." That verdict measured b6 through the 1D sim, which Matt has now retired as the wrong instrument. b6 is being DELETED outright (relayed via gandalf 2026-06-16); the HONEST_FAIL no longer governs. See `2026-06-16-gamora-1d-sim-b6-deletion.md`. Retained as historical record only.
+
 # Dispatch — 2026-06-15 — gamora — b6-deletion Prerequisite B: G7 HOLD-SIM sim-validation of envelope kits
 
 **Status:** 🔥 FIRED — Matt authorized the drive toward b6 deletion 2026-06-15 ("Fire"); jack-ryan Gate-1 CLEAR-WITH-AMENDMENTS (finding `2026-06-15-gate1-gamora-b6-prereq-B-g7-hold-sim.md`, amendments folded in below).

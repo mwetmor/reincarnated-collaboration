@@ -1,3 +1,5 @@
+> ⛔ **SUPERSEDED 2026-06-16 — DO NOT EXECUTE.** Matt RETIRED the b6 archetype processes outright (relayed via gandalf). The thin-pool stress-run was a prove-then-delete prerequisite; that fork is closed — b6 is DELETED regardless. See `2026-06-16-rocket-b6-archetype-deletion.md`. Retained as historical record only.
+
 # Dispatch — 2026-06-15 — rocket — b6-deletion Prerequisite A: adversarial/thin-pool envelope kit_size stress-run
 
 **Status:** 🔥 FIRED — Matt authorized the drive toward b6 deletion 2026-06-15 ("Fire"); jack-ryan Gate-1 CLEAR-WITH-AMENDMENTS (finding `2026-06-15-gate1-rocket-b6-prereq-A-thin-pool-stress-run.md`, amendment folded in below).

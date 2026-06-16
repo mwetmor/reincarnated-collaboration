@@ -4,6 +4,25 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-06-16 — 1D battle sim + b6 archetype processes RETIRED (settled deletion; v1 skipped, v1.1 current)
+
+**Event:** Matt directive (relayed via gandalf dispatch to KR) RETIRES the 1D battle sim and the b6 archetype processes. **Debate closed — NOT routed back for design pushback or re-validation; NOT gated on cond.5, real-loadout re-measure, b6-parity, g7-hold-sim, or any prior gate.** Rationale (commit-record, not an invitation to reopen): the 2D spatial sim IS the real battle simulation (proxy battle wired in; proxy in the T4 capstones); the 1D sim is genuinely superseded, not provisionally vestigial; Cycle 14's loadout-blind, 1D-measured premise is what made it a near-meaningless run. v1 is skipped; **v1.1 is current.**
+
+**Supersession:** the in-flight prove-then-delete b6 work is mooted. The 2026-06-15 `b6-deletion-prereq-B-g7-hold-sim` dispatch returned **HONEST_FAIL → "b6 STAYS"** — that verdict measured b6 *through the 1D sim* (the now-retired wrong instrument) and no longer governs. Three 2026-06-15 dispatches stamped ⛔ SUPERSEDED (gamora b6-reshape-scoping, gamora prereq-B g7-hold-sim, rocket prereq-A thin-pool-stress).
+
+**KR sequencing actions (this session) — three deletion dispatches authored, engine-runnable sequencing:**
+- **gamora (FIRST, keystone):** `dispatches/2026-06-16-gamora-1d-sim-b6-deletion.md`. DELETE `fight_engine.py` + `proxy_combatant.py` + `search_estimator.py`; EXCISE 1D refs (`__init__`, `verdict_types`, `balance_loop` 5 call sites, `damage_resolver`, `effect_resolver`, `combatant`) + sim-side b6; rewire `balance_loop` to the 2D spatial gauntlet as sole battle path ATOMIC-WITH kernel deletion (thin shim in-scope). SURVIVOR: `simulation/spatial_gauntlet/`. Writes `simulation/MIGRATION.md`. Stamps b6/1D math notes `STATUS: HISTORICAL`.
+- **rocket (SECOND):** `dispatches/2026-06-16-rocket-b6-archetype-deletion.md`. DELETE `b6_archetype_templates.py` (+ confirm `b6_kit_builder.py`); EXCISE b6 branch in `composed_kit_adapter`/`d10_kit_constraints`/`ability_grammar`/`role_loader` (+ verify `archetype_composer`/`weapon_envelope_composer`/`class_generator`/`bc_target_source`); remove b6 sidecar entries. Reads gamora MIGRATION; writes `generation/MIGRATION.md`.
+- **star-lord (THIRD):** `dispatches/2026-06-16-star-lord-b6-output-reconcile.md`. EXCISE b6 in `output/season_writer.py`; reconcile `export/MIGRATION.md` against both upstream MIGRATIONs.
+
+**Keystone redirects, not orphaned:** representative-loadout keystone (real loadouts; §6 = 6b-reference-at-T4-scope-magnitude, Matt-ruled 2026-06-16) now feeds the 2D SPATIAL sim. gamora's node-investment wire (15/5, kills 0.35× floor) + rocket's gear materialization carry forward unchanged.
+
+**Gate:** jack-ryan Gate-2 on the deletion commits (two-witness: clean-build + spatial-sim-still-green). gandalf design-endorse NOT required for the deletion (Matt-settled); gandalf endorses survivor wiring on request.
+
+**Paired forward-work (SEPARATE dispatch, sequenced after/with deletion):** proxy SKILLS in chain/skill generation; proxy GEAR MODIFIERS in the capability toolkit (doc 40 §3.3 — extend `spatial-adjusting` or add proxy scope); Proxy-Commander as SET PROFILE #6 (all six profiles ship; proxy NOT deferred). gandalf authors the design spec on request.
+
+---
+
 ## 2026-06-14 — BC-coordinate-identity cutover PROGRAM launched (Stage 1 fired; three-stage sequenced)
 
 **Event:** gandalf's class-generator BC-target cutover ruling (§7, `agentic_orchestration/gandalf/notes/2026-06-14-class-generator-bc-target-cutover-ruling.md`) ratified and Matt-authorized 2026-06-14 as a three-stage multi-seam PROGRAM. The cut substitutes the `bc_target` 8-tuple for the legacy `{element}_{role}` archetype label as the shared currency across generation↔simulation: generation composes from the coordinate (`compose_kit`, built+shelved under W0.2 2026-05-21), the simulator pilots from the coordinate (bin-keyed AI), and the legacy label demotes to derived output then is deleted. The player-facing class name (`PlayerClass.name`, the end-of-pipe LLM label) is a SEPARATE artifact, already built, unaffected.
