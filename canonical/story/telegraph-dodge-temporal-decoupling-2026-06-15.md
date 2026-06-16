@@ -4,12 +4,14 @@
 
 **Date:** 2026-06-15 (Pattern-B WS1 design dialogue with Matt — the rogue/glass-close-ST coordinate question)
 **Author:** gandalf (story-and-design steward)
-**Status:** v1 — design ruling. The verdict + the three moves are LOCKED design intent (Matt-authorized). The implementation is a spawned cross-seam workstream (gamora / rocket / star-lord / Godot), NOT yet built. The viability playtest is DEFERRED behind the pipeline-completion gate (§8).
+**Status:** v1.1 — design ruling. The verdict + the three moves are LOCKED design intent (Matt-authorized). The implementation is a spawned cross-seam workstream (gamora / rocket / star-lord / Godot), NOT yet built. The viability playtest is DEFERRED behind the pipeline-completion gate (§8). **v1.1 amendment (2026-06-15):** the telegraph combat-model is locked to build as an **extension of the certified 2D spatial engine** — danger-zone *shape* is intrinsically spatial and the 1D search-estimator cannot express it; the telegraph workstream therefore sequences onto / after the separate 2D-certification wave (W-A…W-F) and consumes the *commit-grade* spatial geometry, never the soon-retired 1D path. See §6 (the constraint), §7.4 (single-source type-wall), §9 (wave dependency), and the two 2D-certification companion docs.
 **Authority:** Matt 2026-06-15 — verbatim: *"The sim is a balance-approximation of a player-piloted game. So here is my bridge solution: We load pre-move geometry (telegraph time and space) into the sim and we output it as JSON. Then we delete b6 and let the godot game prove out whether these glass kits can evade and pass their boss skill check or not."* + clarification: *"delete the archetype tag that was finding rogue needs damage amp and providing the damage amp. I want that deleted."* + *"we have special movement skills like dodge, blink, teleport. One of these should be added by design to glass-close-ST."*
 **Companion docs:**
 - `canonical/story/battle-room-presentation-decoupling-2026-06-15.md` — the SPATIAL twin. This doc is the same decoupling cut on the TIME axis (sim owns the invariant geometry; the game presents it; the player experiences what the sim balanced).
 - `agentic_orchestration/gandalf/notes/2026-06-15-rogue-arc-coordinate-confound-reframe.md` (commit b23dce3, jack-ryan-cleared) — the coordinate-confound reframe this ruling resolves.
 - `agentic_orchestration/galadriel/reports/2026-06-15-descent-architectural-grammar-gap.md` — sibling WS2 work (referenced only for the shared invariant-discipline pattern).
+- `canonical/story/2026-06-13-combat-fidelity-drift-proofing-and-2d-certification-wave.md` — the 2D-certification wave (W-A…W-F) the telegraph combat-model sequences onto / after. Certifies the 2D spatial engine as commit-grade and retires the 1D estimator (W-F). **The telegraph model is built on its output** (§6, §7.4, §9).
+- `canonical/story/2026-06-13-2d-spatial-golden-oracle-spec.md` — the golden-oracle certification spec for the 2D spatial engine; the source-of-truth the telegraph geometry must be minted from (§7.4).
 - `canonical/00-ground-state.md` — oracle (this doc registers as a new CURRENT row).
 
 ---
@@ -98,6 +100,8 @@ Two further constraints:
 
 ## 6. Move 3 — the telegraph bridge
 
+**Build it on the certified 2D spatial engine (load-bearing sequencing constraint, v1.1).** The danger-zone *shape* is intrinsically **spatial** — a cone, a circle, a line laid across tiles. The legacy 1D search-estimator (the fast-search `fight_engine` path, slated for rename to `search_estimator` and deletion at the 2D-certification wave's final item **W-F**) **cannot express a danger-zone shape** — it has no spatial geometry to place one in. Only the **certified 2D spatial engine** can. So the telegraph combat-model is built as an **extension of the 2D spatial engine**, and the telegraph workstream **sequences onto / after** the separate 2D-certification wave (W-A…W-F): it consumes the *commit-grade* spatial geometry, never the soon-retired 1D path. (This is not the telegraph wave's own item to delete the 1D engine — that deletion is W-F of the cert wave; the telegraph wave simply *depends on* a certified spatial engine being in place. See §9.) Companion: `canonical/story/2026-06-13-combat-fidelity-drift-proofing-and-2d-certification-wave.md`, `canonical/story/2026-06-13-2d-spatial-golden-oracle-spec.md`.
+
 The bridge connects the sim's balance math to the game's skill layer:
 
 1. **Telegraph geometry into the sim.** Each boss attack gets a defined **wind-up time** (how long the pre-move telegraphs before it lands) and **danger-zone shape** (the space the attack covers), wired into the sim's action resolution. *Note:* if the sim currently resolves a hit as "deal X at action tick T," this telegraph model does **not yet exist** — it is a **combat-model extension**, the load-bearing *content* (it *is* the dodge game), not JSON plumbing. Scope it as such.
@@ -111,6 +115,8 @@ The bridge connects the sim's balance math to the game's skill layer:
 **7.2 The discipline — the dodge is inert in the sim, active in Godot.** In the autobattle there is no piloting, so the dodge skill does *nothing* there — it cannot time itself to a telegraph. Therefore **the sim must STILL wall glass-close-ST and STILL flag it dodge-gated, even after the dodge is added to the kit.** Do **not** let anyone try to make the sim "model" the dodge — that re-imports the exact faking Move 1 deletes. The dodge's value realizes only in the piloted layer, which is precisely where the viability question is routed. (Operational corollary: the sim must treat a movement skill it cannot use as a clean **no-op** — not crash, not mis-cost the kit for carrying it.)
 
 **7.3 The scale boundary — Godot proves the archetype; the sim still balances per-form.** The engine generates *thousands* of glass-close-ST neighbors; the piloted game can prove the *archetype* ("does the dodge-skill-check coordinate work *in principle*") on an exemplar, but it does **not** replace the sim's per-form balancing. Once the archetype is proven, the sim can **trust** glass-close-ST as a viable coordinate and stop false-failing it. Do not conflate "proved the archetype in Godot" with "balanced every glass form."
+
+**7.4 The single geometry source — the telegraph the sim costs is minted by the certified 2D spatial engine.** The §7.1 no-drift invariant (one telegraph source, two consumers) carries a *source* requirement: that one source is the **certified 2D spatial engine**, the project's commit-grade combat-geometry authority. This is the **temporal-axis application of the drift-proofing type-wall** — exactly as the 2D-certification wave separates spatial commit-grade truth (`CommitGradeVerdict`, spatial-minted) from the 1D `SearchGradeEstimate`, the telegraph geometry the sim *costs* must be **spatial-minted, never estimator-minted.** A telegraph born on the 1D path would be a danger-zone shape with no real space to live in — drift introduced *at the source*, before the export schema (§7.1) ever sees it. Lock the source: telegraph geometry is 2D-spatial-engine output, and the telegraph workstream rides the cert wave (§6, §9) so that a *certified* spatial engine is what it extends.
 
 ## 8. The pipeline-completion gate vs the deferred playtest
 
@@ -128,9 +134,11 @@ Routed through knight-rider (sequences + authors the per-seam dispatches; seam-r
 |---|---|---|
 | **gamora** | Delete the archetype auto-amp; implement the flag-and-defer status. | Independent — can fire immediately (makes the sim honest now). |
 | **rocket** (+ gamora) | Bake the dodge intrinsic into glass-close-ST composition. (+ gamora: confirm the sim treats the movement skill as a no-op.) | Parallel. |
-| **gamora** | Telegraph combat-model — wind-up time + danger-zone shape per boss attack, wired into action resolution. The load-bearing content. | Critical path. |
+| **gamora** | Telegraph combat-model — wind-up time + danger-zone shape per boss attack, wired into action resolution. The load-bearing content. **Built as an extension of the certified 2D spatial engine (§6, §7.4); danger-zone shape is spatial and the 1D estimator cannot express it.** | Critical path — **gated on the 2D-spatial-engine certification (W-A…W-F); sequences onto / after that wave.** |
 | **star-lord** | Telegraph export to JSON; owns the no-drift schema contract (§7.1). | Critical path, after the combat-model. |
 | **Godot seam** (drax per WS2 precedent — KR confirm) | Consume telegraph JSON; render danger zones + wind-up timers; wire dodge input. | Critical path, after the export. |
+
+**Wave dependency (v1.1).** The telegraph combat-model (the gamora critical-path row) **depends on the separate 2D-certification wave** (W-A…W-F; gamora / star-lord; spec'd 2026-06-13). That wave certifies the 2D spatial engine as commit-grade and, as its **final** item **W-F**, renames/retires the 1D search-estimator (gated on golden-master pass + throughput proof). The telegraph model is built on the *certified* spatial engine — so it sequences **onto or after** the cert wave, never on the 1D path, and the telegraph wave does **not** itself own the 1D deletion. **Move 1 (delete the archetype auto-amp) carries no such dependency** — it fires immediately and independently (it makes the sim honest *now*).
 
 ## 10. Player consequence
 
