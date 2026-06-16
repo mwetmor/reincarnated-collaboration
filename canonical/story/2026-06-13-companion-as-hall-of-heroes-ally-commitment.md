@@ -4,8 +4,8 @@
 
 **Date:** 2026-06-13
 **Author:** gandalf (story-and-design steward)
-**Status:** v1 — canonical commitment. Thematic architecture locked; one bootstrap sub-question deferred (§ 7).
-**Authority:** Matt 2026-06-13 — verbatim "confirmed — form-library. confirm 1-4 too, author #5 into canon" (confirming Q8 exception-row #5; the four mechanical exception rows 1–4 confirmed in the same turn).
+**Status:** v1.1 — canonical commitment. Thematic architecture locked; season-1 bootstrap RULED **Path Pure** (Matt, 2026-06-16; § 7). T4 capstone design (Q1–Q10) now COMPLETE.
+**Authority:** Matt 2026-06-13 — verbatim "confirmed — form-library. confirm 1-4 too, author #5 into canon" (confirming Q8 exception-row #5; the four mechanical exception rows 1–4 confirmed in the same turn). **Amendment (Matt, 2026-06-16):** the § 7 season-1 bootstrap ruled **Path Pure** — "Good reframe. Let's go with path pure."
 **Companion docs:**
 - `canonical/story/2026-06-11-avatar-projection-and-hall-of-heroes-framing.md` — **the parent.** Locks Earth Self / projection / Hall of Heroes / molting vocabulary. This doc extends it: the Hall is no longer only a possession-roster; it is now also the *source of the combat companion.*
 - `agentic_orchestration/gandalf/notes/2026-06-13-q8-companion-convergence-matrix-FINAL.md` — the 68-cell convergence matrix this commitment gives thematic ground to (exception-row #5 is the seed of this doc).
@@ -25,7 +25,7 @@ Four corollaries lock with the commitment:
 1. **Proxies are NOT Hall forms** (§ 4). The summoner's army is generic constructs; the companion is a singular past self. Scarcity is the emotional engine — do not dilute it.
 2. **The companion completes a temporal triad** (§ 6): past self fights beside you (companion), future self advises you (spirit guide), present self *is* you (Earth Self in the seasonal avatar).
 3. **Companion identity is lookup-not-generation** (§ 5) — rendered from the same ascended-form records the Hall renders. D7 held.
-4. **One bootstrap sub-question is deferred** (§ 7): how does a player's *first* season have a companion when the Hall is empty? Matt design call; my lean inside.
+4. **The season-1 bootstrap is RULED Path Pure** (§ 7, Matt 2026-06-16): season 1 you fight alone; the companion layer activates season 2, when your first molt returns as your first companion. The absence is *designed*, not a gap.
 
 ---
 
@@ -87,7 +87,7 @@ Capturing this because it is a genuine recognition, not a new commitment: with t
 
 Past fights beside you; future advises you; present *is* you. The companion was the missing corner — it makes the reincarnation spine a complete temporal triangle rather than a one-way molting chain. This is the kind of structural coherence that makes a premise feel *designed* rather than assembled, and it is a strong independent argument for the Hall-sourced companion over a generic-merc alternative.
 
-## 7. Deferred sub-question — the season-1 bootstrap (Matt design call)
+## 7. The season-1 bootstrap — RULED **Path Pure** (Matt, 2026-06-16)
 
 The commitment creates exactly one downstream sequencing question. It does **not** re-open § 2 — it is a consequence of it.
 
@@ -98,7 +98,17 @@ The commitment creates exactly one downstream sequencing question. It does **not
 - **Path Pure — companion is *always* a Hall form; season 1 you fight alone.** Thematically purest: an ordinary Earth Self, first projection, no past lives yet. Season 2 then delivers a massive beat — your first ascended hero (season 1's molt) *returns* to fight beside your new form; the harvest of molting realized as companionship. **Cost:** the merc layer is dead content for every player's first season, forever.
 - **Path Two-Tier — a bonded spirit met *within* season 1 (not yet yours), upgrading to your own ascended forms as the Hall fills.** Keeps the merc layer live from season 1 (genre-conventional — D2 hands you a merc in Act 1). Creates the strongest *arc*: you begin beside a stranger-spirit, you end beside your own past lives. **Cost:** dilutes the "every companion is a self you used to be" purity to "most companions, eventually," and introduces a second companion-source concept.
 
-**My lean: Path Two-Tier** — it keeps Q8 live from minute one and the stranger→past-self escalation is, if anything, a *stronger* expression of the reincarnation arc than purity-from-the-start. But Path Pure is the more reverent reading and a legitimate choice, and this is a thematic-sequencing decision that is yours, not mine to assume. **Gating criterion:** a Matt design call (not empirical — this is a fiction-sequencing choice). Until resolved, rocket companion-generation (§ 8) should assume Hall-sourced identity and treat the season-1 source as a parameter, not hard-wire either path.
+**RULED — Path Pure (Matt, 2026-06-16).** Season 1, the player fights alone — an ordinary Earth Self on its first projection, no past lives yet. The companion layer (Q8 matrix + 4th-slot + convergence gear) activates from **season 2**, when the player's first molt returns as their first companion.
+
+This is the more reverent reading, and it converts the lone "cost" of Path Pure (a dormant season-1 slot) into a designed **absence→arrival** beat: the solitude of the first projection becomes *intentional*, and the season-2 return of your own first ascended self becomes a tentpole emotional moment — the harvest of molting realized as companionship, arriving exactly when the player has lived just enough to feel its weight. The stranger-spirit concept never enters the system; **every companion is, without dilution, a self you used to be.** The § 2 commitment holds at full strength.
+
+**Consequences (locked):**
+- **Season-1 onboarding does not teach the companion system** — it cannot; there is no companion. Companion + convergence-gear tutorialization is a **season-2 teaching moment**, staged deliberately on the first molt's return.
+- **The 4th gear slot (companion) is dormant in season 1** — render it as a sealed pedestal-in-waiting (a forward-promise), never a blank hole. PC/loadout seam consequence.
+- **rocket companion-generation: the season-1 source parameter resolves to NONE.** Companion records generate for season ≥ 2 only, drawn from the (now non-empty) Hall. The prior "treat season-1 source as a parameter" guidance is hard-ruled: season 1 = no companion record.
+- **Gating criterion: RESOLVED.** This was a fiction-sequencing call, not empirical; ruled by Matt 2026-06-16.
+
+*(Reasoning trail preserved above: Path Two-Tier was my lean for live-from-minute-one continuity; Matt ruled Path Pure for the reverence and the absence→arrival beat. Both were legitimate; the ruling is clean.)*
 
 ## 8. Build / seam consequences
 
