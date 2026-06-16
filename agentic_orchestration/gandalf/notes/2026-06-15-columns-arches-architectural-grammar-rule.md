@@ -4,7 +4,7 @@
 **Date:** 2026-06-15 (Pattern-B with Matt — second-wave battle-room presentation pass)
 **Author:** gandalf (story-and-design steward)
 **Authority:** Matt 2026-06-15 verbatim — *"the colums themselves are never standing alone (unless it is rubble) and they are part of the structure of the walls… the arches should either be used across wall tops as windows or across columns as a separate 'wall' set which is decorative but still physically bounded and built as if it was actually made as a coherent structure. Think of real architecture and use these assets as they would need to be used on a real physical building."*
-**Parent:** `canonical/story/battle-room-presentation-decoupling-2026-06-15.md` (this is a §2-adjacent refinement — it constrains HOW the wall ring + annulus dressing use columns and arches; it does NOT touch the sim-invariant). Folds into that canon once Drax builds + Galadriel validates (recognition→validate→commit).
+**Parent:** `canonical/story/battle-room-presentation-decoupling-2026-06-15.md` (this is a §2-adjacent refinement — it constrains HOW the wall ring + annulus dressing use columns and arches; it does NOT touch the sim-invariant). **FOLDED into that canon §2-bis 2026-06-15** (Drax built iter4 `ed3c1b2`; Galadriel validated `ffae02b` — architectural presence 18%→65%, all four falsifier classes cleared, register-2 improved, parity 35/35; recognition→validate→commit COMPLETE). This note remains the standalone ruling; the decoupling canon §2-bis is the load-bearing fold.
 **Reference:** POLYGON Dark Fantasy crypt scene (Image #65 — the canon we replicate).
 
 ---
