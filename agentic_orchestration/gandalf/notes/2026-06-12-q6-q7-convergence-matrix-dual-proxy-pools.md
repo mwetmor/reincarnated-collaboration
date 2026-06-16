@@ -3,7 +3,7 @@
 **Author:** gandalf
 **Date:** 2026-06-12
 **Mode:** offline matrix drafting (Pattern B follow-on; principles ratified in dialogue, matrices drafted here)
-**Status:** DRAFT for Matt exception-row review (per ruling record Q6/Q7: "gandalf drafts full matrices offline; Matt reviews exception rows only")
+**Status:** RATIFIED 2026-06-15 — all exception rows (§ 5) dispositioned by Matt; both bridge types approved as co-equal (Golem aggregative § 4.3 + Baby Good Mimic replicative § 4.3-bis). Originally drafted 2026-06-12 for exception-row review ("gandalf drafts full matrices offline; Matt reviews exception rows only"). BC-measurement sub-decisions (§ 4.3-bis) remain open for the corpus run.
 **Grounding:**
 - Ratified principles (Matt, 2026-06-12): Q6-a, Q6-b, Q7-a, Q7-b (see § 1)
 - Legolas Mode A proxy-summoner genre research (`legolas/research/2026-06-12-proxy-summoner-genre-precedent/findings.md`)
@@ -226,13 +226,15 @@ Each pool is **role-complementary and dual-damage-free** where the primary is a 
 
 **Coexists with the Golem — both bridges retained** (Matt ruling 2026-06-12). Two keystones with opposite build incentives is richer than one cleaner keystone; the diversity-vs-concentration tension is the payoff.
 
-**DRAFT pending BC-measurement keystone** — the "best" value-metric, the count-toward-Golem question, and whether a snapshot-mimic lands inside the ~0.80 proxy-primary centroid (recognition record § 5.2) all resolve at the corpus run.
+**Bridge-type status: RATIFIED co-equal to the Golem (Matt, 2026-06-15)** — the Baby Good Mimic is a full second bridge archetype, not a trail footnote. The only items still pending the BC-measurement keystone are the *tuning* sub-decisions — the "best" value-metric, the count-toward-Golem question, and whether a snapshot-mimic lands inside the ~0.80 proxy-primary centroid (recognition record § 5.2) — which resolve at the corpus run.
 
 ---
 
 ## 5. Exception rows flagged for Matt review
 
-Per the ruling ("Matt reviews exception rows only"), the items that warrant a look — everything else is mechanical application of the four ratified principles:
+> **DISPOSITION — RATIFIED (Matt, 2026-06-15):** all six items below dispositioned. **(1) Golem-as-bridge — APPROVED.** **(2) the 5 reviewable convergence rows — APPROVED, all retained** (no trim). **(3) Shielded-Augmenter reframe — APPROVED.** **(4) DUAL_PROXY § 3.1 supersession — APPROVED.** **(5) Merge-formula band [0.9, 1.1] — APPROVED.** **(6) Baby Good Mimic — UPGRADED to a ratified co-equal bridge type** (not a trail footnote). The team now carries **two ratified bridge types** — Golem (aggregative, § 4.3) and Baby Good Mimic (replicative, § 4.3-bis); the only items still open are the § 4.3-bis BC-measurement *tuning* sub-decisions (best-value metric, count-toward-Golem), resolved at the corpus run. Matrix is **ruling-complete** → folds to rocket (config) + gamora (behaviors).
+
+Per the original ruling ("Matt reviews exception rows only"), the items below warranted a look — everything else is mechanical application of the four ratified principles:
 
 1. **Golem-as-bridge-type (§ 4.3)** — the one net-new mechanic in this artifact. Worth confirming: Golem as the diversity-reward anchor, capped. *(Alternative considered: assign the bridge identity to Warcry/Buff Spirit instead — buff-scales-with-army. I chose Golem for the directer Carrion-Golem genre map; flag if you prefer the buff-spirit framing.)*
 2. **The 5 reviewable convergence rows** (§ 3.3, flagged): Tithe-Warrior, Channeler, Wellspring-Zone, Crescendo-Spirit, Capacitor-Font — utility-flavored, low combat-impact, first candidates to cut if trimming toward 30.
