@@ -33,9 +33,25 @@ Remove the b6 PATH; keep the modules' non-b6 function. Where a b6 reference is a
 - Remove b6 entries in `canonical/sidecars/atomic_substrate_registry_v1.json`
 - Remove b6 entries in `canonical/sidecars/emit_substrate_registry.py`
 
+### ⚠️ `b6_archetype_templates.py` is NOT cleanly deletable — surviving sim code imports two shared symbols (gamora finding 2026-06-16, MIGRATION v1.70)
+
+gamora's empirical inspection of the surviving simulation code found `b6_archetype_templates.py` exports two symbols consumed by code that SURVIVES the deletion. A literal "delete the file" breaks the engine at import. Per Matt's own "delete so it still runs" hygiene rule, you must re-home these BEFORE/ATOMIC-WITH deleting the b6 archetype-generation logic:
+
+1. **`AOE_GEOMETRIES` (UNCONDITIONAL re-home).** `simulation/damage_resolver.py:33` has a module-level `from ...b6_archetype_templates import AOE_GEOMETRIES`. This is a **shared AOE-geometry frozenset, NOT b6 archetype handling** — it survives. Re-home it to a non-b6 home (your call — a geometry/foundation module) and update the damage_resolver import. **If you delete `b6_archetype_templates.py` without this, the engine is un-runnable.** This is the load-bearing line.
+
+2. **`ARCHETYPE_TEMPLATES` / `TIER_SCALING_BANDS` / `BIAS_*` (recompose-lever fork — see Matt decision below).** `simulation/balance_loop.py`'s recompose levers (the B14.5 recompose secondary loop) consult these from `b6_archetype_templates.py`. Retiring them **changes convergence for every class** — that is a balance decision, not a kernel deletion, and gamora correctly did NOT touch them.
+
+**Net:** "delete the b6 archetype GENERATOR" ≠ "delete the file." Excise the b6 kit-generation logic; re-home the shared symbols the survivor needs.
+
+## ⚖️ Matt decision gate — recompose levers (resolve BEFORE you delete `b6_archetype_templates.py`)
+
+Two dispositions; KR will pin which one applies before this dispatch fires:
+- **(DEFAULT) Recompose levers SURVIVE.** Re-home `ARCHETYPE_TEMPLATES`/`TIER_SCALING_BANDS`/`BIAS_*` out of the b6 file into a surviving home; balance_loop keeps consuming them; convergence UNCHANGED. Delete only the b6 archetype-generation logic + `AOE_GEOMETRIES` re-home.
+- **(ALT) Recompose levers RETIRED too** (if Matt rules the recompose loop is part of "b6 archetype processes"). This is a SEPARATE forward dispatch — it changes convergence for every class and needs its own math-note + Gate-2. Do NOT fold it into this deletion unless KR explicitly tells you it's authorized.
+
 ## Cross-seam contract change? (Principle 6 gate — KR completed at authoring time)
 
-**YES — cross-seam.** Removing b6 archetype generation changes the kits generation hands to simulation (gamora) and what flows downstream to output (star-lord). **Read `simulation/MIGRATION.md` (gamora authors it FIRST)** to align on the b6 contract removal, then **write/append `generation/MIGRATION.md`** documenting: b6 archetype kits no longer generated; any loadout dict keys that change shape; sidecar registry entries removed. star-lord reads both before its output excise.
+**YES — cross-seam.** Removing b6 archetype generation changes the kits generation hands to simulation (gamora) and what flows downstream to output (star-lord). **Read `simulation/MIGRATION.md` § v1.70 (gamora authored it FIRST)** — it carries the `AOE_GEOMETRIES` contract + recompose-lever note. Then **write/append `generation/MIGRATION.md`** documenting: b6 archetype kits no longer generated; `AOE_GEOMETRIES` re-homed to `<path>`; recompose-lever disposition; any loadout dict keys that change shape; sidecar registry entries removed. star-lord reads both before its output excise.
 
 ## Sequencing across seams
 1. gamora — FIRST (1D kernel + balance_loop rewire + sim-side b6 excise + MIGRATION.md).
