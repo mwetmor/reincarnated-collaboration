@@ -1,0 +1,238 @@
+{
+  "scored_at": "2026-06-17T11:57:16.414Z",
+  "corpus": "iter4 CONNECTED descent — descent_iter4_{zone0..5,establish_01..03}.png — 9 SINGLE STILLS (combat camera; hero VFX FROZEN AT CHARGE).",
+  "instrument_defs": "BYTE-IDENTICAL to register-metrics.mjs / lifecycle-score-descent.mjs",
+  "method_caveat": "SINGLE-STILL captures with hero SummonGlow frozen at charge UNDER-READ VFX by construction (galadriel F1). HLF here is a capture-state artifact, NOT a clean VFX-in-motion read. VFX gate is windowing-blocked on these stills; prior_windowed_HLF (iter1 gal_descent windowed peaks) carried per zone as the fair-capture reference. The boss-arena VFX PASS was won on a 100-frame lifecycle, not a charge-still.",
+  "thresholds": {
+    "lighting": "LDR>=115 AND SHF>=30%",
+    "vfx": "HLF>=1.5%",
+    "composite_bar": "~4.0 (boss-arena PASS bar); composite>=3.6 with lighting>=4 AND VFX>=4 mandatory"
+  },
+  "frames": [
+    {
+      "tag": "zone0_threshold",
+      "file": "descent_iter4_zone0_04.png",
+      "identity": "threshold (graveyard)",
+      "footprint": "open_arena 50x50",
+      "kind": "swarm",
+      "prior_windowed_HLF": 1.565,
+      "metrics": {
+        "HFD": 11.55,
+        "LMV": 28.72,
+        "LDR": 122,
+        "SAT_mean": 0.46,
+        "SAT_std": 0.266,
+        "HLF_pct": 0.14,
+        "SHF_pct": 16.57,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": true,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.09
+      }
+    },
+    {
+      "tag": "zone1_arcane",
+      "file": "descent_iter4_zone1_05.png",
+      "identity": "arcane chamber",
+      "footprint": "magic_pack 32.7x14",
+      "kind": "near",
+      "prior_windowed_HLF": 2.958,
+      "metrics": {
+        "HFD": 12.61,
+        "LMV": 28.05,
+        "LDR": 108,
+        "SAT_mean": 0.445,
+        "SAT_std": 0.236,
+        "HLF_pct": 0.09,
+        "SHF_pct": 18.07,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.06
+      }
+    },
+    {
+      "tag": "zone2_warhall",
+      "file": "descent_iter4_zone2_06.png",
+      "identity": "war hall",
+      "footprint": "elite_pack 28x28",
+      "kind": "near",
+      "prior_windowed_HLF": 4.063,
+      "metrics": {
+        "HFD": 12.61,
+        "LMV": 23.46,
+        "LDR": 103,
+        "SAT_mean": 0.425,
+        "SAT_std": 0.233,
+        "HLF_pct": 0.132,
+        "SHF_pct": 12.76,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.09
+      }
+    },
+    {
+      "tag": "zone3_oubliette",
+      "file": "descent_iter4_zone3_07.png",
+      "identity": "oubliette (corridor)",
+      "footprint": "chokepoint 10x50",
+      "kind": "swarm",
+      "prior_windowed_HLF": 1.68,
+      "metrics": {
+        "HFD": 7.66,
+        "LMV": 16.66,
+        "LDR": 105,
+        "SAT_mean": 0.696,
+        "SAT_std": 0.334,
+        "HLF_pct": 0.059,
+        "SHF_pct": 58.15,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": true,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.04
+      }
+    },
+    {
+      "tag": "zone4_antechamber",
+      "file": "descent_iter4_zone4_08.png",
+      "identity": "antechamber (soulfire)",
+      "footprint": "mini_boss 30x30",
+      "kind": "near",
+      "prior_windowed_HLF": 3.047,
+      "metrics": {
+        "HFD": 11.93,
+        "LMV": 23.26,
+        "LDR": 116,
+        "SAT_mean": 0.443,
+        "SAT_std": 0.243,
+        "HLF_pct": 0.056,
+        "SHF_pct": 12.95,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": true,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.04
+      }
+    },
+    {
+      "tag": "zone5_sanctum",
+      "file": "descent_iter4_zone5_09.png",
+      "identity": "sanctum (boss bloom)",
+      "footprint": "boss_with_adds 30x30",
+      "kind": "near",
+      "prior_windowed_HLF": 3.927,
+      "metrics": {
+        "HFD": 11.04,
+        "LMV": 24.29,
+        "LDR": 118,
+        "SAT_mean": 0.436,
+        "SAT_std": 0.236,
+        "HLF_pct": 0.063,
+        "SHF_pct": 11.41,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": true,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.04
+      }
+    },
+    {
+      "tag": "establish_01",
+      "file": "descent_iter4_establish_01.png",
+      "identity": "establishing spine (diagonal)",
+      "footprint": "full ~247m spine",
+      "kind": "establish",
+      "prior_windowed_HLF": null,
+      "metrics": {
+        "HFD": 6.3,
+        "LMV": 12.82,
+        "LDR": 94,
+        "SAT_mean": 0.746,
+        "SAT_std": 0.319,
+        "HLF_pct": 0.079,
+        "SHF_pct": 59.64,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": true,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.05
+      }
+    },
+    {
+      "tag": "establish_02",
+      "file": "descent_iter4_establish_02.png",
+      "identity": "establishing spine (diagonal)",
+      "footprint": "full ~247m spine",
+      "kind": "establish",
+      "prior_windowed_HLF": null,
+      "metrics": {
+        "HFD": 6.29,
+        "LMV": 12.85,
+        "LDR": 94,
+        "SAT_mean": 0.746,
+        "SAT_std": 0.319,
+        "HLF_pct": 0.081,
+        "SHF_pct": 59.64,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": true,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.05
+      }
+    },
+    {
+      "tag": "establish_03",
+      "file": "descent_iter4_establish_03.png",
+      "identity": "establishing spine (diagonal)",
+      "footprint": "full ~247m spine",
+      "kind": "establish",
+      "prior_windowed_HLF": null,
+      "metrics": {
+        "HFD": 6.27,
+        "LMV": 12.74,
+        "LDR": 94,
+        "SAT_mean": 0.746,
+        "SAT_std": 0.319,
+        "HLF_pct": 0.076,
+        "SHF_pct": 59.64,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": true,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.05
+      }
+    }
+  ]
+}
