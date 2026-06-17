@@ -128,3 +128,35 @@ Interim guard holds: Phase-3 season-gen output NON-CANONICAL until Stage 2 lands
 On the 3 unimodal open shells p10/p90 is a clean band; on the 3 bimodal boss/elite shells p25/p75 excludes the `MOB_HP=1.5` low mode (adopt ONLY if gandalf judges the low mode genuine non-clear, not a defensive archetype to preserve — Discipline #13).
 
 **READY FOR GANDALF 2c BAND RULING.** Two design Qs: (1) mode-bracket on the 3 bimodal shells + `MOB_HP=1.5` separate-workstream call; (2) open-shell floor residual (empirical-anchor recommended vs RESOLVE-floor). KR routes to gandalf. v1.72 MIGRATION numbering-collision reconcile + 2d wire-in + Gate-2 still pending.
+
+---
+
+## Completion record — Stage 2d (gamora, 2026-06-16)
+
+**Status:** STAGE 2d COMPLETE — gandalf-APPROVED per-shell mobs/min band WIRED into the Phase-3 W4G gate; legacy 1D-duel 137–836 band REPLACED; RESOLVE band untouched; v1.72 numbering-collision RECONCILED; smoke PASSES. NO band re-opened (gandalf ruled). NO Gate-2 self-close. NO interim-guard lift. NO push (Matt-gated). Auto-committed in-scope under tag intent `gamora/v1.1-kpm-band-spatial-recalibration`.
+
+### What wired (the EXACT gandalf table landed)
+`ENCOUNTER_COHORT_KPM_BAND` (`gauntlet_sim.py:206`) values replaced. Per-shell band replicated across all 4 cohort columns (cohort-invariant per gandalf; gate `[shell][cohort]` lookup + `_route_tier_1` predicate UNCHANGED). Verified via import:
+- boss_with_adds [2.49, 3.78] · elite_pack [5.65, 10.00] · mini_boss [0.57, 3.30] (bimodal: p25-lo / p90-hi)
+- chokepoint_corridor [11.65, 15.88] · magic_pack [6.06, 11.43] · open_arena [9.90, 15.53] (unimodal: p10/p90)
+- Deliberate asymmetry preserved verbatim (p25-lo slog cut, p90-hi keep fast-clear tail). `SPATIAL_ENCOUNTER_KPM_BAND` (RESOLVE) UNCHANGED at all 6 shells.
+
+### Smoke (Discipline #2) — PASSES (against the 2b n=3078 mobs/min distribution, judged through the WIRED constant + real `_route_tier_1`)
+- **Central mass PASSES:** p50 / p25 / p75 IN-band on all 6 shells. Real gate routing on open_arena: p50=13.51 → `PROVISIONAL_PASS`; lo/hi edges (9.90/15.53) → `PROVISIONAL_PASS` (inclusive).
+- **Genuine non-clear (slog) REJECTS:** p5 below `lo` on all 6 shells → `REJECT`.
+- **Trivialize REJECTS:** per-shell max above `hi` on all 6 shells → `REJECT`. (open_arena kpm=20.0 → `REJECT`.)
+- Clean build/import: `gauntlet_sim` + `t4_sim_cycling`; 6-shell / 4-cohort structural asserts hold.
+
+### v1.72 numbering-collision reconcile — DONE
+AOE re-home (rocket's seam, top of MIGRATION) RETAINS v1.72; t4-repoint (gamora's seam) renumbered v1.72 → **v1.75** (number-only). New Stage-2d entry is **v1.76**. jack-ryan verifies at Gate-2.
+
+### Artifacts (committed under tag intent `gamora/v1.1-kpm-band-spatial-recalibration`)
+- Math note: `simulation/math/kpm-band-spatial-recalibration-2026-06-16-STAGE2D-BAND-WIREIN.md`
+- Code: `simulation/gauntlet_sim.py` (`ENCOUNTER_COHORT_KPM_BAND` values)
+- MIGRATION: `simulation/MIGRATION.md` v1.76 (wire-in + provenance stamp + v1.72 reconcile) + v1.75 (renumbered) + v1.73/v1.74 cross-ref updates
+- Provenance stamp (gandalf-required): bands empirically anchored to the 2026-06-16 determined-slice (`output/kpm-band-spatial-recal-full-20260616_232152.json`, n=3078); RE-FIT candidates if `MOB_HP_DIFFICULTY_MULTIPLIER` changes (composes with the separate MOB_HP workstream — documentation, not dependency).
+
+### Interim guard
+Phase-3 season-gen output stays **NON-CANONICAL until jack-ryan Gate-2 PASS** — guard LIFTS on Gate-2 PASS, NOT before, NOT self-closed here.
+
+**READY FOR JACK-RYAN GATE-2.** qa/pending submission carries: full `observed_kpm` 14-consumer audit (Stage-2a §4), sub-gate-3 zero-damage-floor interaction (`t4_sim_cycling.py:714`, WARN-not-BLOCK), and the two-witness expectation (clean build/import + healthy-slice central mass passes / slog+trivialize reject). NO push.
