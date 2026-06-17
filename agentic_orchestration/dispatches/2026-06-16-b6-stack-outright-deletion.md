@@ -88,3 +88,25 @@ Verification gate above → jack-ryan Gate-2 across the Phase 1 + Phase 2 commit
 - Tag: `gamora/v1.1-b6stack-phase1-aoe-turnoff`
 
 **Phase-2 (rocket) is BLOCKED on this Gate:** do NOT delete `b6_archetype_templates.py` until `AOE_GEOMETRIES` is re-homed per the Gate disposition and the two sim imports re-pointed.
+
+---
+
+## Completion record — Phase 1a (rocket, 2026-06-16)
+
+**Status:** ✅ DONE — verbatim re-home complete. Engine fully runnable in the interim. Phase 1b (gamora sim re-point) is now unblocked.
+
+**New home module:** `reincarnated-engine/src/reincarnated/generation/geometry_constants.py` (new, NON-b6, NOT slated for Phase-2 deletion).
+
+**Frozenset moved — BYTE-IDENTICAL (16 entries, verbatim):** confirmed by smoke. All four import paths (`geometry_constants`, the `b6_archetype_templates` re-export, the `b6_kit_builder` gen importer, the `damage_resolver` sim consumer) resolve to the SAME frozenset OBJECT (`is`-identical, not merely `==`). Membership unchanged: `{cone, circle, line, melee_arc, ground_slam, ground_targeted_circle, beam_channel, whirlwind, dash_attack, leap_strike, chain_lightning, ricochet_bounce, vortex_pull, ring, multi_projectile, fork}`.
+
+**Interim re-export approach chosen:** canonical definition lives in ONE place (`geometry_constants.py`); `b6_archetype_templates.py:385` does `from .geometry_constants import AOE_GEOMETRIES` (re-export, NOT a duplicated literal — drift is impossible). The OLD import path `b6_archetype_templates.AOE_GEOMETRIES` therefore keeps resolving until Phase 2 deletes the module. The two sim consumers were NOT touched — they stay green via the re-export until gamora re-points them in Phase 1b.
+
+**Gen-side importer updated:** `b6_kit_builder.py:24` re-pointed to `from .geometry_constants import AOE_GEOMETRIES` (b6_kit_builder itself dies in Phase 2 but imports clean until then). Sibling frozensets (`GAP_CLOSER_/CLEAVE_/ESCAPE_MOBILITY_/PERSISTENT_GEOMETRIES`, `ROTATING_ELEMENTS`, `TIER_SCALING_BANDS`) NOT touched — they die clean with b6_kit_builder.
+
+**Smoke:** import-path identity check (all 16, `is`-identical) PASS; `tests/test_spatial_gauntlet_scenarios.py` → 27 passed in 0.23s (matches gamora's pre-move baseline exactly — pack-proxy / AOE path intact).
+
+**MIGRATION:** `reincarnated-engine/src/reincarnated/generation/MIGRATION.md` — entry `[2026-06-16] b6-stack deletion Phase 1a`.
+
+**Commit / tag:** `b4a1c14` / `rocket/v1.1-b6stack-phase1a-aoe-rehome` (NOT pushed — Matt-gated).
+
+**One thing the dispatch didn't list (surfaced, not a stop):** there is a THIRD `AOE_GEOMETRIES` importer the Phase-1a scope didn't name — `simulation/balance_loop.py:2426`, a function-local import inside `_lever_geometry_mix` (alongside `ARCHETYPE_TEMPLATES`, `BIAS_PREFERRED`, `BIAS_PENALIZED`). This is NOT a surviving path: it is exactly the convergence/recompose machinery the Phase-2 guard marks for deletion (`balance_loop.py:2426` is named in the guard). It resolves fine via the interim re-export and dies with the convergence sub-symbols in Phase 2. No re-point needed in Phase 1a/1b; flagging so gamora/jack-ryan are aware it exists. No genuine SURVIVING consumer beyond the two named sim imports was found.
