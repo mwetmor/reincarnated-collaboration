@@ -71,3 +71,60 @@ Stage 1: gandalf final band ruling. Stage 2: jack-ryan Gate-2 on the threshold w
 **Interim guard restated:** Phase-3 season-gen output remains NON-CANONICAL until Stage 2 lands the gandalf-approved band (jack-ryan-gated).
 
 **READY FOR GANDALF RULING** — KR routes. Two questions: (1) instrument-level: rooms/min vs mobs/min numerator; (2) felt-rhythm: per-shell central-mass band cut. NO push (Matt-gated).
+
+---
+
+## gandalf RULING + Stage-2 SCOPE EXPANSION (gandalf ruled 2026-06-16; Matt-authorized 2026-06-16)
+
+**Headline: FIX THE INSTRUMENT BEFORE ANY BAND** (the valid non-band outcome this dispatch invited). gandalf verified the defect at code level.
+
+1. **Metric numerator → MOBS/MIN.** The Phase-3 gate is mis-wired to rooms/min (`kills = 1 if player_kill`, win-flag, `t4_sim_cycling.py:1077`). Engine already computes `mobs_killed` (`spatial_engine.py:1702`); fix is `f.kills = fr.mobs_killed`. A correctness defect, not a tuning dial — genre TMPM canon + RESOLVE-band derivation + instrument-consistency all converge. Collapses the ~5–55× divergence with `SPATIAL_ENCOUNTER_KPM_BAND` by construction.
+2. **Band → DEFERRED.** No band approved on the broken numerator. Returns to gandalf after re-characterization in mobs/min. gamora's harness/slice/stratification/proxy-surface all carry forward unchanged.
+3. **Bimodality (`MOB_HP_DIFFICULTY_MULTIPLIER=1.5`) must NOT be papered over** (Discipline #13 drift — conflating scale-artifact with slog would cull legitimate defensive archetypes). Sequenced downstream of the numerator fix; re-read on mobs/min before deciding if it's a separate `MOB_HP` reconciliation workstream.
+
+**Matt-authorized EXPANDED Stage-2 sequence:**
+- **2a (gamora):** numerator fix `f.kills = fr.mobs_killed` — Discipline #12 semantic shift; enumerate the full `StratumFightBatch.observed_kpm` consumer set + flag in MIGRATION.
+- **2b (gamora):** re-characterize same 54-kit slice in mobs/min (harness exists). Return distribution + consumer audit to KR.
+- **2c (gandalf):** KR routes the mobs/min distribution to gandalf for the per-shell felt-rhythm band ruling (bimodality handled on corrected data: p25/p75 mode-bracket vs p10/p90).
+- **2d (gamora):** wire gandalf-approved band into the Phase-3 gate.
+- **Gate-2 (jack-ryan):** on the combined semantic-shift + band wire-in; MUST verify the full `observed_kpm` consumer set (RESOLVE cert at `gauntlet_sim.py:1003/1029` is CORRECTED-by-this, not broken).
+- v1.72 MIGRATION numbering-collision reconcile stays a Stage-2 housekeeping item.
+
+Interim guard holds: Phase-3 season-gen output NON-CANONICAL until Stage 2 lands.
+
+---
+
+## Completion record — Stage 2a + 2b (gamora, 2026-06-16)
+
+**Status:** STAGE 2a + 2b COMPLETE. Instrument fixed (numerator → mobs/min), slice re-characterized in mobs/min, distribution + verdicts handed up. NO band wired (2d), NO band self-approved (2c is gandalf's). NO Gate-2 yet (jack-ryan). NO push (Matt-gated). Auto-committed in-scope.
+
+### 2a — numerator fix (Discipline #12 SEMANTIC SHIFT)
+- `t4_sim_cycling.py:1077`: `kills = 1 if fr.player_kill else 0` (rooms/min) → `kills = fr.mobs_killed` (mobs/min). Denominator (`fr.elapsed_s`) UNCHANGED. `fr.mobs_killed` verified on `SpatialFightResult` (`spatial_engine.py:1702` compute, `:1815` surface).
+- Math note: `simulation/math/kpm-band-spatial-recalibration-2026-06-16-STAGE2A-NUMERATOR-FIX.md` — full consumer audit (§4, 14 consumers) + sub-gate-3 semantic interaction (§5).
+- MIGRATION v1.74 — semantic-shift entry + consumer audit; supersedes the v1.73 rooms/min warning.
+- **Consumer-audit verdict: CLEAN — NO hidden rooms/min dependency.** Every band-comparison consumer (W4G gate `t4_sim_cycling.py:682-700/800-831`; RESOLVE cert `gauntlet_sim.py:1003/1029`; Track-1 `gauntlet_sim.py:1051`; phase7 `phase7_bridge.py`/`phase7_verdict.py`) judges against a mobs/min-derived band → all were silently MIS-comparing under rooms/min and are CORRECTED by the fix. RESOLVE cert is CORRECTED-by-this, NOT broken (as the dispatch required). One semantic INTERACTION: sub-gate-3 `_check_zero_damage_floor` (`t4_sim_cycling.py:714`) predicate `f.kills==0` shifts from "didn't clear the room" (win-flag FALSE-POSITIVE on 7/8-mob near-clears) to "killed literally zero mobs" (true zero-damage floor — its named intent). Moves TOWARD correctness; WARN-not-BLOCK so cannot harden any verdict. Flagged for jack-ryan Gate-2.
+
+### 2b — re-characterization in mobs/min (full slice)
+- Run: `output/kpm-band-spatial-recal-full-20260616_232152.json` — n_cells=3078 (= Stage-1 slice exactly), 256.6s blocking foreground (single in-session command; NOT backgrounded — the prior-two-sessions park-failure cause).
+- Characterization doc: `simulation/math/kpm-band-spatial-recalibration-2026-06-16-STAGE2B-MOBSMIN-CHARACTERIZATION.md`.
+
+**Mobs/min distribution (per-shell p50 / IQR):** boss_with_adds 2.84/1.00 · chokepoint_corridor 13.96/2.69 · elite_pack 6.95/3.58 · magic_pack 8.76/3.74 · mini_boss 1.55/2.31 · open_arena 13.51/3.48. Cohort-invariant within shell (means agree ≤0.1) → per-shell band suffices.
+
+**Bimodality verdict: PERSISTS + SHARPENED on the 3 boss/elite shells.** p10→p25 valley: boss_with_adds 9.97×, elite_pack 6.20×, mini_boss ∞ (literal zero-clear floor). UNIMODAL on chokepoint/magic/open (1.06–1.20×). The low mode is the `MOB_HP_DIFFICULTY_MULTIPLIER=1.5` HP-wall artifact (low-throughput melee vs 1.5×-inflated mob HP), shell-specific to boss/elite, ≈5–20% of cells. NOT papered over (gandalf item 3) — the multiplier IS the mechanism; whether it warrants a separate `MOB_HP` workstream is gandalf's 2c call.
+
+**RESOLVE-band convergence verdict: order-of-magnitude DIVERGENCE COLLAPSED (5–55× → 0.63–4.74×), floor residual on 3 open shells.** 3 boss/elite shells (boss_with_adds, elite_pack, mini_boss): median INSIDE RESOLVE balanced band — full convergence by construction, as gandalf predicted. 3 open shells (chokepoint, magic, open_arena): median AT/BELOW RESOLVE floor (median/floor 0.63–1.00×) — residual is a derivation-idealization gap (RESOLVE floor assumes pure 43-TMPM; spatial instrument includes travel/telegraph/approach overhead), NOT a numerator defect.
+
+**Provisional per-shell bracket (NOT self-approved — gandalf 2c rules):**
+
+| shell | p10/p90 (central 80%) | p25/p75 (mode-only) | median |
+|---|---|---|---|
+| boss_with_adds | [0.25, 3.78] | [2.49, 3.49] | 2.84 |
+| chokepoint_corridor | [11.65, 15.88] | [12.38, 15.07] | 13.96 |
+| elite_pack | [0.91, 10.00] | [5.65, 9.23] | 6.95 |
+| magic_pack | [6.06, 11.43] | [7.27, 11.01] | 8.76 |
+| mini_boss | [0.00, 3.30] | [0.57, 2.88] | 1.55 |
+| open_arena | [9.90, 15.53] | [11.08, 14.56] | 13.51 |
+
+On the 3 unimodal open shells p10/p90 is a clean band; on the 3 bimodal boss/elite shells p25/p75 excludes the `MOB_HP=1.5` low mode (adopt ONLY if gandalf judges the low mode genuine non-clear, not a defensive archetype to preserve — Discipline #13).
+
+**READY FOR GANDALF 2c BAND RULING.** Two design Qs: (1) mode-bracket on the 3 bimodal shells + `MOB_HP=1.5` separate-workstream call; (2) open-shell floor residual (empirical-anchor recommended vs RESOLVE-floor). KR routes to gandalf. v1.72 MIGRATION numbering-collision reconcile + 2d wire-in + Gate-2 still pending.
