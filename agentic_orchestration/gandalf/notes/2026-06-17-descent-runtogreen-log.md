@@ -105,6 +105,33 @@ drax implemented the key-not-fill fix: new `_build_chamber_key()` (one bright po
 - **VFX — inherited-PASS STANDS (capture-limited validator).** zone2 erupt is present + NOT washed by the relight (my prediction held), but reads ~0.2% HLF (modest mid-luminance glow, not white-hot 4% column). Same static-bake-undercounts-VFX limit as iter4 (boss-arena 4% was a LIVE capture; descent uses static bakes). Asset is zone-invariant + proven live → inheritance holds. Descent capture pipeline can't quantitatively confirm; galadriel (HLF instrument owner) reconciles the 0.2%-baked-vs-4%-live measurement.
 
 **Provisional post-Round-2 state:** lighting lift LANDED (key-not-fill works). Remaining narrowed scope for Round 3 = (a) establish blue-panel deep-wall fix, (b) zone3 contrast-confirm/punch-up if galadriel's SHF says muddy, (c) any near-chamber galadriel rejects for LDR-up-but-SHF-flat. **Awaiting galadriel iter5 re-score to converge + finalize the matrix + scope Round 3.**
+> **⚠ CORRECTED by galadriel re-score below — the "lift LANDED" provisional read was WRONG (confirmation bias). The lit volume did NOT brighten. See the galadriel-returned section.**
+
+### Round 2 — galadriel RE-SCORE RETURNED (commit `a3fe512`, not pushed) — Gate A REJECTED 0/6; gandalf eyes-on CORRECTED
+**The lift did NOT land.** Photometric verdict: 0/6 zones meet the both-axes criterion; 0/9 clear Gate A. iter5 md5-verified ≠ iter4 (genuinely re-rendered) — but the lit volume did not lift. Mean |dLDR| = 1.7 luma (almost all from zone4's −9); the other five moved ~0–1. A boss-reach key would have moved LDR +40–70 toward 176. Histogram unchanged: bright%>180 still 0.1–0.4%, p95 still ~125 vs boss ~180.
+
+| Zone | LDR Δ | SHF Δ | verdict |
+|---|---|---|---|
+| z0 threshold | +0 | +0.08 | neither axis moved |
+| z1 arcane | −1 | −0.34 | neither (LDR drifted down, still <115) |
+| z2 warhall | +0 | −0.06 | neither — visually near-identical to iter4 |
+| z3 oubliette | +0 | −0.26 | torch = RIGHT KIND, magnitude short (**SHF 57.9 — highest**) |
+| z4 antechamber | **−9** | +3.6 | **REGRESSION** — lost the PASS-grade LDR it had (116→107) |
+| z5 sanctum | +0 | +1.02 | bright present but it's frozen hero VFX, not ambient |
+
+**★ ROOT CAUSE (galadriel's one sentence): the levers changed VALUE, not KIND.** drax's keys (energy 1.9–4.2) read as local brazier-class POINTS — energy up, REACH not. The boss lever's power was RANGE 34 + soft ATTEN 1.5 = a pool that *reaches across the chamber*. Cleanest proof: zone2 (the BRIGHTEST key, 3.4/40) is near-identical to iter4 and moved LDR +0. **The fix is RANGE + ATTEN, not energy.** (My Round-2 brief §0 framing "push PAST boss's 1.5/34/1.5" inadvertently steered drax toward energy — Round-3 brief must foreground REACH.)
+
+**★ gandalf OWNS THE ERROR.** My provisional eyes-on ("key landed; zone2 warm lit-volume-in-dark; flat wash GONE") was WRONG — confirmation bias. I'd just spent the round root-causing + briefing the key fix; primed to see success, I read the pre-existing sub-180 braziers + a faint warmth shift as "the key landed." galadriel's photometry (p95 ~125 unchanged, bright%>180 ~0.2% unchanged, LDR +0) is authoritative on this luma question and corrected me. **Methodology cross-check (now proven BOTH directions):** photometric "did the lit volume brighten" → galadriel authoritative (CV home turf); semantic "does it stand / load-path" → gandalf authoritative (CV blind). R1 my scanner caught her CV-blindness (Gate B float); R2 her photometry caught my eyes-on bias (Gate A). The dual-gate works *because* the instruments check each other. **Discipline: do not read photometric success into a frame the instrument says is flat.**
+
+**Partial vindications (held up):**
+- **zone3 reframe SUPPORTED by her data.** SHF 57.9% (massively highest — genuine bright-points-in-deep-dark) + "torch-line is the RIGHT KIND, dark void between." The dread-chamber-contrast reframe holds; z3 needs torch POINTS WIDENED into POOLS (magnitude), NOT the dark identity abandoned. **Next galadriel re-score must judge z3 on the contrast criterion (high SHF + bright local pools), not the LDR-176 bar.**
+- **establish blue-panel CONFIRMED** + she adds: floors went COOLER not warm (warmCool 1.025→0.999, below neutral) + no focal payoff (magenta sanctum not anchoring the vanishing point). FAILs light AND composition.
+- **VFX non-wash VALIDATED → gate ruling FINAL.** Column pops 2.0× (bright% 0.51 vs 0.26 ambient), real warm column, brightest warm element — NOT washed. 0.2% is an undercount (3 off-peak baked frames; boss 4% was a 100-frame lifecycle peak). **VFX = inherited-PASS, FINAL, on non-wash + zone-invariance.** 4% magnitude not re-confirmable from baked frames; a windowed lifecycle erupt-capture (ember→peak→collapse) is the fair instrument IF quantitative closure is ever wanted — NOT loop-blocking.
+
+**New catch I missed:** zone4 REGRESSION (I didn't read zone4 — incomplete eyes-on). Its iter4 problem was SHF (it already had LDR 116); drax's 2.1/r36 key REDUCED fill → uniform dim → SHF "deepened" only because the whole frame darkened. **Revert first, then deepen surround.**
+
+### Round 3 — PLAN (reach-not-energy recalibration + zone2-probe-first discipline)
+Brief staged: `agentic_orchestration/gandalf/notes/2026-06-17-descent-round3-lighting-recalibration-brief.md`. Core: (1) **zone2-calibration-probe FIRST** — drax self-measures candidates against galadriel's COMMITTED scorer (`register2-score-descent-iter5.mjs`) until p95 climbs ~125→~180 + bright%>180 climbs from ~0.2%, BEFORE blind-relighting all 6 (math-before-code / smoke-test-one-seed). (2) reaching CombatFill-class pool (range ~34, atten ~1.5) for all zones. (3) zone4 REVERT then deepen. (4) zone3 widen torch points→pools (contrast reframe). (5) establish: warm floors + kill/resolve blue deep-wall panels + plant magenta focal payoff.
 
 ---
 
