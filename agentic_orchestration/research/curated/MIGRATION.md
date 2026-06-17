@@ -7,6 +7,63 @@
 
 ---
 
+## v1.11.1 — synty_catalogue.db WAVE 2: 21 extracted-unitypackage packs indexed (no schema change) — 2026-06-17
+
+### What changed (one line)
+
+The 21 no-FBX Synty packs (variant=Unity, native `has_fbx=0`) were downloaded as `.unitypackage` files and **knight-rider extracted their meshes into a LOOSE FBX TREE** (not zips) at `~/Games/synty-corpus/nonfbx_extracted/<PACK_FOLDER>/Assets/Synty/.../Models/*.fbx` (8,655 FBX + 11,930 textures, 2.8 GB). The populate script gained a **second scan path** (`nonfbx` mode — walks the directory tree instead of `unzip -l`-ing zips) and a WAVE-2 classifier (`classify_asset_loose`). All 21 packs + 8,655 mesh assets are now indexed. **No schema change** — `packs`/`assets`/`textures`/`schema_meta` are unchanged at v1.0; this is a pure data-population pass keyed on the existing `(collection_id, download_id)` identity, so it is idempotent and additive to the WAVE-1 136 packs (which stay untouched).
+
+### Catalogue totals after WAVE 2
+
+- **Packs: 157** (136 WAVE-1 zip-backed `source='synty-store'` + 21 WAVE-2 loose-tree `source='synty-store-unitypackage'`).
+- **Assets: 62,281** (53,626 WAVE-1 + 8,655 WAVE-2).
+- **structural_class: 156 monolithic / 1 modular** (the lone modular pack remains the WAVE-1 Modular Fantasy Hero pack; all 21 WAVE-2 packs are monolithic — none ship per-slot body parts or `_Texture_Mask`).
+
+### Integrity (path-index + count check) — PASS
+
+Every WAVE-2 `assets` row resolves to a real file under `nonfbx_extracted/`: **8,655 paths checked, 0 misses.** Per-pack FBX counts **match `~/Games/synty-corpus/extract.log` exactly for all 21 packs** (the integrity target). `verify` mode now runs both waves: WAVE-1 zip-backed (157→packs reported as 157 incl. WAVE-2 by the zip-existence pass, 0 zip-misses for WAVE-1 source) + WAVE-2 loose-tree (21 packs / 8,655 assets / 0 path-misses).
+
+### WAVE-2 naming convention differs from WAVE-1 SourceFiles (why a second classifier)
+
+Unity-export FBX lack the `SK_` skeletal prefix that the WAVE-1 SourceFiles packs use. The WAVE-2 conventions, all handled by `classify_asset_loose` (the WAVE-1 `classify_asset` is left untouched):
+
+| WAVE-2 pattern | asset_type | note |
+|---|---|---|
+| `Characters.fbx` / `Generic_Characters.fbx` / `Characters_<Variant>.fbx` | character (slot=whole_character) | baked monolithic appearance-unit (Unity export bakes the whole char into one FBX) |
+| `SM_(Gen_)Chr_Attach_*` | armor_part + **is_accent=1** | the silhouette-breaker accent layer — hats / hair / beards / masks / glasses |
+| `SM_(Gen_)Wep_*` | weapon | |
+| `SM_(Gen_)<Bld\|Env\|Veh\|Fol\|Tree\|Tile>_*` | environment | |
+| `SM_(Gen_)<Prop\|Item>_*` | prop | |
+| `SM_(Gen_)<UI\|FX\|...>_*`, `FX_*`, `Sphere*`, `Animations*` | other | |
+| OLDER SIMPLE-line bare prefixes (`Building_`/`Vehicle_`/`Env_`/`road`/`Prop_`/`Item_`/`Sign*`…) | environment / prop | the SIMPLE packs predate the `SM_` prefix |
+| `SI_Letter`/`SI_Symbol`/`SI_Number`/`*Icon` | other | Props-pack 2D-icon-as-mesh family |
+| Shop-Interiors `SI_*` / Simple-Temples `ST_*` | prop | product-line prefixes (icon check fires first to resolve the `SI_` collision) |
+
+### Provenance (source-anchored discipline)
+
+Every WAVE-2 pack is stamped `source='synty-store-unitypackage'` (distinct from WAVE-1 `'synty-store'`) and `corpus_rel_path='nonfbx_extracted/<folder>'`; each pack `notes` records `extracted-from-unitypackage (variant=Unity, native has_fbx=0); meshes extracted by knight-rider 2026-06-17`. Each WAVE-2 asset `notes='extracted-from-unitypackage'`. The `has_fbx` flag stays **0** on these packs (it reflects NATIVE Synty variant availability per the manifest — these never shipped a native FBX SourceFiles download; the indexed meshes are extracted, not native). `has_unity=1`. This keeps the variant-availability columns truthful while the path index points at the extracted tree.
+
+### Survey-accurate findings (reporting what EXISTS, not what "should" be there)
+
+- **POLYGON MINI - Fantasy Pack ships ZERO character meshes** in this extraction. The dispatch hint listed it character-relevant (`Generic_Characters.fbx` expected), but the extracted tree is entirely `SM_Bld_*` / `SM_Tile_*` / `SM_Env_*` / `SM_Prop_*` + FX (892 FBX, 0 character, 0 accent). It populates as an environment/prop pack — which is what is actually on disk. (The MINI product-line character minis were evidently not in this no-FBX Unity download.)
+- **The shared `PolygonGeneric` module rides along in nearly every POLYGON pack.** Even environment-leaning packs (Nature Pack) carry `Generic_Characters.fbx` (1 character mesh) + ~22 `SM_Gen_Chr_Attach_*` generic accents because the Generic module is bundled. This produces a baseline of ~1 generic character + ~22 generic accents per POLYGON pack on top of each pack's themed content. Kids Pack (184 accents) and Battle Royale (89) carry large pack-specific accent sets on top of the generic baseline.
+- **No `_Texture_Mask` in any WAVE-2 pack** (verified) → all `recolor_scheme='whole_atlas_swap'`, consistent with the page-1 named monolithic packs. The per-region 5-zone mask lever stays unique to the WAVE-1 Modular Fantasy Hero pack.
+
+### Regeneration
+
+`synty_catalogue.db` stays **gitignored** (`curated/.gitignore` ignores `*.db`). Committed source-of-truth is the populate script + this MIGRATION entry. Full deterministic rebuild from on-disk corpus + committed manifest:
+```
+python3 build_synty_catalogue_2026_06_17.py full     # WAVE 1 (136 zip packs)
+python3 build_synty_catalogue_2026_06_17.py nonfbx   # WAVE 2 (21 extracted packs)
+```
+Both modes are idempotent (upsert-keyed on `(collection_id, download_id)`); order-independent.
+
+### Downstream hooks (unchanged from v1.11)
+
+All WAVE-2 packs default `incorporation_status='NOT_INCORPORATED'`; `distinctiveness_score` NULL (galadriel's seam — hook only). No incorporation event has occurred.
+
+---
+
 ## v1.11 — synty_catalogue.db landed (Synty 3D gear-substrate catalogue; NEW standalone DB) — 2026-06-17
 
 ### What changed (one line)
