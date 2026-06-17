@@ -106,3 +106,23 @@ The deletion program from the consolidated dispatch executed end-to-end. **Seque
 3. Cross-seam test-rebuild flags (queued, low-priority): rocket→gamora (test_gear_cp6 + dropped integration classes needing a deleted PlayerClass producer); rocket→star-lord (spirit_guide_orchestrator token test); gamora kept test_a4/test_telemetry_v24 (live telemetry).
 4. MIGRATION.md v1.72 numbering collision (AOE re-home + t4-repoint both claim v1.72) — trivial, reconcile at convenience.
 5. Still queued (NOT part of this work): item 4 archetype-label monster-AI asymmetry; item 5 Proxy-Commander forward-work (proxy skills/gear/SET PROFILE #6).
+
+---
+
+## FINAL+2 (same session) — KPM-band spatial recalibration CLOSED through Gate-2; guard LIFTED; ALL pushed
+
+The OPEN gating design consequence from FINAL+1 (§OPEN #2 — `observed_kpm` measured on spatial instrument vs legacy 1D-duel band → Phase-3 gauntlet KPM gate over-rejecting) is **resolved end-to-end**. Dispatch `2026-06-16-gamora-kpm-band-spatial-recalibration.md`.
+
+**Instrument fix BEFORE band (gandalf ruling):** gandalf ruled the metric itself wrong, not just the band. The `observed_kpm` numerator shifted **rooms-cleared/min → MOBS-killed/min** (`f.kills = 1 if fr.player_kill else 0` → `f.kills = fr.mobs_killed`, `t4_sim_cycling.py:~1077`). This is the genre-canonical TMPM metric AND collapses the 5–55× divergence against the RESOLVE cert band to 0.63–4.74×. Declared as a Discipline #12 semantic shift in commit/comment/docstring/MIGRATION v1.74 + a 14-consumer audit math note.
+
+**Empirical correction (Discipline #11 — gamora caught a wrong premise):** the dispatch's smoke-based premise ("boss/mini unclearable, distribution degenerate ~0–1.5") was a 2-kit smoke artifact. The authoritative n=3078 determined-slice population DOES clear bosses (boss median 1.42). The real shape is **bimodality** from `MOB_HP_DIFFICULTY_MULTIPLIER=1.5` ("clear briskly or never") — a kit×encounter HP-wall artifact, NOT a per-kit defensive identity. Band cut: asymmetric **p25-lo/p90-hi** on bimodal shells (reject genuine non-clear, keep fast-clear power-fantasy), **p10/p90** on unimodal shells.
+
+**Wired band (gandalf-APPROVED, `gauntlet_sim.py` `ENCOUNTER_COHORT_KPM_BAND` ~:281, replicated across all 4 cohort columns — degeneracy INTENTIONAL):** boss_with_adds [2.49, 3.78] · elite_pack [5.65, 10.00] · mini_boss [0.57, 3.30] · chokepoint_corridor [11.65, 15.88] · magic_pack [6.06, 11.43] · open_arena [9.90, 15.53]. `SPATIAL_ENCOUNTER_KPM_BAND` (RESOLVE cert) UNTOUCHED.
+
+**Gate-2 (jack-ryan, `2b8b502`): PASS-WITH-INFO. Interim guard LIFTED** — Phase-3 season-gen output is canonical-eligible again for the KPM dimension (NON-CANONICAL since `de09d8b`). Two witnesses independently reproduced (clean import + wired-band readback; routing spot-check through real `_route_tier_1` against wired band → all 6 shells route correctly). MIGRATION numbering collision (FINAL+1 §OPEN #4) reconciled in-stream (v1.72 AOE retained, t4-repoint → v1.75, Stage-2d → v1.76). 4 non-blocking INFO recorded (sub-gate-3 zero-damage-floor moves toward correctness; cohort collapse intentional; packet line-number drift cosmetic; band re-fit dependency on MOB_HP multiplier documented).
+
+**PUSHED (Matt-authorized):** engine `2571dcf..2b8b502` (5 commits: `eb026ab` Stage-1, `6da73c7` SHA-fill, `1032560` Stage-2a+2b, `92c040f` Stage-2d, `2b8b502` decisions-log) + collab `d41d96d..c822c89` (dispatch + completion records + Gate-2 finding). Both repos clean, ahead 0.
+
+**Queued (re-engagement gated on EMPIRICAL criteria, not time):**
+1. **`MOB_HP_DIFFICULTY_MULTIPLIER=1.5` reconciliation** — separate workstream (D3-Inferno precedent). The bimodality source; if this multiplier changes the bands are re-fit candidates (provenance-stamped MIGRATION v1.76). **Re-engagement criterion:** Matt schedules the MOB_HP workstream; gandalf rec is post-baseline. NOT firing without direction.
+2. **star-lord export reinterpretation** — `tier_1_kpm`/`tier_2_kpm` export magnitude now means mobs/min per MIGRATION v1.74(a). Non-blocking, flagged in MIGRATION. **Re-engagement criterion:** routed when star-lord seam next opens OR when an export consumer needs the corrected magnitude; no standalone dispatch warranted yet.
