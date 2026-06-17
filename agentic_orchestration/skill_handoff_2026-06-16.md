@@ -63,3 +63,25 @@ gandalf's audit: live spatial sim = `season_generation_pipeline → per_skill_em
 **Guards:** mechanic_alteration / skill_tree / balance_loop modules STAY (live), dead sub-symbols only. **Gate:** verification (clean physical+caster gen, zero live grep hits, no ImportError) → jack-ryan Gate-2.
 
 **Status: consolidated dispatch ready; gamora Phase 1 NOT yet fired (awaiting Matt go).**
+
+---
+
+## FINAL (same session) — b6-stack + 1D-sim retirement COMPLETE through gates
+
+The deletion program from the consolidated dispatch executed end-to-end. **Sequence ran exactly as planned: Phase-1 AOE re-home → Gate-2 PASS → Phase-2 deletion (rocket gen + star-lord output) → Gate-2 PASS-WITH-INFO.**
+
+**Engine commits (ALL UNPUSHED — push is Matt-gated):**
+- `b4a1c14` rocket — Phase-1a AOE_GEOMETRIES verbatim re-home → `geometry_constants.py`
+- `6128e50` gamora — Phase-1b re-point sim consumers
+- `4b089e3` rocket — Phase-2 generation deletion (8 modules + cli.py legacy cmd + balance_loop convergence sub-symbols + skill_tree dead dict)
+- `a2deaa0` star-lord — Phase-2 output deletion (season_writer + summary_formatter; `load_season_manifest` re-homed LIVE into output/__init__.py)
+- Tags: `gamora/v1.1-b6stack-phase1b-aoe-repoint`, `rocket/v1.1-b6stack-phase2-deletion`, `star-lord/v1.1-b6stack-phase2-output`
+
+**Gate-2 (jack-ryan, both phases): clean.** Live-path gen 21 physical + 33 caster; spatial 115/115; zero live grep hits; all 3 STAYS-guards (balance_loop / mechanic_alteration / skill_tree) hold. Empirical gate caught + corrected a dispatch error (the "dead G3" sub-symbols were actually LIVE — NOT deleted).
+
+**OPEN for Matt:**
+1. **Push authorization** — 4 engine commits unpushed, Gate-2-cleared, awaiting Matt go (ADR-006).
+2. **Follow-on A — legacy-test cleanup** (~48 test files import deleted legacy modules, fail at collection; off the live path). Needs a dispatch.
+3. **Follow-on B — gamora t4_sim_cycling fight_engine repair** (PRE-EXISTING from gamora's 1D deletion `a8b28a1`; `t4_sim_cycling.py:1018/1122` import deleted fight_engine; `w5r2_gauntlet_sim_integration` path broken). gamora seam. Needs a dispatch.
+4. **Paired forward-work** (proxy skills/gear/Proxy-Commander SET PROFILE #6) — still queued, gandalf authors spec on request, NOT commissioned.
+5. **BC-Stage-3 leftovers** — `ARCHETYPE_ROLE_PRIORITY` + `_PLAYER_CONTROLLER_ARCHETYPES` live in `simulation/ai_strategies.py` (gamora seam), NOT subsumed by this deletion.
