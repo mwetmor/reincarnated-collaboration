@@ -216,3 +216,29 @@ The dispatch flagged "star-lord coordinates `load_season_manifest`." Pre-deletio
 ### Ready for jack-ryan Gate-2
 
 Phase 2 is now COMPLETE across both halves (rocket generation: `4b089e3`; star-lord output: `a2deaa0`). jack-ryan Gate-2 spans both commits: two-witness = clean physical+caster generation + spatial-sim-green + zero live grep hits on deleted symbols + no ImportError anywhere in the live path.
+
+---
+
+## Gate-2 record — jack-ryan, 2026-06-16 — **PASS-WITH-INFO**
+
+**Spans:** rocket generation `4b089e3` + star-lord output `a2deaa0` (Phase-1 re-home `b4a1c14`+`6128e50` PASSED separately). All commits engine, NOT pushed.
+
+**The b6-stack deletion is gated clean.** jack-ryan independently re-ran every witness (did not trust completion reports):
+1. **Clean build/import — PASS.** Whole package + every live-path module imports zero ImportError; `load_season_manifest`/`cmd_validate_season` clean (star-lord inline re-home works).
+2. **Live-path generation green — PASS (load-bearing).** `w5r1_generate_kit_candidates(seed=9000)` → 54 kits, independently classified 21 melee/physical + 33 caster — matches rocket's 21/33; physical identity from curated weapon pool, never the deleted b6 fork.
+3. **Spatial-sim green — PASS.** `test_spatial_gauntlet_scenarios` + `test_b11_geometry_mechanics` → 115 passed.
+4. **Zero live grep hits — PASS.** Every residual hit is docstring/comment/MIGRATION prose.
+
+**Guards (load-bearing) — all PASS:**
+- `balance_loop.py` STAYS — sole live importer `validation_report.py:7` pulls only dataclasses; inert-default replacement preserves downstream rejection-gate + telemetry variable contract; binary-search convergence untouched. gamora-vs-gandalf tension settles: recompose drove only the deleted legacy path, vestigial on live spatial.
+- `mechanic_alteration.py` STAYS — rocket's GUARD CORRECTION verified: `_bc_view_from_generation_params`/`select_primary_t4` are LIVE via `gauntlet_sim.py:1960/2006`, correctly NOT deleted despite dispatch's wrong "dead G3" claim.
+- `skill_tree.py` STAYS — dead `_ARCHETYPE_TEMPLATES` removed; `generate()` stubbed NotImplementedError, zero live caller; live constants intact.
+
+**INFO (flagged, do not block) — two out-of-scope follow-ons:**
+- **`fight_engine` break is PRE-EXISTING (attribution clean):** `t4_sim_cycling.py:1018/1122` import lines authored by gamora `10a6193`; `fight_engine.py` deleted by gamora `a8b28a1` (1D-sim deletion). Neither `4b089e3`/`a2deaa0` touched it. `w5r2_gauntlet_sim_integration` ModuleNotFoundError is gamora's seam, predates Phase 2 → separate follow-on.
+- **~48 legacy test files fail at collection** — test the deleted path, off the live import path (live spatial suites pass 115/115) → legacy-test-cleanup follow-on.
+- **BC-Stage-3 remaining targets not subsumed:** `ARCHETYPE_ROLE_PRIORITY` + `_PLAYER_CONTROLLER_ARCHETYPES` LIVE in `simulation/ai_strategies.py` (gamora seam) → gamora/sim concern, rocket's reconciliation accurate.
+
+**Disposition:** deletion clean, no remediation required. Push remains Matt-gated (ADR-006); this Gate-2 PASS clears `b4a1c14`/`6128e50`/`4b089e3`/`a2deaa0` for the push decision when Matt authorizes.
+
+**STATUS: b6-stack + 1D-sim retirement COMPLETE through gates. Awaiting Matt push authorization. Two follow-ons queued (legacy-test cleanup + gamora t4_sim_cycling fight_engine repair).**
