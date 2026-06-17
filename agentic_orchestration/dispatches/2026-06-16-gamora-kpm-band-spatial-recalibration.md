@@ -42,3 +42,32 @@ Until this recalibration lands, treat any **Phase-3 season-gen output as NON-CAN
 
 ## Gate
 Stage 1: gandalf final band ruling. Stage 2: jack-ryan Gate-2 on the threshold wire-in.
+
+---
+
+## Completion record — Stage 1 (gamora, 2026-06-16)
+
+**Status:** STAGE 1 COMPLETE — characterize + propose. NO gate wired (Stage 2 is gandalf-ruling-gated, then jack-ryan Gate-2). Band NOT self-approved.
+
+**Data reconciliation (the labeling discrepancy, resolved first):**
+- The `*-smoke-20260616_224010.json` (`mode: smoke, n_cells: 95`) is a SMOKE SUBSET (`kits[:5]` × one encounter/shell → only 2 weak melee probe archetypes). NOT the full slice.
+- The 68k-line `/tmp/kpm_full_run.log` is pure WARNING-level spatial-engine telemetry (0 per-cell KPM values). The "large run" impression is a log-volume artifact; the full distribution was NOT recoverable from the log.
+- **The genuine full slice WAS persisted by a prior session:** `output/kpm-band-spatial-recal-full-20260616_224528.json`, **n_cells = 3078 = 54 kits × 18 encounters × viable cohorts.** Authoritative; crc32-stable seeds make it reproducible. A confirmation re-run was started and then killed as redundant (no parallel same-seed regen left running). All Stage-1 numbers are from the n=3078 FULL slice.
+
+**Key findings (full slice REVISES the smoke-based framing):**
+1. **boss_with_adds + mini_boss are NOT all-zero/unclearable** — that was a 2-kit smoke artifact. They carry a real ~10-25% zero-clear LOW tail, but central mass clears (boss median 1.42, mini median 0.44). The degeneracy claim is PARTIALLY confirmed (real low tail), substantially revised (not uniformly degenerate).
+2. **Root cause #1 — mob-HP scale mismatch:** CONFIRMED, and BIMODAL (elite p10=0.148 vs p25=1.884). "Clear near-instantly or never" produces a bimodal mixture, not a uniform band. `MOB_HP_DIFFICULTY_MULTIPLIER=1.5` per `[R2 calibration]` log lines.
+3. **Root cause #2 — METRIC-NUMERATOR DIVERGENCE (rooms/min vs mobs/min) — LOAD-BEARING:** W4G numerator is `kills = 1 if fr.player_kill else 0` (`t4_sim_cycling.py:1077`, win-flag ≤1/fight) = rooms/min. RESOLVE `SPATIAL_ENCOUNTER_KPM_BAND` (`gauntlet_sim.py:341-347`) is mobs/min (pack-arithmetic, `A≈43 TMPM`). Both gate AND RESOLVE consume the same `observed_kpm` (`gauntlet_sim.py:1003/1029`) → inconsistent numerators (~5-55× per shell). This is the instrument-level question gandalf must rule.
+4. **Row-by-row cross-check vs RESOLVE band:** DIVERGES on every shell (~5-55×). Not convergence; the factor is the per-won-room mob-count fingerprint of root cause #2.
+5. **Proxy-reusable surface CONFIRMED** (per-fight objects retained, keyed; `proxy_reusable_surface: true`). `proxy_contribution_pct` NOT implemented (Synty-paused).
+
+**Artifacts (committed under tag intent `gamora/v1.1-kpm-band-spatial-recalibration`):**
+- Math note (findings §7): `simulation/math/kpm-band-spatial-recalibration-2026-06-16.md`
+- Stage-1 RETURN: `simulation/math/kpm-band-spatial-recalibration-2026-06-16-STAGE1-RETURN.md`
+- Harness: `scripts/gamora_kpm_band_spatial_recalibration_2026_06_16.py`
+- Full output: `output/kpm-band-spatial-recal-full-20260616_224528.json`
+- MIGRATION Stage-1 entry: `simulation/MIGRATION.md` v1.73 (v1.72 collision-reconcile deferred to Stage 2)
+
+**Interim guard restated:** Phase-3 season-gen output remains NON-CANONICAL until Stage 2 lands the gandalf-approved band (jack-ryan-gated).
+
+**READY FOR GANDALF RULING** — KR routes. Two questions: (1) instrument-level: rooms/min vs mobs/min numerator; (2) felt-rhythm: per-shell central-mass band cut. NO push (Matt-gated).
