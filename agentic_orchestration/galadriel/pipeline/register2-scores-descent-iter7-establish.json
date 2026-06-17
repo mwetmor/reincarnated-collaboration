@@ -1,0 +1,55 @@
+{
+  "scored_at": "2026-06-17T13:55:42.046Z",
+  "corpus": "iter7 CAMERA-ONLY establish recompose — descent_iter7_establish_{01,02,03}.png (3 distinct katabasis beats).",
+  "build": "drax Round-4 iter7 (reincarnated-godot): _build_establishing_camera recompose ONLY (3 low/short-aim/small-offset warm beats) + harness camera-walk. GREEN chamber rig UNTOUCHED.",
+  "iter6_establish_baseline": {
+    "LDR": 102,
+    "warmCool": 0.988,
+    "SHF": 49.9
+  },
+  "acceptance": "COMPOSITION primary (gandalf eye on stills). LIGHT secondary: LDR off 102 floor + warmCool >=1.0 (this scorer = LIGHT axis only).",
+  "frames": [
+    {
+      "tag": "establish_01_HERO",
+      "file": "descent_iter7_establish_01.png",
+      "metrics": {
+        "LDR": 124,
+        "SHF_pct": 31.88,
+        "bright_pct": 0.98,
+        "warmCool": 1.026,
+        "p05": 2,
+        "p50": 52,
+        "p95": 126,
+        "dims": "960x540"
+      }
+    },
+    {
+      "tag": "establish_02_ElevatedLookDown",
+      "file": "descent_iter7_establish_02.png",
+      "metrics": {
+        "LDR": 119,
+        "SHF_pct": 28.45,
+        "bright_pct": 0.86,
+        "warmCool": 1.018,
+        "p05": 2,
+        "p50": 55,
+        "p95": 121,
+        "dims": "960x540"
+      }
+    },
+    {
+      "tag": "establish_03_GroundIntimate",
+      "file": "descent_iter7_establish_03.png",
+      "metrics": {
+        "LDR": 127,
+        "SHF_pct": 34.29,
+        "bright_pct": 0.85,
+        "warmCool": 1.015,
+        "p05": 2,
+        "p50": 52,
+        "p95": 129,
+        "dims": "960x540"
+      }
+    }
+  ]
+}
