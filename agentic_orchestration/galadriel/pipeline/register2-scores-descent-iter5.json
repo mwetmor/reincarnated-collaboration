@@ -1,0 +1,557 @@
+{
+  "scored_at": "2026-06-17T12:46:43.661Z",
+  "corpus": "iter5 RELIT descent — descent_iter5_{zone0..5}.png (6 relit) + descent_iter5_establish_{01..03}.png (3 recomposed) — 9 SINGLE STILLS (combat camera; hero VFX FROZEN AT CHARGE). PLUS descent_iter5_zone2_erupt_{78,82,84}.png (baked-replay eruption VFX validator).",
+  "build": "drax Round-2 iter5, commit 7ce990e (reincarnated-godot): per-chamber KEY lighting lift + establish recompose.",
+  "baseline": "iter4, commit 4d6efd2: composite mean 3.14/5, 0/9 PASS — flat-dim-mid-grey lighting deficit.",
+  "instrument_defs": "BYTE-IDENTICAL to register-metrics.mjs / register2-score-descent-iter4.mjs",
+  "north_star_boss_arena": {
+    "LDR_mean": 175.97,
+    "SHF_mean": 42.74,
+    "HLF_peak": 4.013
+  },
+  "acceptance_criterion": "gandalf design call (Round-2 brief §3): per zone, LDR lifted toward ~176 AND SHF deepened — BOTH axes simultaneously. LDR-up-but-SHF-flat = fill-raised (REJECT). Target = lit-volume-in-dark, not a brighter uniform wash.",
+  "method_caveat": "SINGLE-STILL relit captures with hero SummonGlow frozen at charge UNDER-READ VFX by construction (galadriel F1). The LIGHTING gate (LDR+SHF) IS correctly read on these stills (ambient mood between fires — gandalf canon call). VFX gate = inherited-PASS (zone-invariant column, boss-arena 4.01% proof); the zone2_erupt_* baked-replay frames are the inheritance VALIDATOR on the hardest-lit case. The 0.2%-baked-vs-4%-live HLF reconciliation is adjudicated in the scorecard.",
+  "thresholds": {
+    "lighting": "LDR>=115 AND SHF>=30%",
+    "vfx": "HLF>=1.5%",
+    "composite_bar": "~4.0 (boss-arena PASS bar)"
+  },
+  "frames": [
+    {
+      "tag": "zone0_threshold",
+      "file": "descent_iter5_zone0_04.png",
+      "identity": "threshold (graveyard)",
+      "footprint": "open_arena 50x50",
+      "kind": "swarm",
+      "drax_key": "1.9 / range 38",
+      "prior_windowed_HLF": 1.565,
+      "iter4": {
+        "LDR": 122,
+        "SHF": 16.57,
+        "HLF": 0.14,
+        "LMV": 28.72,
+        "SAT": 0.46
+      },
+      "metrics": {
+        "HFD": 11.65,
+        "LMV": 29.33,
+        "LDR": 122,
+        "SAT_mean": 0.461,
+        "SAT_std": 0.266,
+        "HLF_pct": 0.192,
+        "SHF_pct": 16.65,
+        "warmCool": 1.183,
+        "p05": 13,
+        "p25": 45,
+        "p50": 58,
+        "p75": 101,
+        "p95": 135,
+        "mid_pct": 46,
+        "dark_pct": 16.7,
+        "bright_pct": 0.42,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": true,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.13
+      },
+      "axisVerdict": {
+        "dLDR": 0,
+        "dSHF": 0.08,
+        "ldrUp": false,
+        "shfUp": false,
+        "verdict": "NEITHER (no meaningful move on either axis)"
+      }
+    },
+    {
+      "tag": "zone1_arcane",
+      "file": "descent_iter5_zone1_05.png",
+      "identity": "arcane chamber",
+      "footprint": "magic_pack 32.7x14",
+      "kind": "near",
+      "drax_key": "2.3 / range 38",
+      "prior_windowed_HLF": 2.958,
+      "iter4": {
+        "LDR": 108,
+        "SHF": 18.07,
+        "HLF": 0.09,
+        "LMV": 28.05,
+        "SAT": 0.445
+      },
+      "metrics": {
+        "HFD": 12.39,
+        "LMV": 27.57,
+        "LDR": 107,
+        "SAT_mean": 0.443,
+        "SAT_std": 0.235,
+        "HLF_pct": 0.147,
+        "SHF_pct": 17.73,
+        "warmCool": 1.07,
+        "p05": 21,
+        "p25": 42,
+        "p50": 54,
+        "p75": 88,
+        "p95": 128,
+        "mid_pct": 41.1,
+        "dark_pct": 17.7,
+        "bright_pct": 0.24,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.1
+      },
+      "axisVerdict": {
+        "dLDR": -1,
+        "dSHF": -0.34,
+        "ldrUp": false,
+        "shfUp": false,
+        "verdict": "NEITHER (no meaningful move on either axis)"
+      }
+    },
+    {
+      "tag": "zone2_warhall",
+      "file": "descent_iter5_zone2_06.png",
+      "identity": "war hall",
+      "footprint": "elite_pack 28x28",
+      "kind": "near",
+      "drax_key": "3.4 / range 40 (brightest)",
+      "prior_windowed_HLF": 4.063,
+      "iter4": {
+        "LDR": 103,
+        "SHF": 12.76,
+        "HLF": 0.132,
+        "LMV": 23.46,
+        "SAT": 0.425
+      },
+      "metrics": {
+        "HFD": 12.36,
+        "LMV": 23.52,
+        "LDR": 103,
+        "SAT_mean": 0.423,
+        "SAT_std": 0.233,
+        "HLF_pct": 0.155,
+        "SHF_pct": 12.7,
+        "warmCool": 1.058,
+        "p05": 23,
+        "p25": 45,
+        "p50": 56,
+        "p75": 92,
+        "p95": 126,
+        "mid_pct": 44.2,
+        "dark_pct": 12.7,
+        "bright_pct": 0.26,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.1
+      },
+      "axisVerdict": {
+        "dLDR": 0,
+        "dSHF": -0.06,
+        "ldrUp": false,
+        "shfUp": false,
+        "verdict": "NEITHER (no meaningful move on either axis)"
+      }
+    },
+    {
+      "tag": "zone3_oubliette",
+      "file": "descent_iter5_zone3_07.png",
+      "identity": "oubliette (corridor)",
+      "footprint": "chokepoint 10x50",
+      "kind": "swarm",
+      "drax_key": "4.2 / torch-line",
+      "prior_windowed_HLF": 1.68,
+      "iter4": {
+        "LDR": 105,
+        "SHF": 58.15,
+        "HLF": 0.059,
+        "LMV": 16.66,
+        "SAT": 0.696
+      },
+      "metrics": {
+        "HFD": 7.65,
+        "LMV": 17.19,
+        "LDR": 105,
+        "SAT_mean": 0.697,
+        "SAT_std": 0.333,
+        "HLF_pct": 0.074,
+        "SHF_pct": 57.89,
+        "warmCool": 1.059,
+        "p05": 13,
+        "p25": 13,
+        "p50": 22,
+        "p75": 57,
+        "p95": 118,
+        "mid_pct": 23.9,
+        "dark_pct": 57.9,
+        "bright_pct": 0.11,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": true,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.05
+      },
+      "axisVerdict": {
+        "dLDR": 0,
+        "dSHF": -0.26,
+        "ldrUp": false,
+        "shfUp": false,
+        "verdict": "NEITHER (no meaningful move on either axis)"
+      }
+    },
+    {
+      "tag": "zone4_antechamber",
+      "file": "descent_iter5_zone4_08.png",
+      "identity": "antechamber (soulfire)",
+      "footprint": "mini_boss 30x30",
+      "kind": "near",
+      "drax_key": "2.1 / range 36",
+      "prior_windowed_HLF": 3.047,
+      "iter4": {
+        "LDR": 116,
+        "SHF": 12.95,
+        "HLF": 0.056,
+        "LMV": 23.26,
+        "SAT": 0.443
+      },
+      "metrics": {
+        "HFD": 11.61,
+        "LMV": 22.38,
+        "LDR": 107,
+        "SAT_mean": 0.444,
+        "SAT_std": 0.251,
+        "HLF_pct": 0.064,
+        "SHF_pct": 16.55,
+        "warmCool": 1.015,
+        "p05": 17,
+        "p25": 42,
+        "p50": 55,
+        "p75": 86,
+        "p95": 124,
+        "mid_pct": 42,
+        "dark_pct": 16.6,
+        "bright_pct": 0.1,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.04
+      },
+      "axisVerdict": {
+        "dLDR": -9,
+        "dSHF": 3.6,
+        "ldrUp": false,
+        "shfUp": true,
+        "verdict": "SHF_ONLY (deepened dark, LDR did not rise)"
+      }
+    },
+    {
+      "tag": "zone5_sanctum",
+      "file": "descent_iter5_zone5_09.png",
+      "identity": "sanctum (boss bloom)",
+      "footprint": "boss_with_adds 30x30",
+      "kind": "near",
+      "drax_key": "2.2 / range 38",
+      "prior_windowed_HLF": 3.927,
+      "iter4": {
+        "LDR": 118,
+        "SHF": 11.41,
+        "HLF": 0.063,
+        "LMV": 24.29,
+        "SAT": 0.436
+      },
+      "metrics": {
+        "HFD": 11.03,
+        "LMV": 23.43,
+        "LDR": 118,
+        "SAT_mean": 0.431,
+        "SAT_std": 0.243,
+        "HLF_pct": 0.058,
+        "SHF_pct": 12.43,
+        "warmCool": 1.14,
+        "p05": 19,
+        "p25": 48,
+        "p50": 57,
+        "p75": 98,
+        "p95": 137,
+        "mid_pct": 43.9,
+        "dark_pct": 12.4,
+        "bright_pct": 0.13,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": true,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.04
+      },
+      "axisVerdict": {
+        "dLDR": 0,
+        "dSHF": 1.02,
+        "ldrUp": false,
+        "shfUp": true,
+        "verdict": "SHF_ONLY (deepened dark, LDR did not rise)"
+      }
+    },
+    {
+      "tag": "establish_01",
+      "file": "descent_iter5_establish_01.png",
+      "identity": "establishing spine (recomposed)",
+      "footprint": "cam 31m/fov50",
+      "kind": "establish",
+      "drax_key": "recompose 40->31m/fov60->50",
+      "prior_windowed_HLF": null,
+      "iter4": {
+        "LDR": 94,
+        "SHF": 59.64,
+        "HLF": 0.079,
+        "LMV": 12.82,
+        "SAT": 0.746
+      },
+      "metrics": {
+        "HFD": 7.87,
+        "LMV": 15.55,
+        "LDR": 97,
+        "SAT_mean": 0.68,
+        "SAT_std": 0.325,
+        "HLF_pct": 0.087,
+        "SHF_pct": 48.56,
+        "warmCool": 0.999,
+        "p05": 13,
+        "p25": 13,
+        "p50": 39,
+        "p75": 70,
+        "p95": 110,
+        "mid_pct": 32.5,
+        "dark_pct": 48.6,
+        "bright_pct": 0.15,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": true,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.06
+      },
+      "axisVerdict": {
+        "dLDR": 3,
+        "dSHF": -11.08,
+        "ldrUp": true,
+        "shfUp": false,
+        "verdict": "FILL_RAISED? (LDR up, SHF flat/down — REJECT signature)"
+      }
+    },
+    {
+      "tag": "establish_02",
+      "file": "descent_iter5_establish_02.png",
+      "identity": "establishing spine (recomposed)",
+      "footprint": "cam 31m/fov50",
+      "kind": "establish",
+      "drax_key": "recompose 40->31m/fov60->50",
+      "prior_windowed_HLF": null,
+      "iter4": {
+        "LDR": 94,
+        "SHF": 59.64,
+        "HLF": 0.081,
+        "LMV": 12.85,
+        "SAT": 0.746
+      },
+      "metrics": {
+        "HFD": 7.88,
+        "LMV": 15.49,
+        "LDR": 97,
+        "SAT_mean": 0.68,
+        "SAT_std": 0.326,
+        "HLF_pct": 0.086,
+        "SHF_pct": 48.56,
+        "warmCool": 0.998,
+        "p05": 13,
+        "p25": 13,
+        "p50": 39,
+        "p75": 70,
+        "p95": 110,
+        "mid_pct": 32.5,
+        "dark_pct": 48.6,
+        "bright_pct": 0.14,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": true,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.06
+      },
+      "axisVerdict": {
+        "dLDR": 3,
+        "dSHF": -11.08,
+        "ldrUp": true,
+        "shfUp": false,
+        "verdict": "FILL_RAISED? (LDR up, SHF flat/down — REJECT signature)"
+      }
+    },
+    {
+      "tag": "establish_03",
+      "file": "descent_iter5_establish_03.png",
+      "identity": "establishing spine (recomposed)",
+      "footprint": "cam 31m/fov50",
+      "kind": "establish",
+      "drax_key": "recompose 40->31m/fov60->50",
+      "prior_windowed_HLF": null,
+      "iter4": {
+        "LDR": 94,
+        "SHF": 59.64,
+        "HLF": 0.076,
+        "LMV": 12.74,
+        "SAT": 0.746
+      },
+      "metrics": {
+        "HFD": 7.88,
+        "LMV": 15.64,
+        "LDR": 97,
+        "SAT_mean": 0.68,
+        "SAT_std": 0.325,
+        "HLF_pct": 0.099,
+        "SHF_pct": 48.56,
+        "warmCool": 0.998,
+        "p05": 13,
+        "p25": 13,
+        "p50": 39,
+        "p75": 70,
+        "p95": 110,
+        "mid_pct": 32.5,
+        "dark_pct": 48.6,
+        "bright_pct": 0.17,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": true,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.07
+      },
+      "axisVerdict": {
+        "dLDR": 3,
+        "dSHF": -11.08,
+        "ldrUp": true,
+        "shfUp": false,
+        "verdict": "FILL_RAISED? (LDR up, SHF flat/down — REJECT signature)"
+      }
+    }
+  ],
+  "erupt_validator": [
+    {
+      "tag": "zone2_erupt_78",
+      "file": "descent_iter5_zone2_erupt_78.png",
+      "note": "baked-replay eruption sample",
+      "metrics": {
+        "HFD": 12.14,
+        "LMV": 21.56,
+        "LDR": 100,
+        "SAT_mean": 0.398,
+        "SAT_std": 0.221,
+        "HLF_pct": 0.237,
+        "SHF_pct": 10.03,
+        "warmCool": 1.055,
+        "p05": 26,
+        "p25": 47,
+        "p50": 58,
+        "p75": 88,
+        "p95": 126,
+        "mid_pct": 45.7,
+        "dark_pct": 10,
+        "bright_pct": 0.36,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.16
+      }
+    },
+    {
+      "tag": "zone2_erupt_82",
+      "file": "descent_iter5_zone2_erupt_82.png",
+      "note": "baked-replay eruption sample (drax-cited)",
+      "metrics": {
+        "HFD": 12.17,
+        "LMV": 22,
+        "LDR": 101,
+        "SAT_mean": 0.398,
+        "SAT_std": 0.221,
+        "HLF_pct": 0.293,
+        "SHF_pct": 9.97,
+        "warmCool": 1.058,
+        "p05": 26,
+        "p25": 47,
+        "p50": 58,
+        "p75": 88,
+        "p95": 127,
+        "mid_pct": 45.7,
+        "dark_pct": 10,
+        "bright_pct": 0.51,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.2
+      }
+    },
+    {
+      "tag": "zone2_erupt_84",
+      "file": "descent_iter5_zone2_erupt_84.png",
+      "note": "baked-replay eruption sample",
+      "metrics": {
+        "HFD": 12.16,
+        "LMV": 21.81,
+        "LDR": 100,
+        "SAT_mean": 0.398,
+        "SAT_std": 0.221,
+        "HLF_pct": 0.282,
+        "SHF_pct": 10,
+        "warmCool": 1.057,
+        "p05": 26,
+        "p25": 47,
+        "p50": 58,
+        "p75": 88,
+        "p95": 126,
+        "mid_pct": 45.7,
+        "dark_pct": 10,
+        "bright_pct": 0.46,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.19
+      }
+    }
+  ]
+}
