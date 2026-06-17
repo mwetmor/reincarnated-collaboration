@@ -52,3 +52,36 @@ test_cycle11_schema_extensions_round_trip (imports `season_writer`). Delete-or-e
 
 ## Overall close
 jack-ryan: Gate-2 on B (live repair) + green-collection confirmation on A. Then KR surfaces push auth to Matt. Items 4 (archetype-label monster-AI asymmetry) + 5 (Proxy-Commander forward-work) stay queued — NOT part of this dispatch.
+
+---
+
+## Completion record — star-lord (Follow-on A, output-seam half)
+
+**Completed:** 2026-06-16
+**Agent:** star-lord
+**Tag:** `star-lord/v1.1-legacy-test-sweep`
+
+### Decision: PRESERVE (no changes made)
+
+`tests/test_cycle11_schema_extensions_round_trip.py` does NOT import `season_writer`, `summary_formatter`, or `SeasonOutput`. Its imports resolve entirely against live production symbols:
+- `reincarnated.export.schemas` — `ExportAlterationOutput`, `ExportClass`, `ExportWeaponDescriptor`
+- `reincarnated.export.season_exporter` — `_build_alteration_output`, `_build_weapon_descriptor`, `_validate_stage_b_classes`, `export_season`
+
+Both import paths resolve cleanly. The file collects at 40 tests and passes all 40 (0.13s). The dispatch listed it as a `season_writer`-importing failure — inspection shows this was a false positive from the grep sweep; this file never imported the deleted module. No changes made; file preserved as-is.
+
+**Smoke test result:** `40 passed in 0.13s` — clean.
+
+### Output-seam scope scan (per scope guard)
+
+Scanned for other output-seam test files referencing deleted symbols (`season_writer`, `summary_formatter`, `SeasonOutput`, `write_season`, `format_summary`). Files found with deleted-symbol references:
+
+- `test_b6_generator_wired.py` — on rocket's gen sweep (dispatch §Follow-on A rocket list). Correctly routed.
+- `test_cosmological_vocabulary.py` — on rocket's gen sweep. Correctly routed.
+- `test_cp8_gear_naming.py` — on rocket's gen sweep. Correctly routed.
+- `test_gear_integration.py` — on rocket's gen sweep. Correctly routed.
+- `test_integration.py` — on rocket's gen sweep. Correctly routed.
+- `test_spirit_guide_orchestrator_wiring.py` — on rocket's gen sweep. Correctly routed.
+- `test_range_profile.py` — on gamora's 1D-sim sweep. Correctly routed.
+- `test_role_orientation.py` — on gamora's 1D-sim sweep. Correctly routed.
+
+No mis-routed output-seam orphans found. All failing files with deleted-symbol imports are already assigned to rocket or gamora per the dispatch.
