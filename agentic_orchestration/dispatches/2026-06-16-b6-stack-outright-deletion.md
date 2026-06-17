@@ -184,3 +184,35 @@ Verification gate above → jack-ryan Gate-2 across the Phase 1 + Phase 2 commit
 **MIGRATION:** `generation/MIGRATION.md` — entry `[2026-06-16] b6-stack deletion Phase 2`.
 
 **Hand-off to star-lord (output half):** `output/season_writer.py` + `output/summary_formatter.py` (+ `output/__init__.py` re-exports of `write_season`/`format_summary`/`load_season_manifest`) are now the ONLY remaining live importers of a deleted symbol (`SeasonOutput`). They delete cleanly per the RESOLVED legacy-dead determination. After star-lord's output-half, jack-ryan Gate-2 spans both.
+
+---
+
+## Completion record — Phase 2 (star-lord, output half, 2026-06-16)
+
+**Status:** DONE — output seam deletion complete. `output/season_writer.py` and `output/summary_formatter.py` deleted; `output/__init__.py` reconciled. Commit `a2deaa0` / tag `star-lord/v1.1-b6stack-phase2-output` (NOT pushed — Matt-gated).
+
+### What deleted
+
+- `output/season_writer.py` (whole module) — `write_season`, all serialisation helpers (`_manifest`, `_class_to_dict`, `_monster_to_dict`, `_trial_to_dict`, `_skill_to_dict`, `_write_fights_jsonl`, `_gauntlet_recipe`, `_validate_class_export`, etc.), plus the `load_season_manifest` definition. 634 lines. The `SeasonOutput` import at line 16 references the symbol rocket deleted in `4b089e3` — module was legacy-dead.
+- `output/summary_formatter.py` (whole module) — `format_summary`. 47 lines. The `SeasonOutput` import at line 2 references the deleted symbol — legacy-dead.
+- `output/__init__.py` re-exports: `write_season`, `format_summary`, and the `__all__` entries for both.
+
+### `load_season_manifest` finding — LIVE; RE-HOMED (not deleted)
+
+The dispatch flagged "star-lord coordinates `load_season_manifest`." Pre-deletion grep confirmed it: `cli.py:148` does `from reincarnated.output import load_season_manifest` inside `cmd_validate_season()`, which is a LIVE surviving CLI subcommand (registered as `validate-season` subparser at `cli.py:226`, dispatched at `cli.py:249`). `load_season_manifest` is a 5-line pure-JSON reader with zero `SeasonOutput` dependency — fully separable from the dead machinery. Re-homed inline into `output/__init__.py`. The `from reincarnated.output import load_season_manifest` import in `cli.py` continues to work unchanged — no caller modification required.
+
+### Verification gate results
+
+1. **grep deleted symbols — zero LIVE hits:** every remaining match for `write_season`/`format_summary`/`season_writer`/`summary_formatter`/`SeasonOutput` in `src/` is a prose comment, docstring, or historical attribution note. No import or call site. PASS.
+   - Cosmetically stale docstrings (dispatch pre-flagged, no action): `export/kit_space_emitter.py:15,19,506`; `export/season_exporter.py:412,415,644,674,769,782`; `foundation/grouping_vocabulary_loader.py:170`; `generation/bc_target_composer.py:862`.
+2. **No ImportError in the live path:** `from reincarnated.output import load_season_manifest` PASS; `import reincarnated.cli` PASS; `from reincarnated.export import export_season` PASS; `from reincarnated.telemetry import TelemetryRecorder, NullRecorder` PASS.
+3. **`cmd_validate_season` path:** `load_season_manifest` round-trip (write `manifest.json` → `load_season_manifest()` → assert contents) PASS; `FileNotFoundError` on missing dir PASS.
+4. **Spatial smoke:** `tests/test_spatial_gauntlet_scenarios.py` → 27/27 PASS (unchanged baseline).
+
+### MIGRATION
+
+`reincarnated-engine/src/reincarnated/export/MIGRATION.md` — entry `[2026-06-16] b6-stack deletion Phase 2 — output seam` appended (after v2.16 t4_alteration_type entry). Includes `load_season_manifest` disposition, verification gate results, and downstream consumer impact notes.
+
+### Ready for jack-ryan Gate-2
+
+Phase 2 is now COMPLETE across both halves (rocket generation: `4b089e3`; star-lord output: `a2deaa0`). jack-ryan Gate-2 spans both commits: two-witness = clean physical+caster generation + spatial-sim-green + zero live grep hits on deleted symbols + no ImportError anywhere in the live path.
