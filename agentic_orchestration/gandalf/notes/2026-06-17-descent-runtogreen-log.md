@@ -130,8 +130,25 @@ drax implemented the key-not-fill fix: new `_build_chamber_key()` (one bright po
 
 **New catch I missed:** zone4 REGRESSION (I didn't read zone4 — incomplete eyes-on). Its iter4 problem was SHF (it already had LDR 116); drax's 2.1/r36 key REDUCED fill → uniform dim → SHF "deepened" only because the whole frame darkened. **Revert first, then deepen surround.**
 
-### Round 3 — PLAN (reach-not-energy recalibration + zone2-probe-first discipline)
-Brief staged: `agentic_orchestration/gandalf/notes/2026-06-17-descent-round3-lighting-recalibration-brief.md`. Core: (1) **zone2-calibration-probe FIRST** — drax self-measures candidates against galadriel's COMMITTED scorer (`register2-score-descent-iter5.mjs`) until p95 climbs ~125→~180 + bright%>180 climbs from ~0.2%, BEFORE blind-relighting all 6 (math-before-code / smoke-test-one-seed). (2) reaching CombatFill-class pool (range ~34, atten ~1.5) for all zones. (3) zone4 REVERT then deepen. (4) zone3 widen torch points→pools (contrast reframe). (5) establish: warm floors + kill/resolve blue deep-wall panels + plant magenta focal payoff.
+### Round 3 — gandalf CODE-READ RE-ROOTED the cause: GLOBAL env divergence (supersedes "reach not energy")
+**Before briefing a third round I read the actual lighting code (Discipline #10, inspection-over-assumption) — and it REFUTES galadriel's inferred mechanism.** galadriel's photometry is authoritative on OUTPUT (LDR flat — true). But her *causal* story ("reach not energy — local points not reaching pools") is contradicted by the code: the iter5 ZONE_LIGHT keys are ALREADY boss-class-or-stronger. war_hall key = energy **3.4 / range 40 / atten 1.3** vs the proven boss CombatFill **1.5 / 34 / 1.5** — stronger energy, LONGER range, softer falloff. `_build_chamber_key` places it at height 11 / range 40 → ~2.2 intensity to the floor below vs the boss CombatFill's ~0.95. **The reach is already there; the keys are stronger than the lever that scored 176. Yet LDR is flat. So the suppressor is GLOBAL, not the key.**
+
+**THE REAL ROOT CAUSE — the descent abandoned the proven register-2 global env rig.** Every PASS scene (boss LDR 176, cathedral 5.00, all `arena_*`) uses ONE rig; the descent is the lone outlier on every dynamic-range lever:
+
+| lever | proven rig (boss/cathedral/all arena_*) | descent (FAIL) | effect |
+|---|---|---|---|
+| `tonemap_mode` | **3 ACES** | **2 FILMIC** | flat curve → compressed range, milky mids |
+| `tonemap_white` | 8.0 | 6.0 | (minor) |
+| `tonemap_exposure` | 0.95 | 1.0 (default) | (minor) |
+| `ambient_light_energy` | **0.17** | **0.24** | floods surround to mid → lifts p05 (KILLS SHF) + compresses p95−p05 (KILLS LDR) |
+| `fog_density` | 0.010–0.012 | 0.0052 | descent has LESS fog — fog is NOT the suppressor |
+
+**`ambient 0.24` + `FILMIC` together produce galadriel's exact twin-low (LDR low AND SHF low) signature** — the keys read flat because they're tonemapped flat + ambient-washed, not because they don't reach. The "iter1 mood-lift" comment (`render_descent_scene.gd:2041`) confirms the env was hand-built from scratch for the green-atmosphere reference instead of inheriting the proven rig — **Discipline #13 implicit-pillar drift at the GLOBAL env level, beneath the per-chamber drift galadriel and I were both chasing.** Cross-check working a 3rd time: her photometry (output) + my code-read (mechanism) → neither alone gets here.
+
+**Brief:** `agentic_orchestration/gandalf/notes/2026-06-17-descent-round3-lighting-recalibration-brief.md`. Core, ordered by leverage: (1) **PRIMARY — match the proven global rig** (ACES / white 8.0 / exp 0.95 / ambient 0.17 / fog ~0.010), KEEP the green fog identity, re-bake, self-measure **zone2 only** against galadriel's committed scorer (`register2-score-descent-iter5.mjs`); if LDR jumps + SHF deepens, apply globally and DON'T also retune keys (clean attribution). (2) **SECONDARY if partway** — A/B key ON/OFF isolation (ΔLDR≈0 = key off-frame/occluded = position bug, not tuning). (3) zone4 REVERT the −9 regression then deepen. (4) zone3 widen torch points→pools, judge on CONTRAST criterion (high SHF + bright pools, NOT LDR-176). (5) establish: warm floors + kill/resolve blue deep-wall panels + magenta focal payoff. (6) VFX no work — inherited-PASS FINAL. Probe-first to avoid a third blind round.
+
+### Round 3 — FIRED 2026-06-17 (drax, background)
+drax dispatched with the recalibration brief. Awaiting iter6 return: locked global-rig recipe + which hypothesis landed (§1.1 global rig alone, or +§1.2 key isolation) + per-zone self-measured metrics. On return → galadriel re-score (with the zone3 contrast-criterion instruction) → converge → loop until matrix GREEN.
 
 ---
 
