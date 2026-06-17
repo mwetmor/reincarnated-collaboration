@@ -1,0 +1,264 @@
+{
+  "scored_at": "2026-06-17T14:07:04.519Z",
+  "corpus": "iter6 chamber captures (regression set) — descent_iter6_{zone0..5}.png (6). Scored through the NEW kind-aware gate.",
+  "build": "KIND-AWARE GATE codified (galadriel Round-4, gandalf §3 GO). CV-substrate math byte-identical to register2-score-descent-iter6.mjs; ONLY additions are p98/poolBedGap + the kind-aware gate.",
+  "gate_spec": {
+    "STARK": "SHF >= 30",
+    "STARK_DREAD": "SHF >= 40",
+    "DRESSED": "SHF >= 17.5 (in/above [17.5,25]) AND LDR >= 115 AND both-axes-up AND poolBedGap >= 90",
+    "note": "DRESSED both-axes-up + poolBedGap conditions gate OUT a raised flat wash (LDR-up-but-SHF-flat + small gap). NOT a standard-lowering — a measurement calibration distinguishing premium-dressed from raised-fill."
+  },
+  "north_star_boss_arena": {
+    "LDR_mean": 175.97,
+    "SHF_mean": 42.74,
+    "HLF_peak": 4.013
+  },
+  "frames": [
+    {
+      "tag": "zone0_threshold",
+      "file": "descent_iter6_zone0_04.png",
+      "chamberKind": "DRESSED",
+      "iter5": {
+        "LDR": 122,
+        "SHF": 16.65
+      },
+      "metrics": {
+        "HFD": 12.66,
+        "LMV": 32.67,
+        "LDR": 133,
+        "SAT_mean": 0.603,
+        "SAT_std": 0.229,
+        "HLF_pct": 0.218,
+        "SHF_pct": 21.38,
+        "warmCool": 1.21,
+        "p05": 2,
+        "p25": 36,
+        "p50": 48,
+        "p75": 94,
+        "p95": 135,
+        "p98": 153,
+        "poolBedGap": 105,
+        "mid_pct": 35.2,
+        "dark_pct": 21.4,
+        "bright_pct": 0.55,
+        "dims": "960x540"
+      },
+      "kindGate": {
+        "kind": "DRESSED",
+        "threshold": "SHF in [17.5,25]+ AND LDR>=115 AND both-axes-up AND poolBedGap>=90",
+        "dLDR": 11,
+        "dSHF": 4.73,
+        "bothAxesUp": true,
+        "poolBedGap": 105,
+        "pass": true,
+        "basis": "DRESSED PASS (in-band): SHF 21.38 >= 17.5 + LDR 133 >= 115 + both-axes-up (dLDR 11, dSHF 4.73) + poolBedGap 105 >= 90"
+      }
+    },
+    {
+      "tag": "zone1_arcane",
+      "file": "descent_iter6_zone1_05.png",
+      "chamberKind": "DRESSED",
+      "iter5": {
+        "LDR": 107,
+        "SHF": 17.73
+      },
+      "metrics": {
+        "HFD": 13.87,
+        "LMV": 31.67,
+        "LDR": 126,
+        "SAT_mean": 0.6,
+        "SAT_std": 0.249,
+        "HLF_pct": 0.177,
+        "SHF_pct": 23.83,
+        "warmCool": 1.084,
+        "p05": 7,
+        "p25": 32,
+        "p50": 44,
+        "p75": 82,
+        "p95": 133,
+        "p98": 151,
+        "poolBedGap": 107,
+        "mid_pct": 33.4,
+        "dark_pct": 23.8,
+        "bright_pct": 0.28,
+        "dims": "960x540"
+      },
+      "kindGate": {
+        "kind": "DRESSED",
+        "threshold": "SHF in [17.5,25]+ AND LDR>=115 AND both-axes-up AND poolBedGap>=90",
+        "dLDR": 19,
+        "dSHF": 6.1,
+        "bothAxesUp": true,
+        "poolBedGap": 107,
+        "pass": true,
+        "basis": "DRESSED PASS (in-band): SHF 23.83 >= 17.5 + LDR 126 >= 115 + both-axes-up (dLDR 19, dSHF 6.1) + poolBedGap 107 >= 90"
+      }
+    },
+    {
+      "tag": "zone2_warhall",
+      "file": "descent_iter6_zone2_06.png",
+      "chamberKind": "DRESSED",
+      "iter5": {
+        "LDR": 103,
+        "SHF": 12.7
+      },
+      "metrics": {
+        "HFD": 13.33,
+        "LMV": 26.93,
+        "LDR": 115,
+        "SAT_mean": 0.571,
+        "SAT_std": 0.24,
+        "HLF_pct": 0.284,
+        "SHF_pct": 19.58,
+        "warmCool": 1.073,
+        "p05": 16,
+        "p25": 36,
+        "p50": 46,
+        "p75": 87,
+        "p95": 131,
+        "p98": 150,
+        "poolBedGap": 104,
+        "mid_pct": 36,
+        "dark_pct": 19.6,
+        "bright_pct": 0.45,
+        "dims": "960x540"
+      },
+      "kindGate": {
+        "kind": "DRESSED",
+        "threshold": "SHF in [17.5,25]+ AND LDR>=115 AND both-axes-up AND poolBedGap>=90",
+        "dLDR": 12,
+        "dSHF": 6.88,
+        "bothAxesUp": true,
+        "poolBedGap": 104,
+        "pass": true,
+        "basis": "DRESSED PASS (in-band): SHF 19.58 >= 17.5 + LDR 115 >= 115 + both-axes-up (dLDR 12, dSHF 6.88) + poolBedGap 104 >= 90"
+      }
+    },
+    {
+      "tag": "zone3_oubliette",
+      "file": "descent_iter6_zone3_07.png",
+      "chamberKind": "STARK_DREAD",
+      "iter5": {
+        "LDR": 105,
+        "SHF": 57.89
+      },
+      "metrics": {
+        "HFD": 8.27,
+        "LMV": 19.05,
+        "LDR": 118,
+        "SAT_mean": 0.784,
+        "SAT_std": 0.289,
+        "HLF_pct": 0.1,
+        "SHF_pct": 61.67,
+        "warmCool": 1.086,
+        "p05": 2,
+        "p25": 2,
+        "p50": 8,
+        "p75": 47,
+        "p95": 120,
+        "p98": 131,
+        "poolBedGap": 123,
+        "mid_pct": 21.4,
+        "dark_pct": 61.7,
+        "bright_pct": 0.16,
+        "dims": "960x540"
+      },
+      "kindGate": {
+        "kind": "STARK_DREAD",
+        "threshold": "SHF>=40 (dread/oubliette void)",
+        "dLDR": 13,
+        "dSHF": 3.78,
+        "bothAxesUp": true,
+        "poolBedGap": 123,
+        "pass": true,
+        "basis": "STARK-DREAD PASS: SHF 61.67 >= 40 (deep-void contrast)"
+      }
+    },
+    {
+      "tag": "zone4_antechamber",
+      "file": "descent_iter6_zone4_08.png",
+      "chamberKind": "DRESSED",
+      "iter5": {
+        "LDR": 107,
+        "SHF": 16.55
+      },
+      "metrics": {
+        "HFD": 12.26,
+        "LMV": 25.01,
+        "LDR": 123,
+        "SAT_mean": 0.597,
+        "SAT_std": 0.253,
+        "HLF_pct": 0.081,
+        "SHF_pct": 23.05,
+        "warmCool": 1.025,
+        "p05": 4,
+        "p25": 34,
+        "p50": 45,
+        "p75": 79,
+        "p95": 127,
+        "p98": 139,
+        "poolBedGap": 94,
+        "mid_pct": 33.1,
+        "dark_pct": 23.1,
+        "bright_pct": 0.13,
+        "dims": "960x540"
+      },
+      "kindGate": {
+        "kind": "DRESSED",
+        "threshold": "SHF in [17.5,25]+ AND LDR>=115 AND both-axes-up AND poolBedGap>=90",
+        "dLDR": 16,
+        "dSHF": 6.5,
+        "bothAxesUp": true,
+        "poolBedGap": 94,
+        "pass": true,
+        "basis": "DRESSED PASS (in-band): SHF 23.05 >= 17.5 + LDR 123 >= 115 + both-axes-up (dLDR 16, dSHF 6.5) + poolBedGap 94 >= 90"
+      }
+    },
+    {
+      "tag": "zone5_sanctum",
+      "file": "descent_iter6_zone5_09.png",
+      "chamberKind": "DRESSED",
+      "iter5": {
+        "LDR": 118,
+        "SHF": 12.43
+      },
+      "metrics": {
+        "HFD": 11.92,
+        "LMV": 27.43,
+        "LDR": 134,
+        "SAT_mean": 0.573,
+        "SAT_std": 0.231,
+        "HLF_pct": 0.211,
+        "SHF_pct": 17.82,
+        "warmCool": 1.099,
+        "p05": 5,
+        "p25": 37,
+        "p50": 44,
+        "p75": 83,
+        "p95": 139,
+        "p98": 194,
+        "poolBedGap": 150,
+        "mid_pct": 31.8,
+        "dark_pct": 17.8,
+        "bright_pct": 2.83,
+        "dims": "960x540"
+      },
+      "kindGate": {
+        "kind": "DRESSED",
+        "threshold": "SHF in [17.5,25]+ AND LDR>=115 AND both-axes-up AND poolBedGap>=90",
+        "dLDR": 16,
+        "dSHF": 5.39,
+        "bothAxesUp": true,
+        "poolBedGap": 150,
+        "pass": true,
+        "basis": "DRESSED PASS (in-band): SHF 17.82 >= 17.5 + LDR 134 >= 115 + both-axes-up (dLDR 16, dSHF 5.39) + poolBedGap 150 >= 90"
+      }
+    }
+  ],
+  "regression": {
+    "total": 6,
+    "pass": 6,
+    "result": "6/6",
+    "all_pass": true
+  }
+}

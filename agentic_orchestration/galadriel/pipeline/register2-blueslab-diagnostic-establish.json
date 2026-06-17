@@ -1,0 +1,169 @@
+{
+  "scored_at": "2026-06-17T14:04:19.682Z",
+  "instrument": "register2-blueslab-diagnostic-establish.mjs (galadriel independent; eye-corroborating composition metric)",
+  "method": "COOL=blue-max & b-r>=15 & b>40 (teal+blue family). WARM=r-b>=20 & r>=70 & r>=g*0.85. Bands=vertical thirds (FAR=top/deep recession, NEAR=bottom/foreground). Reports: (A) foreground warm:cool dominance, (B) whole-frame warm:cool, (C) cool relocation FAR-vs-MID, + secondary dark-flat cardboard-slab mass per band. See header for why a naive blue-pixel count is the WRONG instrument here (the iter6 slab is dark teal, not bright blue; the kill is a RELOCATION + warm-fore flip, not a blue-pixel reduction).",
+  "frames": [
+    {
+      "tag": "iter6_establish_01",
+      "file": "descent_iter6_establish_01.png",
+      "iter": 6,
+      "metrics": {
+        "dims": "960x540",
+        "near_warm_pct": 8.03,
+        "near_cool_pct": 2.92,
+        "fore_warm_cool_ratio": 2.75,
+        "frame_warm_pct": 7.05,
+        "frame_cool_pct": 8.48,
+        "frame_warm_cool_ratio": 0.83,
+        "coolShare_FAR_pct": 3.2,
+        "coolShare_MID_pct": 85.3,
+        "coolShare_NEAR_pct": 11.5,
+        "band_cool_pct": {
+          "far": 0.83,
+          "mid": 21.71,
+          "near": 2.92
+        },
+        "coolSlabFlat_pct": {
+          "far": 0.7,
+          "mid": 17.02,
+          "near": 0.96
+        }
+      }
+    },
+    {
+      "tag": "iter6_establish_02",
+      "file": "descent_iter6_establish_02.png",
+      "iter": 6,
+      "metrics": {
+        "dims": "960x540",
+        "near_warm_pct": 7.95,
+        "near_cool_pct": 2.92,
+        "fore_warm_cool_ratio": 2.72,
+        "frame_warm_pct": 7.02,
+        "frame_cool_pct": 8.49,
+        "frame_warm_cool_ratio": 0.83,
+        "coolShare_FAR_pct": 3.2,
+        "coolShare_MID_pct": 85.3,
+        "coolShare_NEAR_pct": 11.5,
+        "band_cool_pct": {
+          "far": 0.83,
+          "mid": 21.73,
+          "near": 2.92
+        },
+        "coolSlabFlat_pct": {
+          "far": 0.7,
+          "mid": 17.05,
+          "near": 0.96
+        }
+      }
+    },
+    {
+      "tag": "iter6_establish_03",
+      "file": "descent_iter6_establish_03.png",
+      "iter": 6,
+      "metrics": {
+        "dims": "960x540",
+        "near_warm_pct": 8.05,
+        "near_cool_pct": 2.91,
+        "fore_warm_cool_ratio": 2.77,
+        "frame_warm_pct": 7.11,
+        "frame_cool_pct": 8.48,
+        "frame_warm_cool_ratio": 0.84,
+        "coolShare_FAR_pct": 3.3,
+        "coolShare_MID_pct": 85.3,
+        "coolShare_NEAR_pct": 11.4,
+        "band_cool_pct": {
+          "far": 0.83,
+          "mid": 21.7,
+          "near": 2.91
+        },
+        "coolSlabFlat_pct": {
+          "far": 0.7,
+          "mid": 17,
+          "near": 0.96
+        }
+      }
+    },
+    {
+      "tag": "iter7_establish_01_HERO",
+      "file": "descent_iter7_establish_01.png",
+      "iter": 7,
+      "metrics": {
+        "dims": "960x540",
+        "near_warm_pct": 44.06,
+        "near_cool_pct": 7.02,
+        "fore_warm_cool_ratio": 6.28,
+        "frame_warm_pct": 25.11,
+        "frame_cool_pct": 19.91,
+        "frame_warm_cool_ratio": 1.26,
+        "coolShare_FAR_pct": 21.2,
+        "coolShare_MID_pct": 67,
+        "coolShare_NEAR_pct": 11.7,
+        "band_cool_pct": {
+          "far": 12.69,
+          "mid": 40.02,
+          "near": 7.02
+        },
+        "coolSlabFlat_pct": {
+          "far": 11.79,
+          "mid": 28.11,
+          "near": 3.65
+        }
+      }
+    },
+    {
+      "tag": "iter7_establish_02_ElevatedLookDown",
+      "file": "descent_iter7_establish_02.png",
+      "iter": 7,
+      "metrics": {
+        "dims": "960x540",
+        "near_warm_pct": 44.75,
+        "near_cool_pct": 5.12,
+        "fore_warm_cool_ratio": 8.74,
+        "frame_warm_pct": 25.3,
+        "frame_cool_pct": 20.72,
+        "frame_warm_cool_ratio": 1.22,
+        "coolShare_FAR_pct": 33.1,
+        "coolShare_MID_pct": 58.6,
+        "coolShare_NEAR_pct": 8.2,
+        "band_cool_pct": {
+          "far": 20.61,
+          "mid": 36.43,
+          "near": 5.12
+        },
+        "coolSlabFlat_pct": {
+          "far": 19.24,
+          "mid": 25.13,
+          "near": 2.32
+        }
+      }
+    },
+    {
+      "tag": "iter7_establish_03_GroundIntimate",
+      "file": "descent_iter7_establish_03.png",
+      "iter": 7,
+      "metrics": {
+        "dims": "960x540",
+        "near_warm_pct": 41.92,
+        "near_cool_pct": 12.11,
+        "fore_warm_cool_ratio": 3.46,
+        "frame_warm_pct": 25.86,
+        "frame_cool_pct": 21.61,
+        "frame_warm_cool_ratio": 1.2,
+        "coolShare_FAR_pct": 20.2,
+        "coolShare_MID_pct": 61.1,
+        "coolShare_NEAR_pct": 18.7,
+        "band_cool_pct": {
+          "far": 13.11,
+          "mid": 39.63,
+          "near": 12.11
+        },
+        "coolSlabFlat_pct": {
+          "far": 11.99,
+          "mid": 27.19,
+          "near": 8.26
+        }
+      }
+    }
+  ]
+}
