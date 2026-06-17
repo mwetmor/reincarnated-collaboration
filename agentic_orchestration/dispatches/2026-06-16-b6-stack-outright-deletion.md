@@ -141,3 +141,46 @@ Verification gate above → jack-ryan Gate-2 across the Phase 1 + Phase 2 commit
 - Commit / tag: `6128e50` / `gamora/v1.1-b6stack-phase1b-aoe-repoint` (NOT pushed — Matt-gated).
 
 **Phase 1 CLOSE:** both sim imports point at `geometry_constants`; membership identical; spatial-green. Ready for jack-ryan Gate-2 (clean import + spatial-green + membership-identical) → then rocket fires Phase 2. The `AOE_GEOMETRIES` def + its re-export shim at `b6_archetype_templates.py` die with the module in Phase 2.
+
+---
+
+## Completion record — Phase 2 (rocket, generation half, 2026-06-16)
+
+**Status:** ✅ DONE — the entire b6 generation stack + the legacy `season_orchestrator`/`generate-season` path are DELETED. Live 2D spatial-sim path UNCHANGED and clean (physical + caster coords). Engine imports + runs the live path clean. Commit `4b089e3` / tag `rocket/v1.1-b6stack-phase2-deletion` (NOT pushed — Matt-gated).
+
+**DELETED — whole modules (8 on disk + 1 already absent):**
+`b6_kit_builder.py`, `b6_archetype_templates.py` (incl. AOE_GEOMETRIES re-export shim — canonical def survives in `geometry_constants.py`), `class_generator.py`, `season_orchestrator.py` (incl. `SeasonOutput`), `archetype_classifier.py`, `archetype_composer.py`, `stat_allocator.py`, `composed_kit_adapter.py`. `legacy_archetype_shim.py` was already absent on disk (zero importers; G9/BC-R-1 = DELETE — nothing to remove).
+
+**cli.py (rocket-owned legacy-command removal, DONE):** removed `cmd_generate_season` + the `generate-season` subparser + `from …season_orchestrator import SeasonOrchestrator` + `from reincarnated.output import write_season, format_summary`. `cmd_validate_season` (uses `load_season_manifest`) UNTOUCHED — star-lord coordinates that symbol. cli.py compiles + imports clean.
+
+**balance_loop.py (MODULE STAYS — sub-symbols only):** deleted the convergence/recompose machinery that consumed b6 tables — `_primary_recompose_loop` + `_generate_element_variants`, `_apply_element_redistribution`, `_lever_skill_swap`, `_pick_swap_target_role`, `_lever_geometry_mix`, `_lever_cooldown_energy`, `_lever_energy_type_calibration`. The recompose-first + secondary-loop call block inside `balance_class()` is replaced with inert defaults preserving the downstream variable contract (rejection gate + telemetry). `balance_class()` survives as a dead-but-importable member (reachable only via the deleted `season_orchestrator`). `_quick_modifier_estimate` left in place (orphaned, non-b6, harmless).
+
+**skill_tree.py G10 (MODULE STAYS):** deleted the dead `_ARCHETYPE_TEMPLATES` chain-structure dict; `SkillTreeGenerator.generate()` (its only consumer, never instantiated on the live path) stubbed to `NotImplementedError`. Live constants (`BC_AXIS_KEYS`, `L1_COST_CEILING`, `L1_COOLDOWN_CEILING`) consumed by `substrate_templates`/`t4_wireup` — intact, downstream importers green.
+
+**GUARD CORRECTION — mechanic_alteration G3 (turn-off-then-delete arbiter):** the dispatch listed `_bc_view_from_generation_params` + `_geo_map` as "dead G3 sub-symbols." **Empirical grep proved them LIVE** — `_bc_view_from_generation_params` is called by `select_primary_t4()` (the named live entry via `gauntlet_sim.py:1960`) at lines 1135 + 1188. **NOT deleted.** Confirm-zero-live-importers-first discipline working as intended.
+
+### Verification gate results
+
+1. **Physical + caster clean-gen (the load-bearing proof):** `w5r1_generate_kit_candidates(seed_base=9000)` → **54 kits clean**. **21 PHYSICAL-coord** (`S1_endgame_bc_melee_…`, `bc_range=melee`, `substrate_weapon_binding != None`, 12 skills) + **33 CASTER-coord** (`S1_endgame_bc_ranged_…`, 12 skills). NO `PhysicalPoolInfeasibleError`, NO b6 import — confirms physical-vs-caster identity comes from the curated weapon pool + per_skill_emitter, never the dead b6 fork. PASS.
+2. **grep every deleted symbol → zero LIVE hits** across generation + live spatial path. Only remaining hits: `output/season_writer.py` + `output/summary_formatter.py` (star-lord's `SeasonOutput` imports, expected to die on the output-half) and prose comments. PASS.
+3. **No ImportError in the live spatial-sim path:** all live modules import clean (`cli`, `balance_loop`, `season_generation_pipeline`, `mechanic_alteration`, `skill_tree`, `geometry_constants`, `per_skill_emitter`, `damage_resolver`, `combatant`). `test_spatial_gauntlet_scenarios.py` **27/27**; `test_b11_geometry_mechanics.py` **115/115** (after AOE re-point). PASS.
+   - NB: `w5r2_gauntlet_sim_integration → run_gauntlet_sim → t4_sim_cycling.py:1018` hits a `ModuleNotFoundError: fight_engine` — this is a **PRE-EXISTING break from gamora's earlier 1D-sim deletion (`a8b28a1`)**, in `t4_sim_cycling.py` which I did NOT touch. Out of my surface (gamora's seam). Flagged.
+4. **balance_loop convergence check (settles the gamora-vs-gandalf tension):** the 4 surviving spatial importers — `spatial_gauntlet/gauntlet_archive.py`, `spatial_gauntlet/spatial_engine.py`, `validation_report.py`, `telemetry/recorder.py` — reference **ZERO deleted convergence symbol** (only `ClassBalanceResult`/`TrialBalanceResult` dataclasses + comments). **Both views hold:** the recompose machinery DID change the modifier for every class, but ONLY inside `balance_class` on the deleted legacy `season_orchestrator` path (gamora-true); on the live spatial path it is vestigial (gandalf-true). Deleting it changes nothing the live sim observes. PASS.
+
+### BC-Stage-3 reconciliation (report, not run)
+- **SUBSUMED:** `legacy_archetype_shim` (R-1; already absent) + `ARCHETYPE_TEMPLATES` (deleted with `b6_archetype_templates`).
+- **NOT subsumed / REMAINING (out of this surface):** `ARCHETYPE_ROLE_PRIORITY` + `_PLAYER_CONTROLLER_ARCHETYPES` live in `simulation/ai_strategies.py` (gamora's seam, LIVE sim symbols), NOT part of the b6 generation stack. The b6-side references to them (`b6_kit_builder:857`, `composed_kit_adapter:355`) died with those modules, but the symbols themselves survive in ai_strategies. `V-D1..V-D6` are ai_strategies/sim-side, untouched here. BC-Stage-3's remaining targets are a gamora/sim concern, not generation.
+
+### Re-pointed (not deleted)
+- `generation/notes/proxy_skill_part1_proof_2026_06_16.py` — `_EFFECT_CATEGORY_RANGE_M` import re-pointed `composed_kit_adapter` → `monster_generator` (identical `summon`=3.0 surviving sibling def).
+- `tests/test_b11_geometry_mechanics.py:531` — `AOE_GEOMETRIES` import re-pointed to `geometry_constants` (Phase 1a home); LIVE-coverage test, so re-point not delete.
+
+### Legacy-test follow-on (FLAGGED — NOT executed; scope boundary)
+~44 test files import the deleted legacy modules; +11 already broken by gamora's `fight_engine` deletion. They test the deleted legacy path, fail at collection, are NOT on the live import path. Mass-deleting them is a scope expansion beyond this dispatch — flagged for an explicit legacy-test-cleanup follow-on. The LIVE spatial battle test surface is GREEN.
+
+### Notes stamped HISTORICAL (not deleted)
+`math/b6-pre-work-energy-tier-shift.md`, `math/fire-mage-b6-no-heal-pool-contradiction-2026-06-14.md`, `math/w0-2-archetype-removal-bc-target-composition.md`, `math/d3-path-a-archetype-composition-phase-1-p1.md` (gamora-authored), `notes/2026-06-15-b6-deletion-prereq-A-adversarial-pool-math-note.md`.
+
+**MIGRATION:** `generation/MIGRATION.md` — entry `[2026-06-16] b6-stack deletion Phase 2`.
+
+**Hand-off to star-lord (output half):** `output/season_writer.py` + `output/summary_formatter.py` (+ `output/__init__.py` re-exports of `write_season`/`format_summary`/`load_season_manifest`) are now the ONLY remaining live importers of a deleted symbol (`SeasonOutput`). They delete cleanly per the RESOLVED legacy-dead determination. After star-lord's output-half, jack-ryan Gate-2 spans both.
