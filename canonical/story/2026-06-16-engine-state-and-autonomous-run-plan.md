@@ -1,6 +1,6 @@
 # Engine State + Autonomous Run Plan — 2026-06-16
 
-> **STATUS:** CURRENT (load-bearing as of 2026-06-16) — see `canonical/00-ground-state.md`. This is the session-boundary state snapshot + the authorized autonomous-run plan. Re-entry doc for the next session.
+> **STATUS:** HISTORICAL-SUPERSEDED (2026-06-17) — **superseded by `canonical/story/2026-06-17-autonomous-run-plan-v2.md`**. This v1 charter framed the frontier as a single convergent gate (W-E throughput + 1D/b6 deletion); the real frontier became two parallel tracks (engine-completion + pipeline) once §6 ruled = 6b, 1D+b6 retired outright, and the KPM recalibration closed. The post-run review (`agentic_orchestration/gandalf/notes/2026-06-16-autonomous-run-review-and-completion-frontier.md`) found this charter stale on 3 items + silent on 3 — that staleness is the discipline v2 § 0.1 is built to not repeat. Retained as historical record of the prior frontier + the (still-valid, carried-forward) three-tier pre-authorization envelope.
 
 **Date:** 2026-06-16
 **Author:** gandalf (story-and-design steward)
