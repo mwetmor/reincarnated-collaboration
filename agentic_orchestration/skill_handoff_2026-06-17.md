@@ -17,7 +17,10 @@ The full chain (crawl → download → catalogue → verify → gandalf design r
 | Full enumeration: 157 collections / 620 files / ~51 GB all variants | knight-rider | ✅ committed | `full-fbx-variant-manifest.jsonl` + `collections-157.json` |
 | FBX corpus pull: **136/136 zips, 8.8 GB, all `unzip -t` verified, 0 failures** | knight-rider | ✅ on disk | `~/Games/synty-corpus/fbx/` |
 | Slice-verification (UV-separability #2 + accent-rig sockets #3) | galadriel | ✅ **both VERIFIED YES**, committed `8da65d1` | `slice-verification-2026-06-17.md` |
-| Catalogue DB: 136 packs / 53,626 mesh assets / path-index PASS (0 misses) | elrond | ✅ committed `5197cc0` (script + MIGRATION; DB gitignored/regenerable) | `research/curated/synty_catalogue.db` + `scripts/build_synty_catalogue_2026_06_17.py` |
+| Catalogue DB WAVE 1: 136 FBX packs / 53,626 mesh assets / path-index PASS (0 misses) | elrond | ✅ committed `5197cc0` (script + MIGRATION; DB gitignored/regenerable) | `research/curated/synty_catalogue.db` + `scripts/build_synty_catalogue_2026_06_17.py` |
+| No-FBX pull: 21 Unity `.unitypackage`, 21/21, 2.7 GB, 0 failures | knight-rider | ✅ on disk | `~/Games/synty-corpus/nonfbx/` |
+| Mesh extraction from unitypackages: **8,655 FBX + 11,930 textures, 2.8 GB** | knight-rider | ✅ on disk | `~/Games/synty-corpus/nonfbx_extracted/` + `extract_unitypackages.sh` + `extract.log` |
+| Catalogue DB WAVE 2: +21 packs / +8,655 assets; **catalogue now 157 packs / 62,281 assets** / path-index PASS (per-pack counts match extract.log exactly) | elrond | ✅ committed (MIGRATION v1.11.1; new `nonfbx` mode + `classify_asset_loose`) | same DB, regenerable: `full` then `nonfbx` |
 | §7.6 StyleProfile output-shape ruling (gear-spec design seam) | gandalf | ✅ AUTHORED — ⚠️ **UNCOMMITTED (untracked)** | `canonical/story/styleprofile-output-shape-ruling-2026-06-17.md` |
 
 ### ⚠️ OPEN — flag for next session / gandalf
@@ -34,10 +37,14 @@ StyleProfile `palette` carries a **per-region palette array that gracefully degr
 
 ---
 
+### WAVE-2 survey findings (elrond, survey-accurate — reporting what EXISTS on disk)
+- **POLYGON MINI Fantasy Pack ships ZERO character meshes** — the no-FBX Unity download is entirely environment/prop/FX (892 FBX, 0 character). My dispatch hint listed it character-relevant; the disk reality corrected it. The MINI-line character minis were not in this download.
+- **Shared `PolygonGeneric` module rides along in nearly every POLYGON pack** — even environment-leaning Nature carries `Generic_Characters.fbx` (1 char) + ~22 `SM_Gen_Chr_Attach_*` generic accents. Every POLYGON pack has a ~1-char/~22-accent generic baseline beneath its themed content; Kids (184 accents) + Battle Royale (89) carry large pack-specific accent sets on top.
+- Unity exports lack the `SK_` skeletal prefix (chars baked into `Generic_Characters.fbx`; accents `SM_Chr_Attach_*`); SIMPLE line predates `SM_` prefix → elrond added `classify_asset_loose`, left WAVE-1 classifier untouched. WAVE-2 stamped `source='synty-store-unitypackage'`, `has_fbx=0`, `extracted-from-unitypackage` provenance.
+
 ## In-flight / queued
 
-- **No-FBX variant pull** — 21 Unity `.unitypackage` packs (Knights/Vikings/Western/Kids/Battle Royale/Gang Warfare/etc. + INTERFACE HUDs) → `~/Games/synty-corpus/nonfbx/`. Running (~10/21 at handoff). Script: `~/Games/synty-corpus/download_nofbx.sh`. **Next:** when complete, extract meshes from the `.unitypackage` files (Mac-side) → elrond second `full` populate pass (script is idempotent, upsert-keyed on `(collection_id, download_id)` — clean re-run, no manual reconciliation).
-- **Cloud backup of full corpus** (task #7) — pending; do post-pull, pre-subscription-lapse. Storage verdict settled: even all-variants ~51 GB fits the Pi 106 GB microSD (partition-onto-Mac contingency permanently moot). FBX staged Mac-local because Pi SMB share was unmounted at session time.
+- **Cloud backup of full corpus** (task #7) — PENDING, **Matt-gated** (external write; ADR-006 read-only-default). Do pre-subscription-lapse. Corpus is safe on Mac disk now (FBX 8.8 GB + no-FBX 2.7 GB + extracted 2.8 GB). Storage verdict settled: even all-variants ~51 GB fits the Pi 106 GB microSD (partition-onto-Mac contingency permanently moot). FBX staged Mac-local because Pi SMB share was unmounted at session time. **This is the only remaining open item in the acquisition workstream.**
 - **Per-zone semantic labels** (which mask zone = metal vs leather) — galadriel §7.4 hook; needs one Godot/Blender import render pass. Provisional in the manifest until then. NOT a schema gate (zone count of 5 is decision-grade); only label-to-zone binding awaits the render. No Blender/assimp installed on host — tooling gap to close before that render.
 - **EULA confirmation** at syntystore.com/pages/licences-overview — Matt open item (incorporation_status ledger is the mechanism; default NOT_INCORPORATED honors the "must incorporate before lapse" stipulation).
 
