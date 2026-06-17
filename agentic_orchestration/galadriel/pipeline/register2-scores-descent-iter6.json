@@ -1,0 +1,391 @@
+{
+  "scored_at": "2026-06-17T13:15:29.374Z",
+  "corpus": "iter6 GLOBAL-RIG-MATCH descent — descent_iter6_{zone0..5}.png (6) + establish_{01..03}.png (3).",
+  "build": "drax Round-3 iter6 (reincarnated-godot): _build_global_environment matched to proven register-2 rig (ACES/0.95/8.0/ambient0.17/fog0.010), green fog identity kept. NO key retune.",
+  "baseline": "iter5, commit 7ce990e: per-chamber KEY lift — galadriel REJECTED 0/6 (global env was the suppressor).",
+  "north_star_boss_arena": {
+    "LDR_mean": 175.97,
+    "SHF_mean": 42.74,
+    "HLF_peak": 4.013
+  },
+  "frames": [
+    {
+      "tag": "zone0_threshold",
+      "file": "descent_iter6_zone0_04.png",
+      "kind": "swarm",
+      "iter5": {
+        "LDR": 122,
+        "SHF": 16.65
+      },
+      "metrics": {
+        "HFD": 12.66,
+        "LMV": 32.67,
+        "LDR": 133,
+        "SAT_mean": 0.603,
+        "SAT_std": 0.229,
+        "HLF_pct": 0.218,
+        "SHF_pct": 21.38,
+        "warmCool": 1.21,
+        "p05": 2,
+        "p25": 36,
+        "p50": 48,
+        "p75": 94,
+        "p95": 135,
+        "mid_pct": 35.2,
+        "dark_pct": 21.4,
+        "bright_pct": 0.55,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": true,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.15
+      },
+      "axisVerdict": {
+        "dLDR": 11,
+        "dSHF": 4.73,
+        "ldrUp": true,
+        "shfUp": true,
+        "verdict": "KEY_RESTORED (both axes up — lit-volume-in-dark)"
+      }
+    },
+    {
+      "tag": "zone1_arcane",
+      "file": "descent_iter6_zone1_05.png",
+      "kind": "near",
+      "iter5": {
+        "LDR": 107,
+        "SHF": 17.73
+      },
+      "metrics": {
+        "HFD": 13.87,
+        "LMV": 31.67,
+        "LDR": 126,
+        "SAT_mean": 0.6,
+        "SAT_std": 0.249,
+        "HLF_pct": 0.177,
+        "SHF_pct": 23.83,
+        "warmCool": 1.084,
+        "p05": 7,
+        "p25": 32,
+        "p50": 44,
+        "p75": 82,
+        "p95": 133,
+        "mid_pct": 33.4,
+        "dark_pct": 23.8,
+        "bright_pct": 0.28,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": true,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.12
+      },
+      "axisVerdict": {
+        "dLDR": 19,
+        "dSHF": 6.1,
+        "ldrUp": true,
+        "shfUp": true,
+        "verdict": "KEY_RESTORED (both axes up — lit-volume-in-dark)"
+      }
+    },
+    {
+      "tag": "zone2_warhall",
+      "file": "descent_iter6_zone2_06.png",
+      "kind": "near",
+      "iter5": {
+        "LDR": 103,
+        "SHF": 12.7
+      },
+      "metrics": {
+        "HFD": 13.33,
+        "LMV": 26.93,
+        "LDR": 115,
+        "SAT_mean": 0.571,
+        "SAT_std": 0.24,
+        "HLF_pct": 0.284,
+        "SHF_pct": 19.58,
+        "warmCool": 1.073,
+        "p05": 16,
+        "p25": 36,
+        "p50": 46,
+        "p75": 87,
+        "p95": 131,
+        "mid_pct": 36,
+        "dark_pct": 19.6,
+        "bright_pct": 0.45,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": true,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.19
+      },
+      "axisVerdict": {
+        "dLDR": 12,
+        "dSHF": 6.88,
+        "ldrUp": true,
+        "shfUp": true,
+        "verdict": "KEY_RESTORED (both axes up — lit-volume-in-dark)"
+      }
+    },
+    {
+      "tag": "zone3_oubliette",
+      "file": "descent_iter6_zone3_07.png",
+      "kind": "swarm",
+      "iter5": {
+        "LDR": 105,
+        "SHF": 57.89
+      },
+      "metrics": {
+        "HFD": 8.27,
+        "LMV": 19.05,
+        "LDR": 118,
+        "SAT_mean": 0.784,
+        "SAT_std": 0.289,
+        "HLF_pct": 0.1,
+        "SHF_pct": 61.67,
+        "warmCool": 1.086,
+        "p05": 2,
+        "p25": 2,
+        "p50": 8,
+        "p75": 47,
+        "p95": 120,
+        "mid_pct": 21.4,
+        "dark_pct": 61.7,
+        "bright_pct": 0.16,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": true,
+        "SHF_pass_30": true,
+        "lighting_cv_pass": true,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.07
+      },
+      "axisVerdict": {
+        "dLDR": 13,
+        "dSHF": 3.78,
+        "ldrUp": true,
+        "shfUp": true,
+        "verdict": "KEY_RESTORED (both axes up — lit-volume-in-dark)"
+      }
+    },
+    {
+      "tag": "zone4_antechamber",
+      "file": "descent_iter6_zone4_08.png",
+      "kind": "near",
+      "iter5": {
+        "LDR": 107,
+        "SHF": 16.55
+      },
+      "metrics": {
+        "HFD": 12.26,
+        "LMV": 25.01,
+        "LDR": 123,
+        "SAT_mean": 0.597,
+        "SAT_std": 0.253,
+        "HLF_pct": 0.081,
+        "SHF_pct": 23.05,
+        "warmCool": 1.025,
+        "p05": 4,
+        "p25": 34,
+        "p50": 45,
+        "p75": 79,
+        "p95": 127,
+        "mid_pct": 33.1,
+        "dark_pct": 23.1,
+        "bright_pct": 0.13,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": true,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.05
+      },
+      "axisVerdict": {
+        "dLDR": 16,
+        "dSHF": 6.5,
+        "ldrUp": true,
+        "shfUp": true,
+        "verdict": "KEY_RESTORED (both axes up — lit-volume-in-dark)"
+      }
+    },
+    {
+      "tag": "zone5_sanctum",
+      "file": "descent_iter6_zone5_09.png",
+      "kind": "near",
+      "iter5": {
+        "LDR": 118,
+        "SHF": 12.43
+      },
+      "metrics": {
+        "HFD": 11.92,
+        "LMV": 27.43,
+        "LDR": 134,
+        "SAT_mean": 0.573,
+        "SAT_std": 0.231,
+        "HLF_pct": 0.211,
+        "SHF_pct": 17.82,
+        "warmCool": 1.099,
+        "p05": 5,
+        "p25": 37,
+        "p50": 44,
+        "p75": 83,
+        "p95": 139,
+        "mid_pct": 31.8,
+        "dark_pct": 17.8,
+        "bright_pct": 2.83,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": true,
+        "SHF_pass_30": false,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.14
+      },
+      "axisVerdict": {
+        "dLDR": 16,
+        "dSHF": 5.39,
+        "ldrUp": true,
+        "shfUp": true,
+        "verdict": "KEY_RESTORED (both axes up — lit-volume-in-dark)"
+      }
+    },
+    {
+      "tag": "establish_01",
+      "file": "descent_iter6_establish_01.png",
+      "kind": "establish",
+      "iter5": {
+        "LDR": 97,
+        "SHF": 48.56
+      },
+      "metrics": {
+        "HFD": 8.41,
+        "LMV": 16.61,
+        "LDR": 102,
+        "SAT_mean": 0.778,
+        "SAT_std": 0.253,
+        "HLF_pct": 0.133,
+        "SHF_pct": 49.87,
+        "warmCool": 0.988,
+        "p05": 2,
+        "p25": 2,
+        "p50": 31,
+        "p75": 57,
+        "p95": 104,
+        "mid_pct": 21.9,
+        "dark_pct": 49.9,
+        "bright_pct": 0.21,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": true,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.09
+      },
+      "axisVerdict": {
+        "dLDR": 5,
+        "dSHF": 1.31,
+        "ldrUp": true,
+        "shfUp": true,
+        "verdict": "KEY_RESTORED (both axes up — lit-volume-in-dark)"
+      }
+    },
+    {
+      "tag": "establish_02",
+      "file": "descent_iter6_establish_02.png",
+      "kind": "establish",
+      "iter5": {
+        "LDR": 97,
+        "SHF": 48.56
+      },
+      "metrics": {
+        "HFD": 8.41,
+        "LMV": 16.46,
+        "LDR": 102,
+        "SAT_mean": 0.778,
+        "SAT_std": 0.253,
+        "HLF_pct": 0.107,
+        "SHF_pct": 49.89,
+        "warmCool": 0.988,
+        "p05": 2,
+        "p25": 2,
+        "p50": 31,
+        "p75": 56,
+        "p95": 104,
+        "mid_pct": 21.9,
+        "dark_pct": 49.9,
+        "bright_pct": 0.18,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": true,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.07
+      },
+      "axisVerdict": {
+        "dLDR": 5,
+        "dSHF": 1.33,
+        "ldrUp": true,
+        "shfUp": true,
+        "verdict": "KEY_RESTORED (both axes up — lit-volume-in-dark)"
+      }
+    },
+    {
+      "tag": "establish_03",
+      "file": "descent_iter6_establish_03.png",
+      "kind": "establish",
+      "iter5": {
+        "LDR": 97,
+        "SHF": 48.56
+      },
+      "metrics": {
+        "HFD": 8.43,
+        "LMV": 16.89,
+        "LDR": 102,
+        "SAT_mean": 0.777,
+        "SAT_std": 0.254,
+        "HLF_pct": 0.164,
+        "SHF_pct": 49.87,
+        "warmCool": 0.989,
+        "p05": 2,
+        "p25": 2,
+        "p50": 31,
+        "p75": 57,
+        "p95": 104,
+        "mid_pct": 22,
+        "dark_pct": 49.9,
+        "bright_pct": 0.27,
+        "dims": "960x540"
+      },
+      "gates": {
+        "LDR_pass_115": false,
+        "SHF_pass_30": true,
+        "lighting_cv_pass": false,
+        "HLF_pass_1p5": false,
+        "HLF_x_threshold": 0.11
+      },
+      "axisVerdict": {
+        "dLDR": 5,
+        "dSHF": 1.31,
+        "ldrUp": true,
+        "shfUp": true,
+        "verdict": "KEY_RESTORED (both axes up — lit-volume-in-dark)"
+      }
+    }
+  ]
+}
