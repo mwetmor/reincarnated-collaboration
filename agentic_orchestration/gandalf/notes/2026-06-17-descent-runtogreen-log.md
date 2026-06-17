@@ -68,6 +68,7 @@ galadriel correctly showed frozen-charge stills can't score VFX. I add the desig
 - **Why not score lighting on a windowed frame too:** the lighting gate should measure the AMBIENT mood between fires (what's on screen most of the time). The frozen-charge still IS a fair read of that ambient deficit. So lighting is correctly measured on the current stills; VFX is not. Different gates, different correct inputs.
 
 #### Round 2 — PLAN (fires when drax round-1 returns; one drax at a time on the lighting rig)
+**★ ROOT-CAUSE UPGRADE (gandalf, code-traced 2026-06-17):** the flat-dim-mid-grey is **cumulative-trim drift** (Discipline #13 implicit-pillar), not one wrong value. Stack of register-correct local fixes — `CombatFill` trimmed 1.5→1.15+green-cool (`render_descent_scene.gd:625`), green fog as shadow-bed (`:1980`), `ambient 0.24` (`:1972`), low-fill global directional trio — summed BELOW the proven LDR-176 bar. galadriel's twin LDR-low+SHF-low = "all fill, no key." Fix = restore a per-chamber **KEY** of boss-arena reach (`CombatFill 1.5/range34/atten1.5` + braziers `2.2/8` = LDR 176 PASS, `render_boss_arena.gd:229`), NOT raise fill. **Fire-ready brief STAGED:** `agentic_orchestration/gandalf/notes/2026-06-17-descent-round2-lighting-lift-brief.md`.
 The only real Gate-A work is the **per-chamber lighting lift**, prioritized by galadriel's data:
 1. **zone2 warhall** relight — flattest/coolest, furthest from gate, biggest single win; floor key + warm fill.
 2. **zone1 arcane** key-lift — clear the LDR-115 floor + shadow depth.
@@ -77,7 +78,7 @@ The only real Gate-A work is the **per-chamber lighting lift**, prioritized by g
 6. **zone2 windowed eruption confirm** (the VFX-inheritance validator) once zone2 is relit.
 Then galadriel re-scores the relit zones; gandalf re-reads any geometry-changed audit stills. Loop until matrix is GREEN.
 
-- **Awaiting:** drax round-1 completion. On return → gandalf runs semantic-coherence reads on the new audit stills + rules drax's load-path flags → fold into matrix → fire round-2 lighting-lift brief to drax.
+- **Awaiting:** drax round-1 completion. On return → gandalf runs semantic-coherence reads on the new audit stills + rules drax's load-path flags → fold into matrix + into the staged Round-2 brief's §4 geometry-fold → fire Round-2 lighting-lift brief to drax (brief already authored + staged; only the load-path geometry-fold is pending Round-1 scan output).
 
 ---
 
