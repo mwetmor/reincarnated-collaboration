@@ -6,7 +6,7 @@
 **Estimated effort:** Phase 1 ~2–3h (gamora) → Phase 2 ~0.5–1d (rocket)
 **Acceptance:** the entire b6 stack is deleted; the live 2D spatial-sim path (`season_generation_pipeline → per_skill_emitter`) generates physical AND caster coords clean; zero live grep hits on deleted symbols; no ImportError anywhere in the live path.
 
-> This consolidates and SUPERSEDES the three earlier 2026-06-16 dispatches (`rocket-b6-archetype-deletion`, `aoe-membership-reconciliation`, `convergence-retirement`). gandalf's path audit shows the whole b6 stack is dead on the live path and deletable OUTRIGHT once one legacy path is severed — no carve-out, no re-home of the b6 data tables.
+> This consolidates and SUPERSEDES the three earlier 2026-06-16 dispatches (`rocket-b6-archetype-deletion`, `aoe-membership-reconciliation`, `convergence-retirement`). gandalf's path audit shows the whole b6 stack is dead on the live path and deletable OUTRIGHT once one legacy path is severed — **with ONE exception: `AOE_GEOMETRIES` has 2 live sim-side survivor consumers and gets a verbatim re-home (Matt ruling A, 2026-06-16) before its module dies.** All other b6 data tables delete with no re-home.
 
 ## Framing (gandalf, KR-verified)
 The live 2D spatial sim feeds from `season_generation_pipeline → per_skill_emitter`, which is **entirely b6-free** and already generates physical kits positionally with STR scaling (proof: the 12 physical-substrate kits in cycle-14 `phase2_kit_candidates.json` — a physical coordinate through `compose_kit` would have raised `PhysicalPoolInfeasibleError`). Physical-vs-caster + melee/range identity comes from the curated ~2100-weapon physical pool. **`B6KitBuilder` is the ONE real dependency, reached by exactly one live path:** `class_generator → b6_builder.build()`, instantiated only at `season_orchestrator.py:230`, imported only by `cli.py:182` (legacy `generate-season`). Sever that path → the entire b6 stack (`ARCHETYPE_TEMPLATES`, `BIAS_*`, `TIER_SCALING_BANDS`, `AOE_GEOMETRIES`, PHYSICAL/HYBRID templates) is free to delete outright.
@@ -16,11 +16,19 @@ The live 2D spatial sim feeds from `season_generation_pipeline → per_skill_emi
 ## Phase 0 — Recognition (the repoint that makes deletion safe)
 The surviving physical generator is weapon-pool identity + `per_skill_emitter` skills. There is NO live consumer of the `class_generator` `is_physical → classify_archetype → ARCHETYPE_TEMPLATES → b6_builder.build()` fork outside the `season_orchestrator → cli generate-season` path, which is itself being cut. **Confirm zero live importers, then proceed.** If rocket surfaces a genuine live need for `season_orchestrator` during the cut, ESCALATE before deleting it — but the audit says delete.
 
-## Phase 1 — gamora (FIRST; turn-off-then-delete the sim-side AOE uses)
-`AOE_GEOMETRIES` has two live spatial consumers: `simulation/damage_resolver.py:33` and `simulation/combatant.py:693`. **Route both to `geometry_derivation`**, confirm the spatial sim runs clean, THEN the symbol dies with its module in Phase 2.
-- **⚖️ Matt AOE-Gate (ruling 1, preserved):** if `geometry_derivation`'s AOE-membership DIFFERS from the dying `AOE_GEOMETRIES` on any contested geometry, that is a behavior change (pack-proxy AOE multiplier) → **jack-ryan Gate on the membership disposition** before you re-point. If membership is identical, it's a pure pointer move — note that in MIGRATION and proceed.
-- `TIER_SCALING_BANDS` (one consumer: `composed_kit_adapter.py:37/491`) needs NO separate turn-off — it dies with `composed_kit_adapter` in Phase 2.
-- Write/append `simulation/MIGRATION.md` (v1.71): AOE consumers re-pointed to geometry_derivation; AOE_GEOMETRIES scheduled to die in Phase 2.
+## Phase 1 — VERBATIM RE-HOME (Matt ruling A, 2026-06-16; supersedes the original "route to geometry_derivation")
+
+**Gate outcome (gamora 2026-06-16, engine `8ec4f8c`):** the original instruction assumed `geometry_derivation` already held a canonical AOE-membership — it does NOT. The closest spatial-derived membership DIFFERS from `AOE_GEOMETRIES` on 5 geometries (loses `dash_attack`/`ground_slam`/`leap_strike`/`multi_projectile` from the pack-proxy mult; gains `aura`). That is a deliberate B10/B11 pack-proxy classification, not a coarse spatial set. **Matt ruled (A): verbatim re-home, ZERO behavior change.** Tightening membership would be a separate deliberate balance decision (out of scope here).
+
+`AOE_GEOMETRIES` is the SOLE survivor-consumed frozenset in `b6_archetype_templates.py` — the siblings (`GAP_CLOSER_/CLEAVE_/ESCAPE_MOBILITY_GEOMETRIES`, `ROTATING_ELEMENTS`) are consumed only by `b6_kit_builder.py` and die clean with it. Re-home scope = exactly one 16-entry frozenset.
+
+**Phase 1a — rocket (FIRST):** create a surviving non-b6 home (e.g. `generation/geometry_constants.py`); move the **exact 16-entry `AOE_GEOMETRIES` frozenset intact** (no membership change); update the gen-side interim importer `b6_kit_builder.py:24` to the new home (keeps the engine runnable until Phase 2 deletes b6_kit_builder). Commit; write `generation/MIGRATION.md` noting the new home path.
+
+**Phase 1b — gamora (SECOND):** re-point `simulation/damage_resolver.py:33` and `simulation/combatant.py:693` imports to the new home (read rocket's MIGRATION for the path). Confirm spatial sim green (27/27 baseline). Write `simulation/MIGRATION.md` **v1.72** (NOT v1.71 — that number is already taken by the Telegraph emit-contract entry): AOE consumers re-pointed to `<new home>`; membership IDENTICAL → zero behavior change; `AOE_GEOMETRIES` def now scheduled to die with `b6_archetype_templates.py` in Phase 2.
+
+- `TIER_SCALING_BANDS` (one consumer: `composed_kit_adapter.py:37/491`) needs NO turn-off — it dies with `composed_kit_adapter` in Phase 2.
+
+**Gate (Matt ruling): jack-ryan Gate-2 on the re-home commits** — two-witness: clean import + spatial-sim-green; membership identical (zero behavior change) confirmed by diff. This Gate clears BEFORE Phase 2 fires.
 
 ## Phase 2 — rocket (outright deletion)
 **DELETE (whole modules):**
