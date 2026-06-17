@@ -85,3 +85,24 @@ The deletion program from the consolidated dispatch executed end-to-end. **Seque
 3. **Follow-on B — gamora t4_sim_cycling fight_engine repair** (PRE-EXISTING from gamora's 1D deletion `a8b28a1`; `t4_sim_cycling.py:1018/1122` import deleted fight_engine; `w5r2_gauntlet_sim_integration` path broken). gamora seam. Needs a dispatch.
 4. **Paired forward-work** (proxy skills/gear/Proxy-Commander SET PROFILE #6) — still queued, gandalf authors spec on request, NOT commissioned.
 5. **BC-Stage-3 leftovers** — `ARCHETYPE_ROLE_PRIORITY` + `_PLAYER_CONTROLLER_ARCHETYPES` live in `simulation/ai_strategies.py` (gamora seam), NOT subsumed by this deletion.
+
+---
+
+## FINAL+1 (same session) — b6/1D-sim deletion PUSHED; follow-ons A + B COMPLETE through gates
+
+**Push DONE (Matt-authorized):** 7 commits `93b8fe0..a2deaa0` on origin/main. b6 stack + 1D battle sim retirement locked in.
+
+**Follow-on B (gamora `de09d8b`, tag `gamora/v1.1-b6-1dsim-followon`) — Gate-2 PASS-WITH-INFO:**
+- `t4_sim_cycling.py:1018/:1122` dangling `fight_engine` import REPAIRED — triaged the W4G/W5G gauntlet path as LIVE (reachable from season production Phase 3), so REPOINTED onto the 2D spatial sim (new `_run_spatial_w4g_batch` → `run_spatial_fight`), not deleted. Math note + MIGRATION v1.72 + smoke PASS. Stale "alongside 1D" comments fixed.
+- **⚠️ OPEN (material) — KPM-band recalibration, gandalf-seam:** `observed_kpm` now measured on the spatial pack-clear instrument (~44 ceiling) but compared against the legacy 1D-duel band (150–836) → season-production Phase-3 gauntlet KPM gate now OVER-REJECTS until the band is recalibrated. gamora carried this as tracked debt (declared in math-note/MIGRATION/code/decisions-log), did NOT fake-fix. jack-ryan ruled non-blocking (matches 2026-06-12 repoint precedent + 2026-05-31 PROVISIONAL gauntlet-metrics marker; runnability restored vs prior fail-loud break) and AUTHORED the decisions-log entry + "Decisions to revisit" item (engine `2571dcf`). **This is the gating item before gauntlet KPM is a trustworthy production signal — needs a gandalf recalibration dispatch.**
+
+**Follow-on A (rocket `8f53ff2`+`f1ff18c`, tag `rocket/v1.1-legacy-test-sweep`; star-lord no-op) — green-collection CONFIRMED:**
+- Full `tests/` collection: **4755 collected, ZERO errors** (was 4740 + 1 error). jack-ryan verified + spot-checked extracts retained live coverage.
+- rocket dispositioned 37 gen tests (delete/extract/keep) + the skill_tree straggler (extracted — kept substrate_templates + off_hand_contract). star-lord's one file was a false-positive grep hit (live export coverage) → PRESERVED, no change (its `star-lord/v1.1-legacy-test-sweep` tag is a no-op; no engine commit needed).
+
+**OPEN for Matt:**
+1. **Push auth** for the follow-on commits: engine `de09d8b`, `f8789fd` (AGENT_STATE), `8f53ff2`, `f1ff18c`, `2571dcf` (decisions-log). All Gate-cleared, NOT pushed.
+2. **KPM-band recalibration → gandalf** (the one material design consequence; gating the gauntlet KPM verdict).
+3. Cross-seam test-rebuild flags (queued, low-priority): rocket→gamora (test_gear_cp6 + dropped integration classes needing a deleted PlayerClass producer); rocket→star-lord (spirit_guide_orchestrator token test); gamora kept test_a4/test_telemetry_v24 (live telemetry).
+4. MIGRATION.md v1.72 numbering collision (AOE re-home + t4-repoint both claim v1.72) — trivial, reconcile at convenience.
+5. Still queued (NOT part of this work): item 4 archetype-label monster-AI asymmetry; item 5 Proxy-Commander forward-work (proxy skills/gear/SET PROFILE #6).
