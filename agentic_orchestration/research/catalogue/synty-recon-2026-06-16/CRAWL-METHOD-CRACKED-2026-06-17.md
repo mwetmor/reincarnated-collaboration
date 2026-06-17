@@ -3,7 +3,7 @@
 **Date:** 2026-06-17
 **Author:** knight-rider (autonomous hive-mode session per Matt directive "uncover how to complete the download crawl and then fire the crawl process")
 **Supersedes the open knowledge gaps in** `pre-recon-auth-and-variants.md` §4 + "Knowledge gaps"
-**Status:** mechanism proven end-to-end; full FBX pull FIRED to Mac staging `~/Games/synty-corpus/fbx/`
+**Status:** COMPLETE — full FBX pull landed at Mac staging `~/Games/synty-corpus/fbx/`: **136/136 zips, 8.8 GB, 0 failures, all `unzip -t` verified** (2026-06-17 06:51).
 
 ---
 
