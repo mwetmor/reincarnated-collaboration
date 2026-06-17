@@ -110,3 +110,29 @@ Verification gate above → jack-ryan Gate-2 across the Phase 1 + Phase 2 commit
 **Commit / tag:** `b4a1c14` / `rocket/v1.1-b6stack-phase1a-aoe-rehome` (NOT pushed — Matt-gated).
 
 **One thing the dispatch didn't list (surfaced, not a stop):** there is a THIRD `AOE_GEOMETRIES` importer the Phase-1a scope didn't name — `simulation/balance_loop.py:2426`, a function-local import inside `_lever_geometry_mix` (alongside `ARCHETYPE_TEMPLATES`, `BIAS_PREFERRED`, `BIAS_PENALIZED`). This is NOT a surviving path: it is exactly the convergence/recompose machinery the Phase-2 guard marks for deletion (`balance_loop.py:2426` is named in the guard). It resolves fine via the interim re-export and dies with the convergence sub-symbols in Phase 2. No re-point needed in Phase 1a/1b; flagging so gamora/jack-ryan are aware it exists. No genuine SURVIVING consumer beyond the two named sim imports was found.
+
+---
+
+## Completion record — Phase 1b (gamora, 2026-06-16)
+
+**Status:** ✅ DONE — verbatim re-point complete. Pure pointer move, ZERO behavior change. Phase 1 (re-home) is now CLOSED pending jack-ryan Gate-2. Phase 2 (rocket outright deletion) is unblocked on the re-home contract.
+
+**The two sim consumers re-pointed `b6_archetype_templates` → `generation/geometry_constants`:**
+- `simulation/damage_resolver.py:33` (module-level import; used at :459, :502 — B10.2 Model-C pack-proxy AOE multiplier).
+- `simulation/combatant.py:693` (function-local import; used at :697 — GEOMETRY_COLLAPSE ×1.5). Stale comment at `:692` updated to name the new home.
+
+**Membership-identity check (the load-bearing proof — ZERO behavior change):**
+- new home (`geometry_constants.AOE_GEOMETRIES`) has exactly **16 entries**; `==` the known 16-entry set; symmetric-diff vs the known set is **empty**.
+- the object `damage_resolver` now binds is **`is`-identical** to `geometry_constants.AOE_GEOMETRIES`.
+- `geometry_constants.AOE_GEOMETRIES is b6_archetype_templates.AOE_GEOMETRIES` (rocket's re-export → SAME object), so the `combatant` function-local binding is identical by construction.
+- The pack-proxy AOE multiplier + GEOMETRY_COLLAPSE ×1.5 paths are byte-for-byte unchanged.
+
+**NOT touched (per dispatch step 3):** `balance_loop.py:2426` convergence/recompose import — out of Phase-1b scope; dies in Phase 2; resolves via the interim shim until then. Confirmed it still imports from `b6_archetype_templates` (intended).
+
+**Spatial smoke:** `tests/test_spatial_gauntlet_scenarios.py` → **27 passed** (matches the established baseline exactly; pack-proxy / AOE-membership path intact).
+
+**Artifacts:**
+- MIGRATION: `reincarnated-engine/src/reincarnated/simulation/MIGRATION.md` v1.72 (Phase-1b resolution section appended; header updated Gate-STOP → ruling-A → re-point-done).
+- Commit / tag: `6128e50` / `gamora/v1.1-b6stack-phase1b-aoe-repoint` (NOT pushed — Matt-gated).
+
+**Phase 1 CLOSE:** both sim imports point at `geometry_constants`; membership identical; spatial-green. Ready for jack-ryan Gate-2 (clean import + spatial-green + membership-identical) → then rocket fires Phase 2. The `AOE_GEOMETRIES` def + its re-export shim at `b6_archetype_templates.py` die with the module in Phase 2.
