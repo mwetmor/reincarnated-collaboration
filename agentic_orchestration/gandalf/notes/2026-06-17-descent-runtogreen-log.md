@@ -35,17 +35,17 @@ Gate A is reported as two sub-axes: **Light** (the real, scoreable target) and *
 
 | Still | Gate A — Light (galadriel) | Gate A — VFX | Gate B (load-path / gandalf rule) | Overall |
 |---|---|---|---|---|
-| zone0 threshold | FAIL 3.25 (LDR 122 / SHF 17) — shallow shadow | inherited PASS | PENDING (audit in flight) | needs-relight |
-| zone1 arcane | FAIL 3.25 (LDR 108 / SHF 18) — under-115 floor | inherited PASS | PENDING | needs-relight |
-| zone2 warhall | **FAIL 3.0 (LDR 103 / SHF 13) — flattest; #1 priority** | inherited PASS (zone2 = windowed-confirm case) | PENDING | needs-relight |
-| zone3 oubliette | FAIL 2.75 (LDR 105 / SHF void) — underlit void | inherited PASS | PENDING | needs-relight |
-| zone4 antechamber | FAIL 3.5 (LDR 116 / SHF 13) — closest; shadow-deepen | inherited PASS | PENDING | needs-relight |
-| zone5 sanctum | FAIL 3.5 (LDR 118 / SHF 11) — strongest near-chamber | inherited PASS | **FAIL** (floating access stair; fix in flight round 1) | needs-fix+relight |
-| establish 01 | FAIL 3.0 (LDR 94 — lowest) — flat+busy | n/a (no hero) | PENDING | needs-relight |
-| establish 02 | FAIL 3.0 — treat 3 establish as one fix | n/a | PENDING | needs-relight |
-| establish 03 | FAIL 3.0 — gate on light+composition | n/a | PENDING | needs-relight |
+| zone0 threshold | FAIL 3.25 (LDR 122 / SHF 17) — shallow shadow | inherited PASS | **PASS** (stair lands; systemic fix) | needs-relight |
+| zone1 arcane | FAIL 3.25 (LDR 108 / SHF 18) — under-115 floor | inherited PASS | **PASS** (no gallery — nothing to land) | needs-relight |
+| zone2 warhall | **FAIL 3.0 (LDR 103 / SHF 13) — flattest; #1 priority** | inherited PASS (zone2 = windowed-confirm case) | **PASS** (stair lands; systemic fix) | needs-relight |
+| zone3 oubliette | FAIL 2.75 (LDR 105 / SHF void) — underlit void | inherited PASS | **PASS** (stair lands; systemic fix) | needs-relight |
+| zone4 antechamber | FAIL 3.5 (LDR 116 / SHF 13) — closest; shadow-deepen | inherited PASS | **PASS** (stair lands; systemic fix) | needs-relight |
+| zone5 sanctum | FAIL 3.5 (LDR 118 / SHF 11) — strongest near-chamber | inherited PASS | **PASS** (was the known float; FIXED + re-rendered, top now lands on deck) | needs-relight |
+| establish 01 | FAIL 3.0 (LDR 94 — lowest) — flat+busy+tabletop | n/a (no hero) | **PASS** (scanner-covered; no free-standing spans) | needs-relight+recompose |
+| establish 02 | FAIL 3.0 — treat 3 establish as one fix | n/a | **PASS** | needs-relight+recompose |
+| establish 03 | FAIL 3.0 — gate on light+composition | n/a | **PASS** | needs-relight+recompose |
 
-Legend: PENDING (not yet assessed) · PASS · FAIL · GREEN (both gates pass). Composite mean 3.14/5; **0/9 pass Gate A as-captured, but VFX-fail is a windowing artifact — the real target is the lighting lift.**
+Legend: PENDING (not yet assessed) · PASS · FAIL · GREEN (both gates pass). Composite mean 3.14/5; **0/9 pass Gate A as-captured, but VFX-fail is a windowing artifact — the real target is the lighting lift (+ establish recompose). GATE B NOW FULLY PASSES (all 6 zones) — see Round-1 Gate-B canon call below.**
 
 ---
 
@@ -66,6 +66,21 @@ Baseline scored all 9 stills. Composite mean 3.14/5; **0/9 pass as-captured**, b
 galadriel correctly showed frozen-charge stills can't score VFX. I add the design fact that makes the windowed-capture-all-6 path unnecessary: **the hero summon eruption is zone-INVARIANT** — same player-spirit-guide column asset in every chamber. The boss arena already proved that eruption clears the gate (4.01% peak). Only the *backdrop* varies per zone (a lighting question, not a VFX-asset question). ∴ VFX inherits PASS from the boss-arena proof.
 - **Validation (recognition→validate→commit on the instrument, not time):** ONE windowed eruption capture in **zone2** (worst-lit) AFTER its relight → confirm the column still peaks ~4% against the relit backdrop. The relight target (LDR ~176) is the exact profile at which the boss-arena column peaked 4.01%, so the eruption should pop, not wash. If zone2 holds on the hardest case, inheritance holds for all.
 - **Why not score lighting on a windowed frame too:** the lighting gate should measure the AMBIENT mood between fires (what's on screen most of the time). The frozen-charge still IS a fair read of that ambient deficit. So lighting is correctly measured on the current stills; VFX is not. Different gates, different correct inputs.
+
+#### Round 1 — drax RETURNED (commit `8536f34`, not pushed)
+Three tasks complete, three independent verification methods agree (analytical scanner + parity + eyes-on).
+- **Sanctum stair FIXED — and it was NEVER sanctum-only.** The defect lived in the *shared* `_build_gallery_storey` access-stair loop (`render_descent_scene.gd` ~1371–1388): the stair climbed −Z (away from the deck), so it floated in **ALL 5 gallery zones**. galadriel scored only sanctum, so we only knew about one. Fix = flip climb to +Z (toward deck); ONE re-bake cleared all 5. Sanctum top moved from floating 210.6 (−Z, over void) → 233.6 (+Z, on deck); foot (21.5,−9.0,223.6) grounded. **Parity 35/35 — zero combatant positions touched (sim-invariant preserved).**
+- **Audit camera generalized sanctum→ALL zones** (46 frames; per-zone side-on + stairsubject + stairland; arcane orbit-only — no gallery). 28° pitch, true 3840×2160.
+- **Both-ends-land load-path SCANNER built** (`scripts/check_descent_loadpath.py`) per my §5 re-scope — parses the BAKED `.tscn` (generator output = the authority I ruled ground-truth), tests both stair termini rest on floor/deck within tol (XZ ≤ 2.12m AND Y ≤ 2.20m). **Tool output, NOT a self-score** (drax preserved the don't-grade-own-homework discipline). Validated bidirectionally: correctly FLAGGED all 5 pre-fix floats (consistent 9.2m-Y-off signature); clears them post-fix. POST-FIX: all 6 zones CLEAN. No spans/ramps/free-standing arches are load-path subjects (arches are wall-dressed, not free-standing) → nothing else to land.
+
+#### ★ CANON CALL (gandalf, 2026-06-17) — GATE B = PASS, all 6 zones
+I ruled on the rendered stills (not drax's say-so), via crop+upscale on the native-4K stairland/stairsubject frames. **Convergence of four independent lines:**
+1. **Deterministic scanner** (the §5 instrument, purpose-built precisely because CV + eyeballs are unreliable here): all-land, and it was validated to correctly flag the float when present. Primary Gate-B instrument.
+2. **Parity 35/35** — only dressing geometry changed.
+3. **My eyes-on (sanctum subject-junction crop):** staircase climbs to meet a tiled deck with under-deck column support; the gross float-over-void is GONE (vs pre-fix `stairjut` where the top hung in air).
+4. **Sibling-zone corroboration (war_hall + oubliette stairland):** decks read as solid supported platforms, stairs contact them, no gross float — and these share the IDENTICAL fixed function as sanctum.
+- **Honest caveat (recorded, not a blocker):** the iter4 east-band clutter means no single still pristinely isolates the sanctum top-step-on-deck-tile macro-shot. That's a perceptual/framing limit of the audit stills (candidate galadriel read-clutter CV probe), NOT a load-path defect — and is precisely why the deterministic scanner is the right Gate-B instrument (vindicates the §5 re-scope). Sanctum's cluttered read is carried by scanner + parity + clean sibling zones running the same code path.
+- **★ Methodology win:** galadriel's CV is load-path-blind AND scored only one zone — it would NEVER have caught the systemic 5-zone float. The all-zones deterministic both-ends-land scan surfaced the true scope. This is the dual-gate's entire premise vindicated: a genuinely separate instrument caught what the aesthetic gate is structurally blind to.
 
 #### Round 2 — PLAN (fires when drax round-1 returns; one drax at a time on the lighting rig)
 **★ ROOT-CAUSE UPGRADE (gandalf, code-traced 2026-06-17):** the flat-dim-mid-grey is **cumulative-trim drift** (Discipline #13 implicit-pillar), not one wrong value. Stack of register-correct local fixes — `CombatFill` trimmed 1.5→1.15+green-cool (`render_descent_scene.gd:625`), green fog as shadow-bed (`:1980`), `ambient 0.24` (`:1972`), low-fill global directional trio — summed BELOW the proven LDR-176 bar. galadriel's twin LDR-low+SHF-low = "all fill, no key." Fix = restore a per-chamber **KEY** of boss-arena reach (`CombatFill 1.5/range34/atten1.5` + braziers `2.2/8` = LDR 176 PASS, `render_boss_arena.gd:229`), NOT raise fill. **Fire-ready brief STAGED:** `agentic_orchestration/gandalf/notes/2026-06-17-descent-round2-lighting-lift-brief.md`.

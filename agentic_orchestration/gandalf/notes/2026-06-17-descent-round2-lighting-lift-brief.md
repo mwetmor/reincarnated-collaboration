@@ -31,7 +31,12 @@ drax owns the exact values; this brief sets the **direction + acceptance**, citi
 
 1. **zone2 warhall — FAIL 3.0 (LDR 103 / SHF 13), flattest + coolest, #1 priority.** Furthest from gate, biggest single win. Root cause: the cool `CombatFill` dominates and warm keys are too sparse → coolest + flattest. Fix = **add warm key budget** (more / brighter braziers or a warm overhead key) so a bright warm pool reads, AND restore fill reach. Do NOT just raise the cool fill — that deepens the cool-grey flatness galadriel flagged. Target: warm bright pool, LDR→~176, SHF deepen.
 2. **zone1 arcane — FAIL 3.25 (LDR 108 / SHF 18).** Clear the LDR-115 floor + restore shadow depth. Key-lift: restore `CombatFill` reach toward the boss profile + ensure a bright key pool. Smaller gap than zone2.
-3. **establish ×3 — FAIL 3.0 (LDR 94, lowest of all).** Treat as ONE fix. Spine relight + de-clutter. The establishing cams peer down the whole descent into green fog; the lowest LDR means the mid/far field is fog-muted to grey. Lift the near-cluster key (the "wow" frame's gold-lit corner per `:2028-2037`) so the foreground reads premium, and gate on **light + composition** (de-clutter the busy read), not light alone.
+3. **establish ×3 — FAIL 3.0 (LDR 94, lowest of all). Treat as ONE fix — light + RECOMPOSE.** gandalf eyes-on read (iter4 establish_01/03, near-identical): the shot has drifted to exactly the **tabletop-board anti-pattern its OWN code comment warns against** (`:2028-2037`: "intimate 3/4 of a few levels — never the whole map at once... not a tabletop board"). Same Discipline #13 implicit-pillar drift as the lighting — correct intent stated, execution drifted below it. Four specific composition fixes:
+   - **(a) Drop + tighten the camera** — from whole-map-tabletop to an intimate 3/4 of the UPPER 2–3 chambers, the best-dressed near cluster large in foreground, the rest receding into fog. (The intent at `:2028-2037`, currently violated.)
+   - **(b) Establish a focal pull** — the magenta sanctum arcane pool should be the bright deep-end payoff at the vanishing point, warm braziers as the leading-line down the spine. Right now the deep end dissolves into uniform green-clutter mush (no payoff, no place for the eye to land).
+   - **(c) Cull the right-band green clutter** — it's dense uniform speckle that resolves into nothing legible (galadriel's "busy"). Thin it, or resolve it into a readable element (graveyard cluster / torch-line).
+   - **(d) Lower the angle** so the Y-descent reads as real verticality (chambers stepping DOWN in profile, per `:2023-2027`), not a foreshortened flat plan. Restore the FELT descent.
+   - Then the spine relight (light lever, §0) lifts LDR off 94. Gate on **light AND composition** — a relit-but-still-tabletop frame REJECTS.
 4. **zone3 oubliette — FAIL 2.75 (LDR 105 / SHF void), lowest composite.** galadriel: "underlit-empty-void, no bright key — not dramatic lit-volume-in-dark." Fix = **a torch-LINE** (a row of warm keys, not one) converting empty-dark → dramatic lit-volume-IN-dark. This is the clearest "key not fill" case: the void needs *bright points with falloff*, which raise LDR at the torches and keep SHF deep between them.
 5. **zone4 antechamber / zone5 sanctum / zone0 threshold — FAIL 3.5 / 3.5 / 3.25, smallest gaps.** Shadow-deepen + modest key restore. **Fold zone5's relight into drax's stair re-render** (geometry already changing there — one render). zone4 is the green chamber (`_is_green`); keep the green identity, just lift the key.
 
@@ -51,14 +56,16 @@ Per the run-to-green log ★ CANON CALL: VFX gate = inherited PASS (hero summon 
 
 ---
 
-## 4. PENDING FOLD-IN (from drax Round-1 — do not fire Round-2 until ruled)
+## 4. GEOMETRY FOLD-IN — RESOLVED (drax Round-1 returned, Gate B ruled PASS)
 
-drax Round-1 includes a **both-ends-land load-path scan across ALL zones**. Any failures it flags (floating arch / stranded span / ungrounded gallery deck in zones other than the known sanctum stair) get **ruled by gandalf** and **folded into this brief as geometry fixes** before Round-2 fires — so a single drax pass does relight + any geometry fixes together, minimizing render rounds. Placeholder until Round-1 returns:
+drax Round-1 (commit `8536f34`) ran the both-ends-land scan across ALL zones. Outcome:
 
-- [ ] sanctum stair fix verified landed (Round-1 deliverable)
-- [ ] load-path scan flags ruled (gandalf canon call) → list geometry fixes here
-- [ ] then fire Round-2 = relight (§1) + geometry fixes + zone2 VFX confirm (§2)
+- [x] **Sanctum stair fix verified landed** — and the fix was SYSTEMIC: the shared `_build_gallery_storey` loop floated the stair in all 5 gallery zones; one re-bake cleared all 5. Parity 35/35.
+- [x] **Load-path scan flags ruled (gandalf Gate-B canon call):** all 6 zones PASS (see run-to-green log Round-1 canon call). **No other load-path subjects exist** — no free-standing arches/spans/ramps; arches are wall-dressed. Nothing else to land.
+- [x] **∴ Round-2 carries NO additional geometry fixes** — it is **pure lighting lift (§1) + establish recompose (§1.3) + zone2 VFX confirm (§2).** The Round-1 stair fix is already baked; Round-2's relight re-render will simply re-render the (already-fixed) geometry under the new lighting — one clean pass. galadriel re-scores; gandalf re-reads any frame whose composition changed (establish) but no new load-path ruling is needed unless the recompose/relight perturbs geometry (it shouldn't — lighting + camera only).
+
+**Round-2 is GO** (drax Round-1 is complete, so no drax-instance collision on the lighting rig).
 
 ---
 
-**Signed:** gandalf, 2026-06-17. Staged Round-2 lighting-lift brief — root-caused as cumulative-trim drift below the proven LDR-176 boss-arena bar; the fix is per-chamber KEY restoration (bright pool + deep surround), not fill-raising. Fires on drax Round-1 return + load-path ruling.
+**Signed:** gandalf, 2026-06-17. Round-2 lighting-lift + establish-recompose brief — root-caused as cumulative-trim drift below the proven LDR-176 boss-arena bar (fix = per-chamber KEY restoration, not fill-raising) + establish tabletop-board recompose. Gate B fully ruled PASS in Round-1; Round-2 carries no geometry. GO.
