@@ -7,6 +7,90 @@
 
 ---
 
+## v1.11 — synty_catalogue.db landed (Synty 3D gear-substrate catalogue; NEW standalone DB) — 2026-06-17
+
+### What changed (one line)
+
+Created a **new standalone SQLite DB** `agentic_orchestration/research/curated/synty_catalogue.db` (schema v1.0) indexing the downloaded Synty FBX corpus — **136 FBX packs, 53,626 mesh assets** — as metadata + filesystem path index ONLY (bytes stay on disk in the corpus zips at `~/Games/synty-corpus/fbx/`; the DB never holds mesh bytes). Tables: `packs` (collection/variant/structural_class/recolor_scheme/license-incorporation ledger), `assets` (one row per FBX mesh; slot taxonomy + asset_type + distinctiveness hook), `textures` (recolor mask + palette-atlas index), `schema_meta`. Populate script: `agentic_orchestration/research/scripts/build_synty_catalogue_2026_06_17.py` (re-runnable: `schema|slice|full|verify|queries`).
+
+### Why (one line)
+
+Materializes the **gandalf §7.1 elrond acceptance hook** in `canonical/story/gear-spec-generation-deferred-architecture-2026-06-16.md` — the substrate catalogue + license ledger that resumes the deferred gear-spec generation design session. Dispatch: `agentic_orchestration/dispatches/2026-06-17-elrond-synty-catalogue.md` (Gate-1-cleared, 837dd7f).
+
+### SEPARATE DB vs extend catalogue.db — decision + justification
+
+**Decision: separate `synty_catalogue.db`, NOT an extension of `catalogue.db`.**
+
+Rationale — the two catalogues have near-zero schema overlap and orthogonal shapes:
+- `catalogue.db` is a **2D-sprite STYLE-RUBRIC** catalogue: six-axis pixel-art register scoring (resolution_band / palette_size / shading_technique / linework_style / animation_frame_density / derived_register), embodiment tags, abstraction groupings, multi-vendor `catalogue_sources` + `crawl_sessions` provenance. It answers *"what visual register is this 2D sprite asset?"*
+- `synty_catalogue.db` is a **3D-FBX MESH** catalogue: per-mesh slot taxonomy, structural_class (monolithic vs modular), license incorporation ledger, recolor-lever class, filesystem path index into corpus zips. It answers *"which mesh fills which gear slot, and is it license-incorporated?"*
+
+Forcing 3D-mesh fields onto the sprite-rubric tables (the six-axis CHECKs do not apply to FBX meshes; `crawl_sessions` is a Legolas-crawl construct that does not model a knight-rider corpus download) — or vice versa — would muddy both schemas and break the existing 2D consumers' assumptions. The **vendor-catalogue precedent already separates concerns by folder** (`research/catalogue/<vendor>/`); we separate by DB *file* here because the overlap is near-zero rather than partial. Cross-DB linkage, if ever needed, is by the stable string key `collection_id` (Synty's). This is the lower-coupling, lower-risk choice and preserves `catalogue.db`'s consumers untouched.
+
+### Schema shape (v1.0)
+
+- `packs` — `collection_id` + `download_id` (identity is the PAIR; a collection MAY ship >1 FBX download — Water Guns ships two), `collection_name`, `zip_name`, `corpus_rel_path`, `size_mb`; variant flags `has_fbx/has_unity/has_unreal/has_godot` (joined from `full-fbx-variant-manifest.jsonl`); `structural_class` ∈ {monolithic, modular}; `recolor_scheme` ∈ {per_region_mask, whole_atlas_swap, unknown}; license ledger `incorporation_status` (default `NOT_INCORPORATED`; `INCORPORATED` carries `incorporated_season` + ISO `incorporated_at`); `source`, `source_date`, `added_at`, `notes`.
+- `assets` — one row per FBX mesh: `pack_id` FK, `zip_rel_path` + `member_path` + `file_name` (the path index — bytes resolve at `<corpus_root>/<zip_rel_path> :: <member_path>`, never in DB); `asset_type` ∈ {character, weapon, armor_part, prop, environment, other}; `slot` (nullable; monolithic→`whole_character`, modular→canonical slot, weapon→`weapon`, prop/env→NULL); `is_accent`, `is_modular_part`, `gender`; `distinctiveness_score` (**nullable hook — DO NOT populate; galadriel scores later per gandalf §7.4**); `added_at`, `notes`.
+- `textures` — recolor mask + palette-atlas index per pack: `texture_role` ∈ {region_mask, palette_atlas, base_atlas, other}; `channel_region_map` JSON (modular pack's 5-zone RGB-corner scheme from galadriel slice-verification 2026-06-17 §3.1; semantic per-zone labels marked expected-but-unrendered per galadriel §5).
+
+### Slot vocabulary — modular `Chr_<Slot>` → canonical slot mapping (gandalf open-question §2)
+
+Reconciled the modular pack's raw token names to a clean canonical slot set gandalf designs against:
+
+| Synty modular token | canonical slot | layer |
+|---|---|---|
+| Torso | chest | body |
+| Hips | hips | body |
+| LegLeft / LegRight | leg_l / leg_r | body |
+| ArmUpperLeft/Right | arm_upper_l / arm_upper_r | body |
+| ArmLowerLeft/Right | arm_lower_l / arm_lower_r | body |
+| HandLeft / HandRight | hand_l / hand_r | body |
+| Head | head | body |
+| Hair / FacialHair / Eyebrow / Ear | hair / facial_hair / eyebrow / ear | cosmetic |
+| HeadCoverings | head_covering | **accent** |
+| HelmetAttachment | helmet_accent | **accent** |
+| ShoulderAttachLeft/Right | shoulder_accent_l / shoulder_accent_r | **accent** |
+| ElbowAttachLeft/Right | elbow_accent_l / elbow_accent_r | **accent** |
+| KneeAttachLeft/Right | knee_accent_l / knee_accent_r | **accent** |
+| HipsAttachment | hips_accent | **accent** |
+| BackAttachment | back_accent | **accent** |
+
+Accent slots are flagged `is_accent=1` — they mount to the rig's named `All_NN_` sockets (galadriel §2) and are the silhouette-breaker layer (gandalf §3.6 "accents SECOND"). Monolithic packs' named-character capes (`SK_Chr_<Name>_Cape_NN`) are also classed `back_accent` (a hint of accent-modularity even in the silhouette lane).
+
+### Galadriel slice-verification (2026-06-17) findings folded in
+
+- **`recolor_scheme` per-pack field** captures galadriel's load-bearing §3.3 bifurcation: the per-region `_Texture_Mask` lever is **modular-pack-specific** (Modular Fantasy Heroes = `per_region_mask`); page-1 named-character packs (Adventure, Fantasy Kingdom, Samurai) ship coarser whole-atlas palette-swaps = `whole_atlas_swap`.
+- **CAVEAT for consumers:** 15 packs carry `recolor_scheme=per_region_mask` because they *ship a mask texture*, but most are **environment** packs (Dungeon, Horror Asylum, Palm City, Sci-Fi Worlds, etc.) whose masks recolor props, NOT character armor. For the **armor restyle lane** specifically, only the **Modular Fantasy Hero Characters** pack's mask is character-relevant (it is also the sole `structural_class=modular` pack). Filter on `structural_class='modular'` (not `recolor_scheme`) to isolate the per-region armor-recolor lane. This is survey-mode accurate: the field reports what EXISTS (a mask ships), not what it is FOR.
+- **`textures.channel_region_map`** carries the modular pack's verified 5-zone RGB-corner scheme (WHITE/CYAN/BLUE/YELLOW/MAGENTA); per-zone semantic labels (primary/secondary/metal/leather/accent) marked expected-but-unrendered per galadriel §5 — galadriel locks them on a later render pass.
+- **distinctiveness_score** left NULL across all 53,626 assets — galadriel's seam (§7.4), hook only.
+
+### Who's affected
+
+- **Gandalf** — design-resumption consumer. The slice checkpoint (5 packs: Adventure, Fantasy Kingdom, Samurai, Modular Fantasy Heroes, Bow and Crossbow) + galadriel's geometry verdict clear the §4 resumption gate. The full 136-pack catalogue is the substrate for the §7.6 StyleProfile output-shape ruling. Slot vocabulary + structural_class + recolor_scheme are the design-facing fields.
+- **Galadriel** — distinctiveness scoring (§7.4): `assets.distinctiveness_score` is the nullable target column; runs on a working subset, not the full corpus. The per-zone semantic-label render pass (§5 follow-up) updates `textures.channel_region_map`.
+- **Knight-rider** — second-wave hook: the 21 no-FBX `.unitypackage` extractions (in progress, `~/Games/synty-corpus/nonfbx/`) populate as a clean second `full` pass once extracted to FBX (the populate script is re-runnable + upsert-keyed on (collection_id, download_id), so a second pass is idempotent for existing packs + additive for new ones).
+- **Rocket** — L2 restyle leaf (§7.2): the modular pack's slot set + mask scheme are the build target; reads `synty_catalogue.db`, no write dependency.
+- **Star-lord** — engine telemetry NOT affected. This is a standalone research catalogue; no telemetry table / fixture / export key touched (Principle 6 round-trip: not applicable, confirmed by KR at dispatch authoring).
+
+### License incorporation ledger semantics (Matt stipulation)
+
+Every pack defaults `incorporation_status='NOT_INCORPORATED'`. Assets not INCORPORATED before the Synty-Pass subscription lapses cannot be used afterward. The stamp path (smoke-tested): `UPDATE packs SET incorporation_status='INCORPORATED', incorporated_season='<season/build>', incorporated_at='<ISO>' WHERE …`. All 136 packs are NOT_INCORPORATED at landing (no incorporation event has occurred).
+
+### Path-index integrity
+
+`verify` pass: **136 packs, 53,626 assets, 0 zip-misses** — every `packs.zip_name` resolves to a real file on disk. (Asset-level paths are zip MEMBERS verified via `unzip -l` at index time; the zip-existence check is the on-disk integrity gate since members are not extracted.)
+
+### DB is a build artifact (gitignored; regenerable — matches catalogue.db precedent)
+
+`synty_catalogue.db` is **gitignored** (`curated/.gitignore` ignores `*.db`), exactly as `catalogue.db` is. The committed source-of-truth is the **populate script** `agentic_orchestration/research/scripts/build_synty_catalogue_2026_06_17.py` + this MIGRATION entry. The DB regenerates deterministically from the on-disk corpus + the committed `full-fbx-variant-manifest.jsonl` via `python3 build_synty_catalogue_2026_06_17.py full`. This honors the reversibility principle (curation reproducible from raw input) and the existing vendor-catalogue precedent (schema/script committed, `.db` regenerable). A consumer that needs the DB and does not have the local corpus should request the regenerated `.db` or the corpus location from elrond.
+
+### ADR compliance
+- **ADR-004 (MIGRATION.md for cross-seam handoff):** this entry. New standalone DB; relationship to `catalogue.db` documented above (separate, low-coupling, cross-link by `collection_id`).
+- **Cross-seam contract change?** No — standalone research catalogue; no engine-telemetry / fixture / export-key change (KR-confirmed not-applicable at dispatch authoring).
+- Push to remote deferred to Matt's gate (auto-commit fired per team commit discipline).
+
+---
+
 ## v1.10 — kit_star_sign_assignments.json sidecar landed (kit-to-star-sign MVP Phase 2) — 2026-06-09
 
 ### What changed (one line)
