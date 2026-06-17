@@ -26,9 +26,15 @@ iter7 is a **CAMERA-ONLY** recompose (`_build_establishing_camera`; the GREEN ch
 - **Magenta sanctum WITHHELD** (deliberate — the destination is revealed on arrival, not at the threshold). Do NOT flag "no deep focal payoff" as a defect; it is a designed withhold.
 - warmCool should improve as a SIDE EFFECT (more warm braziers + fewer cool deep-walls in frame), with NO added lights.
 
-**iter7 captures:** ⟪FILL — drax establish capture paths (×3-distinct or consolidated)⟫
-**Commit:** ⟪FILL — godot iter7 commit hash⟫
-drax's 3-view architecture call (distinct sequence vs consolidated): ⟪note which, so you score the right number of frames⟫
+**iter7 captures (×3 GENUINELY DISTINCT warm beats — score all three):**
+- `/Users/admin/Games/reincarnated-godot/harness_logs/descent_iter7_establish_01.png` — cam1 HERO (centered)
+- `/Users/admin/Games/reincarnated-godot/harness_logs/descent_iter7_establish_02.png` — cam2 ElevatedLookDown (survey-from-the-lip)
+- `/Users/admin/Games/reincarnated-godot/harness_logs/descent_iter7_establish_03.png` — cam3 GroundIntimate (down on the floor)
+- 6-chamber regression confirm: `descent_iter7_zone0_04.png` … `_zone5_09.png` (drax reports byte-identical to iter6 — your kind-aware-gate regression run uses these or iter6, your call).
+
+**Commit:** godot `965cd5d` (camera + harness change); drax committed a self-measure establish scorer at collab `d6d7d04` (`pipeline/register2-score-descent-iter7-establish.mjs`) — verify/reuse or run your own authoritative instrument; YOUR re-score is the independent confirmation.
+
+**drax's 3-view architecture call: 3 DISTINCT warm beats (not consolidated, not CV-identical).** Root cause of iter6's "CV-identical" found + fixed: the harness was grabbing cam1 six times; it now WALKS cam1→cam2→cam3 (one grab each). **Empirical constraint that SHAPED the form (worth your read):** drax swept ~9 framings — EVERY high/steep/deep/mid-spine-plunge vantage read COOL (warmCool 0.74–0.97) because the cool-fill-lit 9m deep-walls dominate by frame-area at those angles; ONLY the LOW (eye y4–8) + short-aim (z≈70–75, onto the warm arcane/war_hall gold) + small-lateral-offset vantage reads warm. So the 3 beats are distinct-but-related variations on that one warm vantage (hero-centered / elevated-survey / ground-intimate), NOT a physical travel-down-the-spine (which would force beats 2–3 cool). drax self-measured: est_01 LDR 124 / warmCool 1.026; est_02 LDR 119 / warmCool 1.018; est_03 LDR 127 / warmCool 1.015 — all off the 102 floor, all warmCool ≥1.0.
 
 **md5-verify iter7 ≠ iter6 establish first** (rule out a stale-capture false read), as you did in Round-3.
 
