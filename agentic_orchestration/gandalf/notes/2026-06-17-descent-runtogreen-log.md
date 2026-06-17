@@ -33,19 +33,21 @@ The descent scene = **6 zones + 3 establishing views**:
 
 Gate A is reported as two sub-axes: **Light** (the real, scoreable target) and **VFX** (ruled inherited-PASS — see canon call below; frozen-charge stills can't score it and the eruption is zone-invariant).
 
-| Still | Gate A — Light (galadriel) | Gate A — VFX | Gate B (load-path / gandalf rule) | Overall |
-|---|---|---|---|---|
-| zone0 threshold | FAIL 3.25 (LDR 122 / SHF 17) — shallow shadow | inherited PASS | **PASS** (stair lands; systemic fix) | needs-relight |
-| zone1 arcane | FAIL 3.25 (LDR 108 / SHF 18) — under-115 floor | inherited PASS | **PASS** (no gallery — nothing to land) | needs-relight |
-| zone2 warhall | **FAIL 3.0 (LDR 103 / SHF 13) — flattest; #1 priority** | inherited PASS (zone2 = windowed-confirm case) | **PASS** (stair lands; systemic fix) | needs-relight |
-| zone3 oubliette | FAIL 2.75 (LDR 105 / SHF void) — underlit void | inherited PASS | **PASS** (stair lands; systemic fix) | needs-relight |
-| zone4 antechamber | FAIL 3.5 (LDR 116 / SHF 13) — closest; shadow-deepen | inherited PASS | **PASS** (stair lands; systemic fix) | needs-relight |
-| zone5 sanctum | FAIL 3.5 (LDR 118 / SHF 11) — strongest near-chamber | inherited PASS | **PASS** (was the known float; FIXED + re-rendered, top now lands on deck) | needs-relight |
-| establish 01 | FAIL 3.0 (LDR 94 — lowest) — flat+busy+tabletop | n/a (no hero) | **PASS** (scanner-covered; no free-standing spans) | needs-relight+recompose |
-| establish 02 | FAIL 3.0 — treat 3 establish as one fix | n/a | **PASS** | needs-relight+recompose |
-| establish 03 | FAIL 3.0 — gate on light+composition | n/a | **PASS** | needs-relight+recompose |
+**iter6 state (Gate-A verdict PENDING galadriel re-score — drax-self-measured + gandalf-eyes-on are PROVISIONAL until her independent confirmation; Round-2 confirmation-bias discipline).**
 
-Legend: PENDING (not yet assessed) · PASS · FAIL · GREEN (both gates pass). Composite mean 3.14/5; **0/9 pass Gate A as-captured, but VFX-fail is a windowing artifact — the real target is the lighting lift (+ establish recompose). GATE B NOW FULLY PASSES (all 6 zones) — see Round-1 Gate-B canon call below.**
+| Still | Gate A — Light (iter6; PENDING galadriel) | Gate A — VFX | Gate B (load-path / gandalf rule) | Overall |
+|---|---|---|---|---|
+| zone0 threshold | LDR 133 (+11) / SHF 21.4 — both-axes-up; LDR clears 115 | inherited PASS FINAL | **PASS** (stair lands; systemic fix) | iter6 both-axes-up; PENDING SHF-30 call |
+| zone1 arcane | LDR 126 (+19) / SHF 23.8 — both-axes-up | inherited PASS FINAL | **PASS** (no gallery — nothing to land) | iter6 both-axes-up; PENDING SHF-30 call |
+| zone2 warhall | LDR 115 (+12) / SHF 19.6 — **borderline test case** for SHF-30 | inherited PASS FINAL | **PASS** (stair lands; systemic fix) | iter6 both-axes-up; PENDING SHF-30 call (z2 = arbiter) |
+| zone3 oubliette | LDR 118 (+13) / SHF **61.7** — dread-contrast **PASS** (judged on contrast, not LDR-176) | inherited PASS FINAL | **PASS** (stair lands; systemic fix) | iter6 **likely GREEN** pending galadriel |
+| zone4 antechamber | LDR 123 (+16) / SHF 23.1 — regression RECOVERED; both-axes-up | inherited PASS FINAL | **PASS** (stair lands; systemic fix) | iter6 both-axes-up; PENDING SHF-30 call |
+| zone5 sanctum | LDR 134 (+16) / SHF 17.8 / bright% 2.83 — strongest | inherited PASS FINAL | **PASS** (known float FIXED, top lands on deck) | iter6 both-axes-up; PENDING SHF-30 call |
+| establish 01 | LDR 102 (+5) — **composition FAIL** (blue deep-wall slabs dominate) | n/a (no hero) | **PASS** (scanner-covered; no free-standing spans) | needs distinct recompose mini-round |
+| establish 02 | (CV-identical to 01) | n/a | **PASS** | needs distinct recompose mini-round |
+| establish 03 | (CV-identical to 01) | n/a | **PASS** | needs distinct recompose mini-round |
+
+Legend: PENDING · PASS · FAIL · GREEN (both gates pass). **iter6 (global-rig match) moved all 6 zones both axes (mean dLDR ≈ +14 vs iter5's 1.7 non-move); flat-dim-mid histogram BROKE.** Gate B FULLY PASSES (all 6 zones, Round-1). VFX inherited-PASS FINAL (Round-2 non-wash validation). **Open: (1) the SHF-30-vs-dressed-chamber calibration call (galadriel re-score, z2 = arbiter) decides 6-chamber GREEN; (2) establish needs a distinct composition recompose (blue deep-wall slabs) — does NOT block the chambers.**
 
 ---
 
@@ -149,6 +151,28 @@ drax implemented the key-not-fill fix: new `_build_chamber_key()` (one bright po
 
 ### Round 3 — FIRED 2026-06-17 (drax, background)
 drax dispatched with the recalibration brief. Awaiting iter6 return: locked global-rig recipe + which hypothesis landed (§1.1 global rig alone, or +§1.2 key isolation) + per-zone self-measured metrics. On return → galadriel re-score (with the zone3 contrast-criterion instruction) → converge → loop until matrix GREEN.
+
+### Round 3 — drax RETURNED (iter6, godot `9b16d39`, not pushed) — ★ GLOBAL-RIG DIAGNOSIS CONFIRMED
+**The code-read root cause was RIGHT. §1.1 global rig ALONE landed it — keys UNTOUCHED (clean attribution).** Matching the proven register-2 env rig as ONE change moved ALL SIX zones on BOTH axes simultaneously — the uniform-across-zones signature that proves the cause was global, not per-chamber. The per-chamber keys (already stronger than the proven CombatFill) were a red herring, exactly as the code-read predicted.
+
+**The locked global-rig recipe** (`_build_global_environment`, dynamic-range levers only; GREEN `fog_light_color` kept): `tonemap_mode` FILMIC→**ACES**, `tonemap_white` 6.0→**8.0**, `tonemap_exposure` 1.0→**0.95**, `ambient_light_energy` 0.24→**0.17** (the SHF lever), `fog_density` 0.0052→**0.010**. Two-env reconciliation RESOLVED: the baked `arena_descent.tscn` IS the script-built env (`_bake_to_scene` packs `self`); edit propagated, verified in the bake.
+
+| zone | LDR (Δ iter5) | SHF% (Δ) | bright% | p95 | drax verdict |
+|---|---|---|---|---|---|
+| z0 | 133 (+11) | 21.4 (+4.7) | 0.55 | 135 | KEY_RESTORED |
+| z1 | 126 (+19) | 23.8 (+6.1) | 0.28 | 133 | KEY_RESTORED |
+| **z2** | **115 (+12)** | **19.6 (+6.9)** | 0.45 | 131 | weakest, both-axes-up |
+| z3 | 118 (+13) | **61.7 (+3.8)** | 0.16 | 120 | dread-contrast PASS |
+| z4 | 123 (+16) | 23.1 (+6.5) | 0.13 | 127 | regression RECOVERED |
+| z5 | 134 (+16) | 17.8 (+5.4) | 2.83 | 139 | strongest |
+| est ×3 | 102 (+5) | 49.9 (+1.3) | ~0.2 | 104 | composition residuals (see below) |
+
+mean dLDR ≈ +14 (vs iter5's 1.7 non-move); the flat-dim-mid histogram BROKE. **gandalf eyes-on corroborates** (`/tmp/gandalf_crops/A_*` before/after + `B_*` grid): iter5's flat blue-grey pewter floor is GONE; warm/green pools pop against a deepened bed. z3 dread-corridor + z5 magenta/boss-bloom read strongly premium; z4 green soul-fire recovered. **Other ordered work landed:** z4 revert (root cause: iter5 swapped z4's CombatFill from cool-neutral to green = green-on-green flood killing the soul-fire pop; restored cool-neutral base — note z4 identity is GREEN soul-fire, not red); z3 torch `key_range` 13→20 (no flood, SHF held). Parity 35/35 PASS, Gate B preserved (env/lighting/camera only). drax committed iter6 scorer collab `3c8f0ee`.
+
+**★ THE ONE OPEN DECISION (fired to galadriel):** near-chambers cleared LDR≥115 but SHF landed **17–24%, under the uniform 30% CV-gate** — so her scorer prints `LIGHT: fail` even though both axes rose correctly. **gandalf design lean:** 30% is the bar for STARK chambers (z3 oubliette PROVES the descent hits 60%+ where genuinely stark); DENSELY-DRESSED chambers (z0/1/2/4/5) legitimately read premium-lit-in-dark at SHF ~20–25 because the dressing fills frame-area an empty arena leaves black. **Guarded against goalpost-moving:** fired galadriel the explicit calibration question with **z2 as the borderline test case** — her eye is the arbiter on whether z2 (SHF 19.6) reads premium or still murky. If premium → 6 chambers GREEN + SHF-30→dressed-band scorer refinement. If murky → ONE targeted deepening notch on the named zones (NOT a global revert).
+
+### Round 3 — establish ×3: gandalf eyes-on (composition call I own; SEPARATE from chamber lighting)
+Read `/tmp/gandalf_crops/C_iter6_establish_01.png`. **The establish is NOT passing — the dominant failure is a wall of flat saturated BLUE slabs** across the left/center (the per-zone cool CombatFills grazing the stacked deep chamber walls, reading face-on in the across-spine angle). It is the single most eye-catching element, pulls the eye hard-left away from any payoff; floors read cool-green not warm; no magenta sanctum anchors the deep end. **drax was right to REJECT the deeper-focal probe** (it made the void dominate, LDR 92/dark% 66, blue worse). **Architecture note (drax's, sound):** a single across-spine establish cam can't both avoid the face-on blue deep-walls AND frame the deep magenta — those are competing geometries. **Irony worth recording:** the global rig that FIXED the chambers (ACES contrast + ambient 0.17) likely SHARPENED the establish blue-slab problem (deeper surround makes the cool slabs pop harder). **∴ establish is a DISTINCT composition mini-round** (camera angle to throw deep-walls into fog/shadow + warm-balance the cool wall-spill, OR a dedicated deep-look cam down-spine with warm deep-wall treatment for that one shot) — scoped AFTER the chamber SHF question resolves; do not block the 6-chamber green on it.
 
 ---
 
