@@ -41,8 +41,13 @@ The surviving physical generator is weapon-pool identity + `per_skill_emitter` s
 - `generation/archetype_composer.py`, `generation/stat_allocator.py`, `generation/composed_kit_adapter.py` (zero importers outside the legacy world once class_generator is gone)
 - `simulation/balance_loop.py` convergence stack — **SUB-SYMBOLS ONLY (see guard below)**
 
-**⚠️ KR SNAG — `SeasonOutput` cross-seam break (gandalf audit missed; MUST resolve before deleting season_orchestrator):**
-`output/season_writer.py:16` and `output/summary_formatter.py:2` import `SeasonOutput` FROM `season_orchestrator`. These are **star-lord's LIVE output seam** — deleting `season_orchestrator.py` wholesale breaks them at import. Before deleting season_orchestrator: either **re-home `SeasonOutput`** (+ any sibling output types) to a surviving output/schema module and re-point the two star-lord imports, OR confirm with star-lord those two consumers are legacy-dying-too. **Cross-seam → coordinate with star-lord; do not leave a dangling import in star-lord's live path.**
+**ALSO DELETE — star-lord output seam (legacy-dead, RESOLVED 2026-06-16, see below):**
+- `output/season_writer.py` (whole module — `write_season` only ever called by `cli.py:207`)
+- `output/summary_formatter.py` (whole module — `format_summary` only ever called by `cli.py:208`)
+- `output/__init__.py` re-export lines for `write_season`/`format_summary` (and `load_season_manifest`, which rides season_writer)
+
+**✅ KR SNAG RESOLVED — `SeasonOutput` is NOT a cross-seam break (star-lord determination, 2026-06-16):**
+The original snag worried that `output/season_writer.py:16` + `output/summary_formatter.py:2` import `SeasonOutput` from the dying `season_orchestrator`. **star-lord traced the call graph and returned LEGACY-DEAD on all consumers:** `write_season`/`format_summary` have exactly ONE call site each — `cli.py:207-208` inside `cmd_generate_season()` (the legacy path being deleted). The LIVE `season_generation_pipeline` has ZERO references to `SeasonOutput`/`season_writer`/`summary_formatter`. **No re-home needed** — the whole chain (season_orchestrator + SeasonOutput + season_writer + summary_formatter + the `__init__` re-exports + cli.py `cmd_generate_season`) deletes together cleanly. KR confirmed the two remaining textual references are docstrings, not imports: `export/kit_space_emitter.py:15` (survives unchanged; docstring goes cosmetically stale) and rocket's `generation/bc_target_composer.py` (lines 652/849/855/862/885, all prose findings). **Phase 2 is therefore a coordinated rocket (generation) + star-lord (output) deletion — star-lord deletes the two output modules + reconciles the `__init__` re-exports + `cli.py` generate-season wiring on its side; rocket owns the generation surface.** Sequence star-lord after rocket's generation cut OR in parallel (no ordering dependency — both halves of the dead chain die independently); jack-ryan Gate-2 spans both.
 
 ## Guards — modules STAY, only dead sub-symbols go
 - `generation/mechanic_alteration.py` — LIVE via `gauntlet_sim.py:1960` (`select_primary_t4`). Keep module; delete only G3 dead sub-symbols (`_geo_map`, `_bc_view_from_generation_params`).
@@ -52,7 +57,7 @@ The surviving physical generator is weapon-pool identity + `per_skill_emitter` s
 ## Verification gate (jack-ryan or rocket self-check before close)
 1. Run `gauntlet_sim` / `season_generation_pipeline` on a physical coord AND a caster coord → clean generation.
 2. `grep` every deleted symbol name → zero live hits.
-3. No `ImportError` anywhere in the live spatial-sim path (incl. star-lord output imports — see SeasonOutput snag).
+3. No `ImportError` anywhere in the live spatial-sim path (incl. star-lord output imports — SeasonOutput snag RESOLVED legacy-dead; confirm `output/__init__.py` + any surviving `output/` module imports clean after season_writer/summary_formatter deletion).
 4. **(KR add)** Confirm balance_loop's surviving spatial importers don't reference any deleted convergence symbol.
 5. Stale `noqa` at `class_generator.py:21-22` disappears with the file — no follow-up.
 
