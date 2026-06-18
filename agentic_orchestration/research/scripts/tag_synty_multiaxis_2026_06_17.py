@@ -25,6 +25,22 @@ DISCIPLINE — substrate-led split (brief §2):
 ADDITIVE (brief §4): adds nullable columns to `packs`; does NOT delete or re-shape any existing
 row, column, or asset. synty_catalogue schema 1.0 -> 1.1. Idempotent — re-runnable.
 
+--- synty_catalogue 1.1 -> 1.2 (gandalf rep-audit curation ruling 2026-06-17) ---
+gandalf curated the axis-3/4 PROPOSALS at the semantic-layer rep-audit
+(`agentic_orchestration/gandalf/notes/2026-06-17-synty-gear-spec-upstream-wiring-ruling.md`
+§1.3/§1.4/§1.6). Axis 3 (time_period): ACCEPTED as-proposed, no change. Axis 4 (cultural_identity):
+TWO additive corrections, both materialized here so a deterministic rebuild reproduces the curated
+state (the .db is gitignored — this script + MIGRATION.md are the committed source-of-truth):
+  1. Option A consumption rule (READ-TIME gate, NOT a data migration): `cultural_identity_proposed`
+     is binding as cultural-tradition substrate ONLY for `cultural_mode_flag IN ('A','B')`. Mode-C =
+     register_default_skin (genre, not culture); Mode-D = null. See CONSUMPTION_RULE / the
+     `is_cultural_tradition_binding()` helper below. Nothing in the data changes for this rule.
+  2. modern-western homonym split (DOES touch data, additively): the 2 Mode-B frontier rows
+     (POLYGON - Western Frontier Pack, POLYGON - Western Pack) move `modern-western` -> the new value
+     `frontier-western` (American-frontier cultural tradition). The 30 Mode-C apocalypse/city rows
+     keep `modern-western` (register-default sense; Option A de-fangs them by gating on mode). Encoded
+     in the `western` CULTURE_RULES entry below, so `... all` regenerates the split.
+
 Run:
     python3 tag_synty_multiaxis_2026_06_17.py            # apply additive schema + tag all packs
     python3 tag_synty_multiaxis_2026_06_17.py report     # (after tagging) emit JSONL + MD deliverables
@@ -46,7 +62,7 @@ RECON_DIR = os.path.join(
 OUT_JSONL = os.path.join(RECON_DIR, "multiaxis-tags-2026-06-17.jsonl")
 OUT_MD = os.path.join(RECON_DIR, "multiaxis-tags-2026-06-17.md")
 
-NEW_SCHEMA_VERSION = "1.1"
+NEW_SCHEMA_VERSION = "1.2"  # 1.1 -> 1.2: gandalf rep-audit curation (Option A gate + frontier-western split)
 
 
 def now_iso():
@@ -321,8 +337,42 @@ TIME_PERIOD_RULES = [
     ("palm city", "modern", "modern tropical city"),
 ]
 
+# ---------------------------------------------------------------------------
+# CONSUMPTION RULE — Option A binding gate (gandalf ruling §1.3 / §1.6, 2026-06-17)
+# ---------------------------------------------------------------------------
+# This is a READ-TIME CONSUMPTION RULE, NOT a data migration. The `cultural_mode_flag` column
+# (written at 1.1) ALREADY partitions the rows; nothing in the data changes for Option A. What
+# changes is how a downstream consumer READS `cultural_identity_proposed`:
+#
+#   `cultural_identity_proposed` is binding as CULTURAL-TRADITION SUBSTRATE iff
+#       cultural_mode_flag IN ('A', 'B').
+#
+#   - Mode A/B  -> the value IS a cultural-tradition read (egyptian, east-asian, norse,
+#                  greco-roman, w-euro-medieval, frontier-western). Bind it.
+#   - Mode C    -> the value is a `register_default_skin` (genre-default: generic-fantasy /
+#                  sci-fi / modern-western-urban), NOT a culture. A cultural-rotation / faction
+#                  surface MUST NOT inherit it as a cultural tradition.
+#   - Mode D    -> null cultural read (nature biomes). Not a culture.
+#   - unresolved (mode '?') -> no cultural home; do NOT force one.
+#
+# Downstream cultural-rotation / faction surfaces (canonical/48 seasonal-rotation operator; any
+# Fate-genre faction-architecture surface) read cultural-tradition ONLY from Mode-A/B rows. This is
+# the exact Mode-C artifact the §4.4 rep-audit exists to catch (the S.-American-Indigenous-Shotgun
+# failure mode): a label that passes the name-token vote but fails semantic cultural-coherence.
+CULTURE_BINDING_MODES = ("A", "B")  # cultural_identity is cultural-tradition-binding iff mode in this set
+
+
+def is_cultural_tradition_binding(cultural_mode_flag):
+    """Option A read-time gate (gandalf ruling §1.3). True iff the row's cultural_identity_proposed
+    is binding as a CULTURAL-TRADITION substrate. Mode-C values are register_default_skin (genre,
+    not culture); Mode-D is a null cultural read; unresolved has no cultural home. Consumers that
+    want cultural-tradition reads call this BEFORE inheriting cultural_identity_proposed."""
+    return cultural_mode_flag in CULTURE_BINDING_MODES
+
+
 # (substring, cultural proposal, mode-flag, basis)
 #   mode A = geographic-origin token, B = cultural-tradition, C = naming-allusion, D = metadata-mix
+#   (1.2 split — gandalf §1.4: Mode-B frontier-western vs Mode-C modern-western register-default)
 CULTURE_RULES = [
     ("ancient egypt", "egyptian", "A", "explicit Egypt geography"),
     ("samurai", "east-asian", "B", "Japanese samurai tradition"),
@@ -333,7 +383,13 @@ CULTURE_RULES = [
     ("elven", "generic-fantasy", "C", "fantasy-race allusion"),
     ("goblin", "generic-fantasy", "C", "fantasy-race allusion"),
     ("pirate", "generic-fantasy", "C", "age-of-sail genre (pan-cultural)"),
-    ("western", "modern-western", "B", "American frontier tradition"),
+    # NOTE (synty_catalogue 1.2 — gandalf ruling §1.4 value-split): the bare 'western' token reads
+    # the AMERICAN-FRONTIER cultural tradition (cowboys; the Western Frontier / Western packs) — a
+    # REAL Mode-B cultural read. It was 'modern-western' [mode B] at 1.1, sharing a homonym with the
+    # Mode-C apocalypse/city register-default skin below. The homonym is split: Mode-B frontier ->
+    # `frontier-western` (cultural-tradition); Mode-C apocalypse/city stays `modern-western`
+    # (register-default, de-fanged by the Option A consumption gate — see CONSUMPTION_RULE).
+    ("western", "frontier-western", "B", "American frontier cultural tradition (cowboys; Mode-B)"),
     ("dark fantasy", "generic-fantasy", "C", "gothic-fantasy allusion"),
     ("dark fortress", "generic-fantasy", "C", "gothic-fantasy allusion"),
     ("fantasy", "generic-fantasy", "C", "generic-fantasy"),
@@ -452,16 +508,30 @@ def cmd_tag():
             (register, role, role_basis, tp, tp_basis, cul, mode, cul_basis, seam, now_iso(), pack_id),
         )
         n += 1
-    # bump synty schema 1.0 -> 1.1 (additive)
+    # record synty schema version (additive). The full tag pass writes the multi-axis columns
+    # (1.1) AND the gandalf-curated axis-4 state (1.2 = Option A consumption gate documented +
+    # frontier-western value-split applied via the `western` CULTURE_RULES entry). A from-scratch
+    # `all` run lands directly at the curated 1.2 state. Record BOTH version rows for lineage.
     conn.execute(
         "INSERT OR IGNORE INTO schema_meta(version, applied_at, description, migration_script) VALUES (?,?,?,?)",
-        (NEW_SCHEMA_VERSION, now_iso(),
+        ("1.1", now_iso(),
          "Additive multi-axis pack tagging: register, contribution_role, time_period_proposed, "
          "cultural_identity_proposed (+mode_flag), seam. Axes 3+4 are PROPOSALS for gandalf rep-audit "
          "curation; basis columns carry the name-token evidence. No destructive change.",
          os.path.basename(__file__)))
+    conn.execute(
+        "INSERT OR IGNORE INTO schema_meta(version, applied_at, description, migration_script) VALUES (?,?,?,?)",
+        (NEW_SCHEMA_VERSION, now_iso(),
+         "gandalf rep-audit curation of axes 3+4 (ruling 2026-06-17 §1.3/§1.4/§1.6). Axis 3 accepted "
+         "as-proposed (no change). Axis 4: (1) Option A consumption rule documented — "
+         "cultural_identity_proposed binds as cultural-tradition ONLY for cultural_mode_flag IN (A,B); "
+         "Mode-C = register_default_skin, Mode-D = null (READ-TIME gate, no data change); "
+         "(2) modern-western homonym split — 2 Mode-B frontier rows -> 'frontier-western' "
+         "(cultural-tradition); 30 Mode-C rows retain 'modern-western' (register-default). Additive.",
+         os.path.basename(__file__)))
     conn.commit()
-    print(f"tagged {n} packs on 5 axes; synty schema -> {NEW_SCHEMA_VERSION}")
+    print(f"tagged {n} packs on 5 axes; synty schema -> {NEW_SCHEMA_VERSION} "
+          f"(gandalf-curated axis-4: Option A gate + frontier-western split)")
     conn.close()
 
 
@@ -512,10 +582,12 @@ def cmd_report():
     lines.append("# Synty catalogue — multi-axis tags (substrate-half + density map)\n")
     lines.append("**Author:** elrond | **Date:** 2026-06-17 | **Commission:** "
                  "`agentic_orchestration/gandalf/requests/2026-06-17-elrond-catalogue-multiaxis-tagging.md`\n")
-    lines.append("**Substrate:** `synty_catalogue.db` (schema 1.1) — 157 pack rows / 156 content "
+    lines.append("**Substrate:** `synty_catalogue.db` (schema 1.2) — 157 pack rows / 156 content "
                  "collections. Tags are ADDITIVE columns on `packs`.\n")
     lines.append("**Axis discipline:** 1+5 substrate-GIVEN; 2 doc-DERIVED; **3+4 substrate-VOTED — "
-                 "PROPOSALS for gandalf rep-audit curation, NOT unilateral labels.**\n")
+                 "now gandalf-CURATED** at the semantic-layer rep-audit (ruling 2026-06-17 §1.3/§1.4/§1.6). "
+                 "Axis 3 accepted as-proposed (no change); axis 4 carries the Option A consumption rule + "
+                 "the frontier-western value-split (see Axis 4 section).\n")
 
     lines.append("\n## Axis 1 — register distribution\n")
     for k in sorted(reg_dist): lines.append(f"- `{k}`: {reg_dist[k]} packs")
@@ -537,13 +609,49 @@ def cmd_report():
         if len(reps) > 8:
             lines.append(f"- …and {len(reps)-8} more")
 
-    lines.append("\n## Axis 4 — PROPOSED cultural_identity strata (gandalf curates) — rep examples\n")
+    lines.append("\n## Axis 4 — cultural_identity strata — gandalf-CURATED (ruling 2026-06-17 §1.3/§1.4)\n")
     lines.append("Mode flags guard the Mode A/B/C/D collapse: "
-                 "**A**=geographic-origin, **B**=cultural-tradition, **C**=naming-allusion (NOT a real culture), "
-                 "**D**=metadata/no-cultural-read.\n")
-    for (cul, mode) in sorted(cul_strata, key=lambda x: -len(cul_strata[x])):
+                 "**A**=geographic-origin, **B**=cultural-tradition, **C**=naming-allusion / register-default "
+                 "(NOT a real culture), **D**=metadata/no-cultural-read.\n")
+    lines.append("\n> **CONSUMPTION RULE (Option A — gandalf ruling §1.3 / §1.6; READ-TIME gate, NOT a "
+                 "data migration).** `cultural_identity_proposed` is binding as a **cultural-tradition "
+                 "substrate ONLY for rows where `cultural_mode_flag ∈ {A, B}`.** For **Mode-C** rows the "
+                 "value is a `register_default_skin` (genre-default — generic-fantasy / sci-fi / "
+                 "modern-western-urban — NOT a culture); **Mode-D** is null; **unresolved** has no cultural "
+                 "home. Downstream cultural-rotation / faction surfaces (canonical/48 seasonal-rotation "
+                 "operator; any Fate-genre faction-architecture surface) read cultural-tradition ONLY from "
+                 "Mode-A/B rows, and never inherit generic-fantasy / sci-fi / modern-western as a culture. "
+                 "The `cultural_mode_flag` column already partitions this — nothing in the data changes; the "
+                 "consumption rule does. (This is the exact Mode-C artifact the §4.4 rep-audit exists to "
+                 "catch — the S.-American-Indigenous-Shotgun failure mode.)\n")
+    lines.append("\n> **VALUE-SPLIT (gandalf ruling §1.4; additive — DOES touch data).** The "
+                 "`modern-western` homonym is split: the **Mode-B** frontier rows (Western Frontier / "
+                 "Western Pack — the American-frontier cultural tradition, cowboys) carry the new value "
+                 "**`frontier-western`** (cultural-tradition); the **Mode-C** apocalypse / city / battle-"
+                 "royale rows retain **`modern-western`** (register-default sense, de-fanged by Option A).\n")
+    # Render Mode-A/B (cultural-tradition-binding) strata FIRST, then Mode-C/D (non-binding), so the
+    # curated semantics are visible at a glance.
+    binding = sorted([k for k in cul_strata if is_cultural_tradition_binding(k[1])],
+                     key=lambda x: -len(cul_strata[x]))
+    nonbinding = sorted([k for k in cul_strata if not is_cultural_tradition_binding(k[1])],
+                        key=lambda x: -len(cul_strata[x]))
+    lines.append("\n### Mode-A/B — cultural-tradition-BINDING (Option A: these reads are authoritative)\n")
+    for (cul, mode) in binding:
         reps = cul_strata[(cul, mode)]
-        lines.append(f"\n### `{cul}` [mode {mode}] — {len(reps)} packs")
+        lines.append(f"\n#### `{cul}` [mode {mode}] — {len(reps)} packs — cultural-tradition substrate")
+        for name, basis, c in reps[:8]:
+            lines.append(f"- **{name}** (chars={c}) — {basis}")
+        if len(reps) > 8:
+            lines.append(f"- …and {len(reps)-8} more")
+    lines.append("\n### Mode-C/D + unresolved — NON-binding (Option A: NOT a cultural-tradition read)\n")
+    lines.append("Mode-C = register_default_skin (genre, not culture); Mode-D = null; unresolved = no "
+                 "cultural home. A cultural-rotation / faction surface MUST NOT inherit these as a culture.\n")
+    for (cul, mode) in nonbinding:
+        reps = cul_strata[(cul, mode)]
+        kind = ("register_default_skin (genre, not culture)" if mode == "C"
+                else "null cultural read (nature biome)" if mode == "D"
+                else "no cultural home — do NOT force one")
+        lines.append(f"\n#### `{cul}` [mode {mode}] — {len(reps)} packs — {kind}")
         for name, basis, c in reps[:8]:
             lines.append(f"- **{name}** (chars={c}) — {basis}")
         if len(reps) > 8:

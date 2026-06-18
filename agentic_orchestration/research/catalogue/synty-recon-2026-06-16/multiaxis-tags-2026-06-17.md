@@ -2,9 +2,9 @@
 
 **Author:** elrond | **Date:** 2026-06-17 | **Commission:** `agentic_orchestration/gandalf/requests/2026-06-17-elrond-catalogue-multiaxis-tagging.md`
 
-**Substrate:** `synty_catalogue.db` (schema 1.1) — 157 pack rows / 156 content collections. Tags are ADDITIVE columns on `packs`.
+**Substrate:** `synty_catalogue.db` (schema 1.2) — 157 pack rows / 156 content collections. Tags are ADDITIVE columns on `packs`.
 
-**Axis discipline:** 1+5 substrate-GIVEN; 2 doc-DERIVED; **3+4 substrate-VOTED — PROPOSALS for gandalf rep-audit curation, NOT unilateral labels.**
+**Axis discipline:** 1+5 substrate-GIVEN; 2 doc-DERIVED; **3+4 substrate-VOTED — now gandalf-CURATED** at the semantic-layer rep-audit (ruling 2026-06-17 §1.3/§1.4/§1.6). Axis 3 accepted as-proposed (no change); axis 4 carries the Option A consumption rule + the frontier-western value-split (see Axis 4 section).
 
 
 ## Axis 1 — register distribution
@@ -108,12 +108,47 @@
 - **POLYGON - War Map - WWI** (chars=9, weps=7) — name-token 'war map - wwi': WWI industrial-era
 - **SIMPLE - Trains** (chars=0, weps=0) — name-token 'trains': rail = industrial-era
 
-## Axis 4 — PROPOSED cultural_identity strata (gandalf curates) — rep examples
+## Axis 4 — cultural_identity strata — gandalf-CURATED (ruling 2026-06-17 §1.3/§1.4)
 
-Mode flags guard the Mode A/B/C/D collapse: **A**=geographic-origin, **B**=cultural-tradition, **C**=naming-allusion (NOT a real culture), **D**=metadata/no-cultural-read.
+Mode flags guard the Mode A/B/C/D collapse: **A**=geographic-origin, **B**=cultural-tradition, **C**=naming-allusion / register-default (NOT a real culture), **D**=metadata/no-cultural-read.
 
 
-### `unresolved` [mode ?] — 74 packs
+> **CONSUMPTION RULE (Option A — gandalf ruling §1.3 / §1.6; READ-TIME gate, NOT a data migration).** `cultural_identity_proposed` is binding as a **cultural-tradition substrate ONLY for rows where `cultural_mode_flag ∈ {A, B}`.** For **Mode-C** rows the value is a `register_default_skin` (genre-default — generic-fantasy / sci-fi / modern-western-urban — NOT a culture); **Mode-D** is null; **unresolved** has no cultural home. Downstream cultural-rotation / faction surfaces (canonical/48 seasonal-rotation operator; any Fate-genre faction-architecture surface) read cultural-tradition ONLY from Mode-A/B rows, and never inherit generic-fantasy / sci-fi / modern-western as a culture. The `cultural_mode_flag` column already partitions this — nothing in the data changes; the consumption rule does. (This is the exact Mode-C artifact the §4.4 rep-audit exists to catch — the S.-American-Indigenous-Shotgun failure mode.)
+
+
+> **VALUE-SPLIT (gandalf ruling §1.4; additive — DOES touch data).** The `modern-western` homonym is split: the **Mode-B** frontier rows (Western Frontier / Western Pack — the American-frontier cultural tradition, cowboys) carry the new value **`frontier-western`** (cultural-tradition); the **Mode-C** apocalypse / city / battle-royale rows retain **`modern-western`** (register-default sense, de-fanged by Option A).
+
+
+### Mode-A/B — cultural-tradition-BINDING (Option A: these reads are authoritative)
+
+
+#### `east-asian` [mode B] — 2 packs — cultural-tradition substrate
+- **POLYGON - Samurai Empire** (chars=0) — name-token 'samurai' [mode B]: Japanese samurai tradition
+- **POLYGON - Samurai Pack** (chars=8) — name-token 'samurai' [mode B]: Japanese samurai tradition
+
+#### `norse` [mode B] — 2 packs — cultural-tradition substrate
+- **POLYGON - Viking Realm** (chars=0) — name-token 'viking' [mode B]: Norse cultural tradition
+- **POLYGON - Vikings Pack** (chars=1) — name-token 'viking' [mode B]: Norse cultural tradition
+
+#### `frontier-western` [mode B] — 2 packs — cultural-tradition substrate
+- **POLYGON - Western Frontier Pack** (chars=42) — name-token 'western' [mode B]: American frontier cultural tradition (cowboys; Mode-B; split from modern-western homonym per gandalf ruling 2026-06-17 §1.4)
+- **POLYGON - Western Pack** (chars=2) — name-token 'western' [mode B]: American frontier cultural tradition (cowboys; Mode-B; split from modern-western homonym per gandalf ruling 2026-06-17 §1.4)
+
+#### `egyptian` [mode A] — 1 packs — cultural-tradition substrate
+- **POLYGON - Ancient Egypt** (chars=0) — name-token 'ancient egypt' [mode A]: explicit Egypt geography
+
+#### `greco-roman` [mode B] — 1 packs — cultural-tradition substrate
+- **POLYGON - Ancient Empire** (chars=11) — name-token 'ancient empire' [mode B]: greco-roman classical tradition
+
+#### `w-euro-medieval` [mode B] — 1 packs — cultural-tradition substrate
+- **POLYGON - Knights Pack** (chars=2) — name-token 'knights' [mode B]: W-European chivalric tradition
+
+### Mode-C/D + unresolved — NON-binding (Option A: NOT a cultural-tradition read)
+
+Mode-C = register_default_skin (genre, not culture); Mode-D = null; unresolved = no cultural home. A cultural-rotation / faction surface MUST NOT inherit these as a culture.
+
+
+#### `unresolved` [mode ?] — 74 packs — no cultural home — do NOT force one
 - **ANIMATION - Base Locomotion** (chars=0) — no culture token matched — gandalf rep-audit required
 - **ANIMATION - Bow Combat** (chars=0) — no culture token matched — gandalf rep-audit required
 - **ANIMATION - Emotes and Taunts** (chars=0) — no culture token matched — gandalf rep-audit required
@@ -124,7 +159,7 @@ Mode flags guard the Mode A/B/C/D collapse: **A**=geographic-origin, **B**=cultu
 - **POLYGON - Boss Zombies** (chars=9) — no culture token matched — gandalf rep-audit required
 - …and 66 more
 
-### `modern-western` [mode C] — 30 packs
+#### `modern-western` [mode C] — 30 packs — register_default_skin (genre, not culture)
 - **INTERFACE - Apocalypse HUD** (chars=0) — name-token 'apocalypse' [mode C]: post-apoc modern-western default skin
 - **INTERFACE - Military Combat HUD** (chars=0) — name-token 'military' [mode C]: modern military
 - **POLYGON - Apocalypse Pack** (chars=134) — name-token 'apocalypse' [mode C]: post-apoc modern-western default skin
@@ -135,7 +170,7 @@ Mode flags guard the Mode A/B/C/D collapse: **A**=geographic-origin, **B**=cultu
 - **POLYGON - City Zombies Pack** (chars=100) — name-token 'city' [mode C]: modern western-urban default
 - …and 22 more
 
-### `generic-fantasy` [mode C] — 24 packs
+#### `generic-fantasy` [mode C] — 24 packs — register_default_skin (genre, not culture)
 - **ANIMATION - Goblin Locomotion** (chars=0) — name-token 'goblin' [mode C]: fantasy-race allusion
 - **INTERFACE - Dark Fantasy HUD** (chars=0) — name-token 'dark fantasy' [mode C]: gothic-fantasy allusion
 - **INTERFACE - Fantasy Warrior HUD** (chars=0) — name-token 'fantasy' [mode C]: generic-fantasy
@@ -146,7 +181,7 @@ Mode flags guard the Mode A/B/C/D collapse: **A**=geographic-origin, **B**=cultu
 - **POLYGON - Dungeon Pack** (chars=16) — name-token 'dungeon' [mode C]: generic-fantasy
 - …and 16 more
 
-### `sci-fi` [mode C] — 12 packs
+#### `sci-fi` [mode C] — 12 packs — register_default_skin (genre, not culture)
 - **INTERFACE - Sci-Fi Menus** (chars=0) — name-token 'sci-fi' [mode C]: sci-fi register (acultural)
 - **INTERFACE - Sci-Fi Soldier HUD** (chars=0) — name-token 'sci-fi' [mode C]: sci-fi register (acultural)
 - **POLYGON - Mech Pack** (chars=1) — name-token 'mech' [mode C]: sci-fi register
@@ -157,7 +192,7 @@ Mode flags guard the Mode A/B/C/D collapse: **A**=geographic-origin, **B**=cultu
 - **POLYGON - Sci-Fi Space Pack** (chars=52) — name-token 'sci-fi' [mode C]: sci-fi register (acultural)
 - …and 4 more
 
-### `na` [mode D] — 8 packs
+#### `na` [mode D] — 8 packs — null cultural read (nature biome)
 - **POLYGON - Alpine Mountain - Nature Biome** (chars=0) — name-token 'nature' [mode D]: nature biome — no cultural read
 - **POLYGON - Arid Desert - Nature Biome** (chars=0) — name-token 'nature' [mode D]: nature biome — no cultural read
 - **POLYGON - Enchanted Forest - Nature Biome** (chars=0) — name-token 'nature' [mode D]: nature biome — no cultural read
@@ -166,27 +201,6 @@ Mode flags guard the Mode A/B/C/D collapse: **A**=geographic-origin, **B**=cultu
 - **POLYGON - Swamp Marshland - Nature Biome** (chars=0) — name-token 'nature' [mode D]: nature biome — no cultural read
 - **POLYGON - Tropical Jungle - Nature Biome** (chars=0) — name-token 'nature' [mode D]: nature biome — no cultural read
 - **SIMPLE - Forest Animals** (chars=0) — name-token 'forest' [mode D]: nature biome
-
-### `east-asian` [mode B] — 2 packs
-- **POLYGON - Samurai Empire** (chars=0) — name-token 'samurai' [mode B]: Japanese samurai tradition
-- **POLYGON - Samurai Pack** (chars=8) — name-token 'samurai' [mode B]: Japanese samurai tradition
-
-### `norse` [mode B] — 2 packs
-- **POLYGON - Viking Realm** (chars=0) — name-token 'viking' [mode B]: Norse cultural tradition
-- **POLYGON - Vikings Pack** (chars=1) — name-token 'viking' [mode B]: Norse cultural tradition
-
-### `modern-western` [mode B] — 2 packs
-- **POLYGON - Western Frontier Pack** (chars=42) — name-token 'western' [mode B]: American frontier tradition
-- **POLYGON - Western Pack** (chars=2) — name-token 'western' [mode B]: American frontier tradition
-
-### `egyptian` [mode A] — 1 packs
-- **POLYGON - Ancient Egypt** (chars=0) — name-token 'ancient egypt' [mode A]: explicit Egypt geography
-
-### `greco-roman` [mode B] — 1 packs
-- **POLYGON - Ancient Empire** (chars=11) — name-token 'ancient empire' [mode B]: greco-roman classical tradition
-
-### `w-euro-medieval` [mode B] — 1 packs
-- **POLYGON - Knights Pack** (chars=2) — name-token 'knights' [mode B]: W-European chivalric tradition
 
 ---
 

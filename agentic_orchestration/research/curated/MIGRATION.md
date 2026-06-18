@@ -7,6 +7,64 @@
 
 ---
 
+## v1.12 — synty_catalogue.db schema 1.1→1.2: gandalf axis-3/4 rep-audit curation (Option A consumption rule + frontier-western value-split) — 2026-06-17
+
+### What changed (one line)
+
+gandalf curated elrond's axis-3/4 PROPOSALS at the semantic-layer rep-audit (ruling `agentic_orchestration/gandalf/notes/2026-06-17-synty-gear-spec-upstream-wiring-ruling.md` §1.3/§1.4/§1.6, closing Q2 gate 1 of the Synty gear-spec upstream-wiring call). Axis 3 (`time_period`): **ACCEPTED as-proposed — no change.** Axis 4 (`cultural_identity`): **TWO additive corrections** materialized here — (1) the **Option A consumption rule** (read-time binding gate, NOT a data migration) and (2) the **`modern-western` → `frontier-western` value-split** (touches data, additively). synty_catalogue internal schema_meta `1.1 → 1.2`. **No schema-column churn, no destructive change.**
+
+### Correction 1 — Option A consumption rule (READ-TIME gate; ruling §1.3 / §1.6) — NOT a data migration
+
+gandalf ruled **Option A** over Option B (physical column split): the `cultural_mode_flag` column (written at 1.1) **already partitions** the rows, so the fix is a consumption rule, not a migration. **Nothing in the data changes.** The durable rule:
+
+> `cultural_identity_proposed` is binding as a **cultural-tradition substrate ONLY for rows where `cultural_mode_flag ∈ {A, B}`.**
+> - **Mode A/B** → the value IS a cultural-tradition read (egyptian, east-asian, norse, greco-roman, w-euro-medieval, **frontier-western**). Bind it.
+> - **Mode C** → the value is a `register_default_skin` (genre-default: generic-fantasy / sci-fi / modern-western-urban — **NOT a culture**).
+> - **Mode D** → null cultural read (nature biomes).
+> - **unresolved** (`?`) → no cultural home; do NOT force one.
+
+Downstream cultural-rotation / faction surfaces (the `canonical/48` seasonal-rotation operator; any Fate-genre faction-architecture surface) read cultural-tradition **ONLY from Mode-A/B rows**, and never inherit `generic-fantasy` / `sci-fi` / `modern-western` as a culture. This is the exact **Mode-C artifact** the §4.4 rep-audit discipline exists to catch — a label that passes the name-token vote but fails semantic cultural-coherence (the S.-American-Indigenous-Shotgun-Cluster failure mode).
+
+**Recorded durably in three places** (the .db is gitignored — script + this entry are the committed source-of-truth): (a) the `CULTURE_BINDING_MODES` constant + `is_cultural_tradition_binding()` helper + `CONSUMPTION RULE` docblock in `scripts/tag_synty_multiaxis_2026_06_17.py`; (b) a quoted CONSUMPTION-RULE block atop the **Axis 4** section of the regenerated `multiaxis-tags-2026-06-17.md`, which now renders Mode-A/B (binding) strata separately from Mode-C/D (non-binding); (c) this MIGRATION entry. **No column added, no row re-typed for this rule** — it is read-time semantics over existing data.
+
+### Correction 2 — `modern-western` homonym split → `frontier-western` (ruling §1.4) — additive, touches data
+
+`modern-western` was a homonym doing double duty: **Mode-B** (Western Frontier / Western Pack = the American-frontier cultural tradition, cowboys — a REAL cultural read) vs **Mode-C** (Apocalypse / City / Battle Royale = modern-western-urban register-default). The Mode-B rows are split to the new value **`frontier-western`** (cultural-tradition); the Mode-C rows retain **`modern-western`** in the register-default sense (already de-fanged by Option A's mode gate).
+
+**Verified row count (ruling estimated ~2): exactly 2 Mode-B rows split** —
+
+| collection_id | pack | 1.1 value | 1.2 value | mode |
+|---|---|---|---|---|
+| 154809 | `POLYGON - Western Frontier Pack` | `modern-western` | **`frontier-western`** | B |
+| 154810 | `POLYGON - Western Pack` | `modern-western` | **`frontier-western`** | B |
+
+The 30 Mode-C `modern-western` rows (Apocalypse / City / Battle Royale / Apocalypse-HUD / Military-Combat-HUD …) are **unchanged**. Post-split authoritative field-value counts (verified against the regenerated JSONL, by field value not substring): `frontier-western` = **2** (both mode B); `modern-western` = **30** (all mode C); 157 total rows preserved. `cultural_basis` on the 2 split rows updated to name the new value + cite the ruling (descriptive text, not identity).
+
+### Reversibility / regeneration (source-anchored discipline)
+
+`synty_catalogue.db` stays **gitignored** (`curated/.gitignore` ignores `*.db`). The value-split is encoded in the `western` entry of `CULTURE_RULES` in `scripts/tag_synty_multiaxis_2026_06_17.py` (`("western", "frontier-western", "B", …)`), so a **from-scratch deterministic rebuild lands directly at the curated 1.2 state** — the curation is reproducible from committed source, not a one-off DB mutation:
+```
+python3 build_synty_catalogue_2026_06_17.py full      # WAVE 1 (136 zip packs)
+python3 build_synty_catalogue_2026_06_17.py nonfbx    # WAVE 2 (21 extracted packs)
+python3 tag_synty_multiaxis_2026_06_17.py all          # 5-axis tag + gandalf-curated axis-4 (1.2) + regen JSONL/MD
+```
+The live DB for this entry was updated surgically (a 2-row additive `UPDATE` + schema_meta 1.2 row) rather than a full re-tag, to keep the touch minimal; the script reproduces the identical curated state on any clean rebuild. The `tag … all` schema_meta insert records BOTH the 1.1 (multi-axis) and 1.2 (curation) version rows for lineage.
+
+### Deliverables touched
+
+- `agentic_orchestration/research/scripts/tag_synty_multiaxis_2026_06_17.py` — `CULTURE_RULES` western entry → `frontier-western`; `CULTURE_BINDING_MODES` + `is_cultural_tradition_binding()` + CONSUMPTION-RULE docblock added; `NEW_SCHEMA_VERSION` 1.1→1.2; schema_meta now records both version rows; report renders Mode-A/B binding vs Mode-C/D non-binding strata + the Option A block.
+- `agentic_orchestration/research/catalogue/synty-recon-2026-06-16/multiaxis-tags-2026-06-17.jsonl` — regenerated; the 2 Mode-B rows carry `axis4_cultural_identity_proposed='frontier-western'`.
+- `agentic_orchestration/research/catalogue/synty-recon-2026-06-16/multiaxis-tags-2026-06-17.md` — regenerated; Axis 4 section carries the Option A consumption rule + value-split notes + binding/non-binding stratum split.
+- `synty_catalogue.db` (gitignored) — 2-row value-split applied; schema_meta `1.2` row inserted.
+
+### Downstream hooks
+
+- **gandalf** — axis-3/4 curation now materialized; this closes the consumption-rule handoff from ruling §1.4/§5. The wiring-call half (fantasy-first + silhouette degrade) is gandalf/rocket-side, not in this data-layer entry. **gandalf holds the push** (ADR-006) — this entry is committed but NOT pushed by elrond.
+- **Any cultural-rotation / faction-architecture consumer** — read cultural-tradition via `is_cultural_tradition_binding(cultural_mode_flag)` (i.e. `cultural_mode_flag IN ('A','B')`) before inheriting `cultural_identity_proposed`. Mode-C is `register_default_skin`, not a culture.
+- **Incorporation ledger** — unchanged; no incorporation event in this entry.
+
+---
+
 ## v1.11.1 — synty_catalogue.db WAVE 2: 21 extracted-unitypackage packs indexed (no schema change) — 2026-06-17
 
 ### What changed (one line)
