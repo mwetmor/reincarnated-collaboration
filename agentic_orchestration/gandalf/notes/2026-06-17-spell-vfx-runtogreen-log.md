@@ -1,6 +1,6 @@
 # Spell-VFX Run-to-Green — Tracker + Design Direction
 
-**STATUS:** 🟡 OPEN — Round-1 SLICE staged (drax). Governing directive (Matt 2026-06-17): *"proceed autonomously until the tri-pod gets it right and replaces the summon circles with meaningful spell effects."*
+**STATUS:** 🟡 OPEN — Round-1 cast LANDED (PASS-with-residual); substrate head-to-head RESOLVED on Matt's eyes-on (2D-as-thrown-projectile DIRECTIONAL fail, 3D-particle won the projectile role, neither hit PoE/D2 register); LAYERED-COMBO slice BUILDING (drax). Governing directive (Matt 2026-06-17): *"proceed autonomously until the tri-pod gets it right and replaces the summon circles with meaningful spell effects."*
 **Orchestrator / design steward:** gandalf. **Builder:** drax (Godot). **Scorer:** galadriel (CV / perception).
 **Parent run (CLOSED GREEN, the model for this one):** `2026-06-17-descent-runtogreen-log.md`.
 **Substrate ruling:** `2026-06-17-synty-acquisition-run-ruling.md` (Particle FX Pack = POLYGON-line cross-cutting KEEP).
@@ -103,6 +103,38 @@ Per slice-first discipline (and the Synty downloader gate KR just applied): Roun
 
 ### ⚠ SUBSTRATE INTERRUPT (2026-06-17) — pixel-VFX proposal → register-conflict ruling
 Matt (via a Gemini consult) surfaced the demo's purchased VFX catalogue (`reincarnated-demo/public/assets`) + a Gemini spec to route 2D flipbook VFX through Godot's 3D billboard pipeline, as a candidate to replace the soft Round-1 mesh-spell. **Inspected (Discipline #10):** the catalogue is the demo's PIXEL-ART substrate — metadata `derived_register: "hand-drawn-pixel"`, 32–160 px/frame, Holy sheets on un-keyed white bg. **Ruling (`pushback/2026-06-17-pixel-vfx-into-godot-register-conflict.md`):** routing pixel flipbooks into the smooth-Synty-3D descent REVERSES the LOCKED register (`style-register.md`, 2026-06-14 Matt/Pattern-B; A-locks 4.50→5.00/5; 2D-pixel SUPERSEDED) and downgrades a 3D-native VFX strategy already scored **VFX-presence 5/5** (`FX_Fire_Large_01` bloom) to a retired register. Gemini's flipbook TECHNIQUE is sound but mis-sourced (PoE/Diablo flipbooks are smooth-HDR, not pixel). **The soft-mesh residual's correct fix = the register-lock's OWN lever: S-tier `GPUParticles3D` particle juice, NOT geometric Synty meshes, NOT pixel flipbooks.** → **Round-2 redirect PENDING Matt's call:** (rec) particle-juice redirect, register stays locked; (only-if-intended) re-open register to pixel-hybrid = whole-art-direction pivot discarding the Synty-3D descent. Escalated to Matt (above tripod authority). Pixel catalogue retained for the 2D demo (pivot-insurance).
+
+### Round-1 motion-score — galadriel RETURNED (`82a3ac4`): PASS-with-residual, CONVERGES
+galadriel's NEW 5-metric time-sequence instrument (`galadriel/pipeline/spell-motion-score.mjs`) scored the war_hall fire cast **PASS-with-residual**, INDEPENDENT of gandalf's eye, and CONFIRMED both named residuals (cross-check working, not anchoring):
+- **Metric 1 ★ energy-travel PASS** — +1.012 caster→threat axis-march (F02 at-caster → F06 at-threat); +19.6% frame-width. Textbook emanation. Metric 2 motion-presence PASS; Metric 3 fire-hue PASS (deep-red→amber lifecycle, R>G>B); backdrop-invariance PASS (rig untouched, additive cast).
+- **Residual (a) soft mid-travel CONFIRMED** — metric 4: F04 layering 8.55 AT the 9.0 flat-cardboard line vs impact 10.4–11.8 (~25% structure deficit). The soft beat is the GEOMETRIC-MESH travel-bolt — corroborates that the fix is particle-juice, not mesh.
+- **Residual (b) aim-drift CONFIRMED** — metric 5: principal axis horizontal (8–20°) vs threat-line −22.5°, alignment loosens cos 0.86→0.74. Shaped but not threat-locked.
+The transformation LANDED (summon-glyph genuinely replaced by a cast verb); residuals are crispness/aim polish, not fundamental failure.
+
+### SUBSTRATE HEAD-TO-HEAD (2026-06-17) — RESOLVED on Matt's eyes-on
+Rather than adjudicate the register conflict on paper, Matt called for a controlled head-to-head VIDEO: same war_hall + 2.5D cam + fire beat, two substrates (drax commit `824a5d9`, both LOCAL/git-ignored mp4):
+- **Video A** = juiced Synty/`GPUParticles3D` particle fire (`_build_spell_lifecycle_juiced`).
+- **Video B** = pimen "Fire bite" 2D flipbook (64px native) wired into 3D as a thrown projectile (full 3-phase technique — NO strawman; drax gave the 2D path its strongest fair shot).
+gandalf independent eyes-on (frames pulled from each) + drax self-assess CONVERGED with Matt's read.
+
+**Matt's verdict:**
+- **2D flipbook FAILS as a THROWN PROJECTILE** — root cause is a MOTION-ROLE mismatch, NOT resolution: the flame's internal animation licks UPWARD (stationary-burn convection) but it was propelled FORWARD, so internal motion fights travel — reads as "a stationary fire oddly sliding sideways." Genre corroboration: D2 authors fire TWICE — Fire Bolt streaks forward (projectile), Meteor leaves upward-licking ground fire (stationary); PoE same (Fireball streaks; Ignite/Burning-ground licks up). pimen is a stationary-burn asset in the wrong role.
+- **Synty 3D particle WON the projectile role** (occupies volume + travels correctly).
+- **Matt LIKED the 2D flame's stylized look** + observed it would PASS as STATIONARY fire (upward animation correct when anchored).
+- **Neither video hit the PoE / D2 register.** A "won" the substrate question but is below the genre bar — gap NAMED: missing AAA techniques (alpha-erosion-via-noise, flowmap churn, smooth-HDR layer textures) + the bright war_hall starving the fire of dark-mood contrast.
+
+**Design distinction (the load-bearing read):** TWO separable tells — (1) resolution mismatch (asset-specific, partly fixable with higher-res) vs (2) DIMENSIONAL mismatch (a flat billboard vs effects that occupy volume — STRUCTURAL to any flipbook-in-3D, NOT fixed by resolution; a flipbook is paint on a card, particles occupy depth). The pixel question is SETTLED; the SMOOTH-flipbook-vs-particle question (tell 2 alone) is NOT yet tested.
+
+### FINDING — 2D-as-projectile: DIRECTIONAL recommendation (NOT absolute; door OPEN, per Matt)
+Recorded per Matt's explicit instruction — directionally recommend, do NOT close the door:
+- **Directional default:** 2D flipbook VFX default to STATIONARY-fire roles (impact flames, burning ground, torches/ambient) — NOT traveling projectiles. Motion-role discipline: **2D = stationary, 3D = travel/volume.**
+- **Why DIRECTIONAL not ABSOLUTE (scope of the evidence):** the observed failure was a STATIONARY-BURN asset (pimen Fire-bite) used as a projectile. We have NOT tested a 2D flipbook AUTHORED with forward-STREAKING directional motion (comet/meteor-style — internal motion along the travel axis).
+- **Door left OPEN — future test:** "directional 2D" — a forward-streaking-authored 2D flipbook as a projectile — remains an OPEN question to test at a later date. The recommendation is a default LEAN pending that test, NOT a prohibition. Do NOT record it as "all 2D VFX must never be projectiles."
+
+### DIRECTION SET (Matt) + ROUND-2 = LAYERED COMBO (BUILDING NOW)
+- **Combo slice (drax FIRING, background):** Synty 3D fireball TRAVEL → on IMPACT, 2D stationary fire (pimen flame, anchored, burning-in-place where its upward animation is correct) + lingering ground-fire, LAYERED with the existing particle burst. Proves the **LAYERING principle** (AAA spell VFX = stacked layers, never one effect) + validates 2D-as-stationary in its right motion-role. war_hall, same vantage (comparable to the head-to-head). Video + time-sequence; galadriel motion-score to follow.
+- **The REAL target (recognition — deferred design doc, gandalf-owned):** the **COMBINATORIAL VFX-LAYER SYSTEM** for **400 kits** at genre register. Can't hand-author 400; the genre doesn't — PoE runs hundreds of skills off a shared PARAMETERIZED layer library (recolor by element, rescale by tier, compose by rule); Last Epoch specialization trees add/swap composable layers; D4 tints a base. Answer to 400-kits AND to quality is the SAME: **author quality once per composable LAYER** (core/trail/impact/ground-fire/ember/light — each 2D-stationary or 3D-volume per role) × element-parameterization × the §2.3 element×geometry mapping; compose per kit, not bespoke. Quality lives in the layers, not per-kit.
+- **Quality spike (deferred):** prototype alpha-erosion + flowmap + smooth-HDR layer texture on the particle layers in a DARK chamber → tests reaching PoE/D2 register + re-opens the smooth-texture-SOURCE question on real evidence. (The UE-Marketplace-VFX option, opined this session: techniques sound + register-correct SMOOTH source, but per-asset licensing is NOT blanket engine-portable [FAB restructured it] + premature vs the proven lever → adopt the TECHNIQUES, defer the pipeline; cleanest smooth-HDR source = EmberGen [royalty-free, engine-agnostic] first.)
 
 ---
 
