@@ -1459,3 +1459,52 @@ Exercised rocket's real loader (`load_faction_table` + `derive_faction`) over th
 - Push to remote deferred to keystone-close (Matt's gate).
 
 ---
+
+## 2026-06-17 — Synty catalogue multi-axis tagging (synty_catalogue.db 1.0 -> 1.1, ADDITIVE)
+
+**Commission:** `agentic_orchestration/gandalf/requests/2026-06-17-elrond-catalogue-multiaxis-tagging.md` (Q2 gate 1 — gear-spec upstream-wiring decision).
+**Owned data layer:** `agentic_orchestration/research/curated/synty_catalogue.db` (separate DB; gitignored/regenerable).
+**Tagging script (reproducible):** `agentic_orchestration/research/scripts/tag_synty_multiaxis_2026_06_17.py` — re-run `all` to reproduce verbatim. Idempotent; ADDITIVE only.
+**Deliverables:** `agentic_orchestration/research/catalogue/synty-recon-2026-06-16/multiaxis-tags-2026-06-17.{jsonl,md}`.
+
+### What changed (ADDITIVE — no destructive change)
+- Added 10 nullable columns to `packs` via `ALTER TABLE ADD COLUMN` (zero existing-row rewrites; 62,281 asset rows untouched):
+  `register`, `contribution_role`, `contribution_basis`, `time_period_proposed`, `time_period_basis`,
+  `cultural_identity_proposed`, `cultural_mode_flag`, `cultural_basis`, `seam`, `tagged_at`.
+- Tagged **all 157 pack rows** (156 content collections; Water Guns ships 2 FBX packs) on 5 axes. Zero nulls — every pack routes.
+- `synty_catalogue` schema_meta bumped `1.0 -> 1.1`. (Distinct from the sprite-rubric `catalogue.db` schema lineage above — separate DB, separate schema_meta.)
+
+### Axis discipline (substrate-led split — brief §2)
+- **Axes 1 (register) + 5 (seam): substrate-GIVEN** — parsed from Synty pack naming + light curation. AUTHORITATIVE.
+- **Axis 2 (contribution_role): doc-DERIVED** — gear-spec asset-class × skinned/static split. Every pack routes:
+  environment 89 / armor-base-skinned 38 / ui 8 / bestiary 7 / anim 6 / accent-attach-static 6 / weapon-base-static 3.
+  The 34 POLYGON armor-base-skinned packs = the consumption-line restyle base (register filter keeps POLYGON; MINI+SIMPLE corpus-retained, set-aside).
+- **Axes 3 (time_period) + 4 (cultural_identity): substrate-VOTED — PROPOSALS ONLY.** The DB holds elrond's proposed
+  stratum + a `*_basis` evidence column (the name-token the proposal rests on); the MD deliverable carries rep examples
+  per stratum. **gandalf curates the final semantic label at a rep-audit** (semantic-layer rep-audit discipline #25 — substrate
+  vote binds at the geometry layer, NOT the semantic layer). Period/culture-agnostic packs (animation, ui, weapon-only, FX,
+  seasonal, animal, generic-interior) carry `unresolved` — intentionally NOT hand-labeled; flagged for gandalf.
+- `cultural_mode_flag` guards the Mode A/B/C/D collapse: A=geographic-origin, B=cultural-tradition, C=naming-allusion
+  (NOT a real culture — e.g. dwarven/elven/sci-fi), D=metadata/no-cultural-read.
+
+### Density-map findings (the gap-fill routing surface — brief §3)
+- **Finding 1 (headline):** POLYGON sci-fi humanoid skinned-character coverage EXISTS (~110 chars: Sci-Fi City 40, Space 52,
+  Cyber City 18). Brief premise ("only SIMPLE-Space-Characters") REFUTED by substrate. sci-fi-body does NOT require full
+  gap-fill. UPDATES prior-canon "sci-fi = zero coverage, deferred v1.1+" entry.
+- **Finding 2:** cultural coverage is ASYMMETRIC by layer — Egypt (0 chars / 28 weapons), Vikings (0-1 chars / 215 weapons),
+  Samurai-Empire, Goblin, Knights ship rich environment+weapon but HOLLOW skinned-character base → character gap-fill forced.
+- **Finding 3:** ZERO-coverage cultural registers (full image-to-3D/Sidekick route): Mesoamerican/Aztec, Indo-Asian,
+  Persian/MENA, Sub-Saharan African — all 0 packs. Matches `canonical/48` non-Euro-Sinitic roster homes.
+- **Finding 4:** Victorian-steampunk = 0 packs; industrial thin (WWI map + Trains only).
+- **Finding 5:** Sidekick Character Creator (157753) is the gap-fill MECHANISM, not a content pack (correctly absent from 157 DB rows).
+  WAVE-2 extracted packs contribute the accent silhouette-breaker layer; WAVE-1 FBX packs the skinned-armor bases.
+
+### ADR compliance
+- **ADR-004 (MIGRATION.md for cross-seam handoff):** this entry. No engine-telemetry change; star-lord-side MIGRATION.md unaffected.
+- **Cross-seam contract change?** No — additive tagging on elrond-owned synty_catalogue.db; no consumer-contract reshape.
+  Axes 3+4 are PROPOSALS pending gandalf rep-audit curation (Tier-2 escalation, NOT elrond-decided).
+- **Reversibility (schema principle):** raw asset classification preserved; contribution_role routing corrects above the
+  upstream SK_Veh_/SK_Bld_ false-positive without rewriting asset rows. Re-runnable from script.
+- Push to remote deferred to KR's gate (Matt authorization).
+
+---
