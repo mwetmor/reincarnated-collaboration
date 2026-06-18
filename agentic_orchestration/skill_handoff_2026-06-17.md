@@ -50,3 +50,20 @@ StyleProfile `palette` carries a **per-region palette array that gracefully degr
 
 ## rocket §7.2 sequencing (carried per gandalf §4)
 rocket's L2 restyle-leaf shader + accent-attachment build is **Tier-2-gated-on-manifest** — fires only after (a) gandalf §7.6 ruling [done] AND (b) the manifest design-owned half + elrond substrate slice land [done]. The gate is now satisfied; rocket §7.2 is eligible to be dispatched next cycle. Accent-attachment fires unconditionally (12 named sockets verified).
+
+---
+
+## SECOND WORKSTREAM (same date) — Autonomous run v2 COMPLETE
+
+**Charter:** `canonical/story/2026-06-17-autonomous-run-plan-v2.md`. **Full return package:** `agentic_orchestration/autonomous-run-2026-06-17-RETURN-PACKAGE.md` (commit `4ce0b0d`).
+
+**Track A (engine completion) ran fully — A1–A5 all CLOSED:**
+- A1 keystone live-integration (tag `gamora/v-keystone-live-integration-2`) — Gate-2 caught a real `spell_damage_modifier` unit-cross bug (+14,900% phantom) + open_arena-only saturated evidence on first pass; remediated in-run to honest 8.19×.
+- A5 export mobs/min reinterpret (`star-lord/v-kpm-export-reinterpret-1`).
+- B2 gear-spec restyle-leaf (`rocket/v-gear-spec-restyle-leaf-1`) — pulled forward because run-start reconciliation found B1 catalogue already COMPLETE (charter said in-flight).
+- A3 F1 geometry-fix + D4 proxy-port re-home (`gamora/v-f1-geometry-fix-1`, `gamora/v-d4-proxy-port-measure-1`).
+- A2 Proxy-Commander Set #6 (gen `rocket/v-proxy-add-gen-1` + sim `gamora/v-proxy-add-sim-1`) — combined Gate-2 PASS-WITH-INFO `84c9e46`, §2.2 ENDORSE SATISFIED, terminated without waking gandalf.
+
+**Matt parking lot (§6 — see return package):** (1) F1 production ratification; (2) D4 `track_proxy_population` flag-flip; (3) A1 `apply_max_profile_investment` flag-flip; (4) A4 MOB_HP anchor reconciliation (1.5→1.0 lifts wr 0.367→0.867); (5) A1 KPM-band collision (1 loadout, informational); (6) MIGRATION v1.73 number collision (housekeeping); (7) **PUSH GATE — all 7 run tags + commits UNPUSHED, Matt-authorization pending.**
+
+**Production inert:** both flags (`apply_max_profile_investment`, `track_proxy_population`) stay OFF on disk; every change additive + git-revertible. cycle-14 working tree left dirty/untouched (not run work-products).
