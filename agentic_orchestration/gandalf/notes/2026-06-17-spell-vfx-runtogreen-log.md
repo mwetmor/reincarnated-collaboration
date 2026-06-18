@@ -95,11 +95,11 @@ Per slice-first discipline (and the Synty downloader gate KR just applied): Roun
 
 ## 5. ROUND LOG
 
-### Round-1 — STAGED (drax brief: `2026-06-17-spell-vfx-round1-drax-brief.md`)
-- drax: enumerate all flat-ground-circle elements per zone (confirm zone2 pale disc = CombatFill = KEEP; flag any stray); import the FIRE-slice FX-shape meshes from the Particle FX Pack zip → Godot `GPUParticles3D` spell prefabs; transform `_build_hero_vfx` war_hall into the character-driven FIRE cast; render the time-sequence; self-assess + eyes-on; auto-commit, NO push.
-- gandalf: rule eyes-on (BEFORE galadriel) on §2.4 criteria.
-- galadriel: build the motion-scoring instrument + score the sequence.
-- **gate:** §2.4 all-hold + Gate-B parity/rig-untouched + galadriel motion-score PASS → slice GREEN → roll out remaining elements/chambers.
+### Round-1 — FIRING (drax brief: `2026-06-17-spell-vfx-round1-drax-brief.md`)
+- **drax:** ▶ RUNNING (background) — enumerate all flat-ground-circle elements per zone (confirm zone2 pale disc = CombatFill = KEEP; flag any stray); import the FIRE-slice FX-shape meshes from the Particle FX Pack zip → Godot `GPUParticles3D` spell prefabs; transform `_build_hero_vfx` war_hall into the character-driven FIRE cast; render the time-sequence; self-assess + eyes-on; auto-commit, NO push.
+- **gandalf:** rule eyes-on (BEFORE galadriel) on §2.4 criteria, on drax return.
+- **galadriel:** ☐ STAGED — motion-score request pre-authored (`2026-06-17-spell-vfx-round1-galadriel-motionscore-request.md`); fires on drax return (2 fields patch). NEW time-sequence instrument: five motion-aware metrics, headline = energy-travel caster→threat.
+- **gate:** §2.4 all-hold + Gate-B parity/rig-untouched + galadriel motion-score PASS (gandalf+galadriel CONVERGE) → slice GREEN → roll out remaining elements/chambers.
 
 ---
 
