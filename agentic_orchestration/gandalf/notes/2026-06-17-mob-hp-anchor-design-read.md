@@ -1,6 +1,6 @@
 # gandalf design read — MOB_HP calibration-anchor reconciliation (autonomous-run parking-lot item #4)
 
-**STATUS:** DESIGN READ + RECOMMENDATION (gandalf story-and-design steward). The LOCK is Matt's call; this is the design read that informs it.
+**STATUS:** LOCKED — Matt ruled **anchor MOB_HP at 1.5x** (2026-06-17), accepting this design read. The 0.367 ablation-floor reframe stands as the rationale of record. Decisions-log entry to follow via KR-draft / jack-ryan-review (per gandalf-recommends / Matt-approves / KR-drafts / jack-ryan-reviews routing). No code change required — 1.5x is already the live `MOB_HP_DIFFICULTY_MULTIPLIER`; the lock confirms the status quo and the mobs/min band ruling holds as-fit (no refit).
 **Date:** 2026-06-17
 **Author:** gandalf (story-and-design steward)
 **Resolves the design half of:** `agentic_orchestration/autonomous-run-2026-06-17-RETURN-PACKAGE.md` § parking-lot item #4 ("A4 MOB_HP baseline reconciliation — which MOB_HP is the 'true' balance reference"). A4 was PRODUCE-only per the autonomous charter; the reconciliation parked for a design read. This is that read.
@@ -55,6 +55,8 @@ The autonomous-run charter calls MOB_HP 1.5x "the second defect." That is exactl
 
 ## 5. Sign-off
 
-The only genuinely Matt-gated piece is small: confirm **"anchor 1.5x; 0.367 is the ablation floor we *want*, not a defect to fix."** The empirical criterion that gated this read was the produced MOB_HP baseline (already on disk) — read directly, which is what flipped the framing from "1.5 is broken" to "1.5 is the itemization lever." Recognition → validate (read the real distribution) → recommend. The LOCK is Matt's.
+**LOCKED by Matt 2026-06-17: anchor MOB_HP at 1.5x.** The empirical criterion that gated this read was the produced MOB_HP baseline (already on disk) — read directly, which is what flipped the framing from "1.5 is broken" to "1.5 is the itemization lever." Recognition → validate (read the real distribution) → Matt-commit. No code change (1.5x is already live); the band ruling holds as-fit.
 
-**Signed:** gandalf, 2026-06-17.
+**Coherence note (composes with parking-lot flag #3):** locking 1.5x and flipping the keystone-faithful measurement flag (`apply_max_profile_investment` ON, parking item #3) are mutually reinforcing — at 1.5x the keystone is load-bearing (stripped floors to 0.367; faithful loadout hits 1.000), so measuring kit power on faithful loadouts is the *representative* measurement at the locked anchor. The two decisions point the same direction.
+
+**Signed:** gandalf, 2026-06-17. Locked by Matt same date.
