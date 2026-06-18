@@ -15,6 +15,70 @@
 
 ---
 
+## 0.5 — CORRECTION (2026-06-18, post-Matt-reframe + reconcile-against-disk; GOVERNS where it conflicts with §0–§6)
+
+Three corrections landed after the first draft — two reconcile-against-disk catches, one Matt reframe of what "gen-pipeline completion" means. The original §1–§7 are preserved as the first-draft record; **where they conflict with this block, this block governs.**
+
+### C1 — "Gen-pipeline" traced the WRONG pipeline (Matt's reframe)
+
+The original §2(B)/§3/§4-gen-rows/§5–§6 traced the **gear-spec VISUAL asset path** (emitted gear item → renderable spec: manifest → master ShaderMaterial → constrained-LLM fill → L4 adapter → render). That is a real pipeline — but it is **downstream, visual-only, and deferred behind the Synty catalogue.** It is NOT what Matt meant.
+
+**What Matt meant (verbatim):** "the end-to-end serial content-creation pipeline which results in a season of kits/factions/monsters/npcs/gear/weapons/flavortext (the full JSON emission that Godot will need for the replica of the battle sim to run)." That is the **content-emission** pipeline — the MECHANICAL + NARRATIVE content the SIM consumes, not the visual render-specs. The gear-spec visual path (original §3) is a *downstream RENDER sub-pipeline of the "gear/weapons" leg*, not the emission spine. Corrected picture below.
+
+### C-PIPE — The real content-emission pipeline (completion state, from disk)
+
+```
+CONTENT-EMISSION PIPELINE (Matt's "gen pipeline") — what produces a season's sim-ready JSON
+═══════════════════════════════════════════════════════════════════════════════════════════
+ NO single end-to-end driver. TWO emit tracks that do NOT meet:
+
+ TRACK NEW (cycle-14 wave5) — kit+faction-rich, emits to the LOADOUT app:
+   run_season_production.py → wave5_season_orchestrator.run_season_production()
+     P2 kit-candidates → 2.5 variant-enum → 3 gauntlet+PM1-cluster
+       → 4 mechanical-archive (kit_archive.db) → 4.5 PM1-rerun
+       → 5 cohesion-judge LLM (faction identity / season name / inter-faction rel / per-kit names)
+       → 7 joint-gate
+     → cycle14_wave5_emitter.emit_season() ──▶ reincarnated-loadout/data/.../classes/*.json
+        (KIT-ONLY: no monsters; skill flavor_text NULL; main_weapon NULL)
+
+ TRACK OLD (season_exporter) — produces the SIM-READY bundle, but driver DELETED + kit/monster/gear-only:
+   [generate-season CLI — DELETED, b6-stack deletion] → season_exporter.export_season()
+     ──▶ exports/<id>/{metadata, classes, monsters, gear_pool, gauntlet_recipe}.json
+        (monsters ✓+flavor, gear ✓+flavor, kits ✓+flavor; factions ABSENT, npcs ABSENT, weapon=null)
+
+ THE GAP ◄══ THE REAL CHOKEPOINT: the two tracks don't meet. NO pipeline emits all 7 content
+   types into the sim-ready bundle. cycle-14 content never reaches season_exporter; season_exporter
+   never gets factions / npcs / weapon-descriptors / cycle-14 kits. "Completion" = a single driver
+   that emits ALL 7 types into one Godot-consumable bundle.
+```
+
+**Per-content-type completion (the honest 7-row state):**
+
+| Content type | State | Evidence (file) |
+|---|---|---|
+| **kits** | WORKING | `exports/season_001010/classes.json` — full `stat_distribution` + skills + LLM names; cycle-14 54 kits w/ 12 skills |
+| **factions** | PARTIAL — generated, NOT in sim-ready bundle | Phase-5 Wave-A LLM live; `ExportSeason.faction_clusters` schema exists (`schemas.py:1174`) but `_export_season_inner()` never writes it |
+| **monsters** | WORKING (old) / MISSING (cycle-14) | `monsters.json` 44 w/ stats+flavor (`monster_generator.py:389`); cycle-14 P2–7 is **kit-only** |
+| **npcs** | MISSING | no `ExportNPC` schema, no npc generator anywhere |
+| **gear** | WORKING | `gear_pool.json` 200 items + stats + rolled_effects + LLM names |
+| **weapons** | PARTIAL — substrate binding in-kit, not emitted as descriptor | `main_weapon=None` in every export; no `weapons.json`; weapon identity lives in `substrate_weapon_binding` (phase2 intermediate) |
+| **flavortext** | WORKING (class/monster/gear) / GAP (cycle-14 skill flavor NULL) | `naming.py` live Anthropic calls; cycle-14 skill `flavor_text` null |
+
+**The single biggest blocker:** the **split emit path** — the kit/faction-rich cycle-14 pipeline emits to the loadout app, not the sim-ready `exports/<id>/` bundle; the bundle-producing `season_exporter` path is kit/monster/gear-only with its driver deleted. Reaching a complete season JSON for the Godot sim replica needs: (a) a single driver that routes cycle-14 content through (or replaces) `season_exporter`, (b) **monster generation wired into the cycle-14 track** (it's kit-only today), (c) **faction_clusters actually written** to the bundle (schema present, writer absent), (d) the **weapon descriptor** wired through from `substrate_weapon_binding` → `main_weapon`, (e) an **NPC emitter built from zero** (no schema, no generator). This is a real, scoped engineering map — and it is mostly **rocket + star-lord seam work**, not a gandalf chokepoint. My role here is design-spec'ing the missing emitters' CONTENT (what an NPC IS, what faction JSON carries to the sim, what flavortext the sim needs) — not building them.
+
+### C2 — Stage-2c was ALREADY done (NOT a gandalf chokepoint)
+
+§0/§2/§4(row)/§5–§6 treated Stage-2c (KPM-band ruling) as "blocked-on-gandalf." **Falsified by disk:** Stage-2c was ruled + wired (Stage-2d, `92c040f`, MIGRATION v1.76) + Gate-2-closed (`2b8b502`, interim guard LIFTED) on **2026-06-16**. The bands are live in `gauntlet_sim.py` `ENCOUNTER_COHORT_KPM_BAND`, matching the n=3078 empirical distribution exactly. The "READY FOR GANDALF" in `AGENT_STATE.md:4269` is a **stale checkpoint** never back-edited after 2c/2d landed (flag for gamora). My independent re-derivation from the raw n=3078 data CONFIRMS the asymmetric-band logic. **Stage-2c needs confirmation, not re-ruling — it is closed.**
+
+### C3 — The two "lower-confidence" items (§2 diagram L64–65), traced + dispositioned
+
+- **BC-coordinate cutover Stage-2 Unit-2+** — this was the REAL battle-sim gandalf chokepoint (Stage-2c being already-done). "BC" = Battle-Coordinate, the 8-axis bin tuple replacing the archetype LABEL as the pipeline's structural hub. Stage-1 (rocket/gen) complete; Stage-2 (gamora/sim) implementation landed per MIGRATION v1.70; the equivalence run (`output/stage-2-bc-keying-equivalence-2026-06-14.txt`, N=1120/arm/archetype) passed **16/16 archetypes at `0.00/0.00/0.000`** but escalated ONE WARN-1a envelope-width flag (`damage_long_collapse` water/earth/holy/shadow, W_ttk=24.42% > cap) to gandalf. **RULED THIS SESSION → ACCEPT** (the over-wide envelope is element-intrinsic flavor spread the cutover preserves exactly, not ordering-driven differentiation the collapse would flatten; A1 earth_caster case=2 re-confirmed). See `2026-06-18-bc-coordinate-cutover-stage2-envelope-escalation-ruling.md`. This **clears the genuine battle-sim gandalf gate**; jack-ryan Gate-2 on the implementation + Stage-3 prove-then-delete are the downstream gated steps.
+- **open-shell floor residual** — a Stage-2c sub-question, **already RESOLVED**: gandalf ruled **option (a) empirical central mass** (open_arena band `[9.90, 15.53]`, unimodal p10/p90), accepting that realized spatial throughput sits ~0.63× the RESOLVE theoretical floor because RESOLVE's `A/√R` assumes pure-TMPM with no spatial overhead (travel/telegraph/approach). Wired in Stage-2d, ratified in decisions-log. **Closed.** (Another over-flag by the first draft — it read as open but disk shows it ruled.)
+
+**Net correction to §0's headline:** the battle-sim gandalf chokepoint was NOT Stage-2c (already done) — it was the **BC-coordinate Stage-2 envelope gate, now ruled this session.** The "gen-pipeline" gandalf chokepoint (§7.1) is real but is the **VISUAL** path; Matt's **content-emission** pipeline is a separate, mostly-rocket/star-lord engineering map (C-PIPE) whose gandalf surface is design-spec'ing the missing emitters' content, not a single ruling.
+
+---
+
 ## 1. What "completion" means (the two targets)
 
 - **(A) Battle-sim complete** = the measurement apparatus is **honest** (geometry-aware spatial resolution [#1], faithful-loadout kit power [#3], MOB_HP-anchored [✓ locked 1.5x]) AND the mobs/min bands are **ruled + wired** (Stage-2c→2d) AND the open balance questions are **dispositioned** (W-F adoption live; keystone-ceiling + caster-coverage either fixed or explicitly parked with a criterion). "Done" for a gauntlet run is empirically defined: 18 SC-6 endgame encounters, terminal pass-floor 9-of-18 in-band per cohort per kit (`gauntlet_sim.py:109,158`).
