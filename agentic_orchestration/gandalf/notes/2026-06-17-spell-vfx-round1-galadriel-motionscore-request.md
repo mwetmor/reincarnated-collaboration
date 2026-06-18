@@ -1,6 +1,6 @@
 # Spell-VFX Round-1 Motion-Score Request — galadriel
 
-**STATUS:** STAGED — fires the moment drax Round-1 returns the war_hall fire-cast time-sequence. ⟪FILL⟫ fields patch on drax return (capture paths + frame count + godot commit); everything else is locked now.
+**STATUS:** ▶ FIRING — drax Round-1 returned (godot `3b1daa2`). Fields patched; this is live.
 **Author:** gandalf (design steward / orchestrator). **Date:** 2026-06-17.
 **Parent:** `2026-06-17-spell-vfx-runtogreen-log.md` (tracker + design direction — §2.4 criteria + §3 dual gate are the authority).
 **Your descent instruments carry forward as REFERENCE, not as the gate:** the static register-2 scorer (LDR/SHF/warmCool) and the blue-slab flat-panel diagnostic. **The static scorer does NOT fit this — a spell is a VERB; a frozen frame cannot score motion.** You build a NEW instrument here.
@@ -11,10 +11,11 @@
 
 The descent VFX was carried as "inherited PASS" precisely because a static still cannot score a spell — a frozen-charge frame looks the same whether the spell MOVES or just sits as a glyph. Matt's ask is "MEANINGFUL spell effects" — and meaning is carried by **emanation + motion + element-legibility + combat-intent**, none of which a single frame holds. So the instrument is a **TIME-SEQUENCE scorer**: it reads the strip of frames (charge→release→travel→impact→fade) and measures whether energy is a character-driven cast or a static summon-glyph.
 
-## 1. The captures (⟪FILL on drax return⟫)
+## 1. The captures
 
-- Sequence: ⟪paths, e.g. `descent_spellfx_warhall_seq_01..NN.png`, walkable in lifecycle order⟫ — ⟪N⟫ frames.
-- godot commit: ⟪FILL⟫. Local + git-ignored (Synty-derivative).
+- Sequence: `/Users/admin/Games/reincarnated-godot/harness_logs/descent_spellfx_warhall_seq_01.png` … `_07.png` (1152×648, walkable in lifecycle order) — **7 frames**, t = 0.08 / 0.18 / 0.30 / 0.47 / 0.63 / 0.74 / 0.92 (charge → charge-peak → release → mid-travel → impact-onset → impact → fade).
+- godot commit: `3b1daa2`. Local + git-ignored (Synty-derivative). Reproduce: `bash scripts/run_spellfx.sh`.
+- **gandalf eyes-on (recorded BEFORE your read — do NOT consume until after your independent score):** transformation LANDED (emanation + lifecycle + caster→threat travel all read as a verb). Two convergent residuals already named by drax + gandalf eye: (a) **mid-travel bolt (frames 04–05) reads SOFT** — a fire-bloom, not a crisp shaped/aimed projectile; (b) **directionality** reads as "fire migrates rightward," not a crisp bolt aimed at a specific marquee target. Your metrics 1 (energy-travel), 4 (premium-layering variance), 5 (directionality/principal-axis) are the ones I most need quantified — do they CONFIRM these two residuals (→ targeted Round-2) or refute them (→ converge slice-GREEN)?
 - **md5-verify the frames are genuinely DISTINCT** (rule out a stale/identical-frame false read — the descent's "cam1 grabbed six times" bug taught this) before reporting. If frames are byte-identical, that itself is a FAIL signal (no motion) — report it.
 
 ## 2. The instrument — five motion-aware metrics (build + report each)

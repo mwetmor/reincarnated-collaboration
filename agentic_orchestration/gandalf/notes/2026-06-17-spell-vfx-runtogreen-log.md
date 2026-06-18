@@ -95,11 +95,11 @@ Per slice-first discipline (and the Synty downloader gate KR just applied): Roun
 
 ## 5. ROUND LOG
 
-### Round-1 — FIRING (drax brief: `2026-06-17-spell-vfx-round1-drax-brief.md`)
-- **drax:** ▶ RUNNING (background) — enumerate all flat-ground-circle elements per zone (confirm zone2 pale disc = CombatFill = KEEP; flag any stray); import the FIRE-slice FX-shape meshes from the Particle FX Pack zip → Godot `GPUParticles3D` spell prefabs; transform `_build_hero_vfx` war_hall into the character-driven FIRE cast; render the time-sequence; self-assess + eyes-on; auto-commit, NO push.
-- **gandalf:** rule eyes-on (BEFORE galadriel) on §2.4 criteria, on drax return.
-- **galadriel:** ☐ STAGED — motion-score request pre-authored (`2026-06-17-spell-vfx-round1-galadriel-motionscore-request.md`); fires on drax return (2 fields patch). NEW time-sequence instrument: five motion-aware metrics, headline = energy-travel caster→threat.
-- **gate:** §2.4 all-hold + Gate-B parity/rig-untouched + galadriel motion-score PASS (gandalf+galadriel CONVERGE) → slice GREEN → roll out remaining elements/chambers.
+### Round-1 — drax RETURNED (godot `3b1daa2`); galadriel FIRING
+- **drax:** ✅ returned. Enumeration confirms zone2 pale disc = `CombatFill` lighting = KEEP (untouched); no stray circle flagged. Imported 8 FIRE FX-shape FBX → authored `_build_spell_lifecycle` + reworked `_build_hero_vfx` war_hall as a CODE-authored cast (license discipline: builder code, not git-ignored `.tscn`). 7-frame time-sequence rendered. Gate-B PASS (parity 35/35; diff = 2 hunks only, zero lines in any KEEP-locked lighting/circle fn). **Crux banked:** Godot silently ignores FBX under a nested `project.godot` subtree — import OUTSIDE `polygon-starter/`. **Sibling:** `render_arena_room.gd` carries the SAME summon placeholder (roll-out target, untouched this slice).
+- **gandalf eyes-on (recorded BEFORE galadriel):** transformation LANDED — emanation-from-caster ✅, motion/lifecycle ✅ (energy travels caster→threat, reads as a verb), fire-legible ✅(mostly; charge-ring red leans slightly magenta), readable ✅. **Two convergent residuals (gandalf eye + drax self-assess AGREE):** (a) mid-travel bolt (frames 04–05) reads SOFT — fire-bloom not crisp aimed projectile; (b) directionality reads as "fire migrates rightward," not a bolt aimed at a specific marquee target. Approach is PROVEN; residual is crispness/polish, not a fundamental failure.
+- **galadriel:** ▶ FIRING (background) — motion-score request patched + live (`2026-06-17-spell-vfx-round1-galadriel-motionscore-request.md`). NEW 5-metric time-sequence instrument; headline = energy-travel caster→threat. Tasked to CONFIRM-or-REFUTE the two named residuals (metrics 1/4/5).
+- **gate / next:** rule on CONVERGENCE — if galadriel confirms the soft-bolt + weak-directionality residuals → targeted drax Round-2 (sharpen the mid-travel bolt silhouette + crisp the aim-axis); if galadriel reads it clean → converge slice-GREEN → roll out the element set + the `render_arena_room.gd` sibling.
 
 ---
 
