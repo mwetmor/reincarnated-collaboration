@@ -1,0 +1,441 @@
+{
+  "scored_at": "2026-06-18T02:33:18.925Z",
+  "instrument": "spell-motion-score.mjs (galadriel — NEW time-sequence motion-aware spell scorer)",
+  "godot_commit": "3b1daa2",
+  "captures": {
+    "dir": "/Users/admin/Games/reincarnated-godot/harness_logs",
+    "files": [
+      "descent_spellfx_warhall_seq_01.png",
+      "descent_spellfx_warhall_seq_02.png",
+      "descent_spellfx_warhall_seq_03.png",
+      "descent_spellfx_warhall_seq_04.png",
+      "descent_spellfx_warhall_seq_05.png",
+      "descent_spellfx_warhall_seq_06.png",
+      "descent_spellfx_warhall_seq_07.png"
+    ],
+    "dims": "960x540",
+    "t": [
+      0.08,
+      0.18,
+      0.3,
+      0.47,
+      0.63,
+      0.74,
+      0.92
+    ],
+    "beats": [
+      "charge",
+      "charge-peak",
+      "release",
+      "mid-travel",
+      "impact-onset",
+      "impact",
+      "fade"
+    ]
+  },
+  "method": "spell-mask isolated by ADDITIVE-FLOOR subtraction: spell_energy=max(0, warmLuma - per-pixel-min-warmLuma-over-all-frames); mask = spell_energy>=28. warmLuma=luma gated to r-b>=6 (cool backdrop + pale CombatFill disc excluded). 5 metrics computed on that mask; backdrop-invariance computed OUTSIDE the union mask. Deterministic, 960w inside-fit, raw captures untouched.",
+  "geometry": {
+    "caster_frac": {
+      "x": 0.34,
+      "y": 0.72
+    },
+    "threat_frac": {
+      "x": 0.53,
+      "y": 0.58
+    },
+    "note": "caster=F01 brightest-pixel origin; threat=F06 impact centroid; grounded by pixel-probe not assumed"
+  },
+  "thresholds": {
+    "SPELL_THRESH": 28,
+    "WARM_MARGIN": 6,
+    "FIRE_HUE_BAND_DEG": [
+      0,
+      50
+    ],
+    "BACKDROP_DRIFT_TOL": 4
+  },
+  "metric1_energy_travel": {
+    "headline_track": "bright-core centroid (e>=90); full-mask track carried for transparency (floor-wash-contaminated in charge frames)",
+    "per_frame": [
+      {
+        "frame": 1,
+        "t": 0.08,
+        "beat": "charge",
+        "core_cx": 76.2,
+        "core_cy": 88.2,
+        "core_axis_frac": 1.034,
+        "core_px": 9235,
+        "full_cx": 61.8,
+        "full_cy": 88.7,
+        "full_axis_frac": 0.53,
+        "full_px": 37461
+      },
+      {
+        "frame": 2,
+        "t": 0.18,
+        "beat": "charge-peak",
+        "core_cx": 41.9,
+        "core_cy": 81.6,
+        "core_axis_frac": 0.028,
+        "core_px": 11546,
+        "full_cx": 44.4,
+        "full_cy": 85,
+        "full_axis_frac": 0.028,
+        "full_px": 37700
+      },
+      {
+        "frame": 3,
+        "t": 0.3,
+        "beat": "release",
+        "core_cx": 51.7,
+        "core_cy": 86.7,
+        "core_axis_frac": 0.236,
+        "core_px": 16885,
+        "full_cx": 50.5,
+        "full_cy": 87.3,
+        "full_axis_frac": 0.177,
+        "full_px": 47132
+      },
+      {
+        "frame": 4,
+        "t": 0.47,
+        "beat": "mid-travel",
+        "core_cx": 60.1,
+        "core_cy": 75.7,
+        "core_axis_frac": 0.799,
+        "core_px": 14013,
+        "full_cx": 59.1,
+        "full_cy": 76,
+        "full_axis_frac": 0.758,
+        "full_px": 32850
+      },
+      {
+        "frame": 5,
+        "t": 0.63,
+        "beat": "impact-onset",
+        "core_cx": 60.4,
+        "core_cy": 71.7,
+        "core_axis_frac": 0.907,
+        "core_px": 10033,
+        "full_cx": 60.5,
+        "full_cy": 70.2,
+        "full_axis_frac": 0.948,
+        "full_px": 18864
+      },
+      {
+        "frame": 6,
+        "t": 0.74,
+        "beat": "impact",
+        "core_cx": 61.5,
+        "core_cy": 68,
+        "core_axis_frac": 1.04,
+        "core_px": 13474,
+        "full_cx": 61.3,
+        "full_cy": 67.3,
+        "full_axis_frac": 1.048,
+        "full_px": 22321
+      },
+      {
+        "frame": 7,
+        "t": 0.92,
+        "beat": "fade",
+        "core_cx": 70.6,
+        "core_cy": 72.5,
+        "core_axis_frac": 1.236,
+        "core_px": 7399,
+        "full_cx": 67.4,
+        "full_cy": 70.5,
+        "full_axis_frac": 1.178,
+        "full_px": 16074
+      }
+    ],
+    "net_displacement_x_pct_CORE": -14.7,
+    "net_displacement_axisFrac_CORE": 0.006,
+    "axis_frac_legend": "0=caster .. 1=threat"
+  },
+  "metric2_motion_presence": {
+    "pairs": [
+      {
+        "pair": "1->2",
+        "beat": "charge->charge-peak",
+        "mean_delta_in_region": 28.51,
+        "delta_centroid_x": 66.2,
+        "delta_centroid_y": 83.3
+      },
+      {
+        "pair": "2->3",
+        "beat": "charge-peak->release",
+        "mean_delta_in_region": 28.2,
+        "delta_centroid_x": 55.1,
+        "delta_centroid_y": 84.6
+      },
+      {
+        "pair": "3->4",
+        "beat": "release->mid-travel",
+        "mean_delta_in_region": 60.32,
+        "delta_centroid_x": 47.7,
+        "delta_centroid_y": 80.9
+      },
+      {
+        "pair": "4->5",
+        "beat": "mid-travel->impact-onset",
+        "mean_delta_in_region": 47.66,
+        "delta_centroid_x": 59,
+        "delta_centroid_y": 72.8
+      },
+      {
+        "pair": "5->6",
+        "beat": "impact-onset->impact",
+        "mean_delta_in_region": 21.76,
+        "delta_centroid_x": 69.7,
+        "delta_centroid_y": 74.5
+      },
+      {
+        "pair": "6->7",
+        "beat": "impact->fade",
+        "mean_delta_in_region": 23.08,
+        "delta_centroid_x": 61.4,
+        "delta_centroid_y": 67.5
+      }
+    ],
+    "propagation_span_x_pct": 22
+  },
+  "metric3_fire_hue": [
+    {
+      "frame": 1,
+      "beat": "charge",
+      "mask_px": 37461,
+      "dominant_hue_deg": "350-360",
+      "fire_band_frac": 0.299,
+      "mean_rgb": [
+        115,
+        87,
+        73
+      ]
+    },
+    {
+      "frame": 2,
+      "beat": "charge-peak",
+      "mask_px": 37700,
+      "dominant_hue_deg": "350-360",
+      "fire_band_frac": 0.426,
+      "mean_rgb": [
+        119,
+        88,
+        76
+      ]
+    },
+    {
+      "frame": 3,
+      "beat": "release",
+      "mask_px": 47132,
+      "dominant_hue_deg": "350-360",
+      "fire_band_frac": 0.449,
+      "mean_rgb": [
+        132,
+        97,
+        83
+      ]
+    },
+    {
+      "frame": 4,
+      "beat": "mid-travel",
+      "mask_px": 32850,
+      "dominant_hue_deg": "350-360",
+      "fire_band_frac": 0.381,
+      "mean_rgb": [
+        139,
+        108,
+        92
+      ]
+    },
+    {
+      "frame": 5,
+      "beat": "impact-onset",
+      "mask_px": 18864,
+      "dominant_hue_deg": "50-60",
+      "fire_band_frac": 0.455,
+      "mean_rgb": [
+        153,
+        132,
+        100
+      ]
+    },
+    {
+      "frame": 6,
+      "beat": "impact",
+      "mask_px": 22321,
+      "dominant_hue_deg": "50-60",
+      "fire_band_frac": 0.509,
+      "mean_rgb": [
+        165,
+        141,
+        114
+      ]
+    },
+    {
+      "frame": 7,
+      "beat": "fade",
+      "mask_px": 16074,
+      "dominant_hue_deg": "50-60",
+      "fire_band_frac": 0.416,
+      "mean_rgb": [
+        141,
+        124,
+        95
+      ]
+    }
+  ],
+  "metric4_premium_layering": [
+    {
+      "frame": 1,
+      "beat": "charge",
+      "mask_px": 37461,
+      "mean_local_std": 7.38
+    },
+    {
+      "frame": 2,
+      "beat": "charge-peak",
+      "mask_px": 37700,
+      "mean_local_std": 8.27
+    },
+    {
+      "frame": 3,
+      "beat": "release",
+      "mask_px": 47132,
+      "mean_local_std": 7.53
+    },
+    {
+      "frame": 4,
+      "beat": "mid-travel",
+      "mask_px": 32850,
+      "mean_local_std": 8.55
+    },
+    {
+      "frame": 5,
+      "beat": "impact-onset",
+      "mask_px": 18864,
+      "mean_local_std": 11.79
+    },
+    {
+      "frame": 6,
+      "beat": "impact",
+      "mask_px": 22321,
+      "mean_local_std": 10.37
+    },
+    {
+      "frame": 7,
+      "beat": "fade",
+      "mask_px": 16074,
+      "mean_local_std": 10.9
+    }
+  ],
+  "metric5_directionality": [
+    {
+      "frame": 1,
+      "beat": "charge",
+      "elongation": 3.59,
+      "axis_align_cos": 0.918,
+      "principal_axis_deg": 0.9,
+      "casterThreat_axis_deg": -22.5
+    },
+    {
+      "frame": 2,
+      "beat": "charge-peak",
+      "elongation": 2.28,
+      "axis_align_cos": 0.94,
+      "principal_axis_deg": -2.5,
+      "casterThreat_axis_deg": -22.5
+    },
+    {
+      "frame": 3,
+      "beat": "release",
+      "elongation": 3.83,
+      "axis_align_cos": 0.897,
+      "principal_axis_deg": 3.7,
+      "casterThreat_axis_deg": -22.5
+    },
+    {
+      "frame": 4,
+      "beat": "mid-travel",
+      "elongation": 3.48,
+      "axis_align_cos": 0.855,
+      "principal_axis_deg": 8.8,
+      "casterThreat_axis_deg": -22.5
+    },
+    {
+      "frame": 5,
+      "beat": "impact-onset",
+      "elongation": 3.26,
+      "axis_align_cos": 0.826,
+      "principal_axis_deg": 11.8,
+      "casterThreat_axis_deg": -22.5
+    },
+    {
+      "frame": 6,
+      "beat": "impact",
+      "elongation": 3.34,
+      "axis_align_cos": 0.812,
+      "principal_axis_deg": 13.2,
+      "casterThreat_axis_deg": -22.5
+    },
+    {
+      "frame": 7,
+      "beat": "fade",
+      "elongation": 3.96,
+      "axis_align_cos": 0.738,
+      "principal_axis_deg": 19.9,
+      "casterThreat_axis_deg": -22.5
+    }
+  ],
+  "backdrop_invariance": {
+    "per_frame": [
+      {
+        "frame": 1,
+        "beat": "charge",
+        "backdrop_luma_drift_vs_F01": 0,
+        "backdrop_warmbias_drift_vs_F01": 0
+      },
+      {
+        "frame": 2,
+        "beat": "charge-peak",
+        "backdrop_luma_drift_vs_F01": 0.837,
+        "backdrop_warmbias_drift_vs_F01": 0.589
+      },
+      {
+        "frame": 3,
+        "beat": "release",
+        "backdrop_luma_drift_vs_F01": 0.934,
+        "backdrop_warmbias_drift_vs_F01": 0.995
+      },
+      {
+        "frame": 4,
+        "beat": "mid-travel",
+        "backdrop_luma_drift_vs_F01": 1.107,
+        "backdrop_warmbias_drift_vs_F01": 1.787
+      },
+      {
+        "frame": 5,
+        "beat": "impact-onset",
+        "backdrop_luma_drift_vs_F01": 1.232,
+        "backdrop_warmbias_drift_vs_F01": 1.847
+      },
+      {
+        "frame": 6,
+        "beat": "impact",
+        "backdrop_luma_drift_vs_F01": 1.276,
+        "backdrop_warmbias_drift_vs_F01": 1.927
+      },
+      {
+        "frame": 7,
+        "beat": "fade",
+        "backdrop_luma_drift_vs_F01": 1.266,
+        "backdrop_warmbias_drift_vs_F01": 1.813
+      }
+    ],
+    "max_luma_drift_vs_F01": 1.276,
+    "invariant": true,
+    "tol": 4
+  },
+  "trajectory_strip": "spell-motion-trajectory.png (1556x444)"
+}
