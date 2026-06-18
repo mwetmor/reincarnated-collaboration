@@ -74,7 +74,7 @@ I rule **Option A** — the mode flag already partitions it; we add the consumpt
 **Axis 3 (time_period): ACCEPTED as-proposed, all 8 strata + unresolved. No changes.**
 
 **Axis 4 (cultural_identity): ACCEPTED with two corrections:**
-1. **Consumption rule (Option A):** `cultural_identity` is binding as cultural-tradition substrate ONLY for `cultural_mode_flag ∈ {A, B}` (11 rows: egyptian, east-asian×2, norse×2, greco-roman, w-euro-medieval, frontier-western×2 + the 1 remaining). Mode-C values are `register_default_skin` (genre, not culture); Mode-D is null. Downstream cultural-rotation / faction surfaces read Mode-A/B only.
+1. **Consumption rule (Option A):** `cultural_identity` is binding as cultural-tradition substrate ONLY for `cultural_mode_flag ∈ {A, B}` (**9 rows**, verified against the materialized JSONL at commit `32ba011`: egyptian×1, east-asian×2, norse×2, greco-roman×1, w-euro-medieval×1, frontier-western×2). Mode-C values are `register_default_skin` (genre, not culture); Mode-D is null. Downstream cultural-rotation / faction surfaces read Mode-A/B only. *(Drafting note: this line originally said "11 rows + the 1 remaining" — a prose arithmetic slip; the §1.3 crosstab and the substrate both give 9. Corrected at materialization-verification.)*
 2. **Split `modern-western` Mode-B → `frontier-western`** (cultural-tradition); Mode-C rows retain `modern-western` in the register-default sense.
 
 elrond materializes both as an additive consumption-rule note + a 2-row value-split (no schema churn). This is Tier-2 curation, gandalf-owned, now signed.
