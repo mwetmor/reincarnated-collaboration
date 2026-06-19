@@ -19,8 +19,8 @@
   (produces a season's content)             (consumes content; measures + plays it)
   ───────────────────────────               ─────────────────────────────────────
   generates kits / monsters /        ──▶    (a) BALANCE APPARATUS  — headless gauntlet
-  factions / npcs / gear /                       that decides what content ships
-  weapons / flavortext                      (b) PLAYABLE COMBAT   — the fight model a
+  factions / gear / weapons /                    that decides what content ships
+  flavortext                                (b) PLAYABLE COMBAT   — the fight model a
         │                                        player experiences
         │   one Godot-consumable                      │
         ▼   sim-ready bundle                          ▼
@@ -35,16 +35,16 @@ The pipeline **feeds** the sim. The sim has **two faces**: the headless balance 
 
 ### 0.2 The four non-kit entity families (governs the pipeline's "npc" and "summon" rows)
 
-A taxonomy correction that prevents schema sprawl downstream. There are **four** families of "things in a fight that are not the player's kit," and they are distinct:
+A taxonomy correction that prevents schema sprawl downstream. **CORRECTED 2026-06-18 (Matt-confirmed): there is no season-1 "npc" content type.** "npc" in this project's vocabulary IS the companion/mercenary ally — verified in code (`COMPANION_KIND_NPC = "npc"`, `balance_loop.py:128`; `investment_profile.py:9` groups "npc/mercenary" as one bucket disjoint from player + monster) and in canon (the companion doc names it "the D2/D3 mercenary system"). It is RULED season-2 (Path Pure). The other reading — townsfolk (vendors/quest-givers) — is Engine-2/hub, future and non-combat. So under every reading, NPCs are NOT season-1 battle-sim content. The non-kit entity families:
 
-| Family | What it is | Current state | Season-1 scope? |
+| Family | What it is | Current state | Season-1 bundle? |
 |---|---|---|---|
 | **Monsters** | combat fodder / enemies | generator exists (`monster_generator.py:382`), emitted by old track only | YES |
 | **Summons / proxies** | constructs spawned BY a summoner kit's skills | rides on kit skill data (`skill_schema.py:166–203`, 7 proxy fields); sim models as COUNT proxy-population (`proxy_population.py`) + Set #6 capstone (`proxy_commander.py`); **not a separate content type** | YES (embedded in summoner kits) |
-| **Companions** | Hall-of-Heroes allies that fight ALONGSIDE the player | framework exists (`companion_generation.py`), corpus ZERO, **season ≥2 by design** (`MIN_COMPANION_SEASON=2`); a modifier-vector behaviour, not a kit | **NO — season 2+** |
-| **NPCs** | world-population characters (faction reps, vendors, story-bearers, spirit-guide) | **ZERO infrastructure — no schema, no generator** | YES (the headline gap) |
+| **Companions / mercenaries** | the bonded ally that fights ALONGSIDE the player — **THIS is what "npc" means in-project** (a Hall-of-Heroes ascended form, modifier-vector behaviour, not a kit) | framework exists (`companion_generation.py`), corpus ZERO, **season ≥2 by design** (`MIN_COMPANION_SEASON=2`) | **NO — season 2+** |
+| **Townsfolk NPCs** | vendors / quest-givers / hub population | Engine-2 / Track-C, future; current phase has "zero town surfaces", "No NPC interactions" (`c-hybrid…:654`, `visual-benchmark…:185`) | **NO — future, non-combat, not battle-sim content** |
 
-**Consequence for planning:** "all content types for a season-1 bundle" = kits (incl. summoner kits, which carry their summons) + monsters + factions + npcs + gear + weapons + flavortext. **Companions are correctly out of season-1 scope.** When the NPC spec is authored, it must be defined *against* monsters / summons / companions so we share a substrate rather than minting a fifth bespoke schema.
+**Consequence for planning:** the season-1 bundle is **SIX content types** — kits (incl. summoner kits, which carry their summons) + monsters + factions + gear + weapons + flavortext. **There is no "npc" type in season-1 under any reading:** the ally-npc is the season-2 companion; the townsfolk-npc is future Engine-2 hub content the battle sim never consumes. Season-1 is a solo descent by design (the 4th gear slot is a sealed pedestal-in-waiting; the mercenary arrives season-2 on the first-molt-return — a designed absence→arrival beat, not a gap).
 
 ---
 
@@ -175,7 +175,7 @@ THE TWO TRACKS THAT DON'T MEET
 | **kits** | ✓ | ✓ ExportClass | ✓ both tracks | `classes.json`; cycle14 `:1035–1050` |
 | **factions** | ✓ (Phase-5 LLM) | ✓ but **writer absent** | ✗ (sidecar in loadout only) | schema `:1174`; cycle14 reads `:939` then discards; old track has none |
 | **monsters** | ✓ | ✓ ExportMonster | ✓ old track / **✗ cycle-14** | `monster_generator.py:382`; `season_exporter:740`; cycle-14 uses fixtures (`ENDGAME_ENCOUNTER_CATALOG`) |
-| **npcs** | ✗ | **✗ none** | ✗ | no `ExportNPC`, no generator anywhere |
+| **npcs** | n/a | n/a | n/a | **NOT a season-1 type** — "npc" = the companion/mercenary ally (season 2+, Part 0.2); townsfolk-npc is future Engine-2 hub content. No `ExportNPC` by design. |
 | **gear** | ✓ | ✓ ExportGearItem | ✓ old track | `gear_pool.json:779` |
 | **weapons** | ◐ (substrate binding) | ✓ ExportWeaponDescriptor | ✗ (always null) | `substrate_weapon_binding.py:171`; cycle14 null `:577–578`; no `weapons.json` |
 | **flavortext** | ✓ class/monster/gear; ◐ cycle-14 | ✓ ExportSkill.flavor_text | partial | `naming.py`; cycle14 passthrough `:354` |
@@ -186,7 +186,7 @@ THE TWO TRACKS THAT DON'T MEET
 
 > **One driver emits all season-1 content types into a single Godot-consumable, sim-ready bundle.**
 
-End-state bundle (season 1) = **kits** (incl. summoner kits carrying their summons) + **monsters** + **factions** + **npcs** + **gear** + **weapons** + **flavortext**, in one coherent set of files, produced by **one driver**, validated by the joint-gate, and **loadable by the Godot replica**. Companions are explicitly deferred (season 2+). The split is closed: the kit/faction-rich generation feeds the same bundle that carries monsters/gear, and that bundle is what Godot reads.
+End-state bundle (season 1) = **kits** (incl. summoner kits carrying their summons) + **monsters** + **factions** + **gear** + **weapons** + **flavortext** — **six content types**, in one coherent set of files, produced by **one driver**, validated by the joint-gate, and **loadable by the Godot replica**. NPCs are NOT a season-1 type: the ally-npc is the season-2 companion, the townsfolk-npc is future Engine-2 hub content (Part 0.2). Companions are explicitly deferred (season 2+). The split is closed: the kit/faction-rich generation feeds the same bundle that carries monsters/gear, and that bundle is what Godot reads.
 
 ### II.5 The gap — every known pipeline blocker, explained
 
@@ -195,7 +195,7 @@ End-state bundle (season 1) = **kits** (incl. summoner kits carrying their summo
 | P1 | **THE SPLIT (the spine blocker)** | The kit/faction-rich track emits to the loadout app; the bundle-producing track is kit/monster/gear-only with its driver deleted. No single driver emits all types into one sim-ready bundle. Everything else is downstream of fixing this. | star-lord + rocket (plumbing) | a single driver that routes cycle-14 content through (or replaces) `season_exporter` |
 | P2 | **faction writer absent** | Schema present (`schemas.py:1174`), data generated, but **no code writes `faction_clusters` to the bundle** (verified: not in `season_exporter`; cycle-14 reads then discards to disk). | star-lord (plumbing) | gated on **gandalf faction content-shape spec** (which fields are sim-load-bearing vs presentation) — §7.2(2) of the wind-down memo |
 | P3 | **monsters not in cycle-14 track** | `monster_generator.py` is wired only into the old track; the cycle-14 track uses fixed `ENDGAME_ENCOUNTER_CATALOG` encounters. A complete season needs generated seasonal monsters in the unified bundle. | rocket + star-lord | wire monster generation into the unified driver |
-| P4 | **NPCs missing entirely** | No schema, no generator. The only fully-absent season-1 content type. This is the **headline gandalf design item** — what *is* an NPC in the seasonal-journey frame, defined against the four-family taxonomy (Part 0.2). | gandalf (content spec) → rocket/star-lord (build) | a gandalf NPC content spec (ExportNPC fields + content-gen intent), then the build |
+| ~~P4~~ | ~~**NPCs missing entirely**~~ — **STRUCK 2026-06-18 (Matt-confirmed)** | **NOT a season-1 blocker.** "npc" in-project = the companion/mercenary ally, ruled season-2 (`MIN_COMPANION_SEASON=2`); townsfolk-npc is future Engine-2 hub content the battle-sim never consumes (Part 0.2). There is no season-1 NPC content type to build. The season-1 bundle is **six types** (kits/monsters/factions/gear/weapons/flavortext). | — (no owner; not season-1) | nothing — removed from season-1 scope |
 | P5 | **weapon descriptor null** | Identity lives in `substrate_weapon_binding` but `main_weapon` is always null; no `weapons.json`. The sim/Godot can't show or use weapon identity. Lighter than NPC — the binding already exists; this is wiring-shape. | star-lord (plumbing) | gated on a **gandalf weapon content-shape spec** (is a weapon a type or a gear-subtype; what the sim needs) |
 | P6 | **cycle-14 flavor/naming split** | Cycle-14 skill flavor is passthrough and names come from a sidecar; flavor coverage is uneven across content types. Player-facing texture inconsistency. **D7 discipline binds** any expansion (templated structure + narrow LLM blanks, never raw LLM at major moments). | star-lord (plumbing) + gandalf (flavor intent) | unify flavor emission in the driver |
 | P7 | **Godot consumes no season content** | Godot reads only `arena_scenarios.json`; it has no loader for kits/monsters/factions/etc. Even a perfect bundle isn't *consumed* yet. (See Part III — this is half the bridge.) | drax/galadriel (Godot side) | a Godot season-bundle loader |
@@ -222,7 +222,7 @@ BATTLE-SIM model (Part I) ──parity re-impl (bridge-2)─┘     (the north s
 
 ## PART IV — Owner map (who clears what)
 
-- **gandalf (design specs, no code):** B2 keystone-ceiling call · B3 caster scenario-design spec · B5 trial-gallery scenario design · P2 faction content-shape · P4 **NPC content spec (headline)** · P5 weapon content-shape · P6 flavor intent · pre-registered endorse-criteria (the lever that makes additive downstream autonomous-eligible).
+- **gandalf (design specs, no code):** B2 keystone-ceiling call · B3 caster scenario-design spec · B5 trial-gallery scenario design · P2 faction content-shape · P5 weapon content-shape · P6 flavor intent · pre-registered endorse-criteria (the lever that makes additive downstream autonomous-eligible). *(P4 NPC spec struck — not season-1; see Part 0.2.)*
 - **gamora (sim impl):** B1 BC Stage-3 · B2 sweep · B3/B5 impl · B4 summon calibration · B7 modifier calibration · B8 Wave-F.
 - **rocket + star-lord (emission plumbing):** P1 unified driver · P2 faction writer · P3 monster wiring · P5 weapon wiring · P6 flavor unification · B6 dual-element wiring.
 - **jack-ryan:** Gate-2 on B1 (BC implementation) and each additive build.
@@ -235,10 +235,11 @@ BATTLE-SIM model (Part I) ──parity re-impl (bridge-2)─┘     (the north s
 
 1. **Sequencing priority within the battle-sim:** B1 (BC Stage-3) is the biggest architectural item and is now unblocked by this session's ACCEPT. Do we close B1 before or in parallel with the open balance questions (B2/B3)? My lean: B1 first (it removes a whole structural hub; B2/B3 measure cleaner against a single hub).
 2. **Pipeline-first vs sim-first:** the content-emission spine (P1–P5) and the battle-sim items (B1–B5) are largely independent. The unattended-run analysis (wind-down memo §5–§6) says a single pre-authorized run can advance BOTH. Do we want that, or a focused sim-completion pass first?
-3. **NPC scope decision (P4):** does the spirit-guide (doc 17, already designed) emit through the NPC path or separately? Are combatant-NPCs in season-1 scope, or narrative-only? This decision sizes P4.
+3. **NPC scope decision (P4) — RESOLVED 2026-06-18 (Matt-confirmed):** there is no season-1 NPC content type. "npc" in-project = the companion/mercenary ally (season-2, `MIN_COMPANION_SEASON=2`); townsfolk-npc is future Engine-2 hub content. P4 is struck from season-1 scope; the bundle is six types. (The spirit-guide is doc 17, already designed, and is not an "npc" — it's the future-self guide layer, orthogonal. See the NEW open question below on the spirit-guide's possible *combat* role as a solo-difficulty bridge.)
 4. **Bridge-2 timing:** when does combat-parity re-implementation in Godot start? It's the longest pole to the playable north star and currently unstarted. It should not stay invisible in the plan.
-5. **Companion confirmation:** confirm companions stay season-2+ (current code enforces it) so we don't accidentally scope them into the season-1 bundle.
+5. **Companion confirmation — RESOLVED 2026-06-18 (Matt-confirmed):** companions stay season-2+ (`MIN_COMPANION_SEASON=2` enforces it; corpus is ZERO). They are the same entity as the ally-"npc" (Part 0.2) and are explicitly out of the season-1 bundle. The season-1 4th gear slot is a sealed pedestal-in-waiting — a designed absence→arrival beat, not a gap.
+6. **NEW — season-2 difficulty-curve continuity (Matt, 2026-06-18):** adding a companion in season-2 risks making season-2 *easier* than the solo season-1 descent — a difficulty inversion across the season boundary. Matt's proposed mitigations: (a) scale season-2 enemy HP to absorb the companion's added throughput; (b) a generic solo-fallback ally for boss fights — e.g., the **spirit-guide itself contributes damage on tough encounters until the player ascends their first form and earns a real companion**. This couples the companion ruling to the balance apparatus (the gauntlet would need a season-2 cohort with companion-present HP scaling) and gives the spirit-guide a *combat* surface it doesn't have today. Sizing + design spec is a gandalf item once season-2 planning opens. See the companion-difficulty recognition note.
 
 ---
 
-**Signed:** gandalf, 2026-06-18. The space between here and the end state is now mapped and disk-verified. Two systems, one bridge: the battle-sim is ~one architectural item (B1) + three balance dispositions (B2–B4) from a clean authority; the pipeline is one spine-join (P1) + the faction/weapon writers (P2/P5) + the NPC build-from-zero (P4) from a complete bundle; and the Godot replica needs both halves of the bridge (content loader + combat parity) before a season is playable. Ready to plan.
+**Signed:** gandalf, 2026-06-18. The space between here and the end state is now mapped and disk-verified. Two systems, one bridge: the battle-sim is ~one architectural item (B1) + three balance dispositions (B2–B4) from a clean authority; the pipeline is one spine-join (P1) + the faction/weapon writers (P2/P5) from a complete (six-type) bundle; and the Godot replica needs both halves of the bridge (content loader + combat parity) before a season is playable. Ready to plan.
