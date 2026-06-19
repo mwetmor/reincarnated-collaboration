@@ -17,9 +17,29 @@
 
 ---
 
+## ⚠️ GATE-1 VERIFICATION ADDENDUM (2026-06-19, post-draft, FIRST-HAND code trace)
+
+Before this spine reaches a design session I verified its flagged-but-unread load-bearing claims directly against the gate code (`gauntlet_sim.py`, `t4_sim_cycling.py`). **Three of the spine's own claims were OVERTURNED. The doctrine direction (§1–§4, §8–§10) SURVIVES and SHARPENS; the diagnosis of "what is wired today" was wrong.**
+
+1. **"Single global KPM band across all six shells" (§0, §1, §6) — FALSE.** Per-encounter-type bands already exist and already SHIP. The ship gate is `season_emit → gauntlet_pass → eligible_encounters_passed`, which counts `tier_2_kpm` inside `ENCOUNTER_COHORT_KPM_BAND[enc_type][cohort]` (gauntlet_sim.py:582-592, 636) — a 6-shell × 4-cohort table, Stage-2d-recalibrated to mobs/min (2026-06-16). Per-room banding is not the unbuilt fix; it is live.
+
+2. **"The survive/kill signal already lives in `tier_1_outcome`" (§6) — FALSE.** `tier_1_outcome` is a KPM quick-estimate routing flag (REJECT / PROVISIONAL_PASS / BORDERLINE). Survival is a SEPARATE subgate, sg2, and it is **telemetry-only** — explicitly excluded from `in_band` and from the pass criterion (gauntlet_sim.py:1069 comment "survival sub-gate (sg2)... preserved unchanged. Only sg1 (KPM in-band) is enriched"; sg2 increments a counter at :1080-1081 and feeds nothing that ships). Survival never gates anything, for any shell. `sg2_fail_count = 0` in the artifact means the survival floor never fired — not that everything survived.
+
+3. **"STR is the real boss-crater — 0.0 kpm, dies 100%" (§5) — FALSE framing.** `tier_2_survival_rate = 0.0` on STR boss rows is a DEFAULT, not a measured death: tier_2 only runs when `tier_1_outcome != REJECT` (t4_sim_cycling.py:1452), and STR boss rows are REJECT at tier_1, so tier_2 never ran. The `t2_kpm = 0.0` is the same default. STR is **tier_1-KPM-rejected** on bosses; whether STR could survive-and-kill the boss was **never tested**. The artifact cannot distinguish death from under-damage.
+
+**The sharpened diagnosis (better than the draft):** bosses ARE still KPM-gated — by their OWN narrow band (`boss_with_adds` (2.49, 3.78), `mini_boss` (0.57, 3.30) mobs/min) WITH a hard p90 ceiling. The doctrine says bosses should be survive-and-kill-gated, DPS measured, NO over-performance ceiling. The code comment already names that intent — `gauntlet_sim.py:357` "boss/mini: SURV-judged, KPM a wide sanity rail" — but the code does the opposite (narrow ceiling, survival inert). **The doctrine's central move is UNBUILT, not already-built.** And the broken KPM-on-boss gate does worse than mis-measure: by REJECTing low-KPM boss attempts at tier_1, it PREVENTS the survive+kill measurement (tier_2) from ever running — it manufactures a fake "STR boss-crater" by refusing to test the one thing that would clear or condemn it.
+
+**Two co-existing in-band definitions (measurement-hygiene hazard).** The serialized row `in_band` field = `get_archetype_cohort_kpm_band` → `_ARCHETYPE_COHORT_KPM_BAND` is `None` by default (gauntlet_sim.py:1500) → falls back to `COHORT_KPM_BAND[cohort]` (t4_sim_cycling.py:117, a single per-cohort band in the OLD 52–97 KPM scale). The SHIP gate uses a different band (`ENCOUNTER_COHORT_KPM_BAND`, per-shell, mobs/min). They disagree 8× on the same rows (row `in_band` 427 vs metadata `eligible_encounters_in_band` 3285). **Both the predecessor's analysis and this spine's §5/§6 read the NON-shipping field.** The serialized `in_band` is not what ships kits.
+
+**Substrate caveat (load-bearing for the session):** the phase3 artifact is REGIME-MIXED — its metadata block and its per-row block were written under different KPM scales/runs (per-shell `within_current_band = 0.00` for all six shells; row vs metadata in-band disagree 8×). §5's numbers therefore cannot carry empirical weight. **A clean current-regime gauntlet run (current mobs/min bands, all six shells, faithful power) is the precondition for ANY boss-crater number** (caster-vs-STR, death-vs-under-damage). The doctrine can be ADOPTED on direction now; the per-archetype boss claims must wait for clean data.
+
+The sections below are corrected inline where they stated an overturned claim; the doctrine table (§1), asymmetry (§2), DPS-measure-not-gate (§3), proxy rule (§4), Legolas fold-in (§8), open decisions (§9), and player consequence (§10) stand.
+
+---
+
 ## 0. One line
 
-**Measurement follows win condition. Clear rooms (`all_mobs_killed`) are throughput problems → a cohort-relative KPM band with a floor AND a ceiling gates them. Boss rooms (`*_killed`) are payoff moments → a binary survive-and-kill-within-the-enrage-timer gates them, and DPS/TTK is MEASURED but never gates. The single global KPM band applied uniformly across all six shells is the bug: it blocks every boss encounter (competent and incompetent identically), because a clear-room band calibrated near ~264 kpm cannot be met by a boss room whose natural kill-rate is ~30 kpm. The genre confirms every load-bearing piece of this (§8); production data confirms the diagnosis and refutes the prior caster-crater framing (§5).**
+**Measurement follows win condition. Clear rooms (`all_mobs_killed`) are throughput problems → a cohort-relative KPM band with a floor AND a ceiling gates them. Boss rooms (`*_killed`) are payoff moments → a binary survive-and-kill-within-the-enrage-timer gates them, and DPS/TTK is MEASURED but never gates. The bug is NOT one global band (Gate 1 refuted that — per-shell bands already exist and ship via `eligible_encounters_passed`); the bug is that boss rooms are KPM-gated AT ALL — by a narrow per-boss band with a hard p90 ceiling (`boss_with_adds` 2.49–3.78 mobs/min) — when the doctrine says they should be survive-and-kill-gated with DPS measured and NO over-performance ceiling. The code already names this intent (`gauntlet_sim.py:357` "boss/mini: SURV-judged, KPM a wide sanity rail") but the code does the opposite, and survival is wired as telemetry that gates nothing. The doctrine's central move is therefore UNBUILT, not already-built. The genre confirms every load-bearing piece (§8).**
 
 ---
 
@@ -75,6 +95,8 @@ This is why DPS is **measure-only** on bosses: the genre does not have an upper 
 
 The predecessor (2026-06-18) concluded casters have a REAL, ROBUST boss-composition crater (mini_boss + boss WR = 0.0 invariant across 4 cells × 4 rungs) and recommended a caster-pointed Lever-C probe. **Production season-001 data refutes the production-level framing.**
 
+> **⚠️ GATE-1 SUBSTRATE CAVEAT (read before trusting this table):** the artifact this table is drawn from is REGIME-MIXED (metadata + rows written under different KPM scales — see addendum). The `t2 kpm` and `t2 survival` columns are unreliable for REJECTed rows, where both are tier_2-never-ran DEFAULTS (0.0), not measurements. The only solid signals here are the tier_1 REJECT rates and the directional caster-vs-martial split. Absolute KPM magnitudes are old-scale. Treat this as a hypothesis to re-measure on a clean run, NOT as settled per-archetype boss data.
+
 Verified boss-scenario throughput (n=792; attribute parsed from `legendary_id`; reproduced 2026-06-19):
 
 | attr | n | t1 kpm | t2 kpm | t2 survival | REJECT | in_band | sg BLOCK |
@@ -86,9 +108,9 @@ Verified boss-scenario throughput (n=792; attribute parsed from `legendary_id`; 
 | **CASTER** (int+wis) | 504 | 36.8 | **36.5** | **1.00** | 0% | 0% | 100% |
 | **MARTIAL** (str+dex) | 288 | 16.4 | **16.3** | 0.42 | 58% | 0% | 100% |
 
-**What this says:**
-1. **Casters out-throughput martials 2.2× on bosses (36.5 vs 16.3) and survive perfectly (1.00 vs 0.42).** Casters are NOT the boss-cratered archetype in production.
-2. **STR martials are the real boss-crater:** 0.0 kpm, die 100%, REJECT 100%. DEX is middling (0.83 survival, 17% REJECT).
+**What this says (CORRECTED post-Gate-1):**
+1. **Casters pass tier_1 (0% REJECT) and survive the tier_2 they actually run (survival 1.00 is REAL — tier_2 ran).** Casters are NOT the boss-cratered archetype. This holds.
+2. **STR is tier_1-KPM-REJECTED 100% on bosses — NOT "dies 100%".** The 0.0 t2-kpm and 0.00 survival are tier_2-never-ran defaults (REJECT short-circuits tier_2; t4_sim_cycling.py:1452), not measured death. Whether STR could survive-and-kill the boss was never tested — the KPM gate rejected it before the survive+kill measurement could run. The "martial survival 0.42" average is itself a blend of DEX (tier_2 ran, ~real) and STR (default 0.00), so it overstates a crater that may be a measurement artifact. **Under the doctrine, STR's low boss-KPM is exactly the legitimate slow-survivable boss kill the KPM ceiling wrongly condemns — we cannot know which until bosses are survive+kill-gated and tier_2 runs.**
 3. **The predecessor's WR=0.0 came from the SYNTHETIC reshape run** (`g7-reshape-hot-caster-b6-20260615.json`) at suppressed modifiers (0.018–0.366), which deliberately manufactured a magic_pack over-clear to drag the modifier down. Its own §3 left "composition vs suppression" explicitly OPEN. **Production answers it:** at faithful power (the 2026-06-18 `apply_max_profile_investment` default-ON flip #3 — "kit power" now means FAITHFUL/geared), casters kill bosses fine. The caster crater was **suppression in a synthetic regime, not composition.**
 
 **Consequences:**
@@ -97,22 +119,29 @@ Verified boss-scenario throughput (n=792; attribute parsed from `legendary_id`; 
 
 ---
 
-## 6. The band-mismatch, confirmed — and where the fix actually lives
+## 6. Where the fix actually lives (CORRECTED post-Gate-1)
 
-`in_band = 0%` AND `sg BLOCK = 100%` for **every attribute** on boss rooms. The competent caster (36 kpm, survives) and the dead STR (0 kpm, dies) are blocked **identically**. A clear-room KPM band (calibrated near ~264 kpm on the 8-swarm `open_arena`/`chokepoint` shells) cannot be met by a boss room whose natural kill-rate is ~30 kpm (1 target + optional adds). So the band rejects all 792 boss encounters regardless of competence. This IS the bug the doctrine fixes.
+The draft put the bug at "one global band wrongly applied to bosses" and claimed the survive/kill signal already lived in `tier_1_outcome`. Gate 1 refuted both. The corrected location:
 
-**But the survive/kill signal already EXISTS in production — it is just discarded.** `tier_1_outcome` discriminates correctly: caster PROVISIONAL_PASS (0% REJECT), STR REJECT (100%). The apparatus already measures the right thing at tier 1. The `sg_overall` band overlay (requiring clear-room `in_band`) then erases that discrimination, blocking everyone. **So the doctrine fix may be smaller than "rebuild boss measurement": on boss rooms, gate on the survive/kill signal that is already computed and DROP the `in_band` overlay; add DPS as telemetry.** Adopting the doctrine would RESTORE discrimination on bosses (casters ship, STR does not) — the concrete production payoff.
+**Bosses are KPM-gated at TWO points, both KPM, neither survival:**
+1. **tier_1 routing** — a quick KPM estimate routes each encounter REJECT / PROVISIONAL_PASS / BORDERLINE. A REJECT short-circuits tier_2 entirely (t4_sim_cycling.py:1452). STR boss rows REJECT here on low KPM, so their survive+kill is never simulated.
+2. **tier_2 in-band / ship gate** — `eligible_encounters_passed` counts `tier_2_kpm` inside `ENCOUNTER_COHORT_KPM_BAND[boss_with_adds]` = (2.49, 3.78) mobs/min (gauntlet_sim.py:582-592). A boss-melt above 3.78 mobs/min fails the SHIP gate even with the p90-hi tail — the over-performance ceiling the doctrine forbids on bosses.
 
-⚠️ **Verify item (gamora):** I observed the `tier_1_outcome` ↔ survive/kill correlation; I have NOT read the code that produces `tier_1_outcome`. Confirm the mechanics before treating "the signal already exists" as load-bearing.
+**Survival (sg2) gates NOTHING.** It is computed (`SURVIVAL_FLOOR_BY_COHORT`, t4_sim_cycling.py:811-815) and counted (`sg2_fail_count`, gauntlet_sim.py:1080-1081), but it is explicitly excluded from `in_band` and from `gauntlet_pass` (line 1069 comment: "Only sg1 (KPM in-band) is enriched"). The survive/kill signal the doctrine wants as the boss GATE is not "already computed and discarded" — it exists as telemetry and was never wired to gate.
+
+**So the fix is real work, not a one-line overlay-drop:** on boss shells, (a) tier_1 must stop KPM-REJECTing — route boss rooms to tier_2 unconditionally (or on a wide sanity rail) so survive+kill can actually be measured; (b) the tier_2 ship gate must read sg2 (survive within the 240s enrage timer + target killed), not the narrow KPM band; (c) DPS/TTK becomes recorded telemetry. The oracle comment (gauntlet_sim.py:357) already specifies (b) as intent — it is unimplemented. **The concrete production payoff still stands and sharpens: the current gate manufactures a fake STR boss-crater by KPM-rejecting STR before survive+kill is ever tested. Adopting the doctrine would let STR's boss attempts run and reveal whether they are legitimate slow-survivable kills or genuine failures — a question the current instrument structurally cannot answer.**
+
+✅ **Gate-1 verified (supersedes the draft's gamora verify-item):** `tier_1_outcome` is a KPM quick-estimate routing flag, not a survive/kill signal; survival is sg2 telemetry-only; per-shell bands (`ENCOUNTER_COHORT_KPM_BAND`) are the live ship gate; a second, non-shipping per-cohort band (`COHORT_KPM_BAND` via the uninstalled `get_archetype_cohort_kpm_band` fallback) populates the misleading serialized `in_band` field. No outstanding gamora code-read remains for §6.
 
 ---
 
-## 7. Eligible-tier discrepancy — flag, do not assert
+## 7. Eligible-tier discrepancy — RESOLVED (Gate-1)
 
-- Predecessor cites `gauntlet_sim.py:16-17,125-138`: gating = `boss_with_adds` + `mini_boss`; `swarm`/`magic_pack`/`elite_pack` BYPASSED.
-- Production metadata: `eligible_encounter_types` = ALL SIX shells; per-row data shows packs carry `in_band` 13–36% and contribute to pass (i.e. packs are NOT bypassed in production).
+The conflict is resolved in favor of **all-six gating**. The predecessor cited a SUPERSEDED constant:
+- `GAUNTLET_ELIGIBLE_ENCOUNTER_TYPES_C14V1 = {boss_with_adds, mini_boss}` (gauntlet_sim.py:131-134) and `GAUNTLET_ELIGIBLE_PASS_FLOOR_C14V1 = 2` (:144) are HISTORICAL — the Cycle-14-v1 boss-only stratified floor.
+- They were retracted by **W-α6** (Matt 2026-05-28 Gate-7 D1 ratification): the live criterion is `gauntlet_pass = eligible_encounters_passed(cohort) >= GAUNTLET_ELIGIBLE_PASS_FLOOR_W_ALPHA_6 (=9)` over ALL SIX shells, in-band via `ENCOUNTER_COHORT_KPM_BAND` (gauntlet_sim.py:562-636; docstring §7.3 semantic-shift declaration).
 
-These conflict. The production run evidence says **all-six gating**; the code citation says **boss-only**. Most likely a code-era-vs-run-era difference (a stale constant, or `gauntlet_sim.py` being a different/legacy harness than the phase3 production runner — consistent with jack-ryan's BC-Stage-3 finding that the 1D `simulate_fight` kernel was deleted and `run_spatial_fight` is the sole sim). **Route to gamora: which gating is canonical going forward?** The doctrine's diagnosis (one band wrongly applied to boss rooms) holds for production either way, but the design session should rule against the TRUE current gating, not a stale constant.
+So the production metadata (`eligible_encounter_types` = all six) is canonical; the boss-only constant is dead code the predecessor read as live. No gamora routing needed. The design session rules against all-six per-shell KPM gating — which is precisely the gating the doctrine reshapes (clear shells keep their band; boss shells move off KPM onto survive+kill).
 
 ---
 
@@ -143,7 +172,7 @@ These conflict. The production run evidence says **all-six gating**; the code ci
    - **Model B — session-wide clear-speed including travel/walk time between encounters.** The genre-CANONICAL frame (Q5). Higher fidelity to how the genre actually measures. BUT a sim-structure change (the sim must model inter-encounter travel; movement speed becomes a first-class measured lever). Flagged as the larger build.
    - Not mutually exclusive — Model A could be the near-term per-room banding while Model B is the longer-arc session-wide frame. The session should rule the sequencing.
 3. **Boss-bridge family — re-verify membership at faithful power** before any fix. Caster is out (production). Re-read the rogue + STR craters at faithful power (the rogue crater was also synthetic-regime). One doctrine, N instances — but N is now an open production question, not a settled 3.
-4. **`tier_1_outcome` mechanics (gamora verify, §6)** and **canonical gating tier-set (gamora verify, §7)** — both gate the precision of the doctrine's implementation, not its direction.
+4. **~~`tier_1_outcome` mechanics + gating tier-set (gamora verify)~~ — RESOLVED by Gate-1** (§6, §7). Replaced by ONE new precondition: **authorize a clean current-regime gauntlet run** (current mobs/min `ENCOUNTER_COHORT_KPM_BAND`, all six shells, faithful power) before the per-archetype boss claims (§5) are treated as data. The phase3 artifact is regime-mixed; the doctrine can be adopted on direction without it, but the boss-bridge membership question (§9.3) cannot be settled until clean boss-room data exists.
 
 **Park dispositions carried/updated:**
 - caster-Lever-C probe → DISSOLVED (§5).
