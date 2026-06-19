@@ -122,4 +122,17 @@ The *absolute* tier matters, but the **delta diagnoses the cause:**
 
 ---
 
+## 8. Harness hygiene — windows self-close (STANDING, all visual/VFX tests)
+
+**Directive (Matt, 2026-06-18):** every VFX / visual test MUST close its render window when the capture completes. Persisting windows that outlive the test are a defect — Matt had to manually close 10+ orphaned Godot windows after a fireball render. Binding requirements for any visual-capture harness, this test and every future one:
+
+- **Self-quit on completion** — the capture script calls `get_tree().quit()` after the final frame is saved; the window closes itself when the render is done.
+- **Safety timeout** — a max-duration guard (Timer → quit) so a hung capture cannot leave a window open indefinitely.
+- **Prefer headless where viewport-capture supports it** — `--headless` spawns no window at all for pure offscreen PNG rendering (the strongest form of the fix).
+- **No orphan processes** — the harness leaves no lingering Godot process after the PNGs are written.
+
+This is a standing tripod discipline, not a one-test patch. Every future visual/VFX capture inherits it, and the committed harness from this test is patched to comply.
+
+---
+
 **Signed:** gandalf, 2026-06-18. This is the design half of the dual-gate — the criteria and the verdict logic. The single decisive question is Gap #8: does Binbun + the locked register's own juice lever reach the T2 floor? V0 vs V1 is the headline (emission/post gap vs. structural gap); V2 is the harvest-need cross-check. PASS saves a pipeline; MARGINAL defines a two-tier strategy; FAIL reopens the backbone. Cheapest experiment that collapses the buy/build tree — and the first real Godot frames on the T0–T3 ladder. Tripod fires now.
