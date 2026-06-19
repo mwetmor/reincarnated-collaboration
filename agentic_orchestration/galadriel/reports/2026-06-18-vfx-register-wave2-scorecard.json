@@ -1,0 +1,115 @@
+{
+  "artifact": "VFX-register-test Wave-2 scorecard — drax V0/V1/V2 scored onto galadriel's Wave-1 anchored ladder",
+  "wave": "Wave 2 of the Binbun-emission VFX-register-test (drax dev / galadriel judge / gandalf design)",
+  "scored": "2026-06-18",
+  "author": "galadriel (visual-perception steward)",
+  "feeds": "gandalf Wave-3 adjudication (PASS/MARGINAL/FAIL is gandalf's call, NOT galadriel's)",
+  "governs_by": [
+    "gandalf/notes/2026-06-18-vfx-register-test-spec-binbun-emission.md (esp §6 verdict logic)",
+    "galadriel/rubrics/2026-06-18-vfx-register-ladder-anchored-marks.json (the RULER)"
+  ],
+  "source_frames": "/Users/admin/Games/reincarnated-godot/harness_logs/vfx_register_2026-06-18/ (72 PNGs)",
+  "instruments_used": {
+    "register-metrics.mjs": "LOCKED, run unmodified via CLI on the 12 peak stills (4 angles x 3 variants). Source of HLF + whole-frame LMV.",
+    "ladder-anchor-still-probe.mjs": "LOCKED Wave-1 read-only sidecar, run unmodified via CLI on the 12 peak stills. Source of spell-region layering-variance (HI-gate) + still hue-legibility (WARMHI-gate).",
+    "spell-motion-score-drax-vfx-register.mjs": "NEW Wave-2 parameterized sidecar (methodology VERBATIM from locked spell-motion-score.mjs; the locked instrument is NOT edited). Source of temporal motion-presence + lifecycle-tracked fire-hue/layering + the directly-computed V1-V0 temporal delta.",
+    "_throwaway_probes": "background-luma probe + bright-core-trajectory probe + white-hot-core probe — run inline, NOT committed (geometry/confound grounding only)."
+  },
+
+  "TWO_METHODOLOGICAL_FLAGS_from_gandalf": {
+    "A_background_confound": {
+      "status": "CONFIRMED + AMENDED — background is NOT what the handoff stated",
+      "handoff_said": "DARK-NEUTRAL 0.10 background",
+      "measured_actual": "MID-GREY luma ~129 = 0.51 of 255, RGB[128,128,139] (slightly cool), IDENTICAL across all variants",
+      "consequence": "whole-frame LMV/LDR/SHF are background-DOMINATED by a flat mid-grey field -> they read ARTIFICIALLY LOW (V0 whole-frame LMV ~3.3 vs genre anchor T1=17; that ~3.3 is the flat grey, not the spell). Per gandalf flag (A), whole-frame LMV/LDR/SHF are DOWN-WEIGHTED and flagged background-influenced; the DEPTH axis uses spell-region layering-variance (anchored T1<=11 / T2 18 / T3 24) instead. Controlled comparison still HOLDS because the bg is identical across variants. The 0.10-vs-0.51 discrepancy is surfaced for drax/gandalf — does not invalidate the delta, but the stated stage and rendered stage differ."
+    },
+    "B_white_hot_core_divergence": {
+      "status": "CONFIRMED + QUANTIFIED — this is the eye<->number crux gandalf adjudicates",
+      "method": "white-hot = bright px (luma>=158) that is ALSO luma>=235 AND near-achromatic (max-min channel <=25) = blown out of any hue band. warm-saturated = bright AND r-b>=30 AND not-blown.",
+      "white_hot_frac_of_bright_region": { "V0": "0.053-0.064", "V1": "0.225-0.263", "V2": "0.674-0.682" },
+      "warm_saturated_frac_of_bright_region": { "V0": "0.873-0.892", "V1": "0.582-0.658", "V2": "0.254-0.270" },
+      "interpretation": "V0: bright region is 87-89% genuinely warm fire, 5-6% white. V1: additive blew ~22-26% of bright region to achromatic WHITE, but a 58-66% MAJORITY is still warm fire = 'premium-bloom-WITH-hue-cost' (the core washes white, the body stays fire). V2: 67-68% of bright region is blown WHITE, only 25-27% warm = the flipbook core is mostly white-blown, only a thin warm fringe reads fire = closest to genuine 'hue-illegibility' of the core.",
+      "reconciles": "explains the still-probe HI-gate-vs-WARMHI-gate gap: V2 WARMHI-gate fire-band=0.86 (the thin warm fringe IS fire) but HI-gate fire-band collapses to 0.39 (most of HI is white, not warm). The WARMHI metric, by warm-gating first, scores the surviving warm fringe; the HI-gate exposes how much of the bright region abandoned the hue band."
+    }
+  },
+
+  "load_bearing_juice_axes_scorecard": {
+    "HLF_highlight_bloom": {
+      "anchor_marks": { "T1": "<=0.15", "T2_floor": 0.6, "T2.8": 1.1, "T3": 2.85 },
+      "measured_peak_stills_mean": { "V0": 0.60, "V1": 3.47, "V2": 3.22 },
+      "measured_range": { "V0": "0.53-0.74", "V1": "3.38-3.55", "V2": "3.17-3.29" },
+      "tier_placement": { "V0": "AT T2 floor (0.60)", "V1": "ABOVE T3 (3.47 > 2.85)", "V2": "ABOVE T3 (3.22 > 2.85)" },
+      "eye_corroboration": "V0 sphere has a hot bottom but restrained glow; V1 blooms hard (additive, embers glow); V2 is a bright soft puff. The numbers match the eye: V1/V2 clearly out-bloom V0."
+    },
+    "layering_variance_spell_region_DEPTH_axis": {
+      "anchor_marks": { "T1": "<=11", "T2_floor": 18, "T3": 24, "godot_v0_descent_baseline": "7.4-11.8" },
+      "still_probe_HIgate": { "V0": "6.08-7.44", "V1": "2.96-3.76", "V2": "2.00-2.05" },
+      "temporal_sidecar_peak_local_std": { "V0": 7.13, "V1": 6.18, "V2": 4.36 },
+      "tier_placement": { "V0": "BELOW T1 (~7; near old descent baseline)", "V1": "BELOW T1 (~3-6; AT or BELOW V0)", "V2": "BELOW T1 (~2-4; lowest)" },
+      "KEY_FINDING": "All three variants sit BELOW T1 on spell-region depth. V1 does NOT lift layering above V0 (still-probe: V1 LOWER than V0; temporal: V1 peak 6.18 < V0 7.13). The additive bloom SMOOTHS the bright core into one glowing wash rather than adding discrete depth layers WITHIN the bright region. The 32-billboard ember sub-emitter adds peripheral structure the EYE sees, but those embers are mostly BELOW the bright-gate (luma<158) so they do not raise in-bright-region layering-variance. This is the structural-depth gap: emission lever raises BLOOM (HLF) hugely but NOT in-core DEPTH.",
+      "interpretation_caveat": "spell-region layering-variance reads depth INSIDE the bright VFG region. The embers (a real depth layer to the eye) live in the DIM periphery, not the bright core, so this metric undercounts the V1 sub-emitter's visible contribution. Reported honestly: numerically V1 ~ V0 on in-bright-region depth; by eye V1 has more peripheral particle structure. gandalf's eye should weigh the ember periphery the number under-credits."
+    },
+    "hue_legibility_fire": {
+      "anchor_marks": { "T1": "<=0.50", "T2_floor": 0.66, "T3": 0.88, "godot_v0_descent_baseline_peak": 0.51 },
+      "still_probe_WARMHIgate": { "V0": "0.857-0.983 (mean ~0.94)", "V1": "0.577-0.591 (mean ~0.58)", "V2": "0.858-0.863 (mean ~0.86)" },
+      "still_probe_HIgate_un_warm_gated": { "V0": "0.85-0.975", "V1": "0.535-0.557", "V2": "0.375-0.402" },
+      "temporal_sidecar_peak_fire_band": { "V0": 0.734, "V1": 0.697, "V2": 0.754 },
+      "tier_placement_WARMHI": { "V0": "ABOVE T3 (0.94 > 0.88) — maximally fire-legible", "V1": "BETWEEN T1 and T2 (0.58; below T2 floor 0.66) — MARGINAL on the warm-gated read", "V2": "ABOVE T3 on WARMHI (0.86) BUT see HI-gate" },
+      "tier_placement_HIgate": { "V0": "ABOVE T3 (~0.93)", "V1": "T1-T2 (0.54)", "V2": "BELOW T1 (0.39) — most of bright region is white, not fire" },
+      "THE_DIVERGENCE": "V1 hue-legibility DROPS vs V0 (WARMHI 0.94 -> 0.58, a ~0.36 drop) EVEN THOUGH V1 looks juicier — exactly gandalf flag (B). The drop is the white-hot-core cost: ~¼ of V1's bright region blew white (OUT of the fire band). This is NOT genuine illegibility (a 58-66% majority of the bright region is still warm fire, and the EYE reads V1 unmistakably as fire) — it is 'premium-bloom-WITH-hue-cost'. V2 is the genuinely-worrying case: on the un-warm-gated HI metric V2 collapses to 0.39 (below T1) because ⅔ of its bright core is white-blown — V2's core is closest to actual hue-illegibility.",
+      "eye_verdict": "BY EYE all three read as fire (orange body + warm fringe). V0 is the most saturated/legible fire. V1 reads fire with a white-hot center (juicy, premium). V2 reads as a pale washed puff — fire-ish but the weakest element read of the three."
+    },
+    "motion_presence_temporal_LOAD_BEARING": {
+      "note": "no absolute genre anchor exists (inherently temporal); scored as V1-vs-V0 delta per spec + Wave-1 boundary doc. godot_v0_descent_baseline mean inter-frame delta was 21.8-60.3.",
+      "mean_inter_frame_delta": { "V0": 41.26, "V1": 67.49, "V2": 42.63 },
+      "lifecycle_growth_ratio_peak_over_emerge": { "V0": "2.68x", "V1": "3.09x", "V2": "1.53x" },
+      "finding": "V1 has the MOST inter-frame motion-presence (67.5 vs V0 41.3) AND the most growth (3.09x) — the additive emission + ember sub-emitter make V1 the most LIVE/animated cast (more energy entering/leaving the field frame-to-frame). V2 is the LEAST alive (growth 1.53x, motion 42.6 ~ V0) — a soft puff that grows modestly and fades, the weakest 'verb'. This is V1's clearest win: the lever makes the spell read as MORE moving energy.",
+      "applicability_caveat": "drax captures are a CENTERED IN-PLACE LIFECYCLE (emerge->grow->peak->fade, core ~48% x throughout), NOT a directed caster->threat projectile. So energy-TRAVEL (directional translation) + directionality (axis-alignment) are NOT meaningful here and are reported in the sidecar JSON for completeness only, flagged non-load-bearing. motion-presence (energy propagation/growth) IS meaningful and is the load-bearing temporal read."
+    }
+  },
+
+  "THE_HEADLINE_V1_minus_V0_delta": {
+    "summary": "MIXED-SIGNAL delta — LARGE on bloom+motion (the cheap-fix axes), NULL-to-NEGATIVE on in-core depth+hue (the structural+cost axes).",
+    "HLF_bloom": "+2.87 (V0 0.60 -> V1 3.47) — MASSIVE. The emission/post lever fires hard. Cheap in-engine fix WORKS for bloom.",
+    "motion_presence": "+26.2 (V0 41.3 -> V1 67.5) — LARGE. The lever makes the cast read as much more live moving energy. Cheap in-engine fix WORKS for motion.",
+    "lifecycle_growth": "+0.41x (2.68 -> 3.09) — V1 grows bigger/more emphatically.",
+    "spell_region_layering_DEPTH": "~0 to NEGATIVE (still-probe V1 LOWER than V0; temporal peak 7.13 -> 6.18). The lever does NOT add in-bright-region depth — additive smooths the core. The ember periphery (visible to the eye) lives below the bright-gate. This is the one axis where the lever does NOT close the gap in-core.",
+    "hue_legibility": "-0.36 WARMHI (0.94 -> 0.58) — NEGATIVE by design of additive (the white-hot-core cost). NOT a structural fail (majority still warm fire, eye reads fire) but the number drops below T2 floor on the warm-gated read.",
+    "diagnosis": "Per spec §6 'the delta diagnoses the cause': the gap-to-register is an EMISSION/POST gap on BLOOM and MOTION (large positive delta = cheap, in-engine, no new assets — best outcome on those axes). On in-core DEPTH the delta is ~0 (the lever doesn't lift it; embers help the eye but not the in-bright-region number). On HUE the lever COSTS legibility via the white-hot core. So: the lever decisively closes the BLOOM + MOTION gap in-engine; it does NOT close the in-core DEPTH gap and it introduces a HUE cost that gandalf must weigh (eye says acceptable, warm-gated number says below-floor)."
+  },
+
+  "V2_cross_check_harvest_need": {
+    "summary": "V2 does NOT structurally beat V1 — on the contrary V2 is WEAKER on every temporal/depth axis. The flipbook (Brackeys, a harvest proxy) under-performs the juiced Binbun particle on motion, depth, and growth; its only nominal edge (WARMHI fire-band 0.86) is undercut by its ⅔-white-blown core (HI-gate fire-band 0.39).",
+    "V2_vs_V1_deltas": {
+      "HLF_bloom": "-0.25 (3.22 vs 3.47) — V2 slightly LESS bloom than V1",
+      "motion_presence": "-24.9 (42.6 vs 67.5) — V2 MUCH less alive (soft puff, modest growth)",
+      "lifecycle_growth": "-1.56x (1.53 vs 3.09) — V2 barely grows",
+      "spell_region_layering_DEPTH": "-1.82 peak (V2 4.36 vs V1 6.18) — V2 the FLATTEST of the three",
+      "hue_WARMHI": "+0.057 (0.86 vs 0.80 temporal-peak basis) — V2 nominally warmer fringe BUT HI-gate exposes ⅔ white-blown core"
+    },
+    "verdict_signal": "V2 <= V1 (in fact V2 < V1) on the juice axes => 'Binbun particles are as good as / better than register-appropriate flipbooks => NO harvest needed' per spec §6 V2-cross-check logic. CAVEAT: this V2 is a SINGLE Brackeys flipbook at emission 0.8 on a 3D billboard — a Hovl harvest yields richer multi-layer sheets; this is a weak proxy. But on the evidence in hand, the flipbook route did NOT out-juice the in-engine lever; it under-performed it. The cross-check leans AGAINST harvest-necessity, not for it."
+  },
+
+  "eye_number_divergences_first_class_findings": [
+    "DIVERGENCE 1 (hue, gandalf flag B): V1 hue-number DROPS below T2 floor (WARMHI 0.58) while the EYE reads V1 as unmistakably fire (juicier than V0). Cause: white-hot-core (¼ of bright region blown achromatic). Adjudication crux: is 'premium-bloom-with-¼-white-core' acceptable fire-legibility? Eye says yes; warm-gated number says below-floor. gandalf's call.",
+    "DIVERGENCE 2 (depth): V1 layering-NUMBER is ~V0 (or lower) while the EYE sees MORE structure in V1 (32 ember billboards + bloom falloff). Cause: the ember periphery lives BELOW the bright-gate (luma<158), so the in-bright-region depth metric does not credit it. The number under-reports V1's visible depth. gandalf should weight the peripheral ember layer the metric misses.",
+    "DIVERGENCE 3 (V2 hue): V2 WARMHI fire-band (0.86) reads HIGH but the EYE sees a pale washed puff (weakest element read). Cause: WARMHI warm-gates FIRST, scoring only the thin surviving warm fringe; the HI-gate (0.39, below T1) matches the eye — ⅔ of V2's bright region is white, not fire. The HI-gate metric corroborates the eye over the WARMHI metric here."
+  ],
+
+  "per_variant_tier_summary": {
+    "V0_stock_binbun_no_subemitter": {
+      "HLF_bloom": "T2 floor (0.60)", "depth_spell_region": "below T1 (~7)", "hue_legibility": "above T3 (0.94)", "motion_presence": "baseline (41.3)",
+      "eye": "clean, saturated, unmistakable fire sphere + layered trail + sparks. Restrained glow. The most fire-legible, the least bloomy."
+    },
+    "V1_blend_add_emission2_ember_subemitter_THE_LEVER": {
+      "HLF_bloom": "above T3 (3.47)", "depth_spell_region": "below T1 (~3-6, ~V0)", "hue_legibility": "T1-T2 MARGINAL on WARMHI (0.58); white-hot-core cost", "motion_presence": "HIGHEST (67.5)",
+      "eye": "juicy, additive-bloomed, ember-scattered, live. White-hot center. Reads fire with premium glow. The clear juice winner BUT with a hue cost and no in-core depth gain."
+    },
+    "V2_brackeys_flipbook_into_3d": {
+      "HLF_bloom": "above T3 (3.22)", "depth_spell_region": "below T1 (~2-4, FLATTEST)", "hue_legibility": "WARMHI 0.86 / HI-gate 0.39 (⅔ white-blown core)", "motion_presence": "lowest growth (1.53x), ~V0 motion (42.6)",
+      "eye": "a pale, soft, mostly-white blurry puff. Bright but indistinct. No travel, no directional read, weakest element legibility + least alive of the three."
+    }
+  },
+
+  "scope_note": "Scoring only. PASS/MARGINAL/FAIL is gandalf's Wave-3 call. This scorecard supplies numbers + eye; gandalf adjudicates the eye<->number divergences (esp DIVERGENCE 1, the white-hot-core hue cost)."
+}

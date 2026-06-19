@@ -1,0 +1,1269 @@
+{
+  "scored_at": "2026-06-19T03:59:03.283Z",
+  "instrument": "spell-motion-score-drax-vfx-register.mjs (galadriel Wave-2 PARAMETERIZED sidecar; methodology VERBATIM from locked spell-motion-score.mjs; locked instrument NOT edited)",
+  "inputs": {
+    "dir": "/Users/admin/Games/reincarnated-godot/harness_logs/vfx_register_2026-06-18",
+    "variants": [
+      "v0",
+      "v1",
+      "v2"
+    ],
+    "frame_indices": [
+      0,
+      4,
+      7,
+      10,
+      13,
+      16,
+      19
+    ],
+    "beats": [
+      "emerge",
+      "grow-1",
+      "grow-2",
+      "near-peak",
+      "post-peak",
+      "fade-1",
+      "residual"
+    ]
+  },
+  "geometry_applicability_caveat": "drax captures are a CENTERED IN-PLACE LIFECYCLE (emerge->grow->peak->fade, core ~48% x throughout), NOT a directed caster->threat projectile strip. M1 energy-travel + M5 directionality are reported but NOT load-bearing (no caster/threat axis exists). The load-bearing temporal axis is M2 motion-presence (+ lifecycle growth); M3 fire-hue + M4 layering are per-frame depth/element reads. Surfaced not papered-over.",
+  "background_caveat": "Stage background measured at luma ~129 (mid-grey RGB[128,128,139]), IDENTICAL across all variants — controlled comparison holds. NOTE: this is mid-grey, NOT the 0.10 dark-neutral the Wave-2 handoff stated; flagged in the report. Additive-floor subtraction is valid (static rig, grey bg has ~0 warm-luma so it does not enter the spell field).",
+  "thresholds": {
+    "SPELL_THRESH": 28,
+    "CORE_THRESH": 90,
+    "WARM_MARGIN": 6,
+    "FIRE_HUE_BAND_DEG": [
+      0,
+      50
+    ]
+  },
+  "per_variant": {
+    "v0": {
+      "variant": "v0",
+      "files": [
+        "v0_primary_000.png",
+        "v0_primary_004.png",
+        "v0_primary_007.png",
+        "v0_primary_010.png",
+        "v0_primary_013.png",
+        "v0_primary_016.png",
+        "v0_primary_019.png"
+      ],
+      "metric1_energy_travel_NOT_LOADBEARING": {
+        "note": "centered lifecycle, no caster->threat axis — axis-frac not meaningful",
+        "per_frame": [
+          {
+            "frame": 0,
+            "beat": "emerge",
+            "core_cx": 51.5,
+            "core_cy": 39.4,
+            "core_axis_frac": 0.552,
+            "core_px": 5653,
+            "full_cx": 51.2,
+            "full_cy": 40.5,
+            "full_px": 9249,
+            "full_mass": 896350
+          },
+          {
+            "frame": 4,
+            "beat": "grow-1",
+            "core_cx": 50,
+            "core_cy": 41.8,
+            "core_axis_frac": 0.5,
+            "core_px": 5469,
+            "full_cx": 49.9,
+            "full_cy": 40.7,
+            "full_px": 12666,
+            "full_mass": 1174714
+          },
+          {
+            "frame": 7,
+            "beat": "grow-2",
+            "core_cx": 45.4,
+            "core_cy": 42.8,
+            "core_axis_frac": 0.347,
+            "core_px": 5737,
+            "full_cx": 46.4,
+            "full_cy": 42.7,
+            "full_px": 14375,
+            "full_mass": 1227753
+          },
+          {
+            "frame": 10,
+            "beat": "near-peak",
+            "core_cx": 37,
+            "core_cy": 43.6,
+            "core_axis_frac": 0.067,
+            "core_px": 17648,
+            "full_cx": 37.8,
+            "full_cy": 43.5,
+            "full_px": 24781,
+            "full_mass": 2881971
+          },
+          {
+            "frame": 13,
+            "beat": "post-peak",
+            "core_cx": 36.9,
+            "core_cy": 40.1,
+            "core_axis_frac": 0.063,
+            "core_px": 16199,
+            "full_cx": 37.1,
+            "full_cy": 40.1,
+            "full_px": 24475,
+            "full_mass": 2709427
+          },
+          {
+            "frame": 16,
+            "beat": "fade-1",
+            "core_cx": 47.3,
+            "core_cy": 37.5,
+            "core_axis_frac": 0.41,
+            "core_px": 8561,
+            "full_cx": 46.7,
+            "full_cy": 37.7,
+            "full_px": 15490,
+            "full_mass": 1594620
+          },
+          {
+            "frame": 19,
+            "beat": "residual",
+            "core_cx": 50.8,
+            "core_cy": 39.4,
+            "core_axis_frac": 0.526,
+            "core_px": 6505,
+            "full_cx": 50.5,
+            "full_cy": 39.6,
+            "full_px": 12717,
+            "full_mass": 1240183
+          }
+        ],
+        "net_core_dispX_pct": -14.7
+      },
+      "lifecycle_growth": {
+        "mask_px_seq": [
+          9249,
+          12666,
+          14375,
+          24781,
+          24475,
+          15490,
+          12717
+        ],
+        "mass_seq": [
+          896350,
+          1174714,
+          1227753,
+          2881971,
+          2709427,
+          1594620,
+          1240183
+        ],
+        "emerge_mask_px": 9249,
+        "peak_mask_px": 24781,
+        "peak_mass": 2881971,
+        "growth_ratio_peak_over_emerge": 2.68
+      },
+      "metric2_motion_presence": {
+        "pairs": [
+          {
+            "pair": "0->4",
+            "beat": "emerge->grow-1",
+            "mean_delta_in_region": 15.69,
+            "delta_centroid_x": 48,
+            "delta_centroid_y": 38.8
+          },
+          {
+            "pair": "4->7",
+            "beat": "grow-1->grow-2",
+            "mean_delta_in_region": 30.32,
+            "delta_centroid_x": 48.4,
+            "delta_centroid_y": 39
+          },
+          {
+            "pair": "7->10",
+            "beat": "grow-2->near-peak",
+            "mean_delta_in_region": 61.65,
+            "delta_centroid_x": 38,
+            "delta_centroid_y": 40.8
+          },
+          {
+            "pair": "10->13",
+            "beat": "near-peak->post-peak",
+            "mean_delta_in_region": 47.1,
+            "delta_centroid_x": 34.9,
+            "delta_centroid_y": 40.9
+          },
+          {
+            "pair": "13->16",
+            "beat": "post-peak->fade-1",
+            "mean_delta_in_region": 68.31,
+            "delta_centroid_x": 38.4,
+            "delta_centroid_y": 37.9
+          },
+          {
+            "pair": "16->19",
+            "beat": "fade-1->residual",
+            "mean_delta_in_region": 24.46,
+            "delta_centroid_x": 43.7,
+            "delta_centroid_y": 34.5
+          }
+        ],
+        "mean_inter_frame_delta": 41.26,
+        "propagation_span_x_pct": 13.5
+      },
+      "metric3_fire_hue": {
+        "per_frame": [
+          {
+            "frame": 0,
+            "beat": "emerge",
+            "mask_px": 9249,
+            "dominant_hue_deg": "0-10",
+            "fire_band_frac": 0.729,
+            "mean_rgb": [
+              221,
+              113,
+              68
+            ]
+          },
+          {
+            "frame": 4,
+            "beat": "grow-1",
+            "mask_px": 12666,
+            "dominant_hue_deg": "0-10",
+            "fire_band_frac": 0.617,
+            "mean_rgb": [
+              193,
+              116,
+              83
+            ]
+          },
+          {
+            "frame": 7,
+            "beat": "grow-2",
+            "mask_px": 14375,
+            "dominant_hue_deg": "0-10",
+            "fire_band_frac": 0.662,
+            "mean_rgb": [
+              207,
+              126,
+              70
+            ]
+          },
+          {
+            "frame": 10,
+            "beat": "near-peak",
+            "mask_px": 24781,
+            "dominant_hue_deg": "0-10",
+            "fire_band_frac": 0.734,
+            "mean_rgb": [
+              219,
+              124,
+              76
+            ]
+          },
+          {
+            "frame": 13,
+            "beat": "post-peak",
+            "mask_px": 24475,
+            "dominant_hue_deg": "0-10",
+            "fire_band_frac": 0.645,
+            "mean_rgb": [
+              208,
+              121,
+              81
+            ]
+          },
+          {
+            "frame": 16,
+            "beat": "fade-1",
+            "mask_px": 15490,
+            "dominant_hue_deg": "0-10",
+            "fire_band_frac": 0.622,
+            "mean_rgb": [
+              198,
+              123,
+              87
+            ]
+          },
+          {
+            "frame": 19,
+            "beat": "residual",
+            "mask_px": 12717,
+            "dominant_hue_deg": "0-10",
+            "fire_band_frac": 0.695,
+            "mean_rgb": [
+              208,
+              119,
+              79
+            ]
+          }
+        ],
+        "mean_fire_band_frac": 0.672,
+        "peak_fire_band_frac": 0.734
+      },
+      "metric4_premium_layering": {
+        "per_frame": [
+          {
+            "frame": 0,
+            "beat": "emerge",
+            "mask_px": 9249,
+            "mean_local_std": 4.41
+          },
+          {
+            "frame": 4,
+            "beat": "grow-1",
+            "mask_px": 12666,
+            "mean_local_std": 5.91
+          },
+          {
+            "frame": 7,
+            "beat": "grow-2",
+            "mask_px": 14375,
+            "mean_local_std": 4.49
+          },
+          {
+            "frame": 10,
+            "beat": "near-peak",
+            "mask_px": 24781,
+            "mean_local_std": 3.31
+          },
+          {
+            "frame": 13,
+            "beat": "post-peak",
+            "mask_px": 24475,
+            "mean_local_std": 4.92
+          },
+          {
+            "frame": 16,
+            "beat": "fade-1",
+            "mask_px": 15490,
+            "mean_local_std": 6.95
+          },
+          {
+            "frame": 19,
+            "beat": "residual",
+            "mask_px": 12717,
+            "mean_local_std": 7.13
+          }
+        ],
+        "mean_local_std": 5.3,
+        "peak_local_std": 7.13
+      },
+      "metric5_directionality_NOT_LOADBEARING": {
+        "note": "centered lifecycle — axis-align not meaningful",
+        "per_frame": [
+          {
+            "frame": 0,
+            "beat": "emerge",
+            "elongation": 1.4,
+            "axis_align_cos": 0.268
+          },
+          {
+            "frame": 4,
+            "beat": "grow-1",
+            "elongation": 1.39,
+            "axis_align_cos": 0.009
+          },
+          {
+            "frame": 7,
+            "beat": "grow-2",
+            "elongation": 1.49,
+            "axis_align_cos": 0.041
+          },
+          {
+            "frame": 10,
+            "beat": "near-peak",
+            "elongation": 2.38,
+            "axis_align_cos": 0.917
+          },
+          {
+            "frame": 13,
+            "beat": "post-peak",
+            "elongation": 3.1,
+            "axis_align_cos": 0.967
+          },
+          {
+            "frame": 16,
+            "beat": "fade-1",
+            "elongation": 1.98,
+            "axis_align_cos": 0.927
+          },
+          {
+            "frame": 19,
+            "beat": "residual",
+            "elongation": 1.25,
+            "axis_align_cos": 0.014
+          }
+        ],
+        "mean_elongation": 1.86
+      },
+      "backdrop_invariance": {
+        "per_frame": [
+          {
+            "frame": 0,
+            "backdrop_luma_drift_vs_F0": 0
+          },
+          {
+            "frame": 4,
+            "backdrop_luma_drift_vs_F0": 0.09
+          },
+          {
+            "frame": 7,
+            "backdrop_luma_drift_vs_F0": 0.205
+          },
+          {
+            "frame": 10,
+            "backdrop_luma_drift_vs_F0": 0.127
+          },
+          {
+            "frame": 13,
+            "backdrop_luma_drift_vs_F0": 0.187
+          },
+          {
+            "frame": 16,
+            "backdrop_luma_drift_vs_F0": 0.143
+          },
+          {
+            "frame": 19,
+            "backdrop_luma_drift_vs_F0": 0.139
+          }
+        ],
+        "max_luma_drift": 0.205,
+        "invariant": true
+      },
+      "SUMMARY": {
+        "mean_motion_presence": 41.26,
+        "mean_fire_band_frac": 0.672,
+        "peak_fire_band_frac": 0.734,
+        "mean_layering_local_std": 5.3,
+        "peak_layering_local_std": 7.13,
+        "lifecycle_growth_ratio": 2.68,
+        "peak_mask_px": 24781
+      }
+    },
+    "v1": {
+      "variant": "v1",
+      "files": [
+        "v1_primary_000.png",
+        "v1_primary_004.png",
+        "v1_primary_007.png",
+        "v1_primary_010.png",
+        "v1_primary_013.png",
+        "v1_primary_016.png",
+        "v1_primary_019.png"
+      ],
+      "metric1_energy_travel_NOT_LOADBEARING": {
+        "note": "centered lifecycle, no caster->threat axis — axis-frac not meaningful",
+        "per_frame": [
+          {
+            "frame": 0,
+            "beat": "emerge",
+            "core_cx": 51.1,
+            "core_cy": 36.8,
+            "core_axis_frac": 0.538,
+            "core_px": 8552,
+            "full_cx": 51.1,
+            "full_cy": 37.1,
+            "full_px": 10555,
+            "full_mass": 1682949
+          },
+          {
+            "frame": 4,
+            "beat": "grow-1",
+            "core_cx": 51.8,
+            "core_cy": 33.7,
+            "core_axis_frac": 0.561,
+            "core_px": 12295,
+            "full_cx": 51.7,
+            "full_cy": 34,
+            "full_px": 14247,
+            "full_mass": 2413657
+          },
+          {
+            "frame": 7,
+            "beat": "grow-2",
+            "core_cx": 47.8,
+            "core_cy": 30.8,
+            "core_axis_frac": 0.426,
+            "core_px": 17438,
+            "full_cx": 47.8,
+            "full_cy": 31.1,
+            "full_px": 19217,
+            "full_mass": 3443640
+          },
+          {
+            "frame": 10,
+            "beat": "near-peak",
+            "core_cx": 32.4,
+            "core_cy": 35.8,
+            "core_axis_frac": -0.087,
+            "core_px": 30260,
+            "full_cx": 32.5,
+            "full_cy": 36,
+            "full_px": 31470,
+            "full_mass": 6114975
+          },
+          {
+            "frame": 13,
+            "beat": "post-peak",
+            "core_cx": 29.9,
+            "core_cy": 34,
+            "core_axis_frac": -0.171,
+            "core_px": 30517,
+            "full_cx": 30.2,
+            "full_cy": 34.2,
+            "full_px": 32613,
+            "full_mass": 5973206
+          },
+          {
+            "frame": 16,
+            "beat": "fade-1",
+            "core_cx": 37.5,
+            "core_cy": 29.3,
+            "core_axis_frac": 0.083,
+            "core_px": 19952,
+            "full_cx": 37.9,
+            "full_cy": 29.6,
+            "full_px": 21855,
+            "full_mass": 3740258
+          },
+          {
+            "frame": 19,
+            "beat": "residual",
+            "core_cx": 41.2,
+            "core_cy": 31.3,
+            "core_axis_frac": 0.206,
+            "core_px": 11884,
+            "full_cx": 41.6,
+            "full_cy": 31.8,
+            "full_px": 14085,
+            "full_mass": 2287740
+          }
+        ],
+        "net_core_dispX_pct": -21.3
+      },
+      "lifecycle_growth": {
+        "mask_px_seq": [
+          10555,
+          14247,
+          19217,
+          31470,
+          32613,
+          21855,
+          14085
+        ],
+        "mass_seq": [
+          1682949,
+          2413657,
+          3443640,
+          6114975,
+          5973206,
+          3740258,
+          2287740
+        ],
+        "emerge_mask_px": 10555,
+        "peak_mask_px": 32613,
+        "peak_mass": 6114975,
+        "growth_ratio_peak_over_emerge": 3.09
+      },
+      "metric2_motion_presence": {
+        "pairs": [
+          {
+            "pair": "0->4",
+            "beat": "emerge->grow-1",
+            "mean_delta_in_region": 18.44,
+            "delta_centroid_x": 53,
+            "delta_centroid_y": 35.4
+          },
+          {
+            "pair": "4->7",
+            "beat": "grow-1->grow-2",
+            "mean_delta_in_region": 49.55,
+            "delta_centroid_x": 50.4,
+            "delta_centroid_y": 31
+          },
+          {
+            "pair": "7->10",
+            "beat": "grow-2->near-peak",
+            "mean_delta_in_region": 113.37,
+            "delta_centroid_x": 37.6,
+            "delta_centroid_y": 33.2
+          },
+          {
+            "pair": "10->13",
+            "beat": "near-peak->post-peak",
+            "mean_delta_in_region": 69.23,
+            "delta_centroid_x": 26.6,
+            "delta_centroid_y": 29.9
+          },
+          {
+            "pair": "13->16",
+            "beat": "post-peak->fade-1",
+            "mean_delta_in_region": 103.82,
+            "delta_centroid_x": 31.8,
+            "delta_centroid_y": 31.5
+          },
+          {
+            "pair": "16->19",
+            "beat": "fade-1->residual",
+            "mean_delta_in_region": 50.53,
+            "delta_centroid_x": 31.5,
+            "delta_centroid_y": 27
+          }
+        ],
+        "mean_inter_frame_delta": 67.49,
+        "propagation_span_x_pct": 26.4
+      },
+      "metric3_fire_hue": {
+        "per_frame": [
+          {
+            "frame": 0,
+            "beat": "emerge",
+            "mask_px": 10555,
+            "dominant_hue_deg": "350-360",
+            "fire_band_frac": 0.482,
+            "mean_rgb": [
+              225,
+              194,
+              178
+            ]
+          },
+          {
+            "frame": 4,
+            "beat": "grow-1",
+            "mask_px": 14247,
+            "dominant_hue_deg": "30-40",
+            "fire_band_frac": 0.612,
+            "mean_rgb": [
+              223,
+              192,
+              176
+            ]
+          },
+          {
+            "frame": 7,
+            "beat": "grow-2",
+            "mask_px": 19217,
+            "dominant_hue_deg": "30-40",
+            "fire_band_frac": 0.675,
+            "mean_rgb": [
+              221,
+              197,
+              176
+            ]
+          },
+          {
+            "frame": 10,
+            "beat": "near-peak",
+            "mask_px": 31470,
+            "dominant_hue_deg": "30-40",
+            "fire_band_frac": 0.675,
+            "mean_rgb": [
+              225,
+              198,
+              175
+            ]
+          },
+          {
+            "frame": 13,
+            "beat": "post-peak",
+            "mask_px": 32613,
+            "dominant_hue_deg": "30-40",
+            "fire_band_frac": 0.646,
+            "mean_rgb": [
+              220,
+              189,
+              169
+            ]
+          },
+          {
+            "frame": 16,
+            "beat": "fade-1",
+            "mask_px": 21855,
+            "dominant_hue_deg": "30-40",
+            "fire_band_frac": 0.565,
+            "mean_rgb": [
+              211,
+              182,
+              168
+            ]
+          },
+          {
+            "frame": 19,
+            "beat": "residual",
+            "mask_px": 14085,
+            "dominant_hue_deg": "30-40",
+            "fire_band_frac": 0.697,
+            "mean_rgb": [
+              215,
+              189,
+              169
+            ]
+          }
+        ],
+        "mean_fire_band_frac": 0.622,
+        "peak_fire_band_frac": 0.697
+      },
+      "metric4_premium_layering": {
+        "per_frame": [
+          {
+            "frame": 0,
+            "beat": "emerge",
+            "mask_px": 10555,
+            "mean_local_std": 3.1
+          },
+          {
+            "frame": 4,
+            "beat": "grow-1",
+            "mask_px": 14247,
+            "mean_local_std": 4.27
+          },
+          {
+            "frame": 7,
+            "beat": "grow-2",
+            "mask_px": 19217,
+            "mean_local_std": 4.27
+          },
+          {
+            "frame": 10,
+            "beat": "near-peak",
+            "mask_px": 31470,
+            "mean_local_std": 3.96
+          },
+          {
+            "frame": 13,
+            "beat": "post-peak",
+            "mask_px": 32613,
+            "mean_local_std": 4.33
+          },
+          {
+            "frame": 16,
+            "beat": "fade-1",
+            "mask_px": 21855,
+            "mean_local_std": 5.21
+          },
+          {
+            "frame": 19,
+            "beat": "residual",
+            "mask_px": 14085,
+            "mean_local_std": 6.18
+          }
+        ],
+        "mean_local_std": 4.47,
+        "peak_local_std": 6.18
+      },
+      "metric5_directionality_NOT_LOADBEARING": {
+        "note": "centered lifecycle — axis-align not meaningful",
+        "per_frame": [
+          {
+            "frame": 0,
+            "beat": "emerge",
+            "elongation": 1.31,
+            "axis_align_cos": 0.303
+          },
+          {
+            "frame": 4,
+            "beat": "grow-1",
+            "elongation": 1.63,
+            "axis_align_cos": 0.972
+          },
+          {
+            "frame": 7,
+            "beat": "grow-2",
+            "elongation": 2.27,
+            "axis_align_cos": 0.937
+          },
+          {
+            "frame": 10,
+            "beat": "near-peak",
+            "elongation": 1.71,
+            "axis_align_cos": 0.845
+          },
+          {
+            "frame": 13,
+            "beat": "post-peak",
+            "elongation": 3.37,
+            "axis_align_cos": 0.936
+          },
+          {
+            "frame": 16,
+            "beat": "fade-1",
+            "elongation": 2.63,
+            "axis_align_cos": 0.945
+          },
+          {
+            "frame": 19,
+            "beat": "residual",
+            "elongation": 3.13,
+            "axis_align_cos": 0.979
+          }
+        ],
+        "mean_elongation": 2.29
+      },
+      "backdrop_invariance": {
+        "per_frame": [
+          {
+            "frame": 0,
+            "backdrop_luma_drift_vs_F0": 0
+          },
+          {
+            "frame": 4,
+            "backdrop_luma_drift_vs_F0": 0.119
+          },
+          {
+            "frame": 7,
+            "backdrop_luma_drift_vs_F0": 0.187
+          },
+          {
+            "frame": 10,
+            "backdrop_luma_drift_vs_F0": 0.262
+          },
+          {
+            "frame": 13,
+            "backdrop_luma_drift_vs_F0": 0.204
+          },
+          {
+            "frame": 16,
+            "backdrop_luma_drift_vs_F0": 0.142
+          },
+          {
+            "frame": 19,
+            "backdrop_luma_drift_vs_F0": 0.112
+          }
+        ],
+        "max_luma_drift": 0.262,
+        "invariant": true
+      },
+      "SUMMARY": {
+        "mean_motion_presence": 67.49,
+        "mean_fire_band_frac": 0.622,
+        "peak_fire_band_frac": 0.697,
+        "mean_layering_local_std": 4.47,
+        "peak_layering_local_std": 6.18,
+        "lifecycle_growth_ratio": 3.09,
+        "peak_mask_px": 32613
+      }
+    },
+    "v2": {
+      "variant": "v2",
+      "files": [
+        "v2_primary_000.png",
+        "v2_primary_004.png",
+        "v2_primary_007.png",
+        "v2_primary_010.png",
+        "v2_primary_013.png",
+        "v2_primary_016.png",
+        "v2_primary_019.png"
+      ],
+      "metric1_energy_travel_NOT_LOADBEARING": {
+        "note": "centered lifecycle, no caster->threat axis — axis-frac not meaningful",
+        "per_frame": [
+          {
+            "frame": 0,
+            "beat": "emerge",
+            "core_cx": 50.2,
+            "core_cy": 46.7,
+            "core_axis_frac": 0.506,
+            "core_px": 6158,
+            "full_cx": 50.1,
+            "full_cy": 46.7,
+            "full_px": 6421,
+            "full_mass": 1351582
+          },
+          {
+            "frame": 4,
+            "beat": "grow-1",
+            "core_cx": 50.7,
+            "core_cy": 46.3,
+            "core_axis_frac": 0.523,
+            "core_px": 6343,
+            "full_cx": 50.7,
+            "full_cy": 46.4,
+            "full_px": 7016,
+            "full_mass": 1368559
+          },
+          {
+            "frame": 7,
+            "beat": "grow-2",
+            "core_cx": 50.8,
+            "core_cy": 45.4,
+            "core_axis_frac": 0.525,
+            "core_px": 5982,
+            "full_cx": 50.7,
+            "full_cy": 45.6,
+            "full_px": 6805,
+            "full_mass": 1293943
+          },
+          {
+            "frame": 10,
+            "beat": "near-peak",
+            "core_cx": 51.2,
+            "core_cy": 44.5,
+            "core_axis_frac": 0.54,
+            "core_px": 6785,
+            "full_cx": 51.1,
+            "full_cy": 44.9,
+            "full_px": 8212,
+            "full_mass": 1426497
+          },
+          {
+            "frame": 13,
+            "beat": "post-peak",
+            "core_cx": 51.3,
+            "core_cy": 44.2,
+            "core_axis_frac": 0.543,
+            "core_px": 6977,
+            "full_cx": 51.1,
+            "full_cy": 44.7,
+            "full_px": 8920,
+            "full_mass": 1455746
+          },
+          {
+            "frame": 16,
+            "beat": "fade-1",
+            "core_cx": 51.4,
+            "core_cy": 43.9,
+            "core_axis_frac": 0.548,
+            "core_px": 7266,
+            "full_cx": 51.2,
+            "full_cy": 44.3,
+            "full_px": 9183,
+            "full_mass": 1480256
+          },
+          {
+            "frame": 19,
+            "beat": "residual",
+            "core_cx": 51.8,
+            "core_cy": 44.2,
+            "core_axis_frac": 0.561,
+            "core_px": 7595,
+            "full_cx": 51.5,
+            "full_cy": 44.9,
+            "full_px": 9819,
+            "full_mass": 1559845
+          }
+        ],
+        "net_core_dispX_pct": 1.1
+      },
+      "lifecycle_growth": {
+        "mask_px_seq": [
+          6421,
+          7016,
+          6805,
+          8212,
+          8920,
+          9183,
+          9819
+        ],
+        "mass_seq": [
+          1351582,
+          1368559,
+          1293943,
+          1426497,
+          1455746,
+          1480256,
+          1559845
+        ],
+        "emerge_mask_px": 6421,
+        "peak_mask_px": 9819,
+        "peak_mass": 1559845,
+        "growth_ratio_peak_over_emerge": 1.53
+      },
+      "metric2_motion_presence": {
+        "pairs": [
+          {
+            "pair": "0->4",
+            "beat": "emerge->grow-1",
+            "mean_delta_in_region": 48.56,
+            "delta_centroid_x": 50.9,
+            "delta_centroid_y": 47.6
+          },
+          {
+            "pair": "4->7",
+            "beat": "grow-1->grow-2",
+            "mean_delta_in_region": 29.28,
+            "delta_centroid_x": 50,
+            "delta_centroid_y": 47.1
+          },
+          {
+            "pair": "7->10",
+            "beat": "grow-2->near-peak",
+            "mean_delta_in_region": 48.99,
+            "delta_centroid_x": 51.9,
+            "delta_centroid_y": 45.3
+          },
+          {
+            "pair": "10->13",
+            "beat": "near-peak->post-peak",
+            "mean_delta_in_region": 51.79,
+            "delta_centroid_x": 50.2,
+            "delta_centroid_y": 43.7
+          },
+          {
+            "pair": "13->16",
+            "beat": "post-peak->fade-1",
+            "mean_delta_in_region": 35.04,
+            "delta_centroid_x": 49.6,
+            "delta_centroid_y": 43.7
+          },
+          {
+            "pair": "16->19",
+            "beat": "fade-1->residual",
+            "mean_delta_in_region": 42.12,
+            "delta_centroid_x": 49.6,
+            "delta_centroid_y": 48
+          }
+        ],
+        "mean_inter_frame_delta": 42.63,
+        "propagation_span_x_pct": 2.3
+      },
+      "metric3_fire_hue": {
+        "per_frame": [
+          {
+            "frame": 0,
+            "beat": "emerge",
+            "mask_px": 6421,
+            "dominant_hue_deg": "30-40",
+            "fire_band_frac": 0.754,
+            "mean_rgb": [
+              232,
+              214,
+              198
+            ]
+          },
+          {
+            "frame": 4,
+            "beat": "grow-1",
+            "mask_px": 7016,
+            "dominant_hue_deg": "30-40",
+            "fire_band_frac": 0.672,
+            "mean_rgb": [
+              226,
+              207,
+              193
+            ]
+          },
+          {
+            "frame": 7,
+            "beat": "grow-2",
+            "mask_px": 6805,
+            "dominant_hue_deg": "30-40",
+            "fire_band_frac": 0.683,
+            "mean_rgb": [
+              225,
+              207,
+              193
+            ]
+          },
+          {
+            "frame": 10,
+            "beat": "near-peak",
+            "mask_px": 8212,
+            "dominant_hue_deg": "30-40",
+            "fire_band_frac": 0.689,
+            "mean_rgb": [
+              219,
+              200,
+              188
+            ]
+          },
+          {
+            "frame": 13,
+            "beat": "post-peak",
+            "mask_px": 8920,
+            "dominant_hue_deg": "30-40",
+            "fire_band_frac": 0.754,
+            "mean_rgb": [
+              221,
+              203,
+              189
+            ]
+          },
+          {
+            "frame": 16,
+            "beat": "fade-1",
+            "mask_px": 9183,
+            "dominant_hue_deg": "30-40",
+            "fire_band_frac": 0.741,
+            "mean_rgb": [
+              220,
+              202,
+              189
+            ]
+          },
+          {
+            "frame": 19,
+            "beat": "residual",
+            "mask_px": 9819,
+            "dominant_hue_deg": "30-40",
+            "fire_band_frac": 0.739,
+            "mean_rgb": [
+              220,
+              202,
+              188
+            ]
+          }
+        ],
+        "mean_fire_band_frac": 0.719,
+        "peak_fire_band_frac": 0.754
+      },
+      "metric4_premium_layering": {
+        "per_frame": [
+          {
+            "frame": 0,
+            "beat": "emerge",
+            "mask_px": 6421,
+            "mean_local_std": 3.7
+          },
+          {
+            "frame": 4,
+            "beat": "grow-1",
+            "mask_px": 7016,
+            "mean_local_std": 3.68
+          },
+          {
+            "frame": 7,
+            "beat": "grow-2",
+            "mask_px": 6805,
+            "mean_local_std": 3.65
+          },
+          {
+            "frame": 10,
+            "beat": "near-peak",
+            "mask_px": 8212,
+            "mean_local_std": 3.91
+          },
+          {
+            "frame": 13,
+            "beat": "post-peak",
+            "mask_px": 8920,
+            "mean_local_std": 4.36
+          },
+          {
+            "frame": 16,
+            "beat": "fade-1",
+            "mask_px": 9183,
+            "mean_local_std": 4.32
+          },
+          {
+            "frame": 19,
+            "beat": "residual",
+            "mask_px": 9819,
+            "mean_local_std": 4.33
+          }
+        ],
+        "mean_local_std": 3.99,
+        "peak_local_std": 4.36
+      },
+      "metric5_directionality_NOT_LOADBEARING": {
+        "note": "centered lifecycle — axis-align not meaningful",
+        "per_frame": [
+          {
+            "frame": 0,
+            "beat": "emerge",
+            "elongation": 1.17,
+            "axis_align_cos": 0.898
+          },
+          {
+            "frame": 4,
+            "beat": "grow-1",
+            "elongation": 1.14,
+            "axis_align_cos": 0.922
+          },
+          {
+            "frame": 7,
+            "beat": "grow-2",
+            "elongation": 1.09,
+            "axis_align_cos": 0.916
+          },
+          {
+            "frame": 10,
+            "beat": "near-peak",
+            "elongation": 1.07,
+            "axis_align_cos": 0.634
+          },
+          {
+            "frame": 13,
+            "beat": "post-peak",
+            "elongation": 1.02,
+            "axis_align_cos": 0.128
+          },
+          {
+            "frame": 16,
+            "beat": "fade-1",
+            "elongation": 1.07,
+            "axis_align_cos": 0.78
+          },
+          {
+            "frame": 19,
+            "beat": "residual",
+            "elongation": 1.12,
+            "axis_align_cos": 0.444
+          }
+        ],
+        "mean_elongation": 1.1
+      },
+      "backdrop_invariance": {
+        "per_frame": [
+          {
+            "frame": 0,
+            "backdrop_luma_drift_vs_F0": 0
+          },
+          {
+            "frame": 4,
+            "backdrop_luma_drift_vs_F0": 0.009
+          },
+          {
+            "frame": 7,
+            "backdrop_luma_drift_vs_F0": 0.007
+          },
+          {
+            "frame": 10,
+            "backdrop_luma_drift_vs_F0": 0.017
+          },
+          {
+            "frame": 13,
+            "backdrop_luma_drift_vs_F0": 0.032
+          },
+          {
+            "frame": 16,
+            "backdrop_luma_drift_vs_F0": 0.043
+          },
+          {
+            "frame": 19,
+            "backdrop_luma_drift_vs_F0": 0.054
+          }
+        ],
+        "max_luma_drift": 0.054,
+        "invariant": true
+      },
+      "SUMMARY": {
+        "mean_motion_presence": 42.63,
+        "mean_fire_band_frac": 0.719,
+        "peak_fire_band_frac": 0.754,
+        "mean_layering_local_std": 3.99,
+        "peak_layering_local_std": 4.36,
+        "lifecycle_growth_ratio": 1.53,
+        "peak_mask_px": 9819
+      }
+    }
+  },
+  "deltas": {
+    "V1-V0 (THE HEADLINE)": {
+      "motion_presence": 26.23,
+      "peak_layering": -0.95,
+      "mean_layering": -0.83,
+      "peak_fire_band_frac": -0.037,
+      "mean_fire_band_frac": -0.05,
+      "peak_mask_px": 7832,
+      "note": "positive motion/layering delta = the emission+sub-emitter lever adds live-verb + depth in-engine. NEGATIVE fire-band delta = the white-hot-core hue cost (additive blows the core white, OUT of the fire band) — premium-bloom-WITH-hue-cost, the eye<->number divergence."
+    },
+    "V2-V1 (harvest cross-check)": {
+      "motion_presence": -24.86,
+      "peak_layering": -1.82,
+      "peak_fire_band_frac": 0.057,
+      "note": "V2>>V1 on juice axes = flipbook structurally richer => harvest worth it. V2<=V1 => no harvest needed."
+    }
+  }
+}
