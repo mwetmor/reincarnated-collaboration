@@ -63,3 +63,47 @@ The §7 autonomous-run feature commits (`104bfbc`/`af5c8b2`/`c1e07a0`) and their
 ## Next-session pickup
 
 If Matt authorizes the push: execute the two-repo push above, then the three-flip run is fully closed. Otherwise the stack sits clean and revertible on disk.
+
+---
+
+# ADDENDUM — FOLDED season-1 completion run (sim + pipeline-spine, one sequence)
+
+**Session 2 (same date):** knight-rider executed the gandalf-authored folded completion run (`gandalf/requests/2026-06-18-kr-folded-completion-run-prompt.md`). Fired autonomously per its sequence (diagnostics → additive/calibration → BC-Stage-3-destructive-LAST), joint-gated each Tier-1 close with jack-ryan Gate-2 + the gandalf endorse-criteria. **Push was PRE-AUTHORIZED (run-close push-pattern) — executed.**
+
+## Per-item status (8 items)
+
+| # | Item | Workstream | Status | Gate composition |
+|---|---|---|---|---|
+| 1 | Caster-Lever-C probe | A (diag) | **PARK Tier-2** | blocked pre-sim; no verdict forced (§2.1 trigger) |
+| 2 | Keystone-ceiling sweep | cross (diag) | **CLOSED** (investigation); CALL **PARK Tier-3** | K-1, M_desat=g=0.55 |
+| 3 | P2 faction writer | B | **Tier-1 CLOSED** | JR PASS-WITH-INFO + endorse §3.1 |
+| 4 | P3 monster wiring | B | **Tier-1 CLOSED** | JR PASS-WITH-INFO + endorse §3.2 |
+| 5 | P5 weapon emission | B | **Tier-1 CLOSED** | JR PASS-WITH-INFO + endorse §3.3 |
+| 6 | P1 emitter scaffolding | B | per-type **CLOSED**; assembly **PARK Tier-3** | endorse §3.4 (no route-vs-replace baked) |
+| 7 | B4 summon-construct calibration | A | **PARK Tier-2** (HONEST_FAIL §2.3(ii)) | no value committed; discipline held |
+| 8 | BC Stage-3 prove-then-delete | A (destructive LAST) | **Tier-1 CLOSED as NO-OP** | JR PASS-WITH-INFO + endorse §2.2; tri-state survives |
+
+## Commits + push
+
+- **Engine** `eb69419..2e4033f` (8): `2c252d5` star-lord emitters · `64e26d8` B4 park note · `5b529d2` BC Stage-3 NO-OP + diag math notes · `2e4033f` diagnostic-record (harnesses+outputs) · PLUS the 4 carried three-flip ratification commits (`f32e48a`/`424c83e`/`62f0f2d`/`6f3d689`) annotated "carried in the run-close PUSH GATE" — this folded run was that gate.
+- **Collab** `ce2e5c3..528f3ed` (20): `2c0592f` + `528f3ed` JR Gate-2 findings (this run) + 18 carried prior gandalf/galadriel/run-prompt work-products.
+
+## Park-stack (for re-engagement)
+
+**Tier-2 (gandalf):**
+- **Caster probe** — blocked on the BC-cutover-deleted caster kit-build path; needs a rocket post-cutover caster→`PlayerClass` construction path. Harness complete (`scripts/caster_lever_c_probe_2026_06_18.py`), ~near-zero marginal work once the rocket path lands. The caster boss-bridge CALL stays blocked behind it.
+- **B4 summon-construct calibration** — §7 proxy budget math (contribution-shaped) vs gauntlet KPM pass-floor (direct-damage-shaped) in structural tension; proxy damage invisible to KPM by the COUNT≠CONTRIBUTION cut. §5 re-engagement criterion: choose the instrument (seat summoners on the contribution instrument Set #6 used / refit the KPM band / wire proxy budget into KPM as a Tier-3 build). No value moved (correct — no fake green).
+- **BC §2.2 doc-reconcile NOTE** — the prove-gate references the deleted `simulate_fight` 1D instrument (removed 2026-06-16); reconcile the criteria wording to the 2D-spatial-gauntlet-sole-sim reality. No behavioral risk (equivalence already proven 16/16-at-0.00 at Stage-2).
+
+**Tier-3 (Matt):**
+- **Keystone-ceiling CALL** — K-1: keystone WAS holding the ceiling; M_desat=g=0.55 (above the g=0.25 power-fantasy floor, so over-tuned is genuinely measurable, not a feel-vs-measure tension). How far to reduce magnitude, if at all. Evidence durable at `output/keystone-ceiling-magnitude-sweep-20260618.json`.
+- **P1 route-through-vs-replace architecture** — does the single driver route cycle-14 content THROUGH `season_exporter` or REPLACE it? Per-type emitters built driver-agnostically and waiting; only the top-level stitch parks.
+- **Boss-bridge family calls** — rogue (a) composer-efficacy-fix vs (b) accept-and-route-via-b6; caster analog blocked behind the parked probe. gandalf's lean (one doctrine, three instances) is framed, not decided.
+
+**INFO routed (non-blocking):**
+- 33 `test_cycle12_layer4_convergence.py` failures — rocket seam, pre-existing/out-of-seam (`SkillTreeGenerator.generate()` retired G10 2026-06-16). Standing rocket cleanup.
+- 7 `test_cycle13_wave5_gauntlet_sim.py::TestGauntletKitResult` failures — gamora seam, boundary-independent cohort-accounting; separate ticket.
+
+## Next-session pickup
+
+drax cutover (loadout reads factions from the embedded bundle block, then retire the `*-faction-clusters.json` sidecar) is sequenced behind the P1 architecture call. Sidecar NOT deleted this run.
