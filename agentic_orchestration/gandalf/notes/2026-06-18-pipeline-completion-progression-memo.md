@@ -237,8 +237,76 @@ If Matt wants a single unattended autonomous run that takes both pipelines as fa
 
 ---
 
-## 7. Sign-off
+## 7. NEXT-SESSION PICKUP — consolidated forward queue (GOVERNS §1–§6 where it conflicts)
 
-The two pipelines are not blocked on Matt and they are not blocked on engineering capacity — they are each blocked on **one gandalf ruling I have not yet authored.** That is the actionable finding: the next gandalf session's highest-leverage work is clearing Stage-2c (band ruling) and §7.1 (manifest design-half), because those two pre-clears are what convert "blocked" into "an unattended run can finish it." The flip run is authorized and routed; the push and the two design calls are the named residual.
+Cold-start-safe pickup. **This session closed four things** (see §7.4) and leaves the content-emission spine + five gandalf design pre-clears for the next session. Everything needed to resume without re-deriving is captured here.
+
+### 7.1 The full content-emission path (Matt's "gen pipeline") — the forward picture
+
+The target is **one driver that emits all seven content types into a single Godot-consumable sim-ready bundle.** Today there is none — **two emit tracks that do not meet** (full diagram: §0.5 C-PIPE):
+
+- **TRACK NEW** (cycle-14 wave5): `run_season_production.py` → P2 kit-candidates → 2.5 variant-enum → 3 gauntlet+PM1 → 4 mechanical-archive (`kit_archive.db`) → 4.5 PM1-rerun → 5 cohesion-judge LLM (faction identity / season name / inter-faction rel / per-kit names) → 7 joint-gate → `cycle14_wave5_emitter.emit_season()` → **loadout app** JSON. **Kit-only — no monsters, no npcs; skill `flavor_text` NULL; `main_weapon` NULL.**
+- **TRACK OLD** (`season_exporter.export_season()`): emits the genuinely sim-ready bundle `exports/<id>/{metadata,classes,monsters,gear_pool,gauntlet_recipe}.json` — **but kit/monster/gear-only (factions + npcs ABSENT, weapon=null), and its `generate-season` CLI driver was DELETED.**
+
+**The 7-row honest state** (evidence in §0.5 C-PIPE table): kits WORKING · gear WORKING · monsters WORKING-old / MISSING-cycle-14 · factions PARTIAL (generated, schema at `schemas.py:1174`, never written) · weapons PARTIAL (identity in `substrate_weapon_binding`, never emitted as descriptor; `main_weapon=None`) · flavortext WORKING-class/monster/gear / GAP-cycle-14-skill-NULL · **npcs MISSING (no schema, no generator).**
+
+**The five-part engineering map to a complete bundle** (mostly rocket + star-lord plumbing — NOT gandalf, except where flagged):
+- (a) a **single driver** that routes cycle-14 content through (or replaces) `season_exporter` — *star-lord/rocket plumbing*
+- (b) **monster generation wired into the cycle-14 track** (kit-only today) — *rocket/star-lord plumbing*
+- (c) **`faction_clusters` actually written** to the bundle (schema present, writer absent) — *star-lord plumbing, gated on the §7.2(below) faction-shape design-spec*
+- (d) **weapon descriptor wired** `substrate_weapon_binding` → `main_weapon` — *star-lord plumbing, gated on the weapon-shape design-spec*
+- (e) **NPC emitter built from zero** — *rocket/star-lord build, gated on the NPC design-spec (the headline gandalf item)*
+
+**The gandalf surface on this spine is design-spec'ing the missing emitters' CONTENT — items §7.2(1)(2) below. The plumbing (a)(b) is not mine.**
+
+### 7.2 The five "beyond Stage-2c" gandalf design pre-clears (priority order)
+
+**(1) NPC content spec — from zero [HIGHEST LEVERAGE; squarely gandalf].**
+- *Scope:* no `ExportNPC` schema, no npc generator anywhere. NPCs are the non-kit world-population characters a season needs — distinct from **monsters** (combat fodder, emitted) and **kits** (player-playable, emitted). The only fully-missing content type on the spine.
+- *Design questions to resolve:* What IS an NPC in the seasonal-journey frame? Candidate roles — faction representatives/leaders, vendors, quest/story-bearers, the spirit-guide special NPC (already designed, doc 17 — does it emit through this path or separately?). Combatant vs non-combatant (a flag + optional kit/stat reference so the sim can fight it / fight alongside it, vs narrative-only). Faction coupling (npc schema references `faction_clusters` → couples to spec (2)). Earth-meta-layer scope (spirit-guide-as-future-self is a meta-layer NPC — in or out of the in-season npc taxonomy?). **D7 discipline binds:** npc dialogue/flavor is templated structure + narrow LLM blanks, NEVER raw LLM dialogue at major moments — extend the `naming.py` flavor pattern, do not open it.
+- *Produces:* an `ExportNPC` schema design-spec (sim-read fields) + content-generation intent (LLM-narrow-blank vs human-curated split). NOT the generator code.
+- *Substrate to draw from:* doc 17 (spirit guide), the faction cohesion-judge output (faction identity already LLM-live), `naming.py` (flavor pattern), `project_earth_meta_layer` memory.
+- *Autonomous-eligibility:* SPEC is gandalf-authorable cold; the generator BUILD that follows is rocket/star-lord, additive-eligible once the spec lands.
+
+**(2) Faction + weapon content-shape specs [HIGH; gandalf].**
+- *Faction:* generated + schema-present (`schemas.py:1174`) but `_export_season_inner()` never writes it. Design question — does the Godot sim consume factions **mechanically** (faction-modifiers on encounter composition / monster / kit, alliance-hostility affecting encounter-gen via the cohesion-judge inter-faction relationships) or **narratively** (identity/flavor only)? Which `faction_clusters` fields are sim-load-bearing vs presentation-only. *Produces:* the faction JSON shape the sim reads + which cohesion-judge outputs route to the bundle (gates plumbing (c)).
+- *Weapon:* `main_weapon=None` everywhere; identity lives in `substrate_weapon_binding` (phase2 intermediate), never emitted. Design question — is a weapon a separate content type or a gear-subtype? What does the sim need from a weapon descriptor distinct from its gear entry? *Produces:* the weapon descriptor shape + binding→descriptor mapping intent (gates plumbing (d)). Lighter design than NPC/faction — the substrate binding already exists; this is wiring-shape.
+
+**(3) Keystone-ceiling "over-tuned" investigation [HIGH for autonomous-run value; my parked Tier-2b ticket].**
+- *Scope:* open_arena AFTER `mean_wr=1.000`, `spearman_degenerate`, `max_rank_shift=23`. 1.000 WR with zero loss-variance is a **ceiling, not a measurement** — it degrades any balance run that leans on it. Distinct from the MOB_HP anchor (locked 1.5×) and from FLIP #3 (faithful default) — both correctly did NOT absorb this.
+- *Design question:* is the keystone over-tuned? *Investigation:* a keystone-magnitude sweep at fixed MOB_HP 1.5× — does any magnitude produce sub-1.000 WR with measurable variance, restoring rank-discrimination? *Produces:* an empirical characterization (ceiling keystone-driven vs scenario-driven) feeding the design CALL.
+- *Autonomous-eligibility:* INVESTIGATION autonomous-eligible (it's a sweep); the design CALL parks for Matt+gandalf (Tier-2/3).
+
+**(4) Caster-coverage scenario-design spec [MEDIUM-HIGH; gandalf; off the additive critical path].**
+- *Scope:* session-13 AGENT_STATE finding — a 3.3× HP reduction moved fire_mage swarm WR only ~0.02 (0.467→0.483). Casters fail on a **spatial/coverage/timeout limit INDEPENDENT of mob HP**, in the swarm/open-arena GROUP-clear scenario. The flip run does NOT touch this.
+- *Design question:* scenario-design artifact (the swarm encounter over-punishes the caster spatial/coverage profile) vs genuine kit-power gap? The fix is a scenario-design call — adjust the swarm cohort's spatial/timeout parameters (telegraph windows, arena geometry, timeout calibration) to fairly measure caster coverage — NOT a MOB_HP or kit-stat change.
+- *Substrate:* the session-13 finding + the spatial-proxy mechanic-port (the geometry-aware spatial resolution #1 brought online). *Produces:* the swarm/open-arena scenario-design spec; implementation becomes eligible once it lands.
+
+**(5) Pre-registered endorse-criteria [META pre-clear — the lever that converts the queue to unattended].**
+- *Scope:* for an autonomous run to close additive builds (Tier-1) without round-tripping to a live gandalf turn, the run needs gandalf-authored criteria it self-checks against (2026-06-17 three-tier envelope pattern).
+- *Produces:* per-build acceptance criteria (what makes §7.2 shader / §7.3 fill / §7.5 adapter / Stage-2d wiring / spatial-proxy port "gandalf-endorsed" without a live turn) + the PARK triggers (Tier-2: band-drift past pre-registered threshold, any keystone-ceiling interaction, any schema contradiction; Tier-3: push, keystone-ceiling design call, procgen adoption, any locked-decision re-open). The criteria encode the design-intent fidelity each build must preserve — that's why it's gandalf. Author **after** the content specs exist (so there's something to write criteria against), but it's what makes the whole downstream autonomous-eligible.
+
+### 7.3 Other follow-up items (routing + gates — NOT gandalf design-authoring)
+
+- **BC-coordinate decisions-log entry** — ratifies this session's Stage-2 ACCEPT ruling; routes Matt-approve → KR-draft → jack-ryan-review. Awaits Matt-approve.
+- **jack-ryan Gate-2 on the BC implementation** — separate downstream QA gate (MIGRATION v1.70 already landed; the §3.3 INFO-4 table + JSON companion are the Gate-2 evidence). My design gate ≠ jack-ryan's QA gate.
+- **Stage-3 BC prove-then-delete** — gated-but-unblocked by this session's ruling; its own future gate (deletes `ARCHETYPE_ROLE_PRIORITY` / `_PLAYER_CONTROLLER_ARCHETYPES` / `ARCHETYPE_TEMPLATES` / `legacy_archetype_shim`). The tri-state must NOT collapse before it (FALLBACK + LOUD-DEFAULT survive per Disc #12/#39).
+- **`AGENT_STATE.md:4269` stale "READY FOR GANDALF"** — never back-edited after Stage-2c/2d landed 2026-06-16; flag for gamora to clear (it is NOT a live ask).
+- **elrond §7.1 substrate slice** — in-flight (`837dd7f`), additive; the remaining half of the gen-pipeline VISUAL §7.1 node (my design-half closed this session).
+- **Push gates (ADR-006, Matt-ask):** collab ahead by 3 (`01a0d53` + two prior); engine ahead by 4 (the three flips + jack-ryan's declaration). Unattended-run value sits on disk until a push-pre-authorization or a Matt push.
+
+### 7.4 Closed THIS session — do NOT re-open next session
+
+- **BC-coordinate cutover Stage-2 envelope escalation → RULED ACCEPT** + A1 earth_caster case=2 re-confirmed (the genuine battle-sim gandalf gate; ruling note `2026-06-18-bc-coordinate-cutover-stage2-envelope-escalation-ruling.md`).
+- **Gear-spec §7.1 manifest VISUAL design-half → AUTHORED** (element-flavor tint menu + aura colors + finish-leans + zone guidance + emission placement; `canonical/story/gear-spec-element-flavor-manifest-design-half-2026-06-18.md`). This closes gen-pipeline VISUAL chokepoint #2 (§1–§6 still show it open — superseded).
+- **Stage-2c band ruling → ALREADY DONE** (2026-06-16; confirm, do NOT re-rule — §0–§6 treating it as blocked-on-gandalf are superseded by §0.5 C2).
+- **open-shell floor residual → RESOLVED** option (a) empirical central mass (§0.5 C3).
+- **3-flips KR run → COMPLETE** — all flipped + jack-ryan-declared (`f32e48a`); FLIP #3 band-drift byte-identical `|delta|=0.00` confirming the @max-profile coherence prediction; keystone-ceiling correctly parked (→ §7.2(3)); regression clean; only PUSH pending.
+
+---
+
+## 8. Sign-off
+
+The two pipelines are not blocked on Matt and they are not blocked on engineering capacity. **The battle-sim gandalf gate cleared this session** (BC-coordinate ACCEPT; Stage-2c was already done). **The gen-pipeline VISUAL gandalf chokepoint cleared this session** (§7.1 design-half authored). What remains is the **content-emission spine** — Matt's actual "gen pipeline" — whose gandalf surface is the five design pre-clears in §7.2, headed by the **NPC content spec (from zero).** The plumbing that joins the two emit tracks is rocket/star-lord seam work, not a gandalf chokepoint. Next-session highest-leverage work: author the NPC spec, then the faction/weapon shapes, then pre-registered endorse-criteria — the sequence that converts the content-emission map from "blocked" into "an unattended run can build it."
 
 **Signed:** gandalf, 2026-06-18.
