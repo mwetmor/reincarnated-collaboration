@@ -1,0 +1,141 @@
+{
+  "artifact": "VFX-register-test T0-T3 ladder — anchored tier-marks (the RULER)",
+  "wave": "Wave 1 of the Binbun-emission VFX-register-test (drax dev / galadriel judge / gandalf design)",
+  "authored": "2026-06-18",
+  "author": "galadriel (visual-perception steward)",
+  "governs": "gandalf/notes/2026-06-18-vfx-register-test-spec-binbun-emission.md (esp §6 verdict logic) + notes/2026-06-18-scene-scoring-rubric-opportunity-memo.md (T0-T3 defs)",
+  "purpose": "Wave 2 scores drax's V0/V1(/V2/V3) Godot fire-cast frames against these anchored marks. Wave 1 = ladder-anchoring ONLY; NO Godot test frames scored here (drax has not delivered them).",
+
+  "instrument_provenance": {
+    "register-metrics.mjs": "run UNMODIFIED; CLI <label=path>; emits HFD/LMV/LDR/SAT_mean/SAT_std/HLF_pct/SHF_pct over 960w-grayscale+HSV. Source of HLF + LMV anchor values.",
+    "spell-motion-score.mjs": "the LOCKED time-sequence instrument is HARDCODED to a 7-frame Godot sequence + takes NO CLI args + isolates the spell by ADDITIVE-FLOOR temporal subtraction. It STRUCTURALLY CANNOT ingest single genre stills. Run UNMODIFIED on its OWN native sequence (the existing Godot V0 descent fire-cast) to capture its self-reported axis values as the GODOT-V0-BASELINE data point (see godot_v0_baseline below).",
+    "ladder-anchor-still-probe.mjs": "NEW read-only sidecar (does NOT modify the locked instrument). Computes spell-motion's hue-legibility (fire-band frac) + layering-variance (local-luma-std) primitives VERBATIM, on single stills, via a HIGHLIGHT-LUMA gate (luma>=158) since a single still has no temporal floor to subtract. Source of the still-anchored hue-legibility + layering-variance marks."
+  },
+
+  "CRITICAL_instrument_boundary": {
+    "still_anchorable_axes": ["HLF (register-metrics)", "LMV (register-metrics)", "layering-variance (still-probe analog of spell-motion M4)", "hue-legibility (still-probe analog of spell-motion M3)"],
+    "NOT_still_anchorable_axes": ["energy-travel (spell-motion M1)", "motion-presence (spell-motion M2)", "directionality (spell-motion M5)"],
+    "reason": "energy-travel + motion-presence + directionality are INHERENTLY TEMPORAL — a single genre still has NO time axis, so there is no defensible way to anchor a tier-mark for them from stills. This is an honest v0.1 instrument-maturity boundary, surfaced not papered-over. For these 3 axes, Wave 2 scores drax's frame-SEQUENCES on their own (V1 vs V0 DELTA), and the GODOT-V0-BASELINE below is the only available reference point — which is appropriate, because the spec's PRIMARY signal for these axes IS the V1-V0 delta, not an absolute genre anchor."
+  },
+
+  "anchor_set": {
+    "genre_general_combat": ["LE-01..04 (Last Epoch)", "TLI-01..04 (Torchlight Infinite)"],
+    "fire_spell_exemplars_galadriel_sourced_2026-06-18": ["FIRE-PoE2-01-fireball-burst", "FIRE-PoE-02-golden-spell-dome", "FIRE-PoE-03-fire-combat-lava", "FIRE-PoE-04-fire-claw-mixed"],
+    "gap_flag": "diablo/ + path-of-exile/ folders were EMPTY; only the 4 fire-spell frames above were sourced into path-of-exile-adjacent fire-spell-exemplars/. No TRUE Diablo (D2/D3/D4) frame is in-tree — the D2-class T2 floor gandalf names is anchored-BY-PROXY via PoE-fire + TLI-01, not a Diablo frame. Surfaced as MANIFEST OBSERVATION."
+  },
+
+  "load_bearing_juice_axes": {
+    "HLF_highlight_bloom": {
+      "metric": "register-metrics HLF_pct (% px luma>0.80) — the additive-emissive glow lever that scored 5/5 at register-lock",
+      "anchor_values_sorted": {
+        "LE-01_cutscene(NON-combat,exclude)": 0.07,
+        "FIRE-PoE-04-fire-claw-mixed": 0.11,
+        "FIRE-PoE-03-fire-combat-lava": 0.61,
+        "LE-02_dungeon-spellarc": 0.64,
+        "FIRE-PoE2-01-fireball-burst": 0.81,
+        "FIRE-PoE-02-golden-dome": 1.10,
+        "LE-04_purple-beam": 1.65,
+        "TLI-03_dark-void": 1.88,
+        "TLI-04_combat": 2.51,
+        "TLI-01_golden-ritual": 2.86,
+        "TLI-02_loot-explosion": 7.40
+      },
+      "TIER_MARKS": {
+        "T1_coheres_ceiling": 0.15,
+        "T2_genre-competent_D2-class_FLOOR": 0.6,
+        "T2.8_strong-fire": 1.1,
+        "T3_genre-reference_PoE-D4-class": 2.85
+      },
+      "tier_mark_rationale": "T1<=0.15: the fire-claw-mixed frame (fire present but restrained) + non-combat cutscene sit here = 'coherent VFX present but not bloom-driven'. T2 FLOOR=0.6: the fire-combat-lava + LE-02-dungeon-spellarc (genuine D2-class legible-juiced fire) anchor the genre-competent floor. T2.8=1.1: golden-dome (strong additive fire bloom). T3=2.85: TLI-01 golden-ritual (the VFX-as-everything ceiling). T3-EXTREME (TLI-02 loot-explosion 7.40) is loot-screen saturation, NOT a single-spell target — do NOT hold a single fire-cast to it.",
+      "verdict_note": "drax V1 PASSES the HLF half of the juice gate at HLF >= 0.6 (T2 floor). The HEADLINE read is V1-HLF vs V0-HLF: a LARGE positive delta = the emission/post lever works (cheap fix); a SMALL delta = structural cap."
+    },
+
+    "LMV_layering_depth": {
+      "metric": "register-metrics LMV (mean per-tile luma std, 8x8 grid) — flat-billboard (low) vs richly-layered (high). PAIRED with layering-variance below.",
+      "anchor_values_sorted": {
+        "LE-01_cutscene(NON-combat,exclude)": 13.69,
+        "FIRE-PoE-04-fire-claw-mixed": 17.15,
+        "LE-02_dungeon-spellarc": 20.93,
+        "LE-03_void-zone": 25.60,
+        "FIRE-PoE2-01-fireball-burst": 25.81,
+        "TLI-01_golden-ritual": 26.88,
+        "FIRE-PoE-03-fire-combat-lava": 27.67,
+        "TLI-04_combat": 28.32,
+        "FIRE-PoE-02-golden-dome": 28.81,
+        "TLI-03_dark-void": 29.20,
+        "LE-04_purple-beam": 30.57,
+        "TLI-02_loot-explosion": 38.97
+      },
+      "TIER_MARKS": {
+        "T1_coheres_ceiling": 17.0,
+        "T2_genre-competent_FLOOR": 21.0,
+        "T3_genre-reference": 28.0
+      },
+      "tier_mark_rationale": "WHOLE-FRAME LMV — includes scene geometry not just the spell, so reads higher than the spell-region-only layering-variance below. T1<=17: fire-claw-mixed. T2 FLOOR=21: LE-02-dungeon (genre-competent painted/layered scene). T3=28: the TLI/PoE-fire premium cluster (golden-dome 28.8, fire-lava 27.7). NOTE: a Godot frame on a NEUTRAL GREY stage (spec §3) will have LOW whole-frame LMV by construction (the grey background is flat) — so for drax's frames, the spell-region layering-variance below is the cleaner read; whole-frame LMV is reported for transparency but interpret with the grey-stage caveat."
+    },
+
+    "layering_variance_spell_region": {
+      "metric": "spell-motion M4 analog (still-probe): mean local-luma-std INSIDE the bright-VFX region (HI-gate luma>=158). The flat-billboard signature INVERTED — core+glow-gradient+particle-scatter = HIGH; flat saturated billboard = LOW.",
+      "anchor_values_sorted": {
+        "TLI-04_combat": 10.98,
+        "TLI-01_golden-ritual": 11.99,
+        "LE-04_purple-beam": 18.32,
+        "FIRE-PoE-02-golden-dome": 17.90,
+        "FIRE-PoE-03-fire-combat-lava": 21.52,
+        "LE-02_dungeon-spellarc": 22.22,
+        "FIRE-PoE2-01-fireball-burst": 24.84,
+        "TLI-02_loot-explosion": 29.14,
+        "FIRE-PoE-04-fire-claw-mixed": 37.51
+      },
+      "godot_v0_baseline_spellmotion_M4": "7.4 - 11.8 (peak 11.8 at impact-onset) — the existing Godot descent fire-cast, scored by the LOCKED spell-motion-score.mjs on its native sequence",
+      "TIER_MARKS": {
+        "T1_coheres_ceiling": 11.0,
+        "T2_genre-competent_FLOOR": 18.0,
+        "T3_genre-reference": 24.0
+      },
+      "tier_mark_rationale": "T1<=11: a smooth single-billboard bloom (TLI-01 golden-ritual is a SMOOTH wash = 12.0, deliberately low-variance — a NUANCE: high-bloom can be low-layering; the eye reads 'one glowing disc'). T2 FLOOR=18: golden-dome (layered core+falloff). T3=24: the fireball-burst (24.8 — many discrete fire-bolts = high spell-region variance). The Godot V0 baseline (7.4-11.8) currently sits AT/BELOW T1 on this axis — meaning V0 reads as a near-flat additive billboard. The V1 sub-emitter (ember/spark layer) is EXACTLY the move that should lift this toward T2; the V1-V0 delta on spell-region layering-variance is a key Wave-2 read.",
+      "interpretation_caveat": "Higher spell-region variance is NOT monotonically 'better' — fire-claw-mixed reads 37.5 (highest) because its bright region is small + jagged + small-px (0.29% of frame). Read this axis WITH the gate-px size; a tiny jagged spell can spuriously score high. Wave 2 reports gate-px alongside."
+    },
+
+    "hue_legibility_fire": {
+      "metric": "spell-motion M3 analog (still-probe): fraction of WARM-bright spell pixels in the fire hue-band (0-50 deg). Element must read unambiguously as FIRE.",
+      "anchor_values_sorted_WARMHI_gate": {
+        "LE-04_purple-beam(NON-fire,reference-floor)": 0.473,
+        "TLI-02_loot-explosion": 0.603,
+        "FIRE-PoE-03-fire-combat-lava": 0.663,
+        "FIRE-PoE-04-fire-claw-mixed": 0.684,
+        "FIRE-PoE2-01-fireball-burst": 0.694,
+        "FIRE-PoE-02-golden-dome": 0.731,
+        "TLI-04_combat": 0.754,
+        "LE-02_dungeon-spellarc": 0.875,
+        "TLI-01_golden-ritual": 0.937
+      },
+      "godot_v0_baseline_spellmotion_M3": "0.30 - 0.51 (peak 0.51 at impact F06) — existing Godot descent fire-cast, LOCKED spell-motion-score.mjs on native sequence. NOTE: V0 baseline peak (0.51) is BELOW the genre fire-exemplar floor (0.66) — the existing Godot fire reads LESS unambiguously fire than genre fire.",
+      "TIER_MARKS": {
+        "T1_coheres_ceiling": 0.50,
+        "T2_genre-competent_FLOOR": 0.66,
+        "T3_genre-reference": 0.88
+      },
+      "tier_mark_rationale": "T1<=0.50: the Godot-V0 peak (0.51) + the non-fire purple-beam (0.47, included as a NON-fire reference floor — a purple spell scores low on the fire-band by design, confirming the metric discriminates element). T2 FLOOR=0.66: the PoE fire-exemplar cluster (0.66-0.73 — genuine legible fire in a busy scene). T3=0.88: LE-02-dungeon-spellarc (0.88) + TLI-01-golden-ritual (0.94 — a pure warm bloom, maximally fire-legible). The fire test subject must clear T2 (0.66) for gandalf's 'hue-legibility >= T2' non-negotiable.",
+      "scene_vs_isolated_caveat": "These warmHI-gate fractions are measured on FULL COMBAT SCENES (other warm props/fires contaminate the warm-bright region). drax's frame is ONE fire-spell on NEUTRAL GREY — its warmHI region is PURELY the spell, so its fire-band-frac should read HIGHER + cleaner than these scene anchors if the spell hue is genuinely fire. i.e. a Godot fire-spell on grey scoring BELOW 0.66 would be a real hue-legibility failure, not a scene-contamination artifact."
+    }
+  },
+
+  "godot_v0_baseline_full": {
+    "source": "spell-motion-score.mjs (LOCKED, unmodified) run on its native 7-frame Godot descent fire-cast sequence (godot 3b1daa2, descent_spellfx_warhall_seq_01..07.png)",
+    "why_captured": "This is the existing Godot fire-cast BEFORE the Binbun-emission test. It is the natural V0-comparison reference for the 3 TEMPORAL axes that cannot be still-anchored. It also tells us where Godot already sits: hue 0.51 peak (BELOW genre fire floor 0.66), layering 11.8 peak (AT/BELOW T1). Wave 2's drax V0 should land near here; drax V1 should lift above.",
+    "energy_travel_M1": "bright-core centroid net caster->threat dx=+20% frame-width, axis-advance=+0.7 (0=caster 1=threat) — the existing cast DOES travel (a real verb, not a static glyph)",
+    "motion_presence_M2": "mean inter-frame delta 21.8-60.3; high-delta band x-span 22% frame-width (propagates, not pulses)",
+    "fire_hue_M3": "fire-band-frac 0.30-0.51 (peak 0.51 impact)",
+    "premium_layering_M4": "mean-local-std 7.4-11.8 (peak 11.8 impact-onset)",
+    "directionality_M5": "elongation 2.3-4.0; axis-align-cos 0.74-0.94 (strongly points caster->threat)",
+    "backdrop_invariance": "max luma-drift 1.276 (tol 4.0) = INVARIANT (rig did not move)"
+  },
+
+  "wave2_scoring_protocol": {
+    "1": "Run register-metrics.mjs UNMODIFIED on drax's multi-angle peak stills -> read HLF + LMV; place on HLF + LMV tier-marks above.",
+    "2": "Run spell-motion-score.mjs on drax's temporal lifecycle sequence -> read all 5 axes. NOTE: the locked instrument's DIR + FILES + CASTER/THREAT geometry are hardcoded to the OLD descent sequence; Wave 2 will need drax's sequence either (a) placed at the hardcoded path with the hardcoded names, OR (b) a documented config-swap. Flag this to drax in the Wave-2 handoff: deliver 7 frames OR galadriel adjusts DIR/FILES/geometry constants (a config edit, not a methodology change).",
+    "3": "For HLF/LMV/layering/hue: place V0 and V1 on the absolute tier-marks. For energy-travel/motion-presence/directionality: report V1-vs-V0 DELTA against the godot_v0_baseline (no absolute genre mark exists).",
+    "4": "Report the HEADLINE V1-V0 delta on every juice axis + the V2 cross-check (V2 >> V1 => harvest justified). Flag any eye<->number divergence as a first-class finding."
+  }
+}
