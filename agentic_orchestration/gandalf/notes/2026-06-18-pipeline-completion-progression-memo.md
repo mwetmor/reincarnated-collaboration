@@ -9,6 +9,38 @@
 
 ---
 
+## SESSION-DELTA 2026-06-20 — LATEST LAYER (GOVERNS ALL BELOW, including §0.5)
+
+The 2026-06-19/20 battle-sim session opened a sublayer the 06-18 memo did not see. **Where this block conflicts with §0–§8 (incl. §0.5 C2 and §7.4), this block governs.** It deliberately does NOT re-resolve the in-flight DoT/ailment fix run — those items are marked in-flight with their empirical criteria, to be closed on data in a second pass once Arm C + the band refit land.
+
+### What the 06-18 memo got WRONG (now-false, corrected here)
+
+- **(D1) Target-A's "honest apparatus" criterion (§1) was ASSUMED met — it was NOT.** The spatial-regime measurement instrument is biased: synthetic endgame mobs carry nonzero `armor` but EMPTY `elemental_resistances` (`t4_sim_cycling.py:1007-1015` `_synthetic_mob_dict_for_spatial` emits no resist key; `spatial_resolver_adapter.py:227-228` defaults empty). Physical eats armor mitigation (8.1% swarm → 92.7% boss by tier); elemental eats ZERO. **Every spatial-regime band-fit ever done was contaminated** — casters were OVER-credited (zero resist → inflated KPM → inflated bands). The real game does NOT carry this bias (`monster_generator.py:486-498` rolls resistances); it is a SYNTHETIC-instrument artifact. **Target-A's "honest" gate is RE-OPENED.**
+- **(D2) §0.5 C2 + §7.4 "Stage-2c ALREADY DONE / do not re-rule" is REVERSED → REOPENED-FOR-REFIT.** The n=3078 distribution those bands matched was itself caster-over-credit-inflated. Bands require a refit pass. The production gate (`gauntlet_sim.py:1032`) inherits the mitigation-symmetry fix's default → UNTRUSTWORTHY-pending-refit. The 06-18 "confirm, do not re-rule" instruction is void.
+
+### What this session SETTLED (new, record-worthy)
+
+- **(D3) Boss/mini-boss mitigation too high in ABSOLUTE terms.** Under symmetric mitigation (Arm B), boss survive+kill = 0.000 for ALL FOUR attributes — not an STR problem. The boss/mini-boss (90%+ tiers) nerf folds into the ONE refit pass; hold elite (66%).
+- **(D4) Two latent mechanism bugs, not balance.** DoT inert in the spatial sim (`ActiveEffect` appended, never ticked — no `tick_effects` advance) + physical bleed scaled on int/wis (`damage_resolver.py:987-988`). Both silently in the shipping regime. Fix run (F1 activate / F2 re-route tick-scaling to originating skill's attribute / F4 mitigation symmetry) in flight.
+- **(D5) Ailment-emission ruling: `is_control != hard` cut.** Emit 5 safe now (burn/bleed/drain/consecrate=`none`, chill=`soft`); defer 3 hard-locks (root/knockback/shock=`hard`) to a DR-guarded fast-follow. Rocket implements chain_A-only (`f5ae509`).
+- **(D6) The "caster problem" is TWO problems sharing a name.** This session's thread = the MEASUREMENT confound (caster over-credit, D1) — diagnosed. **§7.2 item (4) caster-coverage** (spatial/timeout swarm; ΔWR ~0.02 on a 3.3× HP move) is DISTINCT, untouched, STILL OPEN. Do not read D1's resolution as closing item (4).
+
+### What did NOT move (06-18 plan vs what happened)
+
+- **(D7) §7's next-session pickup was NOT executed.** The §7.2 pre-clears (items 2/4/5) are STATIONARY since 06-18; item (3) keystone still PARKED. The session went entirely into this battle-sim sublayer. **Target B (gen-pipeline) gandalf surface: zero movement this session.**
+- **(D8) Net on-track read:** direction UNCHANGED, and this is NOT Discipline-#13 drift — the STATED target-A "honest apparatus" goal is exactly what pulled the session deeper (you cannot declare A done on a biased instrument). But target-A's finish line moved OUT (a latent defect surfaced, not a regression), and target-B made no progress — a deliberate depth-on-A vs breadth-toward-B trade, recorded so it is visible.
+
+### IN-FLIGHT — marked, NOT pre-resolved (close on data, second pass)
+
+- **DoT/ailment fix run (F1/F2/F4)** → gamora implement + jack-ryan Gate-2 → **Arm C bleed-lever disposition**: does activating bleed close STR's elite_pack below-floor + boss-0.000 gap? gandalf rules on return.
+- **The ONE band-refit pass** — absorbs caster-over-credit correction + D3 boss/mini-boss nerf + D5 ailment band-shift TOGETHER. Not yet run.
+- **DR guardrail + chain_A-vs-chain_C hard-control placement** — open design follow-on.
+- **decisions-log entry** — the `is_control != hard` boundary + deferred-hard-locks fast-follow + placement question.
+
+**Signed:** gandalf, 2026-06-20.
+
+---
+
 ## 0. The shape in one line
 
 **Each pipeline is blocked at exactly ONE gandalf chokepoint — battle-sim at the Stage-2c band ruling, gen-pipeline at the §7.1 manifest design-owned half — and both chokepoints are mine to clear.** Clear those two (a focused gandalf work-item each, authorable from on-disk substrate, neither needs Matt), add the already-given "flip all 3" + one push pre-authorization, and a single unattended run can take **both pipelines most of the way to completion.** The only items that genuinely cannot ride an unattended run are the push gate (ADR-006), two design calls (keystone-ceiling, caster-coverage) whose *investigations* can run while the *calls* park, and the procgen-tool adoption (Tier-3, off both critical paths).
@@ -70,7 +102,7 @@ CONTENT-EMISSION PIPELINE (Matt's "gen pipeline") — what produces a season's s
 
 ### C2 — Stage-2c was ALREADY done (NOT a gandalf chokepoint)
 
-§0/§2/§4(row)/§5–§6 treated Stage-2c (KPM-band ruling) as "blocked-on-gandalf." **Falsified by disk:** Stage-2c was ruled + wired (Stage-2d, `92c040f`, MIGRATION v1.76) + Gate-2-closed (`2b8b502`, interim guard LIFTED) on **2026-06-16**. The bands are live in `gauntlet_sim.py` `ENCOUNTER_COHORT_KPM_BAND`, matching the n=3078 empirical distribution exactly. The "READY FOR GANDALF" in `AGENT_STATE.md:4269` is a **stale checkpoint** never back-edited after 2c/2d landed (flag for gamora). My independent re-derivation from the raw n=3078 data CONFIRMS the asymmetric-band logic. **Stage-2c needs confirmation, not re-ruling — it is closed.**
+§0/§2/§4(row)/§5–§6 treated Stage-2c (KPM-band ruling) as "blocked-on-gandalf." **Falsified by disk:** Stage-2c was ruled + wired (Stage-2d, `92c040f`, MIGRATION v1.76) + Gate-2-closed (`2b8b502`, interim guard LIFTED) on **2026-06-16**. The bands are live in `gauntlet_sim.py` `ENCOUNTER_COHORT_KPM_BAND`, matching the n=3078 empirical distribution exactly. The "READY FOR GANDALF" in `AGENT_STATE.md:4269` is a **stale checkpoint** never back-edited after 2c/2d landed (flag for gamora). My independent re-derivation from the raw n=3078 data CONFIRMS the asymmetric-band logic. **Stage-2c needs confirmation, not re-ruling — it is closed.** *(⚠ REVERSED 2026-06-20: REOPENED-FOR-REFIT — the n=3078 bands were caster-over-credit-inflated; see top SESSION-DELTA D2.)*
 
 ### C3 — The two "lower-confidence" items (§2 diagram L64–65), traced + dispositioned
 
@@ -83,7 +115,7 @@ CONTENT-EMISSION PIPELINE (Matt's "gen pipeline") — what produces a season's s
 
 ## 1. What "completion" means (the two targets)
 
-- **(A) Battle-sim complete** = the measurement apparatus is **honest** (geometry-aware spatial resolution [#1], faithful-loadout kit power [#3], MOB_HP-anchored [✓ locked 1.5x]) AND the mobs/min bands are **ruled + wired** (Stage-2c→2d) AND the open balance questions are **dispositioned** (W-F adoption live; keystone-ceiling + caster-coverage either fixed or explicitly parked with a criterion). "Done" for a gauntlet run is empirically defined: 18 SC-6 endgame encounters, terminal pass-floor 9-of-18 in-band per cohort per kit (`gauntlet_sim.py:109,158`).
+- **(A) Battle-sim complete** = the measurement apparatus is **honest** *(⚠ 2026-06-20: this criterion was ASSUMED met but is NOT — armor/resist instrument bias re-opened it; see top SESSION-DELTA D1)* (geometry-aware spatial resolution [#1], faithful-loadout kit power [#3], MOB_HP-anchored [✓ locked 1.5x]) AND the mobs/min bands are **ruled + wired** (Stage-2c→2d) AND the open balance questions are **dispositioned** (W-F adoption live; keystone-ceiling + caster-coverage either fixed or explicitly parked with a criterion). "Done" for a gauntlet run is empirically defined: 18 SC-6 endgame encounters, terminal pass-floor 9-of-18 in-band per cohort per kit (`gauntlet_sim.py:109,158`).
 - **(B) Gen-pipeline complete** = the gear-spec asset path runs **end-to-end** (manifest → master ShaderMaterial → constrained-LLM fill → L4 adapter → render), the catalogue substrate feeds it, and the six-profile emission apex lands. Procgen-assembly tooling is **off this path** (Tier-3, deferred — nothing depends on it).
 
 ---
@@ -299,7 +331,7 @@ The target is **one driver that emits all seven content types into a single Godo
 
 - **BC-coordinate cutover Stage-2 envelope escalation → RULED ACCEPT** + A1 earth_caster case=2 re-confirmed (the genuine battle-sim gandalf gate; ruling note `2026-06-18-bc-coordinate-cutover-stage2-envelope-escalation-ruling.md`).
 - **Gear-spec §7.1 manifest VISUAL design-half → AUTHORED** (element-flavor tint menu + aura colors + finish-leans + zone guidance + emission placement; `canonical/story/gear-spec-element-flavor-manifest-design-half-2026-06-18.md`). This closes gen-pipeline VISUAL chokepoint #2 (§1–§6 still show it open — superseded).
-- **Stage-2c band ruling → ALREADY DONE** (2026-06-16; confirm, do NOT re-rule — §0–§6 treating it as blocked-on-gandalf are superseded by §0.5 C2).
+- **Stage-2c band ruling → ALREADY DONE** (2026-06-16; confirm, do NOT re-rule — §0–§6 treating it as blocked-on-gandalf are superseded by §0.5 C2). *(⚠ REVERSED 2026-06-20: REOPENED-FOR-REFIT — see top SESSION-DELTA D2.)*
 - **open-shell floor residual → RESOLVED** option (a) empirical central mass (§0.5 C3).
 - **3-flips KR run → COMPLETE** — all flipped + jack-ryan-declared (`f32e48a`); FLIP #3 band-drift byte-identical `|delta|=0.00` confirming the @max-profile coherence prediction; keystone-ceiling correctly parked (→ §7.2(3)); regression clean; only PUSH pending.
 
