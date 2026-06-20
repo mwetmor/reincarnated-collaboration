@@ -1,0 +1,38 @@
+PHASE 4 — armor/resist symmetry (measure-ISOLATED) — mode=full
+seed_base=24000000  n_fights/cell=20  kits_run=66  elapsed=110.6s
+path: production real-Monster (from_monster); MITIGATION_SYMMETRY toggled off/on at matched seeds
+phases 1-3: LIVE at committed main (resource/rotation/DoT)
+mob dominant element (off-element vs casters): physical
+
+attr  shell                clr/bos     off_kpm     on_kpm   kpm_d%  off_sk   on_sk    sk_d
+str   open_arena           clear        17.009     17.009     0.00   1.000   1.000   0.000
+str   chokepoint_corridor  clear        17.700     17.700     0.00   1.000   1.000   0.000
+str   magic_pack           clear        15.822     15.822     0.00   1.000   1.000   0.000
+str   elite_pack           clear        16.423     16.423     0.00   1.000   1.000   0.000
+str   boss_with_adds       BOSS          0.314      0.314     0.00   0.250   0.250   0.000
+str   mini_boss            BOSS          0.249      0.249     0.00   0.000   0.000   0.000
+dex   open_arena           clear        25.960     25.453    -1.95   1.000   1.000   0.000
+dex   chokepoint_corridor  clear        26.489     25.983    -1.91   1.000   1.000   0.000
+dex   magic_pack           clear        54.456     38.721   -28.89   1.000   1.000   0.000
+dex   elite_pack           clear       510.991    510.991     0.00   1.000   1.000   0.000
+dex   boss_with_adds       BOSS        308.668      0.369   -99.88   0.838   0.421  -0.417
+dex   mini_boss            BOSS        266.730      0.359   -99.87   0.833   0.000  -0.833
+int   open_arena           clear        52.441     51.997    -0.85   1.000   1.000   0.000
+int   chokepoint_corridor  clear        52.121     51.423    -1.34   1.000   1.000   0.000
+int   magic_pack           clear       600.000    600.000     0.00   1.000   1.000   0.000
+int   elite_pack           clear       450.000    444.646    -1.19   1.000   1.000   0.000
+int   boss_with_adds       BOSS         98.960      0.733   -99.26   1.000   1.000   0.000
+int   mini_boss            BOSS        283.731      0.333   -99.88   1.000   0.000  -1.000
+wis   open_arena           clear        40.975     40.816    -0.39   1.000   1.000   0.000
+wis   chokepoint_corridor  clear        41.115     40.926    -0.46   1.000   1.000   0.000
+wis   magic_pack           clear       600.000    600.000     0.00   1.000   1.000   0.000
+wis   elite_pack           clear       450.000    431.137    -4.19   1.000   1.000   0.000
+wis   boss_with_adds       BOSS         97.603      0.692   -99.29   1.000   0.945  -0.055
+wis   mini_boss            BOSS        260.308      0.363   -99.86   1.000   0.000  -1.000
+
+G5 SELF-ASSESSMENT:
+  martial_str_kpm_unchanged: True
+  caster_kpm_drops_or_flat: True
+  no_obvious_overcorrection: True
+  AUTO-RESOLVE: True
+  FLAGS TO KR: none (auto-resolve branch)

@@ -1,0 +1,336 @@
+{
+  "harness": "armor_resist_symmetry_phase4",
+  "generated_at": "2026-06-20T20:58:12.078767+00:00",
+  "mode": "full",
+  "seed_base": 24000000,
+  "n_kits_total": 54,
+  "n_kit_recs_run": 66,
+  "n_fights_per_cell": 20,
+  "shells": [
+    "open_arena",
+    "chokepoint_corridor",
+    "magic_pack",
+    "elite_pack",
+    "boss_with_adds",
+    "mini_boss"
+  ],
+  "mob_dominant_element": "physical",
+  "path": "production real-Monster (from_monster); MITIGATION_SYMMETRY toggled off/on at matched seeds",
+  "phases_1_3_state": "LIVE at committed main (resource/rotation/DoT)",
+  "elapsed_s": 110.6,
+  "summary": {
+    "str": {
+      "open_arena": {
+        "is_clear": true,
+        "off_kpm": 17.009,
+        "on_kpm": 17.009,
+        "kpm_delta_pct": 0.0,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "chokepoint_corridor": {
+        "is_clear": true,
+        "off_kpm": 17.6996,
+        "on_kpm": 17.6996,
+        "kpm_delta_pct": 0.0,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "magic_pack": {
+        "is_clear": true,
+        "off_kpm": 15.8224,
+        "on_kpm": 15.8224,
+        "kpm_delta_pct": 0.0,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "elite_pack": {
+        "is_clear": true,
+        "off_kpm": 16.4234,
+        "on_kpm": 16.4234,
+        "kpm_delta_pct": 0.0,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "boss_with_adds": {
+        "is_clear": false,
+        "off_kpm": 0.3144,
+        "on_kpm": 0.3144,
+        "kpm_delta_pct": 0.0,
+        "off_survive_kill": 0.25,
+        "on_survive_kill": 0.25,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "mini_boss": {
+        "is_clear": false,
+        "off_kpm": 0.249,
+        "on_kpm": 0.249,
+        "kpm_delta_pct": 0.0,
+        "off_survive_kill": 0.0,
+        "on_survive_kill": 0.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      }
+    },
+    "dex": {
+      "open_arena": {
+        "is_clear": true,
+        "off_kpm": 25.9597,
+        "on_kpm": 25.4528,
+        "kpm_delta_pct": -1.95,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "chokepoint_corridor": {
+        "is_clear": true,
+        "off_kpm": 26.489,
+        "on_kpm": 25.9831,
+        "kpm_delta_pct": -1.91,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "magic_pack": {
+        "is_clear": true,
+        "off_kpm": 54.456,
+        "on_kpm": 38.7214,
+        "kpm_delta_pct": -28.89,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "elite_pack": {
+        "is_clear": true,
+        "off_kpm": 510.9908,
+        "on_kpm": 510.9908,
+        "kpm_delta_pct": 0.0,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "boss_with_adds": {
+        "is_clear": false,
+        "off_kpm": 308.6679,
+        "on_kpm": 0.369,
+        "kpm_delta_pct": -99.88,
+        "off_survive_kill": 0.8375,
+        "on_survive_kill": 0.4208,
+        "survive_kill_delta": -0.4167,
+        "n_cells": 12
+      },
+      "mini_boss": {
+        "is_clear": false,
+        "off_kpm": 266.7304,
+        "on_kpm": 0.3594,
+        "kpm_delta_pct": -99.87,
+        "off_survive_kill": 0.8333,
+        "on_survive_kill": 0.0,
+        "survive_kill_delta": -0.8333,
+        "n_cells": 12
+      }
+    },
+    "int": {
+      "open_arena": {
+        "is_clear": true,
+        "off_kpm": 52.441,
+        "on_kpm": 51.9967,
+        "kpm_delta_pct": -0.85,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "chokepoint_corridor": {
+        "is_clear": true,
+        "off_kpm": 52.1213,
+        "on_kpm": 51.4226,
+        "kpm_delta_pct": -1.34,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "magic_pack": {
+        "is_clear": true,
+        "off_kpm": 600.0,
+        "on_kpm": 600.0,
+        "kpm_delta_pct": 0.0,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "elite_pack": {
+        "is_clear": true,
+        "off_kpm": 450.0,
+        "on_kpm": 444.6457,
+        "kpm_delta_pct": -1.19,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "boss_with_adds": {
+        "is_clear": false,
+        "off_kpm": 98.9604,
+        "on_kpm": 0.7328,
+        "kpm_delta_pct": -99.26,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 12
+      },
+      "mini_boss": {
+        "is_clear": false,
+        "off_kpm": 283.7311,
+        "on_kpm": 0.3333,
+        "kpm_delta_pct": -99.88,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 0.0,
+        "survive_kill_delta": -1.0,
+        "n_cells": 12
+      }
+    },
+    "wis": {
+      "open_arena": {
+        "is_clear": true,
+        "off_kpm": 40.9746,
+        "on_kpm": 40.8164,
+        "kpm_delta_pct": -0.39,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 30
+      },
+      "chokepoint_corridor": {
+        "is_clear": true,
+        "off_kpm": 41.1148,
+        "on_kpm": 40.926,
+        "kpm_delta_pct": -0.46,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 30
+      },
+      "magic_pack": {
+        "is_clear": true,
+        "off_kpm": 600.0,
+        "on_kpm": 600.0,
+        "kpm_delta_pct": 0.0,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 30
+      },
+      "elite_pack": {
+        "is_clear": true,
+        "off_kpm": 450.0,
+        "on_kpm": 431.1366,
+        "kpm_delta_pct": -4.19,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 1.0,
+        "survive_kill_delta": 0.0,
+        "n_cells": 30
+      },
+      "boss_with_adds": {
+        "is_clear": false,
+        "off_kpm": 97.6028,
+        "on_kpm": 0.6924,
+        "kpm_delta_pct": -99.29,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 0.945,
+        "survive_kill_delta": -0.055,
+        "n_cells": 30
+      },
+      "mini_boss": {
+        "is_clear": false,
+        "off_kpm": 260.3077,
+        "on_kpm": 0.3633,
+        "kpm_delta_pct": -99.86,
+        "off_survive_kill": 1.0,
+        "on_survive_kill": 0.0,
+        "survive_kill_delta": -1.0,
+        "n_cells": 30
+      }
+    }
+  },
+  "g5_self_assessment": {
+    "checks": {
+      "martial_str_kpm_unchanged": true,
+      "caster_kpm_drops_or_flat": true,
+      "no_obvious_overcorrection": true
+    },
+    "flags_to_kr": [],
+    "caster_kpm_delta_pct": {
+      "int": {
+        "open_arena": -0.85,
+        "chokepoint_corridor": -1.34,
+        "magic_pack": 0.0,
+        "elite_pack": -1.19,
+        "boss_with_adds": -99.26,
+        "mini_boss": -99.88
+      },
+      "wis": {
+        "open_arena": -0.39,
+        "chokepoint_corridor": -0.46,
+        "magic_pack": 0.0,
+        "elite_pack": -4.19,
+        "boss_with_adds": -99.29,
+        "mini_boss": -99.86
+      }
+    },
+    "boss_survive_kill": {
+      "int": {
+        "boss_with_adds": {
+          "off": 1.0,
+          "on": 1.0,
+          "delta": 0.0
+        },
+        "mini_boss": {
+          "off": 1.0,
+          "on": 0.0,
+          "delta": -1.0
+        }
+      },
+      "wis": {
+        "boss_with_adds": {
+          "off": 1.0,
+          "on": 0.945,
+          "delta": -0.055
+        },
+        "mini_boss": {
+          "off": 1.0,
+          "on": 0.0,
+          "delta": -1.0
+        }
+      },
+      "str": {
+        "boss_with_adds": {
+          "off": 0.25,
+          "on": 0.25,
+          "delta": 0.0
+        },
+        "mini_boss": {
+          "off": 0.0,
+          "on": 0.0,
+          "delta": 0.0
+        }
+      }
+    },
+    "auto_resolve": true
+  }
+}
