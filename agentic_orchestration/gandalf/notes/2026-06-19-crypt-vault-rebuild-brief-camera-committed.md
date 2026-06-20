@@ -36,6 +36,19 @@ The **orbit is RETIRED as the acceptance unit.** Gate 1 (engine-truth, camera-in
 - **Never capped:** out-of-frame ⟹ no wall-top, no ceiling authored (false-front economy — D2/D4/PoE).
 - **Height gradient (composition):** near walls LOW → N gallery MID → W/NW corner TOWERING. The diagonal rise that sells the 2.5D depth.
 
+### Far-wall LAYERED composition (Matt 2026-06-19) — the ornateness technique — PHASE 2 marquee
+The far wall is NOT a flat decorated plane — it is MULTI-PLANE depth the oblique camera reads as ornate space. Three planes stacked along the camera sightline:
+- **Back plane:** the stone wall with **archways set INTO it and a wall behind each archway** → recessed niches. Each niche holds a **pile of skulls** (Matt wrote "skills" — read as SKULLS; crypt-vault ossuary read).
+- **Mid plane:** **vines/moss** + **small sideways-facing gargoyles** (profile wall-grotesques/corbels — distinct from the big gallery gargoyle).
+- **Front plane:** a **row of columns/pillars carrying ANOTHER archway in the foreground** — the camera looks PAST this colonnade INTO the recessed skull-niches behind.
+- **Banner (Matt 2026-06-19):** an **aged/tattered hanging banner toward the NW corner**, descending FROM out-of-frame DOWN into view — reinforces the towering read (cloth from unseen height implies the wall continues up), drops a warm-key color/value accent on grey stone, and carries heraldry/narrative (whose order interred the dead). Age it to match the moss/vine pass — a pristine banner in an ossuary reads wrong.
+- **Why it reads:** the committed oblique camera stacks the planes → parallax depth → "ornate purposeful architectural and environmental picture" (Matt). This is WHY the camera was committed first — the layering only reads with a fixed sightline.
+- **F1-resolution (load-bearing recognition):** framing repetition INSIDE archways converts "copy-paste" into intentional colonnade ornament — a row of identical arched bays reads GRAND, not stamped. This is how we get richness WITHOUT re-triggering the ~50-overlapping-crypts failure (F1). Repetition-in-a-frame = design; repetition-without-a-frame = the bug. The archways ARE the frame.
+- **Player consequence:** the back wall stops being a boundary and becomes *a place where the dead were laid* (satisfies P1 spatial-logic-reads).
+- **Genre precedent:** D2 pre-rendered multi-plane backdrops (Act II tombs, Act IV cathedral); D3/D4 crypt + cathedral tilesets (see-past-foreground-arcade into bone-filled recesses); PoE layered colonnade tilesets. Skulls-in-arched-recesses = Sedlec Ossuary / Paris Catacombs.
+- **Phase-1 compatibility:** Phase 1's far walls at the 43×43 visual edge BECOME the backmost plane; Phase 2 adds the inboard archway-screen (with niches) + the foreground colonnade WITHIN the 7.5 m annulus depth. RESERVE inner annulus depth on the N/W sides — do not let Phase 1 solid structure eat it. gandalf flags at Phase-1 verification if it did.
+- **Generalizes:** reusable backdrop-richness pattern for ALL architected-dungeon far walls — candidate for the Template Library when the method canonicalizes.
+
 ## 2. Stairs (fixes A / B / C) — serve the N-wall gallery
 - **Ground the foot (A):** stair foot sits ON the annulus floor (prior: floating mid-air).
 - **Orient correctly (A):** climb NORTHWARD (away from camera, into the backdrop) ⟹ the climbable face turns TOWARD the player/camera. (prior: facing wrong direction)
