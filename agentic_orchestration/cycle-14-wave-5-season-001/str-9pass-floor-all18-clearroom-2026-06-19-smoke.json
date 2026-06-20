@@ -1,0 +1,485 @@
+{
+  "metadata": {
+    "generated_utc": "2026-06-20T03:09:03.841669+00:00",
+    "smoke": true,
+    "n_kits": 54,
+    "n_configs": 66,
+    "n_configs_driven": 1,
+    "n_cells": 5,
+    "n_fights_per_cell": 3,
+    "expected_n_per_cell": 3,
+    "seed_base": 700000,
+    "season_seed_base": 14001,
+    "shell_composition": {
+      "boss_with_adds": 3,
+      "open_arena": 4,
+      "elite_pack": 4,
+      "chokepoint_corridor": 3,
+      "magic_pack": 3,
+      "mini_boss": 1
+    },
+    "n_clear_shells": 14,
+    "n_boss_shells": 4,
+    "encounters_18": [
+      "endgame_bc_melee_low_spiky_str_none",
+      "endgame_bc_melee_high_flat_str_none",
+      "endgame_bc_melee_medium_variable_str_none",
+      "endgame_bc_ranged_low_spiky_str_none",
+      "endgame_bc_melee_high_flat_dex_none",
+      "endgame_bc_ranged_high_flat_dex_none",
+      "endgame_bc_ranged_low_spiky_dex_none",
+      "endgame_bc_mid_high_flat_dex_none",
+      "endgame_bc_ranged_medium_variable_int_none",
+      "endgame_bc_ranged_low_spiky_int_none",
+      "endgame_bc_mid_low_spiky_int_none",
+      "endgame_bc_melee_high_flat_int_none",
+      "endgame_bc_ranged_medium_variable_int_light",
+      "endgame_bc_mid_medium_variable_wis_none",
+      "endgame_bc_melee_medium_variable_wis_none",
+      "endgame_bc_ranged_low_spiky_wis_none",
+      "endgame_bc_ranged_medium_variable_wis_none",
+      "endgame_bc_melee_high_variable_wis_none"
+    ],
+    "encounters_driven": [
+      "endgame_bc_melee_high_flat_str_none",
+      "endgame_bc_ranged_low_spiky_str_none",
+      "endgame_bc_ranged_low_spiky_dex_none",
+      "endgame_bc_melee_medium_variable_str_none",
+      "endgame_bc_melee_low_spiky_str_none"
+    ],
+    "cohorts_driven": [
+      "DPS-min-maxer"
+    ],
+    "kpm_bands_read_as_is": {
+      "open_arena": [
+        9.9,
+        15.53
+      ],
+      "chokepoint_corridor": [
+        11.65,
+        15.88
+      ],
+      "magic_pack": [
+        6.06,
+        11.43
+      ],
+      "elite_pack": [
+        5.65,
+        10.0
+      ],
+      "boss_with_adds": [
+        2.49,
+        3.78
+      ],
+      "mini_boss": [
+        0.57,
+        3.3
+      ]
+    },
+    "shell_caps": {
+      "open_arena": {
+        "win_condition": "all_mobs_killed",
+        "max_duration_s": 120.0,
+        "soft_timeout_s": null,
+        "n_spawns": 8,
+        "clear_or_boss": "clear"
+      },
+      "chokepoint_corridor": {
+        "win_condition": "all_mobs_killed",
+        "max_duration_s": 120.0,
+        "soft_timeout_s": null,
+        "n_spawns": 8,
+        "clear_or_boss": "clear"
+      },
+      "magic_pack": {
+        "win_condition": "all_mobs_killed",
+        "max_duration_s": 120.0,
+        "soft_timeout_s": null,
+        "n_spawns": 4,
+        "clear_or_boss": "clear"
+      },
+      "elite_pack": {
+        "win_condition": "all_mobs_killed",
+        "max_duration_s": 180.0,
+        "soft_timeout_s": null,
+        "n_spawns": 3,
+        "clear_or_boss": "clear"
+      },
+      "boss_with_adds": {
+        "win_condition": "boss_killed",
+        "max_duration_s": 240.0,
+        "soft_timeout_s": null,
+        "n_spawns": 3,
+        "clear_or_boss": "boss"
+      },
+      "mini_boss": {
+        "win_condition": "mini_boss_killed",
+        "max_duration_s": 240.0,
+        "soft_timeout_s": 150.0,
+        "n_spawns": 3,
+        "clear_or_boss": "boss"
+      }
+    },
+    "v1_integrity_all_pass": true,
+    "v4_integrity_all_pass": true,
+    "band_predicate": "lo <= kpm <= hi (inclusive both ends; gauntlet_sim.py:591/:1071)",
+    "regime": "spatial_current_mobs_per_min_faithful",
+    "measurement_only": true,
+    "production_gate_modified": false,
+    "math_note": "simulation/math/str-9pass-floor-all18-clearroom-harness-2026-06-19.md",
+    "extends_blessed_harness": "clean_boss_numbers_harness_2026_06_19.py (commit 2f9c5c8)",
+    "wall_clock_seconds": 0.9
+  },
+  "headline_clearroom_pass_of_14": {
+    "str": {
+      "DPS-min-maxer": {
+        "n_clear_cells": 4,
+        "in_band": 3,
+        "below_floor": 1,
+        "above_ceiling": 0,
+        "per_clear_type": {
+          "open_arena": {
+            "in_band": 1,
+            "below_floor": 0,
+            "above_ceiling": 0,
+            "n": 1
+          },
+          "chokepoint_corridor": {
+            "in_band": 1,
+            "below_floor": 0,
+            "above_ceiling": 0,
+            "n": 1
+          },
+          "magic_pack": {
+            "in_band": 1,
+            "below_floor": 0,
+            "above_ceiling": 0,
+            "n": 1
+          },
+          "elite_pack": {
+            "in_band": 0,
+            "below_floor": 1,
+            "above_ceiling": 0,
+            "n": 1
+          }
+        },
+        "pass_count_of_14": 3
+      }
+    }
+  },
+  "two_lens_eligible_passed": {
+    "str": {
+      "DPS-min-maxer": {
+        "n_shells": 5,
+        "n_clear": 4,
+        "n_boss": 1,
+        "current_code_in_band_18": 3,
+        "doctrine_clear_in_band": 3,
+        "doctrine_boss_survive_kill": 0,
+        "eligible_passed_current_code": 3,
+        "eligible_passed_doctrine": 3,
+        "ship_floor": 9,
+        "passes_floor_current_code": false,
+        "passes_floor_doctrine": false
+      }
+    }
+  },
+  "boss_rerun_consistency_rail": {
+    "str": {
+      "n_cells": 1,
+      "n_fights": 3,
+      "b_dead": 0,
+      "a_dead": 0,
+      "timeout": 3,
+      "survive_kill_rate": 0.0,
+      "termination_rates": {
+        "b_dead": 0.0,
+        "a_dead": 0.0,
+        "timeout": 1.0
+      }
+    }
+  },
+  "clear_time_won": {
+    "str|open_arena": {
+      "median_s": 40.8,
+      "p90_s": 40.8,
+      "n_won_fights": 3
+    },
+    "str|chokepoint_corridor": {
+      "median_s": 37.5,
+      "p90_s": 37.5,
+      "n_won_fights": 3
+    },
+    "str|magic_pack": {
+      "median_s": 32.6,
+      "p90_s": 32.6,
+      "n_won_fights": 3
+    },
+    "str|elite_pack": {
+      "median_s": 62.8,
+      "p90_s": 62.8,
+      "n_won_fights": 3
+    }
+  },
+  "cohort_agreement_flags": {
+    "str": {
+      "per_cohort_pass_of_14": {
+        "DPS-min-maxer": 3
+      },
+      "spread": 0,
+      "agree_within_1": true
+    }
+  },
+  "cells": [
+    {
+      "encounter_id": "endgame_bc_melee_high_flat_str_none",
+      "scenario_shell_id": "open_arena",
+      "cohort": "DPS-min-maxer",
+      "n_fights": 3,
+      "survival_rate": 1.0,
+      "wins": 3,
+      "termination_counts": {
+        "b_dead": 3,
+        "a_dead": 0,
+        "timeout": 0
+      },
+      "termination_rates": {
+        "b_dead": 1.0,
+        "a_dead": 0.0,
+        "timeout": 0.0
+      },
+      "ttk_won": {
+        "n_won": 3,
+        "min_s": 27.7,
+        "median_s": 40.8,
+        "p90_s": 41.52,
+        "max_s": 41.7
+      },
+      "observed_kpm": 13.067,
+      "dps": {
+        "n": 3,
+        "median": 10182.2,
+        "min": 8606.2067,
+        "p90": 12216.1984,
+        "max": 12724.698
+      },
+      "boss_HP_removed": null,
+      "sg_overall": "BLOCK",
+      "in_band_kpm_telemetry": false,
+      "base_seed": 700000,
+      "v1_self_consistency_pass": true,
+      "legendary_id": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+      "kit_character_id": "S1_endgame_bc_melee_low_spiky_str_none_s0",
+      "attribute": "str",
+      "t4_config_key": "t4_chain_2_T4",
+      "clear_or_boss": "clear",
+      "kpm_band": [
+        9.9,
+        15.53
+      ],
+      "band_fit": "in-band",
+      "band_fit_in_band": true,
+      "v4_clear_shell_integrity_pass": true
+    },
+    {
+      "encounter_id": "endgame_bc_ranged_low_spiky_str_none",
+      "scenario_shell_id": "chokepoint_corridor",
+      "cohort": "DPS-min-maxer",
+      "n_fights": 3,
+      "survival_rate": 1.0,
+      "wins": 3,
+      "termination_counts": {
+        "b_dead": 3,
+        "a_dead": 0,
+        "timeout": 0
+      },
+      "termination_rates": {
+        "b_dead": 1.0,
+        "a_dead": 0.0,
+        "timeout": 0.0
+      },
+      "ttk_won": {
+        "n_won": 3,
+        "min_s": 34.2,
+        "median_s": 37.5,
+        "p90_s": 40.7,
+        "max_s": 41.5
+      },
+      "observed_kpm": 12.721,
+      "dps": {
+        "n": 3,
+        "median": 9298.2456,
+        "min": 7662.6506,
+        "p90": 9349.8189,
+        "max": 9362.7122
+      },
+      "boss_HP_removed": null,
+      "sg_overall": "BLOCK",
+      "in_band_kpm_telemetry": false,
+      "base_seed": 700100,
+      "v1_self_consistency_pass": true,
+      "legendary_id": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+      "kit_character_id": "S1_endgame_bc_melee_low_spiky_str_none_s0",
+      "attribute": "str",
+      "t4_config_key": "t4_chain_2_T4",
+      "clear_or_boss": "clear",
+      "kpm_band": [
+        11.65,
+        15.88
+      ],
+      "band_fit": "in-band",
+      "band_fit_in_band": true,
+      "v4_clear_shell_integrity_pass": true
+    },
+    {
+      "encounter_id": "endgame_bc_ranged_low_spiky_dex_none",
+      "scenario_shell_id": "magic_pack",
+      "cohort": "DPS-min-maxer",
+      "n_fights": 3,
+      "survival_rate": 1.0,
+      "wins": 3,
+      "termination_counts": {
+        "b_dead": 3,
+        "a_dead": 0,
+        "timeout": 0
+      },
+      "termination_rates": {
+        "b_dead": 1.0,
+        "a_dead": 0.0,
+        "timeout": 0.0
+      },
+      "ttk_won": {
+        "n_won": 3,
+        "min_s": 30.6,
+        "median_s": 32.6,
+        "p90_s": 34.2,
+        "max_s": 34.6
+      },
+      "observed_kpm": 7.362,
+      "dps": {
+        "n": 3,
+        "median": 9815.9509,
+        "min": 9248.5549,
+        "p90": 10329.2033,
+        "max": 10457.5163
+      },
+      "boss_HP_removed": null,
+      "sg_overall": "BLOCK",
+      "in_band_kpm_telemetry": false,
+      "base_seed": 700200,
+      "v1_self_consistency_pass": true,
+      "legendary_id": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+      "kit_character_id": "S1_endgame_bc_melee_low_spiky_str_none_s0",
+      "attribute": "str",
+      "t4_config_key": "t4_chain_2_T4",
+      "clear_or_boss": "clear",
+      "kpm_band": [
+        6.06,
+        11.43
+      ],
+      "band_fit": "in-band",
+      "band_fit_in_band": true,
+      "v4_clear_shell_integrity_pass": true
+    },
+    {
+      "encounter_id": "endgame_bc_melee_medium_variable_str_none",
+      "scenario_shell_id": "elite_pack",
+      "cohort": "DPS-min-maxer",
+      "n_fights": 3,
+      "survival_rate": 1.0,
+      "wins": 3,
+      "termination_counts": {
+        "b_dead": 3,
+        "a_dead": 0,
+        "timeout": 0
+      },
+      "termination_rates": {
+        "b_dead": 1.0,
+        "a_dead": 0.0,
+        "timeout": 0.0
+      },
+      "ttk_won": {
+        "n_won": 3,
+        "min_s": 53.2,
+        "median_s": 62.8,
+        "p90_s": 64.8,
+        "max_s": 65.3
+      },
+      "observed_kpm": 2.978,
+      "dps": {
+        "n": 3,
+        "median": 5828.9649,
+        "min": 5780.3769,
+        "p90": 5971.7572,
+        "max": 6007.4553
+      },
+      "boss_HP_removed": null,
+      "sg_overall": "BLOCK",
+      "in_band_kpm_telemetry": false,
+      "base_seed": 700300,
+      "v1_self_consistency_pass": true,
+      "legendary_id": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+      "kit_character_id": "S1_endgame_bc_melee_low_spiky_str_none_s0",
+      "attribute": "str",
+      "t4_config_key": "t4_chain_2_T4",
+      "clear_or_boss": "clear",
+      "kpm_band": [
+        5.65,
+        10.0
+      ],
+      "band_fit": "below-floor",
+      "band_fit_in_band": false,
+      "v4_clear_shell_integrity_pass": true
+    },
+    {
+      "encounter_id": "endgame_bc_melee_low_spiky_str_none",
+      "scenario_shell_id": "boss_with_adds",
+      "cohort": "DPS-min-maxer",
+      "n_fights": 3,
+      "survival_rate": 0.0,
+      "wins": 0,
+      "termination_counts": {
+        "b_dead": 0,
+        "a_dead": 0,
+        "timeout": 3
+      },
+      "termination_rates": {
+        "b_dead": 0.0,
+        "a_dead": 0.0,
+        "timeout": 1.0
+      },
+      "ttk_won": null,
+      "observed_kpm": 0.25,
+      "dps": {
+        "n": 3,
+        "median": 1284.872,
+        "min": 1247.5754,
+        "p90": 1369.4558,
+        "max": 1390.6017
+      },
+      "boss_HP_removed": {
+        "n": 3,
+        "median": 0.3355,
+        "min": 0.2967,
+        "p90": 0.4234,
+        "max": 0.4454
+      },
+      "sg_overall": "BLOCK",
+      "in_band_kpm_telemetry": false,
+      "base_seed": 700400,
+      "v1_self_consistency_pass": true,
+      "legendary_id": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+      "kit_character_id": "S1_endgame_bc_melee_low_spiky_str_none_s0",
+      "attribute": "str",
+      "t4_config_key": "t4_chain_2_T4",
+      "clear_or_boss": "boss",
+      "kpm_band": [
+        2.49,
+        3.78
+      ],
+      "band_fit": "below-floor",
+      "band_fit_in_band": false,
+      "v4_clear_shell_integrity_pass": true
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+====================================================================================================
+STR 9-PASS-FLOOR -- clear-room band-fit at faithful power (tier_2 driven on ALL 18 shells)
+2026-06-19 | MEASUREMENT-ONLY | tier_1 KPM-reject BYPASSED | production gate untouched
+====================================================================================================
+
+THE QUESTION: does STR pass >= 9 of the 14 clear-room shells? (4 boss auto-fail by timeout.)
+
+Band-fit vocabulary (inclusive both ends, lo <= kpm <= hi; gauntlet_sim.py:591/:1071):
+  below-floor  = observed_kpm < lo   -> too SLOW (gandalf's FALSIFIER on no-anchor swarm)
+  in-band      = lo <= kpm <= hi     -> PASS
+  above-ceiling= observed_kpm > hi   -> too FAST (cleaver-fantasy CONFIRMED, NOT incompetence)
+
+Bands (cohort-invariant, read AS-IS): {"open_arena": [9.9, 15.53], "chokepoint_corridor": [11.65, 15.88], "magic_pack": [6.06, 11.43], "elite_pack": [5.65, 10.0], "boss_with_adds": [2.49, 3.78], "mini_boss": [0.57, 3.3]}
+Win conditions (V4): {"open_arena": "all_mobs_killed", "chokepoint_corridor": "all_mobs_killed", "magic_pack": "all_mobs_killed", "elite_pack": "all_mobs_killed", "boss_with_adds": "boss_killed", "mini_boss": "mini_boss_killed"}
+Population: 54 kits -> 66 configs (faithful power, flip #3).
+Fights/cell (tier_2 n): 3 | seed base: 700000
+Cells: 5 (18 shells x 1 cohorts x 1 configs)
+V1 integrity (every KPM from an executed batch): True
+V4 clear-shell integrity (Sum term == n_fights): True
+Regime fingerprint: spatial_current_mobs_per_min_faithful
+
+====================================================================================================
+HEADLINE -- CLEAR-ROOM PASS COUNT OF 14, per attribute x cohort (in-band / below-floor / above-ceiling)
+====================================================================================================
+
+[STR]  <== THE STR HEADLINE
+  cohort          pass/14  in-band   below   above  n_clear
+  DPS-min-maxer         3        3       1       0        4
+  cohort-agreement: OK (agree within 1)  per-cohort={'DPS-min-maxer': 3}
+  per-clear-type (in-band/below/above), pooled across cohorts:
+    open_arena             in-band=  1 below=  0 above=  0  (n=1, no-anchor swarm)
+    chokepoint_corridor    in-band=  1 below=  0 above=  0  (n=1, no-anchor swarm)
+    magic_pack             in-band=  1 below=  0 above=  0  (n=1, anchored pack)
+    elite_pack             in-band=  0 below=  1 above=  0  (n=1, anchored pack)
+
+====================================================================================================
+TWO-LENS eligible_encounters_passed per cohort (ship floor = 9; REPORTED not gated -- V6)
+====================================================================================================
+  (a) current-code lens = band in-band across all 18 | (b) doctrine = 14 clear band + 4 boss survive+kill
+
+[STR]
+  cohort          curr/18   >=9?   doctr   >=9?  clr-band  boss-s+k
+  DPS-min-maxer         3      N       3      N         3         0
+
+====================================================================================================
+BOSS-SHELL RE-RUN (free; consistency rail) -- should reproduce STR survive+kill=0.000, timeout-dominant
+====================================================================================================
+  attribute     n_fights  surv+kill   b_dead   a_dead  timeout
+  str                  3      0.000    0.000    0.000    1.000
+
+----------------------------------------------------------------------------------------------------
+CLEAR-TIME on won clears (secondary; slow-slog vs near-miss context) -- STR rows
+----------------------------------------------------------------------------------------------------
+  str|chokepoint_corridor      median=   37.5s p90=   37.5s (n_won=3)
+  str|elite_pack               median=   62.8s p90=   62.8s (n_won=3)
+  str|magic_pack               median=   32.6s p90=   32.6s (n_won=3)
+  str|open_arena               median=   40.8s p90=   40.8s (n_won=3)
+
+====================================================================================================
+DISPOSITION READ (STR) -- maps to gandalf's pre-registered table
+====================================================================================================
+  STR clear-room pass: 3-3 of 14 (per cohort range).
+  no-anchor swarm (open_arena+chokepoint): 2/2 in-band
+  anchored pack (magic_pack+elite_pack):   1/2 in-band
+
+  Read key (gandalf's pre-registered dispositions):
+    >=9 spread across BOTH groups       -> broad clear-competent (ship as clear specialist)
+    >=9 concentrated in no-anchor swarm  -> swarm-only specialist
+    <9, failures in ANCHORED packs       -> allocation pervasive (kit fix load-bearing)
+    <9, failures on NO-ANCHOR swarm      -> gandalf's FALSIFIER
+
+  NOTE: this run MEASURES; gandalf RULES the disposition. Below-floor != above-ceiling
+  (too slow vs too fast) -- the SIDE is recorded so 'pass count' is never conflated with
+  '14 - pass = incompetent'.

@@ -1,0 +1,143 @@
+====================================================================================================
+STR 9-PASS-FLOOR -- clear-room band-fit at faithful power (tier_2 driven on ALL 18 shells)
+2026-06-19 | MEASUREMENT-ONLY | tier_1 KPM-reject BYPASSED | production gate untouched
+====================================================================================================
+
+THE QUESTION: does STR pass >= 9 of the 14 clear-room shells? (4 boss auto-fail by timeout.)
+
+Band-fit vocabulary (inclusive both ends, lo <= kpm <= hi; gauntlet_sim.py:591/:1071):
+  below-floor  = observed_kpm < lo   -> too SLOW (gandalf's FALSIFIER on no-anchor swarm)
+  in-band      = lo <= kpm <= hi     -> PASS
+  above-ceiling= observed_kpm > hi   -> too FAST (cleaver-fantasy CONFIRMED, NOT incompetence)
+
+Bands (cohort-invariant, read AS-IS): {"open_arena": [9.9, 15.53], "chokepoint_corridor": [11.65, 15.88], "magic_pack": [6.06, 11.43], "elite_pack": [5.65, 10.0], "boss_with_adds": [2.49, 3.78], "mini_boss": [0.57, 3.3]}
+Win conditions (V4): {"open_arena": "all_mobs_killed", "chokepoint_corridor": "all_mobs_killed", "magic_pack": "all_mobs_killed", "elite_pack": "all_mobs_killed", "boss_with_adds": "boss_killed", "mini_boss": "mini_boss_killed"}
+Population: 54 kits -> 66 configs (faithful power, flip #3).
+Fights/cell (tier_2 n): 20 | seed base: 700000
+Cells: 4752 (18 shells x 4 cohorts x 66 configs)
+V1 integrity (every KPM from an executed batch): True
+V4 clear-shell integrity (Sum term == n_fights): True
+Regime fingerprint: spatial_current_mobs_per_min_faithful
+
+====================================================================================================
+HEADLINE -- CLEAR-ROOM PASS COUNT OF 14, per attribute x cohort (in-band / below-floor / above-ceiling)
+====================================================================================================
+
+[STR]  <== THE STR HEADLINE
+  cohort          pass/14  in-band   below   above  n_clear
+  DPS-min-maxer       120      120      48       0      168
+  Balanced            120      120      48       0      168
+  Defensive           120      120      48       0      168
+  Hybrid              120      120      48       0      168
+  cohort-agreement: OK (agree within 1)  per-cohort={'DPS-min-maxer': 120, 'Balanced': 120, 'Defensive': 120, 'Hybrid': 120}
+  per-clear-type (in-band/below/above), pooled across cohorts:
+    open_arena             in-band=192 below=  0 above=  0  (n=192, no-anchor swarm)
+    chokepoint_corridor    in-band=144 below=  0 above=  0  (n=144, no-anchor swarm)
+    magic_pack             in-band=144 below=  0 above=  0  (n=144, anchored pack)
+    elite_pack             in-band=  0 below=192 above=  0  (n=192, anchored pack)
+
+[DEX]  (control corroboration)
+  cohort          pass/14  in-band   below   above  n_clear
+  DPS-min-maxer        83       83       8      77      168
+  Balanced             83       83       8      77      168
+  Defensive            83       83       8      77      168
+  Hybrid               83       83       8      77      168
+  cohort-agreement: OK (agree within 1)  per-cohort={'DPS-min-maxer': 83, 'Balanced': 83, 'Defensive': 83, 'Hybrid': 83}
+  per-clear-type (in-band/below/above), pooled across cohorts:
+    open_arena             in-band= 96 below=  0 above= 96  (n=192, no-anchor swarm)
+    chokepoint_corridor    in-band= 72 below=  0 above= 72  (n=144, no-anchor swarm)
+    magic_pack             in-band= 84 below=  0 above= 60  (n=144, anchored pack)
+    elite_pack             in-band= 80 below= 32 above= 80  (n=192, anchored pack)
+
+[INT]  (control corroboration)
+  cohort          pass/14  in-band   below   above  n_clear
+  DPS-min-maxer       112      112       0      56      168
+  Balanced            119      119       0      49      168
+  Defensive           115      115       0      53      168
+  Hybrid              114      114       0      54      168
+  cohort-agreement: *** DIVERGENCE spread=7 -- FLAG ***  per-cohort={'DPS-min-maxer': 112, 'Balanced': 119, 'Defensive': 115, 'Hybrid': 114}
+  per-clear-type (in-band/below/above), pooled across cohorts:
+    open_arena             in-band=111 below=  0 above= 81  (n=192, no-anchor swarm)
+    chokepoint_corridor    in-band= 79 below=  0 above= 65  (n=144, no-anchor swarm)
+    magic_pack             in-band=103 below=  0 above= 41  (n=144, anchored pack)
+    elite_pack             in-band=167 below=  0 above= 25  (n=192, anchored pack)
+
+[WIS]  (control corroboration)
+  cohort          pass/14  in-band   below   above  n_clear
+  DPS-min-maxer       284      284       0     136      420
+  Balanced            282      282       0     138      420
+  Defensive           286      286       0     134      420
+  Hybrid              296      296       0     124      420
+  cohort-agreement: *** DIVERGENCE spread=14 -- FLAG ***  per-cohort={'DPS-min-maxer': 284, 'Balanced': 282, 'Defensive': 286, 'Hybrid': 296}
+  per-clear-type (in-band/below/above), pooled across cohorts:
+    open_arena             in-band=287 below=  0 above=193  (n=480, no-anchor swarm)
+    chokepoint_corridor    in-band=213 below=  0 above=147  (n=360, no-anchor swarm)
+    magic_pack             in-band=255 below=  0 above=105  (n=360, anchored pack)
+    elite_pack             in-band=393 below=  0 above= 87  (n=480, anchored pack)
+
+====================================================================================================
+TWO-LENS eligible_encounters_passed per cohort (ship floor = 9; REPORTED not gated -- V6)
+====================================================================================================
+  (a) current-code lens = band in-band across all 18 | (b) doctrine = 14 clear band + 4 boss survive+kill
+
+[STR]
+  cohort          curr/18   >=9?   doctr   >=9?  clr-band  boss-s+k
+  DPS-min-maxer       120      Y     120      Y       120         0
+  Balanced            120      Y     120      Y       120         0
+  Defensive           120      Y     120      Y       120         0
+  Hybrid              120      Y     120      Y       120         0
+
+[DEX]
+  cohort          curr/18   >=9?   doctr   >=9?  clr-band  boss-s+k
+  DPS-min-maxer       108      Y     123      Y        83        40
+  Balanced            108      Y     123      Y        83        40
+  Defensive           108      Y     123      Y        83        40
+  Hybrid              108      Y     123      Y        83        40
+
+[INT]
+  cohort          curr/18   >=9?   doctr   >=9?  clr-band  boss-s+k
+  DPS-min-maxer       140      Y     160      Y       112        48
+  Balanced            146      Y     167      Y       119        48
+  Defensive           140      Y     163      Y       115        48
+  Hybrid              139      Y     162      Y       114        48
+
+[WIS]
+  cohort          curr/18   >=9?   doctr   >=9?  clr-band  boss-s+k
+  DPS-min-maxer       360      Y     404      Y       284       120
+  Balanced            354      Y     402      Y       282       120
+  Defensive           357      Y     406      Y       286       120
+  Hybrid              372      Y     416      Y       296       120
+
+====================================================================================================
+BOSS-SHELL RE-RUN (free; consistency rail) -- should reproduce STR survive+kill=0.000, timeout-dominant
+====================================================================================================
+  attribute     n_fights  surv+kill   b_dead   a_dead  timeout
+  str               3840      0.000    0.000    0.000    1.000
+  dex               3840      0.788    0.788    0.000    0.212
+  int               3840      0.993    0.993    0.000    0.007
+  wis               9600      0.985    0.985    0.000    0.015
+
+----------------------------------------------------------------------------------------------------
+CLEAR-TIME on won clears (secondary; slow-slog vs near-miss context) -- STR rows
+----------------------------------------------------------------------------------------------------
+  str|chokepoint_corridor      median=   35.5s p90=  36.25s (n_won=2880)
+  str|elite_pack               median=   53.2s p90=   62.8s (n_won=3840)
+  str|magic_pack               median=   33.6s p90=   34.6s (n_won=2880)
+  str|open_arena               median=  37.85s p90=  39.75s (n_won=3840)
+
+====================================================================================================
+DISPOSITION READ (STR) -- maps to gandalf's pre-registered table
+====================================================================================================
+  STR clear-room pass: 120-120 of 14 (per cohort range).
+  no-anchor swarm (open_arena+chokepoint): 336/336 in-band
+  anchored pack (magic_pack+elite_pack):   144/336 in-band
+
+  Read key (gandalf's pre-registered dispositions):
+    >=9 spread across BOTH groups       -> broad clear-competent (ship as clear specialist)
+    >=9 concentrated in no-anchor swarm  -> swarm-only specialist
+    <9, failures in ANCHORED packs       -> allocation pervasive (kit fix load-bearing)
+    <9, failures on NO-ANCHOR swarm      -> gandalf's FALSIFIER
+
+  NOTE: this run MEASURES; gandalf RULES the disposition. Below-floor != above-ceiling
+  (too slow vs too fast) -- the SIDE is recorded so 'pass count' is never conflated with
+  '14 - pass = incompetent'.
