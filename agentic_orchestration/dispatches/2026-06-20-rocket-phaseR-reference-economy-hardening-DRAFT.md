@@ -51,3 +51,44 @@ Changing the authoritative `energy_type` source is a generation-side change that
 
 ## Hand-back record
 Append: tag, math-note path + the bc_target round-trip guard result, population-verification artifact (by-class economy emit), MIGRATION status, notes for jack-ryan Gate-2.
+
+---
+
+## Completion record — rocket — 2026-06-20
+
+**Status:** COMPLETE. Both guards held; neither tripped; no escalation required. Recompose-first PORT; no new mechanic; the two DEFERRED economies stayed deferred.
+
+**Tag:** `rocket/v-phaseR-reference-economy-hardening-1` (engine repo).
+
+**Math-note (Discipline #1, authored BEFORE code):**
+`reincarnated-engine/src/reincarnated/generation/math/2026-06-20-phaseR-reference-economy-hardening-math.md`
+
+**The population→kit-type KEY (GUARD #1 — design-side):**
+The population is built bottom-up on BC cells (`class_archetype=element`; NO doc-48 class field). The KEY = doc-48's own `(bc_attribute, bc_range, bc_tempo, bc_amplitude)` signature, which is **COLLISION-FREE within doc-48** (proven: collisions exist only at coarser keys — `(attr,range,tempo)` collides DEX-melee-high charge-stack-vs-stamina = Assassin vs Wildhunter — and are resolved by `amplitude`, doc-48's OWN discriminator). Off-grid population cells (only 3/18 exactly match a doc-48 class coordinate) fall back to doc-48's within-attribute discriminator: STR by range (melee→rage / mid→stamina / ranged→combo); DEX by range then melee-amplitude (ranged→combo / mid→rage / melee&spiky→charge-stack / melee&flat→stamina / melee-other→mana); INT→mana; WIS→mana. Single-valued, zero per-cell ambiguity → **DESIGN TRIP-WIRE did NOT trip** (no two economies in one population bucket); no gandalf escalation. Implemented as `_assign_doc48_economy()` + the `_DOC48_ECONOMY_BY_BC` exact-signature table in `season_generation_pipeline.py`.
+
+**bc_target round-trip guard result (GUARD #2 — technical-side): HOLDS.**
+The harness path (`season_generation_pipeline.py`) does NOT call `bc_target_from_generation_params` — verified zero `bc_target`/`econ_bin`/`cost_type` references in the harness pipeline. The `energy_type→bc_target` binding (`bc_target_source.py:105-197`) lives in a SEPARATE seam (production season_orchestrator/class_generator). My edit is confined to the harness `resource_model` source (4 call sites) + touches no shared bc_target code → the production round-trip is untouched and holds by construction. Emitted vocab `{rage,combo,stamina-as-resource,charge-stack,mana}` is fully kernel `_ENERGY_CONFIGS`-consumable. (One note: `charge-stack` ∈ kernel configs but ∉ `bc_target_source._ENERGY_ECON`; no current population cell emits it — requires a DEX-melee-spiky cell, absent from the 18-cell catalog — so inert for the harness; flagged in MIGRATION for the production seam owner.) **No round-trip failure → no KR re-escalation.**
+
+**By-class population-verification artifact (first-hand, affirmative):**
+Generated the real 54-kit harness population (`w5r1_generate_kit_candidates(seed_base=14001)`) and inspected each kit's `resource_model` AND the `_build_real_player_class(kit).energy_type` round-trip:
+- **STR: {rage: 9, combo: 3}** — all 9 STR-melee kits carry `energy_type=rage` (physical element). **The Barbarian-rage lever materializes on the population** (Phase-6 hinge satisfied).
+- **DEX: {stamina-as-resource: 3, combo: 6, rage: 3}** — multi-economy (G3b distinguishability satisfied).
+- **INT: {mana: 15}; WIS: {mana: 15}** (Magus overflow→mana; Crusader HP-economy DEFER→mana).
+- Full 54-kit distribution: **rage:12 / combo:9 / stamina-as-resource:3 / mana:30** (matches math-note §3 prediction exactly).
+- PlayerClass round-trip: **0/54 mismatches** — energy_type faithfully carried to the kernel-consumed `PlayerClass`.
+- Smoke: `scripts/rocket_phaseR_economy_smoke_2026_06_20.py` — ALL PASS.
+
+**Semantic-shift declaration (Discipline #12):** the population's economy composition changes from **100% mana-default** → rage:12/combo:9/stamina:3/mana:30. Every KPM/DPS field on this population now reflects the kit's real economy rhythm, not uniform mana-default. Pre-Phase-R and post-Phase-R KPM are DIFFERENT instruments — Phase 5's ONE band refit fits the post-Phase-R composed instrument.
+
+**MIGRATION status:** WRITTEN — `reincarnated-engine/src/reincarnated/generation/MIGRATION.md` [2026-06-20] Phase R entry. Value/vocabulary shift on existing `energy_type`/`resource_model` (NO new field). Consumers: gamora (selector + kernel already branch on energy_type — **NO gamora code change required**; the contract is the value, which now matches the kernel `_ENERGY_CONFIGS` it already expects); star-lord (verbatim passthrough; value set widens). bc_target round-trip note + standing-drift non-entanglement documented.
+
+**Notes for jack-ryan Gate-2:**
+1. **Mechanism correctness:** `_assign_doc48_economy` PORTs the LOCKED G1 table (doc 48 §3.1); collision-free key proven in math-note §1; the DEFERRED economies stay deferred (→mana). Exact-match precedence + within-attr fallback are both single-valued.
+2. **bc_target round-trip:** harness path does not feed bc_target; production seam untouched. Verify the grep claim (zero bc_target refs in `season_generation_pipeline.py`) if desired.
+3. **Cross-seam contract:** the emitted energy_type vocabulary matches kernel `_ENERGY_CONFIGS` + gamora's selector; G1 table is the contract; MIGRATION written.
+4. **Semantic-shift continuity:** declared at the population boundary (Discipline #12).
+5. **Seed hygiene:** verification used seed_base=14001 (the Cycle-14 Wave-5 production seed); no fresh-seed requirement for a population-composition change (no sim run in Phase R).
+6. **Standing test drift:** full suite 60 failed / 4755 passed = the documented 60 (foundation 5-vs-7 `season_emit`; cycle13 gauntlet; LLM auth). ZERO economy/resource/energy failures — not entangled. Verified.
+7. **No production-gate / band touch:** Phase R changes the POPULATION only; ENCOUNTER_COHORT_KPM_BAND + the production gate UNTOUCHED (band refit is Phase 5).
+
+**NOT pushed** (Matt-gated, ADR-006). Files committed under tag `rocket/v-phaseR-reference-economy-hardening-1`.
