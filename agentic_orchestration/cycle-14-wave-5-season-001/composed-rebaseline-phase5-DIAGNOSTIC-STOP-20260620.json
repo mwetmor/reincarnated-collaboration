@@ -1,0 +1,176 @@
+{
+  "phase": "Phase 5 \u2014 composed re-baseline DIAGNOSTIC STOP",
+  "status": "STOP \u2014 composed instrument distribution is per-economy bimodal; single-per-shell band method (ported Stage-2d) cannot honestly bracket it",
+  "date": "2026-06-20",
+  "instrument": "COMPOSED: Phases 1-4 + R live on the w4g1 spatial pack-clear path",
+  "population": "w5r1_generate_kit_candidates(seed_base=14001) @ max-profile (LIVE doc-48: rage:12/combo:9/stamina:3/mana:30)",
+  "fight_seed_base": 40000000,
+  "metric": "observed_kpm = mobs_killed / total_room_minutes [mobs/min, Stage-2a]",
+  "finding": "within-shell KPM spread is economy-driven up to ~72x (rage 8.3 vs stamina 600 on elite_pack); Stage-2b cohort-invariance (<=0.1 mobs/min) BROKEN; casters one-shot small packs in 0.3-0.5s -> 600 KPM timing-floor on magic/elite, and crater to ~0.5 KPM on boss (Phase-4 mitigation + boss HP wall)",
+  "mechanism": "Phase-2 rotation fires T4 capstone (NULL Stage-2d fired T1-only ~20s); unthrottled caster pools (stamina regen 20/s, mana sustains) one-shot small packs; build-spend (rage/combo) energy-meters the capstone -> stable 8-28 KPM",
+  "per_economy_per_shell_median_kpm": {
+    "rage": {
+      "open_arena": {
+        "n": 6,
+        "min": 15.02,
+        "med": 15.6,
+        "max": 16.11
+      },
+      "chokepoint_corridor": {
+        "n": 6,
+        "min": 14.73,
+        "med": 14.92,
+        "max": 14.99
+      },
+      "magic_pack": {
+        "n": 6,
+        "min": 18.62,
+        "med": 18.69,
+        "max": 18.72
+      },
+      "elite_pack": {
+        "n": 6,
+        "min": 8.28,
+        "med": 8.28,
+        "max": 8.29
+      },
+      "mini_boss": {
+        "n": 3,
+        "min": 11.63,
+        "med": 11.67,
+        "max": 11.69
+      },
+      "boss_with_adds": {
+        "n": 6,
+        "min": 7.89,
+        "med": 7.93,
+        "max": 7.95
+      }
+    },
+    "combo": {
+      "open_arena": {
+        "n": 6,
+        "min": 25.9,
+        "med": 25.96,
+        "max": 26.04
+      },
+      "chokepoint_corridor": {
+        "n": 6,
+        "min": 27.13,
+        "med": 27.15,
+        "max": 27.26
+      },
+      "magic_pack": {
+        "n": 6,
+        "min": 27.71,
+        "med": 27.81,
+        "max": 27.81
+      },
+      "elite_pack": {
+        "n": 6,
+        "min": 12.84,
+        "med": 13.0,
+        "max": 13.01
+      },
+      "mini_boss": {
+        "n": 3,
+        "min": 15.76,
+        "med": 15.8,
+        "max": 15.83
+      },
+      "boss_with_adds": {
+        "n": 6,
+        "min": 10.82,
+        "med": 10.95,
+        "max": 10.99
+      }
+    },
+    "stamina-as-resource": {
+      "open_arena": {
+        "n": 6,
+        "min": 47.43,
+        "med": 61.7,
+        "max": 61.86
+      },
+      "chokepoint_corridor": {
+        "n": 6,
+        "min": 46.92,
+        "med": 53.45,
+        "max": 60.45
+      },
+      "magic_pack": {
+        "n": 6,
+        "min": 69.36,
+        "med": 100.0,
+        "max": 100.0
+      },
+      "elite_pack": {
+        "n": 6,
+        "min": 157.89,
+        "med": 600.0,
+        "max": 600.0
+      },
+      "mini_boss": {
+        "n": 3,
+        "min": 0.5,
+        "med": 0.5,
+        "max": 0.87
+      },
+      "boss_with_adds": {
+        "n": 6,
+        "min": 2.5,
+        "med": 2.61,
+        "max": 2.62
+      }
+    },
+    "mana": {
+      "open_arena": {
+        "n": 6,
+        "min": 50.53,
+        "med": 51.67,
+        "max": 52.86
+      },
+      "chokepoint_corridor": {
+        "n": 6,
+        "min": 49.48,
+        "med": 49.48,
+        "max": 51.72
+      },
+      "magic_pack": {
+        "n": 6,
+        "min": 600.0,
+        "med": 600.0,
+        "max": 600.0
+      },
+      "elite_pack": {
+        "n": 6,
+        "min": 382.98,
+        "med": 428.57,
+        "max": 450.0
+      },
+      "mini_boss": {
+        "n": 3,
+        "min": 0.25,
+        "med": 0.25,
+        "max": 0.25
+      },
+      "boss_with_adds": {
+        "n": 6,
+        "min": 0.55,
+        "med": 0.58,
+        "max": 0.62
+      }
+    }
+  },
+  "forks": [
+    "fork1: band method must become economy/attribute-aware (METHODOLOGY change \u2014 gandalf felt-rhythm ruling; brief forbids gamora inventing it)",
+    "fork2: timing-floor 600@0.3s is a fight-resolution artifact -> SPATIAL_DAMAGE_SCALE/mob-HP re-tune (MAGNITUDE re-tune \u2014 brief forbids in-workstream; separate Matt-scheduled; composes with MOB_HP workstream)",
+    "fork3: design question \u2014 should unthrottled greedy-capstone casters one-shot a 3-mob pack? (gandalf/Matt at the band-approval halt)"
+  ],
+  "gamora_recommendation": "fork1 (economy-aware band) most likely correct \u2014 the composed instrument genuinely has per-economy structure the NULL instrument lacked; the band SHOULD become economy-aware, which is gandalf 2c-equivalent ruling territory, not gamora value-port",
+  "bands_untouched": true,
+  "no_band_wired": true,
+  "no_magnitude_retune": true,
+  "math_note": "simulation/math/composed-rebaseline-phase5-2026-06-20.md \u00a710",
+  "smoke_json": "composed-rebaseline-phase5-smoke-20260620_192041.json"
+}

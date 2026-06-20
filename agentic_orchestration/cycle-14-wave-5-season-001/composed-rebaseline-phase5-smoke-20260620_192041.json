@@ -1,0 +1,770 @@
+{
+  "phase": "Phase 5 \u2014 composed re-baseline (the ONE refit)",
+  "mode": "smoke",
+  "n_cells": 95,
+  "n_kits": 5,
+  "instrument": "COMPOSED: spatial pack-clear (w4g1 -> _run_spatial_w4g_batch); Phases 1-4 + R live",
+  "composed_fixes_live": {
+    "phase1_WIRE_RESOURCE_ECONOMY": true,
+    "phase2_rotation_selector": "falls out of energy_type branch",
+    "phase3_DoT": "unconditional (e537b29 + max-tick refresh)",
+    "phase4_mitigation_symmetry_pathA": true,
+    "phaseR_doc48_economies_population": {
+      "rage": 12,
+      "combo": 9,
+      "stamina-as-resource": 3,
+      "mana": 30
+    }
+  },
+  "metric": "observed_kpm = mobs_killed / total_room_minutes [MOBS/MIN, Stage-2a numerator]",
+  "population_source": "w5r1_generate_kit_candidates(seed_base=SEASON_SEED_BASE) @ max-profile (LIVE doc-48 economy regen; NOT the static null phase2_kit_candidates.json)",
+  "fight_seed_base": 40000000,
+  "refit_method": "PORTED Stage-2d (gandalf 2c): per-shell; unimodal p10/p90; bimodal p25-lo/p90-hi",
+  "characterization": {
+    "pooled": {
+      "n": 95,
+      "mean": 12.624,
+      "sd": 3.975,
+      "min": 7.864,
+      "max": 18.721,
+      "p5": 7.898,
+      "p10": 7.937,
+      "p25": 8.283,
+      "p50": 11.696,
+      "p75": 15.62,
+      "p90": 18.671,
+      "p95": 18.706,
+      "iqr": 7.337
+    },
+    "by_shell": {
+      "boss_with_adds": {
+        "n": 15,
+        "mean": 7.915,
+        "sd": 0.028,
+        "min": 7.864,
+        "max": 7.952,
+        "p5": 7.867,
+        "p10": 7.877,
+        "p25": 7.895,
+        "p50": 7.916,
+        "p75": 7.939,
+        "p90": 7.947,
+        "p95": 7.949,
+        "iqr": 0.044
+      },
+      "chokepoint_corridor": {
+        "n": 15,
+        "mean": 14.92,
+        "sd": 0.213,
+        "min": 14.594,
+        "max": 15.439,
+        "p5": 14.691,
+        "p10": 14.744,
+        "p25": 14.76,
+        "p50": 14.916,
+        "p75": 15.002,
+        "p90": 15.182,
+        "p95": 15.336,
+        "iqr": 0.242
+      },
+      "elite_pack": {
+        "n": 20,
+        "mean": 8.283,
+        "sd": 0.007,
+        "min": 8.268,
+        "max": 8.295,
+        "p5": 8.272,
+        "p10": 8.275,
+        "p25": 8.279,
+        "p50": 8.283,
+        "p75": 8.287,
+        "p90": 8.291,
+        "p95": 8.291,
+        "iqr": 0.008
+      },
+      "magic_pack": {
+        "n": 15,
+        "mean": 18.678,
+        "sd": 0.037,
+        "min": 18.605,
+        "max": 18.721,
+        "p5": 18.605,
+        "p10": 18.622,
+        "p25": 18.655,
+        "p50": 18.677,
+        "p75": 18.706,
+        "p90": 18.721,
+        "p95": 18.721,
+        "iqr": 0.051
+      },
+      "mini_boss": {
+        "n": 15,
+        "mean": 11.657,
+        "sd": 0.043,
+        "min": 11.583,
+        "max": 11.742,
+        "p5": 11.583,
+        "p10": 11.592,
+        "p25": 11.635,
+        "p50": 11.658,
+        "p75": 11.681,
+        "p90": 11.705,
+        "p95": 11.72,
+        "iqr": 0.046
+      },
+      "open_arena": {
+        "n": 15,
+        "mean": 15.737,
+        "sd": 0.392,
+        "min": 15.019,
+        "max": 16.484,
+        "p5": 15.152,
+        "p10": 15.305,
+        "p25": 15.534,
+        "p50": 15.676,
+        "p75": 15.988,
+        "p90": 16.294,
+        "p95": 16.397,
+        "iqr": 0.454
+      }
+    },
+    "by_shell_cohort": {
+      "boss_with_adds": {
+        "Balanced": {
+          "n": 5,
+          "mean": 7.917,
+          "sd": 0.02,
+          "min": 7.89,
+          "max": 7.937,
+          "p5": 7.891,
+          "p10": 7.892,
+          "p25": 7.895,
+          "p50": 7.926,
+          "p75": 7.937,
+          "p90": 7.937,
+          "p95": 7.937,
+          "iqr": 0.042
+        },
+        "DPS-min-maxer": {
+          "n": 5,
+          "mean": 7.915,
+          "sd": 0.03,
+          "min": 7.869,
+          "max": 7.947,
+          "p5": 7.874,
+          "p10": 7.879,
+          "p25": 7.895,
+          "p50": 7.916,
+          "p75": 7.947,
+          "p90": 7.947,
+          "p95": 7.947,
+          "iqr": 0.052
+        },
+        "Hybrid": {
+          "n": 5,
+          "mean": 7.913,
+          "sd": 0.032,
+          "min": 7.864,
+          "max": 7.952,
+          "p5": 7.871,
+          "p10": 7.878,
+          "p25": 7.9,
+          "p50": 7.905,
+          "p75": 7.942,
+          "p90": 7.948,
+          "p95": 7.95,
+          "iqr": 0.042
+        }
+      },
+      "chokepoint_corridor": {
+        "Balanced": {
+          "n": 5,
+          "mean": 14.837,
+          "sd": 0.109,
+          "min": 14.733,
+          "max": 15.009,
+          "p5": 14.738,
+          "p10": 14.744,
+          "p25": 14.76,
+          "p50": 14.76,
+          "p75": 14.921,
+          "p90": 14.974,
+          "p95": 14.992,
+          "iqr": 0.161
+        },
+        "DPS-min-maxer": {
+          "n": 5,
+          "mean": 14.926,
+          "sd": 0.287,
+          "min": 14.594,
+          "max": 15.439,
+          "p5": 14.627,
+          "p10": 14.661,
+          "p25": 14.76,
+          "p50": 14.842,
+          "p75": 14.995,
+          "p90": 15.262,
+          "p95": 15.35,
+          "iqr": 0.235
+        },
+        "Hybrid": {
+          "n": 5,
+          "mean": 14.996,
+          "sd": 0.171,
+          "min": 14.769,
+          "max": 15.291,
+          "p5": 14.799,
+          "p10": 14.828,
+          "p25": 14.916,
+          "p50": 14.986,
+          "p75": 15.019,
+          "p90": 15.182,
+          "p95": 15.237,
+          "iqr": 0.103
+        }
+      },
+      "elite_pack": {
+        "Balanced": {
+          "n": 5,
+          "mean": 8.278,
+          "sd": 0.007,
+          "min": 8.268,
+          "max": 8.287,
+          "p5": 8.269,
+          "p10": 8.27,
+          "p25": 8.272,
+          "p50": 8.28,
+          "p75": 8.283,
+          "p90": 8.286,
+          "p95": 8.287,
+          "iqr": 0.011
+        },
+        "DPS-min-maxer": {
+          "n": 5,
+          "mean": 8.283,
+          "sd": 0.008,
+          "min": 8.276,
+          "max": 8.295,
+          "p5": 8.276,
+          "p10": 8.276,
+          "p25": 8.276,
+          "p50": 8.28,
+          "p75": 8.291,
+          "p90": 8.293,
+          "p95": 8.294,
+          "iqr": 0.015
+        },
+        "Defensive": {
+          "n": 5,
+          "mean": 8.285,
+          "sd": 0.005,
+          "min": 8.276,
+          "max": 8.291,
+          "p5": 8.277,
+          "p10": 8.279,
+          "p25": 8.283,
+          "p50": 8.287,
+          "p75": 8.287,
+          "p90": 8.29,
+          "p95": 8.29,
+          "iqr": 0.004
+        },
+        "Hybrid": {
+          "n": 5,
+          "mean": 8.286,
+          "sd": 0.002,
+          "min": 8.283,
+          "max": 8.287,
+          "p5": 8.283,
+          "p10": 8.283,
+          "p25": 8.283,
+          "p50": 8.287,
+          "p75": 8.287,
+          "p90": 8.287,
+          "p95": 8.287,
+          "iqr": 0.004
+        }
+      },
+      "magic_pack": {
+        "Balanced": {
+          "n": 5,
+          "mean": 18.689,
+          "sd": 0.043,
+          "min": 18.605,
+          "max": 18.721,
+          "p5": 18.622,
+          "p10": 18.639,
+          "p25": 18.692,
+          "p50": 18.706,
+          "p75": 18.721,
+          "p90": 18.721,
+          "p95": 18.721,
+          "iqr": 0.029
+        },
+        "DPS-min-maxer": {
+          "n": 5,
+          "mean": 18.668,
+          "sd": 0.022,
+          "min": 18.648,
+          "max": 18.706,
+          "p5": 18.648,
+          "p10": 18.648,
+          "p25": 18.648,
+          "p50": 18.663,
+          "p75": 18.677,
+          "p90": 18.695,
+          "p95": 18.7,
+          "iqr": 0.029
+        },
+        "Hybrid": {
+          "n": 5,
+          "mean": 18.677,
+          "sd": 0.04,
+          "min": 18.605,
+          "max": 18.721,
+          "p5": 18.619,
+          "p10": 18.634,
+          "p25": 18.677,
+          "p50": 18.677,
+          "p75": 18.706,
+          "p90": 18.715,
+          "p95": 18.718,
+          "iqr": 0.029
+        }
+      },
+      "mini_boss": {
+        "Balanced": {
+          "n": 5,
+          "mean": 11.657,
+          "sd": 0.022,
+          "min": 11.628,
+          "max": 11.688,
+          "p5": 11.631,
+          "p10": 11.634,
+          "p25": 11.643,
+          "p50": 11.65,
+          "p75": 11.673,
+          "p90": 11.682,
+          "p95": 11.685,
+          "iqr": 0.03
+        },
+        "Defensive": {
+          "n": 5,
+          "mean": 11.666,
+          "sd": 0.051,
+          "min": 11.583,
+          "max": 11.742,
+          "p5": 11.598,
+          "p10": 11.613,
+          "p25": 11.658,
+          "p50": 11.673,
+          "p75": 11.673,
+          "p90": 11.714,
+          "p95": 11.728,
+          "iqr": 0.015
+        },
+        "Hybrid": {
+          "n": 5,
+          "mean": 11.649,
+          "sd": 0.05,
+          "min": 11.583,
+          "max": 11.711,
+          "p5": 11.587,
+          "p10": 11.592,
+          "p25": 11.605,
+          "p50": 11.65,
+          "p75": 11.696,
+          "p90": 11.705,
+          "p95": 11.708,
+          "iqr": 0.091
+        }
+      },
+      "open_arena": {
+        "Balanced": {
+          "n": 5,
+          "mean": 15.883,
+          "sd": 0.517,
+          "min": 15.019,
+          "max": 16.484,
+          "p5": 15.136,
+          "p10": 15.253,
+          "p25": 15.605,
+          "p50": 16.113,
+          "p75": 16.194,
+          "p90": 16.368,
+          "p95": 16.426,
+          "iqr": 0.589
+        },
+        "DPS-min-maxer": {
+          "n": 5,
+          "mean": 15.566,
+          "sd": 0.084,
+          "min": 15.449,
+          "max": 15.676,
+          "p5": 15.459,
+          "p10": 15.469,
+          "p25": 15.499,
+          "p50": 15.569,
+          "p75": 15.635,
+          "p90": 15.66,
+          "p95": 15.668,
+          "iqr": 0.136
+        },
+        "Hybrid": {
+          "n": 5,
+          "mean": 15.764,
+          "sd": 0.369,
+          "min": 15.209,
+          "max": 16.36,
+          "p5": 15.306,
+          "p10": 15.402,
+          "p25": 15.691,
+          "p50": 15.697,
+          "p75": 15.863,
+          "p90": 16.161,
+          "p95": 16.26,
+          "iqr": 0.172
+        }
+      }
+    },
+    "by_economy": {
+      "rage": {
+        "n": 95,
+        "mean": 12.624,
+        "sd": 3.975,
+        "min": 7.864,
+        "max": 18.721,
+        "p5": 7.898,
+        "p10": 7.937,
+        "p25": 8.283,
+        "p50": 11.696,
+        "p75": 15.62,
+        "p90": 18.671,
+        "p95": 18.706,
+        "iqr": 7.337
+      }
+    }
+  },
+  "proposed_band": {
+    "boss_with_adds": {
+      "n": 15,
+      "bracket_basis": "bimodal: p25-lo / p90-hi",
+      "new_band": [
+        7.89,
+        7.95
+      ],
+      "old_band_stage2d": [
+        2.49,
+        3.78
+      ],
+      "median": 7.916,
+      "resolve_band_balanced": [
+        0.6,
+        8.8
+      ]
+    },
+    "chokepoint_corridor": {
+      "n": 15,
+      "bracket_basis": "unimodal: p10/p90",
+      "new_band": [
+        14.74,
+        15.18
+      ],
+      "old_band_stage2d": [
+        11.65,
+        15.88
+      ],
+      "median": 14.916,
+      "resolve_band_balanced": [
+        20.5,
+        81.0
+      ]
+    },
+    "elite_pack": {
+      "n": 20,
+      "bracket_basis": "bimodal: p25-lo / p90-hi",
+      "new_band": [
+        8.28,
+        8.29
+      ],
+      "old_band_stage2d": [
+        5.65,
+        10.0
+      ],
+      "median": 8.283,
+      "resolve_band_balanced": [
+        3.8,
+        37.5
+      ]
+    },
+    "magic_pack": {
+      "n": 15,
+      "bracket_basis": "unimodal: p10/p90",
+      "new_band": [
+        18.62,
+        18.72
+      ],
+      "old_band_stage2d": [
+        6.06,
+        11.43
+      ],
+      "median": 18.677,
+      "resolve_band_balanced": [
+        8.8,
+        87.5
+      ]
+    },
+    "mini_boss": {
+      "n": 15,
+      "bracket_basis": "bimodal: p25-lo / p90-hi",
+      "new_band": [
+        11.63,
+        11.71
+      ],
+      "old_band_stage2d": [
+        0.57,
+        3.3
+      ],
+      "median": 11.658,
+      "resolve_band_balanced": [
+        0.6,
+        10.0
+      ]
+    },
+    "open_arena": {
+      "n": 15,
+      "bracket_basis": "unimodal: p10/p90",
+      "new_band": [
+        15.3,
+        16.29
+      ],
+      "old_band_stage2d": [
+        9.9,
+        15.53
+      ],
+      "median": 15.676,
+      "resolve_band_balanced": [
+        21.5,
+        107.5
+      ]
+    }
+  },
+  "cohort_invariance": {
+    "boss_with_adds": {
+      "cohort_means": {
+        "Balanced": 7.917,
+        "DPS-min-maxer": 7.915,
+        "Hybrid": 7.913
+      },
+      "max_spread": 0.004,
+      "invariant_le_0.1": true
+    },
+    "chokepoint_corridor": {
+      "cohort_means": {
+        "Balanced": 14.837,
+        "DPS-min-maxer": 14.926,
+        "Hybrid": 14.996
+      },
+      "max_spread": 0.159,
+      "invariant_le_0.1": false
+    },
+    "elite_pack": {
+      "cohort_means": {
+        "Balanced": 8.278,
+        "DPS-min-maxer": 8.283,
+        "Defensive": 8.285,
+        "Hybrid": 8.286
+      },
+      "max_spread": 0.008,
+      "invariant_le_0.1": true
+    },
+    "magic_pack": {
+      "cohort_means": {
+        "Balanced": 18.689,
+        "DPS-min-maxer": 18.668,
+        "Hybrid": 18.677
+      },
+      "max_spread": 0.021,
+      "invariant_le_0.1": true
+    },
+    "mini_boss": {
+      "cohort_means": {
+        "Balanced": 11.657,
+        "Defensive": 11.666,
+        "Hybrid": 11.649
+      },
+      "max_spread": 0.017,
+      "invariant_le_0.1": true
+    },
+    "open_arena": {
+      "cohort_means": {
+        "Balanced": 15.883,
+        "DPS-min-maxer": 15.566,
+        "Hybrid": 15.764
+      },
+      "max_spread": 0.317,
+      "invariant_le_0.1": false
+    }
+  },
+  "bimodality_partition": {
+    "boss_with_adds": {
+      "p10": 7.877,
+      "p25": 7.895,
+      "p10_to_p25_ratio": 1.002,
+      "expected_partition": "bimodal",
+      "observed_partition": "unimodal",
+      "partition_flip": true
+    },
+    "chokepoint_corridor": {
+      "p10": 14.744,
+      "p25": 14.76,
+      "p10_to_p25_ratio": 1.001,
+      "expected_partition": "unimodal",
+      "observed_partition": "unimodal",
+      "partition_flip": false
+    },
+    "elite_pack": {
+      "p10": 8.275,
+      "p25": 8.279,
+      "p10_to_p25_ratio": 1.0,
+      "expected_partition": "bimodal",
+      "observed_partition": "unimodal",
+      "partition_flip": true
+    },
+    "magic_pack": {
+      "p10": 18.622,
+      "p25": 18.655,
+      "p10_to_p25_ratio": 1.002,
+      "expected_partition": "unimodal",
+      "observed_partition": "unimodal",
+      "partition_flip": false
+    },
+    "mini_boss": {
+      "p10": 11.592,
+      "p25": 11.635,
+      "p10_to_p25_ratio": 1.004,
+      "expected_partition": "bimodal",
+      "observed_partition": "unimodal",
+      "partition_flip": true
+    },
+    "open_arena": {
+      "p10": 15.305,
+      "p25": 15.534,
+      "p10_to_p25_ratio": 1.015,
+      "expected_partition": "unimodal",
+      "observed_partition": "unimodal",
+      "partition_flip": false
+    }
+  },
+  "old_new_delta_table": [
+    {
+      "shell": "boss_with_adds",
+      "old_band": [
+        2.49,
+        3.78
+      ],
+      "new_band": [
+        7.89,
+        7.95
+      ],
+      "delta_lo": 5.4,
+      "delta_hi": 4.17,
+      "delta_center": 4.785,
+      "predicted_direction": "DOWN",
+      "actual_direction": "UP",
+      "direction_match": false,
+      "SURPRISING_UP": true
+    },
+    {
+      "shell": "chokepoint_corridor",
+      "old_band": [
+        11.65,
+        15.88
+      ],
+      "new_band": [
+        14.74,
+        15.18
+      ],
+      "delta_lo": 3.09,
+      "delta_hi": -0.7,
+      "delta_center": 1.195,
+      "predicted_direction": "flat-to-DOWN",
+      "actual_direction": "UP",
+      "direction_match": false,
+      "SURPRISING_UP": true
+    },
+    {
+      "shell": "elite_pack",
+      "old_band": [
+        5.65,
+        10.0
+      ],
+      "new_band": [
+        8.28,
+        8.29
+      ],
+      "delta_lo": 2.63,
+      "delta_hi": -1.71,
+      "delta_center": 0.46,
+      "predicted_direction": "DOWN",
+      "actual_direction": "UP",
+      "direction_match": false,
+      "SURPRISING_UP": false
+    },
+    {
+      "shell": "magic_pack",
+      "old_band": [
+        6.06,
+        11.43
+      ],
+      "new_band": [
+        18.62,
+        18.72
+      ],
+      "delta_lo": 12.56,
+      "delta_hi": 7.29,
+      "delta_center": 9.925,
+      "predicted_direction": "DOWN",
+      "actual_direction": "UP",
+      "direction_match": false,
+      "SURPRISING_UP": true
+    },
+    {
+      "shell": "mini_boss",
+      "old_band": [
+        0.57,
+        3.3
+      ],
+      "new_band": [
+        11.63,
+        11.71
+      ],
+      "delta_lo": 11.06,
+      "delta_hi": 8.41,
+      "delta_center": 9.735,
+      "predicted_direction": "DOWN-to-flat",
+      "actual_direction": "UP",
+      "direction_match": false,
+      "SURPRISING_UP": true
+    },
+    {
+      "shell": "open_arena",
+      "old_band": [
+        9.9,
+        15.53
+      ],
+      "new_band": [
+        15.3,
+        16.29
+      ],
+      "delta_lo": 5.4,
+      "delta_hi": 0.76,
+      "delta_center": 3.08,
+      "predicted_direction": "flat-to-DOWN",
+      "actual_direction": "UP",
+      "direction_match": false,
+      "SURPRISING_UP": true
+    }
+  ],
+  "bands_untouched_this_run": true
+}
