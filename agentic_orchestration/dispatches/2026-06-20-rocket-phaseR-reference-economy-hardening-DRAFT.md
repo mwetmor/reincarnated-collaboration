@@ -1,12 +1,16 @@
-# Dispatch — 2026-06-20 — rocket — Phase R: Reference-economy hardening (DRAFT — PENDING MATT SCOPE AUTHORIZATION)
+# Dispatch — 2026-06-20 — rocket — Phase R: Reference-economy hardening (AUTHORIZED)
 
-> **DO NOT FIRE until Matt authorizes Phase R.** This dispatch is a ready-to-fire draft authored by knight-rider so authorization is one word. Phase R was NOT in the original instrument-validity spine; it is a gandalf-ruled scope addition (`gandalf/notes/2026-06-20-instrument-validity-G1-rocket-economy-prerequisite-RULING.md`) requiring Matt's scope authorization per the team commit/scope discipline.
+> **AUTHORIZED 2026-06-20** — gandalf design ruling (`gandalf/notes/2026-06-20-instrument-validity-G1-rocket-economy-prerequisite-RULING.md`) + Matt scope authorization. Phase R was NOT in the original instrument-validity spine; it is a gandalf-ruled scope addition that Matt has now authorized as a hard-prerequisite to Phase 5. **FIRE.** See the LOCKED-TABLE / KEY-DERIVATION amendment below (§ "Gandalf design-constraint amendment") — it is binding and must be read before any code.
 
 **From:** knight-rider
 **To:** rocket (generation seam)
-**Approved by:** PENDING — Matt scope authorization
+**Approved by:** Matt 2026-06-20 (scope authorization) + gandalf 2026-06-20 (design ruling)
 **Estimated effort:** half-day (PORT not BUILD — recompose-first; doc-48 spec + kernel machinery both exist)
 **Acceptance:** the generated harness population carries the doc-48 per-class economies (rage/combo/charge-stack/steady/mana etc.) as the authoritative `energy_type`, replacing the BC-tempo-inferred collapse-to-mana-default; the Barbarian-rage economy materializes on STR Barbarian entities; recompose-first held (no new mechanic); the bc_target round-trip guard passes; jack-ryan Gate-2 clean.
+
+## Gandalf design-constraint amendment (BINDING — read before any code)
+
+The doc-48 economy-by-kit-type assignment (G1 table) is LOCKED. It is NOT rocket's to re-decide, "improve," or collapse for convenience while wiring (recompose-first: PORT the assignment, do not author a new one). What IS rocket's room: the population→kit-type KEY — which population feature(s) (BC-cell / cohort / element / role / attribute-primary) deterministically recover the doc-48 kit-type, since the population carries NO doc-48 class field (it is built bottom-up; class_archetype=element, not a doc-48 class roster). Derive that key in the math-note FIRST (Discipline #1), before code. DESIGN TRIP-WIRE: if the population's features do NOT cleanly partition into the doc-48 economies — two economies fall into the same feature bucket — that is a design ambiguity, not an implementation choice. STOP and escalate to gandalf (fire gandalf-subagent) as a design call. Do NOT resolve it by expedient choice. This is the design-side twin of the bc_target round-trip guard the dispatch already carries: round-trip failure → KR; key-ambiguity → gandalf.
 
 ## Why this exists (the scope surprise)
 Phase 1 (resource wiring) is correct and Gate-2'd — but gamora + gandalf found the *generated population* never carries the doc-48 economies. Generation infers a resource type from BC-tempo (`season_generation_pipeline.py:213-218` `_BC_TEMPO_TO_RESOURCE` → `{cooldown, energy, mana}`, all resolving to the SAME mana-default pool). The doc-48 per-class economies (doc 48 §3.1) never reach the spatial layer. So the **Barbarian-rage build-spend lever — the entire hinge of the Phase-6 STR (A)-vs-(B) read — is absent from the population.** Phase 6 on this population would be "a null instrument reporting a confident number" (gandalf). Phase 2 already corroborated this empirically: STR is throttled (2.2× KPM vs casters' 16-40×) purely because it borrows the wrong (mana-default) economy.
