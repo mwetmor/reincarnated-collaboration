@@ -4,13 +4,16 @@
   "phase_3_variants_shipped": 585,
   "phase_4_archive_total": 34,
   "substrate_diversity": {
-    "cultural_lineage_canonical_distinct": 5,
+    "cultural_lineage_canonical_distinct": 8,
     "cultural_lineage_canonical_distribution": {
-      "european": 13,
-      "fantasy_generic": 32,
-      "south_asian": 2,
-      "east_asian": 6,
-      "southeast_asian": 1
+      "european": 15,
+      "fantasy_generic": 30,
+      "unknown": 1,
+      "sci_fi_generic": 1,
+      "east_asian": 4,
+      "southeast_asian": 1,
+      "south_asian": 1,
+      "middle_eastern": 1
     },
     "weapon_type_family_distinct": 5,
     "weapon_type_family_distribution": {
@@ -20,25 +23,25 @@
       "caster-arcane": 15,
       "caster-faith": 15
     },
-    "historical_period_canonical_distinct": 8,
+    "historical_period_canonical_distinct": 7,
     "historical_period_canonical_distribution": {
-      "early_modern": 10,
-      "industrial": 4,
-      "fictional": 27,
-      "contemporary": 2,
+      "early_modern": 9,
+      "industrial": 3,
+      "fictional": 28,
+      "contemporary": 4,
       "medieval": 2,
       "modern": 2,
-      "pre_classical": 1,
       "classical": 6
     },
-    "register_canonical_distinct": 4,
+    "register_canonical_distinct": 5,
     "register_canonical_distribution": {
-      "historical": 18,
-      "fantasy": 32,
-      "mythological": 3,
-      "military_modern": 1
+      "historical": 16,
+      "fantasy": 31,
+      "mythological": 4,
+      "military_modern": 1,
+      "sci_fi": 2
     },
-    "distinct_lineage_period_register_weapon_tuples": 22
+    "distinct_lineage_period_register_weapon_tuples": 25
   },
   "cohort_distribution": {
     "damage_min_maxer": 18,
@@ -47,7 +50,7 @@
     "hybrid": 0
   },
   "pm1_clustering": {
-    "input_cardinality": 598,
+    "input_cardinality": 35,
     "cluster_count": 4,
     "selection_method": "GMM_BIC_selected",
     "degenerate_fallback_triggered": false
