@@ -1,0 +1,546 @@
+{
+  "scored_at": "2026-06-20T02:10:52.291Z",
+  "note": "Gate-2 sanity layer: right-pixels check (bright/warm centroids), SHF band-split (where the dark sits), warm/cool pixel-class corroboration, + drax 3-flag evidence.",
+  "frames": [
+    {
+      "file": "crypt_vault_orbit_01_orbit_az000.png",
+      "tag": "orbit_az000",
+      "cls": "ORBIT",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 59,
+          "y_pct": 57.4,
+          "mean_luma": 235,
+          "n": 5419
+        },
+        "shf_band_top_mid_bottom": [
+          81,
+          45.3,
+          38.6
+        ],
+        "warm_pct": 42.33,
+        "cool_pct": 1.99,
+        "warm_cool_ratio": 21.32,
+        "warmCentroid": {
+          "x_pct": 50.1,
+          "y_pct": 62.7
+        },
+        "warm_by_band_pct": [
+          17.6,
+          50.1,
+          59.3
+        ],
+        "cool_by_band_pct": [
+          1.3,
+          4,
+          0.7
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_00_orbit_az045.png",
+      "tag": "orbit_az045",
+      "cls": "ORBIT",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 53.7,
+          "y_pct": 54.9,
+          "mean_luma": 236,
+          "n": 5316
+        },
+        "shf_band_top_mid_bottom": [
+          82.5,
+          30.1,
+          54.6
+        ],
+        "warm_pct": 43.84,
+        "cool_pct": 0.15,
+        "warm_cool_ratio": 289.88,
+        "warmCentroid": {
+          "x_pct": 49.9,
+          "y_pct": 57.4
+        },
+        "warm_by_band_pct": [
+          17.5,
+          69,
+          45
+        ],
+        "cool_by_band_pct": [
+          0,
+          0.2,
+          0.3
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_07_orbit_az090.png",
+      "tag": "orbit_az090",
+      "cls": "ORBIT",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 44.3,
+          "y_pct": 46.8,
+          "mean_luma": 230,
+          "n": 5369
+        },
+        "shf_band_top_mid_bottom": [
+          80.5,
+          47.2,
+          34.9
+        ],
+        "warm_pct": 44.4,
+        "cool_pct": 1.38,
+        "warm_cool_ratio": 32.21,
+        "warmCentroid": {
+          "x_pct": 49.5,
+          "y_pct": 63.2
+        },
+        "warm_by_band_pct": [
+          18.3,
+          50,
+          64.8
+        ],
+        "cool_by_band_pct": [
+          0.9,
+          3.2,
+          0.1
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_06_orbit_az135.png",
+      "tag": "orbit_az135",
+      "cls": "ORBIT",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 39.6,
+          "y_pct": 52.1,
+          "mean_luma": 231,
+          "n": 5434
+        },
+        "shf_band_top_mid_bottom": [
+          82.9,
+          36,
+          59
+        ],
+        "warm_pct": 35.98,
+        "cool_pct": 4.31,
+        "warm_cool_ratio": 8.34,
+        "warmCentroid": {
+          "x_pct": 48.9,
+          "y_pct": 59.5
+        },
+        "warm_by_band_pct": [
+          12.5,
+          55.3,
+          40.2
+        ],
+        "cool_by_band_pct": [
+          4.4,
+          8.2,
+          0.3
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_05_orbit_az180.png",
+      "tag": "orbit_az180",
+      "cls": "ORBIT",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 36.9,
+          "y_pct": 52.7,
+          "mean_luma": 229,
+          "n": 5560
+        },
+        "shf_band_top_mid_bottom": [
+          82.6,
+          47.7,
+          50
+        ],
+        "warm_pct": 33.2,
+        "cool_pct": 6.51,
+        "warm_cool_ratio": 5.1,
+        "warmCentroid": {
+          "x_pct": 49,
+          "y_pct": 64
+        },
+        "warm_by_band_pct": [
+          5.1,
+          46.9,
+          47.6
+        ],
+        "cool_by_band_pct": [
+          12.7,
+          5,
+          1.9
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_04_orbit_az225.png",
+      "tag": "orbit_az225",
+      "cls": "ORBIT",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 49.1,
+          "y_pct": 51,
+          "mean_luma": 210,
+          "n": 5193
+        },
+        "shf_band_top_mid_bottom": [
+          82.2,
+          39.3,
+          63.4
+        ],
+        "warm_pct": 27.35,
+        "cool_pct": 10.29,
+        "warm_cool_ratio": 2.66,
+        "warmCentroid": {
+          "x_pct": 50.1,
+          "y_pct": 63.4
+        },
+        "warm_by_band_pct": [
+          4.5,
+          42.8,
+          34.7
+        ],
+        "cool_by_band_pct": [
+          12.7,
+          17.2,
+          0.9
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_03_orbit_az270.png",
+      "tag": "orbit_az270",
+      "cls": "ORBIT",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 43.8,
+          "y_pct": 49.7,
+          "mean_luma": 219,
+          "n": 5393
+        },
+        "shf_band_top_mid_bottom": [
+          80.2,
+          48.9,
+          51.5
+        ],
+        "warm_pct": 32.08,
+        "cool_pct": 7.02,
+        "warm_cool_ratio": 4.57,
+        "warmCentroid": {
+          "x_pct": 51.1,
+          "y_pct": 64
+        },
+        "warm_by_band_pct": [
+          3.6,
+          45.9,
+          46.7
+        ],
+        "cool_by_band_pct": [
+          16,
+          4.3,
+          0.7
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_02_orbit_az315.png",
+      "tag": "orbit_az315",
+      "cls": "ORBIT",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 36.9,
+          "y_pct": 62.8,
+          "mean_luma": 225,
+          "n": 5406
+        },
+        "shf_band_top_mid_bottom": [
+          82.1,
+          33.3,
+          64.8
+        ],
+        "warm_pct": 32.64,
+        "cool_pct": 6.58,
+        "warm_cool_ratio": 4.96,
+        "warmCentroid": {
+          "x_pct": 51.7,
+          "y_pct": 58
+        },
+        "warm_by_band_pct": [
+          10.1,
+          55.6,
+          32.2
+        ],
+        "cool_by_band_pct": [
+          7.6,
+          9.9,
+          2.3
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_08_oblique_az030.png",
+      "tag": "oblique_az030",
+      "cls": "OBLIQUE",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 61.6,
+          "y_pct": 55.1,
+          "mean_luma": 237,
+          "n": 5264
+        },
+        "shf_band_top_mid_bottom": [
+          87.1,
+          26.7,
+          48.9
+        ],
+        "warm_pct": 43.7,
+        "cool_pct": 0.64,
+        "warm_cool_ratio": 68.52,
+        "warmCentroid": {
+          "x_pct": 49.7,
+          "y_pct": 59.5
+        },
+        "warm_by_band_pct": [
+          12.9,
+          70.2,
+          48
+        ],
+        "cool_by_band_pct": [
+          0,
+          0.1,
+          1.8
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_11_oblique_az150.png",
+      "tag": "oblique_az150",
+      "cls": "OBLIQUE",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 35.1,
+          "y_pct": 53.2,
+          "mean_luma": 234,
+          "n": 5492
+        },
+        "shf_band_top_mid_bottom": [
+          87.3,
+          30.4,
+          55.3
+        ],
+        "warm_pct": 35.9,
+        "cool_pct": 5.79,
+        "warm_cool_ratio": 6.2,
+        "warmCentroid": {
+          "x_pct": 47.6,
+          "y_pct": 61.6
+        },
+        "warm_by_band_pct": [
+          6,
+          60.1,
+          41.6
+        ],
+        "cool_by_band_pct": [
+          6.4,
+          9.1,
+          1.8
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_10_oblique_az240.png",
+      "tag": "oblique_az240",
+      "cls": "OBLIQUE",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 51.6,
+          "y_pct": 55.8,
+          "mean_luma": 213,
+          "n": 5187
+        },
+        "shf_band_top_mid_bottom": [
+          86.9,
+          34.9,
+          58.7
+        ],
+        "warm_pct": 26.44,
+        "cool_pct": 12.65,
+        "warm_cool_ratio": 2.09,
+        "warmCentroid": {
+          "x_pct": 50.4,
+          "y_pct": 66
+        },
+        "warm_by_band_pct": [
+          0.8,
+          41.4,
+          37.2
+        ],
+        "cool_by_band_pct": [
+          11.9,
+          23.6,
+          2.4
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_09_oblique_az300.png",
+      "tag": "oblique_az300",
+      "cls": "OBLIQUE",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 32.8,
+          "y_pct": 53.2,
+          "mean_luma": 230,
+          "n": 5263
+        },
+        "shf_band_top_mid_bottom": [
+          86.6,
+          30,
+          61.1
+        ],
+        "warm_pct": 32.38,
+        "cool_pct": 8.1,
+        "warm_cool_ratio": 4,
+        "warmCentroid": {
+          "x_pct": 53.3,
+          "y_pct": 61
+        },
+        "warm_by_band_pct": [
+          4,
+          58.7,
+          34.5
+        ],
+        "cool_by_band_pct": [
+          9.3,
+          10.4,
+          4.6
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_12_through_entrance.png",
+      "tag": "through_entrance",
+      "cls": "THROUGH",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 53.8,
+          "y_pct": 51.4,
+          "mean_luma": 188,
+          "n": 5340
+        },
+        "shf_band_top_mid_bottom": [
+          100,
+          63.5,
+          94.1
+        ],
+        "warm_pct": 9.13,
+        "cool_pct": 5.03,
+        "warm_cool_ratio": 1.82,
+        "warmCentroid": {
+          "x_pct": 52.7,
+          "y_pct": 59
+        },
+        "warm_by_band_pct": [
+          0,
+          22.1,
+          5.3
+        ],
+        "cool_by_band_pct": [
+          0,
+          14.6,
+          0.5
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_13_through_pit_to_mezzanine.png",
+      "tag": "through_pit_to_mezzanine",
+      "cls": "THROUGH",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 34.3,
+          "y_pct": 59.8,
+          "mean_luma": 233,
+          "n": 5608
+        },
+        "shf_band_top_mid_bottom": [
+          99.9,
+          41.6,
+          30.2
+        ],
+        "warm_pct": 33.71,
+        "cool_pct": 8.51,
+        "warm_cool_ratio": 3.96,
+        "warmCentroid": {
+          "x_pct": 47.8,
+          "y_pct": 71.6
+        },
+        "warm_by_band_pct": [
+          0,
+          38.3,
+          62.9
+        ],
+        "cool_by_band_pct": [
+          0,
+          19.6,
+          5.9
+        ]
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_14_plan_footprint.png",
+      "tag": "plan_footprint",
+      "cls": "PLAN",
+      "diag": {
+        "dims": "960x540",
+        "brightCentroid": {
+          "x_pct": 51.1,
+          "y_pct": 46.4,
+          "mean_luma": 235,
+          "n": 5247
+        },
+        "shf_band_top_mid_bottom": [
+          46.8,
+          40.5,
+          43.9
+        ],
+        "warm_pct": 46.46,
+        "cool_pct": 8.87,
+        "warm_cool_ratio": 5.24,
+        "warmCentroid": {
+          "x_pct": 51.3,
+          "y_pct": 57.8
+        },
+        "warm_by_band_pct": [
+          29.8,
+          54.5,
+          55
+        ],
+        "cool_by_band_pct": [
+          22.1,
+          3.6,
+          0.8
+        ]
+      }
+    }
+  ]
+}

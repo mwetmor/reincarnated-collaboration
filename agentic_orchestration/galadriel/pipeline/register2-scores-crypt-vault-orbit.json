@@ -1,0 +1,807 @@
+{
+  "scored_at": "2026-06-20T02:11:58.439Z",
+  "gate": "GATE 2 (register CV) — crypt-vault clear-room node PoC",
+  "question": "Does the LOCKED cathedral_lift/register-2 recipe HOLD across SEVERAL framings of the node? (NARROW: not \"is the recipe right\" — it is; not spatial coherence — Matt Gate 3.)",
+  "build": "drax crypt-vault clear-room node (reincarnated-godot scenes/crypt_vault_node_baked.tscn); register held CONSTANT at the proven cathedral_lift recipe; Gate 1 (structural) PASSED.",
+  "capture_set": "crypt_vault_orbit_2026-06-19 — 15 framings, 2560x1440, Godot SubViewport (8 orbit pitch42 / 4 oblique pitch26 / 2 through-room / 1 plan pitch68).",
+  "instrument_provenance": "BYTE-IDENTICAL substrate math to register2-score-descent-iter7.mjs / lifecycle-score-cathedral.mjs / register-metrics.mjs (960w inside-fit, gray luma, raw RGB sat+warmCool; HLF>204, SHF<31, LDR=p95-p05, poolBedGap=p98-p50, warmCool=(R+0.5G)/(B+0.5G)).",
+  "band": {
+    "LIGHTING_mandatory": "LDR >= 115 (cathedral) AND SHF >= 17.5 (descent DRESSED floor — content is furnished, NOT a bare void; STARK 30 is the wrong bar)",
+    "REGISTER_DIRECTION": "warmCool >= 1 (descent establish bar; framing-class-aware — broadside/steep framings trade cool by frame-area)",
+    "VFX": "INHERITED-PASS, NOT re-scored — this orbit stages NO hero VFX event (static-scene architectural orbit; braziers always-on atmosphere only). HLF reported as atmosphere, NOT graded against the 1.5% hero-bloom bar.",
+    "MATERIAL": "LMV reported (light-responsive surface); secondary, recipe scored material 5/5 on real Synty content."
+  },
+  "reference_bands": {
+    "CATHEDRAL": {
+      "LDR_whole": 231.9,
+      "SHF_whole": 41.8,
+      "HLF_peak": 9.354,
+      "LMV_whole": 36.4
+    },
+    "DESCENT_ESTABLISH": {
+      "LDR": "124/119/127",
+      "warmCool": "1.026/1.018/1.015",
+      "note": "low warm katabasis beats"
+    },
+    "BOSS_NORTHSTAR": {
+      "LDR": 175.97,
+      "SHF": 42.74,
+      "HLF_peak": 4.013
+    }
+  },
+  "frames": [
+    {
+      "file": "crypt_vault_orbit_01_orbit_az000.png",
+      "tag": "orbit_az000",
+      "cls": "ORBIT",
+      "metrics": {
+        "HFD": 9.03,
+        "LMV": 28.66,
+        "LDR": 199,
+        "SAT_mean": 0.332,
+        "SAT_std": 0.351,
+        "HLF_pct": 3.906,
+        "SHF_pct": 54.98,
+        "warmCool": 1.684,
+        "p05": 0,
+        "p50": 2,
+        "p95": 199,
+        "p98": 215,
+        "poolBedGap": 213,
+        "bright_pct": 7.62,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "ORBIT",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": false,
+        "lighting_basis": "LIGHTING HOLD: LDR 199 >= 115 AND SHF 54.98 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.684 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_00_orbit_az045.png",
+      "tag": "orbit_az045",
+      "cls": "ORBIT",
+      "metrics": {
+        "HFD": 10.39,
+        "LMV": 29.28,
+        "LDR": 206,
+        "SAT_mean": 0.247,
+        "SAT_std": 0.29,
+        "HLF_pct": 5.466,
+        "SHF_pct": 55.75,
+        "warmCool": 1.593,
+        "p05": 0,
+        "p50": 0,
+        "p95": 206,
+        "p98": 216,
+        "poolBedGap": 216,
+        "bright_pct": 11.74,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "ORBIT",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": false,
+        "lighting_basis": "LIGHTING HOLD: LDR 206 >= 115 AND SHF 55.75 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.593 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_07_orbit_az090.png",
+      "tag": "orbit_az090",
+      "cls": "ORBIT",
+      "metrics": {
+        "HFD": 8.82,
+        "LMV": 28.65,
+        "LDR": 195,
+        "SAT_mean": 0.299,
+        "SAT_std": 0.317,
+        "HLF_pct": 2.794,
+        "SHF_pct": 54.19,
+        "warmCool": 1.578,
+        "p05": 0,
+        "p50": 6,
+        "p95": 195,
+        "p98": 208,
+        "poolBedGap": 202,
+        "bright_pct": 7.85,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "ORBIT",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": false,
+        "lighting_basis": "LIGHTING HOLD: LDR 195 >= 115 AND SHF 54.19 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.578 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_06_orbit_az135.png",
+      "tag": "orbit_az135",
+      "cls": "ORBIT",
+      "metrics": {
+        "HFD": 10.41,
+        "LMV": 24.51,
+        "LDR": 194,
+        "SAT_mean": 0.265,
+        "SAT_std": 0.323,
+        "HLF_pct": 3.061,
+        "SHF_pct": 59.32,
+        "warmCool": 1.59,
+        "p05": 0,
+        "p50": 0,
+        "p95": 194,
+        "p98": 210,
+        "poolBedGap": 210,
+        "bright_pct": 6.05,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "ORBIT",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": false,
+        "lighting_basis": "LIGHTING HOLD: LDR 194 >= 115 AND SHF 59.32 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.59 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_05_orbit_az180.png",
+      "tag": "orbit_az180",
+      "cls": "ORBIT",
+      "metrics": {
+        "HFD": 8.63,
+        "LMV": 24.47,
+        "LDR": 120,
+        "SAT_mean": 0.314,
+        "SAT_std": 0.359,
+        "HLF_pct": 1.741,
+        "SHF_pct": 60.1,
+        "warmCool": 1.558,
+        "p05": 0,
+        "p50": 0,
+        "p95": 120,
+        "p98": 198,
+        "poolBedGap": 198,
+        "bright_pct": 2.52,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "ORBIT",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": false,
+        "lighting_basis": "LIGHTING HOLD: LDR 120 >= 115 AND SHF 60.1 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.558 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_04_orbit_az225.png",
+      "tag": "orbit_az225",
+      "cls": "ORBIT",
+      "metrics": {
+        "HFD": 10.98,
+        "LMV": 18.92,
+        "LDR": 118,
+        "SAT_mean": 0.267,
+        "SAT_std": 0.337,
+        "HLF_pct": 0.476,
+        "SHF_pct": 61.63,
+        "warmCool": 1.308,
+        "p05": 0,
+        "p50": 0,
+        "p95": 118,
+        "p98": 144,
+        "poolBedGap": 144,
+        "bright_pct": 0.98,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "ORBIT",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": false,
+        "lighting_basis": "LIGHTING HOLD: LDR 118 >= 115 AND SHF 61.63 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.308 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_03_orbit_az270.png",
+      "tag": "orbit_az270",
+      "cls": "ORBIT",
+      "metrics": {
+        "HFD": 8.33,
+        "LMV": 24.55,
+        "LDR": 131,
+        "SAT_mean": 0.303,
+        "SAT_std": 0.351,
+        "HLF_pct": 0.794,
+        "SHF_pct": 60.18,
+        "warmCool": 1.39,
+        "p05": 0,
+        "p50": 0,
+        "p95": 131,
+        "p98": 181,
+        "poolBedGap": 181,
+        "bright_pct": 2.03,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "ORBIT",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": false,
+        "lighting_basis": "LIGHTING HOLD: LDR 131 >= 115 AND SHF 60.18 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.39 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_02_orbit_az315.png",
+      "tag": "orbit_az315",
+      "cls": "ORBIT",
+      "metrics": {
+        "HFD": 10.88,
+        "LMV": 24.37,
+        "LDR": 177,
+        "SAT_mean": 0.28,
+        "SAT_std": 0.341,
+        "HLF_pct": 1.627,
+        "SHF_pct": 60.07,
+        "warmCool": 1.445,
+        "p05": 0,
+        "p50": 0,
+        "p95": 177,
+        "p98": 201,
+        "poolBedGap": 201,
+        "bright_pct": 4.47,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "ORBIT",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": false,
+        "lighting_basis": "LIGHTING HOLD: LDR 177 >= 115 AND SHF 60.07 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.445 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_08_oblique_az030.png",
+      "tag": "oblique_az030",
+      "cls": "OBLIQUE",
+      "metrics": {
+        "HFD": 9.17,
+        "LMV": 28.31,
+        "LDR": 213,
+        "SAT_mean": 0.253,
+        "SAT_std": 0.292,
+        "HLF_pct": 8.459,
+        "SHF_pct": 54.25,
+        "warmCool": 1.513,
+        "p05": 0,
+        "p50": 0,
+        "p95": 213,
+        "p98": 222,
+        "poolBedGap": 222,
+        "bright_pct": 13.55,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "OBLIQUE",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": false,
+        "lighting_basis": "LIGHTING HOLD: LDR 213 >= 115 AND SHF 54.25 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.513 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_11_oblique_az150.png",
+      "tag": "oblique_az150",
+      "cls": "OBLIQUE",
+      "metrics": {
+        "HFD": 8.87,
+        "LMV": 24.32,
+        "LDR": 199,
+        "SAT_mean": 0.256,
+        "SAT_std": 0.306,
+        "HLF_pct": 4.12,
+        "SHF_pct": 57.65,
+        "warmCool": 1.426,
+        "p05": 0,
+        "p50": 0,
+        "p95": 199,
+        "p98": 215,
+        "poolBedGap": 215,
+        "bright_pct": 6.47,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "OBLIQUE",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": false,
+        "lighting_basis": "LIGHTING HOLD: LDR 199 >= 115 AND SHF 57.65 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.426 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_10_oblique_az240.png",
+      "tag": "oblique_az240",
+      "cls": "OBLIQUE",
+      "metrics": {
+        "HFD": 8.96,
+        "LMV": 19.46,
+        "LDR": 145,
+        "SAT_mean": 0.239,
+        "SAT_std": 0.306,
+        "HLF_pct": 0.548,
+        "SHF_pct": 60.17,
+        "warmCool": 1.09,
+        "p05": 0,
+        "p50": 0,
+        "p95": 145,
+        "p98": 160,
+        "poolBedGap": 160,
+        "bright_pct": 0.98,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "OBLIQUE",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": false,
+        "lighting_basis": "LIGHTING HOLD: LDR 145 >= 115 AND SHF 60.17 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.09 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_09_oblique_az300.png",
+      "tag": "oblique_az300",
+      "cls": "OBLIQUE",
+      "metrics": {
+        "HFD": 8.93,
+        "LMV": 24.02,
+        "LDR": 176,
+        "SAT_mean": 0.262,
+        "SAT_std": 0.316,
+        "HLF_pct": 2.116,
+        "SHF_pct": 59.23,
+        "warmCool": 1.239,
+        "p05": 0,
+        "p50": 0,
+        "p95": 176,
+        "p98": 206,
+        "poolBedGap": 206,
+        "bright_pct": 4.39,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "OBLIQUE",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": false,
+        "lighting_basis": "LIGHTING HOLD: LDR 176 >= 115 AND SHF 59.23 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.239 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_12_through_entrance.png",
+      "tag": "through_entrance",
+      "cls": "THROUGH",
+      "metrics": {
+        "HFD": 3.05,
+        "LMV": 10.44,
+        "LDR": 128,
+        "SAT_mean": 0.1,
+        "SAT_std": 0.238,
+        "HLF_pct": 0.261,
+        "SHF_pct": 85.87,
+        "warmCool": 1.024,
+        "p05": 0,
+        "p50": 0,
+        "p95": 128,
+        "p98": 146,
+        "poolBedGap": 146,
+        "bright_pct": 0.44,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "THROUGH",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": true,
+        "lighting_basis": "LIGHTING HOLD: LDR 128 >= 115 AND SHF 85.87 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.024 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_13_through_pit_to_mezzanine.png",
+      "tag": "through_pit_to_mezzanine",
+      "cls": "THROUGH",
+      "metrics": {
+        "HFD": 9.56,
+        "LMV": 25.09,
+        "LDR": 144,
+        "SAT_mean": 0.33,
+        "SAT_std": 0.345,
+        "HLF_pct": 2.689,
+        "SHF_pct": 57.25,
+        "warmCool": 1.288,
+        "p05": 0,
+        "p50": 4,
+        "p95": 144,
+        "p98": 212,
+        "poolBedGap": 208,
+        "bright_pct": 3.65,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "THROUGH",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": true,
+        "lighting_basis": "LIGHTING HOLD: LDR 144 >= 115 AND SHF 57.25 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.288 >= 1)"
+      }
+    },
+    {
+      "file": "crypt_vault_orbit_14_plan_footprint.png",
+      "tag": "plan_footprint",
+      "cls": "PLAN",
+      "metrics": {
+        "HFD": 12.02,
+        "LMV": 30.33,
+        "LDR": 176,
+        "SAT_mean": 0.428,
+        "SAT_std": 0.356,
+        "HLF_pct": 1.661,
+        "SHF_pct": 43.75,
+        "warmCool": 1.519,
+        "p05": 0,
+        "p50": 71,
+        "p95": 176,
+        "p98": 201,
+        "poolBedGap": 130,
+        "bright_pct": 4.42,
+        "dims": "960x540"
+      },
+      "band": {
+        "cls": "PLAN",
+        "ldrHold": true,
+        "shfHoldDressed": true,
+        "lightingHold": true,
+        "warmDominant": true,
+        "framing_skew_expected": true,
+        "lighting_basis": "LIGHTING HOLD: LDR 176 >= 115 AND SHF 43.75 >= 17.5 (dressed)",
+        "warmcool_basis": "warm-dominant (warmCool 1.519 >= 1)"
+      }
+    }
+  ],
+  "aggregate_all": {
+    "LDR": {
+      "mean": 168.067,
+      "min": 118,
+      "max": 213,
+      "cv": 0.194
+    },
+    "SHF_pct": {
+      "mean": 58.959,
+      "min": 43.75,
+      "max": 85.87,
+      "cv": 0.142
+    },
+    "HLF_pct": {
+      "mean": 2.648,
+      "min": 0.261,
+      "max": 8.459,
+      "cv": 0.798
+    },
+    "warmCool": {
+      "mean": 1.416,
+      "min": 1.024,
+      "max": 1.684,
+      "cv": 0.132
+    },
+    "LMV": {
+      "mean": 24.359,
+      "min": 10.44,
+      "max": 30.33,
+      "cv": 0.201
+    },
+    "HFD": {
+      "mean": 9.202,
+      "min": 3.05,
+      "max": 12.02,
+      "cv": 0.21
+    },
+    "SAT_mean": {
+      "mean": 0.278,
+      "min": 0.1,
+      "max": 0.428,
+      "cv": 0.239
+    },
+    "poolBedGap": {
+      "mean": 190.133,
+      "min": 130,
+      "max": 222,
+      "cv": 0.154
+    },
+    "bright_pct": {
+      "mean": 5.144,
+      "min": 0.44,
+      "max": 13.55,
+      "cv": 0.723
+    }
+  },
+  "aggregate_by_class": {
+    "ORBIT": {
+      "n": 8,
+      "LDR": {
+        "mean": 167.5,
+        "min": 118,
+        "max": 206,
+        "cv": 0.212
+      },
+      "SHF_pct": {
+        "mean": 58.277,
+        "min": 54.19,
+        "max": 61.63,
+        "cv": 0.046
+      },
+      "HLF_pct": {
+        "mean": 2.483,
+        "min": 0.476,
+        "max": 5.466,
+        "cv": 0.629
+      },
+      "warmCool": {
+        "mean": 1.518,
+        "min": 1.308,
+        "max": 1.684,
+        "cv": 0.077
+      },
+      "LMV": {
+        "mean": 25.426,
+        "min": 18.92,
+        "max": 29.28,
+        "cv": 0.126
+      },
+      "HFD": {
+        "mean": 9.684,
+        "min": 8.33,
+        "max": 10.98,
+        "cv": 0.105
+      },
+      "SAT_mean": {
+        "mean": 0.288,
+        "min": 0.247,
+        "max": 0.332,
+        "cv": 0.092
+      },
+      "poolBedGap": {
+        "mean": 195.625,
+        "min": 144,
+        "max": 216,
+        "cv": 0.113
+      },
+      "bright_pct": {
+        "mean": 5.407,
+        "min": 0.98,
+        "max": 11.74,
+        "cv": 0.626
+      }
+    },
+    "OBLIQUE": {
+      "n": 4,
+      "LDR": {
+        "mean": 183.25,
+        "min": 145,
+        "max": 213,
+        "cv": 0.14
+      },
+      "SHF_pct": {
+        "mean": 57.825,
+        "min": 54.25,
+        "max": 60.17,
+        "cv": 0.039
+      },
+      "HLF_pct": {
+        "mean": 3.811,
+        "min": 0.548,
+        "max": 8.459,
+        "cv": 0.779
+      },
+      "warmCool": {
+        "mean": 1.317,
+        "min": 1.09,
+        "max": 1.513,
+        "cv": 0.125
+      },
+      "LMV": {
+        "mean": 24.027,
+        "min": 19.46,
+        "max": 28.31,
+        "cv": 0.13
+      },
+      "HFD": {
+        "mean": 8.982,
+        "min": 8.87,
+        "max": 9.17,
+        "cv": 0.013
+      },
+      "SAT_mean": {
+        "mean": 0.253,
+        "min": 0.239,
+        "max": 0.262,
+        "cv": 0.033
+      },
+      "poolBedGap": {
+        "mean": 200.75,
+        "min": 160,
+        "max": 222,
+        "cv": 0.121
+      },
+      "bright_pct": {
+        "mean": 6.348,
+        "min": 0.98,
+        "max": 13.55,
+        "cv": 0.724
+      }
+    },
+    "THROUGH": {
+      "n": 2,
+      "LDR": {
+        "mean": 136,
+        "min": 128,
+        "max": 144,
+        "cv": 0.059
+      },
+      "SHF_pct": {
+        "mean": 71.56,
+        "min": 57.25,
+        "max": 85.87,
+        "cv": 0.2
+      },
+      "HLF_pct": {
+        "mean": 1.475,
+        "min": 0.261,
+        "max": 2.689,
+        "cv": 0.823
+      },
+      "warmCool": {
+        "mean": 1.156,
+        "min": 1.024,
+        "max": 1.288,
+        "cv": 0.114
+      },
+      "LMV": {
+        "mean": 17.765,
+        "min": 10.44,
+        "max": 25.09,
+        "cv": 0.412
+      },
+      "HFD": {
+        "mean": 6.305,
+        "min": 3.05,
+        "max": 9.56,
+        "cv": 0.516
+      },
+      "SAT_mean": {
+        "mean": 0.215,
+        "min": 0.1,
+        "max": 0.33,
+        "cv": 0.535
+      },
+      "poolBedGap": {
+        "mean": 177,
+        "min": 146,
+        "max": 208,
+        "cv": 0.175
+      },
+      "bright_pct": {
+        "mean": 2.045,
+        "min": 0.44,
+        "max": 3.65,
+        "cv": 0.785
+      }
+    },
+    "PLAN": {
+      "n": 1,
+      "LDR": {
+        "mean": 176,
+        "min": 176,
+        "max": 176,
+        "cv": 0
+      },
+      "SHF_pct": {
+        "mean": 43.75,
+        "min": 43.75,
+        "max": 43.75,
+        "cv": 0
+      },
+      "HLF_pct": {
+        "mean": 1.661,
+        "min": 1.661,
+        "max": 1.661,
+        "cv": 0
+      },
+      "warmCool": {
+        "mean": 1.519,
+        "min": 1.519,
+        "max": 1.519,
+        "cv": 0
+      },
+      "LMV": {
+        "mean": 30.33,
+        "min": 30.33,
+        "max": 30.33,
+        "cv": 0
+      },
+      "HFD": {
+        "mean": 12.02,
+        "min": 12.02,
+        "max": 12.02,
+        "cv": 0
+      },
+      "SAT_mean": {
+        "mean": 0.428,
+        "min": 0.428,
+        "max": 0.428,
+        "cv": 0
+      },
+      "poolBedGap": {
+        "mean": 130,
+        "min": 130,
+        "max": 130,
+        "cv": 0
+      },
+      "bright_pct": {
+        "mean": 4.42,
+        "min": 4.42,
+        "max": 4.42,
+        "cv": 0
+      }
+    }
+  },
+  "rollup": {
+    "lighting_hold_all": "15/15",
+    "lighting_hold_orbit_PRIMARY": "8/8",
+    "warm_dominant_all": "15/15",
+    "ldr_all_clear_115": true,
+    "shf_all_clear_dressed_floor": true
+  }
+}
