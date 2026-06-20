@@ -167,3 +167,61 @@ This feeds: gandalf's **lever/confound disposition** — (1) how much of STR's g
 - Engine anchors (RE-CONFIRM first-hand — drifted): `_synthetic_mob_dict_for_spatial` t4_sim_cycling.py:992 (return dict ~:1007; call site :1056; Pydantic builder :967 — NOT the spatial path); tick-scaling damage_resolver.py:987-988 (:989 = apply); direct-damage scaling precedent damage_resolver.py:312; DEFENDER elemental-resist lookup damage_resolver.py:470; F4 defender-flow `spatial_resolver_adapter.py:228` (`monster_dict.get("elemental_resistances", {})`) — NOT the :196 attacker projection; `ARMOR_MITIGATION_K=3000.0` math_model.py:34; DoT tick loop effect_resolver.py ~:62-71 (bypasses resist/armor); F1 scratch-HP locus spatial_resolver_adapter.resolve_spatial_hit
 - The clear-room bands (CURRENT, untouched): `gauntlet_sim.py:316-322` (`ENCOUNTER_COHORT_KPM_BAND`, cohort-invariant); floor `gauntlet_sim.py:158` (`=9`)
 - Disciplines: #1/#1.2 (math-before-code, code-citation), #2/#2.1 (smoke + resource-scaling), #3 (distinct seeds), #11 (citation-correction), #12 (semantic-shift), #24 (single-lever isolation)
+
+---
+
+## Completion record (gamora, 2026-06-20 — Path 1: Arm B live, Arm C deferred)
+
+**Status:** COMPLETE. F1/F2/F3/F4 production combat fixes implemented (recompose-first, existing coefficients, no magnitude/armor re-tune); Arm B mitigation-symmetry run executed to completion (4752 cells × 20 fights, exited clean; 67.3 MB peak RSS, 1324.9s wall). Math-note-first per Discipline #1. Committed (NOT pushed). Returns to gandalf + jack-ryan Gate-2 via KR.
+
+### THE DECOMPOSITION (Q1) — STR's elite/boss gap, armor-confound half (A→B)
+- **STR moves almost nothing A→B** (open_arena −0.3%, chokepoint −0.3%, magic −0.5%, elite +0.9%, boss 0.0%, mini_boss 0.0%). STR is **94% physical** (136/144 attacks) so it ALREADY ate the armor curve in Arm A; F4 only re-touches its 6% elemental tail. **Interpretation: STR's elite/boss gap is NOT an armor-confound artifact** — making mitigation fair to casters does not move STR, because STR was already paying the physical curve. The residual STR gap at Arm B is therefore **real allocation / kit-shape**, not a free-mitigation asymmetry. (The bleed-lever-closes half — B→C — is the DEFERRED Arm C, structurally null for this population: 0/66 carry a DoT source.)
+
+### Q2 — caster A→B drop (the free-mitigation artifact, sized)
+Mean observed_kpm A→B drop (F4 = only lever), per tier:
+| tier | INT Δ% | WIS Δ% |
+|---|---|---|
+| open_arena (swarm) | −8.6% | −8.4% |
+| chokepoint_corridor | −8.3% | −7.7% |
+| magic_pack | −30.8% | −32.0% |
+| elite_pack | −76.5% | −79.2% |
+| boss_with_adds | −93.4% | −94.3% |
+| mini_boss | −100.0% | −99.6% |
+The caster free-mitigation advantage was **enormous and tier-escalating** — casters got ~76-94% of their elite/boss KPM for free because elemental ate 0% while physical ate 66-93%. This sizes the downstream band refit: the elite/boss KPM bands are badly stale for elemental attackers.
+
+### Q3 — boss-tier (Arm B) survive+kill viability under symmetric ~90-93% mitigation
+**survive+kill = 0.000 for ALL FOUR attributes** (str/dex/int/wis), **100% timeout**, n = 3840/3840/3840/9600 fights. Under symmetric boss mitigation NO attribute can survive+kill in the time cap. **This is the input to Matt's boss armor-nerf decision** (downstream, data-driven — NOT this run). The boss is currently unkillable-in-time once casters stop getting free mitigation.
+
+### Q4 — physical-bleed vs caster-burn DoT symmetry + tick mitigation-bypass
+**Tick mitigation-bypass CONFIRMED first-hand** (`effect_resolver.tick_effects:62-72`: `hp -= tick_dmg` after only `absorb_with_shield`; no armor/resist lookup). The physical-bleed-vs-caster-burn symmetry contribution is **not measurable for this population** (Arm C deferred — 0/66 DoT source). By construction F2 makes each scale on its own attribute and both bypass mitigation → symmetric; measured when rocket's bleed lands.
+
+### Control read (dex/int/wis corroboration)
+- **DEX A→B drop is EXPECTED, not a harness fault.** DEX is **83% elemental** (120/144: fire/earth/shadow/water) → eats the new symmetric resist like a caster (elite −72.8%, boss −93.1%, mini_boss −92.8%). The **STR-vs-DEX asymmetry corroborates F4** mitigates by skill ELEMENT (`damage_resolver.py:470`) not attribute label: mostly-elemental DEX moves with casters; mostly-physical STR does not. Do NOT read DEX's drop as STR-gap evidence.
+- int/wis behave as the caster Q2 read; cohort-agreement spread = 0 within each attribute (harness sound).
+
+### Verify-gates (V1–V6 + arm-isolation) — JSON-confirmed
+- **V1 PASS** (no defaulted-0.0 masquerading): `metadata.v1_integrity_all_pass = True`; every clear-shell KPM from an executed batch (`harness :586-593`).
+- **V2 PASS** (faithful power): max-profile flip #3 ON (`combatant_from_player_class:136`).
+- **V3 PASS** (proxy-inclusive KPM): `mobs_killed/min` attribution-agnostic (relevant only at Arm C re-fire).
+- **V4 PASS**: `metadata.v4_integrity_all_pass = True`; Σ termination_counts == n_fights.
+- **V5 PASS** (single regime): fingerprint `spatial_current_mobs_per_min_faithful_DoT-on_mitigation-symmetric`.
+- **V6 PASS** (measurement-only — GATE scope): production SHIP GATE untouched (`production_gate_modified=False`); COMBAT ENGINE changed by intent (`production_combat_engine_modified=True`).
+- **Arm-isolation PASS**: A→B toggles ONLY F4 (F1/F2 inert: 0 DoT source, proven §0). Authoritative isolation = INTERNAL matched-seed Fold-A (`paired_seed:true`): int drops=True (Δ−2.894), wis drops=True (Δ−4.7466), both_drop=True.
+
+### Semantic-shift declarations (2) + band-refit dependency
+1. **DoT-live (F1)** — combat-output fields carry over-time damage when a DoT source exists (null for this population; field semantic changes regardless). Declared on all combat-output telemetry fields.
+2. **resist-live (F4)** — every elemental-attacker KPM/DPS DROPS under symmetric resist (the live measured shift). Declared on all combat-output telemetry fields.
+- **Band-refit dependency RECORDED:** F1/F2/F4 shift production combat OUTPUT while `ENCOUNTER_COHORT_KPM_BAND` is UNTOUCHED → bands STALE → must be refit downstream (gamora sim + jack-ryan Gate-2) once magnitude + armor-level decisions are made. Until refit: gate committed, gate-TRUST SUSPENDED. **No MIGRATION** (no schema/key contract change).
+
+### GATE-2 FLAG (authoritative-comparison framing) — math note §5.1
+The **EXTERNAL A→B table** (this run's Arm B vs the `612c1a8` Arm A artifact) carries **cross-artifact seed/sampling noise** (different seed namespaces) — at SMOKE n it showed WIS **+24% on open_arena** (wrong-signed) that washed out at full n. The **rigorous lever-isolation is the INTERNAL `fold_a_caster_drop_check` matched-seed f4_off/f4_on Fold-A** (`paired_seed:true`). Gate-2: credit the INTERNAL Fold-A for "F4 moves the lever"; treat the external table's swarm/magic-tier deltas as noise-bounded (corroborative-only). Documented in math note §5.1 as authoritative.
+
+### Arm C — documented deferred-null
+Arm C (F1+F2 DoT lever) is **structurally NULL for this population** (0/66 configs carry any ailment effect or nonzero `tick_damage` — STR's designed bleed is ABSENT FROM GENERATION = rocket-seam bug, not design gap; Matt-confirmed). Byte-for-byte ≡ Arm B; the "Arm C ticks DoT" smoke assertion cannot pass without a DoT source. **DEFERRED** to post-rocket-fix re-fire; gandalf pre-registration `df1023b` binds to that re-fire.
+
+### Artifact paths + UNPUSHED COMMIT LIST (NOT pushed — Matt-gated)
+- **Engine repo (`reincarnated-engine`)** — commit `e537b29` "gamora: F1/F2/F4 DoT+mitigation-symmetry production combat fixes + Arm B measurement (math-note-first)": `damage_resolver.py` (F2), `spatial_gauntlet/spatial_engine.py` (F1), `t4_sim_cycling.py` (F4), `math/dot-ailment-mitigation-symmetry-run-2026-06-20.md`, `dot_mitigation_symmetry_armb_harness_2026_06_20.py`, `AGENT_STATE.md`.
+- **Collaboration repo (`reincarnated-collaboration`)** — commit (this completion record + artifacts; hash recorded at commit): `cycle-14-wave-5-season-001/dot-mitigation-symmetry-armB-2026-06-20.{json,txt}` (6.4 MB full) + `-smoke.{json,txt}` + this dispatch completion record.
+
+### Surprise vs gandalf's pre-registered interpretation
+The headline surprise is **STR does NOT move A→B** (−0.3% to 0.0%): the armor-confound hypothesis (that STR's gap is partly a physical-only-mitigation artifact) is **NOT supported** — STR was already paying the physical curve, so fairness-to-casters leaves it unmoved. The confound was a CASTER over-credit (Q2: 76-94% free elite/boss KPM), not a STR under-credit. STR's residual gap is real allocation, awaiting the bleed lever (deferred Arm C) to test whether the lever closes it.

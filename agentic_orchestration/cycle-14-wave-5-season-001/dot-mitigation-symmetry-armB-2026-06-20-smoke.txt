@@ -1,0 +1,67 @@
+====================================================================================================
+DoT/AILMENT MITIGATION-SYMMETRY -- ARM B (F4 mitigation symmetric; DoT inert: 0 DoT source)
+2026-06-20 | MEASUREMENT-ONLY | Arm A = F4-off reference (612c1a8) | production gate untouched
+====================================================================================================
+
+Regime fingerprint: spatial_current_mobs_per_min_faithful_DoT-on_mitigation-symmetric
+Arm C: DEFERRED — structurally null for this population (0/66 DoT source); re-fires after rocket restores STR designed bleed (pre-reg df1023b).
+Population: 66 configs (faithful, flip #3). Fights/cell: 6.
+Cells: 80 | seed base 820000 (kit_idx*10_000 + cohort_idx*1_000 + enc_idx (production; math note §6))
+V1 integrity (every KPM from an executed batch): True
+V4 clear-shell integrity (Sum term == n_fights): True
+
+====================================================================================================
+A->B DELTA (mean observed_kpm shift by attribute x shell; F4 = only lever)
+====================================================================================================
+
+[STR]  <== Q1 armor-confound half
+  shell                     A_kpm    B_kpm    delta   delta%
+  open_arena               12.287   12.348    0.062     0.5%
+  chokepoint_corridor      13.459   13.409   -0.050    -0.4%
+  magic_pack                7.117    7.110   -0.006    -0.1%
+  elite_pack                2.917    2.979    0.062     2.1%
+  boss_with_adds            0.250    0.250    0.000     0.0%
+  mini_boss                 0.013  n/a  n/a  n/a
+
+[DEX]  (control)
+  shell                     A_kpm    B_kpm    delta   delta%
+  open_arena               17.905   13.521   -4.384   -24.5%
+  chokepoint_corridor      18.381   14.159   -4.222   -23.0%
+  magic_pack               11.884    7.518   -4.366   -36.7%
+  elite_pack                9.945    0.953   -8.992   -90.4%
+  boss_with_adds            3.632    0.250   -3.382   -93.1%
+  mini_boss                 1.545  n/a  n/a  n/a
+
+[INT]  <== Q2 caster drop
+  shell                     A_kpm    B_kpm    delta   delta%
+  open_arena               15.447   13.581   -1.866   -12.1%
+  chokepoint_corridor      16.005   14.238   -1.767   -11.0%
+  magic_pack               11.150    7.700   -3.450   -30.9%
+  elite_pack                9.141    1.960   -7.180   -78.5%
+  boss_with_adds            3.757    0.250   -3.507   -93.3%
+  mini_boss                 3.240  n/a  n/a  n/a
+
+[WIS]  <== Q2 caster drop
+  shell                     A_kpm    B_kpm    delta   delta%
+  open_arena               15.557   19.316    3.758    24.2%
+  chokepoint_corridor      16.002   18.634    2.633    16.4%
+  magic_pack               10.869    8.942   -1.927   -17.7%
+  elite_pack                8.870    3.774   -5.095   -57.5%
+  boss_with_adds            3.622    0.250   -3.372   -93.1%
+  mini_boss                 2.926  n/a  n/a  n/a
+
+====================================================================================================
+FOLD-A arm-isolation check: BOTH int AND wis caster KPM must DROP A->B (else under-cover)
+====================================================================================================
+  INT: pooled-clear delta_kpm=-2.9949 drops=True  per-shell={'open_arena': {'f4_off_kpm': 16.0356, 'f4_on_kpm': 14.7996, 'delta_kpm': -1.236}, 'chokepoint_corridor': {'f4_off_kpm': 16.1345, 'f4_on_kpm': 15.7808, 'delta_kpm': -0.3536}, 'magic_pack': {'f4_off_kpm': 11.465, 'f4_on_kpm': 7.7586, 'delta_kpm': -3.7063}, 'elite_pack': {'f4_off_kpm': 8.838, 'f4_on_kpm': 2.1544, 'delta_kpm': -6.6836}}
+  WIS: pooled-clear delta_kpm=-4.059 drops=True  per-shell={'open_arena': {'f4_off_kpm': 20.7493, 'f4_on_kpm': 18.9974, 'delta_kpm': -1.7519}, 'chokepoint_corridor': {'f4_off_kpm': 21.3967, 'f4_on_kpm': 19.6453, 'delta_kpm': -1.7514}, 'magic_pack': {'f4_off_kpm': 13.8996, 'f4_on_kpm': 9.0226, 'delta_kpm': -4.8771}, 'elite_pack': {'f4_off_kpm': 11.5016, 'f4_on_kpm': 3.6462, 'delta_kpm': -7.8554}}
+  BOTH DROP: True  (PASS -- rotating_elements covers both casters)
+
+====================================================================================================
+BOSS-SHELL viability (Arm B, symmetric ~90-93% mitigation) -- Q3 input
+====================================================================================================
+  attribute    n_fights surv+kill  b_dead  a_dead timeout
+  str                24     0.000   0.000   0.000   1.000
+  dex                24     0.000   0.000   0.000   1.000
+  int                24     0.000   0.000   0.000   1.000
+  wis                24     0.000   0.000   0.000   1.000
