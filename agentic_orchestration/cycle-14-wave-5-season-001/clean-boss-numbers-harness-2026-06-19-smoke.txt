@@ -1,0 +1,39 @@
+============================================================================================
+CLEAN BOSS NUMBERS -- survive+kill at faithful power (tier_2 driven directly on boss shells)
+2026-06-19 | MEASUREMENT-ONLY | tier_1 KPM-reject BYPASSED | production gate untouched
+============================================================================================
+
+Termination vocabulary:
+  b_dead  = clean survive+kill (boss died, player alive)  [the doctrine boss-gate signal]
+  a_dead  = player died          (real defensive failure)
+  timeout = survived, did not kill before enrage (240s hard / mini-boss 150s soft)
+
+Enrage caps (V2, live from ALL_SCENARIOS): {"boss_with_adds": {"max_duration_s": 240.0, "soft_timeout_s": null, "win_condition": "boss_killed", "n_spawns": 3, "boss_index": 0, "mini_boss_index": null}, "mini_boss": {"max_duration_s": 240.0, "soft_timeout_s": 150.0, "win_condition": "mini_boss_killed", "n_spawns": 3, "boss_index": null, "mini_boss_index": 0}}
+Population: 54 kits -> None configs (22 legendary_ids x 3 samples); faithful power (max-profile investment, flip #3).
+Fights/cell (tier_2 n): 4 | seed base: 619000
+V1 self-consistency (b_dead==wins per cell): True
+
+--------------------------------------------------------------------------------------------
+BY ATTRIBUTE (int / wis / dex / str -- parsed from legendary_id, section-5 grain)
+--------------------------------------------------------------------------------------------
+attribute            n_cell  n_fght  surv+kill  b_dead  a_dead  timeout  TTK_med  TTK_p90  KPM_med
+str                       2       8      0.000   0.000   0.000    1.000      nan      nan     0.16
+
+--------------------------------------------------------------------------------------------
+BY ARCHETYPE (cohort)
+--------------------------------------------------------------------------------------------
+cohort               n_cell  n_fght  surv+kill  b_dead  a_dead  timeout  TTK_med  TTK_p90  KPM_med
+DPS-min-maxer             2       8      0.000   0.000   0.000    1.000      nan      nan     0.16
+
+--------------------------------------------------------------------------------------------
+BY ATTRIBUTE x SHELL
+--------------------------------------------------------------------------------------------
+attr|shell           n_cell  n_fght  surv+kill  b_dead  a_dead  timeout  TTK_med  TTK_p90  KPM_med
+str|boss_with_adds        1       4      0.000   0.000   0.000    1.000      nan      nan     0.25
+str|mini_boss             1       4      0.000   0.000   0.000    1.000      nan      nan     0.06
+
+============================================================================================
+HEADLINE -- STR boss shells (tier_2 finally runs; was KPM-rejected before survive+kill)
+============================================================================================
+  STR survive+kill rate: 0.000  (b_dead=0.000  a_dead=0.000  timeout=1.000, n_fights=8)
+  VERDICT: timeout-DOMINANT => too-slow-but-SURVIVABLE; the legitimate slow boss kill the KPM ceiling wrongly condemned (crater was a KPM-reject artifact, not death).

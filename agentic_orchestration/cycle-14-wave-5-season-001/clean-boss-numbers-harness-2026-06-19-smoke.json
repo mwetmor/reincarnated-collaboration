@@ -1,0 +1,181 @@
+{
+  "metadata": {
+    "generated_utc": "2026-06-20T00:28:25.893607+00:00",
+    "smoke": true,
+    "n_kits": 54,
+    "n_configs": null,
+    "n_cells": 2,
+    "n_fights_per_cell": 4,
+    "seed_base": 619000,
+    "season_seed_base": 14001,
+    "enrage_caps": {
+      "boss_with_adds": {
+        "max_duration_s": 240.0,
+        "soft_timeout_s": null,
+        "win_condition": "boss_killed",
+        "n_spawns": 3,
+        "boss_index": 0,
+        "mini_boss_index": null
+      },
+      "mini_boss": {
+        "max_duration_s": 240.0,
+        "soft_timeout_s": 150.0,
+        "win_condition": "mini_boss_killed",
+        "n_spawns": 3,
+        "boss_index": null,
+        "mini_boss_index": 0
+      }
+    },
+    "boss_shell_encounters": [
+      "endgame_bc_melee_low_spiky_str_none",
+      "endgame_bc_ranged_low_spiky_wis_none"
+    ],
+    "cohorts_driven": [
+      "DPS-min-maxer"
+    ],
+    "v1_all_cells_pass": true,
+    "termination_labels": {
+      "b_dead": "clean survive+kill (boss died, player alive)",
+      "a_dead": "player died (defensive failure)",
+      "timeout": "survived but did not kill before enrage (240s hard / 150s soft mini-boss)"
+    },
+    "measurement_only": true,
+    "production_gate_modified": false,
+    "dps_scoped_out": "SpatialFightResult carries no per-fight damage (t4_sim_cycling.py:1096-1098); Tier-B follow-on",
+    "wall_clock_seconds": 1.2
+  },
+  "aggregations": {
+    "by_attribute": {
+      "str": {
+        "n_cells": 2,
+        "n_fights": 8,
+        "survive_kill_rate": 0.0,
+        "termination_counts": {
+          "b_dead": 0,
+          "a_dead": 0,
+          "timeout": 8
+        },
+        "termination_rates": {
+          "b_dead": 0.0,
+          "a_dead": 0.0,
+          "timeout": 1.0
+        },
+        "ttk_won": null,
+        "observed_kpm_median": 0.156
+      }
+    },
+    "by_archetype": {
+      "DPS-min-maxer": {
+        "n_cells": 2,
+        "n_fights": 8,
+        "survive_kill_rate": 0.0,
+        "termination_counts": {
+          "b_dead": 0,
+          "a_dead": 0,
+          "timeout": 8
+        },
+        "termination_rates": {
+          "b_dead": 0.0,
+          "a_dead": 0.0,
+          "timeout": 1.0
+        },
+        "ttk_won": null,
+        "observed_kpm_median": 0.156
+      }
+    },
+    "by_attribute_shell": {
+      "str|boss_with_adds": {
+        "n_cells": 1,
+        "n_fights": 4,
+        "survive_kill_rate": 0.0,
+        "termination_counts": {
+          "b_dead": 0,
+          "a_dead": 0,
+          "timeout": 4
+        },
+        "termination_rates": {
+          "b_dead": 0.0,
+          "a_dead": 0.0,
+          "timeout": 1.0
+        },
+        "ttk_won": null,
+        "observed_kpm_median": 0.25
+      },
+      "str|mini_boss": {
+        "n_cells": 1,
+        "n_fights": 4,
+        "survive_kill_rate": 0.0,
+        "termination_counts": {
+          "b_dead": 0,
+          "a_dead": 0,
+          "timeout": 4
+        },
+        "termination_rates": {
+          "b_dead": 0.0,
+          "a_dead": 0.0,
+          "timeout": 1.0
+        },
+        "ttk_won": null,
+        "observed_kpm_median": 0.062
+      }
+    }
+  },
+  "cells": [
+    {
+      "encounter_id": "endgame_bc_melee_low_spiky_str_none",
+      "scenario_shell_id": "boss_with_adds",
+      "cohort": "DPS-min-maxer",
+      "n_fights": 4,
+      "survival_rate": 0.0,
+      "wins": 0,
+      "termination_counts": {
+        "b_dead": 0,
+        "a_dead": 0,
+        "timeout": 4
+      },
+      "termination_rates": {
+        "b_dead": 0.0,
+        "a_dead": 0.0,
+        "timeout": 1.0
+      },
+      "ttk_won": null,
+      "observed_kpm": 0.25,
+      "sg_overall": "BLOCK",
+      "in_band_kpm_telemetry": false,
+      "base_seed": 619000,
+      "v1_self_consistency_pass": true,
+      "legendary_id": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+      "kit_character_id": "S1_endgame_bc_melee_low_spiky_str_none_s0",
+      "attribute": "str",
+      "t4_config_key": "t4_chain_2_T4"
+    },
+    {
+      "encounter_id": "endgame_bc_ranged_low_spiky_wis_none",
+      "scenario_shell_id": "mini_boss",
+      "cohort": "DPS-min-maxer",
+      "n_fights": 4,
+      "survival_rate": 0.0,
+      "wins": 0,
+      "termination_counts": {
+        "b_dead": 0,
+        "a_dead": 0,
+        "timeout": 4
+      },
+      "termination_rates": {
+        "b_dead": 0.0,
+        "a_dead": 0.0,
+        "timeout": 1.0
+      },
+      "ttk_won": null,
+      "observed_kpm": 0.062,
+      "sg_overall": "BLOCK",
+      "in_band_kpm_telemetry": false,
+      "base_seed": 619100,
+      "v1_self_consistency_pass": true,
+      "legendary_id": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+      "kit_character_id": "S1_endgame_bc_melee_low_spiky_str_none_s0",
+      "attribute": "str",
+      "t4_config_key": "t4_chain_2_T4"
+    }
+  ]
+}
