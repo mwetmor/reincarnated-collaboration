@@ -1,0 +1,374 @@
+{
+  "harness": "dot_activation_phase3_2026_06_20",
+  "generated_utc": "2026-06-20T20:23:59.994421+00:00",
+  "smoke": true,
+  "seed_base": 16000000,
+  "subjects": {
+    "str": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+    "dex": "endgame_bc_melee_high_flat_dex_none_t4_chain_1",
+    "int": "endgame_bc_ranged_medium_variable_int_none_t4_chain_1"
+  },
+  "G4": {
+    "str_bleed_dot_dps_gt0": true,
+    "str_bleed_boss_dot_dps": 0.1008,
+    "caster_burn_boss_dot_dps": 0.3228,
+    "str_over_caster_ratio": 0.312,
+    "str_t4_pct_boss": 5.2,
+    "int_t4_pct_boss": 12.8,
+    "verdict": "STR bleed > 0 (auto-resolve mechanism).",
+    "symmetry_note": "Per-tick magnitudes ARE symmetric (F2: tick_scale STR 1.24 vs INT 1.27). Any realized DoT-DPS asymmetry is a ROTATION-THROTTLE inherited from Phase 1/2 on the mana-default population -- STR fires its bleed-carrying T4 LESS often (pool-starve) than INT. This is the G4 'throttled-low (not zero)' condition, NOT a per-tick asymmetry and NOT caster burn over-performance. The Phase-6 rage economy is what funds STR's spend-on-anchor bleed. Phase-5 refit is where magnitude tuning, if any, is decided -- not here."
+  },
+  "per_attr": {
+    "str": {
+      "legendary_id": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+      "dot_names": [
+        "bleed"
+      ],
+      "boss_shell_dot_dps_mean": 0.1008,
+      "shells": {
+        "boss_with_adds": {
+          "sum_player_dot": 182.28,
+          "sum_boss_dot": 18.6,
+          "sum_dur_s": 1437.1,
+          "dot_dps": 0.1268,
+          "boss_dot_dps": 0.0129,
+          "kpm": 0.459,
+          "tier_firing": {
+            "1": 672,
+            "4": 36
+          },
+          "t4_pct": 5.1,
+          "dot_on_off": {
+            "dot_off_kpm": 0.4173,
+            "dot_on_kpm": 0.4173,
+            "delta_kpm": 0.0
+          }
+        },
+        "mini_boss": {
+          "sum_player_dot": 107.88,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 1440.0,
+          "dot_dps": 0.0749,
+          "boss_dot_dps": 0.0,
+          "kpm": 0.292,
+          "tier_firing": {
+            "1": 426,
+            "4": 24
+          },
+          "t4_pct": 5.3,
+          "dot_on_off": {
+            "dot_off_kpm": 0.2917,
+            "dot_on_kpm": 0.2917,
+            "delta_kpm": 0.0
+          }
+        },
+        "open_arena": {
+          "sum_player_dot": 0.0,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 159.5,
+          "dot_dps": 0.0,
+          "boss_dot_dps": 0.0,
+          "kpm": 18.056,
+          "tier_firing": {
+            "1": 69,
+            "4": 18
+          },
+          "t4_pct": 20.7,
+          "dot_on_off": {
+            "dot_off_kpm": 17.3913,
+            "dot_on_kpm": 17.3913,
+            "delta_kpm": 0.0
+          }
+        },
+        "chokepoint_corridor": {
+          "sum_player_dot": 18.6,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 149.3,
+          "dot_dps": 0.1246,
+          "boss_dot_dps": 0.0,
+          "kpm": 19.29,
+          "tier_firing": {
+            "1": 67,
+            "4": 18
+          },
+          "t4_pct": 21.2,
+          "dot_on_off": {
+            "dot_off_kpm": 16.4948,
+            "dot_on_kpm": 16.4948,
+            "delta_kpm": 0.0
+          }
+        },
+        "magic_pack": {
+          "sum_player_dot": 0.0,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 70.4,
+          "dot_dps": 0.0,
+          "boss_dot_dps": 0.0,
+          "kpm": 20.455,
+          "tier_firing": {
+            "1": 33,
+            "4": 18
+          },
+          "t4_pct": 35.3,
+          "dot_on_off": {
+            "dot_off_kpm": 21.7195,
+            "dot_on_kpm": 21.7195,
+            "delta_kpm": 0.0
+          }
+        },
+        "elite_pack": {
+          "sum_player_dot": 0.0,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 56.2,
+          "dot_dps": 0.0,
+          "boss_dot_dps": 0.0,
+          "kpm": 19.217,
+          "tier_firing": {
+            "1": 22,
+            "4": 18
+          },
+          "t4_pct": 45.0,
+          "dot_on_off": {
+            "dot_off_kpm": 27.2727,
+            "dot_on_kpm": 27.2727,
+            "delta_kpm": 0.0
+          }
+        }
+      }
+    },
+    "dex": {
+      "legendary_id": "endgame_bc_melee_high_flat_dex_none_t4_chain_1",
+      "dot_names": [
+        "burn"
+      ],
+      "boss_shell_dot_dps_mean": 0.2195,
+      "shells": {
+        "boss_with_adds": {
+          "sum_player_dot": 476.25,
+          "sum_boss_dot": 137.16,
+          "sum_dur_s": 1440.6,
+          "dot_dps": 0.3306,
+          "boss_dot_dps": 0.0952,
+          "kpm": 0.25,
+          "tier_firing": {
+            "4": 42,
+            "1": 672
+          },
+          "t4_pct": 5.9,
+          "dot_on_off": {
+            "dot_off_kpm": 0.2499,
+            "dot_on_kpm": 0.2499,
+            "delta_kpm": 0.0
+          }
+        },
+        "mini_boss": {
+          "sum_player_dot": 156.21,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 1440.0,
+          "dot_dps": 0.1085,
+          "boss_dot_dps": 0.0,
+          "kpm": 0.25,
+          "tier_firing": {
+            "4": 30,
+            "1": 426
+          },
+          "t4_pct": 6.6,
+          "dot_on_off": {
+            "dot_off_kpm": 0.25,
+            "dot_on_kpm": 0.25,
+            "delta_kpm": 0.0
+          }
+        },
+        "open_arena": {
+          "sum_player_dot": 0.0,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 131.4,
+          "dot_dps": 0.0,
+          "boss_dot_dps": 0.0,
+          "kpm": 21.918,
+          "tier_firing": {
+            "4": 18,
+            "1": 66
+          },
+          "t4_pct": 21.4,
+          "dot_on_off": {
+            "dot_off_kpm": 21.9178,
+            "dot_on_kpm": 21.9178,
+            "delta_kpm": 0.0
+          }
+        },
+        "chokepoint_corridor": {
+          "sum_player_dot": 0.0,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 120.0,
+          "dot_dps": 0.0,
+          "boss_dot_dps": 0.0,
+          "kpm": 24.0,
+          "tier_firing": {
+            "4": 18,
+            "1": 60
+          },
+          "t4_pct": 23.1,
+          "dot_on_off": {
+            "dot_off_kpm": 24.0,
+            "dot_on_kpm": 24.0,
+            "delta_kpm": 0.0
+          }
+        },
+        "magic_pack": {
+          "sum_player_dot": 0.0,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 41.1,
+          "dot_dps": 0.0,
+          "boss_dot_dps": 0.0,
+          "kpm": 35.036,
+          "tier_firing": {
+            "4": 18,
+            "1": 25
+          },
+          "t4_pct": 41.9,
+          "dot_on_off": {
+            "dot_off_kpm": 35.0365,
+            "dot_on_kpm": 35.0365,
+            "delta_kpm": 0.0
+          }
+        },
+        "elite_pack": {
+          "sum_player_dot": 0.0,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 1.8,
+          "dot_dps": 0.0,
+          "boss_dot_dps": 0.0,
+          "kpm": 600.0,
+          "tier_firing": {
+            "4": 18
+          },
+          "t4_pct": 100.0,
+          "dot_on_off": {
+            "dot_off_kpm": 600.0,
+            "dot_on_kpm": 600.0,
+            "delta_kpm": 0.0
+          }
+        }
+      }
+    },
+    "int": {
+      "legendary_id": "endgame_bc_ranged_medium_variable_int_none_t4_chain_1",
+      "dot_names": [
+        "burn"
+      ],
+      "boss_shell_dot_dps_mean": 0.3228,
+      "shells": {
+        "boss_with_adds": {
+          "sum_player_dot": 426.72,
+          "sum_boss_dot": 137.16,
+          "sum_dur_s": 965.7,
+          "dot_dps": 0.4419,
+          "boss_dot_dps": 0.142,
+          "kpm": 0.746,
+          "tier_firing": {
+            "4": 66,
+            "1": 443
+          },
+          "t4_pct": 13.0,
+          "dot_on_off": {
+            "dot_off_kpm": 0.7521,
+            "dot_on_kpm": 0.7521,
+            "delta_kpm": 0.0
+          }
+        },
+        "mini_boss": {
+          "sum_player_dot": 293.37,
+          "sum_boss_dot": 57.15,
+          "sum_dur_s": 1440.0,
+          "dot_dps": 0.2037,
+          "boss_dot_dps": 0.0397,
+          "kpm": 0.25,
+          "tier_firing": {
+            "4": 60,
+            "1": 414
+          },
+          "t4_pct": 12.7,
+          "dot_on_off": {
+            "dot_off_kpm": 0.25,
+            "dot_on_kpm": 0.25,
+            "delta_kpm": 0.0
+          }
+        },
+        "open_arena": {
+          "sum_player_dot": 0.0,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 50.7,
+          "dot_dps": 0.0,
+          "boss_dot_dps": 0.0,
+          "kpm": 56.805,
+          "tier_firing": {
+            "4": 36,
+            "1": 21
+          },
+          "t4_pct": 63.2,
+          "dot_on_off": {
+            "dot_off_kpm": 52.459,
+            "dot_on_kpm": 52.459,
+            "delta_kpm": 0.0
+          }
+        },
+        "chokepoint_corridor": {
+          "sum_player_dot": 0.0,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 54.0,
+          "dot_dps": 0.0,
+          "boss_dot_dps": 0.0,
+          "kpm": 53.333,
+          "tier_firing": {
+            "4": 36,
+            "1": 22
+          },
+          "t4_pct": 62.1,
+          "dot_on_off": {
+            "dot_off_kpm": 49.4845,
+            "dot_on_kpm": 49.4845,
+            "delta_kpm": 0.0
+          }
+        },
+        "magic_pack": {
+          "sum_player_dot": 0.0,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 2.4,
+          "dot_dps": 0.0,
+          "boss_dot_dps": 0.0,
+          "kpm": 600.0,
+          "tier_firing": {
+            "4": 24
+          },
+          "t4_pct": 100.0,
+          "dot_on_off": {
+            "dot_off_kpm": 600.0,
+            "dot_on_kpm": 600.0,
+            "delta_kpm": 0.0
+          }
+        },
+        "elite_pack": {
+          "sum_player_dot": 0.0,
+          "sum_boss_dot": 0.0,
+          "sum_dur_s": 2.4,
+          "dot_dps": 0.0,
+          "boss_dot_dps": 0.0,
+          "kpm": 450.0,
+          "tier_firing": {
+            "4": 18
+          },
+          "t4_pct": 100.0,
+          "dot_on_off": {
+            "dot_off_kpm": 450.0,
+            "dot_on_kpm": 450.0,
+            "delta_kpm": 0.0
+          }
+        }
+      }
+    }
+  },
+  "bands_untouched": true,
+  "semantic_shift": "Phase-3 boundary (3rd of 4): DoT-live + DoT-refresh-keeps-max + DoT accumulator. Composes with Phase-1 resource-gate + Phase-2 rotation.",
+  "wall_s": 4.3
+}
