@@ -1,0 +1,64 @@
+{
+  "generated_utc": "2026-06-20T17:28:08.973968+00:00",
+  "run_label": "dot-mitigation-symmetry-armC-DIAGNOSTIC-STOP",
+  "verdict": "STOP -- smoke-gate FAIL. F1/F2 wired + population carries bleed, but DoT contributes 0.0: the spatial AI fires ONLY chain_A_t1_primary_attack, whose signature-ailment tick_damage=0 (rocket seed round(tier^2*0.3): T1->0). The non-zero ticks (1/3/5) ride T2/T3/T4 which the AI never fires.",
+  "population_premise": {
+    "n_kits": 54,
+    "n_configs": 66,
+    "dot_carrying_configs": 25,
+    "dot_by_attr": {
+      "str": 12,
+      "dex": 8,
+      "int": 5
+    },
+    "str_bleed_configs": 12,
+    "note": "population premise RESOLVED (was 0/66 in Arm B); NEW blocker is T1-zero-tick x T1-only-firing"
+  },
+  "str_bleed_kit": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+  "chainA_bleed_tick_by_tier": {
+    "t1": 0,
+    "t2": 1,
+    "t3": 3,
+    "t4": 5,
+    "seed": "round(tier^2*0.3)",
+    "source": "rocket 3c273e1"
+  },
+  "chainA_cooldowns": {
+    "t1": 2.0,
+    "t2": 4.0,
+    "t3": 8.0,
+    "t4": 0.0
+  },
+  "traces": {
+    "STR_bleed_open_arena": {
+      "total_dot_dealt": 0.0,
+      "observed_kpm": 12.8571,
+      "landed_ailment_tickdmg": {
+        "bleed:tick=0.0": 15
+      },
+      "chainA_fired": {
+        "A_t1_primary_attack": 44
+      }
+    },
+    "STR_bleed_elite_pack": {
+      "total_dot_dealt": 0.0,
+      "observed_kpm": 3.1972,
+      "landed_ailment_tickdmg": {
+        "bleed:tick=0.0": 31
+      },
+      "chainA_fired": {
+        "A_t1_primary_attack": 78
+      }
+    },
+    "STR_bleed_boss_with_adds": {
+      "total_dot_dealt": 0.0,
+      "observed_kpm": 0.2499,
+      "landed_ailment_tickdmg": {
+        "bleed:tick=0.0": 126
+      },
+      "chainA_fired": {
+        "A_t1_primary_attack": 342
+      }
+    }
+  }
+}
