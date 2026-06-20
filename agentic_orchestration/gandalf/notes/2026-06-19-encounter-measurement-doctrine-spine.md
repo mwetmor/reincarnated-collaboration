@@ -44,6 +44,19 @@ The sections below are corrected inline where they stated an overturned claim; t
 
 ---
 
+## ⚖️ RULINGS (Matt, 2026-06-19) — the doctrine is ADOPTED
+
+The design session ruled. On these points the spine is no longer a draft:
+
+1. **Doctrine table (§1) — ADOPTED.** The win-condition split is canonical: clear rooms → KPM band (floor + ceiling); boss rooms → survive-and-kill-within-the-enrage-timer (binary gate), DPS/TTK MEASURED but never gating, NO over-performance ceiling. → knight-rider drafts the decisions-log entry; jack-ryan reviews.
+2. **STR cheap pre-step (rocket kit-check) — SKIPPED.** Matt fast-tracked straight to the DPS build to inspect STR's cause directly.
+3. **DPS measurement build (Matt #8) — BUILD ASAP.** Brief: `gandalf/requests/2026-06-19-dps-measurement-build-brief.md`. Surfaces player + all-proxy damage from `SpatialFightResult`; classifies STR (slow-but-real vs degenerate); becomes the doctrine's permanent boss MEASURE. gamora building; jack-ryan Gate-2 (semantic-shift declaration for the new field).
+4. **Boss-gate implementation (§6) — AGREED.** Re-route bosses off KPM at both tiers onto survive+kill; wire sg2 as the GATE (not telemetry); record DPS/TTK. Real engine build; knight-rider sequences (composes with / follows the DPS build).
+
+**Still OPEN (NOT ruled):** §9.2 Model-A-vs-B for clear-room measurement; STR's *final* disposition (blocked on the DPS build output); the rogue crater re-read at faithful power.
+
+---
+
 ## 1. The doctrine table (the core deliverable)
 
 | Room class | shells | `win_condition` | what over-performance MEANS | GATE (ships/rejects) | MEASURE (recorded, never rejects) |
@@ -178,12 +191,12 @@ So the production metadata (`eligible_encounter_types` = all six) is canonical; 
 
 ## 9. Open decisions for the design session (RESERVED for Matt)
 
-1. **Adopt the doctrine table (§1)?** Win-condition split; clear rooms = KPM band (floor+ceiling); boss rooms = survive+kill gate + DPS measure-only. (My recommend: yes — production-confirmed bug, genre-confirmed fix.)
+1. **~~Adopt the doctrine table (§1)?~~ — RULED: ADOPTED (Matt, 2026-06-19; see RULINGS).** Win-condition split; clear rooms = KPM band (floor+ceiling); boss rooms = survive+kill gate + DPS measure-only. knight-rider to draft the decisions-log entry; jack-ryan to review.
 2. **Model A vs Model B for clear-room measurement:**
    - **Model A — per-room (per-shell) cohort-relative KPM bands.** Genre support as density TIERING (Q3). Density-aware: open_arena/chokepoint (8-swarm) naturally band higher than packs. Lower sim-structure change.
    - **Model B — session-wide clear-speed including travel/walk time between encounters.** The genre-CANONICAL frame (Q5). Higher fidelity to how the genre actually measures. BUT a sim-structure change (the sim must model inter-encounter travel; movement speed becomes a first-class measured lever). Flagged as the larger build.
    - Not mutually exclusive — Model A could be the near-term per-room banding while Model B is the longer-arc session-wide frame. The session should rule the sequencing.
-3. **Boss-bridge family — membership now partly settled (clean run §5).** Caster is OUT (production + clean run). STR is a CONFIRMED boss-gate failure, but its cause (slow-but-real vs degenerate kit) is BLOCKED on the Tier-B DPS-measure build — its disposition (throughput fix / enrage tuning / accept-via-the-9-pass-floor) is a session call with that dependency. rogue is still un-re-read at faithful power (out of this run's scope). One doctrine, N instances — N is now: caster = 0, STR = 1 (pending DPS to classify), rogue = open.
+3. **Boss-bridge family — membership now partly settled (clean run §5).** Caster is OUT (production + clean run). STR is a CONFIRMED boss-gate failure, but its cause (slow-but-real vs degenerate kit) is BLOCKED on the Tier-B DPS-measure build — its disposition (throughput fix / enrage tuning / accept-via-the-9-pass-floor) is a session call with that dependency. rogue is still un-re-read at faithful power (out of this run's scope). One doctrine, N instances — N is now: caster = 0, STR = 1 (pending DPS to classify), rogue = open. **[Matt 2026-06-19: the rocket kit-check cheap-step was SKIPPED; the DPS build is fast-tracked to classify STR directly — brief at `gandalf/requests/2026-06-19-dps-measurement-build-brief.md`.]**
 4. **~~clean current-regime boss run~~ — DONE + VERIFIED (2026-06-19).** Both preconditions are now satisfied: (i) Gate-1 resolved the `tier_1_outcome` / gating-tier reads (§6, §7); (ii) the clean boss run + jack-ryan Gate-2 PASS-WITH-INFO now carry the per-archetype boss claims (§5). Caster crater dissolved; STR crater reclassified (defensive → throughput-or-degenerate, blocked on the DPS build). Residual scope: the run covered attribute-parsed cohorts on boss shells only — the rogue-composer crater and the clear-room bands were out of scope (§9.3); DPS instrumentation (Matt #8) is the next build (§3).
 
 **Park dispositions carried/updated:**
