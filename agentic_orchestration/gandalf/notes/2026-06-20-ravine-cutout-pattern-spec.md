@@ -19,7 +19,7 @@ One level = one ravine stretch along a primary down-gorge axis (+Z, into the com
 | entry-pinch | ~7 m | ~12 m | arrival corridor; first sightline into the gorge |
 | **POOL 1** | ~18-20 m | ~20 m | TRASH arena — goblin pack (6-10 trash) |
 | connector-pinch | ~6-7 m | ~14 m | **the quasi-snake** — tight S-bend; HIDES Pool 2 from Pool 1 (the reveal beat) |
-| **POOL 2** | ~20-22 m | ~22 m | ELITE arena — elite goblin + shaman (SM_Bld_Shaman_01); brightest emissive hero element (climax) |
+| **POOL 2** | ~20-22 m | ~22 m | ELITE arena — `Troll_01` (2.89 m, boss-scale anchor) + 2-3 goblin elites; brightest emissive hero element (climax) |
 | exit-pinch | ~7 m | ~12 m | departure corridor |
 
 Approx level extent: ~80-90 m long × ~36-40 m wide envelope (footprint max ~22 m + forest margin both sides).
@@ -49,7 +49,11 @@ The "enchanted" read is lit FROM WITHIN over a dark teal base (5-20% value shado
 - Cool green-cyan fog, medium density, depth-fading the background 30-50%.
 - Concentrated bright hotspots (5-15% of frame), dark vignette edges.
 - **Pool 2 gets the brightest emissive hero element** (a glowing pool / glowing great-tree / crystal cluster) — the climax focal.
-- Goblin packs: Pool 1 trash goblins; Pool 2 elite goblin + SM_Bld_Shaman_01. Hero from Fantasy Characters pack. (Animations: Goblin Locomotion.)
+- **Enemy mesh sourcing (per import gotcha #3):** Goblin War Camp has NO mesh literally named `Goblin` — `Characters.fbx` bundles the human roster on one Skeleton3D; goblin enemies = those roster meshes skinned with the **goblin-camp green-skin atlas** (per the pack MaterialList). `CharactersBR.fbx` adds `Troll_01` (2.89 m).
+  - **Pool 1 (trash):** 6-10 goblin grunts (roster meshes + goblin atlas).
+  - **Pool 2 (elite/climax):** `Troll_01` boss-scale anchor + 2-3 goblin elites as its guard.
+  - Animations: ANIMATION Goblin Locomotion pack.
+- **Material gotchas to honor at build:** (#1) Synty FBX embed broken texture paths → embedded materials import untextured; build atlas materials via `Image.load()` from the real atlas PNGs (cliffs, ground, goblin skin all need this). (#2) Unit conventions are MIXED — Enchanted-Forest + goblin-war-camp = meters (scale 1.0); **Fantasy-Characters = centimeters (scale 0.01)** if any are used.
 
 ## 5. Cross-log (Matt: "add a cross log or two")
 
