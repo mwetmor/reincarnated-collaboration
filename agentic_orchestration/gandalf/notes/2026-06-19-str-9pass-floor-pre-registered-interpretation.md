@@ -79,6 +79,35 @@ The cleanest way I am WRONG: STR comes back **below-floor on open_arena** (the t
 
 ---
 
-## RESOLUTION — the data landed (to fill after gamora run + jack-ryan Gate-2 PASS)
+## RESOLUTION — the data landed (jack-ryan Gate-2 PASS, 2026-06-19)
 
-*(Stub. On return: map STR's per-cohort, per-clear-type pass-count to exactly one row of the disposition table; confirm the four consistency rails; record whether the predicted KPM gradient held; note any place the result exceeded the pre-reg as a strengthening, not a reinterpretation. Then fold into spine §5 STR-disposition. Do not read numbers as data until Gate-2 PASS.)*
+**Gate-2 PASS** (`qa/findings/2026-06-19-str-9pass-floor-gate2.md`): all of V1–V6 + Discipline-#3 inter-run verified first-hand from source + the 4752-cell JSON; the §11.1 intra-run seed-stride overflow ruled **INFO / verdict-immaterial** (all 32 collisions land on elite_pack — the type STR already fails by 2.25 KPM; the 3 passing clear-types have ZERO true-dups, so no effective-n reduction flips a spread-0, 10-of-14 outcome). The only zero-KPM cells are *measured* mini_boss timeouts (`term={timeout:20}`), NOT the defaulted masquerade — the trap structurally could not fire. I am cleared to read the numbers as data.
+
+### The result (full run: 66 configs, n=20/cell, 4752 cells)
+
+| clear-type | in-band | below-floor | above-ceiling | verdict |
+|---|---|---|---|---|
+| open_arena (×4) | 192/192 | 0 | 0 | **PASS** (100%, deep in-band, med 12.33) |
+| chokepoint_corridor (×3) | 144/144 | 0 | 0 | **PASS** (100%, deep in-band, med 13.46) |
+| magic_pack (×3) | 144/144 | 0 | 0 | **PASS** (100%, in-band, med 7.12) |
+| elite_pack (×4) | 0/192 | 192/192 | 0 | **FAIL below-floor** (max cell 3.40 vs 5.65 floor, −2.25) |
+
+Counting clear-shell TYPES with multiplicities: **STR passes 10 of 14 (open_arena ×4 + chokepoint ×3 + magic_pack ×3); fails 4 of 14 (elite_pack ×4), all below-floor.** Cohort spread = **0** (120/120/120/120 in-band cells) — perfect invariance, exactly the pre-committed expectation.
+
+### Mapping to the disposition table — **route-via-floor CONFIRMED**
+
+**10 ≥ 9 → STR SHIPS via the floor.** The result lands on **row (a) in its SHIP verdict — broad clear-competent, NOT swarm-only** (it clears magic_pack, a genuine anchored pack, 100% across all cohorts; it is decisively not the row-(b) D2-Whirlwind swarm-specialist that merely scrapes to 9 on undifferentiated mobs). But the GAP is **sharper than row (a)'s "boss-specific"**: it is the **anchor+adds structure** specifically — the boss (auto-fail) AND elite_pack (below-floor), the two shells where a single high-HP priority target must be focus-fired amid adds. magic_pack (tougher mobs, NO dominating anchor) passes; elite_pack (the BIMODAL anchor+adds shell, `gauntlet_sim.py:303`, grouped with boss_with_adds) fails. **One mechanism — melee target-allocation — defines STR's entire failure surface, and that surface is exactly the "focus the priority target while adds swarm you" skill-check.**
+
+### Pre-reg accounting (honesty check, all four rails + the gradient)
+
+- **Predicted KPM gradient held as a PERFECT STEP FUNCTION.** Pre-reg predicted `open_arena ≥ chokepoint > magic_pack > elite_pack`; the data delivered pass/pass/pass/fail with the break at *exactly* elite_pack and *nowhere else*. This **EXCEEDS** the pre-reg (a predicted trend resolved to a clean step at the predicted structural break) — recorded as a **STRENGTHENING, not a reinterpretation**, per my pre-commitment.
+- **Failure SIDE = below-floor (too slow), zero above-ceiling.** Per the failure-SIDE ruling: this is the allocation problem manifesting as slowness (damage spread across adds → each elite lingers → clear-time balloons → KPM craters), NOT a band-fit artifact (that required above-ceiling clips; there are none).
+- **FALSIFIER cleanly NOT triggered.** The falsifier required below-floor on no-anchor swarm (open_arena/chokepoint). STR is 100% in-band on all 7 swarm shells. The allocation thesis stands, surgically confirmed.
+- **Rail 1 (boss re-run reproduces 0.000):** ✓ str surv+kill 0.000, timeout 1.000, n=3840.
+- **Rail 2 (controls clear competently):** ✓ dex 83, int 112–119, wis 282–296 in-band cells (all ≥9); boss surv+kill dex 0.788 / int 0.993 / wis 0.985.
+- **Rail 3 (cohort agreement ~1):** ✓ STR spread 0. INT spread 7 / WIS spread 14 FLAGGED — but those are CONTROLS, and gamora+jack-ryan confirmed the near-edge mechanism (cohort-invariant bands + cohort-varying kit power profiles → divergence only for kits sitting near a band edge; STR sits far from every boundary, casters straddle ceilings). Not a harness bug; does not touch the STR subject.
+- **Rail 4 (V1 tier_2 actually ran):** ✓ all 4752 cells n_fights==20, verified from JSON not the flag.
+
+### Disposition (ruled)
+
+**STR ships as a broad clear-competent melee archetype with ONE coherent, structurally-defined gap: the high-HP-anchor-amid-adds encounter (boss_with_adds, mini_boss, elite_pack), where its target-allocation problem recurs.** This is **class TEXTURE, not a defect** — a single legible mechanism, not a pervasive failure (passes 10/14), not incompetence (the swarm content it is built for, it clears 100%), not a band-fit artifact (zero above-ceiling). The genre frame is the **D2 Barbarian** precisely: cleave melts packs (open_arena/chokepoint/magic_pack), the single tough target demanding sustained focus-fire amid harassment (Ubers, elite anchors) is the structural weak point. **Kit-fix is NOT load-bearing for shipping.** See spine §5 for the design recommendation (the anchor-gap is shippable-as-texture only with a focus-fire LEVER — and Finding 2's DoT-scaling fix is a candidate lever, not just debt).
