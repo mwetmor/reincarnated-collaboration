@@ -1,0 +1,411 @@
+{
+  "harness": "rotation_selector_phase2_2026_06_20",
+  "generated_utc": "2026-06-20T20:01:12.721938+00:00",
+  "smoke": true,
+  "seed_base": 8500000,
+  "n_configs": 8,
+  "n_encounters": 14,
+  "cohorts": [
+    "Balanced"
+  ],
+  "G3a": {
+    "t1_collapse_broken": true,
+    "above_t1_pct_on": 46.1,
+    "tier_dist_off": {
+      "1": 100.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0
+    },
+    "tier_dist_on": {
+      "1": 53.9,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 46.1
+    },
+    "criterion_above_t1_gt_50pct": false,
+    "note": "OFF = the T1-collapse (expect ~100% T1). ON = rotation fires tiers > T1. T2/T3 may be ~0 under greedy-capstone (T4 dm=2.0/cd=0 >> T1 > T2 > T3 by DPS-score; selector picks T4-when-affordable, falls to T1-fill when the pool throttles below T4 cost -- the burst->lull = the Phase-1 gate now BINDING)."
+  },
+  "G3b_status": "BUILT-but-UNMEASURED-pending-Phase-R: economy distinguishability + the rage build-on-swarm/spend-on-anchor falsifier require the doc-48 economies in the population (Phase R). The rage/combo/charge-stack branches are BUILT (spatial_engine _select_player_skill_v2) + smoke-exercised. NOT a PASS.",
+  "shell_kpm_delta": {
+    "open_arena": {
+      "kpm_off_mean": 15.607,
+      "kpm_on_mean": 39.871,
+      "kpm_delta": 24.264,
+      "dps_off_mean": 11987.0,
+      "dps_on_mean": 26215.3,
+      "dps_ratio_on_over_off": 2.19
+    },
+    "chokepoint_corridor": {
+      "kpm_off_mean": 15.999,
+      "kpm_on_mean": 40.797,
+      "kpm_delta": 24.798,
+      "dps_off_mean": 11503.3,
+      "dps_on_mean": 26285.3,
+      "dps_ratio_on_over_off": 2.29
+    },
+    "magic_pack": {
+      "kpm_off_mean": 8.472,
+      "kpm_on_mean": 357.752,
+      "kpm_delta": 349.28,
+      "dps_off_mean": 11349.7,
+      "dps_on_mean": 479359.4,
+      "dps_ratio_on_over_off": 42.24
+    },
+    "elite_pack": {
+      "kpm_off_mean": 2.784,
+      "kpm_on_mean": 431.169,
+      "kpm_delta": 428.385,
+      "dps_off_mean": 6283.0,
+      "dps_on_mean": 597142.9,
+      "dps_ratio_on_over_off": 95.04
+    }
+  },
+  "tier_firing_off": {
+    "1": 18942
+  },
+  "tier_firing_on": {
+    "1": 3921,
+    "4": 3347
+  },
+  "rows": [
+    {
+      "legendary_id": "endgame_bc_melee_high_flat_dex_none_t4_chain_1",
+      "attribute": "dex",
+      "shell": "chokepoint_corridor",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 14.159,
+      "kpm_on": 24.0,
+      "dps_off": 10315.1,
+      "dps_on": 15900.0
+    },
+    {
+      "legendary_id": "endgame_bc_melee_high_flat_dex_none_t4_chain_1",
+      "attribute": "dex",
+      "shell": "elite_pack",
+      "cohort": "Balanced",
+      "wr_off": 0.375,
+      "wr_on": 1.0,
+      "kpm_off": 1.008,
+      "kpm_on": 600.0,
+      "dps_off": 5516.0,
+      "dps_on": 825000.0
+    },
+    {
+      "legendary_id": "endgame_bc_melee_high_flat_dex_none_t4_chain_1",
+      "attribute": "dex",
+      "shell": "magic_pack",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 7.419,
+      "kpm_on": 35.49,
+      "dps_off": 9816.0,
+      "dps_on": 49230.8
+    },
+    {
+      "legendary_id": "endgame_bc_melee_high_flat_dex_none_t4_chain_1",
+      "attribute": "dex",
+      "shell": "open_arena",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 13.521,
+      "kpm_on": 21.918,
+      "dps_off": 10708.8,
+      "dps_on": 15968.7
+    },
+    {
+      "legendary_id": "endgame_bc_melee_high_flat_dex_none_t4_chain_2",
+      "attribute": "dex",
+      "shell": "chokepoint_corridor",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 19.374,
+      "kpm_on": 30.573,
+      "dps_off": 13807.8,
+      "dps_on": 19875.0
+    },
+    {
+      "legendary_id": "endgame_bc_melee_high_flat_dex_none_t4_chain_2",
+      "attribute": "dex",
+      "shell": "elite_pack",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 4.152,
+      "kpm_on": 600.0,
+      "dps_off": 7177.5,
+      "dps_on": 825000.0
+    },
+    {
+      "legendary_id": "endgame_bc_melee_high_flat_dex_none_t4_chain_2",
+      "attribute": "dex",
+      "shell": "magic_pack",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 9.467,
+      "kpm_on": 48.731,
+      "dps_off": 13008.1,
+      "dps_on": 72727.3
+    },
+    {
+      "legendary_id": "endgame_bc_melee_high_flat_dex_none_t4_chain_2",
+      "attribute": "dex",
+      "shell": "open_arena",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 21.204,
+      "kpm_on": 35.49,
+      "dps_off": 15184.9,
+      "dps_on": 23043.5
+    },
+    {
+      "legendary_id": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+      "attribute": "str",
+      "shell": "chokepoint_corridor",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 11.79,
+      "kpm_on": 18.208,
+      "dps_off": 8316.3,
+      "dps_on": 13361.3
+    },
+    {
+      "legendary_id": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+      "attribute": "str",
+      "shell": "elite_pack",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 3.052,
+      "kpm_on": 18.182,
+      "dps_off": 5611.1,
+      "dps_on": 55000.0
+    },
+    {
+      "legendary_id": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+      "attribute": "str",
+      "shell": "magic_pack",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 7.477,
+      "kpm_on": 20.042,
+      "dps_off": 9816.0,
+      "dps_on": 33557.9
+    },
+    {
+      "legendary_id": "endgame_bc_melee_low_spiky_str_none_t4_chain_2",
+      "attribute": "str",
+      "shell": "open_arena",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 12.004,
+      "kpm_on": 19.248,
+      "dps_off": 9825.7,
+      "dps_on": 13305.4
+    },
+    {
+      "legendary_id": "endgame_bc_mid_medium_variable_wis_none_t4_chain_1",
+      "attribute": "wis",
+      "shell": "chokepoint_corridor",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 17.91,
+      "kpm_on": 46.772,
+      "dps_off": 12626.2,
+      "dps_on": 29040.5
+    },
+    {
+      "legendary_id": "endgame_bc_mid_medium_variable_wis_none_t4_chain_1",
+      "attribute": "wis",
+      "shell": "elite_pack",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 3.774,
+      "kpm_on": 450.0,
+      "dps_off": 6792.8,
+      "dps_on": 618750.0
+    },
+    {
+      "legendary_id": "endgame_bc_mid_medium_variable_wis_none_t4_chain_1",
+      "attribute": "wis",
+      "shell": "magic_pack",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 9.467,
+      "kpm_on": 600.0,
+      "dps_off": 12519.1,
+      "dps_on": 800000.0
+    },
+    {
+      "legendary_id": "endgame_bc_mid_medium_variable_wis_none_t4_chain_1",
+      "attribute": "wis",
+      "shell": "open_arena",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 17.391,
+      "kpm_on": 47.232,
+      "dps_off": 13655.8,
+      "dps_on": 32121.2
+    },
+    {
+      "legendary_id": "endgame_bc_mid_medium_variable_wis_none_t4_chain_2",
+      "attribute": "wis",
+      "shell": "chokepoint_corridor",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 20.253,
+      "kpm_on": 62.848,
+      "dps_off": 13589.7,
+      "dps_on": 40253.2
+    },
+    {
+      "legendary_id": "endgame_bc_mid_medium_variable_wis_none_t4_chain_2",
+      "attribute": "wis",
+      "shell": "elite_pack",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 3.917,
+      "kpm_on": 450.0,
+      "dps_off": 7068.3,
+      "dps_on": 618750.0
+    },
+    {
+      "legendary_id": "endgame_bc_mid_medium_variable_wis_none_t4_chain_2",
+      "attribute": "wis",
+      "shell": "magic_pack",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 9.658,
+      "kpm_on": 600.0,
+      "dps_off": 13008.1,
+      "dps_on": 800000.0
+    },
+    {
+      "legendary_id": "endgame_bc_mid_medium_variable_wis_none_t4_chain_2",
+      "attribute": "wis",
+      "shell": "open_arena",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 17.181,
+      "kpm_on": 51.2,
+      "dps_off": 12507.8,
+      "dps_on": 32121.2
+    },
+    {
+      "legendary_id": "endgame_bc_ranged_medium_variable_int_none_t4_chain_1",
+      "attribute": "int",
+      "shell": "chokepoint_corridor",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 13.933,
+      "kpm_on": 50.861,
+      "dps_off": 10877.2,
+      "dps_on": 32783.5
+    },
+    {
+      "legendary_id": "endgame_bc_ranged_medium_variable_int_none_t4_chain_1",
+      "attribute": "int",
+      "shell": "elite_pack",
+      "cohort": "Balanced",
+      "wr_off": 0.875,
+      "wr_on": 1.0,
+      "kpm_off": 1.989,
+      "kpm_on": 450.0,
+      "dps_off": 5811.2,
+      "dps_on": 618750.0
+    },
+    {
+      "legendary_id": "endgame_bc_ranged_medium_variable_int_none_t4_chain_1",
+      "attribute": "int",
+      "shell": "magic_pack",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 7.843,
+      "kpm_on": 600.0,
+      "dps_off": 10457.5,
+      "dps_on": 800000.0
+    },
+    {
+      "legendary_id": "endgame_bc_ranged_medium_variable_int_none_t4_chain_1",
+      "attribute": "int",
+      "shell": "open_arena",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 13.593,
+      "kpm_on": 50.526,
+      "dps_off": 10795.7,
+      "dps_on": 33473.7
+    },
+    {
+      "legendary_id": "endgame_bc_ranged_medium_variable_int_none_t4_chain_2",
+      "attribute": "int",
+      "shell": "chokepoint_corridor",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 14.573,
+      "kpm_on": 52.316,
+      "dps_off": 10991.0,
+      "dps_on": 32783.5
+    },
+    {
+      "legendary_id": "endgame_bc_ranged_medium_variable_int_none_t4_chain_2",
+      "attribute": "int",
+      "shell": "elite_pack",
+      "cohort": "Balanced",
+      "wr_off": 0.75,
+      "wr_on": 1.0,
+      "kpm_off": 1.598,
+      "kpm_on": 450.0,
+      "dps_off": 6004.0,
+      "dps_on": 618750.0
+    },
+    {
+      "legendary_id": "endgame_bc_ranged_medium_variable_int_none_t4_chain_2",
+      "attribute": "int",
+      "shell": "magic_pack",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 7.973,
+      "kpm_on": 600.0,
+      "dps_off": 10823.2,
+      "dps_on": 800000.0
+    },
+    {
+      "legendary_id": "endgame_bc_ranged_medium_variable_int_none_t4_chain_2",
+      "attribute": "int",
+      "shell": "open_arena",
+      "cohort": "Balanced",
+      "wr_off": 1.0,
+      "wr_on": 1.0,
+      "kpm_off": 14.355,
+      "kpm_on": 53.482,
+      "dps_off": 11230.6,
+      "dps_on": 33473.7
+    }
+  ],
+  "bands_untouched": true,
+  "wall_s": 8.7
+}
