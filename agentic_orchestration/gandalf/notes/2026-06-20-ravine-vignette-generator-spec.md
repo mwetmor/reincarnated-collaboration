@@ -1,6 +1,6 @@
 # Enchanted-Forest Ravine — Vignette Generator Spec (structure skeleton)
 
-**Status:** DRAFT-IN-PROGRESS — structural skeleton authored while the Legolas Mode A floor-sizing/density commission runs in the background. Everything here is the GEOMETRY + GATE contract, which does NOT depend on the sizing numbers. The **footprint dimensions, corridor widths, and per-vignette spawn budget are LEGOLAS-GATED placeholders** (marked `⟦LEGOLAS⟧`) — filled on research return (next-session sequence step 2→3).
+**Status:** SIZING-COMPLETE (2026-06-20) — structural skeleton + Legolas-derived sizing truth now both landed. The `⟦LEGOLAS⟧` placeholders are filled from `agentic_orchestration/research/knowledge/arpg-level-design/2026-06-20-arpg-room-sizing-monster-density-ravine-wfc.md`. **One load-bearing design-fit decision is surfaced for Matt: the research shows the ravine archetype is genre-canonically LINEAR (corridor), which is in tension with the locked 2×2-square assembly — see §0.5.** Pending that call, the spec is firing-ready for drax (geometry + gate contract complete).
 **Author:** gandalf (design steward), 2026-06-20.
 **Parents:** `2026-06-20-enchanted-forest-ravine-plan-and-floor-sizing-research.md` (the locked plan + R1–R9 rules + Legolas brief); `reincarnated-godot/data/act_graph_node_schema_draft.json` (the proven crypt node-schema being generalized); `reincarnated-godot/scripts/check_crypt_vault_gate1.gd` (the proven 6-criterion Gate-1 being ported).
 **Discipline:** recognition→validate→commit. This spec is the *carry test* of the architecture-conversation thesis (coordinate-vs-rule; gate-as-carry-mechanism). It commits NO sizing numbers until the substrate (genre research) votes.
@@ -18,6 +18,20 @@ The output is the carry chain: **author ONE exemplar ravine tile → seed-vary t
 
 ---
 
+## 0.5. Load-bearing design-fit finding (Matt's call) — LINEAR vs SQUARE assembly
+
+The Legolas research returned an unambiguous genre signal: **every ARPG ravine/gorge/pass zone is LINEAR** — a narrow corridor, not a square. D2's three gorge-family zones (Spider Forest, Great Marsh, Flayer Jungle) are all **64×192 tiles (3:1 aspect)**; D2's near-square 80×80 zones (Blood Moor, Cold Plains) are the OPEN-field archetype, NOT ravines. Torchlight's "Passes," D4's tube dungeons, Grim Dawn's "Passages" — all linear. The genre says: *the corridor IS the ravine; a square open space is a field.*
+
+This is in direct tension with the 2×2-square assembly locked in the plan doc §1. The tension is real, not cosmetic: **the ravine's entire structural value (plan §2) is the bounded corridor where walls = boundary. A square open footprint undercuts the very thing the ravine buys us — it reads as Blood Moor (open field), not Spider Forest (gorge).** A 2×2 can be rescued by snaking a U/S-corridor through it (R6 topology note), but that adds interior-turn complexity AND still reads more "open arena with a path" than "gorge."
+
+**gandalf recommendation: shift to 1×4 LINEAR assembly (a straight gorge stretch).** Rationale:
+- It IS the genre-canonical ravine shape (Spider Forest's spine, exactly).
+- The edge-socket contract (R4) is **topology-agnostic** — this swap is FREE; nothing in the geometry/gate contract changes (the plan doc itself flagged "[A 1×4 strip is the alternative; the edge-socket contract handles either]").
+- It reconciles with the committed SE→NW oblique camera: a gorge receding along the sightline is the strongest possible depth read (the three-plane logic of plan §2 lands hardest down a corridor's length).
+- It makes R7 focal-points into **pacing beats along a path** (encounter rhythm) instead of four quadrants of a square — the genre's "elite pack every 10–20 tiles of travel" cadence (research §1d) maps directly onto a linear 4-vignette stretch.
+
+**This overturns a decision Matt locked, so it is a RECOMMENDATION, not a commit.** If Matt keeps 2×2, the spec still works (U/S corridor); the sizing below is given per-tile and applies to either topology. **Matt decides.** Everything downstream of this section is topology-neutral except the assembly diagram in §5 Stage C.
+
 ## 1. The product (locked, from the plan doc §1–2)
 
 - Enchanted Forest biome; ravine/gorge structure bounds the play space (walls = boundary, rim trees = never-entered false-front, play on the gorge floor).
@@ -33,9 +47,9 @@ Port of `act_graph_node_schema_draft.json`. Field-by-field carry (CONFIRMED = po
 | Crypt field | Ravine carry | Notes |
 |---|---|---|
 | `node_type` | `architected_outdoor_ravine_vignette` | a tile IS its type; drives focal-element class + socket topology |
-| `footprint.playable` | GENERALIZED | the gorge-FLOOR walkable extent. `⟦LEGOLAS⟧` dims — **NO LONGER `_invariant:true`** (the 28×28 sim-inheritance is removed; re-derived from genre research) |
-| `footprint.visual` | GENERALIZED | playable floor + rim band + false-front rim trees (the dressed extent the camera sees) |
-| `annulus_band_m` | GENERALIZED → **rim band** | the up-slope rim between the walkable floor and the false-front. ALL terrain undulation + non-passable scatter lives here (R9) |
+| `footprint.playable` | GENERALIZED | the gorge-FLOOR walkable extent. **`20 m × 20 m` per tile (8×8 tiles @ 2.5 m grid)** — **NO LONGER `_invariant:true`** (28×28 sim-inheritance removed; re-derived from genre research, §5 sizing table) |
+| `footprint.visual` | GENERALIZED | **`35 m × 35 m` per tile** = playable + 2×7.5 m rim band (gorge walls + false-front rim trees) |
+| `annulus_band_m` | GENERALIZED → **rim band** | **7.5 m each side** (ports the crypt annulus). The up-slope rim between the walkable floor and the false-front. ALL terrain undulation + non-passable scatter lives here (R9) |
 | `fight_shell_ref` | CONFIRMED (with caveat) | still a read-only pointer to a spawn set — but the SHELL SIZE is now Legolas-derived, not `elite_pack`'s 28×28. Open cross-seam Q (plan §4): does re-sizing feed the balance sim? Routes to KR/gamora. |
 | `kit_ref` | GENERALIZED | outdoor kit (enchanted-forest: rock-wall modules, tree prefabs, foliage scatter, water/shrine focal props). Grid locked per kit before placement. |
 | `register_preset` | CONFIRMED | a named outdoor register held constant across all 4 tiles (NO per-tile laddering — spatial coherence is the variable under test) |
@@ -96,11 +110,25 @@ Criteria 7–8 are the genuinely-new outdoor gates; 1–6 are ports. The **gener
 
 **Stage C — assemble into 2×2.** Hand-authored adjacency table routes the corridor through all 4 cells (U/S-shape per R6 topology note) and pins start-bookend→tile→tile→tile→tile→end-bookend ordering. Edge-sockets consume shared profiles (R4) → seams continuous by construction. Run the full assembled Gate-1 (criterion 3: A* start→end). **Assembly + traversal passing IS the carry proof.**
 
-**Sizing inputs (`⟦LEGOLAS⟧` — fill on research return):**
-- `playable.w_m × h_m` per tile ← genre middle-room size table (replaces 28×28)
-- `corridor_opening` width ← ravine/pass corridor-width finding
-- per-vignette spawn budget (trash/elite/pack-leader counts) ← monster-density-per-room-size table
-- 2×2 vs 1×4 final call ← whichever the size table makes read best at the committed camera (edge-socket contract is topology-agnostic, so this is a free late decision)
+**Sizing inputs (Legolas-derived; replaces 28×28):**
+
+| Input | Value | Derivation (research artifact) |
+|---|---|---|
+| `playable.w_m × h_m` per tile | **20 m × 20 m** (8×8 @ 2.5 m grid) | combat corridor 6–10 tiles wide (research §2c) → 8 tiles = 20 m, mid-range comfortable for AoE; square per-tile for snap-uniformity |
+| `corridor_opening` width | **full 20 m** (1×4 straight) / **~15 m, 6 tiles** (2×2 snaking turn) | linear gorge = full-width seam; snaking turn narrows the opening at interior corners |
+| rim band | **7.5 m** each side | ports crypt annulus |
+| per-vignette **spawn budget** | **trash 6–10; elite pack 0–1** | the *encounter-pull* unit (research §1d), NOT a whole-zone count: D2 pull = 1–3 trash groups (3–12) + 0–1 elite; tuned to mid-D2/D3 density |
+| total across 4 vignettes | **~30–42 monsters; ~2 elite packs** | sits in the D2 open-zone family (37–65) — right for a short connective stretch, not a full zone |
+| assembly topology | **1×4 LINEAR recommended** (Matt's call, §0.5) | research: ravine archetype is genre-canonically linear; 2×2 falls back to U/S corridor if Matt keeps it |
+
+**Spawn-budget pacing (R7 focal-points double as elite anchors):**
+- Vignette 1 (entry): trash only (~6–8)
+- Vignette 2 (focal — fallen-tree bridge): trash (~6–8) + 1 elite pack (3–5)
+- Vignette 3 (variety): trash only (~6–8)
+- Vignette 4 (focal — shrine/waterfall, last beat before end-bookend): trash (~6–8) + 1 elite pack (3–5)
+- This is the genre "elite pack every 10–20 tiles of travel" cadence (research §1d) mapped onto the 4-vignette stretch.
+
+**Unit note:** adopt **1 tile = 2.5 m** as the working conversion — it matches the crypt grid AND the D2 community estimate (~2–3 m/tile; research §1a + gap #1). NOT Blizzard-official, so flagged as a working assumption, re-derivable if play-testing says the corridor reads too wide/narrow.
 
 **Scale-path note (do NOT build now):** at N=4, WFC is overkill (it earns its keep at 50+ tiles, Diablo/PoE scale). The clean edge-socket + hand-authored adjacency table suffices. WFC is NAMED as the scale-path; the Legolas §5.4 survey decides whether to adopt it for the later act-scale generator on evidence.
 
@@ -108,12 +136,13 @@ Criteria 7–8 are the genuinely-new outdoor gates; 1–6 are ports. The **gener
 
 ## 6. Open items carried OUT of this spec (not resolved here)
 
-- **`⟦LEGOLAS⟧` sizing/density** — gated on the Mode A return (running now). Fills §5 sizing inputs + §2 footprint dims.
-- **Balance-sim feedback question (plan §4)** — does re-sizing the gorge floor feed back into gamora's balance sim? Spatial sim → yes; abstract sim → no. Routes to knight-rider/gamora. NOT a design-seam call.
+- **Sizing/density — RESOLVED** (Legolas return; §2 footprint + §5 table filled). 20×20 m playable per tile replaces 28×28.
+- **Assembly topology — Matt's call (§0.5)** — 1×4 linear (gandalf-recommended, genre-canonical) vs 2×2 square (locked-but-now-evidence-challenged). Free swap either way (R4 topology-agnostic).
+- **Balance-sim feedback question (plan §4) — sharpened, routes to KR/gamora.** Two coupled sub-questions now: (1) does re-sizing the gorge floor feed back into gamora's balance sim? (spatial sim → yes; abstract sim → no). (2) **The `fight_shell_ref` mismatch:** the crypt consumed `elite_pack` (a square 28×28 shell). A 20×20 m corridor tile needs a CORRIDOR-shaped shell with spawns that fit the narrower playable footprint — the existing square shell's spawn coords may fall outside the new playable (Gate-1 crit-5 parity would FAIL). gamora owns `arena_scenarios.json`; a corridor-shaped shell (or a per-vignette spawn budget per §5) is needed. NOT a design-seam call to resolve — but design SETS the budget (§5), gamora REALIZES the shell.
 - **Kit selection** — the enchanted-forest outdoor kit (rock-wall + tree + foliage + focal props). Needs the asset-availability pass (drax/galadriel territory once the spec is sizing-complete).
 - **Drax GDScript** — `check_ravine_vignette_gate1.gd` (the §4 criteria) + the exemplar tile generator are drax's to build from this design contract; gandalf reviews against the rules.
 
 ---
 
 ## Sign-off
-gandalf, 2026-06-20. Structural skeleton authored against the proven crypt schema + Gate-1 while the Legolas floor-sizing commission runs. Sizing/density deliberately deferred to the substrate (genre research), not pre-imposed. Completes on Legolas return → fill `⟦LEGOLAS⟧` → spec is firing-ready for drax.
+gandalf, 2026-06-20. Structural skeleton authored against the proven crypt schema + Gate-1; sizing/density then set from the Legolas genre-research return (substrate voted; 28×28 retired; 20×20 m playable per tile + encounter-pull spawn budget). One load-bearing design-fit decision surfaced for Matt (§0.5: 1×4 linear vs 2×2 square — the genre says linear). Cross-seam balance + shell-reshape question routed to KR/gamora (§6). Pending Matt's topology call, the spec is firing-ready for drax (geometry + gate contract complete; drax owns `check_ravine_vignette_gate1.gd` + the exemplar generator).
