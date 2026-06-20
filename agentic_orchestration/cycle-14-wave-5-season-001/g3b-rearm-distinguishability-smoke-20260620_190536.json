@@ -1,0 +1,158 @@
+{
+  "harness": "g3b_rearm_distinguishability_2026_06_20",
+  "generated_utc": "2026-06-20T23:05:36.081403+00:00",
+  "smoke": true,
+  "seed_base": 32000000,
+  "population_econ_dist": {
+    "rage": 9,
+    "stamina-as-resource": 3,
+    "combo": 6,
+    "mana": 42
+  },
+  "sample_configs": 8,
+  "n_encounters": 18,
+  "cohorts": [
+    "Balanced"
+  ],
+  "G3b": {
+    "disposition": "PASS",
+    "econ_pooled_tier_dist": {
+      "rage": {
+        "1": 35.9,
+        "2": 6.2,
+        "3": 0.0,
+        "4": 57.9
+      },
+      "combo": {
+        "1": 24.3,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 75.7
+      },
+      "stamina-as-resource": {
+        "1": 43.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 57.0
+      },
+      "mana": {
+        "1": 74.5,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 25.5
+      }
+    },
+    "econ_by_shell_class": {
+      "rage": {
+        "anchor": {
+          "1": 21.5,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 78.5
+        },
+        "swarm": {
+          "1": 44.4,
+          "2": 9.8,
+          "3": 0.0,
+          "4": 45.7
+        }
+      },
+      "combo": {
+        "anchor": {
+          "1": 11.3,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 88.7
+        },
+        "swarm": {
+          "1": 36.3,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 63.7
+        }
+      },
+      "stamina-as-resource": {
+        "anchor": {
+          "1": 47.8,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 52.2
+        },
+        "swarm": {
+          "1": 31.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 69.0
+        }
+      },
+      "mana": {
+        "anchor": {
+          "1": 87.2,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 12.8
+        },
+        "swarm": {
+          "1": 28.9,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 71.1
+        }
+      }
+    },
+    "pairwise_TVD": {
+      "rage__vs__combo": 0.178,
+      "rage__vs__stamina-as-resource": 0.071,
+      "rage__vs__mana": 0.386,
+      "combo__vs__stamina-as-resource": 0.187,
+      "combo__vs__mana": 0.502,
+      "stamina-as-resource__vs__mana": 0.315
+    },
+    "rage_vs_mana_TVD": 0.386,
+    "rage_distinguishable_from_mana_TVD_ge_0.10": true,
+    "other_pair_distinguishable": true,
+    "rage_build_spend_rhythm": {
+      "rage_t1_swarm_pct": 44.4,
+      "rage_swarm_is_builder_t1_ge_60pct": false,
+      "rage_t4_swarm_pct": 45.7,
+      "rage_t4_anchor_pct": 78.5,
+      "anchor_minus_swarm_T4_pp": 32.8,
+      "rhythm_fires_T4_anchor_gt_swarm_by_10pp": true,
+      "rage_swarm_vs_anchor_TVD": 0.3275
+    },
+    "rage_anchor_hp_seen_by_selector": {
+      "anchor": {
+        "n": 1487,
+        "min": 231000.0,
+        "median": 231000.0,
+        "max": 240000.0,
+        "pct_ge_600": 100.0
+      },
+      "swarm": {
+        "n": 2520,
+        "min": 39750.0,
+        "median": 39750.0,
+        "max": 82500.0,
+        "pct_ge_600": 100.0
+      }
+    },
+    "rage_pool_energy_at_cast": {
+      "anchor": {
+        "n": 1487,
+        "min": 0.0,
+        "median": 100.0,
+        "max": 100.0,
+        "pct_ge_600": 0.0
+      },
+      "swarm": {
+        "n": 2520,
+        "min": 0.0,
+        "median": 50.0,
+        "max": 100.0,
+        "pct_ge_600": 0.0
+      }
+    }
+  },
+  "bands_untouched": true,
+  "wall_s": 5.9
+}
