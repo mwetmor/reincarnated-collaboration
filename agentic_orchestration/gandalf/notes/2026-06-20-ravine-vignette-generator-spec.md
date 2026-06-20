@@ -1,6 +1,6 @@
 # Enchanted-Forest Ravine — Vignette Generator Spec (structure skeleton)
 
-**Status:** SIZING-COMPLETE (2026-06-20) — structural skeleton + Legolas-derived sizing truth now both landed. The `⟦LEGOLAS⟧` placeholders are filled from `agentic_orchestration/research/knowledge/arpg-level-design/2026-06-20-arpg-room-sizing-monster-density-ravine-wfc.md`. **One load-bearing design-fit decision is surfaced for Matt: the research shows the ravine archetype is genre-canonically LINEAR (corridor), which is in tension with the locked 2×2-square assembly — see §0.5.** Pending that call, the spec is firing-ready for drax (geometry + gate contract complete).
+**Status:** FIRING-READY → DRAX (2026-06-20). Structural skeleton + Legolas-derived sizing + the Massive-Zone-Illusion no-void ruleset (§3.5, R10–R14) all baked. **LINEAR 1×4 DECIDED (Matt; §0.5); turns/U-shapes are a free later assembly extension.** Sizing from `agentic_orchestration/research/knowledge/arpg-level-design/2026-06-20-arpg-room-sizing-monster-density-ravine-wfc.md`. This spec is the dispatch for the autonomous Drax tripod run (gandalf-driven under Matt's direct autonomous authorization, 2026-06-20: "fire the tripod drax run until it passed with the linear zones; do not ask for further input").
 **Author:** gandalf (design steward), 2026-06-20.
 **Parents:** `2026-06-20-enchanted-forest-ravine-plan-and-floor-sizing-research.md` (the locked plan + R1–R9 rules + Legolas brief); `reincarnated-godot/data/act_graph_node_schema_draft.json` (the proven crypt node-schema being generalized); `reincarnated-godot/scripts/check_crypt_vault_gate1.gd` (the proven 6-criterion Gate-1 being ported).
 **Discipline:** recognition→validate→commit. This spec is the *carry test* of the architecture-conversation thesis (coordinate-vs-rule; gate-as-carry-mechanism). It commits NO sizing numbers until the substrate (genre research) votes.
@@ -30,7 +30,7 @@ This is in direct tension with the 2×2-square assembly locked in the plan doc �
 - It reconciles with the committed SE→NW oblique camera: a gorge receding along the sightline is the strongest possible depth read (the three-plane logic of plan §2 lands hardest down a corridor's length).
 - It makes R7 focal-points into **pacing beats along a path** (encounter rhythm) instead of four quadrants of a square — the genre's "elite pack every 10–20 tiles of travel" cadence (research §1d) maps directly onto a linear 4-vignette stretch.
 
-**This overturns a decision Matt locked, so it is a RECOMMENDATION, not a commit.** If Matt keeps 2×2, the spec still works (U/S corridor); the sizing below is given per-tile and applies to either topology. **Matt decides.** Everything downstream of this section is topology-neutral except the assembly diagram in §5 Stage C.
+**DECIDED (Matt, 2026-06-20): LINEAR 1×4 confirmed.** Start linear; **turns and U-shapes come later as a FREE assembly-time extension** — the edge-socket contract (R4/R6) already supports a corridor that exits an ADJACENT edge (a dogleg) or chains two (a U), with no geometry rework. The 4 tiles + their gates are authored once; topology is a late assembly choice. So: ship the straight gorge now, earn doglegs/U-shapes by re-routing the same sockets later. This is the scale-path, analogous to "WFC named for later" — linear-now, branching-later, same contract.
 
 ## 1. The product (locked, from the plan doc §1–2)
 
@@ -83,6 +83,27 @@ The crypt proved a **point-socket**: a door at a grid cell with an orientation i
 
 ---
 
+## 3.5. The Massive-Zone Illusion ruleset (R10–R14) — NO BLACK IN CAMERA
+
+**The requirement (Matt, 2026-06-20):** the player must believe they are in a *massive, open zone* — restricted ONLY by the height of the ravine walls, never by a visible edge-of-world. **No pixel in any camera framing may render the black/clear-color void.** Even beyond the playable gorge floor AND beyond the ravine walls, the non-playable ravine level must extend past the camera frustum so the world reads as vast. This is the outdoor generalization of the crypt's never-capped-tower / layered-far-wall, made into a hard, by-construction rule for Drax — because the open space *outside* the playable ravine is exactly what an authored-by-hand-once generator leaves ambiguous, and ambiguity there = black void = the illusion breaks.
+
+**This is camera-DEPENDENT** (unlike the structural Gate-1, which is camera-independent). It is therefore verified at the **tripod run** (the camera-rig capture, galadriel-CV / frame inspection territory) — but it must be achieved BY CONSTRUCTION via R10–R14, not discovered by luck.
+
+- **R10. Frustum-fill (the hard rule).** In every committed + tripod framing, 100% of the camera frustum is covered by geometry or skydome. Zero void pixels. R11–R13 are the construction that guarantees it; R10 is the acceptance test.
+
+- **R11. The three fill-planes (depth stack — generalizes the crypt's layered far-wall):**
+  - **(a) Floor plane** — the gorge floor extends *beyond the playable footprint and beyond the frustum's ground-intersection* in the down-gorge direction. The non-playable floor continuation is cheap, low-detail, and UNREACHABLE (the playable boundary holds via wall height, not via a visible floor edge).
+  - **(b) Wall planes** — the L and R gorge walls rise to **at least the top of frame** at the committed camera angle, OR the rim treeline closes any wall-top-to-frame-top gap. The player's restriction IS the wall height — diegetic, never an invisible wall in a flat field.
+  - **(c) Far terminus** — the down-gorge end NEVER shows a flat wall or void. It is closed by exactly one of: a **dogleg/curve** out of frame, **distance haze/atmospheric fog**, or a **forest-canopy/treeline occluder**. (In the assembled map, the hand-authored **END-BOOKEND closes the down-gorge frustum** — that is precisely what the hand-authored bookend earns its keep doing.)
+
+- **R12. Mandatory skydome.** A skybox/skydome is always present. The upper frustum (above walls/rim) is filled by SKY — sky is legitimate fill, NOT void. The rim treeline (the false-front, never-entered background of plan §2) sits as the middle depth plane between wall-tops and sky.
+
+- **R13. Visual footprint = camera-derived OVERRUN, not a fixed pad.** The dressed (non-playable) extent is sized to overrun the camera frustum's projection by a margin on every visible edge — it is NOT the fixed 35×35 m (that pad was the crypt's *interior* logic). Two distinct beyond-playable regions:
+  1. **Rim band (7.5 m each side):** the immediate structural wall + rim adjacent to the playable floor (ports the crypt annulus; holds R9 terrain + non-passable scatter).
+  2. **Frustum-fill extension (camera-derived):** beyond the rim band — distant gorge-floor continuation, distant treeline, fog — low-detail, non-collision, sized to whatever fills the frame. `footprint.visual` is therefore a FUNCTION of the camera computed at build, not a constant.
+
+- **R14. The illusion contract (the player-feel test).** The player believes the zone is massive and open; the only thing restricting them is the ravine wall height. There is never a visible edge-of-world, never a black void, never an invisible-wall-in-a-field. *Restriction reads as "I am deep in a gorge"; the horizon reads as "this world is vast."* If a framing makes the player think "the level just... ends there," R14 has failed even if R10 technically passed.
+
 ## 4. The ported Gate-1 — `check_ravine_vignette_gate1` (criteria)
 
 Generalize the crypt's 6 camera-independent, engine-truth structural criteria. Each maps to a rule. (Drax owns the GDScript; this is the design contract the gate must enforce.)
@@ -100,6 +121,20 @@ Generalize the crypt's 6 camera-independent, engine-truth structural criteria. E
 
 Criteria 7–8 are the genuinely-new outdoor gates; 1–6 are ports. The **generate→gate→graduate loop carries as-is**: every human catch ("that tree's floating", "you can walk up that slope and out") becomes a new criterion. We already own the rule-discovery engine (plan §6) — we do not need WFC to find rules; the gate loop finds them.
 
+### 4.5. The camera-DEPENDENT no-void gate (NV-criteria) — verified at the tripod run
+
+Gate-1 (criteria 1–8) is camera-INDEPENDENT engine-truth. The Massive-Zone Illusion (§3.5, R10–R14) is camera-DEPENDENT and is verified at the **tripod run** — the fixed-camera multi-framing capture (committed SE→NW oblique + stations along the gorge length, since the linear gorge is longer than one frame). Each NV criterion is checked per-framing on the captured frames (frame inspection + galadriel-CV where automatable):
+
+| NV# | Criterion | Rule | Check |
+|---|---|---|---|
+| NV-1 | **Zero void pixels** — no black/clear-color anywhere in frame | R10 | per-framing: count clear-color pixels == 0 (CV histogram / clear-color-key sample); every pixel is geometry or skydome |
+| NV-2 | **Walls close the upper frame** — no void band between wall-top and frame-top (or rim treeline closes it) | R11b | per-framing: trace the L/R wall silhouette; no sky/void wedge below the intended horizon where a wall should occlude |
+| NV-3 | **Down-gorge terminus occluded** — far end shows curve/fog/canopy, never a flat wall or void | R11c | the committed down-gorge framing: terminus region is geometry+haze, not a hard edge or void |
+| NV-4 | **Skydome present + rim-treeline middle plane reads** — three depth planes legible | R11+R12 | upper frustum is sky; a treeline silhouette sits between wall-tops and sky (depth read) |
+| NV-5 | **Illusion holds (R14)** — no framing reads as "the level just ends here" | R14 | judgment check on the framing set: vastness + diegetic-wall-restriction, no edge-of-world tell |
+
+The tripod run iterates with the build: build → Gate-1 (structural) → tripod (NV) → fix → repeat, until BOTH pass across all framings. NV-failures feed the generate→gate→graduate loop exactly like structural ones (a void wedge caught in a framing becomes a standing NV check).
+
 ---
 
 ## 5. The generation pipeline — exemplar → seed-vary → assemble
@@ -108,7 +143,9 @@ Criteria 7–8 are the genuinely-new outdoor gates; 1–6 are ports. The **gener
 
 **Stage B — seed-vary to 4 distinct vignettes.** Hold the rule set + register constant; vary the seed to produce 4 tiles with DISTINCT focal elements (R7: the 4 chosen `focal_element`s must differ). Intra-tile scatter = Poisson-disk + raycast-to-terrain + min-spacing (R2) — NOT WFC. Each tile re-passes the standalone gate. **This is the carry test:** if the rules carry, seed-variation yields 4 coherent-but-distinct vignettes with no per-tile hand-authoring.
 
-**Stage C — assemble into 2×2.** Hand-authored adjacency table routes the corridor through all 4 cells (U/S-shape per R6 topology note) and pins start-bookend→tile→tile→tile→tile→end-bookend ordering. Edge-sockets consume shared profiles (R4) → seams continuous by construction. Run the full assembled Gate-1 (criterion 3: A* start→end). **Assembly + traversal passing IS the carry proof.**
+**Stage C — assemble into 1×4 LINEAR (decided §0.5).** Stack the 4 tiles along the gorge length (down the SE→NW sightline), pinned start-bookend→V1→V2→V3→V4→end-bookend. Edge-sockets consume shared profiles (R4) → seams continuous by construction. The **hand-authored end-bookend closes the down-gorge frustum** (R11c). Run the full assembled Gate-1 (criterion 3: A* start→end) AND the assembled tripod run (NV-1…5). **Assembly + traversal + no-void passing IS the carry proof.** (Turns/U-shapes: later, free — re-route the same sockets to adjacent edges per §0.5.)
+
+**Spawn placement (decoupled from the gamora shell-reshape so this run is unblocked):** place spawns per the §5 **per-vignette budget** (trash 6–10, elite 0–1) directly inside each tile's 20×20 m playable footprint — satisfying the parity-analog (Gate-1 crit-5: all spawns inside playable). Do NOT consume the square `elite_pack` shell (its 28×28 coords fall outside the 20×20 playable). The corridor-shaped `fight_shell_ref` is gamora's follow-on (§6); the budget-direct placement is the design-true interim that lets the geometry + gate + tripod loop close now.
 
 **Sizing inputs (Legolas-derived; replaces 28×28):**
 
