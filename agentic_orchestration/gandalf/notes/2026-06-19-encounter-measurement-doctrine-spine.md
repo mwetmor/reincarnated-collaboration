@@ -9,7 +9,8 @@
 - `agentic_orchestration/gandalf/notes/2026-06-18-caster-upper-tier-crater-disposition.md` — its caster-composition-crater finding does NOT reproduce in production (§5 below). The caster-pointed Lever-C probe it recommended is DISSOLVED. Its boss-bridge family roster is REVISED.
 
 **Evidence (read/reproduced first-hand 2026-06-19, not taken on report):**
-- Production season-001 run: `agentic_orchestration/cycle-14-wave-5-season-001/phase3_gauntlet_results.json` (66 kit_results, 3762 encounter_results). Boss-throughput-by-attribute reproduced here (§5 table); n=792 boss-scenario rows.
+- Production season-001 run: `agentic_orchestration/cycle-14-wave-5-season-001/phase3_gauntlet_results.json` (66 kit_results, 3762 encounter_results). Used for the regime-mixed read the GATE-1 addendum overturns; SUPERSEDED for boss numbers by the clean run below.
+- **Clean boss run (2026-06-19) — the boss-throughput basis for §5:** `agentic_orchestration/cycle-14-wave-5-season-001/clean-boss-numbers-harness-2026-06-19.json` (21,120 fights, faithful power, single regime; gamora `clean_boss_numbers_harness_2026_06_19.py`). Verified jack-ryan Gate-2 PASS-WITH-INFO (`agentic_orchestration/qa/findings/2026-06-19-gamora-clean-boss-numbers-harness-gate2.md`).
 - Scenario shells: `reincarnated-engine/src/reincarnated/simulation/spatial_gauntlet/arena.py` (win_condition per shell; MOB_HP 1.5× anchor on open_arena + chokepoint).
 - Ship-record DB: `agentic_orchestration/cycle-14-wave-5-season-001/kit_archive.db` (no modifier column anywhere; band-select is the ship gate).
 - Legolas Mode-A research (returned 2026-06-19): "ARPG Combat Efficacy Measurement" — folded in §8. Sources: Maxroll/Icy-Veins (D3 GRift, D4 Pit), PoE wiki/Switchblade (PoE2), Last Epoch, Grim Dawn, Lost Ark LOA-logs.
@@ -25,13 +26,13 @@ Before this spine reaches a design session I verified its flagged-but-unread loa
 
 2. **"The survive/kill signal already lives in `tier_1_outcome`" (§6) — FALSE.** `tier_1_outcome` is a KPM quick-estimate routing flag (REJECT / PROVISIONAL_PASS / BORDERLINE). Survival is a SEPARATE subgate, sg2, and it is **telemetry-only** — explicitly excluded from `in_band` and from the pass criterion (gauntlet_sim.py:1069 comment "survival sub-gate (sg2)... preserved unchanged. Only sg1 (KPM in-band) is enriched"; sg2 increments a counter at :1080-1081 and feeds nothing that ships). Survival never gates anything, for any shell. `sg2_fail_count = 0` in the artifact means the survival floor never fired — not that everything survived.
 
-3. **"STR is the real boss-crater — 0.0 kpm, dies 100%" (§5) — FALSE framing.** `tier_2_survival_rate = 0.0` on STR boss rows is a DEFAULT, not a measured death: tier_2 only runs when `tier_1_outcome != REJECT` (t4_sim_cycling.py:1452), and STR boss rows are REJECT at tier_1, so tier_2 never ran. The `t2_kpm = 0.0` is the same default. STR is **tier_1-KPM-rejected** on bosses; whether STR could survive-and-kill the boss was **never tested**. The artifact cannot distinguish death from under-damage.
+3. **"STR is the real boss-crater — 0.0 kpm, dies 100%" (§5) — FALSE framing.** `tier_2_survival_rate = 0.0` on STR boss rows is a DEFAULT, not a measured death: tier_2 only runs when `tier_1_outcome != REJECT` (gauntlet_sim.py:1019), and STR boss rows are REJECT at tier_1, so tier_2 never ran. The `t2_kpm = 0.0` is the same default. STR is **tier_1-KPM-rejected** on bosses; whether STR could survive-and-kill the boss was **never tested**. The artifact cannot distinguish death from under-damage.
 
 **The sharpened diagnosis (better than the draft):** bosses ARE still KPM-gated — by their OWN narrow band (`boss_with_adds` (2.49, 3.78), `mini_boss` (0.57, 3.30) mobs/min) WITH a hard p90 ceiling. The doctrine says bosses should be survive-and-kill-gated, DPS measured, NO over-performance ceiling. The code comment already names that intent — `gauntlet_sim.py:357` "boss/mini: SURV-judged, KPM a wide sanity rail" — but the code does the opposite (narrow ceiling, survival inert). **The doctrine's central move is UNBUILT, not already-built.** And the broken KPM-on-boss gate does worse than mis-measure: by REJECTing low-KPM boss attempts at tier_1, it PREVENTS the survive+kill measurement (tier_2) from ever running — it manufactures a fake "STR boss-crater" by refusing to test the one thing that would clear or condemn it.
 
 **Two co-existing in-band definitions (measurement-hygiene hazard).** The serialized row `in_band` field = `get_archetype_cohort_kpm_band` → `_ARCHETYPE_COHORT_KPM_BAND` is `None` by default (gauntlet_sim.py:1500) → falls back to `COHORT_KPM_BAND[cohort]` (t4_sim_cycling.py:117, a single per-cohort band in the OLD 52–97 KPM scale). The SHIP gate uses a different band (`ENCOUNTER_COHORT_KPM_BAND`, per-shell, mobs/min). They disagree 8× on the same rows (row `in_band` 427 vs metadata `eligible_encounters_in_band` 3285). **Both the predecessor's analysis and this spine's §5/§6 read the NON-shipping field.** The serialized `in_band` is not what ships kits.
 
-**Substrate caveat (load-bearing for the session):** the phase3 artifact is REGIME-MIXED — its metadata block and its per-row block were written under different KPM scales/runs (per-shell `within_current_band = 0.00` for all six shells; row vs metadata in-band disagree 8×). §5's numbers therefore cannot carry empirical weight. **A clean current-regime gauntlet run (current mobs/min bands, all six shells, faithful power) is the precondition for ANY boss-crater number** (caster-vs-STR, death-vs-under-damage). The doctrine can be ADOPTED on direction now; the per-archetype boss claims must wait for clean data.
+**Substrate caveat (load-bearing for the session):** the phase3 artifact is REGIME-MIXED — its metadata block and its per-row block were written under different KPM scales/runs (per-shell `within_current_band = 0.00` for all six shells; row vs metadata in-band disagree 8×). §5's numbers therefore cannot carry empirical weight. **A clean current-regime gauntlet run (current mobs/min bands, all six shells, faithful power) is the precondition for ANY boss-crater number** (caster-vs-STR, death-vs-under-damage). The doctrine can be ADOPTED on direction now; the per-archetype boss claims must wait for clean data. **[UPDATE 2026-06-19 — RESOLVED: the clean boss run landed and passed jack-ryan Gate-2 (PASS-WITH-INFO). §5 now carries the clean per-archetype boss data; the regime-mixed table is superseded. This caveat is closed.]**
 
 The sections below are corrected inline where they stated an overturned claim; the doctrine table (§1), asymmetry (§2), DPS-measure-not-gate (§3), proxy rule (§4), Legolas fold-in (§8), open decisions (§9), and player consequence (§10) stand.
 
@@ -65,6 +66,8 @@ The two room classes are not the same kind of object, so over-performance means 
 
 This is why DPS is **measure-only** on bosses: the genre does not have an upper bound on "too much boss damage" the way it has an upper bound on "too-fast trash clear." (Genre confirmation: §8, finding C — survival/offense on bosses is treated as a constraint-and-reward, never a scored ceiling.)
 
+**Empirically confirmed (clean run, §5):** `a_dead = 0.000` across all 21,120 boss fights at faithful power — survival is never the binding boss constraint, so the gate reduces in practice to kill-before-enrage. The kill-time FLOOR binds (STR fails it: timeout=1.000); the ABSENT ceiling is correct (caster KPM medians 3.70/3.43 already sit at/above the 3.78 boss band hi — a ceiling would clip the payoff). The asymmetry is now measured, not just argued.
+
 ---
 
 ## 3. DPS = measurement, not gate — and the "tune the encounter, observe the player" loop
@@ -91,31 +94,40 @@ This is why DPS is **measure-only** on bosses: the genre does not have an upper 
 
 ---
 
-## 5. Reconciliation: the caster-crater finding does NOT reproduce in production
+## 5. Reconciliation — the clean boss run (2026-06-19): caster crater DISSOLVED, STR crater RECLASSIFIED
 
-The predecessor (2026-06-18) concluded casters have a REAL, ROBUST boss-composition crater (mini_boss + boss WR = 0.0 invariant across 4 cells × 4 rungs) and recommended a caster-pointed Lever-C probe. **Production season-001 data refutes the production-level framing.**
+**This section now rests on clean data.** The regime-mixed phase3 table that stood here (and that the predecessor read) is SUPERSEDED — see the GATE-1 addendum for why it could not carry weight. A clean current-regime run was authorized ("let's run real boss numbers", Matt 2026-06-19), executed by gamora (`clean_boss_numbers_harness_2026_06_19.py`), and independently verified by jack-ryan Gate-2 (**PASS-WITH-INFO**, `qa/findings/2026-06-19-gamora-clean-boss-numbers-harness-gate2.md`). It drives `w4g2_tier_2_full_sim` directly on the two boss shells, BYPASSING the tier_1 KPM-REJECT that previously prevented survive+kill from ever being simulated. 21,120 fights, faithful power (max-profile investment), single regime. All four verify-gates confirmed first-hand (V1 winner = survive-AND-kill, V2 240s enrage cap, V3 faithful power, V4 proxy-inclusive kills); V1 reproduced as a data invariant across all 1,056 cells (0 violations).
 
-> **⚠️ GATE-1 SUBSTRATE CAVEAT (read before trusting this table):** the artifact this table is drawn from is REGIME-MIXED (metadata + rows written under different KPM scales — see addendum). The `t2 kpm` and `t2 survival` columns are unreliable for REJECTed rows, where both are tier_2-never-ran DEFAULTS (0.0), not measurements. The only solid signals here are the tier_1 REJECT rates and the directional caster-vs-martial split. Absolute KPM magnitudes are old-scale. Treat this as a hypothesis to re-measure on a clean run, NOT as settled per-archetype boss data.
+**Clean boss-shell table** (survive+kill = `winner=="player"` = boss dead AND player alive; pooled across both boss shells; attribute parsed from `legendary_id`):
 
-Verified boss-scenario throughput (n=792; attribute parsed from `legendary_id`; reproduced 2026-06-19):
+| attr | survive+kill | a_dead (died) | timeout | TTK_med (wins) | KPM_med |
+|---|---|---|---|---|---|
+| int | 0.992 | **0.000** | 0.008 | 33.2s | 3.70 |
+| wis | 0.984 | **0.000** | 0.016 | 35.2s | 3.43 |
+| dex | 0.786 | **0.000** | 0.213 | 34.6s | 3.15 |
+| str | **0.000** | **0.000** | **1.000** | n/a | 0.25 |
 
-| attr | n | t1 kpm | t2 kpm | t2 survival | REJECT | in_band | sg BLOCK |
-|---|---|---|---|---|---|---|---|
-| int | 144 | 38.0 | 37.3 | **1.00** | 0% | 0% | 100% |
-| wis | 360 | 36.3 | 36.1 | **1.00** | 0% | 0% | 100% |
-| dex | 144 | 32.3 | 32.5 | 0.83 | 17% | 0% | 100% |
-| str | 144 | 0.6 | **0.0** | **0.00** | **100%** | 0% | 100% |
-| **CASTER** (int+wis) | 504 | 36.8 | **36.5** | **1.00** | 0% | 0% | 100% |
-| **MARTIAL** (str+dex) | 288 | 16.4 | **16.3** | 0.42 | 58% | 0% | 100% |
+By cohort: all four cohorts ≈0.77 survive+kill, `a_dead = 0.000` uniformly. STR = 0.000 on BOTH boss shells (timeout 1.000); dex|mini_boss drops to 0.646.
 
-**What this says (CORRECTED post-Gate-1):**
-1. **Casters pass tier_1 (0% REJECT) and survive the tier_2 they actually run (survival 1.00 is REAL — tier_2 ran).** Casters are NOT the boss-cratered archetype. This holds.
-2. **STR is tier_1-KPM-REJECTED 100% on bosses — NOT "dies 100%".** The 0.0 t2-kpm and 0.00 survival are tier_2-never-ran defaults (REJECT short-circuits tier_2; t4_sim_cycling.py:1452), not measured death. Whether STR could survive-and-kill the boss was never tested — the KPM gate rejected it before the survive+kill measurement could run. The "martial survival 0.42" average is itself a blend of DEX (tier_2 ran, ~real) and STR (default 0.00), so it overstates a crater that may be a measurement artifact. **Under the doctrine, STR's low boss-KPM is exactly the legitimate slow-survivable boss kill the KPM ceiling wrongly condemns — we cannot know which until bosses are survive+kill-gated and tier_2 runs.**
-3. **The predecessor's WR=0.0 came from the SYNTHETIC reshape run** (`g7-reshape-hot-caster-b6-20260615.json`) at suppressed modifiers (0.018–0.366), which deliberately manufactured a magic_pack over-clear to drag the modifier down. Its own §3 left "composition vs suppression" explicitly OPEN. **Production answers it:** at faithful power (the 2026-06-18 `apply_max_profile_investment` default-ON flip #3 — "kit power" now means FAITHFUL/geared), casters kill bosses fine. The caster crater was **suppression in a synthetic regime, not composition.**
+**What this says (clean data):**
+
+1. **The caster crater is DISSOLVED — on clean data, not inference.** int/wis survive+kill ≈ 0.99 at faithful power. The predecessor's caster WR=0.0 was suppression in the synthetic reshape regime (`g7-reshape-hot-caster-b6-20260615.json`, modifiers 0.018–0.366), NOT composition — production at faithful power kills bosses fine. The caster-pointed Lever-C probe stays DISSOLVED.
+
+2. **The STR crater is RECLASSIFIED, not dismissed.** The DEFENSIVE crater is DISPROVEN: `a_dead = 0.000` across all 21,120 fights — STR never dies to the boss. But STR fails the doctrine's OWN gate: `timeout = 1.000` — it never kills the boss inside the 240s enrage timer, on either shell, in any cohort. **Removing the wrongful KPM ceiling does NOT make STR ship.** The dev framing ("STR crater is not real, just a KPM-reject artifact") and the Gate-2 framing ("the legitimate slow boss-kill") both lean too far toward "STR is fine": with timeout=1.000 there is no kill at all, slow or otherwise. The KPM-reject WAS happening AND a real boss failure sits underneath it; both are true.
+
+3. **The cause is undeterminable from THIS run — and that is itself a finding.** STR's failure is one of: **(a)** chips the boss but too slowly (real throughput-vs-enrage shortfall → kit-efficacy or encounter-tuning), or **(b)** barely damages the boss (kit-construction degeneracy → fix the population). The disambiguating signal is boss-HP-removed-in-240s = the dropped `player_damage_dealt` field. **STR's disposition is therefore BLOCKED on the Tier-B DPS-measure build (Matt #8)** — #8 is not a "nice second KPI," it is the instrument required to even classify this failure. The 0.25 KPM is NOT independent evidence: on a single-boss shell, no-kill ⇒ ≈no mob-deaths ⇒ ≈0 KPM, so it is circular with timeout=1.000, not a second data point.
+
+4. **`a_dead = 0.000` EVERYWHERE is the doctrine-shaping surprise.** Not one archetype, not one cohort, dies to a boss at faithful power. The "survive" half of survive-and-kill is FREE. The boss gate collapses, in practice, to "kill it before the 240s enrage" — a pure TTK-vs-timer question. This is the Diablo III Greater-Rift-timer pattern exactly: tanky builds survive forever but cannot beat the clock. It VINDICATES the §2 asymmetry empirically (a kill-time FLOOR binds; a kill-time CEILING would wrongly clip) and SHARPENS it (the boss gate IS a kill-before-enrage gate; survival is inert at faithful power).
+
+5. **The throughput gradient is clean and monotone:** int 0.992 → wis 0.984 → dex 0.786 → str 0.000. STR is the FLOOR of a throughput spectrum, not a unique break; dex is the intermediate case (timeout 0.213, mini_boss 0.646 — a thin margin, not a crater). The whole spectrum is defense-free (a_dead=0 throughout), which strengthens the read that the binding boss constraint is throughput, not survivability.
+
+6. **The over-performance ceiling EMPIRICALLY bites casters.** int KPM_med 3.70 and wis 3.43 sit at/above the `boss_with_adds` band hi of 3.78 mobs/min — the upper half of caster boss kills is clipped by the existing KPM ceiling RIGHT NOW. Removing the boss KPM ceiling is not a theoretical fix; it recovers caster power-fantasy payoff the gate is already throwing away (PoE's stance: boss melt/juice is the reward you do NOT cap, distinct from clear-speed which you do). The §2 asymmetry is biting, not hypothetical.
 
 **Consequences:**
-- **The caster-pointed Lever-C probe is DISSOLVED — doubly.** (a) It pins M=1.0/M=0.30 through the DEAD converged-modifier scalar path (production ships via band-select, no modifier persisted). (b) Production at faithful power already delivers the answer the M=1.0 pin was built to find: casters kill bosses. There is nothing left for the probe to discover.
-- **The boss-bridge family roster is REVISED.** Caster is REMOVED (not cratered in production). The production boss-crater is STR martial — but before naming STR a "composition gap," it must get the production re-read the caster just got (the rogue's original crater was also synthetic-regime; verify the rogue + STR craters reproduce at faithful power before treating them as composition). Keystone-ceiling stays EXCLUDED (measurement-saturation, the predecessor's correct call). **Net: the boss-bridge family is not closed, but its membership is now an open production-verification question, not a settled roster.**
+- **Caster REMOVED from the boss-bridge family** (production + clean run both clear it).
+- **STR reclassified:** not a defensive crater, not "fine." A real boss-gate FAILURE whose cause (slow-but-real vs degenerate kit) is BLOCKED on the DPS instrument. Disposition is a session call (§9.3) with that new dependency.
+- **rogue crater** — still un-re-read at faithful power; this run was attribute-parsed cohorts on boss shells only, not the rogue-composer question. Stays open (§9.3).
+- **Open follow-on:** under W-α6 the ship gate needs 9 eligible-encounter passes; the two boss shells are 2 of 6 shell types. **Does STR clear the 9-pass floor on the non-boss shells alone?** If yes, STR's honest disposition may be "route via the floor — melee is not a boss-soloist" rather than "fix the kit" — a legitimate class-fantasy call (Diablo II never asked a pure-Vitality Barbarian to solo every Uber) PROVIDED it is decided on purpose. Verify the denominator + the boss-pass requirement before the session rules.
 
 ---
 
@@ -124,7 +136,7 @@ Verified boss-scenario throughput (n=792; attribute parsed from `legendary_id`; 
 The draft put the bug at "one global band wrongly applied to bosses" and claimed the survive/kill signal already lived in `tier_1_outcome`. Gate 1 refuted both. The corrected location:
 
 **Bosses are KPM-gated at TWO points, both KPM, neither survival:**
-1. **tier_1 routing** — a quick KPM estimate routes each encounter REJECT / PROVISIONAL_PASS / BORDERLINE. A REJECT short-circuits tier_2 entirely (t4_sim_cycling.py:1452). STR boss rows REJECT here on low KPM, so their survive+kill is never simulated.
+1. **tier_1 routing** — a quick KPM estimate routes each encounter REJECT / PROVISIONAL_PASS / BORDERLINE. A REJECT short-circuits tier_2 entirely (gauntlet_sim.py:1019). STR boss rows REJECT here on low KPM, so their survive+kill is never simulated.
 2. **tier_2 in-band / ship gate** — `eligible_encounters_passed` counts `tier_2_kpm` inside `ENCOUNTER_COHORT_KPM_BAND[boss_with_adds]` = (2.49, 3.78) mobs/min (gauntlet_sim.py:582-592). A boss-melt above 3.78 mobs/min fails the SHIP gate even with the p90-hi tail — the over-performance ceiling the doctrine forbids on bosses.
 
 **Survival (sg2) gates NOTHING.** It is computed (`SURVIVAL_FLOOR_BY_COHORT`, t4_sim_cycling.py:811-815) and counted (`sg2_fail_count`, gauntlet_sim.py:1080-1081), but it is explicitly excluded from `in_band` and from `gauntlet_pass` (line 1069 comment: "Only sg1 (KPM in-band) is enriched"). The survive/kill signal the doctrine wants as the boss GATE is not "already computed and discarded" — it exists as telemetry and was never wired to gate.
@@ -171,8 +183,8 @@ So the production metadata (`eligible_encounter_types` = all six) is canonical; 
    - **Model A — per-room (per-shell) cohort-relative KPM bands.** Genre support as density TIERING (Q3). Density-aware: open_arena/chokepoint (8-swarm) naturally band higher than packs. Lower sim-structure change.
    - **Model B — session-wide clear-speed including travel/walk time between encounters.** The genre-CANONICAL frame (Q5). Higher fidelity to how the genre actually measures. BUT a sim-structure change (the sim must model inter-encounter travel; movement speed becomes a first-class measured lever). Flagged as the larger build.
    - Not mutually exclusive — Model A could be the near-term per-room banding while Model B is the longer-arc session-wide frame. The session should rule the sequencing.
-3. **Boss-bridge family — re-verify membership at faithful power** before any fix. Caster is out (production). Re-read the rogue + STR craters at faithful power (the rogue crater was also synthetic-regime). One doctrine, N instances — but N is now an open production question, not a settled 3.
-4. **~~`tier_1_outcome` mechanics + gating tier-set (gamora verify)~~ — RESOLVED by Gate-1** (§6, §7). Replaced by ONE new precondition: **authorize a clean current-regime gauntlet run** (current mobs/min `ENCOUNTER_COHORT_KPM_BAND`, all six shells, faithful power) before the per-archetype boss claims (§5) are treated as data. The phase3 artifact is regime-mixed; the doctrine can be adopted on direction without it, but the boss-bridge membership question (§9.3) cannot be settled until clean boss-room data exists.
+3. **Boss-bridge family — membership now partly settled (clean run §5).** Caster is OUT (production + clean run). STR is a CONFIRMED boss-gate failure, but its cause (slow-but-real vs degenerate kit) is BLOCKED on the Tier-B DPS-measure build — its disposition (throughput fix / enrage tuning / accept-via-the-9-pass-floor) is a session call with that dependency. rogue is still un-re-read at faithful power (out of this run's scope). One doctrine, N instances — N is now: caster = 0, STR = 1 (pending DPS to classify), rogue = open.
+4. **~~clean current-regime boss run~~ — DONE + VERIFIED (2026-06-19).** Both preconditions are now satisfied: (i) Gate-1 resolved the `tier_1_outcome` / gating-tier reads (§6, §7); (ii) the clean boss run + jack-ryan Gate-2 PASS-WITH-INFO now carry the per-archetype boss claims (§5). Caster crater dissolved; STR crater reclassified (defensive → throughput-or-degenerate, blocked on the DPS build). Residual scope: the run covered attribute-parsed cohorts on boss shells only — the rogue-composer crater and the clear-room bands were out of scope (§9.3); DPS instrumentation (Matt #8) is the next build (§3).
 
 **Park dispositions carried/updated:**
 - caster-Lever-C probe → DISSOLVED (§5).
