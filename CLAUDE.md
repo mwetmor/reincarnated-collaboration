@@ -5,6 +5,7 @@
 - `~/Games/reincarnated-engine/` — Python engine (content gen, simulation, balance, telemetry, LLM)
 - `~/Games/reincarnated-demo/` — Pixi.js demo (player-facing demo1)
 - `~/Games/reincarnated-loadout/` — React/Vite loadout web app (deployed to Vercel)
+- `~/Games/reincarnated-godot/` — Godot 4.x / GDScript 3D-scene presentation prototype (Mac-resident; Synty POLYGON assets, Forward+/Metal renderer, MP4 walkthrough harness; enchanted-forest ravine combat level). Owned by drax (presentation seam) per Matt-approved scope amendment 2026-06-21. Distinct from `reincarnated-unreal/` (mantis, UE5/PC).
 
 ## Synthetic engineering team
 

@@ -4,6 +4,24 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-06-21 — drax scope amendment: formally owns `reincarnated-godot/` (Godot/Mac 3D-scene prototype)
+
+**Event:** Matt-approved scope amendment. **drax formally owns `reincarnated-godot/`** — the Godot 4.x / GDScript 3D-scene presentation prototype on the Mac (Synty POLYGON assets, Forward+/Metal renderer, baked `.tscn` scenes, MP4 walkthrough harness; the enchanted-forest ravine combat level) — alongside its existing `reincarnated-demo/` + `reincarnated-loadout/` repos. This is housekeeping that formalizes de-facto ownership: all ravine commits this session were already `drax:`-authored (`af35e76`, `68f21da`, `2de4c4d`, `eb51bba`). Did NOT block in-flight work — drax was executing ravine work under Matt's standing direction; a fresh drax spawn balked because its written scope didn't list the repo, which this amendment closes.
+
+**Rationale:** the Godot 3D scene is player-facing presentation, which is drax's lane (presentation-layer developer). Existing boundary preserved: **drax does NOT touch `reincarnated-engine/` paths.**
+
+**Seam boundary (cross-host):** `reincarnated-godot/` is a Mac-resident Godot prototype, DISTINCT from mantis's `reincarnated-unreal/` (UE5.7, PC-resident). drax owns the **Godot/Mac** 3D prototype; mantis owns the **Unreal/PC** project. Different seams, NOT overlapping.
+
+**Records updated (this session):**
+- `.claude/agents/drax.md` — owned-scope + frontmatter (Edit BLOCKED in this session; pending Matt-side write — see KR report)
+- `agentic_orchestration/AGENTS.md` — drax row + seam-boundary-vs-mantis note ✅
+- `CLAUDE.md` (meta-repo) — sibling-repos list now includes `~/Games/reincarnated-godot/` ✅
+- Decisions-log entry DRAFTED + routed to jack-ryan for Gate review (per process — KR drafts, jack-ryan canonical-writes)
+
+**Auth:** Matt-approved 2026-06-21. Auto-committed (in-scope governance work); NOT pushed (Mac-side push remains Matt-ask).
+
+---
+
 ## 2026-06-16 — 1D battle sim + b6 archetype processes RETIRED (settled deletion; v1 skipped, v1.1 current)
 
 **Event:** Matt directive (relayed via gandalf dispatch to KR) RETIRES the 1D battle sim and the b6 archetype processes. **Debate closed — NOT routed back for design pushback or re-validation; NOT gated on cond.5, real-loadout re-measure, b6-parity, g7-hold-sim, or any prior gate.** Rationale (commit-record, not an invitation to reopen): the 2D spatial sim IS the real battle simulation (proxy battle wired in; proxy in the T4 capstones); the 1D sim is genuinely superseded, not provisionally vestigial; Cycle 14's loadout-blind, 1D-measured premise is what made it a near-meaningless run. v1 is skipped; **v1.1 is current.**

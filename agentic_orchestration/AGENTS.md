@@ -142,15 +142,18 @@ Each developer owns a **mutually exclusive** set of paths. No file is owned by t
 3. `reincarnated-engine/src/reincarnated/export/AGENT_STATE.md`
 4. Latest `MIGRATION.md` files from rocket/gamora (schema changes upstream)
 
-### drax — Presentation (demo + loadout)
+### drax — Presentation (demo + loadout + godot 3D prototype)
 
 **Owns:**
 - `reincarnated-demo/` entire repo (Pixi.js, rendering, HUD, audio)
 - `reincarnated-loadout/` entire repo (React/Vite/Tailwind, Vercel deploy, Page 1/2/3)
+- `reincarnated-godot/` entire repo (Godot 4.x / GDScript 3D-scene presentation prototype, Mac-resident; Synty POLYGON assets, Forward+/Metal renderer, baked `.tscn` scenes, MP4 walkthrough harness; the enchanted-forest ravine combat level) — added by Matt-approved scope amendment 2026-06-21
 
 **Does NOT touch:** any path in reincarnated-engine/
 
-**Note:** Two different stacks (Pixi.js vs React/Vite). Drax context-switches between them per task. Both consume engine output as read-only data.
+**Seam boundary vs mantis:** drax owns the **Godot / Mac** 3D prototype (`reincarnated-godot/`); mantis owns the **Unreal / PC** project (`reincarnated-unreal/`, UE5.7 at `C:\dev\reincarnated-unreal\`). These are distinct presentation seams on different hosts/engines — they do NOT overlap.
+
+**Note:** Three different stacks (Pixi.js vs React/Vite vs Godot/GDScript). Drax context-switches between them per task. Demo + loadout consume engine output as read-only data; the Godot prototype is a 3D-scene presentation experiment.
 
 **Cycle-trimming startup manifest:**
 1. `reincarnated-collaboration/canonical/30-engine-explainer-current.md` (what the engine produces)
