@@ -9,7 +9,37 @@
 
 ---
 
-## SESSION-DELTA 2026-06-20 — LATEST LAYER (GOVERNS ALL BELOW, including §0.5)
+## SESSION-DELTA 2026-06-21 — LATEST LAYER (GOVERNS ALL BELOW, including the 2026-06-20 delta + §0.5)
+
+The 2026-06-20/21 session closed the boss-half of the instrument-validity workstream and launched a combined autonomous run that closes the rest of the solo battle-sim instrument and brings the proxy/summoner question to the edge of an architecture decision. **Where this block conflicts with the 06-20 delta or §0–§8, this block governs.**
+
+### BATTLE-SIM PROGRESS — what changed (the honest-apparatus criterion, 06-20 D1, is now CLOSED for boss shells)
+
+- **The §6 boss-gate doctrine is BUILT + Gate-2 PASS + canonical-written** (`d5b7ac2`). Boss shells leave the KPM band onto **survive-and-kill within the 240s enrage timer** (binary; DPS/TTK measured-never-gating; no over-performance ceiling). This is the win-condition split Matt ADOPTED 2026-06-19.
+- **The STR "inversion" resolved as HONEST substrate drift, not a bug.** §5 predicted STR fails boss shells (timeout=1.000); the composed instrument measured STR PASSING (1.000) — STR was starved (mana-default + T1-only) and is now funded by the Phase R economy + Phase 2 rotation. Gate-only diff; fight path byte-unchanged (jack-ryan verified). STR ships boss shells via the rotation/economy lever, NOT via DoT.
+- **The `mini_boss` caster-wipe diagnosed as a stale-calibration DEFECT** (same class as the four workstream targets): 100% timeouts / 0% deaths, caused by a 150s `soft_timeout` (calibrated to a ~3s-TTK regime) + a `mini_boss` HP roll ABOVE the full boss. Fixed recompose-first (soft_timeout→None; HP floored ≤ boss). **The inversion is GONE** (int 0.000→0.681, wis 0.000→0.563, dex 0.667, str 1.000). Matt **ratified the "smaller boss" identity**.
+- **Both boss shells BANKED** (un-escrow draft `2b80306`, awaiting Matt disposition approval). → **The boss-half of the single tail-refit is COMPLETE.**
+- **06-20 D1 (instrument bias) status:** the armor/resist asymmetry that re-opened the honest-apparatus criterion is the **Phase 4** target — symmetrized + Gate-2 PASS (`d2d3dde` / `8dde097`, "boundary 4 of 4"). All four instrument-validity defects (economy/rotation/DoT/armor) are addressed. **The boss shells are banked on the honest composed instrument** → the honest-apparatus criterion is CLOSED for boss shells; clear shells still need the magnitude pass + re-band (now in-flight, below).
+- **IN-FLIGHT — the combined autonomous run (LAUNCHED 2026-06-21):** Track 1 closes the **solo Profile-A instrument**: T1.1 magnitude pass (clear-shell timing-floor) → T1.2 absolute-magnitude-constant sweep (task #11: the live-upstream `mini_boss` HP-factor range + V5 >1.0 artifact) → T1.3 clear-shell re-band (the deferred half of the single tail-refit) → T1.4 Phase 6 reads (STR encounter-segregated + mixed-pack focus-fire). Run plan: `gandalf/requests/2026-06-21-track1-track2-combined-autonomous-run-plan.md`.
+
+### CONTENT-EMISSION PROGRESS — spine UNCHANGED; the "kits" leg gains an asterisk (summoner/proxy)
+
+- **The emit-spine is structurally UNCHANGED since 06-18:** still two emit tracks that do not meet (TRACK NEW → loadout; TRACK OLD `season_exporter` → sim-ready bundle, driver deleted); the join is rocket/star-lord plumbing, NOT a gandalf chokepoint. The combined run does NOT touch the emit-spine (it is battle-sim + proxy, not the join). **Zero movement on the plumbing this session.**
+- **NEW refinement to the "kits" leg (the 7-row/6-type table's `kits WORKING`):** the kits leg is incomplete in a newly-surfaced way — **it excludes the genre's ~25% summoner/proxy archetype.** The ~25% reservation IS encoded (`bc_target_cell_sampler.py` curated roster = 5/25 proxy-heavy + 3/25 proxy-light; intent doc `v1-bc-target-intent-2026-05-24.md` line 101: none ~75% / light ~10% / heavy ~15%) but **DEFERRED at composition** (`bc_target_composer.py:318` `_DEFERRED_PROXY_BINS`, "sim is solo-only; proxy-creation mechanics absent"). Cycle-14 shipped **0 proxy-heavy, 3 sub-threshold proxy-light INT** (familiar-augment, which track INT-solo exactly). So **season-1 kits currently ship with zero real summoners.** Read the table row as **kits-WORKING-for-solo / summoner-DEFERRED.**
+- **Why the proxy "sim extension" does not close this:** what landed (`gamora/v-proxy-add-sim-1`, 2026-06-17) is a CONTRIBUTION-CLASSIFIER (potential-integral for the 0.5 membership selector + Set #6 calibration), flag-gated OFF. In the spatial fight proxies **deal NO spatial damage and take NO position** (the COUNT≠CONTRIBUTION cut). The boss-killing measurement for summoners is UNBUILT — it is net-new spatial-combat architecture.
+- **Track 2 of the combined run** brings this to the edge of decision (does NOT build/emit): T2.1 spatial-proxy-combat math note → T2.2 Gate-1 design review (pre-registered gandalf design-fit) → T2.3 throwaway de-risk spike (*does a summoner clear the boss when the army actually fights?*) → HARD-STOP with an architecture decision packet for Matt. Lifting `_DEFERRED_PROXY_BINS` + emitting the 25% are the two reserved Matt decisions (§5a content-gate).
+- **Reporting gap flagged (small star-lord/rocket add):** the proxy deferral is tracked per-cell (`is_deferred=True`) but not rolled into the season summary; surface "N proxy cells reserved, M deferred" so the unfilled 25% is VISIBLE season-over-season, not silent.
+
+### What did NOT move
+
+- **Content-emission plumbing (the two-tracks-don't-meet join):** zero movement — still the rocket/star-lord engineering map (§7.1 (a)–(e)). The combined run does not advance it.
+- **The §7.2 design pre-clears (faction/weapon shapes, keystone-ceiling, endorse-criteria):** stationary. The **caster-coverage spec (item 4)** is now sharpened by the proxy finding (the caster single-target residual int 0.681/wis 0.563 is measured on a proxy-EXCLUDED roster — so it cannot yet be judged honest-texture vs measurement-gap) but is not yet authored.
+
+**Signed:** gandalf, 2026-06-21.
+
+---
+
+## SESSION-DELTA 2026-06-20 — (GOVERNED BY THE 2026-06-21 DELTA ABOVE; GOVERNS §0.5 + below)
 
 The 2026-06-19/20 battle-sim session opened a sublayer the 06-18 memo did not see. **Where this block conflicts with §0–§8 (incl. §0.5 C2 and §7.4), this block governs.** It deliberately does NOT re-resolve the in-flight DoT/ailment fix run — those items are marked in-flight with their empirical criteria, to be closed on data in a second pass once Arm C + the band refit land.
 
