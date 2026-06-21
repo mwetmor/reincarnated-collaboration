@@ -1,0 +1,25 @@
+============================================================================================
+BOSS-GATE VERIFICATION -- wired production gate (w5g1_gauntlet_execution)
+2026-06-20 | smoke=False | n_configs=60 | cells=1440 (boss=720, clear=720)
+============================================================================================
+
+MOVE (a) -- boss shells route to tier_2 with NO KPM-reject short-circuit:
+  boss cells whose tier_1=REJECT that STILL ran tier_2: 693
+  (>0 confirms the REJECT short-circuit is inert for boss shells; if all boss
+   cells tier_1-PASS, this is 0 and (a) is confirmed by tier_2 populated everywhere.)
+
+MOVE (b) -- boss-shell ship gate reads sg2 (survive+kill >= cohort floor), NOT KPM:
+  boss_gate_pass count by attribute (sg2-gated): {'str': 108, 'dex': 99, 'int': 108, 'wis': 255}
+  survival floors: {'DPS-min-maxer': 0.5, 'Balanced': 0.8, 'Defensive': 0.95, 'Hybrid': 0.7}
+
+§5 REPRODUCTION -- boss survive+kill by attribute (pooled both boss shells):
+  attr   n_cell  surv+kill_mean   median     min     max
+  dex       108          0.9167   1.0000  0.0000  1.0000
+  int       144          0.7500   1.0000  0.0000  1.0000
+  str       108          1.0000   1.0000  1.0000  1.0000
+  wis       360          0.7163   1.0000  0.0000  1.0000
+
+  EXPECTED (§5 clean-boss, pooled): int~0.992  wis~0.984  dex~0.786  str 0.000 (timeout 1.000)
+
+CLEAR-SHELL CONTROL (no regression) -- open_arena KPM-band pass count:
+  clear_control_pass_count=0 (open_arena still gated on tier_2_kpm in ENCOUNTER_COHORT_KPM_BAND)
