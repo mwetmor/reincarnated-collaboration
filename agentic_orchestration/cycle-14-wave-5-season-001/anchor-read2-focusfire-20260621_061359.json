@@ -1,0 +1,46 @@
+{
+  "harness": "anchor_read2_focusfire_harness_2026_06_21",
+  "seed_base": 45000000,
+  "n_fights": 8,
+  "cells": 99,
+  "wall_s": 4.6,
+  "criterion": 0.6,
+  "swarm_tier_hp_ref": 26500.000000000004,
+  "anchor_hp_swarm_multiple": 2.0,
+  "anchor_threshold": 53000.00000000001,
+  "by_shell": {
+    "boss_with_adds": {
+      "spender_casts": 3802,
+      "builder_casts": 1080,
+      "anchor_present_casts": 3802,
+      "primary_is_anchor_casts": 1941,
+      "anchor_targeted_spender_casts": 1941,
+      "anchor_targeted_spender_fraction": 0.5105207785376118,
+      "is_anchor_shell": true
+    },
+    "elite_pack": {
+      "spender_casts": 1265,
+      "builder_casts": 1440,
+      "anchor_present_casts": 1265,
+      "primary_is_anchor_casts": 943,
+      "anchor_targeted_spender_casts": 943,
+      "anchor_targeted_spender_fraction": 0.7454545454545455,
+      "is_anchor_shell": true
+    },
+    "open_arena": {
+      "spender_casts": 0,
+      "builder_casts": 5017,
+      "anchor_present_casts": 0,
+      "primary_is_anchor_casts": 0,
+      "anchor_targeted_spender_casts": 0,
+      "anchor_targeted_spender_fraction": null,
+      "is_anchor_shell": false
+    }
+  },
+  "anchor_targeted_fracs": {
+    "boss_with_adds": 0.5105207785376118,
+    "elite_pack": 0.7454545454545455
+  },
+  "swarm_false_anchor": false,
+  "focus_fire_real": false
+}

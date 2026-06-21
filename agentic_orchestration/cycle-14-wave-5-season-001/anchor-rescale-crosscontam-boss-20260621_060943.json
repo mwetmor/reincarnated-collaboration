@@ -1,0 +1,60 @@
+{
+  "harness": "anchor_rescale_crosscontam_harness_2026_06_21",
+  "purpose": "T1.4 Deliverable 2 cross-contamination HALT determinant \u2014 boss-shell survive-and-kill at post-rescale HEAD vs banked",
+  "seed_base": 44000000,
+  "n_fights": 8,
+  "n_cells": 960,
+  "wall_s": 405.2,
+  "tolerance": 0.05,
+  "by_attr_shell": {
+    "dex|boss_with_adds": {
+      "survive_and_kill": 1.0,
+      "note": "no bank \u2014 informational"
+    },
+    "dex|mini_boss": {
+      "survive_and_kill": 0.672,
+      "banked": 0.678,
+      "delta": -0.006,
+      "verdict": "UNMOVED"
+    },
+    "int|boss_with_adds": {
+      "survive_and_kill": 1.0,
+      "banked": 1.0,
+      "delta": 0.0,
+      "verdict": "UNMOVED"
+    },
+    "int|mini_boss": {
+      "survive_and_kill": 0.949,
+      "banked": 0.946,
+      "delta": 0.003,
+      "verdict": "UNMOVED"
+    },
+    "str|boss_with_adds": {
+      "survive_and_kill": 1.0,
+      "banked": 1.0,
+      "delta": 0.0,
+      "verdict": "UNMOVED"
+    },
+    "str|mini_boss": {
+      "survive_and_kill": 1.0,
+      "banked": 1.0,
+      "delta": 0.0,
+      "verdict": "UNMOVED"
+    },
+    "wis|boss_with_adds": {
+      "survive_and_kill": 0.953,
+      "banked": 0.956,
+      "delta": -0.003,
+      "verdict": "UNMOVED"
+    },
+    "wis|mini_boss": {
+      "survive_and_kill": 0.869,
+      "banked": 0.86,
+      "delta": 0.009,
+      "verdict": "UNMOVED"
+    }
+  },
+  "disposition": "AUTO-PROCEED",
+  "moved": [],
+  "note": "All banked boss/mini_boss dispositions UNMOVED within 0.05 tolerance. Mechanical proof confirmed: predicate output byte-identical on anchor-class shells (231k/210.5k >= 53k threshold = True, same as old inert 600). Re-emit of the printed run (sim not re-run)."
+}
