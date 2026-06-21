@@ -37,6 +37,25 @@
 
 ---
 
+## Monster→player defensive axis — death RULED a core pillar (Matt 2026-06-21), recalibration anchored (DIAGNOSE-ONLY, parallel-safe; did NOT gate the close)
+- **gandalf design-half** (`gandalf/notes/2026-06-21-monster-to-player-calibration-design-half.md`): the universal `a_dead=0.000` on bosses is a SILENCE (an axis never measured), the structural mirror of the T1.1 clear-shell domain finding (WR out of its domain when `a_dead=0`; real grading on the TIME axis). Framed A (offense-only, name the silence) vs B (restore the defensive axis).
+- **Matt RULED (B): death is a core pillar.** The glass-cannon test shifts from go/no-go to CALIBRATION ANCHOR. gandalf's "route to Wave-3, disposition unchanged either way" is superseded — restoring the defensive axis is now a committed future wave.
+- **gamora engine-evidence** (`gamora/v-defensive-axis-calibration-diagnose-1`; math-note `simulation/math/defensive-axis-calibration-diagnose-2026-06-21.md`; DIAGNOSE-ONLY, 0-line production diff):
+  - **Q6: survival = 1.000 INSTRUMENT-WIDE** across all six shells (tier_1-bypassed; elite_pack — gandalf's §10 unmeasured gap — measured, survives 1.000). No trash-vs-boss outcome asymmetry.
+  - **Mechanism correction (Gate-2 verified):** `MOB_DAMAGE_SCALE` is the PRIMARY enabler, NOT boss-armor — at production mob-scale a glass cannon kills the boss (~39.7s) before the ~162-DPS channel grinds it (~62s), so boss-armor at any value can't kill. Corrects gandalf §1 + the commission premise in magnitude.
+  - **Recommended knob-set:** `MOB_DAMAGE_SCALE=4.0` (primary) + boss-armor ~0.76 (fine dial) + standard-armor 0.85 + coverage-pressure off → glass kit 0.75→0.92 survive+kill (in 0.6–0.8 target), bruiser 1.000 (≥0.95 target).
+  - **Homogenization guard HOLDS:** same HP+armor, offense substitutes for defense (dm≤0.8 dies 24/24, dm=1.0 survives 0.917, dm≥1.6 survives 1.000) → two viable paths (endure / kill-fast), no mandatory armor floor. ~0.60 armor headroom for the restored axis to grade in.
+- **jack-ryan Gate-2: PASS-WITH-INFO** (`qa/findings/2026-06-21-defensive-axis-calibration-diagnose-gate2.md`, `c5b2c93`). Mechanism correction, homogenization guard, knob-set all verified first-hand. **Concerns the recal wave must carry:** (1) coverage-pressure is a weak clear-shell death lever vs fast-AOE kits (needs its own mechanism review); (2) standard-armor + mob-scale must be JOINTLY re-derived for clear shells, not a boss-only patch (else trash becomes safer than the boss). INFO for gamora: committed harness doesn't reproduce the scale=4.0 headline (a fifth `supplemental` JSON key from a follow-on run); the "git-ignored JSON" note line is inaccurate (it's tracked).
+
+### THE SEQUENCING CALL FOR MATT (open — the band-batch close interacts with the new axis)
+Because death becoming real RE-RATES the bands (a kit's disposition changes once it can die), the solo close is now a **TWO-AXIS tail-refit**. Matt's sequencing choice:
+- **(a) HOLD** the band-batch close until the defensive axis is recalibrated and the bands re-rate together (one two-axis close).
+- **(b) PROVISIONAL-pending** — approve the offensive band batch now, mark the dispositions provisional/re-rate-pending the defensive-axis wave.
+The diagnostic proves the recalibration is REACHABLE (knob-set found, guard holds) but it is a future Matt-authorized wave; no production constant changed yet.
+
+### Convergence flag for gandalf (next gandalf session)
+gandalf's design-half §6/§8 ("disposition unchanged either way; route A-vs-B to Wave-3") needs an honest amendment: Matt ruled (B), gamora's evidence is in (silence is total + recalibration reachable + mechanism is mob-scale-primary not boss-armor). gandalf should converge the design-half note with the (B) ruling + the mechanism correction, and rule the recal wave's encounter-model shape (the proxy packet §4 question is now answered for solo: death is real; proxy Wave-3 inherits a real death channel, not a deferred choice).
+
 ## Queued for next session (gated on Matt)
 - **On band-batch approval:** jack-ryan canonical-writes the 4 decisions-log entries; reconcile the mini_boss numbers (2026-06-20 → historical/pre-source-fix; 2026-06-21 → banked). Solo instrument closes.
 - **On proxy architecture approval:** sequence the ~4-wave extension — G1/G2 generation prereqs (rocket) MUST land first-or-concurrent with sim W1/W2 (gamora); gandalf Wave-3 encounter-model ruling (binary-WR vs clear-time grading); star-lord telemetry field + MIGRATION.
