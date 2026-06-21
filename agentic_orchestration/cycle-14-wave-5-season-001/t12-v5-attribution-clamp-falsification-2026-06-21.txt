@@ -1,0 +1,12 @@
+matched 6 configs for endgame_bc_ranged_low_spiky_wis_none
+
+kit=endgame_bc_ranged_low_spiky_wis_none_t4_chain_1  shell=mini_boss  n_fights=6
+  fight 0: term=b_dead   max_hp=   210500 final_hp=        0 dmg_to_boss=     318144 => frac_removed=1.0    cum_ratio=   1.511
+  fight 1: term=b_dead   max_hp=   210500 final_hp=        0 dmg_to_boss=     308656 => frac_removed=1.0    cum_ratio=   1.466
+  fight 2: term=b_dead   max_hp=   210500 final_hp=        0 dmg_to_boss=     315679 => frac_removed=1.0    cum_ratio=   1.500
+  fight 3: term=b_dead   max_hp=   210500 final_hp=        0 dmg_to_boss=     339410 => frac_removed=1.0    cum_ratio=   1.612
+  fight 4: term=b_dead   max_hp=   210500 final_hp=        0 dmg_to_boss=     327479 => frac_removed=1.0    cum_ratio=   1.556
+  fight 5: term=b_dead   max_hp=   210500 final_hp=        0 dmg_to_boss=     313293 => frac_removed=1.0    cum_ratio=   1.488
+
+F1 (frac in [0,1], every fight): PASS
+F2 (cum_ratio >1.0 observed -- throughput preserved): PASS (>1.0 seen)
