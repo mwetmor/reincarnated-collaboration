@@ -1,0 +1,63 @@
+============================================================================================
+CLEAN BOSS NUMBERS -- survive+kill at faithful power (tier_2 driven directly on boss shells)
+2026-06-19 | MEASUREMENT-ONLY | tier_1 KPM-reject BYPASSED | production gate untouched
+============================================================================================
+
+Termination vocabulary:
+  b_dead  = clean survive+kill (boss died, player alive)  [the doctrine boss-gate signal]
+  a_dead  = player died          (real defensive failure)
+  timeout = survived, did not kill before enrage (240s hard / mini-boss 150s soft)
+
+Enrage caps (V2, live from ALL_SCENARIOS): {"boss_with_adds": {"max_duration_s": 240.0, "soft_timeout_s": null, "win_condition": "boss_killed", "n_spawns": 3, "boss_index": 0, "mini_boss_index": null}, "mini_boss": {"max_duration_s": 240.0, "soft_timeout_s": null, "win_condition": "mini_boss_killed", "n_spawns": 3, "boss_index": null, "mini_boss_index": 0}}
+Population: 54 kits -> 60 configs (22 legendary_ids x 3 samples); faithful power (max-profile investment, flip #3).
+Fights/cell (tier_2 n): 20 | seed base: 711000
+V1 self-consistency (b_dead==wins per cell): True
+
+--------------------------------------------------------------------------------------------------------------------
+BY ATTRIBUTE (int / wis / dex / str -- parsed from legendary_id, section-5 grain)
+--------------------------------------------------------------------------------------------------------------------
+attribute            n_cell  n_fght  surv+kill  b_dead  timeout  TTK_med  KPM_med    DPS_med bossHP%_med bossHP%_p90
+dex                     144    2880      0.917   0.917    0.083      9.1    17.97 76153.8462         1.0         1.0
+int                     192    3840      0.920   0.920    0.080    159.3     0.75  2900.1883         1.0       1.498
+str                     144    2880      1.000   1.000    0.000    14.75     8.15 31428.5714         1.0         1.0
+wis                     480    9600      0.858   0.858    0.142   180.45     0.67  3065.6934         1.0      1.4929
+
+--------------------------------------------------------------------------------------------------------------------
+BY ARCHETYPE (cohort)
+--------------------------------------------------------------------------------------------------------------------
+cohort               n_cell  n_fght  surv+kill  b_dead  timeout  TTK_med  KPM_med    DPS_med bossHP%_med bossHP%_p90
+Balanced                240    4800      0.902   0.902    0.098    149.2     0.81  3190.6138         1.0      1.4814
+DPS-min-maxer           240    4800      0.899   0.899    0.101    149.2     0.81  3179.1797         1.0      1.4625
+Defensive               240    4800      0.900   0.900    0.100    149.2     0.81  3190.6138         1.0      1.4763
+Hybrid                  240    4800      0.901   0.901    0.099    149.2     0.81  3167.7456         1.0      1.4768
+
+--------------------------------------------------------------------------------------------------------------------
+BY ATTRIBUTE x SHELL
+--------------------------------------------------------------------------------------------------------------------
+attr|shell           n_cell  n_fght  surv+kill  b_dead  timeout  TTK_med  KPM_med    DPS_med bossHP%_med bossHP%_p90
+dex|boss_with_adds      108    2160      1.000   1.000    0.000      9.1    19.85 76153.8462         1.0         1.0
+dex|mini_boss            36     720      0.667   0.667    0.333     7.75    15.15 71479.3295         1.0     13.8041
+int|boss_with_adds      144    2880      1.000   1.000    0.000    159.3     0.75  2899.7399         1.0         1.0
+int|mini_boss            48     960      0.681   0.681    0.319    216.7     0.77   3702.335      1.4916      1.5372
+str|boss_with_adds      108    2160      1.000   1.000    0.000     14.7     8.14 31428.4449         1.0         1.0
+str|mini_boss            36     720      1.000   1.000    0.000     14.8    12.14 46824.3243         1.0         1.0
+wis|boss_with_adds      360    7200      0.956   0.956    0.044    174.5     0.67  2621.3696         1.0         1.0
+wis|mini_boss           120    2400      0.563   0.563    0.437    198.1     0.64  3351.4677      1.4428      1.5523
+
+====================================================================================================================
+HEADLINE -- STR boss-gate classification (slow-but-real vs degenerate) via boss_HP_removed
+====================================================================================================================
+  Classification thresholds (brief §3): boss_HP_removed >= ~0.70 with timeout => SLOW-BUT-REAL
+  (throughput-vs-enrage shortfall); <= ~0.30 => DEGENERATE (kit/structural); 0.30-0.70 => report-as-is.
+
+  STR (pooled both boss shells): survive+kill=1.000 (b_dead=1.000 a_dead=0.000 timeout=0.000), n_fights=2880
+    DPS_med=31428.5714  boss_HP_removed med=1.0 p90=1.0 [min_cell=1.0 max_cell=1.0]
+    VERDICT (pooled): SLOW-BUT-REAL: STR removes ~100% of the boss in 240s but misses the enrage timer => real throughput-vs-enrage shortfall (kit-efficacy / enrage-tuning / route-via-9-pass-floor). Doctrine stands.
+
+  STR|boss_with_adds: timeout=0.000 DPS_med=31428.4449 boss_HP_removed med=1.0 p90=1.0, n_fights=2160
+    => SLOW-BUT-REAL: STR removes ~100% of the boss in 240s but misses the enrage timer => real throughput-vs-enrage shortfall (kit-efficacy / enrage-tuning / route-via-9-pass-floor). Doctrine stands.
+  STR|mini_boss: timeout=0.000 DPS_med=46824.3243 boss_HP_removed med=1.0 p90=1.0, n_fights=720
+    => SLOW-BUT-REAL: STR removes ~100% of the boss in 240s but misses the enrage timer => real throughput-vs-enrage shortfall (kit-efficacy / enrage-tuning / route-via-9-pass-floor). Doctrine stands.
+
+  NOTE (V5 load-bearing): boss_HP_removed << (DPS*240 / boss_max_hp) means STR is sinking
+  damage into ADDS, not the kill target -- exactly what total-damage-only would have masked.
