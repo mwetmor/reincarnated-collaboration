@@ -1,0 +1,320 @@
+{
+  "stage": "T1.1 magnitude-pass clear-shell timing-floor",
+  "date": "2026-06-21",
+  "fight_seed_base": 41000000,
+  "disposition": "HALT-AND-FLAG-GANDALF",
+  "sweep": {
+    "rage": {
+      "elite_pack": {
+        "H=1.0": {
+          "n": 12,
+          "kpm_min": 8.27,
+          "kpm_med": 8.29,
+          "kpm_max": 14.88,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 12.1
+        },
+        "H=1.5": {
+          "n": 12,
+          "kpm_min": 8.16,
+          "kpm_med": 8.195,
+          "kpm_max": 14.65,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 12.2
+        },
+        "H=1.75": {
+          "n": 12,
+          "kpm_min": 8.14,
+          "kpm_med": 8.16,
+          "kpm_max": 14.6,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 12.3
+        },
+        "H=2.0": {
+          "n": 12,
+          "kpm_min": 8.08,
+          "kpm_med": 8.12,
+          "kpm_max": 14.43,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 12.4
+        }
+      },
+      "magic_pack": {
+        "H=1.0": {
+          "n": 12,
+          "kpm_min": 18.6,
+          "kpm_med": 18.71,
+          "kpm_max": 22.47,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 10.6
+        },
+        "H=1.5": {
+          "n": 12,
+          "kpm_min": 18.6,
+          "kpm_med": 18.700000000000003,
+          "kpm_max": 22.43,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 10.7
+        },
+        "H=1.75": {
+          "n": 12,
+          "kpm_min": 18.55,
+          "kpm_med": 18.655,
+          "kpm_max": 22.43,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 10.7
+        },
+        "H=2.0": {
+          "n": 12,
+          "kpm_min": 18.35,
+          "kpm_med": 18.494999999999997,
+          "kpm_max": 22.26,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 10.7
+        }
+      }
+    },
+    "combo": {
+      "elite_pack": {
+        "H=1.0": {
+          "n": 9,
+          "kpm_min": 12.97,
+          "kpm_med": 28.13,
+          "kpm_max": 28.13,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 6.4
+        },
+        "H=1.5": {
+          "n": 9,
+          "kpm_min": 12.23,
+          "kpm_med": 26.99,
+          "kpm_max": 27.07,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 6.5
+        },
+        "H=1.75": {
+          "n": 9,
+          "kpm_min": 12.01,
+          "kpm_med": 26.67,
+          "kpm_max": 26.87,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 6.6
+        },
+        "H=2.0": {
+          "n": 9,
+          "kpm_min": 11.5,
+          "kpm_med": 25.9,
+          "kpm_max": 26.16,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 6.8
+        }
+      },
+      "magic_pack": {
+        "H=1.0": {
+          "n": 9,
+          "kpm_min": 27.59,
+          "kpm_med": 36.92,
+          "kpm_max": 36.92,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 6.5
+        },
+        "H=1.5": {
+          "n": 9,
+          "kpm_min": 27.59,
+          "kpm_med": 36.92,
+          "kpm_max": 36.92,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 6.5
+        },
+        "H=1.75": {
+          "n": 9,
+          "kpm_min": 27.52,
+          "kpm_med": 36.87,
+          "kpm_max": 36.92,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 6.5
+        },
+        "H=2.0": {
+          "n": 9,
+          "kpm_min": 26.88,
+          "kpm_med": 36.14,
+          "kpm_max": 36.59,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 6.5
+        }
+      }
+    },
+    "stamina-as-resource": {
+      "elite_pack": {
+        "H=1.0": {
+          "n": 3,
+          "kpm_min": 133.33,
+          "kpm_med": 600.0,
+          "kpm_max": 600.0,
+          "timeouts": 0,
+          "subsec_fights": 25,
+          "min_dur": 0.3
+        },
+        "H=1.5": {
+          "n": 3,
+          "kpm_min": 24.46,
+          "kpm_med": 29.8,
+          "kpm_max": 34.68,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 2.4
+        },
+        "H=1.75": {
+          "n": 3,
+          "kpm_min": 20.69,
+          "kpm_med": 24.46,
+          "kpm_max": 26.79,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 4.6
+        },
+        "H=2.0": {
+          "n": 3,
+          "kpm_min": 12.36,
+          "kpm_med": 16.7,
+          "kpm_max": 17.8,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 8.9
+        }
+      },
+      "magic_pack": {
+        "H=1.0": {
+          "n": 3,
+          "kpm_min": 65.22,
+          "kpm_med": 100.0,
+          "kpm_max": 100.0,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 2.4
+        },
+        "H=1.5": {
+          "n": 3,
+          "kpm_min": 65.22,
+          "kpm_med": 100.0,
+          "kpm_max": 100.0,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 2.4
+        },
+        "H=1.75": {
+          "n": 3,
+          "kpm_min": 61.54,
+          "kpm_med": 79.21,
+          "kpm_max": 85.11,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 2.4
+        },
+        "H=2.0": {
+          "n": 3,
+          "kpm_min": 35.82,
+          "kpm_med": 48.1,
+          "kpm_max": 50.53,
+          "timeouts": 0,
+          "subsec_fights": 0,
+          "min_dur": 2.4
+        }
+      }
+    },
+    "mana": {
+      "elite_pack": {
+        "H=1.0": {
+          "n": 30,
+          "kpm_min": 50.85,
+          "kpm_med": 367.35,
+          "kpm_max": 450.0,
+          "timeouts": 0,
+          "subsec_fights": 194,
+          "min_dur": 0.4
+        },
+        "H=1.5": {
+          "n": 30,
+          "kpm_min": 0.67,
+          "kpm_med": 2.65,
+          "kpm_max": 61.86,
+          "timeouts": 103,
+          "subsec_fights": 0,
+          "min_dur": 0.6
+        },
+        "H=1.75": {
+          "n": 30,
+          "kpm_min": 0.67,
+          "kpm_med": 1.07,
+          "kpm_max": 41.0,
+          "timeouts": 166,
+          "subsec_fights": 0,
+          "min_dur": 0.7
+        },
+        "H=2.0": {
+          "n": 30,
+          "kpm_min": 0.67,
+          "kpm_med": 2.06,
+          "kpm_max": 3.82,
+          "timeouts": 79,
+          "subsec_fights": 0,
+          "min_dur": 30.7
+        }
+      },
+      "magic_pack": {
+        "H=1.0": {
+          "n": 30,
+          "kpm_min": 600.0,
+          "kpm_med": 600.0,
+          "kpm_max": 600.0,
+          "timeouts": 0,
+          "subsec_fights": 300,
+          "min_dur": 0.4
+        },
+        "H=1.5": {
+          "n": 30,
+          "kpm_min": 12.5,
+          "kpm_med": 500.0,
+          "kpm_max": 600.0,
+          "timeouts": 0,
+          "subsec_fights": 226,
+          "min_dur": 0.4
+        },
+        "H=1.75": {
+          "n": 30,
+          "kpm_min": 6.96,
+          "kpm_med": 29.689999999999998,
+          "kpm_max": 600.0,
+          "timeouts": 0,
+          "subsec_fights": 75,
+          "min_dur": 0.4
+        },
+        "H=2.0": {
+          "n": 30,
+          "kpm_min": 5.97,
+          "kpm_med": 12.455,
+          "kpm_max": 125.65,
+          "timeouts": 0,
+          "subsec_fights": 6,
+          "min_dur": 0.4
+        }
+      }
+    }
+  }
+}
