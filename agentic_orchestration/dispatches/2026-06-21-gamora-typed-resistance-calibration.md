@@ -63,3 +63,30 @@ The live survive limb + typed death-cause surface new fight_log fields → coord
 - Engine — death channel (flat, to be swapped): `simulation/spatial_gauntlet/spatial_engine.py:1951`; resolver route `:1391`/`:533-534`; player flat constant `:159`/`:1575-1578`/`:2390`; mob `resolver_skills=[]` `:2508`
 - Engine — resolver typed paths: `damage_resolver.py:456/460/478/485/502`
 - Disciplines: #1 math-before-code (resolver curves), #3 seed hygiene (48M+), #11 empirical inspection, #12 semantic-shift, #24 single-parameter sweep isolation
+
+---
+
+## Completion record — gamora, 2026-06-21 (SESSION 38)
+
+**Status:** COMPLETE. All scope items (a)–(h) executed. Provisional bands HELD (G-C; NOT finalized/emitted — Matt-gated joint close). AUTO-COMMITTED; NO push.
+
+**Tag:** `gamora/v-typed-resistance-calibration-1`. **Math note (Disc #1, BEFORE code):** `simulation/math/typed-resistance-resolver-spine-and-calibration-2026-06-21.md`. **Harness:** `scripts/gamora_typed_resistance_calibration_2026_06_21_SPIKE_THROWAWAY_.py`. **Raw:** `output/typed-resistance-calibration-2026-06-21-full-20260621_225617.json`. **Seed base:** 48,000,000 (disjoint).
+
+### Scope outcomes
+- **(a) Resolver-route spine — DONE, routes CLEAN.** Death channel `spatial_engine.py:1951` swapped to `resolve_spatial_hit` (mob ATTACKER / player DEFENDER) when an index-aligned typed `resolver_skill` + player `combatant_state` exist; flat branch is the byte-identical FALLBACK. Mob projects `resolver_skills` from its typed `skills` (`build_resolver_skills`; was `[]` at :2508). Resolver byte-untouched. `PLAYER_ARMOR_FACTOR_*` inert on the typed death channel (boss-harder scaling → mob `damage_multiplier`).
+- **(b) Magnitude RE-DERIVED from scratch (G-D) — DONE.** Math note §1: resolver typed-elemental death dmg = `1000 × dm_boss × (1−clamp(res,0,0.95)) × ±20%var`. Flat anchor (`4.0/0.76` + live `0.40/0.95`) confirmed INVALID (different functional form). Math-before-code authored BEFORE the sweep.
+- **(c) Typed band (§3.3) — PROVISIONAL: boss `damage_multiplier`=5.0 @ cd 4.5s.** Unmatched 0.50–0.625 (hard-but-doable, NO one-shot), matched 1.0 (comfortable, NO faceroll). dm=6.0 unmatched=0.0 (too hard); dm=3.0/4.0 unmatched=1.0 (too soft). Band correctly bracketed.
+- **(d) Guard re-founded on TYPED defense (§6) — PASS, two viable paths.** Unmatched offense-sweep (24 seeds): dm_mod 1.0→sk 0.50 vs 3.0→0.96 — fast-kill substitutes for matched resist; matched-comfortable is the other path. No mandatory match-cap.
+- **(e) ANTI-TAX JOINT GATE (G-A) — HOLDS in PRODUCTION ROLLER.** `sample_scenario_loadout` n=200 → max total resist **1.60 < 2.0** (3.5× short of 5.6 cap-all wall), max single-elem 0.60 < 0.80 clamp.
+- **(f) Trash<boss (§7, G-B) — HOLDS** for every cohort once swarm `damage_multiplier` re-derived DOWN 0.85→0.20 (rocket scaffold made aggregate swarm DPS exceed boss). Swarm a_dead=0 vs boss 4–11. Clear-shell death rare-by-design → **boss-only-death fallback fires** (logged; no guard-respecting swarm-death at scale).
+- **(g) Full-population validation (constraint 9) — DONE.** 36 legendary configs: unmatched mean sk 0.924 (realized WIDTH 0.438–1.0; ±20%var + pop diversity softens the knife-edge), matched 1.0.
+- **(h) Two-axis joint re-rate (constraints 7/8) — PROVISIONAL, NOT finalized/emitted (G-C).** Output feeds the joint band-finalization; Matt-gated.
+
+### Cross-seam (star-lord) — MIGRATION v1.81, ROUND-TRIP REQUIRED
+NEW additive `SpatialFightResult.player_death_element` (None / "armor" / "<elem>") — the typed death-cause surface. star-lord: add the DB column + persist in `spatial_recorder._INSERT_SQL` + surface in the export packet; round-trip smoke (typed death → death-cause-WITH-element in the packet). gamora confirmed the field POPULATES (`"fire"` on every typed death).
+
+### Open for Matt (math note §9.7)
+Unmatched-difficulty anchor = COHORT fixture (~0.5–0.6, tense) OR POPULATION mean (~0.92)? Sets whether dm_boss pushes toward 6.0. RAISED at the joint close; band NOT locked without disposition.
+
+### Discipline compliance
+#1 math-before-code (resolver curves authored before sweep); #3 seed 48M+ disjoint; #11 every engine claim re-derived first-hand; #12 three semantic shifts declared (death re-route / cohort resistances key / mob-as-attacker); #24 single-parameter sweep (dm_boss isolated). Smoke (#2): 405 targeted tests PASS; 53 full-suite failures PRE-EXISTING (stash round-trip IDENTICAL, zero introduced); death-channel determinism golden-stable.
