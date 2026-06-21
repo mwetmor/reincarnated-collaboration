@@ -41,8 +41,39 @@ Autonomous orchestration run driving the gandalf-authored instrument-validity wo
 ### THE ONE MATT DECISION NOW (Phase 5 halt — sequencing ratification, not a new design call)
 **Wire the already-ruled boss-gate now** (boss/mini_boss shells leave the KPM band onto survive-and-kill-in-enrage-timer — resolves the boss-row spread with ZERO magnitude work; owner gamora), **and defer the clear-room re-band behind the scheduled SPATIAL_DAMAGE_SCALE/mob-HP magnitude pass** (caster clear cells are timing-floor artifacts no honest band can fit until magnitude is calibrated). Matt is ratifying a sequencing of principles he already ruled. Workstream is ON its spine (boss-gate = §6 of the doctrine spine, same work not new work); the single deliberate refit holds (it IS the boss-shell refit; the clear-shell refit is the one piece waiting on magnitude).
 
-### Phase 6 status
-STR (A)-vs-(B) read. Read-1 (encounter-segregated boss/elite vs swarm) is honest as-is. Read-2 (mixed-pack focus-fire) needs the anchor-predicate rescale first (task #8, owner gamora, Phase-6-internal). Phase 6 sits behind the boss-gate wiring.
+### BOSS-GATE BUILT (Matt-ratified the Phase-5 sequencing) → at a Matt disposition-approval halt
+Matt RATIFIED the Phase-5 sequencing (boss-gate now / clear-band after magnitude) and authorized the boss-gate build (`gandalf/requests/2026-06-20-boss-gate-implementation-spec.md`). The chain ran end-to-end in the envelope:
+
+| Step | Owner | Result |
+|---|---|---|
+| Boss-gate build | gamora | DONE — recompose-first REWIRE (sg2 was computed but gated nothing). (a) boss shells route to tier_2 unconditionally; (b) `eligible_encounters_passed` gates boss shells on survive-and-kill ≥ `SURVIVAL_FLOOR_BY_COHORT`, KPM band never consulted for boss shells; (c) DPS/TTK measure-only. Boss-shell-scoped via `_BOSS_SHELL_GATE_TYPES`. Tag `gamora/v-boss-gate-1` (engine `50caa12`), collab `2c75e0c`. |
+| Structural Gate-2 (FIRST production-gate change, BLOCK authority) | jack-ryan | PASS-WITH-INFO (`qa/findings/2026-06-20-boss-gate-gate2.md`, `91aa98e`). Gate-only diff, fight path byte-unchanged; NO clear-shell regression (719/720 clear cells identical); substrate-drift claim adjudicated SOUND. |
+| Design-fit on inverted disposition | gandalf | `gandalf/notes/2026-06-20-boss-gate-inverted-disposition-design-fit-ruling.md` (`6ab1d4c`). See below. |
+| Decisions-log draft + review | KR draft + jack-ryan review | Draft `agentic_orchestration/2026-06-20-boss-gate-decisions-log-draft.md` (`da1ab99`); jack-ryan reviewed ACCURATE, zero changes, will canonical-write to decisions-log.md AFTER Matt approves. |
+
+**THE LOAD-BEARING FINDING — the composed instrument honestly FALSIFIED the §5a prediction.** The spec §3 / doctrine §5a predicted STR FAILS boss shells (timeout 1.000). The WIRED gate on the full composed instrument measures the INVERTED disposition. Split by shell (gandalf caught the pooled numbers hid a cliff):
+
+| attr | boss_with_adds | mini_boss | pooled |
+|---|---|---|---|
+| str | 1.000 | **1.000** | 1.000 |
+| dex | 1.000 | 0.667 | 0.917 |
+| int | 1.000 | **0.000** | 0.750 |
+| wis | 0.955 | **0.000** | 0.716 |
+
+- **STR now SHIPS boss shells (1.000) — HONEST, the workstream win.** Its real rage economy (Phase R) + full rotation (Phase 2) focus-and-kill the boss (~15s TTK; tier_2_kpm VARIES 8-12, all kill = real capability not flat artifact). Lever is active via rotation/economy, NOT DoT (STR bleed still unemitted). The instrument stopped lying about STR — that's the entire point of the workstream. gandalf + jack-ryan both proved gate-sound + substrate-honest (gate-only diff; §5 measured 2026-06-19 BEFORE the composed fixes).
+- **The caster mini_boss 0.000 cliff = CANDIDATE DEFECT, flagged-NOT-ratified.** int/wis = 0.000 on EVERY mini_boss cell but ~1.0 on the harder boss_with_adds, and STR is the only class clearing mini_boss. Wrong shape (categorical not graded) / wrong selectivity (perfect on harder shell, zero on easier) / wrong winner (melee out-solos burst-casters single-target) = instrument-defect fingerprint pointing at the mini_boss scenario config / `mini_boss_killed` win-condition wiring, NOT caster damage. Cliffs are bugs until proven design.
+
+### THE MATT DECISION NOW (Phase-5 boss-half halt — disposition approval, a production-gate change)
+- **Approve the gate + the STR finding** (gate is Gate-2-sound; STR-ships-boss is the honest instrument-validity win). jack-ryan canonical-writes the decisions-log entry on approval.
+- **Hold the caster mini_boss cliff as flagged, NOT approved** — authorize a cheap targeted diagnosis (pull 2-3 zero cells + 1 STR pass cell; check `mini_boss_killed` vs `boss_killed` win-condition wiring asymmetry, mini_boss HP/resist scaling, killing-but-failing-subcondition). Empirical close criterion: a first-hand explanation of why STR clears mini_boss and casters cannot.
+
+### Phase 6 status (REFRAMED by the inverted disposition)
+gandalf ruled the STR (A)-vs-(B) read is **substantially ANSWERED for the as-is lever** — STR boss-solos via the composed Phase-R economy (not the route-via-floor §5a premise, now obsolete). Read-1 (encounter-segregated) becomes confirmation. Read-2 (mixed-pack focus-fire) + the anchor-predicate rescale (task #8) DOWNGRADED from shipping-blocker to post-halt texture-tuning ("is the now-automatic focus-fire the player-agency version we want?"). Phase 6 Read-1 unblocks on Matt's boss-gate approval.
+
+### TRACKED post-workstream follow-up (gandalf-flagged, do NOT action now) — task #11
+The inert anchor predicate (`max_hp >= 600` vs ≥39,750-HP entities) is the same dead-absolute-constant class as the four instrument-validity defects. Open a sweep of absolute-magnitude constants in the spatial selector that should be regime-relative. Post-workstream.
+
+### Phase 6 status (pre-boss-gate note, superseded by the REFRAMED section above)
 
 ### --- OBSOLETE BELOW (superseded by the above; retained for trail) ---
 ### THE SCOPE SURPRISE — Phase R (rocket reference-economy hardening) — AWAITING MATT SCOPE AUTHORIZATION
