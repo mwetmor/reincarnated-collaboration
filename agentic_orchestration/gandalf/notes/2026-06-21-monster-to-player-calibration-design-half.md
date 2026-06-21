@@ -110,4 +110,23 @@ This is the discipline working in the same shape as the T1.1 amendment: I made a
 
 ---
 
+## 10. ADDENDUM (Matt Q, same session) — the silence is INSTRUMENT-WIDE, not boss-specific
+
+Matt asked whether non-boss encounters damage the player. Checked phase3 first-hand, separating the rows where tier_2 ACTUALLY RAN (`tier_1 != REJECT`) from the tier_1-REJECT `0.0` defaults (the exact masquerade that manufactured the false STR boss-crater — caught here, not fallen for):
+
+| clear shell | tier_2-RAN rows | survival where measured | tier_1-REJECT (0.0 defaults, NOT deaths) |
+|---|---|---|---|
+| open_arena | 659 | **1.000** (min 1.0, zero <1.0) | 133 |
+| chokepoint_corridor | 497 | **1.000** | 97 |
+| magic_pack | 570 | **1.000** | 24 |
+| elite_pack | 0 | (never measured) | 990 (all-REJECT) |
+
+**Finding:** `a_dead=0` is **not a boss property — it is instrument-WIDE.** On every shell where survival was actually simulated, the player survived 100%. This is produced by TWO armor knobs — `PLAYER_ARMOR_FACTOR_VS_STANDARD=0.85` (clear shells, 15% taken) and `PLAYER_ARMOR_FACTOR_VS_BOSS=0.95` (boss, 5% taken) — plus the coverage-pressure channel calibrated to "ST kit survives the walk-down." All three are set so that nothing kills.
+
+**This STRENGTHENS the §0 ruling.** The silence is UNIFORM, not a weird boss-specific inversion. Mechanically the clear shells deal **3× the boss's damage** (15% vs 5%), so the most-dangerous encounter to the player is *trash*, and the *least* dangerous is the boss — but neither kills, so the asymmetry never surfaces as outcome. There is no "boss safer than trash" inversion in the GAMEPLAY today because the defensive axis is collapsed everywhere. The instrument is offense-only on ALL six shells by one coherent mechanism.
+
+**Consequence for A-vs-B (§4):** the framing "add BOSS damage" is wrong. The decision is "**does the instrument have a defensive axis AT ALL**," and if yes (path B), it must be rationalized **instrument-wide** — both armor knobs + coverage-pressure together, holistically re-derived — NOT a boss-only patch that would CREATE the trash-safer-than-boss inversion. **Caveat:** phase3 is regime-mixed + tier_2-gated, and elite_pack is unmeasured (all-REJECT). The clean confirmation extends gamora's commission to **all six shells, tier_1-bypassed** (Q6), not boss-only.
+
+---
+
 **Signed:** gandalf, 2026-06-21. The player not dying is the instrument staying silent on an axis it never measured, not lying about one it did — a scope boundary, not a fifth defect, until we decide defense is in scope. It is the T1.1 domain-of-validity finding again, on the boss side: win-rate out of its domain, the real grading on the time axis. The solo close proceeds with the silence named in a rider; the one real decision — restore the defensive axis or not — is the proxy packet §4 question, ruled once at Wave-3, gated on whether a glass cannon dies. gamora measures that; I have ruled everything else.
