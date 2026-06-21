@@ -15,6 +15,14 @@
 
 ---
 
+## ⚖️ MATT RULING (2026-06-21, same session) — A-vs-B RESOLVED TO B: death is a CORE PILLAR
+
+> Matt: *"There is no point in playing a game where you cannot die, and all game data is pushed into the battle sim. So whatever outputs in the JSON will be the core gameplay loop (player survival included)."*
+
+This collapses the §4 A-vs-B. The defensive axis is **IN SCOPE, NOW** — not a deferred Phase-1 / proxy-Wave-3 question. The silence must be broken **instrument-wide.** The §1–§5 diagnosis below STANDS (why/how the silence exists; the lie-vs-silence classification; the T1.1 domain-mirror; the instrument-wide §10 finding). The §6 DISPOSITION ("does not block the close; defer the axis decision to Wave-3") is **SUPERSEDED by §11.** I held A-vs-B neutral when for an ARPG it was never a real choice — death is the genre's other half, and "the JSON is the gameplay" means a vacuous survive-clause is a missing pillar, not a scope option. Owned; operationalized in §11. The glass-cannon test (§5) converts from a go/no-go DECIDER into the CALIBRATION ANCHOR (§11.2).
+
+---
+
 ## 1. What the substrate says (provenance, read first-hand)
 
 The death channel **is wired** (`spatial_engine.py:1948-1976`: `raw_dmg = dm × 300 × MOB_DAMAGE_SCALE`; `player.hp -= dmg × (1 - armor)`; `hp ≤ 0 → is_alive=False`; loss-on-player-dead at `:2107`). So this is a **calibration** property, not a missing mechanism. Two knobs set the calibration, and BOTH are stale against the current boss model:
@@ -126,6 +134,22 @@ Matt asked whether non-boss encounters damage the player. Checked phase3 first-h
 **This STRENGTHENS the §0 ruling.** The silence is UNIFORM, not a weird boss-specific inversion. Mechanically the clear shells deal **3× the boss's damage** (15% vs 5%), so the most-dangerous encounter to the player is *trash*, and the *least* dangerous is the boss — but neither kills, so the asymmetry never surfaces as outcome. There is no "boss safer than trash" inversion in the GAMEPLAY today because the defensive axis is collapsed everywhere. The instrument is offense-only on ALL six shells by one coherent mechanism.
 
 **Consequence for A-vs-B (§4):** the framing "add BOSS damage" is wrong. The decision is "**does the instrument have a defensive axis AT ALL**," and if yes (path B), it must be rationalized **instrument-wide** — both armor knobs + coverage-pressure together, holistically re-derived — NOT a boss-only patch that would CREATE the trash-safer-than-boss inversion. **Caveat:** phase3 is regime-mixed + tier_2-gated, and elite_pack is unmeasured (all-REJECT). The clean confirmation extends gamora's commission to **all six shells, tier_1-bypassed** (Q6), not boss-only.
+
+## 11. OPERATIONALIZATION — death is core; the HOW (post-Matt-ruling)
+
+The decision is made; this seat's job is now the HOW, where the genre's failure modes are sharp. Six positions:
+
+1. **This ACTIVATES the adopted doctrine's dormant half — it does NOT overturn it, and it VINDICATES the gate.** The doctrine table already lists "survive + kill" as the boss gate; we were shipping the survive clause vacuous. Making death real activates the limb the doctrine always claimed — nothing in the encounter-measurement doctrine reverses. And it vindicates the survive+kill GATE over a DPS gate: with real death the boss becomes a genuine **2D race** (out-DPS the 240s enrage AND out-survive the boss), and the survive+kill binary NATURALLY admits BOTH the glass-burst "kill it in 4s before it kills me" AND the tank-grind "outlast it 90s" — the genre's two boss-kill fantasies — with no DPS floor and no defense floor. Just "did you win." The gate was designed for exactly this 2D world; it was running in a degenerate 1D mode.
+
+2. **The calibration TARGET (the dial): glass cannon at ~0.6–0.8 survive+kill — viable but high-variance — NOT 1.0 (blind, current) and NOT 0.0 (over-punished); bruiser at ~0.95+.** The SPREAD between them IS the defensive axis the instrument can finally see. gamora's glass-cannon test converts from a go/no-go decider into the CALIBRATION ANCHOR: sweep the death knobs, find where the glass cannon lands viable-but-risky and the bruiser safe. Genre target: the D3 speed-GR glass wizard and the PoE one-shot-or-be-one-shot assassin are VIABLE but DIE MORE; the bruiser is SAFE but slower. Both ship.
+
+3. **THE PRIME CONSTRAINT — the homogenization guard.** This is where the genre most often gets "death matters" wrong, and it is the single most load-bearing HOW-constraint. PoE's capped-resist lesson: if calibration makes ONE defensive threshold mandatory ("hit 75% resist or die to everything"), defense becomes a TAX everyone pays identically, build diversity COLLAPSES to a single floor, and we achieve the OPPOSITE of the intent. D4-launch's parallel failure: global mob-damage cranked so the endgame became a one-shot/telegraph-or-die meta they spent a year walking back. The guard: calibrate so (a) MULTIPLE defensive strategies work (mitigation OR avoidance OR sustain OR kill-speed), and (b) OFFENSE can PARTIALLY substitute for defense. That keeps the axis genuinely 2D. **A death channel that forces every build to the same armor number is a defect dressed as the fix.**
+
+4. **Clear-shell death is RARE-but-REAL (the swarm punish), distinct from boss death (the DPS-race).** You don't die to white trash on a normal clear; but a dense swarm that overwhelms an under-defended kit SHOULD kill it — the D3 "I got swarmed and melted" moment. The coverage-pressure channel is the exact mechanism (built for swarm-punish, currently calibrated to never kill). Re-tune so it CAN kill a paper kit in a dense pack while a competent kit survives. Clear shells already carry 3× the boss's damage (0.85 vs 0.95 armor) — the headroom is there.
+
+5. **SEQUENCING — this re-rates the close.** The four offensive fixes (mechanism) stand; they're independent of death. But the BANDS are fit over survive+kill outcomes, and making death real CHANGES every kit's survive+kill rate — a kit that killed-in-time may now die first and fail. The boss/clear dispositions (str 1.000, dex 0.678, …) WILL move. **The bands cannot finalize until the defensive axis is calibrated.** This is NOT a regression — it FOLDS INTO the workstream's own "single tail-refit" discipline: the tail now includes the defensive axis, and bands fit ONCE over BOTH. **RECOMMENDATION:** hold the band-batch approval for the joint two-axis close, OR approve offensive bands as explicitly PROVISIONAL-pending-defense. Matt's sequencing call; knight-rider sequences the recalibration.
+
+6. **The directive is also an anti-drift PRINCIPLE worth keeping: "if a gameplay pillar is not a real, varying signal in the sim's JSON, it is not in the game."** Death was the case in point — the docs claimed survive+kill; the substrate showed survive-vacuous. That is Discipline #13 implicit-pillar drift in its purest form: the gap between what the design CLAIMS and what the JSON SHOWS. Death is the first vacuous pillar caught; the standing audit lane is "what ELSE does the JSON claim but not actually vary" (build diversity? spirit-swap differentiation? defensive choice?).
 
 ---
 
