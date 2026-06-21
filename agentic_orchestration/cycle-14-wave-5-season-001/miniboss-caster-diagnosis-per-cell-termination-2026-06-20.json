@@ -1,0 +1,172 @@
+{
+  "artifact": "miniboss-caster-diagnosis-per-cell-termination-2026-06-20",
+  "author": "gamora",
+  "tag": "gamora/v-miniboss-caster-diagnosis-1",
+  "type": "DIAGNOSE-ONLY measurement extraction; no production change",
+  "source_harness": "/tmp/miniboss-diag/clean-boss-numbers-harness-2026-06-19.json",
+  "source_metadata": {
+    "generated_utc": "2026-06-21T02:57:25.773200+00:00",
+    "n_cells": 960,
+    "n_fights_per_cell": 20,
+    "seed_base": 619000
+  },
+  "enrage_caps": {
+    "boss_with_adds": {
+      "max_duration_s": 240.0,
+      "soft_timeout_s": null,
+      "win_condition": "boss_killed",
+      "n_spawns": 3,
+      "boss_index": 0,
+      "mini_boss_index": null
+    },
+    "mini_boss": {
+      "max_duration_s": 240.0,
+      "soft_timeout_s": 150.0,
+      "win_condition": "mini_boss_killed",
+      "n_spawns": 3,
+      "boss_index": null,
+      "mini_boss_index": 0
+    }
+  },
+  "mechanism_citations": {
+    "soft_timeout_guillotine": "spatial_gauntlet/spatial_engine.py:1684-1696",
+    "boss_HP_removed_def": "clean_boss_numbers_harness_2026_06_19.py:163 (damage_to_boss / boss_max_hp)"
+  },
+  "by_attribute_shell_target_cells": {
+    "int|mini_boss": {
+      "n_fights": 960,
+      "termination_counts": {
+        "b_dead": 0,
+        "a_dead": 0,
+        "timeout": 960
+      },
+      "termination_rates": {
+        "b_dead": 0.0,
+        "a_dead": 0.0,
+        "timeout": 1.0
+      },
+      "boss_HP_removed": {
+        "median": 0.4674,
+        "p90": 0.6227,
+        "min_cell_median": 0.3602,
+        "max_cell_median": 0.6389
+      },
+      "dps_median": 2358.8589,
+      "observed_kpm_median": 0.293
+    },
+    "int|boss_with_adds": {
+      "n_fights": 2880,
+      "termination_counts": {
+        "b_dead": 2877,
+        "a_dead": 0,
+        "timeout": 3
+      },
+      "termination_rates": {
+        "b_dead": 0.999,
+        "a_dead": 0.0,
+        "timeout": 0.001
+      },
+      "boss_HP_removed": {
+        "median": 1.0,
+        "p90": 1.0,
+        "min_cell_median": 0.9998,
+        "max_cell_median": 1.0
+      },
+      "dps_median": 2899.68,
+      "observed_kpm_median": 0.75
+    },
+    "wis|mini_boss": {
+      "n_fights": 2400,
+      "termination_counts": {
+        "b_dead": 0,
+        "a_dead": 0,
+        "timeout": 2400
+      },
+      "termination_rates": {
+        "b_dead": 0.0,
+        "a_dead": 0.0,
+        "timeout": 1.0
+      },
+      "boss_HP_removed": {
+        "median": 0.4255,
+        "p90": 0.8223,
+        "min_cell_median": 0.3233,
+        "max_cell_median": 1.0422
+      },
+      "dps_median": 2341.293,
+      "observed_kpm_median": 0.281
+    },
+    "wis|boss_with_adds": {
+      "n_fights": 7200,
+      "termination_counts": {
+        "b_dead": 6850,
+        "a_dead": 0,
+        "timeout": 350
+      },
+      "termination_rates": {
+        "b_dead": 0.9514,
+        "a_dead": 0.0,
+        "timeout": 0.0486
+      },
+      "boss_HP_removed": {
+        "median": 1.0,
+        "p90": 1.0,
+        "min_cell_median": 0.9629,
+        "max_cell_median": 1.0
+      },
+      "dps_median": 2629.178,
+      "observed_kpm_median": 0.669
+    },
+    "str|mini_boss": {
+      "n_fights": 720,
+      "termination_counts": {
+        "b_dead": 720,
+        "a_dead": 0,
+        "timeout": 0
+      },
+      "termination_rates": {
+        "b_dead": 1.0,
+        "a_dead": 0.0,
+        "timeout": 0.0
+      },
+      "boss_HP_removed": {
+        "median": 1.0,
+        "p90": 1.0,
+        "min_cell_median": 1.0,
+        "max_cell_median": 1.0
+      },
+      "dps_median": 48160.949,
+      "observed_kpm_median": 12.024
+    },
+    "str|boss_with_adds": {
+      "n_fights": 2160,
+      "termination_counts": {
+        "b_dead": 2160,
+        "a_dead": 0,
+        "timeout": 0
+      },
+      "termination_rates": {
+        "b_dead": 1.0,
+        "a_dead": 0.0,
+        "timeout": 0.0
+      },
+      "boss_HP_removed": {
+        "median": 1.0,
+        "p90": 1.0,
+        "min_cell_median": 1.0,
+        "max_cell_median": 1.0
+      },
+      "dps_median": 31428.4449,
+      "observed_kpm_median": 8.141
+    }
+  },
+  "fine_grain_verification": {
+    "caster_mini_boss_cell_count": 240,
+    "cells_with_any_a_dead": 0,
+    "total_caster_a_dead_fights_both_shells": 0,
+    "wis_mini_boss_cells_removing_ge_0p90": 80,
+    "wis_mini_boss_cells_bHP_gt_1p0_artifact": 14
+  },
+  "metric_caveat": "14 wis|mini_boss cells (kit endgame_bc_ranged_low_spiky_wis_none) report boss_HP_removed median ~7.3 (>1.0); these are 20/20 timeouts so this is an attribution-accumulation artifact (damage_to_boss uncapped past boss_max_hp), NOT a near-kill. Honest signal is pooled bHP%_med ~0.426. Does not affect termination split.",
+  "verdict": "CONFIRMED: caster mini_boss cliff is 100% timeouts, 0% early deaths at every grain (pooled + all 240 individual caster mini_boss cells; a_dead identically 0 across caster population both shells). Casters alive and out-racing the clock, not out-raced defensively. No contradiction with prior finding."
+}
