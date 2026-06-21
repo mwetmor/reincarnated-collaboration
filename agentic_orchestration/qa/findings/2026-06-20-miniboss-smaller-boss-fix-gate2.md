@@ -1,20 +1,44 @@
 # Finding — 2026-06-20 — mini_boss "smaller boss" fix (re-banks HELD production-gate column)
 
 **Reviewer:** jack-ryan
-**Severity:** BLOCK (single, narrow defect — stale test asserting the pre-fix constant; all 8 mechanism focus items PASS first-hand)
-**Target:** `gamora/v-miniboss-smaller-boss-fix-1` — engine commits `c2a8392` (fix + math-note), `82ae9b9` (re-measure driver); collab `da40542` (re-measure JSON + table)
+**Severity:** PASS-WITH-INFO (re-cleared 2026-06-20 — BLOCK resolved; 3 prior non-gating INFO items carried forward)
+**Target (re-cleared):** `gamora/v-miniboss-smaller-boss-fix-2` — engine commit `fb3e702` (test-only correction) atop the originally-reviewed `gamora/v-miniboss-smaller-boss-fix-1` (`c2a8392` fix+math-note, `82ae9b9` driver; collab `da40542` data)
 **Developer:** gamora
 **Principles applied:** REVIEW_PROCESS #1 (math-before-code), #2 (smoke-gate), #3 (cross-seam impact), #4 (decisions-log as truth), #5 (severity matters)
 **Disciplines cited:** #1 (math-before-code), #2 (smoke-test / suite-green at tag), #3 (seed hygiene), #12 (semantic-shift declaration)
-**ADRs:** ADR-004 (MIGRATION), ADR-006 (read-only verify; did NOT push)
+**ADRs:** ADR-002 (in-seam test correction — direct-approve authority), ADR-004 (MIGRATION: none required), ADR-006 (read-only verify; did NOT push)
 
 ## Verdict
+
+**PASS-WITH-INFO** (re-cleared) — the single narrow BLOCK defect is resolved. Carries the 3 prior non-gating INFO items (INFO-1/2/3 below) for the record; none gate.
+
+### Re-clear (2026-06-20) — BLOCK → PASS, verified first-hand
+
+The original BLOCK was a single in-seam defect: the fix flipped `SCENARIO_MINI_BOSS.soft_timeout_s 150.0 → None` but left the pinning test asserting the pre-fix value
+(`test_soft_timeout_is_150s`, :171-173 → `assert None == 150.0`, red suite). gamora corrected it in `gamora/v-miniboss-smaller-boss-fix-2` (`fb3e702`). I verified all three
+re-clear conditions FIRST-HAND (did not take the claim):
+
+1. **Assertion is a clean re-point, not invented logic / not gate-masking.** `tests/test_spatial_gauntlet_scenarios.py:184` now reads `assert SCENARIO_MINI_BOSS.soft_timeout_s
+   is None`; test renamed `test_soft_timeout_is_150s → test_soft_timeout_is_none_smaller_boss` with a docstring documenting the boss/240s alignment + the Discipline #12 semantic
+   shift. `git show fb3e702` confirms it is a single assertion flip + rename + docstring — no try/except, no `pytest.skip`, no broadened/loosened assertion. It pins the NEW
+   truth, mirroring the boss-gate stale-floor correction pattern.
+2. **Suite re-run GREEN first-hand:** `pytest tests/test_spatial_gauntlet_scenarios.py` → **27 passed in 0.30s** (was 1 failed, 26 passed). Discipline #2 "suite green at tag"
+   now satisfied.
+3. **Fix mechanism unchanged.** `git show --stat fb3e702` shows the correction touches ONLY `tests/test_spatial_gauntlet_scenarios.py` (1 file, +14/-3). `arena.py`
+   (soft_timeout→None) and `t4_sim_cycling.py` (`_boss_midpoint_hp` + `_floor_miniboss_hp` HP floor) are NOT in the commit — the production mechanism I PASSed on all 8 focus
+   items below is byte-for-byte intact. The correction was test-only.
+
+Re-clear is mine under ADR-002 (within-seam test correction reflecting an already-Matt-ratified semantic shift) — no Matt escalation. The 8 original focus-item PASSes stand
+unchanged (mechanism untouched).
+
+### Original verdict (2026-06-20, pre-correction) — BLOCK
 
 **BLOCK** — on a single, narrow, in-seam defect: the fix flipped `SCENARIO_MINI_BOSS.soft_timeout_s 150.0 → None`, but the test that pins that exact value
 (`tests/test_spatial_gauntlet_scenarios.py::TestMiniBossScenario::test_soft_timeout_is_150s`, :171-173) was NOT updated and now FAILS against post-fix HEAD
 (`assert None == 150.0`). A production-gate-affecting tag (same gate-rigor tier as the boss-gate build) must not ship with a red suite (Discipline #2). This is a
 stale-assertion-not-tracking-the-deliberate-change condition, NOT a masking condition — the fix is correct; the test asserts the OLD intended value. Resolution is a
-one-assertion edit in gamora's own seam (no architectural decision), so this BLOCK clears the moment the test is re-pointed and the suite is re-run green.
+one-assertion edit in gamora's own seam (no architectural decision), so this BLOCK clears the moment the test is re-pointed and the suite is re-run green. **→ RESOLVED in
+`gamora/v-miniboss-smaller-boss-fix-2` (`fb3e702`); see Re-clear above.**
 
 **Everything else PASSES first-hand.** The mechanism is sound on all 8 focus items, the banked boss_with_adds column is mechanically and empirically unmoved, clear shells
 are byte-identical, seed hygiene is clean, recompose-first held, the semantic shift is declared and coherent, the seam call is correct, and the dex sub-finding is
@@ -92,11 +116,10 @@ ADR-002 (test-addition / within-seam correction is my direct-approve authority o
 
 ## Action
 
-- [ ] Developer (gamora): update `tests/test_spatial_gauntlet_scenarios.py:171-173` to assert `SCENARIO_MINI_BOSS.soft_timeout_s is None` and retitle the test
-  (e.g. `test_soft_timeout_is_none_smaller_boss`), with a docstring citing the 2026-06-20 "smaller boss" ratification + math-note §2.1 (mirror the boss-gate stale-floor
-  correction pattern). Optionally add a guard asserting `SCENARIO_MINI_BOSS.max_duration_s == 240.0 == SCENARIO_BOSS_WITH_ADDS.max_duration_s` to pin the boss-alignment
-  intent. Re-run `pytest tests/test_spatial_gauntlet_scenarios.py` to green and re-tag.
-- [ ] jack-ryan: re-clear to PASS on confirmation the suite is green (in-seam test correction; ADR-002 direct-approve — no Matt escalation needed).
+- [x] Developer (gamora): re-point the assertion to `is None`, retitle `test_soft_timeout_is_none_smaller_boss`, docstring the semantic shift, re-run green, re-tag.
+  **DONE** — `gamora/v-miniboss-smaller-boss-fix-2` (`fb3e702`); suite 27 passed.
+- [x] jack-ryan: re-clear to PASS on confirmation the suite is green (in-seam test correction; ADR-002 direct-approve — no Matt escalation). **DONE** — verified first-hand
+  (assertion re-point, 27 passed green re-run, mechanism byte-for-byte unchanged); verdict BLOCK → PASS-WITH-INFO.
 
 ## INFO (non-blocking; do not gate)
 
@@ -121,6 +144,8 @@ ADR-002 (test-addition / within-seam correction is my direct-approve authority o
   read not edited)
 - Re-measure: `~/Games/reincarnated-collaboration/agentic_orchestration/cycle-14-wave-5-season-001/miniboss-smaller-boss-remeasure-2026-06-20.{json,txt}` (960 cells, seed
   711000; inversion gone, boss_with_adds unmoved)
-- DEFECT: `~/Games/reincarnated-engine/tests/test_spatial_gauntlet_scenarios.py:171-173` (re-run: 1 failed, 26 passed)
+- DEFECT (RESOLVED): `~/Games/reincarnated-engine/tests/test_spatial_gauntlet_scenarios.py:171-184` — assertion re-pointed to `is None`, test renamed
+  `test_soft_timeout_is_none_smaller_boss`; suite re-run **27 passed in 0.30s** (was 1 failed, 26 passed). Correction commit `fb3e702` (test-only, +14/-3).
 - Prior gate-rigor reference: `~/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-06-20-boss-gate-gate2.md`
-- Commits: engine `c2a8392` (fix+note), `82ae9b9` (driver); collab `da40542` (data)
+- Commits: engine `c2a8392` (fix+note), `82ae9b9` (driver), `fb3e702` (test correction); collab `da40542` (data)
+- Re-cleared tag: `gamora/v-miniboss-smaller-boss-fix-2` → `fb3e702`
