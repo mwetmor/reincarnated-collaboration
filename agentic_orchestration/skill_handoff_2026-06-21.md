@@ -4,6 +4,27 @@
 
 ---
 
+## TYPED-RESISTANCE RECAL WAVE — build chain CLOSED (all 3 seams Gate-2-clean; bands PROVISIONAL, Matt-gated joint close pending)
+
+**Origin:** Matt locked TYPED resistances (superseding the flat/typeless defensive-axis MASTER). The flat MASTER was HELD (`2026-06-21-recal-wave-defensive-axis-MASTER.md`, SUPERSEDED banner). Re-drafted around the typed spine after two Stage-0 de-risks both PASSED: 0a resolver-route spike (CLEAN) + 0b design-half Gate-1 (ENDORSE-WITH-CONCERNS). Design of record: `gandalf/notes/2026-06-21-typed-resistance-meta-design-half.md` (`c85261e`). Coordinating MASTER: `dispatches/2026-06-21-recal-wave-typed-resistance-MASTER.md` (Gate-1 ENDORSE clean).
+
+**The spine:** player death reroutes from the flat branch through the kernel resolver `resolve_spatial_hit` as a real DEFENDER (its armor + per-element `elemental_resistances` go live); signature-element bosses + reward-for-matching (the D2 resistance IDENTITY without the PoE TAX); routes through the spirit-swap pillar.
+
+**Four guards:** G-A ANTI-TAX (first-class JOINT gate; `N·r_hi < ~2.0`) / G-B trash<boss / G-C emission-HELD (Matt-gated) / G-D flat-anchor-INVALID.
+
+### Three seams built + Gate-2'd (all LOCAL, push held)
+1. **rocket** — `rocket/v-typed-resistance-gear-and-monster-skills-1` (engine `75d7dd4`): minted DIFFERENTIATED per-element gear resist (Path A = production-sim path, the SMALL mint since `RolledEffect.element` already existed; Path B partition/keystone diagnostic surface correctly DEFERRED) + typed monster skills (`generation/typed_monster_skills.py`). 0.80 single-element clamp. Anti-tax: matched ~4.4× return. **Gate-2 PASS** (`qa/findings/2026-06-21-typed-resistance-gear-and-monster-skills-gate2.md`).
+2. **gamora** — `gamora/v-typed-resistance-calibration-1` (engine `0c6ba9d`): resolver spine swap (death channel → `resolve_spatial_hit`, mob-ATTACKER/player-DEFENDER, flat branch byte-identical fallback; resolver byte-untouched); STEP-ZERO cohort-resistance bridge via route (B) (`_build_cohort_combatant_stats(…, resistances=…)` through existing `combatant.py:602` branch); re-derived band **PROVISIONAL center boss damage_multiplier=5.0 @ cooldown 4.5s** (unmatched 0.50–0.625, matched 1.0, no one-shot, no faceroll); re-founded guard (two viable paths: match OR out-play); anti-tax production-roller HELD (max total resist 1.60 < 2.0, n=200; empirical N≤2→N≤3 correction); **trash<boss HOLDS only after re-deriving swarm dm 0.85→0.20** (harness-local tune, NOT a rocket-content edit — fixed a trash>boss inversion in rocket's 0.85 scaffold); boss-only-death fallback fires at scale. **Gate-2 PASS-WITH-CONCERNS** (`qa/findings/2026-06-21-typed-resistance-calibration-gate2.md`): carries = non-monotone guard limb at n=16 + the unmatched-difficulty anchor question (below); both feed the Matt-gated joint close, neither blocked star-lord.
+3. **star-lord** — `star-lord/v-typed-threat-telemetry-1` (engine `d04edcc`): ONE additive field `player_death_element` (`None`/`"armor"`/`"<elem>"`). Three-leg delivery: DB column `_V2_19` (`telemetry/migrations.py`), persist in `spatial_recorder._INSERT_SQL` (append-only, 20 prior columns byte-identical-ordered), export `ExportTypedDeathTelemetry` + `build_typed_death_telemetry()` factory (`export/schemas.py`, G-C note — validation artifact, no emission path). Round-trip smoke ALL 3 cases PASS (typed `"fire"` / `"armor"` / survival `None`). MIGRATION v1.81 both sides. 0 regressions. **Gate-2 PASS** (`qa/findings/2026-06-21-typed-threat-telemetry-gate2.md`): additive-only confirmed at column-ordering level (banked offensive-instrument artifacts stay readable). WARN = stale doc reference to non-existent `ExportSpatialFightSummary` (doc-only, no re-tag).
+
+### RESERVED TO MATT (the wave did NOT take these)
+- **Two-axis joint close / band finalization** (G-C) — provisional bands (boss dm=5.0 @ 4.5s; swarm dm=0.20) re-rate jointly over survive+kill ONCE; finalization + content emission Matt-gated.
+- **gamora's open question — unmatched-difficulty anchor:** cohort fixtures land unmatched at ~0.5–0.6 (tense) but the full population means ~0.92 (most season kits out-offense the Balanced fixture → kill-fast dominant). Anchor to COHORT (~0.5–0.6) or POPULATION (~0.92)? Sets whether dm_boss pushes toward 6.0. Band NOT locked without disposition. Does NOT block the build chain (already closed).
+- **Three pending additive DB-apply auths** (`_V2_17`/`_V2_18`/`_V2_19`, ADR-006) — specced + ready, no production DB write without auth.
+- **Push** — all wave commits LOCAL on `main` (engine repo), push held.
+
+---
+
 ## What SHIPPED (drafted/banked — awaiting Matt approval; nothing pushed)
 
 ### Track 1 — solo Profile-A instrument CLOSED (single tail-refit complete, BOTH halves)
