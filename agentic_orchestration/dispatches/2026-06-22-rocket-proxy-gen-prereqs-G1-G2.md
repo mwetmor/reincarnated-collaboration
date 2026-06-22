@@ -47,3 +47,30 @@ You CREATE the `proxies` stat-surface that gamora W2 consumes. MIGRATION.md is R
 
 ## Report back to knight-rider
 The `proxies` surface shape (the exact JSON key contract), the vocabulary-bridge translation table (gen-term → sim-term), the MIGRATION.md entry, the tag, and confirmation no bin was un-deferred / no kit emitted. Flag anything that changes what W2 can assume about the emitted surface.
+
+---
+
+## Completion record — 2026-06-22 — rocket — DONE (commit `795f24a`, tag `rocket/v-proxy-gen-prereqs-1`, push HELD)
+
+**G1 + G2 BUILT.** The gen→sim proxy seam is soldered: `PlayerClassV2.to_dict()` now emits a `"proxies"` key, and `generation/proxy_vocabulary_bridge.py` translates gen-speak → sim-speak so a fighting proxy is fully specified for `entity_from_proxy_dict`.
+
+**Files (engine, gen seam only):**
+- NEW `src/reincarnated/generation/proxy_vocabulary_bridge.py` — G1 translator + G2 stat-surfaces.
+- `src/reincarnated/generation/bc_target_player_class.py` — `to_dict()` emits `"proxies"`.
+- NEW math note `generation/math/proxy-gen-prereqs-G1-G2-math-2026-06-22.md` (Discipline #1, before code).
+- `generation/MIGRATION.md` (ADR-004 cross-seam entry) + `generation/AGENT_STATE.md` + smoke script.
+
+**The `proxies` decl contract (the shape gamora W2 consumes — exactly `entity_from_proxy_dict`'s keys):**
+`{proxy_type, behavioral_tier, base_hp, damage_multiplier, range_m, geometry, targeting_behavior, attack_interval_s, proxy_max_active, count, duration_s, spawn_cadence_s, acquisition}`. `"proxies"` is ALWAYS present + a LIST; **EMPTY `[]` on every current kit** (content emission deferred); empty → sim solo path byte-identical.
+
+**Vocabulary bridge (gen → sim):** `proxy_power_per → damage_multiplier` (None→1.0 scaffold); `proxy_geometry → range_m + geometry`; `proxy_max_active → proxy_max_active`; `proxy_count/duration_s/spawn_cadence_s/acquisition → decl-level pass-through`; net-new derived: `proxy_type` (from acquisition+geometry+effect_category, always valid), `base_hp` (REFERENCE_HP×tier hp_factor), `behavioral_tier`, `targeting_behavior`.
+
+**geometry→range_m:** melee≈1.5 m / aura-radial≈5.0 m / ranged-line≈10.0 m (player-skill `_ENG_BIN_RANGE` meter convention); None→1.5; no-attack-shape→0.0.
+
+**Empirical (Discipline #11):** real `to_dict()` carries `"proxies"`= `[]` (no-summon) and a populated decl (summon); every band round-trips through the REAL sim consumer; baseline `grep -rl '"proxies"' exports/` = 0 before. Smoke ALL-PASS; `test_bc_target_subspace` 27/27. (45 `test_cycle12_layer4/6` failures are PRE-EXISTING — retired `SkillTreeGenerator.generate()` — NOT mine.)
+
+**Guards confirmed:** `_DEFERRED_PROXY_BINS` UNTOUCHED; NO kit emitted; NO sim-side change; G3 NOT built.
+
+**Flag for W2:** the 4 magnitude fields (`damage_multiplier`, `base_hp`, `proxy_max_active`, `attack_interval_s`) are rocket SCAFFOLD defaults — **gamora calibrates these in W3**; the translation/identity fields are rocket-final. Until Matt lifts the bin, `"proxies"` is always `[]` — W2 consumes the SHAPE, not populated data.
+
+**Next:** jack-ryan Gate-2 before gamora W2 consumes.
