@@ -52,3 +52,100 @@ proxy_realized_damage_dealt = Σ over engine._positioned_allies of ally.delivere
 
 ## Report back to knight-rider
 The field added + how it reads the v1.82 producer contract, your option (a)/(b) decision on `player_damage_total`, your export-column-vs-internal-to-seam determination (and whether any DB migration is authored-and-held), empirical proof (non-zero on fixture, 0.0 on solo/real kit), the MIGRATION entry, the tag, and confirmation push is HELD + no content emitted + no migration applied. Flag anything that changes what W3 can observe. This goes through jack-ryan Gate-2.
+
+---
+
+## Completion record
+
+**Completed:** 2026-06-22
+**Tag:** `star-lord/v-proxy-realized-damage-telemetry-1` (engine commit `4dd8fd5`)
+**Status:** ALL SCOPE ITEMS COMPLETE — 70/70 tests PASS; push HELD per ADR-006; no content emitted; no migration applied.
+
+### The field + how it reads the producer contract
+
+`SpatialFightResult.proxy_realized_damage_dealt: float = 0.0` added to
+`simulation/spatial_gauntlet/spatial_telemetry.py`. Wired in `spatial_engine.py` result
+construction (the site that already writes `player_damage_total=self.player.delivered_damage_dealt`):
+
+```python
+proxy_realized_damage_dealt=sum(
+    a.delivered_damage_dealt for a in self._positioned_allies
+),
+```
+
+Producer contract (simulation/MIGRATION.md §v1.82 §(a) — verbatim):
+```
+proxy_realized_damage_dealt = Σ over engine._positioned_allies of ally.delivered_damage_dealt
+```
+`delivered_damage_dealt` confirmed on `SpatialEntity` at build time (`spatial_engine.py` line ~644,
+accumulated by `_apply_skill_damage` at line ~1527 for any attacker). `_positioned_allies` is `[]`
+in solo → sum is 0.0. Producer citation matches: the ally is just another attacker through the same
+damage path the player uses. Contract reads directly; no re-derivation.
+
+### Option (a)/(b) decision
+
+**OPTION (a) CHOSEN** — `player_damage_total` stays player-ONLY (`self.player.delivered_damage_dealt`).
+`proxy_realized_damage_dealt` is the separate army term. Rationale:
+1. `player_damage_total` already correctly reads only the player entity — option (a) requires zero
+   change to its writer (the engine was already correct; only the docstring needed updating).
+2. No existing-consumer value shifts: production `proxy_decls` always `[]` → `_positioned_allies == []`
+   → proxy sum is 0.0 on all real rows today regardless of which option is chosen.
+3. Mirrors the `delivered_damage_dealt` split: each `SpatialEntity.delivered_damage_dealt` is
+   per-attacker at the entity level — option (a) preserves that split at the result level exactly.
+4. jack-ryan Gate-2 endorsed (a) as brownfield-safe.
+
+### Export-column-vs-internal-to-seam determination
+
+**INTERNAL-TO-SEAM** — no new DB column, no `_INSERT_SQL` change, no migration authored or applied.
+Determination rationale:
+1. Wave A2 precedent: `mean_active_proxy_count` / `mean_proxy_contribution_pct` are not in the
+   SQLite positional `_INSERT_SQL` — proxy per-fight scalars stay internal.
+2. W3 consumer path: gamora + gandalf calibration reads `SpatialFightResult` directly from the
+   engine at fight-result time, not from the DB — no DB round-trip needed.
+3. Matt ADR-006 DB-apply gate is NOT triggered; no new standing gate opened.
+
+An `ExportProxyRealizedDamageTelemetry` schema + `build_proxy_realized_damage_telemetry()` factory
+were added to `export/schemas.py` as a validation-artifact boundary (same pattern as
+`ExportTypedDeathTelemetry` from v1.81) — not an emission gate.
+
+### Empirical proof (Discipline #11)
+
+| Case | proxy_realized_damage_dealt | player_damage_total | Result |
+|---|---|---|---|
+| Injected fixture (60000.0 — gamora W2 spike value) | 60000.0 on SpatialFightResult | 0.0 (player-only, unchanged) | **PASS — NON-ZERO** |
+| Solo (no override — default 0.0) | 0.0 | player-only | **PASS — 0.0** |
+| Real-kit-like (player_damage_total=12345.0, no proxy) | 0.0 | 12345.0 (unchanged) | **PASS — 0.0** |
+| Option (a) guard (both fields set) | 60000.0 | 5000.0 (unchanged) | **PASS — no bleed** |
+| Pre-W2 result (no field on object) | 0.0 via getattr default | — | **PASS — brownfield-safe** |
+| validate() not enforced | no raise | — | **PASS — not required** |
+
+### MIGRATION entry
+
+`export/MIGRATION.md §v1.82` authored and prepended. Covers:
+- Option (a) semantic-shift decision with rationale
+- Internal-to-seam determination with rationale
+- Consumer obligations table (drax: none; gamora W3: read new field; gandalf W3: same)
+- Empirical proof table
+- Clear statement: no migration authored, held, or applied
+
+### Guards confirmation
+
+- **Push HELD** — auto-committed `4dd8fd5`; NOT pushed (Mac per-cycle Matt-ask).
+- **No content emitted** — `_DEFERRED_PROXY_BINS` stays deferred; tested against injected fixture only; no real kit emitted.
+- **No migration applied** — internal-to-seam determination; no `ALTER TABLE`; Matt ADR-006 gate not triggered.
+- **G-COUNT≠CONTRIBUTION** — `proxy_realized_damage_dealt` (realized fight) is distinct from cancelled `mean_proxy_contribution_pct`; not conflated, not revived.
+- **validate() not enforced** — confirmed by test `test_proxy_realized_damage_not_enforced_by_validate`.
+- **Additive only** — 59 prior tests all pass; no field renamed/removed; 0 regressions.
+
+### What W3 can observe
+
+W3 (gamora + gandalf calibration) can read `SpatialFightResult.proxy_realized_damage_dealt` directly
+from the engine at fight-result time. No further star-lord action is required for W3 to observe the
+field — it's live at fight-result time in every `SpatialFightEngine.run()` call. On all real kits
+(proxy_decls always []) the field reads 0.0 — exactly the solo baseline W3 calibrates against. On an
+injected fighting fixture, it reads the army's realized damage total (60000.0 in the W2 spike).
+
+Nothing changes what W3 can observe relative to the dispatch's scope. The field is a clean additive
+observer on the producer gamora landed in W2.
+
+**Goes through jack-ryan Gate-2 (DEV-MODE) before W3 chains.**
