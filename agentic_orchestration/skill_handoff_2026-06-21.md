@@ -4,6 +4,29 @@
 
 ---
 
+## PROXY-COMBAT EXTENSION (wave B) — BUILD HALF COMPLETE; only W3 (calibration + gandalf design ruling) remains
+
+**Origin:** Matt authorized BUILD 2026-06-22 per `agentic_orchestration/2026-06-21-proxy-combat-decision-packet.md` §3. Sequencing + guard authority: `dispatches/2026-06-22-proxy-combat-extension-MASTER.md`. The ONE new concept is `allegiance ∈ {player, ally, enemy}` as a filter; crossed as an EXTENSION, not a fight-engine rewrite. §4 (encounter-model) design-PRE-CLEARED by Matt — proxy INHERITS the shipped solo death channel + gandalf's telegraphed-slam shape; gandalf owns the W3 ruling. Gate plan: jack-ryan DESIGN-MODE Gate-1 before each SIM wave; gandalf woken at W3 calibration evidence; normal Gate-2 chain per wave.
+
+**Four build waves LANDED + Gate-2 PASS each (all LOCAL, push HELD — wave-B push NOT yet Matt-authorized):**
+1. **rocket G1/G2** — `rocket/v-proxy-gen-prereqs-1` (engine `795f24a`): the gen→sim `proxies` stat-surface + vocabulary bridge (`generation/proxy_vocabulary_bridge.py`); `PlayerClassV2.to_dict()` emits `"proxies"` (always `[]` on real kits — content emission deferred). 4 magnitude fields are SCAFFOLD (W3 calibrates); identity/translation fields rocket-FINAL. **Gate-2 PASS-WITH-CONCERNS** (`9172b95`; WARN-1 = 6 decl-level spawner fields validated vs surface not real consumer → folded to W2).
+2. **gamora W1** — `gamora/v-proxy-W1-allegiance-spawn-1` (engine `ffea0b4`): allegiance filter + positional spawn; parametric NAV-target generalization (single call site, all 6 `_navigate_entity` branches re-path); ATTACK-target left for W2 (conscious nav/attack decoupling). G-SOLO byte-identical (multi-behavior fixture). **Gate-2 PASS-WITH-CONCERNS** (`5ea6255`). Seed base 50,000,017.
+3. **gamora W2** — `gamora/v-proxy-W2-realized-damage-1` (engine `a84a395`): the cross proper. Ally-proxy FIGHTS (realized damage via target-agnostic `_apply_skill_damage`), is TARGETABLE (attack-target generalized), DIES (existing mob-death path). G-CONSTRAINT honored (realized step gated on `_positioned_allies`, NOT the COUNT instrument). WARN-1 CLOSED (6 spawner fields round-trip). G-SOLO byte-identical EXACT (1800-tick trace). Carry-item #2 DECLARED: W2 implements FULL spatial mob-retarget (not attrition-share). MIGRATION v1.82 (gamora→star-lord producer contract). Army WR 1.000 vs caster-alone 0.000 = LOAD-BEARING proof (NOT a stable graded band — that's W3). **Gate-2 PASS** (`752cd3c`). Seed base 51,000,017.
+4. **star-lord telemetry** — `star-lord/v-proxy-realized-damage-telemetry-1` (engine `4dd8fd5`+`d798246`): observer field `proxy_realized_damage_dealt = Σ over _positioned_allies of delivered_damage_dealt`. Option (a) (player_damage_total stays player-only); INTERNAL-to-seam (no DB column, no migration, ADR-006 DB-apply gate NOT triggered); brownfield-safe (0.0 on all production rows). 70/70 tests. MIGRATION export §v1.82. **Gate-2 PASS** (`c041bf4`; INFO carry → W3 should land an engine-level integration assertion of the summation wiring as its first calibration-harness check before reading any band).
+
+**REMAINING — W3 (gamora + gandalf): the calibration + encounter-model design wave.**
+- SIM wave → needs jack-ryan DESIGN-MODE Gate-1 BEFORE build.
+- Calibrates the 4 SCAFFOLD magnitudes (`damage_multiplier`, `base_hp`, `proxy_max_active`, `attack_interval_s`).
+- gandalf woken WHEN calibration evidence is in — owns the encounter-model SHAPE ruling (telegraphed signature slam: build-floor resist/tank/out-range + dodge-ceiling; evaporates army AND threatens caster). Dodge-ceiling waits on Godot combat (doesn't exist yet) → W3 calibrates the BUILD-FLOOR.
+- W2 fixture numbers (WR=1.000 / delivered 60000.0) are a PROOF, not a calibration baseline.
+- Sequence: author W3 dispatch → Gate-1 → gamora produces calibration evidence → wake gandalf for the ruling → gamora applies → Gate-2.
+
+**G3 (Beast-Taming) — SEPARABLE, not built** (packet §3; the `acquisition="capture"` field is consumed as owner-ring conjure, NOT a tamed-proxy inheritance system). Not built unless Matt re-authorizes.
+
+**NOT unlocked by the BUILD call (stays Matt-gated):** content emission (`_DEFERRED_PROXY_BINS` lift + 25% proxy emission — UNTOUCHED across all 4 waves; everything tested via injected fixtures); push (Mac per-cycle ask — all wave-B engine + collab commits are LOCAL).
+
+---
+
 ## TYPED-RESISTANCE RECAL WAVE — build chain CLOSED (all 3 seams Gate-2-clean; bands PROVISIONAL, Matt-gated joint close pending)
 
 **Origin:** Matt locked TYPED resistances (superseding the flat/typeless defensive-axis MASTER). The flat MASTER was HELD (`2026-06-21-recal-wave-defensive-axis-MASTER.md`, SUPERSEDED banner). Re-drafted around the typed spine after two Stage-0 de-risks both PASSED: 0a resolver-route spike (CLEAN) + 0b design-half Gate-1 (ENDORSE-WITH-CONCERNS). Design of record: `gandalf/notes/2026-06-21-typed-resistance-meta-design-half.md` (`c85261e`). Coordinating MASTER: `dispatches/2026-06-21-recal-wave-typed-resistance-MASTER.md` (Gate-1 ENDORSE clean).
