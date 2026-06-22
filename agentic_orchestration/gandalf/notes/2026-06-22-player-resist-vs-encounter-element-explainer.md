@@ -2,7 +2,9 @@
 
 **Author:** gandalf (design seam). **Mode:** Pattern-B research, verification-first (Matt asked to understand the resist↔element interaction concretely). **Status:** explainer of CURRENT verified mechanism — not a ruling.
 
-**Read first-hand:** `foundation/math_model.py:116-128` (the formula) + `:34` (ARMOR_MITIGATION_K=3000); `simulation/damage_resolver.py:466-525` (mitigation flow); `simulation/combatant.py:24-61` (armor-symmetry floor), `:566-575/:926` (player-defender path — RAW resist), `:1100-1108` (monster-defender path — floored); `generation/gear_generation.py:942-992` (the `element_resist` mint — typed-resistance wave); `config/elements.yaml` (taxonomy); `generation/notes/typed_resistance_roundtrip_smoke_2026_06_21.py` (verified real numbers); `exports/season_001001/monsters.json` + `seasons/season_001001/trial.json` (the roster).
+> **CORRECTION (2026-06-22, post-Matt).** The original draft's worked example sampled `exports/season_001001` and reported "a season runs ~4 elements (fire/water/earth/wind)." **That was stale May-2026 export data, pre-dating the Cycle-14 canonical-7 expansion — NOT current design.** Matt confirms: **every season runs all 7 rotating elements (fire/water/earth/wind/lightning/holy/shadow); there is no element rotation/subset.** The 4-element "seasons" were a long-dead legacy concept (LLM-flavor-named elements over a 4-element base). Verified the live code matches the 7-element design: `foundation.get_rotating_elements()` → 7; `monster_generator.py:490` ("Pattern P7: no silent fallback — all rotating elements included"); `t4_sim_cycling.ROTATING_ELEMENTS` + `typed_monster_skills.ROTATING_ELEMENTS` = the 7-tuple; the current cycle-14-wave-5 kit roster spans all 7. **No live 4-element bug** — only stale export files on disk. §3/§5/§7 below are corrected; the MECHANISM (§1/§2/§4/§6/§8) was always element-count-independent and stands.
+
+**Read first-hand:** `foundation/math_model.py:116-128` (the formula) + `:34` (ARMOR_MITIGATION_K=3000); `simulation/damage_resolver.py:466-525` (mitigation flow); `simulation/combatant.py:24-61` (armor-symmetry floor), `:566-575/:926` (player-defender path — RAW resist), `:1100-1108` (monster-defender path — floored); `generation/gear_generation.py:942-992` (the `element_resist` mint — typed-resistance wave); `config/elements.yaml` (taxonomy, 7 rotating + physical); `generation/notes/typed_resistance_roundtrip_smoke_2026_06_21.py` (verified real numbers); `foundation.get_rotating_elements()` / `monster_generator.py:490` / `t4_sim_cycling.py:1071` (7-element confirmation).
 
 ---
 
@@ -26,7 +28,7 @@
 **7 rotating** (all `resistance_type: percentage`, all `dodgeable: false` — always-hit): fire, water, earth, wind, lightning, holy, shadow.
 **1 non-rotating:** physical (`resistance_type: armor`, `dodgeable: true`, bleed ailment).
 
-**Seasonal rotation:** a season's encounters draw a SUBSET. `season_001001` uses exactly **4** (fire/water/earth/wind), evenly: 10 monsters each. Holy/shadow add the D7 luminance valence (±25%, `damage_resolver.py:499-504`) on top of the resist multiply, but only when both attacker+defender substrates are KNOWN.
+**No rotation/subset — every season runs ALL 7** (Matt-confirmed; verified `monster_generator.py:490`). A player at endgame faces all 7 elemental damage types in every season, so the resist read is across the full 7 (plus physical). Holy/shadow add the D7 luminance valence (±25%, `damage_resolver.py:499-504`) on top of the resist multiply, but only when both attacker+defender substrates are KNOWN.
 
 ## 4. A REAL sample character (verbatim from the production round-trip test)
 
@@ -38,21 +40,24 @@ fire 0.55   water 0.10   earth 0.00   wind 0.00
 
 **How the jaggedness is built:** each gear piece can roll an `element_resist` effect keyed to one element (mitigation fraction ≤0.80). `combined_stats()` SUMS per element across the loadout. Same-element rolls **stack** toward 0.80; different-element rolls **spread thin** (the anti-tax design — "cap everything" needs 7×0.80=5.6 resist-units; a realistic budget is ~1.5). So a built character is HIGH in one or two elements and near-zero elsewhere.
 
-## 5. The comparison — this character walking `season_001001` (trial boss = WIND)
+## 5. The comparison — this character in a season that runs all 7 (trial boss = WIND signature)
 
-Damage TAKEN per representative hit (incoming magnitudes verbatim from the export; resist multiply applied):
+Every season runs all 7. To isolate the resist MULTIPLY (the invariant Matt asked about), hold incoming flat at a representative **1000** per element and read what the FIRE-built character takes:
 
-| Encounter element | incoming | A: FIRE-built resist | A takes | through |
+| Encounter element | incoming | FIRE-built resist | takes | through |
 |---|---|---|---|---|
-| fire rooms (×10) | 625 | 55% | **281** | 45% |
-| water rooms (×10) | 2500 | 10% | **2250** | 90% |
-| earth rooms (×10) | 625 | 0% | **625** | 100% |
-| wind rooms (×10) | 2500 | 0% | **2500** | 100% |
-| **WIND trial boss** | 2500/1500/750 | **0%** | **2500/1500/750** | **100%** |
+| fire | 1000 | 55% | **450** | 45% |
+| water | 1000 | 10% | **900** | 90% |
+| earth | 1000 | 0% | **1000** | 100% |
+| wind | 1000 | 0% | **1000** | 100% |
+| lightning | 1000 | 0% | **1000** | 100% |
+| holy | 1000 | 0% | **1000** | 100% |
+| shadow | 1000 | 0% | **1000** | 100% |
+| **WIND trial boss (signature)** | 1000 | **0%** | **1000** | **100%** |
 
-**The punchline.** The fire-built character brought the wrong form to a WIND capstone. It eats every wind hit at full. A WIND-built character (`wind:0.55`) takes 45% — and over a boss rotation the fire-built kit eats **2.22× the damage** the wind-built kit does (4750 vs 2138 per rotation). *That 2.22× is "bring the right form," made concrete.*
+**The punchline, sharpened by all-7.** The fire-built kit is protected on exactly ONE of seven axes. It brought the wrong form to a WIND capstone and eats the boss at full; it also eats 5 of the 6 non-boss elements at full. A WIND-built kit (`wind:0.55`) takes 45% on that boss — **2.2× less** on the capstone, the "bring the right form" reward made concrete. But note what all-7 does to the floor: a 1.0–1.5 resist-budget spread across 7 elements **cannot** cover them all (§7 / the cap-everything fork). The spiky build is the *only* build the current budget can produce — which is exactly the tension Matt's "65–75% on every element" target collides with.
 
-(Magnitudes are from the pre-typed-wave `season_001001` export and are illustrative — note the 4× fire/earth-vs-water/wind spread is itself a generation artifact worth a look, §7. The RESIST MULTIPLY — the 45%/90%/100% column — is the invariant Matt asked about and is exactly what ships.)
+(Incoming is held flat at 1000 here to isolate the multiply. Whether the live roster actually hits for different magnitudes per element — the thing the stale export wrongly suggested — is an open generation question, §7. The RESIST MULTIPLY column is the invariant Matt asked about and is exactly what ships.)
 
 ## 6. The honest generation-state finding (this is WHY the 0.926 watch-item exists)
 
@@ -62,7 +67,7 @@ The **typed-resistance wave (just closed, decisions-log `ea39ecc`)** added the `
 
 ## 7. Two design observations to flag (not rulings)
 
-1. **Magnitude-by-element asymmetry in the roster.** In `season_001001`, wind/water monsters hit 2500 and fire/earth hit 625 — a 4× spread — AND the trial boss is wind (the heavy element). So "which element you FACE" currently swings threat as much as "which element you RESIST." If unintended, it muddies the resist read; if intended (heavy vs light elements), it wants to be a stated design knob, not an emergent export artifact. Worth one glance before broad emission.
+1. **Magnitude-by-element asymmetry — UNVERIFIED (the stale-export trap).** The stale `season_001001` export showed wind/water hitting 2500 and fire/earth 625 (a 4× spread). I will NOT assert that as current — it is pre-canonical-7 May data, the same stale source that produced my 4-element error. The open question stands regardless: in the live 7-element roster, do different elements hit for materially different magnitudes? If yes, "which element you FACE" swings threat alongside "which element you RESIST," and that wants to be a stated design knob, not an emergent artifact. One glance at a freshly-generated 7-element season answers it. Worth doing before broad emission.
 2. **No elemental floor for tanks (the §2 asymmetry).** Because player armor doesn't touch elemental, a high-armor build with an unrolled element is just as exposed there as a glass mage. Defensible (it makes the defensive read universal, which serves "bring the right form"), but Matt should know it's the live behavior: there is no "tanky enough to ignore elements" build. This is good for the design intent — name it so it isn't later "fixed" by accident (Discipline #13 drift guard).
 
 ## 8. Where this connects
