@@ -4,6 +4,7 @@
 **To:** gamora
 **Approved by:** Matt 2026-06-22 — proxy-combat BUILD authorized.
 **Gate-1 REQUIRED before build** (jack-ryan DESIGN-MODE — this is a sim wave). Pickup fires only on Gate-1 ENDORSE.
+**Gate-1 status: ENDORSE-WITH-CONCERNS** (`agentic_orchestration/qa/findings/2026-06-22-proxy-W1-gate1-design.md`). Three carry-items folded into §Scope below — READ THE FINDING.
 **Estimated effort:** ~1 wave. **Independent of rocket G1/G2** — W1 generalizes the hard-wired mob sites; it does NOT consume gen output. Runs concurrent with rocket's generation prereqs.
 
 > **Parent MASTER:** `agentic_orchestration/dispatches/2026-06-22-proxy-combat-extension-MASTER.md`. Read it for the full guard set + gate plan.
@@ -18,13 +19,11 @@ The two sites that hard-wire "mob" are generalized to allegiance-filtered sets, 
 4. Parent MASTER (guards + not-unlocked fences): `agentic_orchestration/dispatches/2026-06-22-proxy-combat-extension-MASTER.md`
 
 ## Scope
-- [ ] **Allegiance filter.** Introduce `allegiance ∈ {player, ally, enemy}` and generalize the TWO hard-wired "mob" sites:
-  - `_navigate_entity:954` — player-target (hard-coded `player`).
-  - world entity set `:1662` — `[player] + mobs`.
-  - Generalize to allegiance-filtered sets so an ally-allegiance proxy can exist in the world alongside player + enemy mobs.
+- [ ] **Allegiance filter — generalize the NAVIGATION-target hard-wiring PARAMETRICALLY.** Introduce `allegiance ∈ {player, ally, enemy}` and generalize the navigation-target sites. **Gate-1 carry-item #1:** the mob's nav-target is hard-coded to `player` at **MULTIPLE `_navigate_entity` branches (`:947, :954, :972, :986, :989` + reposition math), not just `:954`.** The correct fix is **PARAMETRIC** — pass an allegiance-filtered target into `_navigate_entity` so ALL branches re-path. Patching `:954` alone leaves four behaviors walking mobs at the player; a per-branch allegiance conditional is the fork-smell the extension-not-fork guard forbids. Also generalize the **world entity-set** (`all_entities = [self.player] + self.mobs`, at **`:1668`** — note the `:1662` citation drifted through the spec/T2.2/this dispatch; find it by content) to allegiance-filtered sets so an ally-proxy can exist alongside player + enemy mobs.
 - [ ] **Positional spawn.** Proxies take a real position (generalize the spawn that today exists only for mobs).
 - [ ] **THE GENUINE UNTESTED QUESTION (spike caveat — answer it):** does `_navigate_entity`'s hard-coded `player` target generalize cleanly to nearest-enemy re-pathing for a mob→proxy? Verify the navigator re-paths an ally-proxy to nearest enemy without special-casing.
-- [ ] **G-SOLO guard — solo byte-identical at `proxy_bin=solo`.** Empty-decl-gated. Prove it (a solo run produces byte-identical output to pre-W1 HEAD).
+- [ ] **Gate-1 carry-item #2 — LEAVE THE MOB ATTACK-TARGET UNTOUCHED (it is W2's).** The mob's ATTACK target is independently hard-wired to `[self.player]` at **`:1943`/`:1952`** — this is the realized-damage/aggro cross, which W2 owns. Do NOT generalize it in W1. Consciously DECOUPLE navigation (W1) from attack-targeting (W2) and DECLARE the decoupling in your math note, so "finishing the player-assumption generalization" does not pull the attack-target cut into W1.
+- [ ] **G-SOLO guard — solo byte-identical at `proxy_bin=solo`.** Empty-decl-gated (empty `proxy_decls` → `_build_player_proxies()` returns `[]`, allegiance degenerates to player-vs-mobs). Prove it (a solo run produces byte-identical output to pre-W1 HEAD). **Gate-1 carry-item #3:** the byte-identical fixture MUST exercise MULTIPLE mob behaviors — a single-behavior solo run can pass byte-identical while masking an incomplete (1-site) generalization. The multi-behavior fixture is where carry-items #1 and #3 interact.
 - [ ] AGENT_STATE.md updated at session end.
 - [ ] Tag: `gamora/v-proxy-W1-allegiance-spawn-N`
 
