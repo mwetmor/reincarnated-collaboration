@@ -55,7 +55,7 @@ sitting on top of a proven arena-parity seam.
 |---|---|---|
 | Floor / depth-as-position | **Zero.** Grep of `generation/` + `anchor/` → every "floor"/"depth" hit is numeric-minimum ("DPS floor", "defense-in-depth"). No positional-depth axis anywhere. | **ABSENT** [VERIFIED] |
 | Per-floor sub-anchor (lieutenant per floor) | `select_seasonal_anchor` is **one-per-season**, flat (`anchor/selector.py`). No hierarchy. | **ABSENT as anchor → REFRAMED** (§4) [VERIFIED] |
-| Faction-coherent floor roster *generated as* the faction | Phase-5 `faction_clusters[]` cluster a finished pool **post-hoc** (k=3/k=4 GMM; cohesion judge fires against a snapshot) | **PARTIAL — backwards** (§4) [VERIFIED] |
+| Faction-coherent floor roster *generated as* the faction | Phase-5 `faction_clusters[]` cluster a finished pool **post-hoc** (k=3/k=4 GMM; cohesion judge fires against a snapshot) | **PARTIAL — coupling DESIGNED-but-PARKED** (§4.A) [VERIFIED] |
 | Depth-tiering = f(depth, exp-level, exp-gear) | per-kit WR/KPM band calibration (solo Profile-A, dm=5.0). `threat_tier` is a *label*, not a depth-curve. Doc 33's curve is design-only. | **ABSENT** [VERIFIED] |
 | Encounter-composition per step | `arena_scenario_emitter` emits per-scenario spawn slots (tier/archetype) — but a **hand-authored finite `ALL_SCENARIOS`**, and it emits **geometry** | **PARTIAL — wrong shape** (§3) [VERIFIED] |
 | Mega-boss + claimable kit | trial-boss concept exists (`trial_defeat_rate` in metadata); source = §8 open (A/B/C/D) | **PARTIAL** — source is G5 [VERIFIED] |
@@ -134,6 +134,77 @@ floor-master/overlord hierarchy by construction — *Slime*'s labyrinth guardian
 the dragon; Overlord's floor guardians under Ainz; Solo Leveling's monarchs. **One
 primitive, two uses.** That a single small addition closes both the lieutenant and
 the mega-boss theming is the signal the reframe is the right shape.
+
+### 4.A — Amendment (2026-06-22, post cycle-14/15/16 research): Finding B corrected — not "backwards," DESIGNED-but-PARKED
+
+Ground-truth research across the experiential-cascade recognition record (2026-05-29),
+`engine-as-general-serial-content-product` §2.2, the cycle-14 wave-5 close record
+(2026-06-01), and `phase5_orchestrator.py` corrects Finding B's "backwards" framing **and**
+the audit's under-credit of how built the faction side is.
+
+**Build-state correction (the audit + the 2026-05-29 record both under-credited this).**
+The PLAYER-faction side is fully BUILT and fired — cycle-14 close, 2026-06-01; all marked
+`provisional_pending_playtest_validation=True` (metric-axis provisional, NOT structural):
+- **Wave A faction labels** — 4 clusters, all `faction_label_canonical` non-null,
+  `phase7_gate_status="canonical"`; k=4 held empirically (GMM BIC, fallback=False).
+- **Wave B per-kit identities** — 34. Wave B is **NO LONGER a phantom** (the 2026-05-29
+  record's Wave-B-phantom finding is stale; Path X built it; `wave_b` now matches in
+  `phase5_orchestrator.py` + `wave5_season_orchestrator.py`).
+- **F-C inter-faction relationships** — 6 (k=4 → 6 pairs); `relationship_type` enum
+  {antagonist, rival, allied, neutral, mysterious, parallel}.
+- **Theming metadata** — `faction_thematic_tags`, `faction_identity_narrative`,
+  modal cultural_lineage / tech_level / tone — all populated.
+
+**Finding B was half-right.** The KIT-clustering IS post-hoc (correct, confirmed). But
+the faction→MONSTER coupling the descent wants is NOT a reversal of the arrow — it is a
+DESIGNED, FORWARD-causality pipeline that is PARKED:
+- **P5b monster-contrast** (serial-content §2.2): "designs monster rosters *contrastively
+  against emerged factions*" — generate-to-CONTRAST. `monster_contrast_enabled=False` (Cycle 15+).
+- **Step G antagonist generation** (cascade record §1.2 row G): "reads player-faction
+  identity → produces contrast/antagonist faction identity." UNBUILT, Cycle 15+.
+- Cascade record gate (iii) estimates the pair at ~3–5 wk rocket/star-lord.
+
+So the descent does not fight the generation grain — it is the **consumer that justifies
+un-parking** the designed-but-parked enemy seam. It answers gate (iii)'s standing open
+question ("why build antagonist generation for invisible-faction Reincarnated").
+
+**Matt's message-5 reframe maps 1:1 onto the parked design:**
+- "player-kit faction (which we already generate)" = Wave A/B — **BUILT**.
+- "develop an anti-faction … LLM API call" = Step G — **parked**.
+- "monsters created to fit these groups" = P5b monster-contrast — **parked**.
+
+**P1 fork — RESOLVED.** Monsters come from P5b (generate-to-contrast the BUILT player-kit
+factions) + Step G (anti-factions). NOT elrond's catalogue clustering — the player-kit
+faction pipeline + the parked contrast seam. In Reincarnated the contrast is per-spirit
+(`monster_contrast_per_spirit=true`, design-proposed): the descent's enemies are the
+ANTI-faction of the player's ACTIVE spirit-faction.
+
+**The build is STRATIFIED (the gate-advancing read):**
+- **Tier 1 (built-infra, ~days):** designate a leader per existing player-faction
+  (cluster medoid → leader; a *selection*, not a generation; no leader field exists today).
+  Run leaders in control-role (form-ontology) at floor-ends = the CLAIMABLE lieutenant
+  gallery. The descent prototypes the floor-faction-leader loop NOW: existing 40-monster
+  pool as floor mobs + claimable faction-leader lieutenants + apex-leader mega-boss (or
+  Option A over-band reject). Zero unbuilt infra beyond leader-selection.
+- **Tier 2 (parked ~3–5 wk):** un-park Step G + P5b → anti-faction enemy roster +
+  shadow-self mega-boss. The payoff, not the prototype.
+
+**P2/P3 re-assessed under the anti-faction axis:**
+- **P3 (supply) — resolved.** faction × anti-faction ≈ doubles count; anti-factions are
+  GENERATED (Step G LLM), not pool-sliced — supply is not capped by the 34-kit pool.
+- **P2 (coherence-vs-count) — helped, with a redirect.** Get count from the
+  faction×anti-faction PRODUCT, not from over-splitting clusters. Cranking k to "as many
+  factions as possible" pays the `cluster_compactness` cost + the `diversity_flag`
+  (cosine>0.85) collision. Keep player-factions coherent (k≈4 held); multiply via
+  anti-factions. `faction_count_target_per_season` (engine flag, default 3-5) should NOT
+  be cranked — the anti-faction generation is the count-multiplier that doesn't pay the
+  coherence cost.
+
+**Discipline note.** The "backwards" verdict was a stale-snapshot error (the 2026-05-29
+record's Wave-B-phantom + the audit not-yet-reading the parked P5b/Step-G design).
+Corrected via empirical inspection (Disc #11/#6). The mega-boss-as-shadow-self synthesis
+and the Tier-1/2 staging are DESIGN PROPOSALS held for Matt's Pattern-B shaping before
+canonical promotion; this amendment captures only the corrected FACTS + the build-state.
 
 ## 5. "Near complete" — recalibrated
 
