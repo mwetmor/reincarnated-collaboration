@@ -36,18 +36,34 @@ Path B makes capping **necessary AND achievable**. The safety condition that sep
 
 **Locked (Matt 2026-06-22):** 10 gear slots; **9 are resist-capable** (every slot except the main weapon).
 
-The 10 canonical slots (file 33 / `class_schema.py:126-142` `gear_slot_labels`): **Weapon** (no resist), Off-hand, Helm, Chest, Gloves, Boots, Belt, Ring, Ring, Amulet.
+**AUTHORITATIVE slot inventory = `gear_slot_labels` (file 33 / `class_schema.py:131-142`), 10 slots.** This is the target the §4 / Rule-2 math is anchored to. The 10 canonical slots: **Weapon** (no resist), Off-hand, Helm, Chest, Gloves, Boots, Belt, Ring, Ring, Amulet. The "+9 → 9 resist-capable slots to cap" arithmetic in §4 (property 2) and Rule 2 is anchored to **exactly this 9** (10 minus the non-resist weapon). Any rep that disagrees with this 10/9 model is the outlier to be reconciled to it, NOT a competing authority (see §3.0).
+
+### 3.0 The slot-inventory reconciliation — three reps, one locked target (CONCERN-1 close, jack-ryan Gate-1)
+
+Three reps disagree on slot count; the locked 10/9 model picks the winner and folds the outliers. Verified first-hand:
+
+| Rep | File | Count | Naming | Has LEGS? |
+|---|---|---|---|---|
+| **`gear_slot_labels` (AUTHORITATIVE)** | `class_schema.py:131-142` | **10** (9 resist-capable) | `off_hand` | **No** |
+| `GearSlot` enum (generation-side) | `partition_schema.py:53-64` | **11** (comment: "11 slots") | `SECONDARY_ITEM` | **Yes** |
+| live `Loadout` (sim, pre-1a) | `gear_schema.py:198-228` | **4** (3 resist-capable) | `off_hand` | No |
+
+**The `gear_slot_labels` 10-slot model wins** — it is the file-33 canonical, humanoid-display, consumer-facing inventory, and it is what Matt locked. The other two are reconciled TO it:
+
+- **The 4-slot live `Loadout` is the under-rep** → widened 4→10 by Step 1a (this is the whole gating build, §3.1).
+- **The 11-member `GearSlot` enum is the over-rep** — its extra member is **`LEGS`**. **RULING (gandalf, design-owned): `LEGS` folds into `CHEST`** (armor consolidation — the natural humanoid grouping; keeps the resist-capable count at exactly 9; does NOT re-open the §4 +9 math). The 1a enum→loadout bridge maps `LEGS`-slot generation output onto the chest slot. **This is NOT a new player-facing slot** and does not become an 11th equipped slot; the equipped/resist model is 10/9, full stop.
+  - *Why not surface an 11th slot to Matt:* an 11th resist-capable slot would make it 10-resist-capable (10 × +9 = +90 of slack), which §9 explicitly warns is the free-baseline tax — capping gets *easier*, the "+9 is load-bearing" gate-rationale collapses. The locked 10/9 model is the deliberate anti-tax choice. Folding LEGS preserves it. (If Matt later WANTS an 11th slot, that is a budget-math re-open, not a reconciliation — out of scope here.)
 
 ### 3.1 The correction that gates everything — the sim does NOT carry 10 slots today
 
 > **Matt's working premise was "this exists in the sim today, right?" — it does NOT.** Verified, rigorously (having been burned by the stale-export error earlier this session):
 >
 > - The **equipped Loadout the sim sums is 4 slots** — `gear_schema.py:198-292`, `class Loadout(BaseModel)`, docstring line 200: *"up to four slots."* Fields: `weapon, off_hand, armor, accessory`. `_slots()` returns ≤4 pieces; `combined_stats()` SUMS resist across those 4 only. Of the 4, the weapon carries no resist → **3 resist-capable slots in the live sim.**
-> - The **10-member `GearSlot` enum** (`partition_schema.py:53-58`: MAIN_WEAPON, OFF_HAND, HEAD, CHEST, HANDS, FEET, BELT, RING_1, RING_2, AMULET) exists **generation/partition-side only** (gear_instance_generator, partition_roller, keystone_loadout_materializer, partition_modifier_pool). It does **not** flow into the equipped Loadout the sim runs.
+> - The **11-member `GearSlot` enum** (`partition_schema.py:53-64`, comment line 51 literally "11 slots": MAIN_WEAPON, **SECONDARY_ITEM**, HEAD, CHEST, HANDS, FEET, **LEGS**, AMULET, RING_1, RING_2, BELT) exists **generation/partition-side only** (gear_instance_generator, partition_roller, keystone_loadout_materializer, partition_modifier_pool). It does **not** flow into the equipped Loadout the sim runs. Note: this enum names the off-hand `SECONDARY_ITEM` (NOT `OFF_HAND`) and includes a `LEGS` member the locked 10-model folds into CHEST per §3.0.
 
-**Consequence: widening the sim Loadout from 4→10 (9 resist-capable) is the FIRST Path B build piece, and it gates the affix taxonomy.** It is not "the obvious choice because it already exists" — it is a real build. The good news (the silver lining): the 10-slot representation already exists on the generation side, so Path B **bridges** an existing generation rep into the equipped loadout rather than inventing the slot model from nothing.
+**Consequence: widening the sim Loadout from 4→10 (9 resist-capable) is the FIRST Path B build piece, and it gates the affix taxonomy.** It is not "the obvious choice because it already exists" — it is a real build. The good news (the silver lining): a 10/11-slot representation already exists on the generation side, so Path B **bridges** an existing generation rep into the equipped loadout (folding the enum's LEGS into CHEST per §3.0) rather than inventing the slot model from nothing.
 
-**Scope of the widening (rocket + gamora, under jack-ryan Gate-2):** the `Loadout` schema (4 fields → 10), `_slots()`, `combined_stats()` (sum across 10), canonical serialization (`canonical_loadout.py:18-41`, 4-slot today), telemetry (`player_loadout` / resist export fields), spirit-guide aggregation (`spirit_guide.py:236-250`, 4-slot today), and the loadout web app (drax — surface the 10 slots). This is a cross-seam interface change → MIGRATION.md per ADR-004.
+**Scope of the widening (rocket + gamora + star-lord + drax, under jack-ryan Gate-2):** the `Loadout` schema (4 fields → 10), `_slots()`, and **every `_slots()` consumer** — `combined_stats()` (sum resist across 10), `combined_ability_modifiers()` (`gear_schema.py:281-296`, also iterates `_slots()`), `combined_traits()` (`:298-303`), `total_power_score()` (`:305-306`); the spirit-guide displaced-value branch (`spirit_guide.py:228-251` `_displaced_value()` — hard-codes the 4 slot-names "weapon"/"off_hand"/"armor"/"accessory" and returns 0.0 displaced-value for any other slot, so 6 of the 10 slots would be silently mis-valued unless extended); canonical serialization (`canonical_loadout.py:18-41`, 4-slot today); telemetry (`player_loadout` / resist export fields); spirit-guide aggregation; and the loadout web app (drax — surface the 10 slots). The enum→loadout bridge applies the §3.0 LEGS→CHEST fold. This is a cross-seam interface change → MIGRATION.md per ADR-004.
 
 ---
 
@@ -199,6 +215,12 @@ The player-experience spec — what must be **proven** before Path B is accepted
 3. **No one-shot under maximum reduction.** Stack every reduction layer on a *capped* player and they still survive a representative hit (the overcap buffer §8 is the safety margin — verify it actually buffers).
 4. **Itemization choice survives calibration (§6.2).** Uniform / concentrated / full-cap remain distinct viable shapes; the reduction cycle makes each live. If calibration collapses them to one dominant shape, Path B has failed its core promise.
 
+   **Measurable collapse-criterion (CONCERN-2 close, jack-ryan Gate-1 — so 1c Gate-2 can tell pass from fail):** the three reference shapes (uniform-under-cap / concentrated-cap-4 / full-cap-all-7) are run against the §11.1 reduction enum at calibrated budget. The discriminator has two parts:
+   - **(a) Each shape is VIABLE** — all three clear the survive-AND-kill bar against the non-counter portion of the enum (i.e., each is a playable build, not a trap). The numeric survive/kill threshold is **gamora's calibration target, jack-ryan-ratified at 1c Gate-2** (it is the same survive+kill bar §13.1/§13.3 use — not a new number).
+   - **(b) No shape DOMINATES** — across the enum spread, no single shape's aggregate outcome (survive-rate × clear-time, or whatever composite gamora locks) exceeds the next-best shape's by more than a **dominance margin Y**. **Y is gamora's to set and jack-ryan's to ratify** — I do not pre-set the number (per §17, calibration is gamora's). My design contract is only: *if one shape wins by more than Y on every enum archetype, the choice has collapsed and Path B §6.2 has failed.* gamora picks Y such that "meaningfully different but not strictly ordered" holds; jack-ryan gates that Y is defensible.
+
+   The threshold-setting is **explicitly delegated to gamora's calibration with jack-ryan ratifying at 1c Gate-2** — this proof obligation gives the *shape* of the test (three reference builds, viable-AND-non-dominant) so it is no longer un-falsifiable, while leaving the magnitudes where §17 puts them.
+
 ---
 
 ## 14. What stays UNCHANGED
@@ -215,7 +237,7 @@ The player-experience spec — what must be **proven** before Path B is accepted
 | Step | Work | Seam | Gate |
 |---|---|---|---|
 | **0** | **This spec** (design-of-record) | gandalf | → **jack-ryan Gate-1 DESIGN-MODE** |
-| **1a** | **Sim Loadout widening 4→10** (§3.1 — schema, `_slots()`, `combined_stats()`, serialization, telemetry, spirit-guide, loadout app) | rocket + gamora + star-lord + drax | jack-ryan Gate-2; MIGRATION.md per ADR-004 |
+| **1a** | **Sim Loadout widening 4→10** (§3.1 — schema 4→10; `_slots()` + ALL its consumers: `combined_stats`, `combined_ability_modifiers`, `combined_traits`, `total_power_score`; spirit-guide `_displaced_value` 4-name branch; enum→loadout LEGS→CHEST fold per §3.0; serialization; telemetry; loadout app) | rocket + gamora + star-lord + drax | jack-ryan Gate-2; MIGRATION.md per ADR-004 |
 | **1b** | **Breadth-affix taxonomy** (dual/trio/all mint branches; Rule 1 dedupe) — *gated on 1a* | rocket | Gate-2 |
 | **1c** | **Budget recalibration** (§4 ranges + offense ranges → §6/§8 targets + §13 proofs) — *gated on 1a+1b* | gamora | Gate-2; §13 proof obligations |
 | **2** | **Reduction-monster cycle** (§11; the bounded enum; reduction-event telemetry) — **MATT-GATED multi-wave build** | rocket (modifiers) + gamora (sim) + star-lord (telemetry) | Matt authorization → Gate-1 → Gate-2 |
