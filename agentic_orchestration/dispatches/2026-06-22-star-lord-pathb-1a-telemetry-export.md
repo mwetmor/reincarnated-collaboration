@@ -51,3 +51,53 @@ This dispatch modifies the **telemetry/export field surface** (`loadout_json` / 
 ## References
 - rocket Gate-2: 1a findings (`e2413ef`); rocket commit `14ee022`, tag `rocket/v-pathb-1a-loadout-schema`
 - Code anchors: `serialize_loadout` (10 keys, empties→null), `balance_loop.py` / `recorder.py` (opaque-TEXT pass-through), the `loadout_json` / `player_loadout` export sites
+
+## Completion record
+
+**Completed:** 2026-06-22
+**Agent:** star-lord
+**Engine commits:** `3320403` (export/test widening), `86dcadb` (AGENT_STATE)
+**Tag:** `star-lord/v-pathb-1a-telemetry-export`
+
+### Export surface widened (sites)
+
+All export surfaces are **no-change** at the code level — they're already opaque TEXT pass-throughs. The widening lands in:
+1. `tests/test_canonical_loadouts.py` — 8 tests updated from legacy 4-key assertions (`weapon`/`armor`/`accessory`) to 10-slot canonical assertions (`main_hand`/`chest`/`amulet`/`EQUIPPED_SLOTS` set). No behavior change; assertions now match what `serialize_loadout()` actually emits post-1a.
+2. `src/reincarnated/export/pathb_1a_telemetry_roundtrip_smoke_2026_06_22.py` — NEW round-trip smoke (acceptance criterion).
+3. `src/reincarnated/generation/MIGRATION.md` — export-side section co-authored under rocket's `[2026-06-22] Path B Step 1a` entry.
+
+No code changes to `recorder.py`, `season_exporter.py`, `schemas.py`, or `balance_loop.py`. The `loadout_json TEXT NOT NULL` column stores opaque TEXT — no DB migration required.
+
+### Round-trip smoke result
+
+**18/18 PASS** (`src/reincarnated/export/pathb_1a_telemetry_roundtrip_smoke_2026_06_22.py`):
+
+**RT-1 (10-slot production round-trip) — 12 checks PASS:**
+- RESIST_CAPABLE_SLOTS cardinality == 9; main_hand excluded
+- `serialize_loadout()` emits exactly 10 EQUIPPED_SLOTS keys: `[amulet, belt, chest, feet, hands, head, main_hand, off_hand, ring_1, ring_2]`
+- Slot content: `main_hand`/`off_hand`/`chest`/`amulet` carry gear IDs; 6 empty slots → null
+- Telemetry write: `record_class_fight_loadouts()` persists row in `class_fight_loadouts`
+- DB read-back: parsed dict has all 10 EQUIPPED_SLOTS keys; `main_hand` id matches; `legendary_count=1` correct
+
+**RT-2 (brownfield 4-key parse-tolerance) — 6 checks PASS:**
+- Historical 4-key row (`weapon`/`off_hand`/`armor`/`accessory`) has exactly 4 keys
+- Persists as opaque TEXT via `record_class_fight_loadouts()` without error
+- `json.loads()` succeeds (no parse error)
+- 4 legacy keys intact after round-trip; weapon field value unchanged
+
+**29/29 test_canonical_loadouts.py PASS, 0 regressions.**
+
+### Export-side MIGRATION section
+
+Co-authored under rocket's `[2026-06-22] Path B Step 1a` entry in `src/reincarnated/generation/MIGRATION.md` as `### star-lord seam 3 — export-side completion (co-authored 2026-06-22)`. Documents: test updates, smoke file, no-change surfaces (recorder/exporter/schema), brownfield invariants.
+
+### For jack-ryan Gate-2
+
+Check:
+1. `29/29 test_canonical_loadouts.py PASS` (run `python3 -m pytest tests/test_canonical_loadouts.py -q`)
+2. `18/18 round-trip smoke PASS` (run `python3 src/reincarnated/export/pathb_1a_telemetry_roundtrip_smoke_2026_06_22.py`)
+3. MIGRATION.md co-author section present under rocket's 2026-06-22 entry (look for `### star-lord seam 3`)
+4. No DB migration (the `loadout_json TEXT NOT NULL` column is opaque TEXT; shape change is additive-in-JSON only)
+5. Pre-existing failure: `test_cycle12_layer4_convergence.py::TestGate1ConvergenceResultShape::test_dataclass_fields_exist` — calls retired `SkillTreeGenerator.generate()` (raises `NotImplementedError`). Pre-dates this work; confirmed via `git stash` test.
+
+Push HELD per dispatch instructions.
