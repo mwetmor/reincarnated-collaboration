@@ -1,6 +1,8 @@
 # Wind-down memo — progression toward battle-sim + gen-pipeline completion
 
-**STATUS:** MEMO (gandalf wind-down survey + progression diagram + autonomous-run-eligibility classification)
+> **⚠ SUPERSEDED 2026-06-23 → `canonical/story/current-to-end-state.md`** (the LIVING consolidated tracker that absorbs this memo's progression map + the disk-verified spine + the v2 gameplay-loop design + the horde-gap finding). This memo remains as lineage; **where it conflicts with the living doc, the living doc governs.** Do not update this file — update the living doc.
+
+**STATUS:** SUPERSEDED (was: MEMO — gandalf wind-down survey + progression diagram + autonomous-run-eligibility classification)
 **Date:** 2026-06-18
 **Author:** gandalf (story-and-design steward)
 **Purpose:** map the steps remaining toward (A) **battle-sim completion** and (B) **engine gen-pipeline completion**; classify each step blocked vs unblocked; identify which steps a **pre-authorization note converts to autonomous-run-eligible** (Matt's "overnight run" question).

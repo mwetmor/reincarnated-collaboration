@@ -1,6 +1,8 @@
 # Current State → End State — Battle-Sim + Content-Emission Pipeline
 
-**STATUS:** DESIGN SURVEY + FORWARD MAP (authored for the systematic-planning pass Matt requested)
+> **⚠ SUPERSEDED 2026-06-23 → `canonical/story/current-to-end-state.md`** (the LIVING consolidated tracker — absorbs this spine + the wind-down memo + the v2 gameplay-loop design + the horde-gap finding). This dated snapshot remains as lineage; **where it conflicts with the living doc, the living doc governs.** Do not update this file — update the living doc.
+
+**STATUS:** SUPERSEDED (was: DESIGN SURVEY + FORWARD MAP) — see banner above
 **Date:** 2026-06-18
 **Author:** gandalf (story-and-design steward)
 **Purpose:** for EACH of the two systems Matt named — (I) the **battle simulation** and (II) the **full content-emission pipeline** — map the *current state* (what exists, on disk, cited), the *end state* (where we want to be, with a design-anchored definition), and the *space between* (every known blocker / missing component, each explained). Then (III) the bridge that joins them, and (IV) an owner map. This is the artifact we plan from.

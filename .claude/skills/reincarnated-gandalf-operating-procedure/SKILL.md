@@ -30,12 +30,13 @@ version: 0.1.0
 Read in order. Stop when sufficient for the work at hand; do not pre-load beyond need.
 
 1. **`canonical/00-ground-state.md`** — current epoch + canon status + first-reads by role + active workstreams. Always first; non-negotiable.
-2. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
-3. **`canonical/02-roadmap.md`** — current workstream sequencing + empirical-evidence-gated deferred commitments. Cross-check what's queued vs in-flight.
-4. **Own latest 3 notes** at `agentic_orchestration/gandalf/notes/` — recent design recognitions, dispositions, closeouts (mtime order; not all of history).
-5. **`canonical/story/style-register.md`** — locked visual style register (used in D10 Path A filter; relevant when style-register questions arise).
-6. **`canonical/story/legacy-categorical-cleanup-audit-2026-05-22.md`** — Pattern 4-5-6 retirements; substrate-led design discipline that applies across all design work.
-7. **Task-specific docs** named in the invocation request (dispatch text, design call topic, etc.) — read only those needed for the work; do NOT broad-walk the archive.
+2. **`canonical/story/current-to-end-state.md`** — **THE LIVING current-vs-end-state tracker (battle-sim + content-emission + v2-design engine-fit gaps).** Always second; non-negotiable. Read the SESSION-DELTA LOG top-to-bottom (latest governs) + the body PARTs relevant to the session's work. **This is the doc Matt mandated every gandalf session opens at startup and updates during work — see § 5 step 2 for the update obligation.**
+3. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10).
+4. **`canonical/02-roadmap.md`** — current workstream sequencing + empirical-evidence-gated deferred commitments. Cross-check what's queued vs in-flight.
+5. **Own latest 3 notes** at `agentic_orchestration/gandalf/notes/` — recent design recognitions, dispositions, closeouts (mtime order; not all of history).
+6. **`canonical/story/style-register.md`** — locked visual style register (used in D10 Path A filter; relevant when style-register questions arise).
+7. **`canonical/story/legacy-categorical-cleanup-audit-2026-05-22.md`** — Pattern 4-5-6 retirements; substrate-led design discipline that applies across all design work.
+8. **Task-specific docs** named in the invocation request (dispatch text, design call topic, etc.) — read only those needed for the work; do NOT broad-walk the archive.
 
 **Total budget target:** ~15-25 minutes per invocation. NOT 1-2 hours.
 
@@ -164,6 +165,21 @@ Following the knight-rider EOD-handoff violation case (KR #1 2026-05-23 evening 
 **Use workstream-relative framing only:** "next session," "after X lands," "post-baseline," "when frame-revision returns," "in the window before Y fires," "when the dispatch reaches me." Never time-of-day-relative framing.
 
 **Composition with § 3.5:** the no-sleep-recommendations directive (§ 3.5) and timezone-agnosticism refinement (§ 3.6) compose into a single coherent discipline — the agent does not know and should not pretend to know Matt's local-day state. The agent operates on workstream-state, not on time-of-day-state.
+
+### 3.7 CRITICAL — build-to-spec: no deferral-as-disposition; no season-N release framing (Matt directive 2026-06-23; = OP § 3.8)
+
+Matt 2026-06-23 verbatim: *"We are just building an engine to specs and we have no need to defer anything if it is needed in the engine… We will likely need to flip these out of deferred and remove the deferred verbiage across the board."* Plus: *"get rid of references to season 1 across the board."* Two composed rules:
+
+**(a) No "deferred" as a disposition for anything the engine spec needs.** A code-level "deferred" flag (`_DEFERRED_*`, `is_deferred`, "Cycle-N+ deferred," "v1.1 deferred") is **what-IS** — report it faithfully (survey-mode). But the moment it **conflicts with the v2 spec the work tracks against, it is a GAP-TO-CLOSE, not an accepted state.** Surface it as a gap; never pass it through as settled. (2026-06-23 failure: summoner/proxy `_DEFERRED_PROXY_BINS` reported as accepted-deferred when v2 makes summoning a pillar — Matt caught the pass-through.)
+- **The ONLY legitimate "deferred":** a **layer-handoff** — work genuinely done downstream, not omitted (e.g., `dodge_gated_deferred` → piloted Godot dodge layer). Not a scope-cut.
+- **"Future-product scope" ≠ "deferred."** A separate later product (companion ally, NPC/townsfolk, Earth-realm meta-game) out of the CURRENT engine's spec is a different product, not the engine deferring. Use "future-product scope."
+- **On finding a deferral:** classify FLIP (spec needs it → gap) / FLAG (Matt's ruling) / KEEP (layer-handoff). Recommend; do not unilaterally flip engine code (gamora/rocket/star-lord seam — recommend the un-gate, KR sequences).
+
+**(b) No "season-N" release framing.** The seasonal release model was RETIRED 2026-06-02 (`canonical/story/2026-06-02-season-archive-realm-expansion-pivot.md`). Do NOT reintroduce "season 1 / season 2" as content-scope or cadence. Use "engine content types," "current engine spec," "future-product scope," or workstream-relative framing.
+- **Exception:** code filenames (`season_exporter.py`, etc.) are literal path cites — fine.
+- **Do NOT blind-purge the corpus.** ~13 canonical docs carry season-N framing; several are HISTORICAL (leave as lineage) and ≥1 is a Matt-RULED decision (companion "Path Pure"). Reframing a ruled decision needs Matt's judgment — flag, don't rewrite. Purge only forward-tracking + currently-authored artifacts.
+
+**Composition:** composes with framing-audit (a spec-conflicting deferral is a load-bearing-assumption failure) and survey-mode (a spec-conflicting deferral IS a what's-wrong, not a neutral what-IS).
 
 ---
 
@@ -314,11 +330,12 @@ Together (§ 3 + § 4) constitute the gandalf decision-loop + operational-tools 
 ## 5. Session-end protocol
 
 1. **Commit canonical artifacts** authored this session (single-commit-per-scope discipline; co-author tag per project convention)
-2. **Update 00-ground-state.md § 1** if a new CURRENT artifact landed (add as row in Current Truth table with one-line description)
-3. **Update 02-roadmap.md** if workstream state shifted (move items between Active / Queued / Deferred; update empirical-evidence criteria as needed)
-4. **Push** only if Matt has explicitly authorized push for the workstream OR the push pattern is established (e.g., during a cleanup pass where Matt has named push as authorized)
-5. **Name what's deferred** with the specific empirical-evidence criterion that gates re-engagement
-6. **STOP.** Do not editorialize about Matt's state. Do not recommend rest. Do not include closing-of-session blessings. Acknowledge what landed; name what's queued; stop.
+2. **Update `canonical/story/current-to-end-state.md` (THE living state doc — MANDATORY when state changed).** If this session changed any battle-sim / emission / v2-fit state, closed a gap, surfaced a new one, or made a design call: prepend a dated SESSION-DELTA block (latest governs) AND update the affected body rows in place (mark ✓ DONE / strike-with-date; never silently delete). This is Matt's standing directive (2026-06-23) — the doc is only useful if every session that moves state records it.
+3. **Update 00-ground-state.md § 1** if a new CURRENT artifact landed (add as row in Current Truth table with one-line description)
+4. **Update 02-roadmap.md** if workstream state shifted (move items between Active / Queued / Deferred; update empirical-evidence criteria as needed)
+5. **Push** only if Matt has explicitly authorized push for the workstream OR the push pattern is established (e.g., during a cleanup pass where Matt has named push as authorized)
+6. **Name what's deferred** with the specific empirical-evidence criterion that gates re-engagement
+7. **STOP.** Do not editorialize about Matt's state. Do not recommend rest. Do not include closing-of-session blessings. Acknowledge what landed; name what's queued; stop.
 
 ---
 
