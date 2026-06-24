@@ -1,10 +1,12 @@
 # Attribute System — Reincarnated v1 Operational Definition
 
+> **⚠ AMENDMENT 2026-06-24 (Matt ruling — GOVERNS the VIT sections below):** **VIT is DELETED, not deferred.** Matt: *"VIT attribute should be deleted."* This supersedes every "VIT deferred to v1.1+" statement in this doc (§Status, §1.5, §5.3, §closing). Under the build-to-spec discipline (Matt 2026-06-23), there is no "deferred VIT" disposition — the system is **a permanent 4-attribute system (STR / INT / WIS / DEX)**; VIT is not a future-candidate, it is removed from consideration. Defensive/health-scaling stays subsumed by the defensive-profile BC axis (Axis #7) permanently. Engine follow-up: strip the VIT config entry at `emit_substrate_registry.py:116` (rocket/star-lord). The VIT sub-sections are retained below as struck lineage only.
+
 > **STATUS:** CURRENT — PROPOSED operational definition consolidating scattered attribute references; Stage 0 design call may amend at lock-time. Authored as Cycle 10 substrate-curation dispatch prerequisite per Matt 2026-05-24.
 
 **Date:** 2026-05-24
 **Author:** gandalf (story-and-design steward)
-**Status:** ACTIVE — locks 4-attribute system (STR / INT / WIS / DEX) as v1 operational truth; defers VIT to v1.1+
+**Status:** ACTIVE — locks 4-attribute system (STR / INT / WIS / DEX) as operational truth; ~~defers VIT to v1.1+~~ **VIT DELETED (Matt 2026-06-24) — permanent 4-attribute system, no VIT**
 **Authority:** Matt 2026-05-24 — Cycle 10 Stage 0 prerequisite confirmation (Stream A1 composite authoring)
 **Companion docs:**
 - `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` — 8 BC axes (attribute = 4-tuple BC-target subspace dimension)

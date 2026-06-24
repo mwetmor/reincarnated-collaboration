@@ -21,6 +21,26 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-06-24 — Matt rulings on the deferral audit (III.10): proxy/charge-stack/support FLIP; VIT DELETE; HP-economy BUILD; dodge KEEP; T4 + element-ailment explained
+
+**Matt ruled on each audited deferral.** The III.10 table is updated in place to RATIFIED dispositions; this delta governs:
+
+1. **proxy/summon — FLIP RATIFIED.** *"Thanks for flipping PROXY."* The summoner un-gate (III.1b) is confirmed. Un-defer `_DEFERRED_PROXY_BINS`; un-defer `ProxySpawn` (the T4 mechanic-alteration, `mechanic_alteration.py:46`) on the same multi-actor-sim dependency.
+2. **charge-stack — FLIP RATIFIED.** *"if it was deferred, remove the deferral."* It's build-depth; the v2 thesis IS build-depth. **damage-taken-converts** rides the same logic (identical build-mechanic class) — flipped with it.
+3. **support-role — FLIP (investigation confirmed Matt's instinct).** Matt: *"we may need it for summon/proxy (but let's check the skills, maybe it already exists)."* **It already exists** — `_ROLE_DEF_BASE["support"]="mitigator"`, `_ROLE_CTRL["support"]="mixed"` `[bc_target_source.py:29-40]`, aura geometry valid for support/any-element `[ability_grammar.py:250-257]`, full support econ/level/weight tables `[bc_target_composer.py]`. It is deferred ONLY because Profile-A is solo (no ally to support). Proxies create the ally target → **support un-gates on the SAME multi-actor-sim dependency as proxy. No new mechanics to author — just un-gate.**
+4. **HP-economy — BUILD (need-it; substrate-acquisition).** Matt: *"we absolutely need this."* The clarified question: v2 build-depth wants life-as-resource builds (PoE Blood Magic / low-life). This is NOT a flag-flip — the mechanic pool has **zero** HP-cost mechanics, so `check_infeasibility` returns HARD-INFEASIBLE (LC-030) correctly. "Needing it" = **author Blood-Magic-class HP-cost mechanics INTO the substrate** (rocket/elrond), then the infeasibility clears on its own. Substrate-acquisition gap, not a toggle.
+5. **VIT attribute — DELETE RATIFIED.** Matt: *"VIT attribute should be deleted."* Not a flip-in — **remove entirely.** `attribute-system-2026-05-24.md` (which records "VIT deferred to v1.1+") needs a DELETE amendment; `emit_substrate_registry.py:116` VIT config entry to be removed (rocket/star-lord). Flagged to the owning docs.
+6. **dodge_gated_deferred — KEEP RATIFIED.** Matt: *"dodge gate is kept, just awaiting JSON packet emission to test."* Correct layer-handoff confirmed; the gate stays, pending the JSON packet emission that lets the piloted Godot dodge layer be tested.
+7. **T4 algorithm + element-conversion Variant-C ailment — AWAITING RULING.** Matt: *"I'm not sure what this represents."* Explanations provided to Matt (see below); these two stay FLAG until he rules. Neither blocks the finalize-and-push (both are measured-for-record-only today; flipping later costs nothing).
+
+**Sequence (Matt verbatim):** *"After we finalize the flips/etc then push and wind down."* AND *"Let's not worry about the across the board [season] reference for now."* → corpus-wide season purge DEFERRED (not now); finalize III.10 flips → push → wind down. T4 + element-ailment rulings can land this session or next without gating the push.
+
+**The two explanations Matt asked for:**
+- **T4 algorithm** = the **Tier-4 (top-tier) modifier / mechanic-alteration system** (canonical 40-47). Deferred in two senses: (a) the bounded-viability validation loop measures T4 outcomes *"for record only"* and defers acting on them to Cycle 16+ `[bounded_viability_validation.py:1477]`; (b) several T4 mechanic-alterations are sim-extension-deferred — `ResourceBuffer, MechanicReplacement, ZoneControl, ConditionalModifier, ProxySpawn` `[mechanic_alteration.py:45-46]`. ProxySpawn rides the proxy flip; the other four are the genuine "highest-complexity affixes need the extended sim" set. **Likely a real refinement-defer** (the algorithm works, it's the act-on-it that waits) — but if v2 build-depth wants top-tier affixes live, it's a flip.
+- **element-conversion Variant-C ailment** = when a skill **converts its damage from one element to another** (e.g., a fire skill dealing cold damage), Variant-C is the rule where the converted hit carries the **NEW element's ailment** (cold→chill/freeze) instead of the original's (fire→burn). `ELEMENT_CONVERSION_VARIANT_C_AILMENT_ENABLED = False` `[damage_resolver.py:248]`, tagged "Cycle 15 candidate." A **build-depth flavor** mechanic — conversion builds feel more correct with it on, but it's not load-bearing.
+
+---
+
 ### 2026-06-23 (later, same session) — Matt directive: BUILD-TO-SPEC, NO DEFERRALS; purge "season-N" + accepted-deferral framing
 
 **Matt's ruling (GOVERNS all deferral language in this doc and forward in every gandalf artifact):** *"We are just building an engine to specs and we have no need to defer anything if it is needed in the engine… We will likely need to flip these out of deferred and remove the deferred verbiage across the board."* Plus: *"get rid of references to season 1 across the board."* The engine is built to its FULL spec; "deferred" is not a disposition for anything the v2 loop needs — it is a gap-to-close.
@@ -176,13 +196,16 @@ Each item: what the v2 design asks · what the engine currently does · the gap 
 - **Resolution path (gandalf lean):** Goldilocks needs a matchup-**temperature signal**, not a kit-vs-kit **fight**. Compute temperature as a lookup over already-emitted features — archetype + dominant_element + BC-signature distance + resistance profile (the Pokémon type-chart path). Cheap, reuses the emission surface, no second-kit sim slot. **Unvalidated (heuristic, not sim result); net-new either way.** The alternative — a true kit-vs-kit sim slot — is heavier net-new spatial-combat architecture.
 - **Owner**: joint **gamora + star-lord scoping** (signal-heuristic vs full kit-vs-kit sim) — the first forward consult; **gandalf** design-fit on the temperature definition. **Resolve first; it gates the most.**
 
-### III.1b — Summoner / player-side proxies (the grimoire-summon pillar) [HIGH — same multi-actor root as III.1]
+### III.1b — Summoner / player-side proxies (the grimoire-summon pillar) [HIGH — same multi-actor root as III.1] — FLIP RATIFIED (Matt 2026-06-24)
+
+> **Status:** Matt ratified the flip 2026-06-24 (*"Thanks for flipping PROXY"*). This is no longer a recommendation — it is a confirmed gap-to-close. **Support-role rides this same un-gate** (mechanics already exist; deferred only by solo Profile-A — see below). `ProxySpawn` (T4 mechanic-alteration, `mechanic_alteration.py:46`) un-defers on the same dependency.
 
 - **v2 asks**: summoning is a **pillar**, not flavor — the grimoire capture-and-summon economy (§11), temporal summoning of coveted champions into your next dungeon at your level (§13), and **summoner-as-revealed-identity** ("a player who chooses summoner every time *is* a summoner," §12/§17). Player-side proxy combatants are core to the loop.
+- **Support-role rides this (confirmed 2026-06-24)**: support is NOT missing from the engine — `_ROLE_DEF_BASE["support"]="mitigator"`, `_ROLE_CTRL["support"]="mixed"` `[bc_target_source.py:29-40]`, aura geometry valid for support/any-element `[ability_grammar.py:250-257]`, and full support econ/level/weight tables exist `[bc_target_composer.py]`. It is `check_infeasibility`-deferred ONLY because Profile-A is solo (no ally to support). Once proxies (and/or the §14 companion ally) provide ally targets, support un-gates on the **same multi-actor-sim dependency — no new mechanics to author.**
 - **Engine does**: gates the entire proxy archetype OUT. `_DEFERRED_PROXY_BINS = {proxy-light, proxy-heavy}` `[bc_target_composer.py:97,318]`; `check_infeasibility` returns `is_deferred=True, reason="sim is solo-only (Profile A); proxy-creation mechanics absent"`. Every emitted kit carries `"proxies": []` `[proxy_vocabulary_bridge.py:22-23; schemas.py:1305 "production proxy_decls always [] → reads 0.0 on all real rows"]`.
 - **Gap**: a **stale Profile-A artifact**, not a design disposition — and per Matt 2026-06-23 it does NOT survive as a deferral, because the v2 spec needs it. The sim cannot create, position, or resolve a player-summoned proxy that deals spatial damage / takes aggro.
 - **Resolution path**: build the **player-side multi-actor path** — proxies as spatially-real combatants the player's kit creates (occupy position, deal/take damage, draw aggro). This is the **same root** as the III.1 kit-vs-kit keystone (the sim is single-actor-per-side); BUT it forces the harder branch — summoner viability genuinely needs the proxies *simulated*, so the III.1 type-chart heuristic does NOT discharge it. Un-gate `_DEFERRED_PROXY_BINS` only once the sim can evaluate proxy kits.
-- **Owner**: **gamora** (multi-actor sim + proxy combat) + **rocket** (proxy-decl generation un-gate); **gandalf** design-fit on summoner viability bands + the grimoire-summon combat contract. **Scope jointly with III.1 — shared multi-actor-sim foundation.**
+- **Owner**: **gamora** (multi-actor sim + proxy combat; support-role un-gate on the same path) + **rocket** (proxy-decl generation un-gate); **gandalf** design-fit on summoner viability bands + the grimoire-summon combat contract. **Scope jointly with III.1 — shared multi-actor-sim foundation.**
 
 ### III.2 — Per-kit level model (the descent is unvalidated)
 
@@ -251,23 +274,23 @@ v2 re-registers the frame. The following prior canon needs reconciliation (a **n
 
 ### III.10 — Deferral audit: what else is gated, and whether v2 needs it [Matt directive 2026-06-23]
 
-Per Matt's build-to-spec ruling, every engine deferral is re-classified: **FLIP** (v2 needs it → gap-to-close), **FLAG** (needs Matt's ruling), or **KEEP** (genuine layer-handoff, not a scope-cut). Audited against engine source this session.
+Per Matt's build-to-spec ruling, every engine deferral is re-classified: **FLIP** (v2 needs it → gap-to-close), **FLAG** (needs Matt's ruling), or **KEEP** (genuine layer-handoff, not a scope-cut). Audited against engine source this session. **Matt ruled 2026-06-24 — dispositions below are RATIFIED except the two he asked to have explained (now AWAITING).**
 
-| Deferral | Code site | v2 read | Disposition |
+| Deferral | Code site | v2 read | Disposition (Matt 2026-06-24) |
 |---|---|---|---|
-| **proxy/summon bins** (proxy-light/heavy) | `bc_target_composer.py:97,318` | grimoire-summon pillar (§11/§13), summoner identity (§12/§17) | **FLIP → III.1b (high)** |
-| **charge-stack** mechanic bin | `bc_target_composer.py:311` | stacking-resource build mechanic — the v2 thesis IS combat-build-depth | **FLIP (recommend) — build-depth** |
-| **damage-taken-converts** mechanic bin | `bc_target_composer.py:312` | defensive→offensive conversion (PoE-class build mechanic) | **FLIP (recommend) — build-depth** |
-| **support role** | `bc_target_composer.py:313` (Profile-A solo) | solo descent, BUT player-side proxies + companion ally (§14) create ally contexts | **FLAG — Matt: any ally/party context in v2?** |
-| **HP-economy** | `bc_target_composer.py:326` (HARD-INFEASIBLE, LC-030) | Blood-Magic-class build mechanic; pool has ZERO HP-cost mechanics — a *substrate* gap, not a toggle | **FLAG — substrate acquisition, distinct from a flag-flip** |
-| **VIT attribute** | `attribute-system-2026-05-24`; `emit_substrate_registry.py:116` | defensive/health-scaling attribute; deferred to "v1.1" | **FLAG — Matt: does v2 build-depth want VIT in?** |
-| **T4 modifier algorithm** | `bounded_viability_validation.py:1477`; `sc7_calibration_loop.py:1058` | 4th-tier affix algorithm; "measured-for-record, Cycle 16+" | **FLAG — likely a real refinement-defer; confirm vs build-depth** |
-| **element-conversion Variant-C ailment** | `damage_resolver.py:248` | ailment-on-conversion build-depth flavor; "Cycle 15 candidate" | **FLAG — build-depth flavor** |
-| **`dodge_gated_deferred`** | `balance_loop.py` (terminal outcome) | NOT a scope-cut — hands glass-close-ST viability to the *piloted Godot dodge LAYER* | **KEEP — correct layer-handoff; done downstream, not omitted** |
+| **proxy/summon bins** (proxy-light/heavy) | `bc_target_composer.py:97,318` | grimoire-summon pillar (§11/§13), summoner identity (§12/§17) | **FLIP — RATIFIED.** Un-gate → III.1b (high). Also un-defer `ProxySpawn` (`mechanic_alteration.py:46`). |
+| **charge-stack** mechanic bin | `bc_target_composer.py:311` | stacking-resource build mechanic — the v2 thesis IS combat-build-depth | **FLIP — RATIFIED** ("remove the deferral"). |
+| **damage-taken-converts** mechanic bin | `bc_target_composer.py:312` | defensive→offensive conversion (PoE-class build mechanic) | **FLIP** — rides charge-stack (same build-mechanic class). |
+| **support role** | `bc_target_composer.py:313` (Profile-A solo) | proxies + companion ally (§14) create ally contexts | **FLIP — confirmed.** Mechanics ALREADY EXIST (mitigator/mixed/aura tables); deferred only by solo Profile-A → un-gates on the SAME multi-actor-sim dependency as proxy. No new mechanics. |
+| **HP-economy** | `bc_target_composer.py:326` (HARD-INFEASIBLE, LC-030) | Blood-Magic-class build mechanic; pool has ZERO HP-cost mechanics | **BUILD — need-it.** NOT a flip: author HP-cost mechanics into the substrate (rocket/elrond); infeasibility clears on its own. |
+| **VIT attribute** | `attribute-system-2026-05-24`; `emit_substrate_registry.py:116` | defensive/health-scaling attribute; was deferred to "v1.1" | **DELETE — RATIFIED.** Remove entirely (not flip-in). Amend `attribute-system-2026-05-24.md`; strip `emit_substrate_registry.py:116` config (rocket/star-lord). |
+| **T4 modifier algorithm** | `bounded_viability_validation.py:1477`; `mechanic_alteration.py:45-46` | top-tier affix/mechanic-alteration system; "measured-for-record, Cycle 16+" | **AWAITING** — explained to Matt (Tier-4 affix system; 4 sim-extension-deferred alterations remain). Likely real refinement-defer; non-blocking. |
+| **element-conversion Variant-C ailment** | `damage_resolver.py:248` | converted hit carries the NEW element's ailment; "Cycle 15 candidate" | **AWAITING** — explained to Matt (build-depth flavor for conversion builds). Non-blocking. |
+| **`dodge_gated_deferred`** | `balance_loop.py` (terminal outcome) | NOT a scope-cut — hands glass-close-ST viability to the *piloted Godot dodge LAYER* | **KEEP — RATIFIED.** Gate stays; awaiting JSON packet emission to test downstream. |
 
-**The pattern Matt named:** the engine accreted "deferred" dispositions under the old phased/Profile-A/Cycle-N staging. The v2 trajectory — *ARPG combat build-depth* — turns several of those into **direct removals of the thing the game is about** (summoner, charge-stack, damage-conversion, HP-cost are exactly the build-mechanic depth the hook promises). **gandalf recommendation:** flip proxy/summon (III.1b) + the two mechanic bins now; bring support-role / VIT / HP-economy / T4 / element-ailment to Matt as a single **build-depth-scope ruling**. Keep only `dodge_gated_deferred`.
+**The pattern Matt named:** the engine accreted "deferred" dispositions under the old phased/Profile-A/Cycle-N staging. The v2 trajectory — *ARPG combat build-depth* — turns several of those into **direct removals of the thing the game is about** (summoner, charge-stack, damage-conversion, HP-cost are exactly the build-mechanic depth the hook promises). **Resolution (Matt 2026-06-24):** proxy + charge-stack + damage-taken-converts + support FLIP (the last three rebuild combat-build-depth; support needs no new mechanics — un-gate only); HP-economy is a substrate-BUILD (author HP-cost mechanics); VIT is DELETED outright; T4 + element-ailment stay FLAG pending explanation-then-ruling (non-blocking); `dodge_gated_deferred` is the one correct KEEP.
 
-- **Owner**: **gandalf** (the build-depth-scope ruling brief for Matt) + **gamora/rocket** (the un-gates). Forward-queue item (PART IV).
+- **Owner**: **gamora/rocket** (the un-gates: proxy/support multi-actor-sim, charge-stack/damage-conversion bin un-defers) + **rocket/elrond** (HP-economy substrate authoring; VIT config strip) + **gandalf** (VIT doc amendment; T4 + element-ailment ruling brief if Matt wants depth). Forward-queue item (PART IV).
 
 ---
 
@@ -278,8 +301,8 @@ Per Matt's build-to-spec ruling, every engine deferral is re-classified: **FLIP*
 | Work | Owner | gandalf surface |
 |---|---|---|
 | kit-vs-kit-temperature scoping | gamora + star-lord | design-fit on temperature definition (III.1) |
-| summoner / player-side proxies (un-gate) | gamora + rocket | summoner viability bands + grimoire-summon combat contract (III.1b) |
-| deferral audit → build-depth-scope ruling | gandalf → Matt | the flip/flag/keep brief (III.10) |
+| summoner / player-side proxies + support-role (un-gate) | gamora + rocket | summoner viability bands + grimoire-summon combat contract (III.1b); support rides the same multi-actor-sim un-gate (mechanics exist) |
+| deferral audit — RULED (Matt 2026-06-24) | gamora/rocket/elrond (un-gates); gandalf (VIT doc) | the ratified flip/delete/build/keep dispositions (III.10) |
 | per-kit level model | gamora + doc-33 | scenario-design + sawtooth-inequality spec (III.2) |
 | `SCENARIO_OVERRUN` + M1 primitive + band re-fit | gamora | scenario-design spec + horde KPM-band methodology (III.3) |
 | scale throughput (hundreds) | rocket/gamora | hook-honesty framing (III.4) |
@@ -293,7 +316,7 @@ Per Matt's build-to-spec ruling, every engine deferral is re-classified: **FLIP*
 
 1. **Convene the multi-actor-sim scoping consult** (gamora + star-lord) — the keystone, with TWO faces sharing one root (the sim is single-actor-per-side): (a) **kit-vs-kit matchup-temperature** (III.1 — gates Goldilocks/scouting/coverage-reward; likely a signal-heuristic) and (b) **summoner / player-side proxies** (III.1b — the grimoire-summon pillar; needs proxies genuinely simulated). Author the design-fit brief framing heuristic-vs-full-sim for (a) and the proxy-combat contract for (b).
 2. **Author the `SCENARIO_OVERRUN` design spec + horde-regime KPM-band methodology** — the verified, clock-on-it gap; every band locked at 8-concurrent is a band we may re-litigate.
-3. **Author the deferral / build-depth-scope ruling brief for Matt** (III.10) — flip proxy/summon + charge-stack + damage-taken-converts now; bring support-role / VIT / HP-economy / T4 / element-ailment as one build-depth decision. Unblocks the un-gates; fast to author.
+3. **Deferral audit RULED (Matt 2026-06-24)** (III.10) — proxy/charge-stack/damage-converts/support FLIP; VIT DELETE; HP-economy BUILD (substrate); dodge KEEP; T4 + element-ailment AWAITING explanation-ruling (non-blocking). Forward work now sits with the un-gate owners (gamora/rocket: proxy+support multi-actor-sim, charge-stack/damage-conversion bin un-defers; rocket/elrond: HP-cost substrate authoring + VIT config strip; gandalf: VIT doc amendment). Not a gandalf-authoring blocker anymore — a dispatch-sequencing item for KR.
 4. **Author the faction + weapon content-shape specs** — unblocks emission plumbing (c)(d); needed regardless of trajectory.
 5. **Author the per-kit-level / sawtooth-inequality stress-test spec** — converts §7/§8/§21 from unfalsifiable to measurable.
 6. **The story-canon reconciliation pass** (III.9) — v2 vs prior cosmograph/earth-avatar/companion records.
