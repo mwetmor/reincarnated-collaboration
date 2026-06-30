@@ -27,6 +27,6 @@ Per `current-to-end-state-story.md` PART C — the surviving experiential-struct
 - `2026-06-13-companion-as-hall-of-heroes-ally-commitment` — companion = past-self; temporal dyad (open items → tracker B2/B3)
 - `2026-06-22-seasonal-descent-architecture-recognition` + `…-faction-descent-and-reward-loop-recognition` + `…-content-audit` — descent + faction-walled-from-combat
 
-**Discipline:** reconcile, do not amputate (`reap-die-rise/00-index.md` §4). Open story decisions are NOT folded as settled — they route to the delta tracker PART B.
+**Discipline:** reconcile, do not amputate (`reap-die-rise-story/spec-index.md` §4). Open story decisions are NOT folded as settled — they route to the delta tracker PART B.
 
 **Author:** gandalf, 2026-06-30.

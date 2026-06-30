@@ -2,7 +2,7 @@
 
 **STATUS:** SCAFFOLD (born 2026-06-30, canonical reorg Tranche 2). This is the **END-STATE engine spec** folder, assembled by strategy **(b) heavyweight-fold** — distilling the numbered engine docs + engine-mechanics story docs into a tight spec, deleting sources as content lands. Until the fold completes, the authoritative engine specs still live at `canonical/37–51` and `canonical/reap-die-rise/` (see tables).
 **Author:** gandalf (scaffold + worklist). **The engine-content folds are cross-seam** — each needs a **capture-check** (is the load-bearing content already in the engine tracker or the build docs?) and may route to the owning seam (rocket / gamora / star-lord) rather than being gandalf-folded.
-**Delta tracker (how far the build is from this spec):** `canonical/current-to-end-state/current-to-end-state-engine.md` (currently at `canonical/story/current-to-end-state.md`).
+**Delta tracker (how far the build is from this spec):** `canonical/current-to-end-state/current-to-end-state-engine.md` (currently at `canonical/current-to-end-state/current-to-end-state-engine.md`).
 
 ---
 
