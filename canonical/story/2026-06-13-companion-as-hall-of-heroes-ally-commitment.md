@@ -112,6 +112,8 @@ This is the more reverent reading, and it converts the lone "cost" of Path Pure 
 
 *(Reasoning trail preserved above: Path Two-Tier was my lean for live-from-minute-one continuity; Matt ruled Path Pure for the reverence and the absence→arrival beat. Both were legitimate; the ruling is clean.)*
 
+> **[NOTE 2026-06-30 — gandalf, canonical reorg]** The companion-difficulty-inversion doc (`2026-06-18-companion-difficulty-inversion-and-spirit-guide-combat-bridge.md`) is **deleted** in the reorg (git holds it). It rested on two now-retired premises — the **spirit guide** (RETIRED; its "combat-bridge" half dies with it) and a *settled* companion-in-season-2 — so its balancing mechanics do not carry forward. What carries forward is a single **OPEN story-session question:** under the v2 *Reap. Die. Rise.* frame, **does a companion belong in season two at all?** Maybe it has a place, maybe it won't — a future story session decides (Matt 2026-06-30). *If* that session rules yes, the season-2 difficulty-inversion concern must be re-derived from git: an un-reconciled ally power → the D2-mercenary "mandatory crutch" trap; the fix is to scale the *threat* (new two-actor encounter shapes), not just HP. This **sharpens Flag #4** (§7 bootstrap, still OPEN): the prior question was *"what's the run-model trigger for the first companion?"* — the prior-er question is now *"is there a season-two companion to trigger?"*
+
 ## 8. Build / seam consequences
 
 Fires when § 7 resolves; identity-source architecture can proceed in parallel:
