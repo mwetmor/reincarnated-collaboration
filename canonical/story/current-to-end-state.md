@@ -36,9 +36,11 @@
 
 **Path B (Matt directive #3) — `canonical/dead/` purged.** Emptied via `git rm` of its single tracked file `37-form-bias-diagnosis-and-recovery.md` (40,765 bytes; recoverable from git history). First concrete step of the broader canonical purge.
 
-**What did NOT move:** engine code (zero); the battle-sim / emission state (PARTs I–II unchanged); flags **#2** (run-persistence contract) + **#4** (molt→run-trigger) still queued for Matt. *(Flags #3 + #5 RESOLVED as consequences of the #6 ruling — see flag-memo.)* Design-canon refinement + propagation + purge-step only.
+**Canonical REORG begun (Matt-agreed 2026-06-30).** Target = **3 folders**: `reap-die-rise-story/`, `reap-die-rise-engine/`, `current-to-end-state/{…-story, …-engine}`; heavy `00-ground-state.md` registry retires to a thin router stub; strategy = **(b) heavyweight-fold** (distill pertinent content into a tight spec, delete sources). **Tranche 1 FIRED** (commits a813cec + 5fc2890): 13 live clean-kills (Cluster A/B process + superseded + companion-inversion + 02-roadmap + 48-class-roster) + 98 already-demoted historical docs swept. Working set now **83 live `story/` + 15 top-level**; only `reap-die-rise/` + `story/` subdirs remain. **This tracker is itself slated to become `current-to-end-state/current-to-end-state-engine.md`** in Tranche 2 (structural skeleton). Full worklist + per-doc dispositions: `agentic_orchestration/gandalf/notes/2026-06-30-canonical-reorg-fold-map.md`. Companion-inversion doc killed *with* its S2-companion OPEN investigation preserved in companion-as-Hall §7 (sharpens Flag #4).
 
-**Signed:** gandalf, 2026-06-30 (frame refinement + spirit-guide-retired 3-way propagation + Flag #6 banter ruling + `canonical/dead/` purge).
+**What did NOT move:** engine code (zero); the battle-sim / emission state (PARTs I–II unchanged); flags **#2** (run-persistence contract) + **#4** (molt→run-trigger) still queued for Matt. *(Flags #3 + #5 RESOLVED as consequences of the #6 ruling — see flag-memo.)* Design-canon refinement + propagation + reorg-Tranche-1 only.
+
+**Signed:** gandalf, 2026-06-30 (frame refinement + spirit-guide-retired 3-way propagation + Flag #6 banter ruling + canonical reorg Tranche 1).
 
 ---
 

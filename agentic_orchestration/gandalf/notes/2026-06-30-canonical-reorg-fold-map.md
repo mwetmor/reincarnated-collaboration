@@ -1,6 +1,6 @@
 # Canonical Reorg — Fold-Map (reviewable triage)
 
-**STATUS:** PROPOSAL awaiting Matt sanity-check. Nothing destructive executed yet.
+**STATUS:** IN EXECUTION. Matt ratified 2026-06-30 — fork = **(b) heavyweight-fold**; companion-inversion = **kill** (S2-companion investigation preserved); Tranche 1 = **go**. **Tranche 1 FIRED** (commits a813cec + 5fc2890): 13 live clean-kills + 98 already-demoted swept. Remaining: structural skeleton + (b) consolidation (§6).
 **Author:** gandalf, 2026-06-30
 **Workstream:** canonical-folder reorg + cleanse (Matt-agreed 2026-06-30: *"Agreed with the above and the three dispositions. Please begin."*)
 **Companion:** `canonical/reap-die-rise/00-index.md` (the existing v2 spec set — the model for the target form); `canonical/story/current-to-end-state.md` (the engine tracker that becomes `current-to-end-state-engine`).
@@ -121,21 +121,21 @@ arctic-circumpolar… · mesoamerican… · n-am-indigenous… · oceanic… · 
 - **(a) lightweight — move-whole:** relocate load-bearing docs into the 2 spec folders as-is. Fast, safe, reaches 3 folders in one pass. Cost: `reap-die-rise-engine` is then ~40 docs, not a tight consolidated spec.
 - **(b) heavyweight — fold-then-delete:** distill the pertinent content into a *tight* spec set (mirroring how `reap-die-rise/` already is 10 clean docs), delete the sources. Cost: multi-session spec-authoring.
 
-**My recommendation: (a) now, (b) as ongoing consolidation.** Get to 3 folders immediately (lightweight move + the clean kills), then fold the engine pile into a tight spec over subsequent sessions, deleting as content lands. The fold-map is the worklist for (b) either way.
+**RULED (Matt 2026-06-30): (b) heavyweight-fold.** Distill pertinent content into a *tight* consolidated spec set (mirroring how `reap-die-rise/` is already 10 clean docs), delete sources. Multi-session. The fold-map is the worklist.
 
 **Tranches:**
-1. **KILL-now (zero-judgment):** Cluster A + B + the two already-flagged top-level kills (02, 48) + the 98 already-demoted docs in `story/historical/` (80), `historical/` (15), `story/dead/` (2), `story/archived/` (1). All git-recoverable, commit nothing about the hard docs. **Pre-cleared — I can fire this on your nod.**
-2. **MOVE keepers (lightweight):** Cluster C story-frame + Cluster D/E/F flagged keepers + top-level engine specs → the 2 spec folders. The `?` rows get a quick capture-verification first (subagents check "is this content already in spec/tracker?" — evidence, then I make the kill/keep call).
-3. **Birth `current-to-end-state-story.md`** from open flags #2/#4 + undecided beats.
-4. **Thin router stub** replaces `00-ground-state.md`; update CLAUDE.md "Where to find things" table + any first-read pointers.
-5. **(b) consolidation** — ongoing.
+1. ✅ **DONE — KILL (zero-judgment):** Cluster A + clean B + 02 + 48 (commit a813cec, 13 live) + the 98 already-demoted subdirs (commit 5fc2890). All git-recoverable. **Held back from B to the `?`-verify set (4):** `autonomous-fire-prompt-template`, `autonomous-run-plan-v2` (possible active operational use), `gauntlet-metrics-as-provisional-hypotheses-recognition`, `ab-comparison-protocol-cycle-14-close` (possible reusable-methodology value). Companion-inversion killed *with* the S2-companion investigation note preserved in companion-as-Hall §7.
+2. **NEXT — structural skeleton:** create `reap-die-rise-story/`, `reap-die-rise-engine/`, `current-to-end-state/`; split the existing 10 `reap-die-rise/` docs by content (§3); move the tracker → `current-to-end-state/…-engine.md`. **Sequencing fork:** rename `reap-die-rise/` *now* (≈40 cross-refs to rewire: 00-index, tracker, ground-state, CLAUDE.md, story banners, OP skill) vs. consolidate-into-new-folders-first then retire `reap-die-rise/` last (rename once, fewer churns). **My rec: build the two new spec folders now, fold INTO them, retire `reap-die-rise/` last** — minimizes link rot.
+3. **(b) consolidation — the real lift:** fold Cluster D + top-level 37–51 engine specs into a tight `reap-die-rise-engine` spec; fold Cluster C story-frame into `reap-die-rise-story` (v2-reconciled); resolve `?` rows + the 4 held docs via capture-checks; route the *principle* docs (`designer-writes-substrate`, `v1-1-plus-disciplines`) to jack-ryan disciplines rather than kill.
+4. **Birth `current-to-end-state-story.md`** from open flags #2/#4 + undecided beats + the frame-reconciliation queue.
+5. **Thin router stub** replaces `00-ground-state.md`; update CLAUDE.md "Where to find things" table + first-read pointers.
 
 ---
 
 ## 7. The gate
 
-**What I need from you:** (1) ratify the keep/kill clusters above (rip through — flag any KILL you want preserved or any keeper you want killed); (2) pick the fork — (a) lightweight-now is my rec; (3) say go on Tranche 1 (the pre-cleared kills).
+**Resolved (Matt 2026-06-30):** (1) clusters ratified; (2) fork = **(b)**; (3) Tranche 1 = go → **FIRED**.
 
-Nothing destructive fires until you nod on §7. The `?` rows never get killed on a guess — each gets a capture-check first.
+**Next open item:** the Tranche-2 sequencing fork (§6.2) — rename `reap-die-rise/` now vs. fold-into-new-folders-first-and-retire-last. My rec: the latter (fewer link churns). The `?` rows + 4 held docs never get killed on a guess — each gets a capture-check during the (b) consolidation.
 
 **Author:** gandalf, 2026-06-30. The pile remembers every step of the road; the spec only needs to remember the destination. Git keeps the road.
