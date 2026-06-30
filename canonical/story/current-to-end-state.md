@@ -21,6 +21,27 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-06-30 — Frame refinement: spirit guide RETIRED (function splits A/B), god≠demigod corrected, Flag #6 banter-owner OPEN; `canonical/dead/` purged
+
+**Cosmology corrected + refined (Matt 2026-06-30).** Two corrections compose:
+
+1. **god ≠ demigod.** Earlier reconciliation artifacts conflated the **patron god** (Daikoku/Mahakala) with the **demigod-jailer**. Matt: *"the patron deity is most definitely not a demigod. It is a god. The demigod is the jailer."* Corrected across all frame docs.
+2. **The spirit guide is RETIRED** — *not re-labeled.* Matt: *"The spirit guide is actually just gone. The function of the spirit guide is replaced in two ways: (A) by the demigod instructor during the tutorial; (B) by the death god's voice, seldom heard but can offer guidance."* The warm future-self advisor is **removed as an entity**; its advisory function splits two ways:
+   - **(A)** the **demigod-jailer** (built the cage, barred from the god, selects/steers the player) → the **tutorial instructor**;
+   - **(B)** the caged **death-god / patron Daikoku/Mahakala** → a voice **seldom heard but able to offer guidance** (the rare, unreadable §19.3 communion).
+
+**Flag #6 — banter / retort-axis owner is the LIVE OPEN sub-question.** The loop-doc (`gameplay-loop-design.md` §§14-16) makes the **patron** the chatty antagonistic-helpful banter companion + defiance↔devotion retort axis; the keystone (§§16-17, §19) puts the mentor voice on the **demigod** and makes the patron god rare/unreadable. Matt's refinement RULES the tutorial (A=demigod) + rare-guidance (B=death-god) corners but leaves the **ongoing banter / retort-axis owner OPEN** — Matt: *"I'm working through the decision regarding the banter."* **Held OPEN, not hardened.** Full write-up: `agentic_orchestration/gandalf/notes/2026-06-29-path-a-frame-reconciliation-flags.md` Flag #6 + `00-index.md` §5. **Engine consequence: none yet** — no seam hardens a banter-owner label until Matt rules; the §435 LLM-vs-templated tech decision hangs off it.
+
+**Propagation done (Matt directive #1).** "Spirit guide RETIRED → A/B split" propagated across: this tracker (0.2 Frame row + III.9), `00-ground-state.md`, `reap-die-rise/00-index.md` (intro + supersession map + §5), and the four story-frame banners (avatar-projection, companion-as-Hall, earth-avatar-cosmograph, cosmograph-pivot). III.9 below carries the corrected model.
+
+**Path B (Matt directive #3) — `canonical/dead/` purged.** Emptied via `git rm` of its single tracked file `37-form-bias-diagnosis-and-recovery.md` (40,765 bytes; recoverable from git history). First concrete step of the broader canonical purge.
+
+**What did NOT move:** engine code (zero); the battle-sim / emission state (PARTs I–II unchanged); flags #2/#3/#4/#5 (still queued for Matt — #3/#5 partially resolve once the banter owner is ruled). Design-canon refinement + propagation + purge-step only.
+
+**Signed:** gandalf, 2026-06-30 (frame refinement + spirit-guide-retired propagation + `canonical/dead/` purge).
+
+---
+
 ### 2026-06-29 — Path A integration: the v2 canonical set re-homed (`canonical/reap-die-rise/`), game retitled **Reap. Die. Rise.**, patron precisely sourced, PART III sharpened by the live systems decisions
 
 **This session integrated the 9-doc v2 design set Matt handed over** (authored across mobile sessions to 2026-06-29) and **re-registered the game's title from "Reincarnated" → "Reap. Die. Rise."** The docs left `matt_notes_handoff_docs/` for `canonical/reap-die-rise/` (the `reincarnated-` prefix dropped); the **supersession map + naming lexicon live in `canonical/reap-die-rise/00-index.md`**, which governs the v2 set's internal chronology. The end-state-authority pointers (header + PART 0.1) now point at the new homes. **This delta governs the body below where they conflict.**
@@ -123,7 +144,7 @@ This doc does **not** re-litigate the design doc. It tracks the **engine's dista
 
 | Layer | v1 (prior) | v2 (now) | Engine impact |
 |---|---|---|---|
-| **Frame** | warm isekai / reborn traveler / spirit guide / earth realm | death-faith / ascending conqueror / **patron deity** / time-agnostic **home realm** | **None at the seam** — re-registration only; improves story. Prior cosmograph/earth-avatar canon needs reconciliation (PART III.9). |
+| **Frame** | warm isekai / reborn traveler / spirit guide / earth realm | death-faith / ascending conqueror / **spirit guide RETIRED → (A) demigod-jailer tutorial-instructor + (B) separate caged patron god as seldom-heard guidance** / time-agnostic **home realm** | **None at the seam** — re-registration only; improves story. Prior cosmograph/earth-avatar canon needs reconciliation (PART III.9). |
 | **Loop** | journey-as-descent (v1 release model) | **roguelite procedural descent** + Goldilocks fork + grimoire economy | **New demands**: kit-vs-kit temperature, per-kit level model, horde density (PART III). |
 | **Build depth** | implicit | **explicit ARPG build-depth pillar** ("no meta," 400 unique, parametric abilities) | Parametric-ability realization (data-layer mostly present; Godot verbs unbuilt); scale-throughput. |
 | **Combat density** | unspecified | **50-150 simultaneous** (perf doc) | Horde gap — sim caps at 8 (PART III.3). |
@@ -298,7 +319,7 @@ Each item: what the v2 design asks · what the engine currently does · the gap 
 v2 re-registers the frame. The authoritative v2 story canon is now `canonical/reap-die-rise/story-keystone.md` (governs) → `story-expansion.md` (detail) → `design-decisions-session.md` §§2-13 (systems); **`design-decisions-session.md` §1's patron sketch is superseded** (see below). The following prior canon needs reconciliation (a **named forward work item**, not resolved here):
 - **isekai → death-faith** (§2): reincarnation *mechanic* + world-rotation survive, re-registered as conquest.
 - **patron precisely sourced — Daikoku/Mahakala (`story-expansion.md`:46/:177; supersedes `design-decisions-session.md` §1).** The patron is a **hijacked benign fortune-deity**: **Daikoku** (Seven Lucky Gods / Shichifukujin), root **Mahakala** — a death/destruction power wearing the mask of luck; soul-feeding produces a hollow, will-draining peace (peace-as-lobotomy). The **earlier Ereshkigal/Nergal "original sealed death-deity" sketch (`design-decisions-session.md` §1) is DEAD — do not cite it.** **BUT §1's DEVICE-layer is orphaned, not auto-dead** — the **trickster-jab** ("you're just a minor luck-spirit"), the **crackable-alias + authored-slow true-name** device, the **seven-gated descent as floor-structure**, and **descent ≠ underworld aesthetic** survive the sourcing-swap (several fit Daikoku/Mahakala *better* — a death-power masked as a luck-god makes the jab cut the real wound). **These need re-homing-or-retiring rulings (task #4 / Matt); do not silently amputate them with the Ereshkigal sourcing.**
-- **spirit guide → patron deity** (keystone §16-17; expansion §3): the guidance/companion role is now the **antagonistic-helpful patron-voice** (the demigod jailer-steerer). Reconcile against the **companion/mercenary ally** (future-product scope; `2026-06-13-companion-as-hall-of-heroes-ally-commitment.md`) — patron (guidance) and companion (ally) appear to be distinct entities; confirm. **Note:** the §14 companion ally is also what un-gates support-role alongside proxies (III.1b).
+- **spirit guide RETIRED** (keystone §16-17, §19.1; expansion §3): the spirit guide is **removed as an entity** (Matt 2026-06-30, not re-labeled); its advisory function splits two ways — **(A)** the **demigod-jailer** (the jailer who *selects and steers*; NOT the player's future self) owns the **tutorial-instruction** voice; **(B)** the caged, unreadable **patron god** Daikoku/Mahakala — the deity the player rarely communes with (god-speech §19.3) — owns a **seldom-heard guidance** voice. *The ongoing banter / retort-axis owner is OPEN — Matt deciding (flag #6).* Reconcile the demigod-mentor against the **companion/mercenary ally** (future-product scope; `2026-06-13-companion-as-hall-of-heroes-ally-commitment.md`) — demigod-mentor (guidance), patron god (caged deity), and companion (ally) appear to be three distinct entities; confirm. **Note:** the §14 companion ally is also what un-gates support-role alongside proxies (III.1b).
 - **earth realm → time-agnostic home realm** (§3): same structural function (one creation, face propagation, cultural-diversity-as-world-diversity); contemporary-Earth baggage shed. Reconcile against the earth-avatar/cosmograph creation-moment canon (`2026-06-07-earth-avatar-cosmograph-creation-moment-architecture.md`).
 - **cosmograph re-anchored** (§2b): "the cosmograph is the patron's domain" — the night-sky-of-kits gains a native mythology. The cosmograph SURVIVES; reconcile the pivot docs (`2026-06-05-cosmograph-pivot.md`) to the patron framing.
 - **Owner**: **gandalf** — a dedicated story-canon reconciliation pass (forward queue, PART IV). Do not silently let v2 and prior records contradict.
