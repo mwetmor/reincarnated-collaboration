@@ -4,7 +4,7 @@
 **Document:** Core gameplay loop, story frame, kit system, encounter design, progression, companion
 **Status:** Canonical — ratified across the June 2026 design session
 **Audience:** Claude design/implementation team
-**Revision:** v2. This redraft **supersedes** v1's isekai framing, the "spirit guide," and the "earth realm." Those are replaced by, respectively: the death-faith frame (§2), the patron-deity companion (§2, §14, §15), and the time-agnostic home realm (§3). The gameplay-loop machinery (engine, ontology, sawtooth, Goldilocks, grimoire, spawn economy, experimental kits) is carried forward intact.
+**Revision:** v2. This redraft **supersedes** v1's isekai framing, the "spirit guide," and the "earth realm." Those are replaced by, respectively: the death-faith frame (§2), the **retired-and-split guidance layer** — demigod tutorial + hub ensemble + death-god (§2c, §14, §15) — and the time-agnostic home realm (§3). The gameplay-loop machinery (engine, ontology, sawtooth, Goldilocks, grimoire, spawn economy, experimental kits) is carried forward intact.
 
 ---
 
@@ -67,17 +67,24 @@ The death-faith's tenets are the game's systems:
 - **The rank hierarchy is the descent** = lieutenants (floor bosses) beneath a Mega Boss (finale) beneath the patron — conquest is ascent through the order (§5, §6, §8).
 - **Conquest-as-conversion** is the emotional content of the opening (§14): you learn to *take* a body, not to *be reborn into* one.
 
-### 2c. The patron deity (replaces the spirit guide)
+### 2c. Guidance and companionship (the spirit guide — retired, split three ways)
 
-A **mythical patron deity champions the order, and is the voice in your head.** This single device resolves three previously-open threads at once:
+> **[RULED 2026-06-30 — Matt]** The spirit guide is **RETIRED as an entity** (not re-labeled). Its functions split three ways, and the daily-banter relationship was never one voice at your shoulder — it is **an ensemble in the hub (the Hades model).** This supersedes the earlier "a single patron-voice replaces the spirit guide" framing throughout §§14–16. The reassignment:
+> - **(A) The demigod — the jailer / instructor.** Built the cage, barred from the god; selects and steers you. The **tutorial voice** (§14) and the **punctuated Mercer-mentor** at key story beats (keystone §19.1). **Not** daily banter. *Optional enhancement (a deliberate phase, never the steady state): the demigod may run warmer / chattier early — building the bond that makes the betrayal land — then recede and cool as the reveal nears; the withdrawal of the companion becomes a tragedy-beat.*
+> - **(B) The death-god / patron deity (keystone §19.3).** Rare, **unreadable — a Rorschach**; seldom-heard guidance, never the daily voice. Defiance into its silence is more loaded than defiance against a god who argues back.
+> - **(C) The hub ensemble — Rita and the cult's human faces.** Carries the **daily relationship and antagonistic-helpful banter** (§15) and the **defiance↔devotion personality axis** (§16), which IS the cult-standing economy (§23.5) given a voice. "Who you are to the voice" becomes "who you are to the faith, witnessed by its people."
+>
+> *Why split, not one chatty patron: a single quip-companion would (1) dilute the §19.1 Mercer reveal — a background-helpful betrayer detonates; a snarky companion merely turns; (2) collide tonally — warm-seductive Mercer vs. snarky-antagonistic banter cannot be the same mouth; (3) not scale the §19 double-coding — innocent-first-pass / damning-on-replay is a scalpel for a few beats, not hundreds of banter lines; (4) waste the Rorschach — defiance into an unreadable silence is the stronger dread.*
 
-1. **Companion / guidance:** the patron is the build-helper and tutor (replacing the spirit guide), but with a character and a reason to exist (§14, §15).
-2. **Telepathy justified:** the patron is a disembodied voice only the bound can hear — telepathy is native, not contrived.
-3. **Cosmograph framework:** the cosmograph is *the patron's domain* (2b).
+The three structural threads the old "single device" was carrying still resolve — now distributed:
 
-The relationship is **"you owe it."** You are bound to the patron by a bargain/debt; the patron has a stake in your conquests even as it may hold you in contempt. This bond is dramatized continuously through the antagonistic-helpful banter (§15) — the contempt-that-helps *is* the debt made audible.
+1. **Companion / guidance:** the tutor-and-key-beats voice is the **demigod** (§14, §19.1); the **daily relationship** lives in the **hub ensemble** (§15, §16); rare metaphysical guidance is the **death-god**, seldom heard (§19.3).
+2. **Telepathy justified:** the demigod's binding and the death-god's rare voice are native to the bound (only you hear them); the hub's faithful are diegetic people you speak with face to face.
+3. **Cosmograph framework:** the cosmograph is *the patron's domain* (2b) — unchanged.
 
-**[RATIFIED-OPEN] Villain-protagonist stance.** The *framing* is locked (you are bound to a dark patron by "you owe it"). The *stance* is deliberately pending and should partly **emerge** via the personality axis (§16): are you the **cult ascending** (a willing dark conqueror) or a **rebel bound to it** (chafing against the leash, closer to Jinu)? Do not freeze this. It is answered, over time, by the player's accumulated retort-stance.
+The relationship is still **"you owe it."** You are bound to the death-god by a bargain/debt; it has a stake in your conquests even as it holds you in contempt. But that debt is dramatized **not** through a chatty god at your shoulder — it is made audible through the **hub's judgment of your standing** (devotion buys you in; heresy shuns you — §23.5) and the **demigod's punctuated presence** (§19.1). The contempt-that-helps is the faith's, spoken by its people.
+
+**[RATIFIED-OPEN] Villain-protagonist stance.** The *framing* is locked (you are bound to a dark patron by "you owe it"). The *stance* is deliberately pending and should partly **emerge** via the personality axis (§16): are you the **cult ascending** (a willing dark conqueror) or a **rebel bound to it** (chafing against the leash, closer to Jinu)? Do not freeze this. It is answered, over time, by the player's **accumulated actions** (§23.4–23.5) — hand-in vs. hoard, how you die, how you treat the faithful.
 
 ### 2d. Art direction — atmospheric-dark, not Diablo-visceral-grit
 
@@ -288,61 +295,65 @@ The **temporal fiction** ("backtracking pulls *you* back to their level; summoni
 
 ---
 
-## 14. The opening / tutorial (revised — patron-voice, not spirit-guide)
+## 14. The opening / tutorial (revised — demigod-voice, not spirit-guide)
 
-**Supersedes v1's spirit-guide tutorial.** The opening is a **playable tutorial** that teaches the (dense) loop *by doing it*, and that **performs conquest-as-conversion** rather than rebirth-as-wonder. The patron deity (§2c) is the voice that teaches you.
+**Supersedes v1's spirit-guide tutorial.** The opening is a **playable tutorial** that teaches the (dense) loop *by doing it*, and that **performs conquest-as-conversion** rather than rebirth-as-wonder. The **demigod** (§2c-A, §19.1) is the voice that teaches you — the jailer-instructor who binds you to the work.
 
-- The patron's voice introduces the board: you learn to *read the minimap and scout factions/lieutenants*, taught by doing (see → then act; better pedagogy than "fight badly while being lectured").
-- You best a first lieutenant under guidance; the patron teaches the **spirit-throw / the taking** (the core verb — "you keep what you kill") in the one moment where it is safe and guided.
-- You perform your first **conversion**: you take the body. The opening's emotional content is *cold conquest* (you learn to seize a life), not warm rebirth. The patron's voice is established as the thing that will accompany you from here on (replacing the old guide's exit beat).
+- The demigod's voice introduces the board: you learn to *read the minimap and scout factions/lieutenants*, taught by doing (see → then act; better pedagogy than "fight badly while being lectured").
+- You best a first lieutenant under guidance; the demigod teaches the **spirit-throw / the taking** (the core verb — "you keep what you kill") in the one moment where it is safe and guided.
+- You perform your first **conversion**: you take the body. The opening's emotional content is *cold conquest* (you learn to seize a life), not warm rebirth. The demigod is established as the voice that will **recur at the binding's key beats** (§19.1) — *not* as a constant companion; the **daily** relationship that replaces the old guide's ever-present voice lives in the hub (§15).
 
-**Why this is strong:** the opening establishes the premise by *performing* it (you take a life in the first ten minutes), gives the guidance layer a *character and a reason to exist* (the patron, not a menu), and installs the voice-in-your-head companion (§15) without cluttering combat.
+**Why this is strong:** the opening establishes the premise by *performing* it (you take a life in the first ten minutes), gives the guidance layer a *character and a reason to exist* (the demigod, not a menu), and seeds the relationship layer (§15, the hub) and the binding (§19.1) without cluttering combat.
 
-**[FRAGILE] Teach by doing; narrate almost nothing.** The opening carries the whole premise *and* the whole literacy load (minimap, scouting, faction-reading, the taking, the metaphysics, the patron's character). If all of that is *explained*, the opening becomes a lecture and loses players. Story beats ride on top of actions; keep it quiet.
+**[FRAGILE] Teach by doing; narrate almost nothing.** The opening carries the whole premise *and* the whole literacy load (minimap, scouting, faction-reading, the taking, the metaphysics, the demigod's character). If all of that is *explained*, the opening becomes a lecture and loses players. Story beats ride on top of actions; keep it quiet.
 
-**[FRAGILE] The patron-voice must be PULL, not PUSH** — available on request, present on notable moments, silent otherwise. The genre is littered with resented "hey, listen!" guides. (See §15 for the anti-repetition discipline that makes the patron livable.)
+**[FRAGILE] The demigod-voice must be PULL, not PUSH** — available on request, present on notable moments, silent otherwise. The genre is littered with resented "hey, listen!" guides. (The same anti-repetition discipline governs the hub relationship layer — see §15.)
 
 **Where kit selection went:** **not** upfront. The **first body is fixed** (the tutorial conversion), so the opening is authored and tight. The "choose your next life" **selection ritual recurs between descents** — the old galaxy/selection moment is **relocated and made repeating** rather than deleted. Hidden upfront selection is good for this game: identity becomes *emergent and demonstrated* (§17), and the loop is *more* showable than a menu (§20).
 
 ---
 
-## 15. The patron companion (antagonistic banter)
+## 15. The hub ensemble (antagonistic-helpful banter — the relationship layer)
 
-The patron deity is the voice in your head, and its register is **antagonistic-helpful** (the Hades / GLaDOS / Wheatley lineage): it wants you dead but helps you anyway, because **you owe it** and your conquests serve it. Example beat:
+> **[RULED 2026-06-30 — Matt; see §2c]** The banter / relationship layer belongs to the **hub NPC ensemble** (Rita and the cult's human faces), **not** the patron. The mechanics below are unchanged; only the *owner* moves — from one voice in your head to the faith's people in the hub. This consolidates with the cult-standing economy (§23.5): the hub's warmth or coldness IS your standing made audible.
 
-> Patron: "I'd prefer you just died already, and I don't know why I'm telling you this, but that last helmet is exactly what you need for the barbarian fight you're tracking."
+The hub's faithful — **Rita and the cult's human faces** — carry the relationship layer, and the register is **antagonistic-helpful** (the Hades-hub lineage): they *need* you (you do the holy work their faith depends on) and *resent* you (an outsider, a tool, possibly a heretic), and that tension colors every exchange. Example beat:
+
+> Quartermaster: "I'd prefer you stayed dead the next time, and I don't know why I'm telling you this, but that last helmet is exactly what you need for the barbarian fight you're tracking."
 > [Equip] / [Don't] — **either choice** triggers a player "smart retort."
 
-**Why this is load-bearing (not mere comic relief):** the contempt-that-helps **is the "you owe it" bond made audible.** The patron helps because your success serves it; it mocks because it can; you retort because you are bound but not broken. Every interaction re-expresses the one relationship the whole game is built on. This is what makes the cold death-faith *livable and likable* without softening the darkness — a tonal *register*, not a tonal *retreat*.
+**Why this is load-bearing (not mere comic relief):** the help-laced-with-contempt **is your standing with the faith made audible** (§23.5). They serve you because the work serves the god; they sneer because you are a means; you retort because you are bound but not broken. Every interaction re-expresses the relationship that makes the cold death-faith *livable and likable* without softening the darkness — a tonal *register*, not a tonal *retreat*. *(And the relationship is real enough to wound: it is what makes the loss of a hub face — keystone — land.)*
 
 **Structure — comedy is ambient to the loop, never gates it.** The retort-regardless-of-choice means the banter rides *alongside* the decision; the player is neither rewarded nor punished for engaging with the bit, so it never slows or pressures the loop.
 
-**[FRAGILE] Repetition is the whole risk.** Funny-the-first-time is *unbearable* the fiftieth time, and you equip thousands of items. The discipline:
-- **Throttle frequency hard.** The patron mostly *stays quiet* and speaks on *notable* moments (a great drop, a key fight, a death, a milestone). Rarity keeps a quip a quip. Over-talking is the #1 failure.
+**[FRAGILE] Repetition is the whole risk.** Funny-the-first-time is *unbearable* the fiftieth time, and you pass through the hub thousands of times. The discipline:
+- **Throttle frequency hard.** The hub's faithful mostly *stay quiet* and speak on *notable* moments (a great drop, a key fight, a death, a milestone, a shift in standing). Rarity keeps a quip a quip. Over-barking is the #1 failure.
 - **Contextual over voluminous.** The helmet line works *because it knows your tracked fight.* Few sharply-contextual lines beat many generic ones. Value is in the *targeting*, not the *count*.
-- **Keep every line about the bond.** Lines that re-express the "you owe it" relationship never become generic filler, because they are always restating the central relationship.
+- **Keep every line about your standing.** Lines that re-express your standing with the faith (devotion ↔ heresy, §23.5) never become generic filler, because they are always restating the central relationship.
 
-**[OPEN] Contextual-line tech approach.** Sharp contextuality may imply an LLM-driven or heavily-templated-contextual line system. That is a **real scope/cost/latency/consistency decision**, not a free feature. Decide deliberately; do not assume.
+**[OPEN] Contextual-line tech approach (§435).** Sharp contextuality may imply an LLM-driven or heavily-templated-contextual line system. That is a **real scope/cost/latency/consistency decision**, not a free feature. Decide deliberately; do not assume.
 
 ---
 
 ## 16. Emergent personality (defiance ↔ devotion)
 
-The player's retort choices (§15) **accumulate on a hidden axis** (defiance ↔ devotion) that shapes the character's personality and relationship with the patron over time. This is **"identity through repeated choice" (§17) applied to personality** — the relationship is *demonstrated* across thousands of micro-choices, not picked at a menu. It is also the mechanism that resolves the §2c villain-protagonist stance *through play* rather than up front.
+> **[RULED 2026-06-30 — Matt; see §2c]** The defiance↔devotion axis is driven by **actions** — hand-in vs. hoard (§23.4), how you die, how you treat the faithful — and surfaced through the **hub's reactions + cult-standing** (§23.5), **not** by verbal retorts at the equip screen. §16 and §23.5 are **the same axis**, viewed two ways: as *personality* (here) and as *economy* (§23.5).
+
+The player's **actions** — hand-in vs. hoard (§23.4), how they die, how they treat the faithful — **accumulate on a hidden axis** (defiance ↔ devotion) that shapes the character's personality and relationship with the faith over time. This is the same axis the cult-standing economy already tracks (§23.5). It is **"identity through repeated choice" (§17) applied to personality** — the relationship is *demonstrated* across thousands of micro-choices, not picked at a menu. It is also the mechanism that resolves the §2c villain-protagonist stance *through play* rather than up front.
 
 **Build cheap; architect for expensive; ship neither prematurely.**
 
-- **Cheap version (LAUNCH-VIABLE — build this).** The accumulated axis **gates which lines you hear** and **shifts the patron's register** (defiant players get grudging-help + harder mockery; devoted players get confiding + softened contempt). This is mostly a **tagging-and-selection layer on the banter system you already need** — the anti-repetition writing (§15) and the personality writing are *the same body of work* viewed two ways (a large, contextual, axis-tagged line pool solves both "don't repeat" and "respond to who I am"). **No gameplay effect.** Delivers ~90% of the felt magic.
-- **Legibility (cheap, required).** Emergence that is never surfaced is unfelt. The cheapest legibility layer: the **patron occasionally remarks on your drift** ("you used to talk back more" / "you've grown agreeable, and I'm not sure I like it") — itself an axis-tagged line, more elegant than a meter (and consistent with our meter-avoidance elsewhere). The relationship surfaces *through the relationship itself.*
-- **Expensive version (POST-LAUNCH / TEAM-EXPANSION — do not gate launch on it).** Relationship state that changes *mechanics and outcomes*, with authored content per state. The reactivity must be *authored for every combination*, so the content surface explodes combinatorially — a drowning risk for a solo launch. File alongside the experimental-kit curation (§18) under "if season one succeeds." **Architect** so the axis exists and is tracked from day one (cheap), so deeper reactivity is an *extension*, not a *retrofit*.
+- **Cheap version (LAUNCH-VIABLE — build this).** The accumulated axis **gates which lines you hear** and **shifts the hub's register** (defiant players get grudging-help + harder mockery from the faithful; devoted players get confiding + softened contempt). This is mostly a **tagging-and-selection layer on the hub banter system you already need** — the anti-repetition writing (§15) and the personality writing are *the same body of work* viewed two ways (a large, contextual, axis-tagged line pool solves both "don't repeat" and "respond to who I am"). **No additional gameplay effect** beyond the standing economy (§23.5) already in scope. Delivers ~90% of the felt magic.
+- **Legibility (cheap, required).** Emergence that is never surfaced is unfelt. The cheapest legibility layer: a **hub face — or the demigod, at a key beat — occasionally remarks on your drift** ("you used to talk back more" / "you've grown agreeable, and the faith is not sure it likes it") — itself an axis-tagged line, more elegant than a meter (and consistent with our meter-avoidance elsewhere). The relationship surfaces *through the relationship itself.*
+- **Expensive version (POST-LAUNCH / TEAM-EXPANSION — do not gate launch on it).** Relationship state that changes *mechanics and outcomes*, with authored content per state. The reactivity must be *authored for every combination*, so the content surface explodes combinatorially — a drowning risk for a solo launch. File alongside the experimental-kit curation (§18) under "if the first content set succeeds." **Architect** so the axis exists and is tracked from day one (cheap), so deeper reactivity is an *extension*, not a *retrofit*.
 
-**[RATIFIED-OPEN] The retort-voice identity.** Defiant (rebellious bound servant — sympathetic, Jinu-adjacent) / gleeful (willing dark ascendant — true villain-protagonist) / deadpan (weary professional — Murderbot-adjacent). At thousands of repetitions, the retort voice *is* the protagonist — more than any backstory. It should be partly **chosen by the player through the axis** rather than frozen up front. Do not pre-decide; let it emerge (this is the §2c stance, in the player-character's mouth).
+**[RATIFIED-OPEN] The protagonist's voice identity.** Defiant (rebellious bound servant — sympathetic, Jinu-adjacent) / gleeful (willing dark ascendant — true villain-protagonist) / deadpan (weary professional — Murderbot-adjacent). At thousands of repetitions, the player-character's expressed stance — the "smart retort," now *theirs*, witnessed by the hub — *is* the protagonist, more than any backstory. It should be partly **chosen by the player through the axis** (their accumulated actions) rather than frozen up front. Do not pre-decide; let it emerge (this is the §2c stance, in the player-character's own mouth).
 
 ---
 
 ## 17. Identity through repeated choice
 
-**A player who chooses summoner every time is a summoner.** Identity-through-repeated-choice is *more* authentic than identity-through-upfront-declaration, because it is *revealed* (what you actually reach for) rather than *asserted* (what you clicked once). This is *why* hidden upfront selection (§14) works and is not a loss — and it is the same principle that powers the emergent patron-relationship (§16).
+**A player who chooses summoner every time is a summoner.** Identity-through-repeated-choice is *more* authentic than identity-through-upfront-declaration, because it is *revealed* (what you actually reach for) rather than *asserted* (what you clicked once). This is *why* hidden upfront selection (§14) works and is not a loss — and it is the same principle that powers the emergent hub-relationship (§16).
 
 **[FRAGILE] Dependency:** this only holds if the player can **reliably reach** the archetype they keep wanting — which is exactly what §12 (rune + gear bias) and §9 (multi-lieutenant scouting choice) provide. Without that access layer, "a summoner every time" becomes an aspiration the RNG denies, and emergent identity collapses into RNG identity. The access tools are *identity-access* tools, not just matchup tools.
 
@@ -430,9 +441,9 @@ Whether the combination deserves attention splits into two **independent** bars:
 
 **Story-frame opens (new in v2):**
 - **[RATIFIED-OPEN]** Villain-protagonist **stance** — cult ascending vs. rebel bound to it. Framing locked (bound by "you owe it"); stance emerges via §16. (§2c)
-- **[RATIFIED-OPEN]** Retort-**voice** identity — defiant / gleeful / deadpan; emerges via the personality axis, not picked up front. (§16)
+- **[RATIFIED-OPEN]** Protagonist-**voice** identity — defiant / gleeful / deadpan; emerges via the action-driven personality axis (§23.5), not picked up front. (§16)
 - **[RATIFIED-OPEN]** Home-realm **cosmological role** — unconverted last-realm / fallen origin / liminal staging; co-determines the stance above. (§3)
-- **[OPEN]** Patron-banter **tech approach** — LLM-driven vs. heavily-templated-contextual; a real scope/cost/latency decision. (§15)
+- **[OPEN]** Hub-banter **tech approach** — LLM-driven vs. heavily-templated-contextual; a real scope/cost/latency decision. (§15)
 - **[OPEN]** Emergent-personality **scope** — build the cheap (line-gating, no gameplay effect) version for launch; architect for the expensive (mechanics-changing) version; do not gate launch on the latter. (§16)
 
 **Carried-forward opens:**
@@ -452,18 +463,18 @@ Whether the combination deserves attention splits into two **independent** bars:
 
 **Superseded by v2 (do not treat as canonical anymore):**
 - **Isekai frame → death-faith frame (§2).** Dropped for the niche-over-bridge commercial reason (§20b). The reincarnation *mechanic* and world-rotation *survive*, re-registered as conquest (§8, §19).
-- **Spirit guide → patron deity (§2c, §14, §15).** The guidance/companion role now belongs to the antagonistic-helpful patron-voice.
+- **Spirit guide → RETIRED, split three ways (§2c).** The guidance/companion role does **not** collapse into one patron-voice; it splits: **demigod** (tutorial + key beats, §14, §19.1) + **hub ensemble** (daily relationship + antagonistic-helpful banter, §15, §16) + **death-god** (rare, unreadable guidance, §19.3). *(Ruled 2026-06-30; supersedes the earlier "spirit guide → patron deity" framing.)*
 - **Earth realm → time-agnostic home realm (§3).** Same structural function (one creation, face propagation, cultural-diversity-as-world); contemporary-Earth baggage shed.
 
 **Still standing from prior design:**
-- **Character creation:** the diegetic "selection" moment is **relocated** to the recurring between-descent "choose your next life" ritual; the opening is the patron-voice tutorial (§14). Single home-realm creation (§3) stands.
+- **Character creation:** the diegetic "selection" moment is **relocated** to the recurring between-descent "choose your next life" ritual; the opening is the demigod-voice tutorial (§14). Single home-realm creation (§3) stands.
 - **Engine identity:** **deterministic procedural generation, not AI** — Dwarf Fortress / Caves of Qud / No Man's Sky lineage, not the generative-AI lineage. AI touchpoints are dev-workflow (this agent team) and possibly some asset generation, not the engine.
 - **Genre positioning:** **ARPG, honestly** — the engine surfaces structure the genre usually hides behind symmetric class menus. Not genre-departing; doing ARPG more thoroughly. Audience may extend toward the broader "ambitious RPG with depth" market.
 - **Audience model:** design for the **silent majority's motivations** (power, loot, efficiency, standing, accomplishment, engagement — "a leg up") rather than the articulate-minority signal; validate via research (community-signal analysis, reviews, surveys) with the agent team's help.
 
 ---
 
-*End of canonical design (v2). The §21 agenda is live. The story frame (§2), patron companion (§15), and emergent personality (§16) are the major v2 additions; the loop machinery (§4–§13, §18) is carried forward intact.*
+*End of canonical design (v2). The §21 agenda is live. The story frame (§2), hub ensemble (§15), and emergent personality (§16) are the major v2 additions; the loop machinery (§4–§13, §18) is carried forward intact.*
 
 ---
 
