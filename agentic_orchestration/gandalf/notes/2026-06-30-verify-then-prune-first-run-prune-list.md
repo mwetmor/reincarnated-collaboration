@@ -55,6 +55,33 @@ I provisionally classed 9 notes as "pure coordination ephemera" (briefs/prompts/
 
 Nothing here was touched. Lean = my recommendation; you rule.
 
+> **⟹ RATIFICATION LANDED (Matt 2026-06-30) — the rulings below now govern; the original
+> recommendation text in 3a–3f is retained as lineage (reconcile, don't amputate).**
+>
+> - **RAVINE ×9 (§ 3c) → PRUNED.** Matt: *"Ratify the ravine ×9."* Reference check came back
+>   **clean** (all citations intra-cluster or in the two governance docs; zero external
+>   evidentiary homes). Executed: `git rm` of all 9 + commit (NO push).
+> - **CRYPT-VAULT ×5 → PRUNED.** Matt: *"The crypt/vault learnings can be added to the ravine
+>   learnings, but the scene was cancelled."* This **moves 3 crypt notes out of KEEP** —
+>   `crypt-vault-gate3-verdict-1-calibration` (was § 3d), `crypt-vault-phase1-verification-and-
+>   preread` + `crypt-vault-rebuild-brief-camera-committed` (were § 3e) — **plus** the 2
+>   previously citation-protected crypt notes (`crypt-vault-node-poc-brief`, `crypt-vault-node-
+>   gate3-coherence-capture`). Learnings folded into the carry-forward note § 6 first. The
+>   phase1 note's uncommitted `M` (the § 3e ⚠) was already committed earlier this session →
+>   clean to prune. **Surfaced caveat (not silent):** `node-poc-brief` is cited by a frozen
+>   2026-06-19 dispatch + that day's skill_handoff — historical point-in-time records (not
+>   pruned); their refs become intentional git-lineage pointers.
+> - **KING-RIG (§ 3f) → KEEP, confirmed LIVE.** Matt: *"another scene which is not cancelled…
+>   a small square room with a king character. This is the live game being built, so do not
+>   prune that one."* `2026-06-22-king-rig-mcp-alignment-brief.md` STAYS. (Verified it cites
+>   zero crypt notes, so the crypt prune does not orphan it.)
+> - **The open crypt-vault question in § 3c is RESOLVED** — Matt ruled the crypt scene
+>   cancelled, so the "stays KEEP until you rule" hedge is now spent.
+> - **Still awaiting:** the S15 governance refinement (§ 5a) — Matt asked to talk it through
+>   in more detail (Pattern-B), so it is NOT yet entered in the stress-test record.
+> - **Open recommendations untouched by this ruling:** 3a (descent-rescore ×3), 3b (spell-vfx),
+>   3f remainder (orphan/handoff ×4) still await Matt's confirmation of their substance-homes.
+
 ### 3a. RECOMMEND PRUNE — descent run-to-green per-round children (3 notes) — confidence medium-high
 Workstream **CLOSED** (6/6 chambers green, establish closed). All three explicitly cite the **intact** parent `2026-06-17-descent-runtogreen-log.md` as "the authority," and the calibration they carry was **codified into the scorer** (kind-aware gate). Substance is preserved upstream; these are per-round process residue.
 - `2026-06-17-descent-round3-galadriel-rescore-request.md`
@@ -122,13 +149,21 @@ The notes accumulate because **design recognitions live in notes instead of bein
 
 ## 6. What fired vs what awaits you
 
-- **Auto-pruned (git rm):** **NOTHING.** Safe tier empty; nothing auto-fires while you're in dialogue.
-- **Awaiting your ratification (the confident prune set, post-cancellation):**
-  - **3c — the Godot ravine ×9** (workstream CANCELLED per your 2026-06-30 directive; learnings PROMOTED to `2026-06-30-ravine-cancelled-learnings-carry-forward.md`). **Now the largest, highest-confidence prune.**
+- **PRUNED on Matt's 2026-06-30 ratification (`git rm` + commit, NO push):** **14 notes** —
+  the Godot ravine ×9 (§ 3c) + the crypt-vault ×5 (cancelled scene; learnings promoted to
+  `2026-06-30-ravine-cancelled-learnings-carry-forward.md` § 6 first). Reference checks clean
+  (ravine: all intra-cluster/governance; crypt: intra-cluster + one surfaced historical-
+  dispatch caveat on `node-poc-brief`). **KING-RIG kept (LIVE).**
+- **Auto-pruned without ratification (git rm):** still **NOTHING** — the 14 above fired on
+  Matt's explicit word, not the auto-prune path. The safe-tier-empty finding stands.
+- **Awaiting Matt's confirmation of substance-homes (NOT yet pruned):**
   - **3a — descent-rescore ×3** (workstream closed; calibration codified into the scorer).
-  - Plus 3b + 3f on your confirmation of the substance-homes.
-- **Awaiting your ruling:** the S15 governance refinement (§ 5a); and the **open crypt-vault question** (§ 3c — cancelled ravine vs the still-KEEP crypt-vault parent prototype).
-- **Nothing pushed.** Nothing deleted. The tree is exactly as you left it plus this note + the ravine-learnings carry-forward note.
+  - **3b — spell-vfx round-1 brief** (confirm the rollout closed).
+  - **3f — orphan/handoff ×4** (one-line check each).
+- **Awaiting Matt's ruling (Pattern-B dialogue):** the **S15 governance refinement** (§ 5a) —
+  Matt asked to talk it through before it enters the stress-test record.
+- **Pushed:** nothing. The prune commit is local; 14 notes deleted from the tree, learnings
+  banked in the carry-forward note, king-rig retained.
 
 ---
 

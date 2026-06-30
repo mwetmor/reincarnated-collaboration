@@ -1,18 +1,26 @@
-# Ravine (CANCELLED) — learnings carry-forward to the seasonal descent
+# Cancelled Godot prototypes (RAVINE + CRYPT-VAULT) — learnings carry-forward to the seasonal descent
 
-> **STATUS:** CURRENT — durable lineage note. The Godot enchanted-forest **ravine
-> biome-prototype is CANCELLED** (Matt, 2026-06-30: *"the ravine work was cancelled.
-> But there may be some learnings there."*). This note **promotes** the load-bearing
-> learnings out of the 9 raw iteration notes into one durable home, so those 9 become
-> prune-eligible (promote-then-prune — § 7). The active home for the substance is the
-> **seasonal-descent procgen architecture** (`canonical/story/2026-06-22-seasonal-descent-architecture-recognition.md`),
-> whose **§ 3 procedural-middle prototype** and **gate G3 (socket/snap)** are exactly
-> what most of these learnings feed.
+> **STATUS:** CURRENT — durable lineage note for the project's **two cancelled Godot
+> presentation prototypes**. (1) The enchanted-forest **ravine biome-prototype is CANCELLED**
+> (Matt, 2026-06-30: *"the ravine work was cancelled. But there may be some learnings
+> there."*). (2) The **crypt-vault clear-room node** scene is **ALSO CANCELLED** (Matt,
+> 2026-06-30: *"The crypt/vault learnings can be added to the ravine learnings, but the
+> scene was cancelled."*) — but it was the **methodology PARENT** the ravine generalized
+> from, and it produced the project's strongest camera + composition recognitions, so its
+> learnings are folded here (§ 8). **A third scene that uses the same Synty map-pack — the
+> small square-room with a king character (`2026-06-22-king-rig-mcp-alignment-brief.md`) —
+> is the LIVE game being built and is explicitly NOT pruned** (Matt 2026-06-30). This note
+> **promotes** the load-bearing learnings out of the raw iteration notes into one durable
+> home, so those notes become prune-eligible (promote-then-prune — § 7). The active home for
+> the substance is the **seasonal-descent procgen architecture**
+> (`canonical/story/2026-06-22-seasonal-descent-architecture-recognition.md`), whose **§ 3
+> procedural-middle prototype** and **gate G3 (socket/snap)** are exactly what most of these
+> learnings feed.
 
 **Authored:** 2026-06-30
 **Author:** gandalf (story/design steward)
-**Authority:** Matt 2026-06-30 — ravine cancellation + learnings-extraction directive.
-**Source notes promoted here (the 9 raw ravine notes → § 7 disposition):**
+**Authority:** Matt 2026-06-30 — ravine cancellation + crypt-vault cancellation + learnings-extraction directive; king-rig scene explicitly protected.
+**Source notes promoted here — RAVINE cluster (9 raw notes → § 8 disposition):**
 `2026-06-20-enchanted-forest-ravine-plan-and-floor-sizing-research.md` ·
 `2026-06-20-ravine-vignette-generator-spec.md` ·
 `2026-06-20-ravine-cutout-pattern-spec.md` ·
@@ -22,10 +30,21 @@
 `2026-06-21-ravine-carved-r1-matt-gate-package.md` ·
 `2026-06-21-ravine-carved-r2-matt-gate-package.md` ·
 `2026-06-21-ravine-carved-r3-matt-gate-package.md`
+**Source notes promoted here — CRYPT-VAULT cluster (5 raw notes → § 6 + § 8 disposition):**
+`2026-06-19-crypt-vault-node-poc-brief.md` ·
+`2026-06-19-crypt-vault-node-gate3-coherence-capture.md` ·
+`2026-06-19-crypt-vault-gate3-verdict-1-calibration.md` ·
+`2026-06-19-crypt-vault-rebuild-brief-camera-committed.md` ·
+`2026-06-19-crypt-vault-phase1-verification-and-preread.md`
+**Explicitly NOT pruned (LIVE):** `2026-06-22-king-rig-mcp-alignment-brief.md` — the
+small square-room king scene, the live game being built (Matt 2026-06-30). Same Synty
+map-pack, different scene, not cancelled.
 **Cross-refs:** the seasonal-descent recognition record (the active home);
-`reincarnated-godot/data/act_graph_node_schema_draft.json` (the node-schema the
-ravine generalized — survives as the crypt-vault artifact); the crypt-vault PoC
-notes (the ravine's methodology parent — § 7 flags the open cancellation question).
+`reincarnated-godot/data/act_graph_node_schema_draft.json` (the node-schema the crypt-vault
+PoC derived substrate-led and the ravine generalized — survives as a live engine artifact);
+`canonical/story/battle-room-presentation-decoupling-2026-06-15.md` + `style-register.md`
+(the crypt PoC's design parents — the annulus rule + cathedral register live there, not in
+the cancelled notes).
 
 ---
 
@@ -36,7 +55,8 @@ carry test** — author one exemplar, encode the rules as an *algorithm* (not co
 seed-vary, snap-assemble, gate. That methodology is **biome-agnostic** and is precisely
 the capacity the seasonal-descent §3 procedural-middle prototype must prove (gate G3).
 **The geometry dies; the method and the gotchas carry.** This note separates the two
-honestly: § 2–§ 5 are what transfers, § 6 is what dies with the ravine form.
+honestly: § 2–§ 6 are what transfers (§ 6 = the crypt-vault methodology parent), § 7 is what
+dies with the prototype forms.
 
 The discipline is **promote-then-prune** (verify-then-prune first-run finding, § 5b):
 notes accumulate because load-bearing reasoning lives in notes instead of being promoted;
@@ -198,11 +218,21 @@ any framing renders the black/clear-color void.**
   gorge"; the horizon reads as "this world is vast." If a framing makes the player think
   "the level just... ends there," R14 has failed even if R10 technically passed.
 
-Verified at the **tripod run** (fixed-camera multi-framing capture) via NV-1…5: zero void
-pixels; walls close the upper frame; down-range terminus occluded; skydome + rim-treeline
-middle plane legible; the illusion holds. NV-failures feed generate→gate→graduate exactly
-like structural ones. *[biome-agnostic for any open-air descent floor; an enclosed/cavern
-floor uses the crypt's never-capped-tower analog instead]*
+Verified at the **tripod run** (fixed-camera multi-framing capture) via the **NV-1…5
+no-void criteria** (camera-dependent half of the gate, carried verbatim so the prune is
+safe):
+
+| NV | Check | Guards | Verification |
+|---|---|---|---|
+| **NV-1** | **Zero void pixels** — no black/clear-color anywhere in frame | R10 | per-framing: count clear-color pixels == 0 (CV histogram / clear-color-key sample); every pixel is geometry or skydome |
+| **NV-2** | **Walls close the upper frame** — no void band between wall-top and frame-top (or rim treeline closes it) | R11b | per-framing: trace the L/R wall silhouette; no sky/void wedge below the intended horizon where a wall should occlude |
+| **NV-3** | **Down-gorge terminus occluded** — far end shows curve/fog/canopy, never a flat wall or void | R11c | the committed down-gorge framing: terminus region is geometry+haze, not a hard edge or void |
+| **NV-4** | **Skydome present + rim-treeline middle plane reads** — three depth planes legible | R11+R12 | upper frustum is sky; a treeline silhouette sits between wall-tops and sky (depth read) |
+| **NV-5** | **Illusion holds (R14)** — no framing reads as "the level just ends here" | R14 | judgment check on the framing set: vastness + diegetic-wall-restriction, no edge-of-world tell |
+
+NV-failures feed generate→gate→graduate exactly like structural ones (a void wedge caught
+in a framing becomes a standing NV check). *[biome-agnostic for any open-air descent floor;
+an enclosed/cavern floor uses the crypt's never-capped-tower analog instead]*
 
 ---
 
@@ -245,7 +275,214 @@ Godot presentation doesn't re-pay:
 
 ---
 
-## 6. What was ravine-SPECIFIC and dies with the cancellation (honest list)
+## 6. CRYPT-VAULT PROTOTYPE — the methodology PARENT (also cancelled; richest learnings)
+
+The crypt-vault clear-room node was the project's **first node-authoring PoC** of the
+"author-in-MCP, structure-first, three-gate" method — the method the ravine then *generalized*
+to an open-air biome. The scene is cancelled, but it produced the project's **strongest camera
++ composition + method recognitions to date.** These are MORE foundational than the ravine's
+(the ravine inherited its node-schema, its Gate-1, and its generate→gate→graduate loop from
+here). Banked below; the geometry dies, the method + the camera recommendation + the
+composition grammar carry.
+
+### 6.1. The three-gate authoring method (THE load-bearing carry — the descent's § 3 loop IS this)
+
+The unit of authoring/judgment/Act-Graph schema is the **NODE**, defined precisely:
+
+> a **presentation-room sized to *contain* its fight footprint (sim-invariant), with sockets
+> to stitch to neighbors.** A pretty standalone room is NOT a node — it doesn't compose.
+
+Judged by three instruments, IN ORDER, each catching what the prior cannot:
+
+- **Gate 1 — Structural (camera-INDEPENDENT, deterministic, MCP engine-truth).** The
+  load-bearing gate — catches breakage with *no camera at all*: (1) no structure-on-structure
+  AABB overlap; (2) all GridMap cells valid, door = wall-variant cell on the shared grid
+  (**cannot be half-occluded by construction**); (3) A\* passability entrance-socket→exit-socket;
+  (4) vertical navigability (mezzanine reached via stair, clearance passable); (5) fight-spawn
+  parity (chosen shell's footprint + spawns preserved, annulus rule). This is the *automation*
+  of the descent run-to-green's **manual** structural ruling. **Identical in spirit to the
+  ravine's ported Gate-1** (§ 2, § 3a) — same loop, enclosed-room flavor.
+- **Gate 2 — Register (CV, galadriel).** Holds the locked register (cathedral, here) across
+  framings; HFD/LMV/LDR/SAT/HLF within band. **Critical finding: register CV is structurally
+  BLIND to spatial coherence** — galadriel's register pass *shipped an incoherent scene*
+  (image statistics cannot see overlapping crypts or floating stairs). This is *why* Gate 1
+  exists as a separate, prior gate.
+- **Gate 3 — Coherence (Matt, human).** "Does it read as a place a human built?" — the
+  semantic/aesthetic judgment Gate 1 can't yet make. **Matt's verdict + REASONS are captured
+  as calibration triples** `(criterion, specific element, what he wants instead)` — the corpus
+  of triples across iterations *is the HITL-removal investment* (it is what would eventually
+  let an automated judge approximate Matt's eye). Capture verbatim; paraphrase loses the intent.
+
+**generate→gate→graduate carries identically:** every human catch at Gate 3 that *escaped*
+Gate 1 becomes a NEW Gate-1 criterion (see 6.3). recognition → validate → commit at the room
+scale: nothing canonicalizes until the node passes Matt.
+
+### 6.2. The project ARPG camera recommendation (BANKED — gated on re-ratification)
+
+Matt committed a camera for this node, with the explicit note *"this is very likely THE
+project ARPG camera — lock it project-wide once this node passes."* **The node did not pass
+(cancelled), and the live king-rig scene uses a different rig (a `_seat_sword` prop angle,
+pitch 75 — not a player camera). So this is a BANKED RECOMMENDATION, not a ratified lock.**
+The seasonal-descent presentation should adopt it as the *starting* recommendation, and the
+descent's first authored floor becomes its ratification. The recommendation, in full:
+
+- **Bearing: SE, looking diagonally toward the NW** (SE-looking-NW isometric — the **Diablo II
+  standard**). Justified geometrically, not by taste: **SE is the ONLY diagonal that keeps BOTH
+  far walls in front of the camera** — the other three throw the grand wall or the gallery
+  *behind* the lens.
+- **Pitch: shallow oblique, ~35°** (the D2 / PoE end of the dial; **NOT top-down**). Chosen
+  because a towering detailed backdrop only reads at a shallow pitch — steep foreshortens,
+  flattens detail, and brings the tower-top back into frame.
+- **Scripted, not hand-placed:** bake the transform into the render generator so it survives
+  regenerate; never set it in the live editor (the next bake clobbers it).
+- **Detail-budget asymmetry:** the **far hemisphere (N + W + NW) gets the detail budget +
+  ALWAYS stays in frame**; the **near hemisphere (S + E) goes LOW / cull / fade** to get out
+  of the way.
+- **Left-handed-compass GOTCHA (load-bearing):** this scene labels `+Z = North` while keeping
+  `+X = East / +Y = up`, so `(East, North, Up)` is a **left-handed** basis — a *mirror* of a
+  normal north-up map, which flips L/R map-intuition. Matt's "camera looks SW / East wall is
+  tall" read was this mirror. **Verify camera bearing against the generator math, not the
+  rendered picture.**
+
+### 6.3. "Only author + judge what the player camera sees" (Matt verbatim — the method's spine)
+
+> *"we should only take pictures of what the ARPG 2.5D diagonal 'top-down' camera will see,
+> otherwise we are optimizing for a game the player will never experience — and that's the
+> wrong game."* — Matt, 2026-06-19
+
+Consequence: **the multi-angle orbit is RETIRED as the acceptance unit.** Gate 1 (engine-truth,
+camera-independent) owns breakage detection; Gate 2 + Gate 3 collapse to the **player's
+committed 2.5D camera** (+ any allowed in-game rotation). Orbit/audit angles survive ONLY as
+internal debug, never the judged unit. **Evidence the orbit was the wrong acceptance unit: the
+15-frame orbit AND Gate 1 both PASSED the broken stairs — only Matt's eye, on the player
+camera, caught them.** This reconciles with the anti-single-hero-shot rule: the orbit existed
+*pre-Gate-1* to stop one angle hiding breakage; now that Gate 1 owns breakage, judgment
+correctly collapses to the player camera. (The ravine's tripod/NV-1…5 run is the OPEN-AIR
+analog — a *fixed* multi-framing set, not a free orbit, for a biome with no single committed
+sightline; the descent picks per node-type which applies.)
+
+### 6.4. The F1–F4 failure taxonomy (validated negatives) + proxy-vs-reality discipline
+
+Four real Matt rejections of the prior open-loop scene — already-validated negative samples;
+reproduce any and it is an automatic FAIL with a known reason:
+
+| # | Failure mode (prior rejection) | The fix / discipline | Gate-1 criterion that should pre-catch |
+|---|---|---|---|
+| **F1** | ~50 identical crypts copy-pasted, overlapping each other + objects | large architectural pieces are **STRUCTURE** (grid-snapped, FEW, deliberate), **not dressing** | no structure-on-structure AABB overlap; pieces grid-snapped + few |
+| **F2** | doors half-hidden by walls | door = **wall-variant cell on the shared grid** (cannot be half-occluded by construction) | A\* entrance→exit reachable; door-cell on grid |
+| **F3** | second floors at mid-character height, clipping; broken/floating stairs | real stair, walkable height, clearance, grounded foot, correct climb direction, open landing | vertical navigability + clearance |
+| **F4** | overly-tall plain walls with **no architectural reason** | every wall **does a job** (enclose / divide / support / frame) | **PARTIAL — Gate 1 checks overlap/passability, NOT "reason."** F4 is the criterion **least reducible to engine-truth** (semantic, not geometric) → Matt's F4 reasons are the **richest calibration signal** in the whole instrument |
+
+**The proxy-vs-reality discipline (a Gate-1 ESCAPE worked example).** Gate-1 crit-4 ("vertical
+both-ends-land") PASSED (foot y=-0.33, top y=6.99, deck y=6.00) yet the stair was *visibly
+broken*. The criterion checked **endpoint PROXIES** (AABB foot/top y, deck proximity) but NOT:
+stair **orientation** (climbable-face direction via the orthogonal index), visual **grounding**
+(mesh-on-floor vs float — the Synty prefab pivot), clear **landing** (no railing blocking),
+**support** reaching the deck (piers → full 6 m). gandalf flagged exactly this proxy-vs-reality
+gap; Matt's walk confirmed it. **The fix is generate→gate→graduate: each escape grows the
+gate** (crit-4 was strengthened with ORIENT/GROUND/LAND/SUPPORT checks + a negative-control
+proof — break the stair → crit-4 fails 3 ways → revert → passes). *This is the same discipline
+that recurs across the engine: a check that passes a known-bad input is testing a proxy, not
+the property.*
+
+### 6.5. The positive bar — "a place a human built" (P1–P4)
+
+A node can trip zero F-checks (nothing *broken*) and still feel lifeless. The positive bar:
+**P1** spatial logic reads (you can infer the room's purpose from its shape — a crypt reads as
+*a place the dead were laid*, not a box with sarcophagi); **P2** dressing supports, doesn't
+dominate (small clutter adds life, never becomes F1 at small scale); **P3** the footprint
+reads as playable (a space combat happens in, not a diorama); **P4** register holds to the eye
+(Gate-2's quantitative job; a register/coherence disagreement is itself a calibration signal).
+
+### 6.6. The layered far-wall composition (the ornateness technique — why the camera is committed FIRST)
+
+The far wall is **NOT a flat decorated plane** — it is **multi-plane depth the oblique camera
+reads as ornate space.** Three planes stacked along the camera sightline: **back** (stone wall
+with archways set INTO it + a wall behind each archway → recessed niches holding skull-piles —
+the ossuary read); **mid** (vines/moss + small sideways-facing gargoyles/corbels); **front**
+(a foreground colonnade carrying another archway — the camera looks *past* it INTO the recessed
+niches). Parallax across the planes = "ornate purposeful architectural picture." **This is WHY
+the camera was committed FIRST: the layering only reads with a fixed sightline.** Supporting
+grammar:
+
+- **The F1-resolution (major generative principle): repetition-IN-a-frame = design;
+  repetition-WITHOUT-a-frame = the bug.** A row of identical arched bays reads GRAND, not
+  stamped — the archways ARE the frame that converts copy-paste into intentional colonnade
+  ornament. *This is how to get richness WITHOUT re-triggering the F1 ~50-overlapping-crypts
+  failure.*
+- **Never-capped tower / false-front economy (D2/D4/PoE):** the W/NW backdrop climbs *above*
+  the camera frame and is **never capped** — out-of-frame ⟹ no wall-top, no ceiling authored.
+  **Height gradient: near LOW → gallery MID → tower TOWERING** — the diagonal rise that sells
+  the 2.5D depth. (The enclosed-room analog of the ravine's NV no-void requirement: instead of
+  "no void to the sky," it's "the wall continues up past the frame so the eye never finds the
+  top edge of the world.")
+- **Self-justifying architecture (answers F4):** an arcade on **real columns** (NOT square
+  bricks) beneath a gallery; **support reaches the full deck** (piers → 6 m, not halfway). A
+  wall earns its height by doing structural work the eye can read.
+- **An aged/tattered banner descending FROM out-of-frame** reinforces the towering read (cloth
+  from unseen height implies the wall continues up), drops a warm accent on grey stone, and
+  carries narrative (whose order interred the dead). Age it to match the moss pass.
+
+### 6.7. The eye-flow / crossing-direction principle + the structural-checkpoint discipline
+
+Matt's layout revision, verbatim: *"move the grand wall to the left (same side as the second
+level)… swap the two doors one wall to the right, so that the character crosses from
+bottom-left to upper right."* The principle: **consolidate the grand backdrop + gallery on ONE
+side, and route the player's traverse along the screen diagonal (bottom-left → upper-right) so
+the eye-path and the traverse-path AGREE** — arrival reveals the grand hero wall, then the
+crossing pulls the eye toward the far exit (the D2/PoE "enter into a reveal, then traverse
+toward the next gate"). And the discipline that protects the expensive pass: **re-jig structure
+→ quick eye-check on the BARE skeleton → THEN dress.** Dressing the most expensive pass (the
+layered far wall) before confirming the grand wall's *position* would put it on the wrong wall.
+recognition → validate → commit, at the room scale.
+
+### 6.8. The annulus soft-boundary (numbers + technique — shared with the locked decoupling doc)
+
+The fight footprint is **28×28 m (sacrosanct)**; outer walls at **43×43 m**; a **7.5 m annulus
+band** on every side. **Walls are NOT the battle extent** — the soft-boundary keeps combatants
+in the playable footprint via *scene-appropriate LARGER scattered objects* across the annulus,
+not via an invisible wall. (Matt re-derived the locked decoupling-doc soft-boundary rule by
+eye — its canonical home is `battle-room-presentation-decoupling-2026-06-15.md`, NOT these
+cancelled notes.) Supporting:
+
+- **K-premium no-false-affordance:** a climbable-*looking* step blocked by a fallen column,
+  raised coffins behind — variety + light without a real escape from the play floor. (Same
+  principle as the ravine's **R8 no-false-affordance** — flood-fill from the floor must not
+  reach outside the visual footprint.)
+- **Near-wall fade discipline:** ONLY the near walls (S + E) fade, and ONLY when they would
+  actually occlude the character; the far walls (N + W + NW) **never** fade. The *committed
+  camera is what makes near-vs-far definable* — without it, an untuned fade made "the entire
+  room feel transparent."
+- **Reserve inner-annulus depth on the far sides** for the layered far-wall pass — don't let
+  solid structure eat the depth the colonnade + niches need.
+
+### 6.9. Schema co-emergence (substrate-led) + the surviving artifact
+
+Do NOT pre-write the Act-Graph node schema — author the node, and let **what it actually
+needs** define the first draft (`node_type, footprint, fight_shell_ref, sockets[],
+meshlibrary_ref, register_preset, grid_size, vertical_layers, dressing_rules`). The derived
+schema **survives the cancellation as a live engine artifact**:
+`reincarnated-godot/data/act_graph_node_schema_draft.json` (this is the schema the ravine then
+generalized — it is NOT in the pruned notes, so the prune loses nothing).
+
+### 6.10. Godot / MCP operational gotchas (crypt-specific; complement the § 5 Synty list)
+
+- **GridMap cells are base64 in the `.tscn`** — cannot be hand-edited; ALL cell placement goes
+  through `godot_gridmap_edit`. This **tool-enforces structure-first** (a happy alignment).
+- **GridMap orientation = an orthogonal index 0–23** (24 rotations), not Euler.
+- **`get_scene_tree` is unbounded** — pass `max_depth` / `max_children`; prefer
+  `godot_scene3d get_spatial_info` with filters for spatial work.
+- **Single-occupancy of the Godot project** for any headless rebuild — a collision with the
+  open editor dropped a `project.godot` config block (`[addons] sidekick_creator`). Close the
+  editor WITHOUT saving first; verify `project.godot` integrity after.
+- **Owner-recursion regression canary:** the baked scene node-count is a health signal (healthy
+  ≈ 620 `[node]`, **0 MeshCollider, 0 CollisionShape3D**; the recursion bug yields ≈ 601).
+- **Tool:** `satelliteoflove/godot-mcp v4.0.1` (validated fork). Plugin-enable mutates
+  `project.godot` — diff-review the enable commit (it once dropped an unrelated config block).
+
+---
+
+## 7. What was prototype-SPECIFIC and dies with the cancellation (honest list)
 
 So the carry-forward isn't padded with dead weight:
 
@@ -261,45 +498,65 @@ So the carry-forward isn't padded with dead weight:
   specific (resolved: genre says ravines are linear). The descent's topology is its own call.
 - The carve-and-sculpt **R1/R2/R3 lighting/water/foliage** revisions (register-specific).
 
-The **methodology** in § 2 and the **rule-shapes** in § 3 are what survive; the **content**
-of the rules is replaced per biome.
+**Crypt-vault-specific deaths (the geometry, not the method):** the **cathedral register**
+particulars (its canonical home is `style-register.md`, not the cancelled notes); the
+specific **crypt-vault theme** (sarcophagi / ossuary / skull-niches — examples of the
+layered-far-wall technique, not the technique itself); the specific **wall-role layout** (which
+wall is grand, where the doors sit) — that was *this room's* solve; the **exact tuning numbers**
+(`CAM_DIST=47`, cold/warm split, brazier flame range). The **node schema draft** does NOT die —
+it survives as a live engine artifact (§ 6.9).
+
+The **methodology** (§ 2 + § 6.1) and the **rule-/gate-/composition-shapes** (§ 3 + § 6) are
+what survive; the **content** (biome, theme, register, numbers) is replaced per node.
 
 ---
 
-## 7. Disposition — the 9 source notes are now PRUNE-ELIGIBLE (Matt ratifies)
+## 8. Disposition — the source notes are now PRUNE-ELIGIBLE (Matt RATIFIED 2026-06-30)
 
-Per promote-then-prune: the load-bearing substance of all 9 ravine notes is now banked in
-§ 2–§ 6 above (+ git history retains the originals verbatim regardless). The workstream is
-**CANCELLED** (Matt 2026-06-30) — predicate 3 (totally-superseded / workstream-closed)
-holds, and a cross-repo reference check is the only remaining gate before a clean prune.
+Per promote-then-prune: the load-bearing substance of all **14** source notes (9 ravine +
+5 crypt-vault) is now banked in § 2–§ 6 above (+ git history retains the originals verbatim
+regardless). Both workstreams are **CANCELLED** (Matt 2026-06-30: ravine *"the ravine work
+was cancelled"*; crypt *"the scene was cancelled"*) — predicate 3 (workstream-closed) holds
+for both clusters.
 
-**This re-classifies prune-list § 3c (the 9-note ravine cluster) from KEEP → PRUNE-RECOMMENDED.**
-The original § 3c KEEP rationale ("r3 awaiting the Matt Gate; workstream OPEN") is void —
-the workstream is cancelled, not awaiting a gate.
+**RATIFIED (Matt 2026-06-30):**
 
-**I am NOT auto-rm'ing these** — Matt is in live dialogue and surface-for-ratification is the
-correct mode (the auto-prune ceiling: ambiguity/judgment → surface, never auto-fire). One
-verification remains before any `git rm`: confirm none of the 9 is **path-cited or basename-
-cited** by an evidentiary home across BOTH repos (decisions-log lives in the engine repo).
-On Matt's word + a clean reference check, the 9 `git rm` in one commit (NO push).
+- **RAVINE ×9 → PRUNE.** Re-classifies prune-list § 3c (KEEP → PRUNED). Reference check:
+  **clean** — every cross-repo citation of the 9 is intra-cluster (the ravine notes cite each
+  other) or in the two governance docs (this carry-forward + the prune-list); **zero external
+  evidentiary homes.** The cluster `git rm`s together as a unit. Citations from THIS note + the
+  prune-list are intentional git-lineage pointers (the promote-then-prune trail), not live deps.
+- **CRYPT-VAULT ×5 → PRUNE** (`2026-06-19-crypt-vault-{node-poc-brief, node-gate3-coherence-
+  capture, gate3-verdict-1-calibration, rebuild-brief-camera-committed, phase1-verification-
+  and-preread}`). Reference check: mostly intra-cluster; **one external-home caveat (surfaced,
+  not silent):** `crypt-vault-node-poc-brief` is cited by a frozen historical dispatch
+  (`dispatches/2026-06-19-drax-crypt-vault-node-poc.md`) and `skill_handoff_2026-06-19.md`.
+  Those are point-in-time records (KR/handoff territory, not pruned); their references become
+  intentional git-lineage pointers post-prune, exactly as the promote-then-prune pattern
+  intends (substance is banked in § 6; git holds the originals). No live forward-tracking doc
+  depends on them.
+- **KING-RIG → KEEP (LIVE, do NOT prune).** `2026-06-22-king-rig-mcp-alignment-brief.md` — the
+  small square-room king scene, the live game being built. Same Synty map-pack, different
+  scene, **not** cancelled. Verified: it cites **zero** crypt notes, so pruning the crypt
+  cluster does not orphan it.
 
-**Open question flagged, NOT assumed (out of scope to rule):** the ravine generalized its
-node-schema + Gate-1 + generate→gate→graduate loop from the **crypt-vault PoC**. Matt
-cancelled *"the ravine work"* — not, explicitly, the crypt-vault prototype. The crypt notes
-(`2026-06-19-crypt-vault-*`) stay **KEEP** until Matt rules on whether the crypt-vault
-Godot prototype is also retired. The methodology in § 2 transfers regardless of which
-prototype proved it — so even a full Godot-prototype cancellation does not lose the gold.
+**Auto-prune ceiling honored:** none of this auto-fired — Matt ratified in live dialogue; the
+crypt external-home caveat was surfaced for his eye, not silently passed through.
 
 ---
 
 **Tracker-delta:** STORY tracker — the seasonal-descent procgen-middle (recognition record
-gate G3) now has a **banked methodology + worked rule template** from the cancelled ravine
-(this note); no new commitment, but G3's "blank page" risk is retired. ENGINE tracker — the
-open cross-seam question *(does physical room-resizing feed the balance sim? § 2 L6)*
-remains unresolved and gates the descent's § 5 adjustment algorithm; route to KR/gamora.
+gate G3) now has a **banked methodology + worked rule template** from BOTH cancelled prototypes
+(this note); G3's "blank page" risk is retired, and § 6.1's three-gate method is the worked
+template for the descent's § 3 procedural-middle loop. The **project ARPG camera (§ 6.2) is
+banked, NOT ratified** — the descent's first authored floor should adopt it as the starting
+recommendation and ratify it (recognition → validate → commit). ENGINE tracker — the open
+cross-seam question *(does physical room-resizing feed the balance sim? § 2 L6)* remains
+unresolved and gates the descent's § 5 adjustment algorithm; route to KR/gamora.
 
-**Signed:** gandalf, 2026-06-30. The ravine geometry is cancelled; its method, its rule-
-shapes, its no-void ruleset, its gate process, and its Synty/Godot scar-tissue are promoted
-here for the seasonal descent to consume. Nine raw iteration notes are now prune-eligible —
-surfaced for Matt's ratification, not auto-pruned. The gold was never the gorge; it was the
-proof that a biome can be carried as gated rules.
+**Signed:** gandalf, 2026-06-30. Two Godot prototypes are cancelled; the geometry of both
+dies, but the **three-gate method, the F1–F4 taxonomy, the "only judge what the player sees"
+spine, the layered-composition grammar, the project camera recommendation, the no-void ruleset,
+and all the Synty/Godot/MCP scar-tissue** are promoted here for the seasonal descent to consume.
+Fourteen raw iteration notes prune; the live king scene stays. The gold was never the gorge or
+the crypt — it was the proof that a *node* can be carried as gated rules a camera can judge.
