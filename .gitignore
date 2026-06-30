@@ -31,3 +31,22 @@ agentic_orchestration/mantis/research/**/*.fbx
 agentic_orchestration/mantis/research/**/*.obj
 agentic_orchestration/mantis/research/**/*.stl
 agentic_orchestration/mantis/research/**/*.usdz
+
+# === Heavy binaries / vendored deps / media-gen output (Path B leanness, 2026-06-29) ===
+# Policy: large binaries kept on disk + referenced, NOT committed (extends mantis-mesh precedent).
+
+# Vendored Godot SQLite addon (328M; dependency, not project source)
+godot-sqlite-*/
+# Veo media-generation working dir (companion to duskweaver/ already ignored above)
+duskweaver-mm-p1/
+
+# Engine sim output — large runlogs + timestamped gauntlet telemetry (regenerable; not source)
+agentic_orchestration/cycle-14-wave-5-season-001/str-9pass-floor-FULL-runlog-*.txt
+agentic_orchestration/cycle-14-wave-5-season-001/telemetry.db
+agentic_orchestration/cycle-14-wave-5-season-001/*_[0-9][0-9][0-9][0-9][0-9][0-9].json
+
+# Handoff media — mobile scene/trailer renders + voice audio (kept on disk; pointer doc in repo)
+matt_notes_handoff_docs/**/*.mp4
+matt_notes_handoff_docs/added voice acting scenes/
+matt_notes_handoff_docs/Roguelite Game Start Scene_v2/
+matt_notes_handoff_docs/Roguelite Game Start Scene_v3/
