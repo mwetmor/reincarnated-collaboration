@@ -37,10 +37,10 @@ Apply this orientation at every dispatch consumption + every design decision:
 
 Read in order. Stop when sufficient for the work at hand; do not pre-load beyond need.
 
-1. **`canonical/00-ground-state.md`** — current epoch + canon status + first-reads by role + active workstreams. Always first; non-negotiable.
-2. **`canonical/story/current-to-end-state.md`** — **THE LIVING current-vs-end-state tracker (battle-sim + content-emission + v2-design engine-fit gaps).** Always second; non-negotiable. Read the SESSION-DELTA LOG top-to-bottom (latest governs) + the body PARTs relevant to the session's work. **This is the doc Matt mandated every gandalf session opens at startup and updates during work — see § 5 step 2 for the update obligation.**
-3. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10).
-4. **`canonical/02-roadmap.md`** — current workstream sequencing + empirical-evidence-gated deferred commitments. Cross-check what's queued vs in-flight.
+1. **`canonical/00-ground-state.md`** — the thin **router** (post-reorg 2026-06-30): the three canon homes, first-reads by role, disagreement contracts, drift-guards. Always first; non-negotiable.
+2. **`canonical/current-to-end-state/`** — **THE LIVING current-vs-end-state trackers** (relocated 2026-06-30 from `canonical/story/current-to-end-state.md`): `current-to-end-state-engine.md` (battle-sim + content-emission + v2-design engine-fit gaps) + `current-to-end-state-story.md` (open story decisions under the v2 *Reap. Die. Rise.* frame). gandalf spans both. Always second; non-negotiable. Read the relevant tracker's SESSION-DELTA LOG top-to-bottom (latest governs) + the body PARTs relevant to the session's work. **Matt mandated every gandalf session opens the relevant tracker at startup and updates it during work — see § 5 step 2 for the update obligation.**
+3. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). *(Folds into `reap-die-rise-engine/` during the reorg engine-fold.)*
+4. **`canonical/reap-die-rise-story/` + `canonical/reap-die-rise-engine/`** — the END-STATE spec folders. Read each `00-index.md` fold-worklist + the sections relevant to the session's work. *(Replaces retired `02-roadmap.md` — killed in the 2026-06-30 reorg; forward-sequencing now lives in the current-to-end-state trackers' open queues.)*
 5. **Own latest 3 notes** at `agentic_orchestration/gandalf/notes/` — recent design recognitions, dispositions, closeouts (mtime order; not all of history).
 6. **`canonical/story/style-register.md`** — locked visual style register (used in D10 Path A filter; relevant when style-register questions arise).
 7. **`canonical/story/legacy-categorical-cleanup-audit-2026-05-22.md`** — Pattern 4-5-6 retirements; substrate-led design discipline that applies across all design work.
@@ -377,9 +377,9 @@ Together (§ 3 + § 4) constitute the gandalf decision-loop + operational-tools 
 ## 5. Session-end protocol
 
 1. **Commit canonical artifacts** authored this session (single-commit-per-scope discipline; co-author tag per project convention)
-2. **Update `canonical/story/current-to-end-state.md` (THE living state doc — MANDATORY when state changed).** If this session changed any battle-sim / emission / v2-fit state, closed a gap, surfaced a new one, or made a design call: prepend a dated SESSION-DELTA block (latest governs) AND update the affected body rows in place (mark ✓ DONE / strike-with-date; never silently delete). This is Matt's standing directive (2026-06-23) — the doc is only useful if every session that moves state records it.
-3. **Update 00-ground-state.md § 1** if a new CURRENT artifact landed (add as row in Current Truth table with one-line description)
-4. **Update 02-roadmap.md** if workstream state shifted (move items between Active / Queued / Deferred; update empirical-evidence criteria as needed)
+2. **Update the relevant `canonical/current-to-end-state/` tracker (THE living state docs — MANDATORY when state changed).** Battle-sim / emission / v2-fit state → `current-to-end-state-engine.md`; a moved story decision (locked a frame item, resolved/opened a flag) → `current-to-end-state-story.md`. Prepend a dated SESSION-DELTA block (latest governs) AND update the affected body rows in place (mark ✓ DONE / strike-with-date; never silently delete). This is Matt's standing directive (2026-06-23) — the docs are only useful if every session that moves state records it.
+3. **Update `canonical/00-ground-state.md` (the router) ONLY if the three-home structure changes** (a new canon home, a relocated spec folder). The old per-doc "Current Truth" registry is retired (reorg 2026-06-30) — new CURRENT artifacts land in their spec folder and are tracked by the relevant current-to-end-state tracker; they do NOT need a router row.
+4. **Record workstream/state shifts in the relevant `canonical/current-to-end-state/` tracker's open queue** (PART B story / the engine tracker's PARTs). *(Replaces retired `02-roadmap.md`.)*
 5. **Push** only if Matt has explicitly authorized push for the workstream OR the push pattern is established (e.g., during a cleanup pass where Matt has named push as authorized)
 6. **Name what's deferred** with the specific empirical-evidence criterion that gates re-engagement
 7. **STOP.** Do not editorialize about Matt's state. Do not recommend rest. Do not include closing-of-session blessings. Acknowledge what landed; name what's queued; stop.

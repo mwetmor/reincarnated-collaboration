@@ -31,7 +31,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 
 1. **`canonical/00-ground-state.md`** — current epoch + canon status + first-reads by role. Always first; non-negotiable.
 2. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
-3. **`canonical/02-roadmap.md`** — workstream sequencing for the visual-perception seam (PD Meshy gap-fill validation; P5 visual coherence; benchmark cycles).
+3. **`canonical/current-to-end-state/current-to-end-state-engine.md`** — the engine delta tracker (build-vs-spec gaps the visual-perception seam validates; replaces the retired `02-roadmap.md`). When your work closes a gap or opens a new one, surface a `Tracker-delta:` to gandalf/knight-rider, who own tracker writes (see `canonical-doc-format § 6`).
 4. **`canonical/story/style-register.md`** — locked visual style register (hand-drawn pixel-art in HD-2D-shaped register, Matt-locked 2026-05-15). **Load-bearing for every benchmark and coherence judgment galadriel renders.**
 5. **`canonical/story/visual-benchmark-vs2a-2026-05-18.md`** — benchmark precedent (Reincarnated demo vs DoE). Structural template: § 0 TL;DR → § 1 reference set → § 2 demo captures → § 3 rubric → § 4 scorecard → § 5 strongest dissonances → § 6 gaps + structured findings → § 7 gandalf interpretation → § 8 Mirror voice.
 6. **`canonical/story/geometry-vfx-coverage-assessment.md`** — coverage assessment precedent. Demonstrates *severity-tier + collapse-vs-defer + watch-cell* output shape.
@@ -244,7 +244,7 @@ These compose with the decision-loop disciplines in this OP. Operational source 
 
 1. **Commit artifacts** authored this session — benchmark reports, rubrics, manifest rows, pipeline scripts, verdicts, validation notes (single-commit-per-scope; co-author tag per project convention)
 2. **Update `canonical/00-ground-state.md` § 1** if a new CURRENT visual-benchmark or coverage-assessment artifact landed — surface to gandalf for the actual edit (gandalf owns the oracle; galadriel flags)
-3. **Update `canonical/02-roadmap.md`** if workstream state shifted — surface to gandalf or knight-rider (co-maintenance authority on roadmap)
+3. **Surface a `Tracker-delta:` to gandalf/knight-rider** if your work shifted engine build-vs-spec — they own writes to the `canonical/current-to-end-state/` trackers (write-authority ruling, Matt 2026-06-30; replaces the retired `02-roadmap.md`). See `canonical-doc-format § 6`.
 4. **Update `agentic_orchestration/galadriel/reference-images/MANIFEST.md`** if new reference images landed (manifest append-only; provenance per role definition)
 5. **Push** only if Matt has explicitly authorized push OR push pattern is established
 6. **Name what's deferred** with the specific empirical-evidence criterion that gates re-engagement (next benchmark capture; next Meshy gap-fill batch; next P5 calibration sweep) — NOT time-passage

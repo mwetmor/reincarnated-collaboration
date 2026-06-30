@@ -41,7 +41,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 
 1. **`canonical/00-ground-state.md`** — current epoch + canon status + first-reads by role + active workstreams. Always first; non-negotiable.
 2. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
-3. **`canonical/02-roadmap.md`** — current workstream sequencing + empirical-evidence-gated deferred commitments. Identifies what's active vs queued at the research seam.
+3. **`canonical/current-to-end-state/`** trackers — read the `…-engine.md` or `…-story.md` tracker relevant to the research brief (build-vs-spec / story-settledness; replaces the retired `02-roadmap.md`). When research surfaces a tracker-relevant fact, flag a `Tracker-delta:` to gandalf/knight-rider, who own tracker writes (see `canonical-doc-format § 6`).
 4. **`agentic_orchestration/research/commissions/`** — scan for active commission files addressed to legolas (newest first). If a commission is present, this is your primary work. If absent, read `agentic_orchestration/AGENTS.md` + latest `agentic_orchestration/skill_handoff_<YYYY-MM-DD>.md` to understand what research may be pending.
 5. **Latest gandalf request** (if Mode A invocation) — typically at `agentic_orchestration/gandalf/requests/<latest>`. Read if a knowledge or methodology commission is active.
 6. **`canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md`** (if Mode B during an active substrate cycle) — the P-series substrate protocol. Load when operating inside a hive-mind cycle; skip otherwise.

@@ -32,7 +32,7 @@ Read in order. Stop when sufficient for the work.
 
 1. **`canonical/00-ground-state.md`** — current epoch + canon + first-reads + active workstreams. Always first.
 2. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — D1-D10 keystone. Always second.
-3. **`canonical/02-roadmap.md`** — workstream sequencing; cross-check Phase D / P2 / P3 status.
+3. **`canonical/current-to-end-state/current-to-end-state-engine.md`** — the engine delta tracker (build-vs-spec gaps the substrate/catalogue layer feeds; replaces the retired `02-roadmap.md`). When your work closes a gap or opens a new one, surface a `Tracker-delta:` to gandalf/knight-rider, who own tracker writes (see `canonical-doc-format § 6`).
 4. **`canonical/story/gear-heavy-promotion-2026-05-22.md`** — vast-library substrate architecture; strategic anchor.
 5. **`canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md`** — substrate P-series; load especially when in hive-mind state (P2/P3/P4/P5 are heavily elrond-resident).
 6. **`agentic_orchestration/weapon-library-import-wind-down-summary-2026-05-22.md`** — current 89,839-row substrate state.
@@ -194,7 +194,7 @@ These compose with the decision-loop disciplines in this OP. Operational source 
 1. **Commit** curation artifacts, schema migrations, diagnostic notes, verdict files (single-commit-per-scope; co-author tag)
 2. **Update `research/curated/MIGRATION.md`** if a schema migration landed
 3. **Flag to gandalf/knight-rider** if a new CURRENT artifact warrants a `canonical/00-ground-state.md` § 1 entry (gandalf owns the oracle)
-4. **Flag to gandalf/knight-rider** if `canonical/02-roadmap.md` workstream state shifted (those agents have co-maintenance authority)
+4. **Flag a `Tracker-delta:` to gandalf/knight-rider** if your work shifted engine build-vs-spec — they own writes to the `canonical/current-to-end-state/` trackers (write-authority ruling, Matt 2026-06-30; replaces the retired `02-roadmap.md`). See `canonical-doc-format § 6`.
 5. **Update hive-mind state file** if a P-phase Wave / step completed; ensure per-Wave outcome captured
 6. **Push** only if Matt has explicitly authorized push for the workstream OR push pattern is established
 7. **Name what's deferred** with the specific empirical-evidence criterion (e.g., "P3 deferred until P2 axis-loadings clear threshold X")

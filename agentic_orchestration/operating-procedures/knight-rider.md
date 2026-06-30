@@ -25,7 +25,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 
 1. **`canonical/00-ground-state.md`** — current epoch + canon status + first-reads by role + active workstreams. Always first; non-negotiable.
 2. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
-3. **`canonical/02-roadmap.md`** — current workstream sequencing + empirical-evidence-gated deferred commitments. Cross-check what's active / queued / deferred.
+3. **`canonical/current-to-end-state/current-to-end-state-engine.md`** + **`…-story.md`** — BOTH delta trackers (engine build-vs-spec + story-settledness; replaces the retired `02-roadmap.md`). You and gandalf own tracker writes: consolidate `Tracker-delta:` footers other agents surface, and keep both trackers' open queues current (see `canonical-doc-format § 6`).
 4. **Latest `agentic_orchestration/skill_handoff_<YYYY-MM-DD>.md`** — Matt-facing daily-state handoff from prior session (per § 3.1 reframing); pending decisions queue, awaiting-Matt blockers, recent decisions.
 5. **Current hive-mind state file** (if a substrate cycle is in flight): `agentic_orchestration/weapon-library-import-hive-mind-state.md` or successor (e.g., `weapon-substrate-curation-cycle-10-state.md`).
 5a. **Current cycle scope-doc (MANDATORY if active KR-orchestrated cycle exists):** `agentic_orchestration/cycles/cycle-<N>-hive-mind-scope.md` — **authority-of-record for KR's autonomous-scope this cycle.** Per `operating-procedures/hive-mind-scope-discipline.md`. Read at session-start; consult during cycle execution on any "is this in my scope?" question. Ambiguity defaults to in-scope per scope-discipline § 5.3 — do NOT fall back to ask-safety.
@@ -273,12 +273,11 @@ KR cannot fire a dispatch without both blocks populated. Sub-agents verify the Q
 1. **Commit orchestration artifacts** authored this session (skill_handoff, CHANGELOG entry, dispatch files, integration commits); co-author tag per project convention
 2. **Update `agentic_orchestration/skill_handoff_<today>.md`** in Matt-facing format per § 3.1 (pending decisions; active workstreams; awaiting-Matt blockers; recent Matt-decisions; next-session pickup)
 3. **Update `agentic_orchestration/CHANGELOG.md`** if a team-level event occurred (new agent; new ADR; structural restructure; etc.)
-4. **Update `canonical/02-roadmap.md`** per roadmap § 6 living-doc protocol (knight-rider has co-maintenance authority). Specifically:
-   - **Required at every Wave close**: update § 3 ASCII visual flow status icons (❌ → ⏳ → ✅) + add completion dates (YYYY-MM-DD) on ✅ transitions per § 6.1 find-and-replace pattern
-   - **Required at every commit during cycle execution**: per roadmap § 6.1, KR updates the doc at every commit; a Wave-closing commit is the natural checkpoint to update § 3 status icons
-   - **Required at workstream-state shifts**: update § 4 active workstreams table per cycle transitions; § 5 deferred-commitments when items reach empirical-evidence trigger; § 6 engineering-discipline candidates when ratification verdicts return
-   - **Anti-pattern (2026-05-27 observed)**: adding companion-doc references only without transitioning § 3 status icons. Cycle 13 wave closes (Wave 1-5) had completion records committed but status icons in § 3 ASCII were NOT transitioned at per-wave granularity. Roadmap update discipline includes § 3 icon transitions, NOT just companion-docs additions.
-   - **Authority**: Matt 2026-05-27 verbatim "agreed on KR OP amendment" per roadmap-discipline-course-correction request
+4. **Update BOTH `canonical/current-to-end-state/` trackers** — `current-to-end-state-engine.md` (build-vs-spec) + `current-to-end-state-story.md` (story-settledness). You and gandalf own tracker writes (write-authority ruling, Matt 2026-06-30; replaces the retired `02-roadmap.md` + its § 6 living-doc protocol). Specifically:
+   - **Consolidate `Tracker-delta:` footers** that specialists surfaced this session (per `canonical-doc-format § 6.2`) into the relevant tracker's open queue.
+   - **At every Wave/cycle close**: move resolved items to the tracker's CLOSED appendix; keep the open-queue current so the delta reflects real build state.
+   - **At workstream-state shifts**: update the affected tracker PARTs; record empirical-evidence-gated items with the specific criterion that gates re-engagement (recognition → validate → commit).
+   - **Anti-pattern**: committing completion records without reconciling the tracker — the tracker, not the commit log, is the canonical build-vs-spec delta.
 5. **Push** only if Matt has explicitly authorized push for the workstream OR a push pattern is established
 6. **Name what's deferred** with the specific empirical-evidence criterion that gates re-engagement
 7. **STOP.** Do not editorialize about Matt's state. Do not recommend rest. Acknowledge what landed; name what's queued; stop.

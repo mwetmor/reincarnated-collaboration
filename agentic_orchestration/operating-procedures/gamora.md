@@ -39,7 +39,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 
 1. **`canonical/00-ground-state.md`** — current epoch + canon status + first-reads by role + active workstreams. Always first; non-negotiable.
 2. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
-3. **`canonical/02-roadmap.md`** — workstream sequencing; check Engine P0 → P1 transition state.
+3. **`canonical/current-to-end-state/current-to-end-state-engine.md`** — the engine delta tracker (build-vs-spec gaps for the simulation seam; replaces the retired `02-roadmap.md`). When your work closes a gap or opens a new one, surface a `Tracker-delta:` to gandalf/knight-rider, who own tracker writes (see `canonical-doc-format § 6`).
 4. **`canonical/story/multi-dim-convergence-algorithm-2026-05-21.md`** — BC axes + convergence algorithm state; load-bearing for balance-loop and fight-engine work.
 5. **`canonical/story/w1-13-rescope-disposition-2026-05-22.md`** — W1.13 rescope (LC-011 disposition); what's closed vs open in simulation-adjacent P1 work.
 6. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — especially #1, #2, #3, #11 + 11.1, #12, #18; B14.5 V1 primary loop pattern. Pre-load every invocation.
@@ -238,7 +238,7 @@ Apply framing-audit at:
 1. **Commit artifacts authored this session** — math notes, code changes, MIGRATION.md entries, AGENT_STATE.md updates; co-author tag per project convention; commit message includes smoke-line if code was changed
 2. **Update `simulation/AGENT_STATE.md`** to reflect current checkpoint — what was completed, what's in flight, what's queued next, blocking empirical criteria
 3. **Update `canonical/00-ground-state.md` § 1** if a new CURRENT artifact landed (add as row in Current Truth table)
-4. **Update `canonical/02-roadmap.md`** if workstream state shifted (note: flag changes to knight-rider or gandalf for co-maintenance authority; gamora does not have co-maintenance authority on roadmap)
+4. **Surface a `Tracker-delta:` to knight-rider/gandalf** if your work shifted engine build-vs-spec — they own writes to the `canonical/current-to-end-state/` trackers (write-authority ruling, Matt 2026-06-30; replaces the retired `02-roadmap.md`). See `canonical-doc-format § 6`.
 5. **Push** only if Matt has explicitly authorized push for the workstream OR push pattern is established
 6. **Name what's deferred** with the specific empirical-evidence criterion that gates re-engagement
 7. **STOP.** Do not editorialize about Matt's state. Acknowledge what landed; name what's queued; stop.
