@@ -36,5 +36,16 @@ Empty floor → annulus soft-boundary objects (F) + carpet (J). Bare uniform wal
 ## Gate to Phase 2
 Matt's eye on the composition. Reads → fire Phase 2 (layered far-wall + dressing + any camera/lighting nudge Matt calls). Wants a structural/camera nudge → do it cheap on the skeleton first.
 
-## Matt's verdict (pending — calibration pairing)
-[capture verbatim when it lands]
+## Matt's verdict (captured — calibration pairing)
+**Verdict: STRUCTURE-PASS-WITH-LAYOUT-REVISION.** Camera correct as committed; revise wall ROLES + door placement before any Phase-2 dressing.
+
+- **Camera — confirmed correct (no bug).** Matt's "camera SW / East wall tall" read was the LEFT-HANDED-COMPASS MIRROR: this scene labels +Z=North while keeping +X=East / +Y=up, so (East,North,Up) is left-handed — a mirror of a normal north-up map, which flips map-intuition's L/R. The wall on screen-right is genuinely WEST; the camera is genuinely SE (CAM_AZ_DEG=-45, eye SE looking NW). Verified against the generator math, not the picture. SE is also the ONLY diagonal that keeps BOTH far walls in front of the camera (the other three throw the tower or the gallery behind). Camera unchanged.
+- **Layout revision (Matt verbatim):** *"What I would like to see is the grand wall moved to the left (same side as the second level). Then swap the two doors one wall to the right, so that the character crosses from bottom-left to upper right."*
+- **Interpretation (locked by his explicit end-state — the crossing direction is the spec):**
+  - GRAND towering treatment moves WEST → NORTH, merging with the second-level gallery already on North → unified grand hero wall on the screen-LEFT (upper-left). [grand "to the left, same side as the 2nd level"]
+  - WEST demotes to a MID-height far wall (upper-right), carries the EXIT. (height = soft/tunable lever)
+  - Doors shift one wall CLOCKWISE in screen-space: exit NORTH→WEST (upper-left→upper-right); entrance SOUTH→EAST (lower-right→lower-left). [="one wall to the right"]
+  - Net flow: entrance EAST (bottom-left, near) → exit WEST (upper-right, far) = bottom-left→upper-right. ✓ exactly Matt's stated crossing. The end-state disambiguates "one wall to the right" = clockwise (the CCW reading would put entrance on a far wall / flow upper-right→lower-left — rejected).
+- **Calibration triple:** `(composition / eye-flow, the grand backdrop + door diagonal, "consolidate grand + gallery on ONE side (left); route the player's crossing along the screen diagonal bottom-left→upper-right so the eye-path and the traverse-path agree")`. Player consequence: arrival reveals the grand vaulted hero wall on the left, then the traverse pulls the eye diagonally toward the far exit — eye and feet move together (D2/PoE "enter into a reveal, then traverse toward the next gate").
+- **Why this GATES Phase 2:** the layered far-wall marquee (archway niches + skulls + foreground colonnade + banner + moss/gargoyles) dresses the FAR walls. Dressing them before the grand-wall role moved W→N would put the single most expensive pass in the node on the WRONG wall. Discipline: re-jig structure → quick eye-check on the bare re-jigged skeleton → THEN dress. (recognition → validate → commit.)
+- **Dispatched:** drax structural re-jig (wall roles W↔N grand; doors S→E entrance / N→W exit; stair relocate clear of E entrance, still climb +Z; carpet E→W; warm the North hero wall; Gate-1 re-run w/ entrance=E/exit=W sockets + crit-4 stair + spawn-parity; player-cam re-render). Phase-2 dressing explicitly withheld.

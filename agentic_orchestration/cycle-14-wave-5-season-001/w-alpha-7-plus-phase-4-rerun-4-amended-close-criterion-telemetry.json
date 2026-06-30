@@ -1,37 +1,19 @@
 {
-  "sweep_timestamp": "2026-05-29T01:00:59.433645+00:00",
-  "wall_time_s": 83.01,
-  "total_gauntlet_calls": 8,
-  "total_measurement_cells": 3456,
-  "kits_shipped": 18,
+  "sweep_timestamp": "2026-05-29T03:01:37.218616+00:00",
+  "wall_time_s": 1.85,
+  "total_gauntlet_calls": 3,
+  "total_measurement_cells": 360,
+  "kits_shipped": 5,
   "kits_not_shipped": 0,
   "zero_t4_escalations": [],
   "cross_path_parity_per_profile": {
-    "low": 1.72,
-    "mid": 1.155,
-    "max_a": 2.425,
-    "max_b": 2.425,
-    "mixed_v1": Infinity,
-    "mixed_v2": 2.425,
-    "mixed_v3": Infinity
+    "max_a": 1.146
   },
   "t5_floor_violations_per_profile": {
-    "low": 0,
-    "mid": 0,
-    "max_a": 0,
-    "max_b": 0,
-    "mixed_v1": 0,
-    "mixed_v2": 0,
-    "mixed_v3": 0
+    "max_a": 0
   },
   "t4_specialization_failures_per_profile": {
-    "low": 18,
-    "mid": 17,
-    "max_a": 18,
-    "max_b": 18,
-    "mixed_v1": 17,
-    "mixed_v2": 18,
-    "mixed_v3": 17
+    "max_a": 5
   },
   "t4_engine_routing_note": "Phase 4 RE-RUN-4: Amended close-criterion verification (KR Mode A Dispatch 3). Same Two-Layer T4 architecture as RE-RUN-3 (gandalf v1.17 `eb5bd1b` + rocket v1.13 `1ac272f`). Hotfix active: Cycle 14.5 R3 T2 zero-KPM hotfix (engine 00b7f02 / gamora/v2.9-r3-t2-zero-kpm-hotfix-1). Hotfix components: (A) boss_with_adds added to direct-range-check T1 routing enc types; (B) ENCOUNTER_COHORT_KPM_BAND upper bounds recalibrated for magic_pack + mini_boss. ROOT CAUSE: band-reject artifact in BVV harness (not BASE under-calibration). AMENDED close-criterion: T1+T2+T3+T5 all PASS required; T4 measured-for-record only (Cycle 16+ deferred). Discipline #12 epoch breaks A+B active (math note cycle-14-5-r3-t2-zero-kpm-hotfix-2026-05-28.md). compound_pass = raw RE-RUN-3 field (may AND T4); use derived_compound_pass (T1+T2+T3+T5) for amended criterion.",
   "encounter_band_table_updated": {
@@ -55,92 +37,92 @@
     },
     "chokepoint_corridor": {
       "DPS-min-maxer": [
-        596.0,
-        836.0
+        0.0,
+        1.0
       ],
       "Balanced": [
-        536.0,
-        664.0
+        0.0,
+        1.0
       ],
       "Defensive": [
-        368.0,
-        560.0
+        0.0,
+        1.0
       ],
       "Hybrid": [
-        440.0,
-        728.0
+        0.0,
+        1.0
       ]
     },
     "magic_pack": {
       "DPS-min-maxer": [
-        203.0,
-        284.0
+        0.0,
+        1.0
       ],
       "Balanced": [
-        182.0,
-        226.0
+        0.0,
+        1.0
       ],
       "Defensive": [
-        125.0,
-        190.0
+        0.0,
+        1.0
       ],
       "Hybrid": [
-        150.0,
-        247.0
+        0.0,
+        1.0
       ]
     },
     "elite_pack": {
       "DPS-min-maxer": [
-        180.0,
-        253.0
+        192.0,
+        270.0
       ],
       "Balanced": [
-        162.0,
-        201.0
+        173.0,
+        214.0
       ],
       "Defensive": [
-        111.0,
-        169.0
+        119.0,
+        181.0
       ],
       "Hybrid": [
-        133.0,
-        220.0
+        142.0,
+        235.0
       ]
     },
     "boss_with_adds": {
       "DPS-min-maxer": [
-        76.0,
-        106.0
+        149.0,
+        209.0
       ],
       "Balanced": [
-        68.0,
-        84.0
+        134.0,
+        166.0
       ],
       "Defensive": [
-        47.0,
-        71.0
+        92.0,
+        140.0
       ],
       "Hybrid": [
-        56.0,
-        92.0
+        110.0,
+        182.0
       ]
     },
     "mini_boss": {
       "DPS-min-maxer": [
-        130.0,
-        182.0
+        0.0,
+        1.0
       ],
       "Balanced": [
-        117.0,
-        144.0
+        0.0,
+        1.0
       ],
       "Defensive": [
-        80.0,
-        122.0
+        0.0,
+        1.0
       ],
       "Hybrid": [
-        96.0,
-        158.0
+        0.0,
+        1.0
       ]
     }
   },
@@ -217,274 +199,21 @@
       ],
       "ships": true,
       "zero_t4_escalation": false
-    },
-    {
-      "kit_id": "endgame_dex_02_archer",
-      "t4_candidates_count": 2,
-      "shipped_t4_variants": [
-        "primary_dda"
-      ],
-      "stripped_t4_variants": [
-        "ELEMENT_CONVERSION"
-      ],
-      "supporting_chains": [
-        "t4_chain_1",
-        "t4_chain_2"
-      ],
-      "ships": true,
-      "zero_t4_escalation": false
-    },
-    {
-      "kit_id": "endgame_dex_03_crossbow_sniper",
-      "t4_candidates_count": 0,
-      "shipped_t4_variants": [
-        "primary_dda"
-      ],
-      "stripped_t4_variants": [],
-      "supporting_chains": [],
-      "ships": true,
-      "zero_t4_escalation": false
-    },
-    {
-      "kit_id": "endgame_dex_04_twin_blade_fencer",
-      "t4_candidates_count": 0,
-      "shipped_t4_variants": [
-        "primary_dda"
-      ],
-      "stripped_t4_variants": [],
-      "supporting_chains": [],
-      "ships": true,
-      "zero_t4_escalation": false
-    },
-    {
-      "kit_id": "endgame_int_01_standard_wizard",
-      "t4_candidates_count": 2,
-      "shipped_t4_variants": [
-        "primary_dda",
-        "ELEMENT_CONVERSION"
-      ],
-      "stripped_t4_variants": [],
-      "supporting_chains": [],
-      "ships": true,
-      "zero_t4_escalation": false
-    },
-    {
-      "kit_id": "endgame_int_02_artillery_mage",
-      "t4_candidates_count": 1,
-      "shipped_t4_variants": [
-        "primary_dda"
-      ],
-      "stripped_t4_variants": [
-        "ELEMENT_CONVERSION"
-      ],
-      "supporting_chains": [
-        "t4_chain_1"
-      ],
-      "ships": true,
-      "zero_t4_escalation": false
-    },
-    {
-      "kit_id": "endgame_int_03_pyromantic_caster",
-      "t4_candidates_count": 0,
-      "shipped_t4_variants": [
-        "primary_dda"
-      ],
-      "stripped_t4_variants": [],
-      "supporting_chains": [],
-      "ships": true,
-      "zero_t4_escalation": false
-    },
-    {
-      "kit_id": "endgame_int_04_red_mage_spellsword",
-      "t4_candidates_count": 0,
-      "shipped_t4_variants": [
-        "primary_dda"
-      ],
-      "stripped_t4_variants": [],
-      "supporting_chains": [],
-      "ships": true,
-      "zero_t4_escalation": false
-    },
-    {
-      "kit_id": "endgame_int_05_arcane_familiar_mage",
-      "t4_candidates_count": 1,
-      "shipped_t4_variants": [
-        "primary_dda",
-        "ELEMENT_CONVERSION"
-      ],
-      "stripped_t4_variants": [],
-      "supporting_chains": [],
-      "ships": true,
-      "zero_t4_escalation": false
-    },
-    {
-      "kit_id": "endgame_wis_01_channeling_cleric",
-      "t4_candidates_count": 2,
-      "shipped_t4_variants": [
-        "primary_dda",
-        "ELEMENT_CONVERSION"
-      ],
-      "stripped_t4_variants": [],
-      "supporting_chains": [],
-      "ships": true,
-      "zero_t4_escalation": false
-    },
-    {
-      "kit_id": "endgame_wis_02_holy_knight",
-      "t4_candidates_count": 2,
-      "shipped_t4_variants": [
-        "primary_dda"
-      ],
-      "stripped_t4_variants": [
-        "ELEMENT_CONVERSION"
-      ],
-      "supporting_chains": [
-        "t4_chain_1",
-        "t4_chain_2"
-      ],
-      "ships": true,
-      "zero_t4_escalation": false
-    },
-    {
-      "kit_id": "endgame_wis_03_ritual_mage",
-      "t4_candidates_count": 2,
-      "shipped_t4_variants": [
-        "primary_dda"
-      ],
-      "stripped_t4_variants": [
-        "ELEMENT_CONVERSION"
-      ],
-      "supporting_chains": [
-        "t4_chain_1",
-        "t4_chain_2"
-      ],
-      "ships": true,
-      "zero_t4_escalation": false
-    },
-    {
-      "kit_id": "endgame_wis_04_storm_caller",
-      "t4_candidates_count": 2,
-      "shipped_t4_variants": [
-        "primary_dda"
-      ],
-      "stripped_t4_variants": [
-        "ELEMENT_CONVERSION"
-      ],
-      "supporting_chains": [
-        "t4_chain_1",
-        "t4_chain_2"
-      ],
-      "ships": true,
-      "zero_t4_escalation": false
-    },
-    {
-      "kit_id": "endgame_wis_05_monk",
-      "t4_candidates_count": 2,
-      "shipped_t4_variants": [
-        "primary_dda",
-        "ELEMENT_CONVERSION"
-      ],
-      "stripped_t4_variants": [],
-      "supporting_chains": [],
-      "ships": true,
-      "zero_t4_escalation": false
     }
   ],
   "profile_results": {
-    "low": {
-      "profile_key": "low",
-      "profile_label": "low-profile (20% budget)",
-      "compound_pass": false,
-      "t1_dps_variance_pass": false,
-      "t1_metric": 1.72,
-      "t2_zero_kpm_pass": false,
-      "t3_saturation_pass": true,
-      "t4_specialization_pass": false,
-      "t4_metric": 18.0,
-      "t5_floor_pass": true,
-      "t5_metric": 0.0,
-      "layer": "primary_dda"
-    },
-    "mid": {
-      "profile_key": "mid",
-      "profile_label": "mid-profile (50% budget)",
-      "compound_pass": false,
-      "t1_dps_variance_pass": true,
-      "t1_metric": 1.155,
-      "t2_zero_kpm_pass": false,
-      "t3_saturation_pass": true,
-      "t4_specialization_pass": false,
-      "t4_metric": 17.0,
-      "t5_floor_pass": true,
-      "t5_metric": 0.0,
-      "layer": "primary_dda"
-    },
     "max_a": {
       "profile_key": "max_a",
       "profile_label": "max-profile Mode A (calibration anchor; all-skills-15/5)",
       "compound_pass": false,
-      "t1_dps_variance_pass": false,
-      "t1_metric": 2.425,
-      "t2_zero_kpm_pass": true,
-      "t3_saturation_pass": true,
-      "t4_specialization_pass": false,
-      "t4_metric": 18.0,
-      "t5_floor_pass": true,
-      "t5_metric": 0.0,
-      "layer": "primary_dda"
-    },
-    "max_b": {
-      "profile_key": "max_b",
-      "profile_label": "max-profile Mode B (realistic endgame; 80% specialization-aware)",
-      "compound_pass": false,
-      "t1_dps_variance_pass": false,
-      "t1_metric": 2.425,
-      "t2_zero_kpm_pass": true,
-      "t3_saturation_pass": true,
-      "t4_specialization_pass": false,
-      "t4_metric": 18.0,
-      "t5_floor_pass": true,
-      "t5_metric": 0.0,
-      "layer": "primary_dda"
-    },
-    "mixed_v1": {
-      "profile_key": "mixed_v1",
-      "profile_label": "mixed-v1 (passive-heavy; actives at floor)",
-      "compound_pass": false,
-      "t1_dps_variance_pass": false,
-      "t1_metric": Infinity,
+      "t1_dps_variance_pass": true,
+      "t1_metric": 1.146,
+      "t1_measurement_context": "base_context_explicit",
       "t2_zero_kpm_pass": false,
       "t3_saturation_pass": true,
       "t4_specialization_pass": false,
-      "t4_metric": 17.0,
-      "t5_floor_pass": true,
-      "t5_metric": 0.0,
-      "layer": "primary_dda"
-    },
-    "mixed_v2": {
-      "profile_key": "mixed_v2",
-      "profile_label": "mixed-v2 (active-heavy; primary=15, secondary=10, passives=1)",
-      "compound_pass": false,
-      "t1_dps_variance_pass": false,
-      "t1_metric": 2.425,
-      "t2_zero_kpm_pass": true,
-      "t3_saturation_pass": true,
-      "t4_specialization_pass": false,
-      "t4_metric": 18.0,
-      "t5_floor_pass": true,
-      "t5_metric": 0.0,
-      "layer": "primary_dda"
-    },
-    "mixed_v3": {
-      "profile_key": "mixed_v3",
-      "profile_label": "mixed-v3 (supporting-chain-heavy; primary+secondary at floor)",
-      "compound_pass": false,
-      "t1_dps_variance_pass": false,
-      "t1_metric": Infinity,
-      "t2_zero_kpm_pass": false,
-      "t3_saturation_pass": true,
-      "t4_specialization_pass": false,
-      "t4_metric": 17.0,
+      "t4_metric": 5.0,
+      "t4_note": "record_only_not_gated_a1_election",
       "t5_floor_pass": true,
       "t5_metric": 0.0,
       "layer": "primary_dda"

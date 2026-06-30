@@ -58,3 +58,25 @@ From `serialize_loadout` (star-lord verified the export emits exactly these): `m
 - Serialized contract: `serialize_loadout` emits the 10 `EQUIPPED_SLOTS` keys, empties → null
 - star-lord round-trip smoke (the export shape you consume): `~/Games/reincarnated-engine/src/reincarnated/export/pathb_1a_telemetry_roundtrip_smoke_2026_06_22.py`
 - engineering-disciplines #2 (smoke), #11 (empirical inspection), #12 (semantic-shift)
+
+---
+
+## Completion record — drax — 2026-06-22 — DONE
+
+**Tag:** `drax/v-pathb-1a-loadout-app` · **Commit:** `075f692` (repo: reincarnated-loadout) · **NOT pushed** (Matt-gated; no Vercel deploy).
+
+**Empirical inspection (Discipline #11):** the app had NO consumer of the `serialize_loadout` 10-key form before this. Equipped views were built client-side from `synthesizeSampleLoadout` (synthesized-for-visualization, legacy 4-key engine slot names), `gear_representative` (Cycle 14 v1.68 — a DIFFERENT 11-slot artifact with `legs` + `main_weapon`/`secondary_item`), or — on the `/loadout` kit-space route — no equipped grid at all (substrate-weapon proxy + "gear pending EAA-8" placeholder). Canonical `main_hand`/.../`amulet` keys existed only as `gear_slot_labels` label maps in `data/season_000042|000043/` class JSONs, unconsumed by `src/`.
+
+**Changed:**
+- NEW `src/data/serializedLoadout.ts` — `EQUIPPED_SLOTS` (10-key canonical order, single source of truth), `RESIST_CAPABLE_SLOTS` (9, = minus main_hand), `normalizeSerializedLoadout()` (brownfield-tolerant), `toEquippedSlotViews()`.
+- NEW `src/components/GearGrid/EquippedSlotsGrid.tsx` — surfaces all 10 slots in canonical order; main_hand distinguished as non-resist weapon; empties clean. Structural only.
+- EDIT `src/pages/Loadout.tsx` — wired `EquippedSlotsGrid` into Equipment section (fed `kit.serialized_loadout ?? kit.loadout ?? null`; TODO(drax) to drop fallback at EAA-8).
+- NEW `src/__tests__/serialized-loadout-10slot.test.ts` — 12 tests (10-slot fixture + legacy 4-key fixture + contract + edges).
+
+**Brownfield clause:** APPLIED. `normalizeSerializedLoadout()` accepts both canonical 10-key and legacy 4-key (`weapon→main_hand`, `armor→chest`, `accessory→amulet`; `off_hand` already canonical), proven by the legacy-4-key fixture test.
+
+**Smoke (Discipline #2):** build clean (0 TS errors); `npm run test` 91/91 (+12); dev server `/` + `/loadout` HTTP 200.
+
+**Cross-seam contract:** round-trip N/A — consumer seam; authors no contract.
+
+**Gate-2 flags for jack-ryan:** EQUIPPED_SLOTS order/cardinality matches rocket MIGRATION; no 1b/1c bleed; brownfield mapping matches MIGRATION §28 (NOT the gear_representative `weapon→main_weapon`/`legs`-fold shape); kit-space wiring renders 10 empty today (gear pending EAA-8) — expected, NOT a balance signal (CONCERN-3).

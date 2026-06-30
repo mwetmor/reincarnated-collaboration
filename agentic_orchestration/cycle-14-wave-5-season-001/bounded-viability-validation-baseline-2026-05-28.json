@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-05-29T01:02:22.443836+00:00",
+  "run_at": "2026-05-29T03:29:27.111028+00:00",
   "smoke_mode": false,
   "kit_count": 18,
   "encounter_type_count": 6,
@@ -15,8 +15,13 @@
     "reference_cohort": "Balanced",
     "amendment_1": "encounter_types_verified_against_catalog",
     "amendment_2": "specialization_criterion_doc50_4_4_verbatim",
+    "t1_measurement_context": "main_path",
+    "a1_close_criterion": "T1_base_ctx+T2+T3+T5=4/4",
+    "a1_t4_disposition": "measured_for_record_only_deferred_cycle16plus",
+    "a1_election_authority": "Matt 2026-05-28 A1 election lock",
     "doc_50_anchor": "canonical/50-bounded-viability-with-specialization-design-directive-2026-05-28.md",
     "w_alpha_2_math_note": "simulation/math/w-alpha-2-kpm-ceiling-raise-remove-2026-05-28.md",
+    "a1_math_note": "simulation/math/t1-base-context-amendment-2026-05-28.md",
     "headroom_sentinel": {
       "sentinel_applicable": true,
       "max_boss_kpm": 130.435,
@@ -24,7 +29,7 @@
       "warn": false
     }
   },
-  "compound_pass": false,
+  "compound_pass": true,
   "target_1_dps_variance": {
     "target_id": "target_1",
     "passed": true,
@@ -2860,7 +2865,7 @@
   ],
   "telemetry_output_path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/cycle-14-wave-5-season-001/bounded-viability-validation-baseline-2026-05-28.json",
   "_gauntlet_run_provenance": {
-    "run_timestamp": "20260529_010222",
+    "run_timestamp": "20260529_032927",
     "smoke": false,
     "n_kits": 18,
     "discipline_1_math_note": "simulation/math/bounded-viability-validation-harness-2026-05-28.md",
