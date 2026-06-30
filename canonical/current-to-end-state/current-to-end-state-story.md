@@ -4,8 +4,8 @@
 **Born:** 2026-06-30 (canonical reorg, Tranche 2) — split out of the single consolidated tracker so story-side open decisions stop hiding inside an engine-gap doc.
 **Author:** gandalf (story-and-design steward).
 
-> **Engine sibling:** `current-to-end-state-engine.md` — currently still at `canonical/story/current-to-end-state.md`; it relocates into this folder (renamed `…-engine.md`) in the reorg's final verified rewire pass (alongside retiring `canonical/reap-die-rise/`). Until then, read it at the old path.
-> **End-state story SPEC** (what we're building toward): `canonical/reap-die-rise/` → `story-keystone.md`, `story-expansion.md`, `gameplay-loop-design.md` (these migrate to `canonical/reap-die-rise-story/` in the final pass). This tracker is the DELTA, not the spec.
+> **Engine sibling:** `current-to-end-state-engine.md` — in this same folder. It measures the battle-sim + emission + v2-fit engine gaps. (Relocated here 2026-06-30 from `canonical/story/current-to-end-state.md` in the reorg's final rewire pass.)
+> **End-state story SPEC** (what we're building toward): `canonical/reap-die-rise-story/` → `story-keystone.md`, `story-expansion.md`, `gameplay-loop-design.md` (+ `spec-index.md` — the migrated v2 lexicon/supersession index, pending the design-session fold). This tracker is the DELTA, not the spec.
 
 ---
 
@@ -19,6 +19,12 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-06-30 — Ravine prototype CANCELLED; procgen-middle methodology PROMOTED to the descent (gate G3)
+
+The Godot enchanted-forest **ravine biome-prototype is CANCELLED** (Matt 2026-06-30: *"the ravine work was cancelled. But there may be some learnings there."*). Its load-bearing learnings are promoted to `gandalf/notes/2026-06-30-ravine-cancelled-learnings-carry-forward.md`: the **edge-socket snap-by-construction primitive**, the **exemplar→seed-vary→assemble carry chain**, the **generate→gate→graduate rule-discovery loop**, **WFC-as-scale-path**, the **two-footprint rule**, the **28×28 vestigial-removal category-error**, the **R1–R14 + NV-1…5 no-void ruleset**, the **tripod-gate + eye-overrides-hard-gate process**, the **depth-toward-the-climax beat**, and the **Synty/Godot asset gotchas**. **Consequence for the story spec:** the seasonal-descent procgen-middle (`2026-06-22-seasonal-descent-architecture-recognition.md` gate **G3**) now has a **banked methodology + worked rule template** — its "blank page" risk is retired. PART C reconciliation note: that recognition doc (Cluster C `?→STORY confirm-captured`) is reinforced — its § 3 socket/snap prototype now has concrete carried substance, and the edge-socket contract IS the G3 alignment problem (MCP is the verification tool). 9 raw ravine notes are prune-eligible (surfaced for Matt's ratification, NOT auto-pruned — see the verify-then-prune prune-list § 3c).
+
+---
+
 ### 2026-06-30 — Doc born (reorg Tranche 2)
 
 Split from `current-to-end-state.md`. Seeds PART A from the 2026-06-30 frame-refinement + Flag #6 ruling; PART B from the frame-reconciliation memo's open flags (#2, #4) + the newly-opened S2-companion investigation + undecided keystone beats; PART C from the surviving experiential-structure docs that must fold into the v2 story spec. No story decision changed in the birth — capture only.
@@ -30,7 +36,7 @@ Split from `current-to-end-state.md`. Seeds PART A from the 2026-06-30 frame-ref
 | # | Locked | Source |
 |---|---|---|
 | A1 | Game = **Reap. Die. Rise.** | Matt 2026-06-29 retitle |
-| A2 | isekai → **death-faith**; the player is a soul bound to a death-cult, not a transported hero | `reap-die-rise/` frame |
+| A2 | isekai → **death-faith**; the player is a soul bound to a death-cult, not a transported hero | `reap-die-rise-story/` frame |
 | A3 | Earth Self → **home-realm self** (time-agnostic; the persistent identity in the link) | projection doc |
 | A4 | per-season cadence → roguelite **run / descent** (seasonal-RELEASE model retired 2026-06-02) | season-archive pivot |
 | A5 | **Spirit guide RETIRED** (removed, not relabeled). Function splits **3 ways**: **(A)** demigod-jailer = tutorial + punctuated Mercer-mentor key beats; **(B)** death-god / patron Daikoku-Mahakala = rare unreadable Rorschach guidance (§19.3); **(C)** hub NPC ensemble (Rita + cult faces) = daily relationship + banter | Matt 2026-06-30 |
@@ -52,7 +58,7 @@ PART A is the floor. A story session works *above* it.
 | **B2** | **Flag #4 — molt → run-trigger equivalent.** Path Pure says "first molt returns as your first companion," built on the retired per-season cadence. What's the run-model trigger that unlocks the past-self companion? | companion unlock timing; rocket companion-gen source param | **OPEN — awaiting Matt** |
 | **B3** | **Season-two-companion investigation.** Under the v2 frame, does a companion belong in "season two" / a later chapter **at all**? Maybe it has a place, maybe not. *If yes*, re-derive the difficulty-inversion concern (D2-merc "mandatory crutch"; scale the threat, not just HP) — reasoning in git (`2026-06-18-companion-difficulty-inversion…`, deleted in reorg). | whether the companion layer ships; gauntlet companion cohort | **OPEN — story session decides (Matt 2026-06-30)** |
 | **B4** | **Demigod warm-then-recede tragedy-phase.** Optional: the demigod-jailer starts as a warm Mercer-style mentor whose helpfulness later reads as manipulation (the betrayer detonates). Deliberate arc or keep him punctuated-neutral? | tutorial + key-beat tone; the §435 LLM-vs-templated decision (now scoped to hub banter, not demigod) | **OPEN — undecided (gandalf note in keystone §19.1)** |
-| **B5** | **Keystone [OPEN] beats.** The story-keystone (`reap-die-rise/story-keystone.md`) carries Matt's own [OPEN] framing questions (§19.1 et al.) — the manufactured-rebellion reveal sequence, what the demigod *wants*, how the player learns the cage is manufactured. | the narrative spine of a run | **OPEN — Matt's keystone tags** |
+| **B5** | **Keystone [OPEN] beats.** The story-keystone (`reap-die-rise-story/story-keystone.md`) carries Matt's own [OPEN] framing questions (§19.1 et al.) — the manufactured-rebellion reveal sequence, what the demigod *wants*, how the player learns the cage is manufactured. | the narrative spine of a run | **OPEN — Matt's keystone tags** |
 
 ---
 
@@ -68,7 +74,7 @@ The surviving experiential-structure docs predate the v2 death-faith/demigod/hub
 | `2026-06-13-companion-as-hall-of-heroes-ally-commitment` | companion = past-self; scarcity discipline; lookup-not-generation; temporal **dyad** | temporal *triad* (future corner gone); per-season bootstrap (→ B2/B3) |
 | `2026-06-22-seasonal-descent-architecture-recognition` + `…-faction-descent-and-reward-loop-recognition` + `…-content-audit` | descent structure; faction-walled-from-combat discipline | "seasonal" naming → run/descent |
 
-**Discipline:** reconcile, do not amputate (`reap-die-rise/00-index.md` §4). The structure is load-bearing; only the retired *labels* die. Open reconciliation items live in PART B; the memo `agentic_orchestration/gandalf/notes/2026-06-29-path-a-frame-reconciliation-flags.md` is the lineage.
+**Discipline:** reconcile, do not amputate (`reap-die-rise-story/spec-index.md` §4). The structure is load-bearing; only the retired *labels* die. Open reconciliation items live in PART B; the memo `agentic_orchestration/gandalf/notes/2026-06-29-path-a-frame-reconciliation-flags.md` is the lineage.
 
 ---
 
