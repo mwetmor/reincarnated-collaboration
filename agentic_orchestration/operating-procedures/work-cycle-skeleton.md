@@ -59,11 +59,11 @@ So: **don't make the cycle vague to make it flexible. Make the skeleton fixed-bu
 
 This is the slot whose absence caused the planner-reversion. State it explicitly in every cycle:
 
-> **Done** for this cycle = the bounded front (slot 5) is **driven to execution as sub-agents**, the early wins (slot 3) are **ruled**, the work is **Gate-routed** (jack-ryan / sam per seam), and a **live blocker-map** is recorded for the heavy pole. Done is **not** "the dispatches are written."
+> **Done** for this cycle = the bounded front (slot 5) is **driven to execution as sub-agents**, the early wins (slot 3) are **ruled**, the work is **Gate-routed** (jack-ryan), and a **live blocker-map** is recorded for the heavy pole. Done is **not** "the dispatches are written."
 
 KR enforces this against himself and against the front specialists. A specialist returning "dispatch authored" is at the *start* of the work, not the end. The driving-cycle pattern (KR 2026-06-13): *"a committed dispatch has no autonomous consumer — KR is the driver."*
 
-What "Gate-routed" means: front-work that produces engine changes routes to Gate 2 (jack-ryan, or sam on the PC seam); design-judgment outputs route to the slot-6 owner. The cycle is not done until the gate verdict is in hand, not merely requested.
+What "Gate-routed" means: front-work that produces engine changes routes to Gate 2 (jack-ryan); design-judgment outputs route to the slot-6 owner. The cycle is not done until the gate verdict is in hand, not merely requested.
 
 ---
 
