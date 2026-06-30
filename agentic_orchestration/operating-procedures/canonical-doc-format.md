@@ -198,6 +198,17 @@ A standing scheduled Routine fires into a gandalf session on a fixed cadence and
 
 **Distribute routine, centralize judgment:** each agent self-prunes its own working-memory notes at workstream-close; the gandalf sweep handles cross-cutting residue + the judgment tier + tracker collapse. Scales as agents are added.
 
+### 6.7 Rule-ownership — who RATIFIES doc-lifecycle governance (Matt 2026-06-30)
+
+The § 6 *rules* are a discipline, and a discipline has a conflict-of-interest hazard when the author is also its largest subject. gandalf is the meta-repo's largest note-producer; a gandalf-authored prune-rule that softens treatment of steward notes (the S15 finding, stress-test § 4) is **rule-maker = rule-subject** — the developer↔judge conflict transposed to governance. Matt 2026-06-30 ruled the fix by **symmetry with engineering-disciplines**:
+
+- **jack-ryan RATIFIES doc-lifecycle rules** (the same way jack-ryan owns engineering-disciplines — the rules engineers run under; § 6 is the sibling: the rules doc-producers run under).
+- **gandalf PROPOSES + EXECUTES** (proposes mechanisms as the practitioner who feels the pain; executes the prune/propagation on the established rules).
+- The **switch-moment is named in the open:** when gandalf proposes a governance rule — *especially one affecting gandalf's own output* — gandalf emits `⚠ SWITCH: CANON-STEWARD (proposer) → jack-ryan (ratifier)` (gandalf OP § 2 role-tags) and routes the rule to jack-ryan before it is canon.
+- **Execution is not the conflict.** gandalf (or any seam-owner on their own notes) *running* an established rule is fine — the conflict is only at rule-*authoring*. So proposal → gandalf; ratification → jack-ryan; execution → gandalf + seam-owners.
+
+**Pending ratification:** the **S15 substance-homing refinement** (stress-test § 4) is Matt-agreed *content* but its ratification-ownership now sits with jack-ryan — jack-ryan reviews S15 on next governance touch and either ratifies it into § 6.1/§ 6.3 or returns it. Until then S15 is Matt-agreed-but-not-jack-ryan-ratified, flagged as such in the stress-test record.
+
 ---
 
 ## 7. Ownership lineage (fixed 2026-06-30 — trackers replace the retired roadmap)
@@ -208,6 +219,7 @@ A standing scheduled Routine fires into a gandalf session on a fixed cadence and
 - **`canonical/<NN>-<topic>.md`** (keystone) — gandalf primary; knight-rider orchestration-side; jack-ryan process-side
 - **`canonical/story/<topic>-YYYY-MM-DD.md`** — primarily gandalf; occasionally jack-ryan (process), gamora (sim-architecture), star-lord (pipeline-architecture)
 - **Supersession / prune execution** — gandalf approves design-side; the hygiene Routine auto-fires the safe tier; knight-rider executes any restructure dispatch
+- **Doc-lifecycle RULE-ownership (§ 6.7, Matt 2026-06-30)** — **jack-ryan ratifies** the governance rules (symmetry with engineering-disciplines); **gandalf proposes + executes.** Rule-authoring that affects gandalf's own output routes to jack-ryan via the named `⚠ SWITCH: CANON-STEWARD (proposer) → jack-ryan (ratifier)` beat
 
 ---
 
