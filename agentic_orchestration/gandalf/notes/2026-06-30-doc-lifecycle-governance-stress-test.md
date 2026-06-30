@@ -1,4 +1,4 @@
-# Doc-lifecycle governance — 14-scenario stress-test (lineage record)
+# Doc-lifecycle governance — 14-scenario stress-test (+ S15 first-run refinement) (lineage record)
 
 > **STATUS:** CURRENT (verdict-class lineage — § 6.1). Cited by `agentic_orchestration/operating-procedures/canonical-doc-format.md § 6` (= the installed skill) as the reasoning behind the doc-lifecycle governance system. Because a canonical skill cites it as source, this note is **evidentiary** per § 6.1 → never auto-pruned.
 
@@ -73,6 +73,34 @@ Real artifact: a Phase-2 spot-check note cited in `reincarnated-engine/design/de
 **Fully-blind auto-delete is unsafe; event-triggered + reference-verified auto-prune is safe.** The two corrections (S1, S2) both came from the same failure mode: a rule that fired on *appearance* (looks superseded / is a note) rather than on a *verified event + reference check*. Every safe trigger in the final system fires on a positive event and verifies references across both repos before acting. The ceiling — surface-for-ratification on any ambiguity — means the worst case is a human reads a prune-list, never a silent deletion of live content.
 
 This is the same discipline as substrate-led design (the substrate votes; you don't pre-impose the taxonomy) applied to the doc tree: **the reference graph votes on prunability; you don't pre-declare a doc dead.**
+
+---
+
+## 4. S15 — the first-run refinement (POST-ratification; Matt-agreed 2026-06-30)
+
+S1–S14 were *pre*-ratification stress scenarios. **S15 emerged from running the system** — the first real verify-then-prune pass (14 cancelled-prototype notes; ravine ×9 + crypt-vault ×5). The run exposed a gap that the imagined scenarios missed, and Matt agreed the reframing before it was canonized (*"Regarding (3) I agree"*). It is a refinement of **ruling (c)**, not a reversal.
+
+**S15 — author-role modulates note-class; the real discriminator is substance-homing.**
+
+The first run revealed that a **filename-class heuristic mis-fires for a steward/coordinator.** Ruling (c) sub-classes notes (evidentiary / verdict-recognition / working-memory) and treats verdict/recognition filenames (`*-verdict`, `*-recognition`, `*-capture`, `*-brief`) as auto-prunable-on-supersede. That heuristic is correct for a *builder* whose notes are scratch (gamora's sim-debug capture is genuinely ephemeral). It is **wrong for a steward**, because:
+
+- **A steward's PRIMARY WORK-PRODUCT IS design transmission.** gandalf's notes *are* the design record — the lineage by which a recognition reaches canon. A `*-recognition` note from gandalf is not scratch; it is often the only home of a load-bearing observation until it's folded. Pruning it by filename-class would delete the design lineage. The same filename means *scratch* from a builder and *design-transmission* from a steward. **Author-role modulates the class.**
+
+But author-role alone is a trap. If you simply exempt steward notes, you get a **perpetually growing queue** — steward notes never prune, accumulation is monotonic. The fix is the pairing:
+
+- **The exemption must ride the PROMOTE-THEN-PRUNE lever.** A steward note becomes prunable *when its substance is promoted to a durable home* (canonical doc or current-to-end-state tracker) and the note collapses to a redundant pointer. The cancelled-prototype run is the clean proof: ravine + crypt learnings → extracted into one self-contained carry-forward note → the 14 raw notes became redundant → prunable. Promote-then-prune makes the steward-exemption **self-liquidating** instead of monotonically growing: it is not a permanent shield, it is a *promotion incentive.*
+
+Combining the two, the actual prune predicate is neither filename-class nor author. It is:
+
+> **Is the substance already homed elsewhere?**
+> - **Homed** (substance lives in a durable canonical / tracker home) → **prunable**, regardless of author or filename.
+> - **Not-homed** (substance lives *only* in this note) → **judgment-tier** (surface for ratification), regardless of filename class.
+
+This subsumes ruling (c)'s reference-check (a cited note is "homed" in the citing doc's dependency graph) and **adds** the promote-then-prune axis (a note whose content was folded into a tracker is "homed" even if nothing cites the note by path). The substance-homing check is the operational form of promote-then-prune, and it is self-liquidating by construction: the queue shrinks exactly as fast as substance gets homed. *The real cleanup lever was never a better classifier or a bigger broom — it is promotion.*
+
+**Conflict-of-interest flag (the honest part).** S15 is a rule about note-prunability authored by **the agent whose own note-class the rule most affects.** gandalf is the meta-repo's largest note-producer; a rule that makes steward notes harder to prune favors gandalf's own output. That is the developer↔judge conflict transposed to governance: rule-maker = rule-subject. The rule's **content** (substance-homing discriminator) stands on its own merits and Matt has agreed it. The rule's **ratification-authority** — *who owns doc-lifecycle discipline*, by symmetry with jack-ryan owning engineering-disciplines — is an **open question pending Matt's role-separation ruling** (the cluster-III governance seam; see the role-separation verdict of 2026-06-30). Until that rules, S15's content is Matt-agreed but its ownership is explicitly *not* gandalf-self-ratified. This flag is the governance-proposer→ratifier switch-moment, named in place.
+
+**Refinement to § 6.6 hygiene operation:** the standing audit's classification step gains a third question after the reference check — *"is this note's substance folded into a tracker/canonical home?"* If yes, it moves to the safe tier even without a path-citation. This is why the first run's safe-auto tier was empty: nothing had yet been *promoted*, so nothing was yet *homed-and-redundant*. The 14 prunes only became safe **after** the carry-forward fold — promotion preceded prunability, exactly as the predicate requires.
 
 ---
 
