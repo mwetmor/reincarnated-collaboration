@@ -1,6 +1,8 @@
 # Avatar Projection + Hall of Heroes — The Out-of-Body Framing (Canonical Capture)
 
 **STATUS:** CURRENT — Matt-confirmed framing (2026-06-10 session), canonical capture 2026-06-11
+
+> **⚠ FRAME PARTIALLY SUPERSEDED — under v2 reconciliation (Reap. Die. Rise., 2026-06-29).** The experiential STRUCTURE here is load-bearing and SURVIVES (projection / Hall of Heroes / cosmograph / molting / temporal-triad). The FRAME LABELS are superseded by `canonical/reap-die-rise/` and must NOT be hardened downstream (esp. PC/build seam, per §4/§6 routing) until Matt rules: isekai → **death-faith**; spirit-guide (warm future-self advisor) → **patron deity** (Daikoku/Mahakala — antagonistic-helpful jailer-steerer, NOT the player's future self); Earth Self / Earth realm → time-agnostic **home realm**; per-**season** cadence → roguelite **run / descent** (seasonal-release model retired 2026-06-02). Reconcile, do not amputate (`reap-die-rise/00-index.md` §4). **Open reconciliation items for Matt:** `agentic_orchestration/gandalf/notes/2026-06-29-path-a-frame-reconciliation-flags.md`.
 **Author:** gandalf
 **Companion docs:** `canonical/story/2026-06-07-earth-avatar-cosmograph-creation-moment-architecture.md` (the scene); `agentic_orchestration/gandalf/notes/2026-06-10-ue-manifestation-moment-mvp-framing-brief.md` (the MVP spike framing); `canonical/story/2026-06-11-forward-architecture-contract-wrap-and-extend.md` § 7 (UE-fit clause)
 **Supersedes nothing; extends:** the Earth meta-layer initial capture (2026-05-11) with the projection model that resolves how Earth Self and seasonal forms relate *experientially*.

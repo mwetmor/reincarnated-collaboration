@@ -1,6 +1,8 @@
 # Recognition Record — Chernoff Celestial Body as Cosmograph (architectural pivot)
 
 **STATUS:** CURRENT (recognition record; load-bearing architectural commitment)
+
+> **⚠ FRAME PARTIALLY SUPERSEDED — under v2 reconciliation (Reap. Die. Rise., 2026-06-29).** The cosmograph rendering pivot SURVIVES (re-anchored as the patron's domain per `reap-die-rise/00-index.md` §4). The FRAME LABELS are superseded by `canonical/reap-die-rise/` and must NOT be hardened downstream until Matt rules: isekai → **death-faith**; spirit-guide → **patron deity** (Daikoku/Mahakala); Earth Self / Earth realm → time-agnostic **home realm**; per-**season** cadence → roguelite **run / descent** (seasonal-release model retired 2026-06-02). Reconcile, do not amputate. **Open reconciliation items for Matt:** `agentic_orchestration/gandalf/notes/2026-06-29-path-a-frame-reconciliation-flags.md`.
 **Date:** 2026-06-05
 **Author:** gandalf (story-and-design steward)
 **Authority:** Matt 2026-06-05 verbatim ratification: "Confirm. And I want to add that it solves for a key question that I had about the creation process. What does a player do when presented with a blank canvas?"
