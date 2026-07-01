@@ -132,6 +132,21 @@ arctic-circumpolar… · mesoamerican… · n-am-indigenous… · oceanic… · 
 
 ---
 
+## 6.5 Tranche 3 execution log (the (b) consolidation, in progress)
+
+Matt 2026-06-30: *"move into doc-pruning — stand-alone canonical/ docs, then canonical/story/, toward dissolving the story folder."* Authorizes Tranche-3 execution.
+
+**Reframe surfaced at execution start (survey finding):** the ~80 surviving `story/` docs are **overwhelmingly `STATUS: CURRENT (load-bearing)`.** Tranche 1 already took the self-declared-dead + clean operational records. So dissolving `story/` is **NOT a prune — it is the heavyweight FOLD**: author load-bearing content into the two tight spec folders (+ route substrate→elrond, principles→jack-ryan) BEFORE deleting sources. Deleting a CURRENT doc without folding = spec loss (the verify-then-prune failure). This is genuine multi-session, cross-seam authoring — not a delete pass.
+
+**Batch 1 — cancelled-infrastructure lineage KILL (EXECUTED):** the 2026-06-30 Unreal/PC/Pi retirements turned 6 ratified-KILL (Cluster F) recognition records into pure lineage. Verified: 0 live-*spec* inbound (only historical-lineage citers — CHANGELOG, decision-logs, retired `pc-setup/`, agent notes — acceptable); the 2 pi- records were "architectural commitments DEFERRED" (no landed commitment to lose). Deleted (git-recoverable): `2026-05-28-cycle-15-unreal-direction-recognition-record` · `2026-05-30-pi-engine-control-dashboard-recognition` · `2026-05-30-pi-llm-proxy-architecture-recognition` · `2026-05-30-pi-middleware-mac-to-pc-architecture` · `2026-05-31-ue-seam-agent-placement-decision` · `infrastructure-raspberry-pi-postgres-and-closed-loop-pipeline-2026-05-25`. **story/ 81 → 75.**
+
+**Remaining Tranche-3 batch spine (ordered; each fold = distill→verify-capture→delete):**
+- **B2 — flat `37–51` engine spine → `reap-die-rise-engine/`** (Matt's "stand-alone docs first"). Gandalf-foldable (design-overview lane). `?` capture-check first on the 3 Wave-N intent docs (43/44/45 — intent-in-code → fold residual rationale, kill).
+- **B3 — story/ Cluster C (story-frame) → `reap-die-rise-story/`.** Gandalf-solo (story = my domain); v2-reconcile (retired labels die, structure survives).
+- **B4 — story/ Cluster D (engine-mechanics) → `reap-die-rise-engine/`.** **Cross-seam** — capture-check vs engine tracker/build-docs/code; may route to rocket/gamora/star-lord rather than gandalf-fold.
+- **B5 — routes:** Cluster E substrate → **elrond**; Cluster F principle docs (`designer-writes-substrate`, `v1-1-plus-disciplines`, `hypothesis-flow-pattern-library`) → **jack-ryan disciplines**; remaining Cluster F infra/genre records → per-doc capture-check then kill (incl. re-check `federated-pc-team` now that CLAUDE.md dropped it — sole citer is the engine index).
+- **B6 — Tranche-5 remainder:** CLAUDE.md "Where to find things" table still points at stale `canonical/` numbered paths + `canonical/historical/16-project-roadmap.md` — rewrite to the folder structure.
+
 ## 7. The gate
 
 **Resolved (Matt 2026-06-30):** (1) clusters ratified; (2) fork = **(b)**; (3) Tranche 1 = go → **FIRED**.
