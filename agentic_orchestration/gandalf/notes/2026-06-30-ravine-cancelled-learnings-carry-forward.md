@@ -12,10 +12,12 @@
 > is the LIVE game being built and is explicitly NOT pruned** (Matt 2026-06-30). This note
 > **promotes** the load-bearing learnings out of the raw iteration notes into one durable
 > home, so those notes become prune-eligible (promote-then-prune — § 7). The active home for
-> the substance is the **seasonal-descent procgen architecture**
-> (`canonical/story/2026-06-22-seasonal-descent-architecture-recognition.md`), whose **§ 3
-> procedural-middle prototype** and **gate G3 (socket/snap)** are exactly what most of these
-> learnings feed.
+> the substance is the **descent procgen-middle** — now folded into
+> `canonical/current-to-end-state/current-to-end-state-game.md` **PART B (B2 descent
+> floor-authoring queue)** + the settled descent spec
+> `canonical/reap-die-rise-story/gameplay-loop-design.md` §6/§9 — exactly what most of these
+> learnings feed. (The source recognition doc was folded + deleted 2026-06-30; its **§ 3
+> procedural-middle** / **gate G3 socket-snap** live in game-tracker B2.)
 
 **Authored:** 2026-06-30
 **Author:** gandalf (story/design steward)

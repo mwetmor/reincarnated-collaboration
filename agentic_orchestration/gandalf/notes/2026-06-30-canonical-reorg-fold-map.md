@@ -70,9 +70,9 @@ The call I need from you is **keep vs kill** per doc. *How* a keeper lands (move
 | 2026-06-07-cosmograph-cross-surface-LOD-architecture | ? →STORY/ENGINE | LOD spans story+engine — split-check |
 | 2026-06-02-season-archive-realm-expansion-pivot | ? →TRACKER | seasonal-retire conclusion already in v2 loop doc; keep lineage one-liner |
 | 2026-06-18-companion-difficulty-inversion-and-spirit-guide-combat-bridge | ? | references RETIRED spirit guide + "Season-2" — reconcile or KILL |
-| 2026-06-22-faction-descent-and-reward-loop-recognition | ? →STORY | descent/faction — confirm captured in loop doc |
-| 2026-06-22-seasonal-descent-architecture-recognition | ? →STORY | descent arch — confirm captured |
-| 2026-06-22-seasonal-descent-content-audit | ? →TRACKER | audit deliverable — fold findings, kill |
+| ~~2026-06-22-faction-descent-and-reward-loop-recognition~~ **✓ FOLDED + DELETED 2026-06-30** | →STORY | captured → gameplay-loop §5/§9/§11; anti-faction mega-boss ruled SUPERSEDED (v2 §8); source deleted |
+| ~~2026-06-22-seasonal-descent-architecture-recognition~~ **✓ FOLDED + DELETED 2026-06-30** | →STORY | captured → gameplay-loop §6/§7/§8/§23 + engine-tracker III + game-tracker B2; source deleted |
+| ~~2026-06-22-seasonal-descent-content-audit~~ **✓ FOLDED + DELETED 2026-06-30** | →TRACKER | findings → engine-tracker III.1/III.5/III.6/III.7; source deleted |
 
 ### Cluster D — engine-mechanics specs (→ENGINE; VERIFY each is captured in the engine spec before kill-or-fold)
 attribute-system-2026-05-24 *(carries Matt 2026-06-24 VIT-DELETE amendment — load-bearing)* · skill-system-2026-05-24 · off-hand-items-2026-05-24 · v1-bc-target-intent-2026-05-24 · qd-engine-bc-axes-lock-2026-05-20 · stat-derivation-from-bc-convergence-2026-05-22 · multi-dim-convergence-algorithm-2026-05-21 · tier-4-architecture-defaults-2026-05-22 · bdi-omega-tau-tables-v1-2026-05-22 · gear-heavy-promotion-2026-05-22 · gear-spec-element-flavor-manifest-design-half-2026-06-18 · gear-spec-generation-deferred-architecture-2026-06-16 *(check "deferred" vs no-deferral discipline)* · gear-substrate-rule-table-v1-2026-05-22 · proxy-add-design-spec-2026-06-16 · proxy-commander-set-6-capstone-spec-2026-06-16 *(proxy = summoner pillar, FLIP-ratified)* · six-profile-set-architecture-2026-06-16 · representative-loadout-measurement-contract-2026-06-16 · seasonal-hero-h-5-hybrid-spec-2026-05-27 · styleprofile-output-shape-ruling-2026-06-17 · thematic-registry-2026-05-27 · c-hybrid-cell-and-curation-architecture-2026-05-28 · phase-5-cohesion-judge-calibration-spec-2026-05-25 · phase-5-llm-prompts-cohesion-judge-2026-05-27 · phase-5-t4-narration-amendment-2026-05-26 · phase-7-2-layer-joint-gate-spec-2026-05-27 · weapon-as-identity-surface-recognition-2026-06-14 · telegraph-dodge-temporal-decoupling-2026-06-15 · battle-room-presentation-decoupling-2026-06-15 · 2026-06-09-arpg-physical-magical-ratio-baseline · 2026-06-13-2d-spatial-golden-oracle-spec · 2026-06-13-combat-fidelity-drift-proofing-and-2d-certification-wave · 2026-06-01-flavor-pool-per-primary-element-lock
@@ -151,9 +151,9 @@ Matt 2026-06-30: *"move into doc-pruning — stand-alone canonical/ docs, then c
 | `2026-06-13-companion-as-hall-of-heroes` | 141 | story (companion = past-self; **Matt-RULED Path Pure**); opens already routed → tracker B1/B2/B3 | **MEDIUM** — settled half → `story-expansion`; parent already re-pointed to §12 (anchor fold); opens already in tracker |
 | `2026-06-07-cosmograph-cross-surface-LOD` | 263 | **split:** story + ENGINE (LOD architecture) | split-check → story-half to story spec, engine-half to engine spec/tracker |
 | `2026-06-02-season-archive-realm-expansion-pivot` | 449 | seasonal-release-retire **conclusion already in** `gameplay-loop-design` | **KILL-CAPTURED candidate** — verify conclusion captured, keep lineage one-liner, delete |
-| `2026-06-22-faction-descent-and-reward-loop` | 262 | story (descent / faction-walled-from-combat) | confirm captured in loop doc → thin pointer or fold-residual + delete |
-| `2026-06-22-seasonal-descent-architecture` | 278 | **split:** story (descent-arc) + presentation (floor-authoring/camera — **game-tracker PART A already promoted this half**) | presentation-half DONE (game-tracker A1–A3/A′1); story-half → confirm captured, delete |
-| `2026-06-22-seasonal-descent-content-audit` | 264 | audit deliverable | fold findings → tracker, **kill** |
+| ~~`2026-06-22-faction-descent-and-reward-loop`~~ **✓ DONE 2026-06-30** | 262 | story (descent / faction-walled-from-combat) | FOLDED → gameplay-loop §5/§9/§11; anti-faction mega-boss SUPERSEDED (v2 §8); deleted |
+| ~~`2026-06-22-seasonal-descent-architecture`~~ **✓ DONE 2026-06-30** | 278 | **split:** story (descent-arc) + presentation (floor-authoring/camera) | FOLDED → gameplay-loop §6/§7/§8/§23 + engine-tracker III + game-tracker B2/A1–A3/A′1; deleted |
+| ~~`2026-06-22-seasonal-descent-content-audit`~~ **✓ DONE 2026-06-30** | 264 | audit deliverable | FOLDED → engine-tracker III.1/III.5/III.6/III.7; deleted |
 
 *(`2026-06-18-companion-difficulty-inversion` already deleted in Tranche 1; its S2 investigation is preserved in `companion-as-Hall §7`.)*
 

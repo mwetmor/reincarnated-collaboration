@@ -25,7 +25,7 @@ Per `current-to-end-state-story.md` PART C — the surviving experiential-struct
 - `2026-06-07-earth-avatar-cosmograph-creation-moment-architecture` — the creation-moment scene
 - `2026-06-05-cosmograph-pivot` — cosmograph = possibility space
 - `2026-06-13-companion-as-hall-of-heroes-ally-commitment` — companion = past-self; temporal dyad (open items → tracker B2/B3)
-- `2026-06-22-seasonal-descent-architecture-recognition` + `…-faction-descent-and-reward-loop-recognition` + `…-content-audit` — descent + faction-walled-from-combat
+- ~~`2026-06-22-seasonal-descent-architecture-recognition` + `…-faction-descent-and-reward-loop-recognition` + `…-content-audit`~~ **✓ FOLDED + DELETED 2026-06-30** → the descent trio captured in `gameplay-loop-design.md` §5–§11/§23 + engine-tracker PART III + game-tracker B2; the `faction-descent` anti-faction mega-boss lead ruled SUPERSEDED (v2 §8 Nemesis). Sources deleted; git holds lineage.
 
 **Discipline:** reconcile, do not amputate (`reap-die-rise-story/spec-index.md` §4). Open story decisions are NOT folded as settled — they route to the delta tracker PART B.
 
