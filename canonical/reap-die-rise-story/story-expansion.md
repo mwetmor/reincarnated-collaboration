@@ -14,7 +14,7 @@
 
 [DECISION] All worldbuilding in this doc is **true in the world and leaked in fragments** — voice-lines, the god's severable "flickers" (§6), the rare unkillable operative (§10), lore shards in temples — assembled across many runs by curious players and entirely missable by everyone else. **Hades-style accretion, not JRPG act structure.** The loop never inflates; the depth only determines *what the fragments say.*
 
-[SUPERSEDES] Any earlier notion of enacted, scene-driven story beats (e.g., a scripted "Mount Ordeals" moment). Linear-JRPG scene structure does not fit this game; importing it was a category error. The Cecil material (§12) is a **template for tone and the opening's shape**, surfaced through fragments — not a cutscene sequence.
+[SUPERSEDES] Any earlier notion of enacted, scene-driven story beats (e.g., a scripted "Mount Ordeals" moment). Linear-JRPG scene structure does not fit this game; importing it was a category error. The Cecil material (§13) is a **template for tone and the opening's shape**, surfaced through fragments — not a cutscene sequence.
 
 ---
 
@@ -146,7 +146,28 @@
 
 ---
 
-## 12. The Start Loop & the Cecil Template
+## 12. The Two Spaces + Molting — Possibility vs Possession
+
+*(Folded from the 2026-06-11 avatar-projection/Hall-of-Heroes capture, v2-reconciled. The experiential structure is PART-A-locked (tracker A8); the retired frame-labels — "spirit guide advises you," Earth-Self-as-Operator — are dropped, not carried.)*
+
+[DECISION — experiential structure; survives the v2 frame change] **The game keeps two emotionally distinct "collections," and conflating them in any surface — UI, scene, copy — is a design error.**
+
+- **The possibility space** — vast, generative, consulted *at the moment of choosing what to become.* Emotional register: **wonder and choice.**
+- **The possession space** — the accumulated roster of the lives you have actually lived and the forms/champions you have actually claimed. Sparse at first, earned, slow to fill. Emotional register: **history and pride.**
+
+Genre anchor: Warframe's *arsenal you own* vs *the star chart of what's out there*; a build-planner's *possibility* vs a character-select's *possession*. The sky offers the next; the hall remembers the lived.
+
+[DECISION] **Molting = release-as-harvest, not erasure.** A form's life ending is not the deletion of "your character" — under the death-faith frame it is the loop's native verb (*die and rise*): the life completes, its record is kept, and the persistent **home-realm self** (tracker PART-A A3) carries forward. This is *why* the death-faith frame is the right host for the accumulation fantasy the 2026-05-11 Earth-meta capture reached for: **loss is literally reframed as harvest** — the thing the whole cult believes about souls (§4) is the thing the player feels about their own worn lives. A roster of dead characters is a graveyard; a kept record of lives-lived-to-their-end is a hall.
+
+[DECISION] **Sparse-by-design is the asset, not the gap.** The possession space must read as *intentional when nearly empty* (the empty hall is the promise) and scale gracefully as it fills. Anchors that work at zero unlocks: Warframe's Orbiter, Hades' House. Do not architect the hub as a disposable creation-flow level; it is the returnable place (§1), embryonic at the start.
+
+[DECISION — D7 / AI-tell] **The possession surface is lookup, not generation.** Each kept life's weight depends on it being *recognizably the life the player lived* — name, deeds, final form — rendered from engine-emitted records, **no runtime LLM narration at this surface** (templated-blanks register only, if any voice is present at all). Synthetic re-description would dissolve exactly the earned specificity that makes the hall land.
+
+[OPEN — v2 surface-mapping; routes to tracker B1/B2] The **principle** above is locked; its **mapping onto v2 surfaces is not.** Entangled with the run-persistence contract: (a) is the possession space the **grimoire/converted-roster** (the "keep what you kill" collection), a **distinct Hall of ascended home-realm forms**, or both at different layers? (b) v2's **cosmograph is now *collective*** — an atlas of pacified worlds, everyone's claimed souls feeding one starfield (§2, §11) — a *different* object than v1's *personal* creation-sky of callable forms, so which surface carries the *possibility* register in v2 is itself a reconciliation. (c) The accumulation **cadence** was season-keyed (≤1 ascension/season); under runs it needs a trigger. These resolve with **B1** (run-persistence: what survives a run vs resets — Hall accumulation included) and **B2** (molt → run-trigger equivalent). Do not harden any possession-surface UI/scene until they are ruled.
+
+---
+
+## 13. The Start Loop & the Cecil Template
 
 [DECISION] [SUPERSEDES the abduction premise] **A crusade of true believers needs *converts/believers*, not *captives*** — abduction clashes with the champion-of-light zeal the frame requires.
 
@@ -164,7 +185,7 @@
 
 ---
 
-## 13. Open forks (carried forward)
+## 14. Open forks (carried forward)
 
 - [OPEN] **Start-loop model:** Reincarnate (lean) vs. Convert vs. Born-into-it — determines what the recover-your-identity climax *is*.
 - [OPEN] **Temple opposition:** wardens-of-the-font only, vs. wardens + woven-in escaping minor-cult operatives (so conquest mode carries both the external war and the internal mystery in one space).

@@ -65,7 +65,7 @@ The call I need from you is **keep vs kill** per doc. *How* a keeper lands (move
 |---|---|---|
 | 2026-06-05-cosmograph-pivot | →STORY | cosmograph structure survives |
 | 2026-06-07-earth-avatar-cosmograph-creation-moment-architecture | →STORY | the creation scene |
-| 2026-06-11-avatar-projection-and-hall-of-heroes-framing | →STORY | projection / Hall |
+| ~~2026-06-11-avatar-projection-and-hall-of-heroes-framing~~ **✓ DONE 2026-06-30** | →STORY | folded → `story-expansion.md §12`; v2 forks → tracker B1/B2; presentation survivor → game-tracker A′2; source deleted; inbound refs re-pointed (00-index, companion doc) |
 | 2026-06-13-companion-as-hall-of-heroes-ally-commitment | →STORY | Path-Pure (Matt-RULED; Flag #4 open) |
 | 2026-06-07-cosmograph-cross-surface-LOD-architecture | ? →STORY/ENGINE | LOD spans story+engine — split-check |
 | 2026-06-02-season-archive-realm-expansion-pivot | ? →TRACKER | seasonal-retire conclusion already in v2 loop doc; keep lineage one-liner |

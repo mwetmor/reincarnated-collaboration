@@ -19,6 +19,12 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-06-30 — Presentation survivor re-homed from the B3 story fold (recurring-transition principle → A′2)
+
+The story-side B3 anchor fold (2026-06-11 avatar-projection doc → `story-expansion.md §12`, then deleted) surfaced **one survivor that is presentation grammar, not story frame:** the source's §4.1 principle that the return-transition is a *recurring, cheap, not-a-cinematic* ritual and the first-run onboarding ceremony is the *ceremonial-maximal-case of the same routine transition*. It originally routed to the retired PC/UE seam, so it was a routing-orphan on deletion. Re-homed **here** as **A′2 (BANKED)** — honestly classified: Matt-confirmed under the v1 projection frame, ratifies when the first descent build implements the hub→descent entry. This keeps the deletion non-lossy across the presentation domain (story survivors went to §12; this one lands in the tracker that owns presentation). No push.
+
+---
+
 ### 2026-06-30 — Doc born (Matt-confirmed name "game"); presentation grammar promoted from the cancelled-prototype carry-forward
 
 Stood up as the third current-to-end-state tracker. Seeds **PART A** by *promoting* the load-bearing presentation grammar out of `agentic_orchestration/gandalf/notes/2026-06-30-ravine-cancelled-learnings-carry-forward.md` (the two cancelled Godot prototypes' surviving learnings) + the BANKED ARPG camera + the "only author what the player camera sees" spine. Seeds **PART B** from the camera-ratification gap + the descent floor-authoring queue + the king-rig home gap. Seeds **PART C** with the two fold-sources (carry-forward note + king-rig brief) and the presentation-half of the story tracker's descent-recognition doc. This is a **promote-then-prune** move: the DECISIONS (camera, spine, method) now live here as the game-layer spec; the carry-forward note remains the detailed methodology reference until fully absorbed, then prunes. No presentation decision changed in the birth — capture + promotion only.
@@ -39,6 +45,7 @@ Stood up as the third current-to-end-state tracker. Seeds **PART A** by *promoti
 | # | Banked recommendation | Ratifies when | Source |
 |---|---|---|---|
 | A′1 | **Project ARPG camera** — SE-looking-NW isometric, ~35° oblique, D2 standard. **BANKED, not ratified** — its ratifying scene (crypt) was cancelled and the live king-rig uses a different (prop-close) rig. | the **descent's first authored floor** adopts it as the starting recommendation and **ratifies** it (recognition → validate → commit). See B1. | carry-forward note (crypt-vault § 6.2) |
+| A′2 | **Return-transition is a recurring ritual, not a one-shot cinematic.** The hub→descent entry (and the return) is a **cheap, repeatable, interruptible** transition that must stay beautiful on the 200th viewing (Warframe transference ≈2 s, never skipped because never resented) — NOT a 90-second birth cinematic. The **first-run onboarding ceremony** (the maximal "creation/naming moment") is the **ceremonial-maximal-case of the same routine transition**, not a separate system: build the transform so its core staged-register chain is reused as the routine entry at reduced ceremony. **BANKED** — Matt-confirmed under the v1 projection frame (2026-06-10); its v2 application (hub-return/run-start as the recurring transition; first descent as the maximal case) ratifies when the first descent build implements the entry. | the **first descent build** implements the hub→descent entry and ratifies the one-system staging. | folded from `story/2026-06-11-avatar-projection…` §4.1 (source deleted 2026-06-30; presentation-seam survivor re-homed from the retired PC/UE routing) |
 
 PART A is the floor. A game-layer session works *above* it. A′ is the on-deck ratification.
 

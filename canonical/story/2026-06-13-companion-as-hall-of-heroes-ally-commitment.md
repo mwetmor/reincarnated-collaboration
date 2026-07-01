@@ -9,7 +9,7 @@
 **Status:** v1.1 — canonical commitment. Thematic architecture locked; season-1 bootstrap RULED **Path Pure** (Matt, 2026-06-16; § 7). T4 capstone design (Q1–Q10) now COMPLETE.
 **Authority:** Matt 2026-06-13 — verbatim "confirmed — form-library. confirm 1-4 too, author #5 into canon" (confirming Q8 exception-row #5; the four mechanical exception rows 1–4 confirmed in the same turn). **Amendment (Matt, 2026-06-16):** the § 7 season-1 bootstrap ruled **Path Pure** — "Good reframe. Let's go with path pure."
 **Companion docs:**
-- `canonical/story/2026-06-11-avatar-projection-and-hall-of-heroes-framing.md` — **the parent.** Locks Earth Self / projection / Hall of Heroes / molting vocabulary. This doc extends it: the Hall is no longer only a possession-roster; it is now also the *source of the combat companion.*
+- `canonical/reap-die-rise-story/story-expansion.md §12` — **the parent** (folded there 2026-06-30 from the retired `story/2026-06-11-avatar-projection…`, v2-reconciled; the Earth-Self/projection labels are retired, the two-space + molting structure survives). Locks the Hall (possession) / cosmograph (possibility) / molting vocabulary. This doc extends it: the Hall is no longer only a possession-roster; it is now also the *source of the combat companion.*
 - `agentic_orchestration/gandalf/notes/2026-06-13-q8-companion-convergence-matrix-FINAL.md` — the 68-cell convergence matrix this commitment gives thematic ground to (exception-row #5 is the seed of this doc).
 - `agentic_orchestration/gandalf/notes/2026-06-12-session-2-proxy-companion-architecture-spec.md` §§ 4–6 — the companion/proxy *mechanical* architecture (modifier-vector caps; § 6.3 bridge). This doc supplies its *fiction*; that doc supplies its math.
 - `agentic_orchestration/legolas/research/2026-06-13-companion-convergence-precedent/findings.md` — the genre precedent (D2 merc / D3 follower / D4 VoH mercenary; Baby/Good-Mimic identity-resonance #9).
@@ -127,7 +127,7 @@ Fires when § 7 resolves; identity-source architecture can proceed in parallel:
 
 ## (Final). Cross-references
 
-- **Parent:** `canonical/story/2026-06-11-avatar-projection-and-hall-of-heroes-framing.md` (Hall / Earth Self / projection / molting vocabulary — this doc extends § 2 to make the Hall the companion-source).
+- **Parent:** `canonical/reap-die-rise-story/story-expansion.md §12` (folded there 2026-06-30, v2-reconciled; the retired `story/2026-06-11-avatar-projection…` source deleted). Hall / molting vocabulary — this doc extends it to make the Hall the companion-source.
 - **Matrix:** `agentic_orchestration/gandalf/notes/2026-06-13-q8-companion-convergence-matrix-FINAL.md` (68 valid cells; exception-row #5 is the seed).
 - **Mechanics:** `agentic_orchestration/gandalf/notes/2026-06-12-session-2-proxy-companion-architecture-spec.md` §§ 4–6.2 (modifier caps; the companion is a behavior, not a power lever).
 - **Precedent:** `agentic_orchestration/legolas/research/2026-06-13-companion-convergence-precedent/findings.md` (#9 Baby/Good-Mimic identity-resonance; D2 merc singularity).

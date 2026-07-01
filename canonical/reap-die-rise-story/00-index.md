@@ -21,7 +21,7 @@ The locked story frame of *Reap. Die. Rise.* — death-faith premise, the demigo
 ## Folds IN from `canonical/story/` (the (b)-consolidation worklist; sources delete as content lands)
 
 Per `current-to-end-state-story.md` PART C — the surviving experiential-structure docs, reconciled to v2 (retired labels die, structure survives):
-- `2026-06-11-avatar-projection-and-hall-of-heroes-framing` — projection; Hall vs. cosmograph; molting-as-harvest
+- ~~`2026-06-11-avatar-projection-and-hall-of-heroes-framing`~~ **✓ FOLDED 2026-06-30 → `story-expansion.md §12`** (Hall/possession vs. cosmograph/possibility; molting-as-harvest; sparse-hub; D7 lookup-not-generation). v2 forks → tracker B1/B2; presentation survivor → game-tracker A′2. Source deleted.
 - `2026-06-07-earth-avatar-cosmograph-creation-moment-architecture` — the creation-moment scene
 - `2026-06-05-cosmograph-pivot` — cosmograph = possibility space
 - `2026-06-13-companion-as-hall-of-heroes-ally-commitment` — companion = past-self; temporal dyad (open items → tracker B2/B3)
