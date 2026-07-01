@@ -1,5 +1,7 @@
 # gamora brief — wire perception-asymmetry into the spatial battle sim (complete the design that fell through the spatial-rebuild seam)
 
+> **⚠ SUPERSEDED IN PART — Matt-ruled 2026-06-30 (F2 hinge).** The **battle sim is SYMMETRIC** — player and enemy resolve AOE on the same radius, no edge in the balance math. The perceptual edge is granted at the **control layer** (human-piloted = full edge; AI-piloted = reduced edge) as a **piloted-Godot layer-handoff** (sibling to `dodge_gated_deferred`), **controller-keyed** not role-keyed. This **supersedes §2/§5 (edge-in-sim, role-keyed constants) and re-homes the §6 WR-falsifier to the piloted layer.** What SURVIVES: wiring the `AoeCastEvent` producer in `spatial_engine.py` (§1 gap) — but emitting `apparent = true` (spillover 0 = honest "sim granted no edge"), damage untouched. Constants stay in `foundation/perception_asymmetry.py` as the spec the piloted layer consumes. Full ruling: `canonical/matt_decision_needed/README.md` RESOLVED appendix (Q1). Read this brief as lineage for the two-layer *design*; read the ruling for the *implementation split*.
+
 **Type:** direct gandalf→gamora brief (Matt is the conduit to gamora's session; NOT a KR dispatch).
 **Date:** 2026-06-15
 **Author:** gandalf (story-and-design steward)
