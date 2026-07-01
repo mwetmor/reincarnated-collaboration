@@ -1,8 +1,23 @@
 # Encounter-model firm-up — disposition (the soft-median watch-item, developed)
 
-**Author:** gandalf (design seam). **Status:** design-of-record for the watch-item gandalf was handed at the typed-resistance wave-close (decisions-log `ea39ecc`; anchor ruling `2026-06-21-typed-resistance-boss-anchor-ruling.md` §30). **Mode:** Pattern-B development, verification-first.
+**Author:** gandalf (design seam). **Status:** ✓ RATIFIED 2026-06-30 (shape locked + floor-co-viability fork ruled PARK — see top stamp). Was design-of-record for the watch-item gandalf was handed at the typed-resistance wave-close (decisions-log `ea39ecc`; anchor ruling `2026-06-21-typed-resistance-boss-anchor-ruling.md` §30). **Mode:** Pattern-B development, verification-first.
 
 **Reads first-hand:** `spatial_engine.py` (`_mint_telegraph_spec` :744, telegraph buffer :1523, byte-identical-when-off :1519); `cycle14_unified_bundle_emitters.py` (:363-373 monster bundle fields); `weapon_envelope_composer.py` (:152-180 guaranteed i-frame dodge); `telegraph-combat-model-2026-06-16.md` (gamora, dispatch 3 spec); `telegraph-dodge-temporal-decoupling-2026-06-15.md` (gandalf, parent ruling); `reincarnated-godot/` scripts inventory + AGENT_STATE.
+
+---
+
+## ✓ RATIFIED — Matt 2026-06-30
+
+Matt ruled the fork (§ "floor co-viability"): **(i) PARK.** Both halves of the disposition are locked:
+
+1. **Shape RATIFIED** — the unified encounter model is **build-floor (resist / tank / out-range) + dodge-skill ceiling (telegraphed signature slam)**. One model answers both the solo §3.4 firm-up and the proxy §4 grading (§ "Proxy convergence"). Design-of-record for the fire boss and its proxy analog.
+2. **Floor-co-viability fork ruled PARK** — accept the 0.926 soft build-floor as measured correctly. **No dm=6.0 firm-up** (structurally the wrong lever — it taxes the under-geared tail before firming the median, re-introducing the tail-tax the anchor ruling rejected). **No gamora boss-TTK sweep commissioned.** The **dodge-skill ceiling carries the "wrong form should hurt" texture** when the Godot combat layer lands.
+
+**Nothing fires now.** PARK closes the soft-median watch-item as a *disposition* and unsticks the proxy §4 encounter-model question (design-only). It authorizes **no sweep, no proxy build, no `_DEFERRED_PROXY_BINS` lift, no push.** The build gate stays deferred behind Godot reaching combat.
+
+**Empirical criterion that gates re-engagement (NOT time-passage):** a **Godot combat-loop spike** (player HP + one enemy attack + hit/avoid resolution) that consumes ONE serialized telegraph and proves the dodge window is human-timable against the minted wind-up geometry (t_react 0.3s + escape/v_ref). Named build gate: **dispatch 4** (star-lord serialize TelegraphSpec + i_frame_window) **+ dispatch 5** (Godot combat loop). gandalf owns the dodge-ceiling design contract when Godot combat lands.
+
+**Governance (this ruling's routing):** developed gandalf↔Matt directly — design rulings route through the design seam; KR sequences the resulting dispatch, not the disposition. Since PARK fires no dispatch now, KR's relay is informational: the watch-item is closed, the build gate is named and deferred.
 
 ---
 
@@ -27,7 +42,7 @@ The "encounter model answerable by dodge OR resist OR tank OR out-range" is **no
 
 The dodge answer carries **zero load in any surface that currently plays.** The sim is the only thing that "plays," dodge is inert there by design, and Godot has no combat. So today the three **build answers — resist / tank / out-range — are the only live defensive answers, full stop.** That is not a problem to fix; it is the correct staging of a temporally-decoupled design (sim = floor-skill instrument; Godot = skill ceiling, deferred).
 
-## The ruling — build-primary FLOOR + dodge-skill CEILING (ratify, Matt)
+## The ruling — build-primary FLOOR + dodge-skill CEILING (✓ RATIFIED Matt 2026-06-30 — see top stamp)
 
 The fire boss is **answerable on the build-floor** (resist/tank/out-range — a thoughtful player who brought the right form survives even with zero dodge skill) **AND rewarding on the dodge-ceiling** (a skilled player times the i-frame roll against the telegraph). This is the genre-canonical split:
 
@@ -45,7 +60,7 @@ The cure for a soft floor is **NOT to harden the floor** (that re-introduces the
 
 The sim measures "can this build survive with **zero** dodge skill?" → 92.6% yes. For a build-primary floor with a future dodge ceiling, a soft-but-not-trivial floor is *right*. Tuning it down now would (a) chase a "median must sweat" feel the floor is not supposed to deliver — the sweat is the ceiling's job — and (b) lock a difficulty against a dodge-free world that the future dodge then undercuts, re-creating the exact **double-tax** my 2026-06-15 ruling forbade (don't auto-compensate the sim for a dodge that isn't there yet — in *either* direction).
 
-## The one genuinely-live design question — floor co-viability (fork for Matt)
+## The one genuinely-live design question — floor co-viability (✓ RULED PARK, Matt 2026-06-30)
 
 On the build-floor itself, the three live answers are **not yet co-viable: kill-speed (offense) substitutes for the defensive read** (calibration §9.3: dm_mod 0.4→3.0 → survive 0.583→0.958). So today the dominant "answer" is *kill it before the slam matters*; resist/tank are load-bearing only for the under-offense tail. The §3.4 "bring the right form" payoff bites at the tail, not the median — a mechanic only the under-resourced feel.
 
