@@ -21,6 +21,21 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-06-30 — Spec-doc GAP registered: the kit-space EMISSION architecture (§3.2/§3.3/§3.4) is LIVE but design-doc-homeless (its founding doc is being retired by the isekai purge)
+
+The story-side purge (Matt "all v1 isekai story is gone") targeted `story/2026-06-02-season-archive-realm-expansion-pivot.md` for deletion. **Verify-then-prune HALTED it** — that doc is the **canonical commitment behind a LIVE engine subsystem**, with 8+ inbound code/data refs. Deletion is now **held** (partial-supersession banner on the doc; isekai content-model struck, engine spine preserved). Registered here so the live-behavior-vs-spec GAP is not lost:
+
+- **§3.2 per-skill flavor-or-canonical naming** (WS1A.4-lite Q18 binary: flavor-word vs. canonical name) → `generation/kit_space_skill_naming.py`, `generation/phase5_skill_naming.py`, `llm/ws1a4_lite_flavor_judgment.py` (emits `ws1a4_flavor_decision`/`ws1a4_flavor_word_used`).
+- **§3.3 continuous kit-space *emission* architecture** — stable kit-ids, **per-kit-entry output schema (NOT per-season-manifest)** → `data/kit_space/README.md`, `export/kit_space_emitter.py`.
+- **§3.4 kit-space-expansion chronicle** → `data/kit_space/chronicle/CHRONICLE_SCHEMA.md` (+ live chronicle data).
+- **§6 existing-season-data historical preservation** (Path α) → governs `seasons/season_000001…000200` on disk.
+
+All **frame-neutral** (survive the isekai kill) and **NOT documented in the v2 engine spec** (`reap-die-rise-engine/` has no kit-space/chronicle/emission-schema section). This is a **build-to-spec GAP** (live subsystem, no spec home; the only design-intent home is the doc being retired + code comments pointing *at* it — e.g. `ws1a4_lite_flavor_judgment.py:5`, `kit_space_emitter.py:80`).
+
+**OPEN ENGINE QUESTION (gates the fold + the founding doc's final deletion) — belongs in PART II (content-emission):** is the §3.3/§3.4 kit-space+chronicle emission model **still the live-v2 emission architecture, or superseded by the cycle-14 unified Godot-bundle emitter** (PART II.1 "two emit tracks that do not meet")? **If live** → author a kit-space/emission section in `reap-die-rise-engine/`, fold §3.2/§3.3/§3.4/§6, re-point the engine code comments, THEN the story-side can `git-rm` the doc. **If superseded** → §3.3/§3.4 retire by an *engine-supersession* call (star-lord/rocket + this tracker), not the isekai ruling. Owners: star-lord (emission) + rocket (kit-space gen). Routed to KR for sequencing when the purge reaches the engine spine. No engine code touched this session.
+
+---
+
 ### 2026-06-30 — Doc-lifecycle governance system LANDED · `02-roadmap`→this-tracker rehome (all OPs/SKILLs) · perception-asymmetry build-vs-spec GAP registered · ravine prototype CANCELLED (cross-seam Q carries)
 
 **Governance (Matt 4-part authorization: *"write up the doc, do the OP rehome, stand up the audit routine, run the verify-then-prune."*)** The doc-lifecycle governance system is installed at `agentic_orchestration/operating-procedures/canonical-doc-format.md § 6` (+ its mirror SKILL): total-vs-partial supersession (partial→banner+fold, never amputate; total→git-rm); the **4-predicate prune-safe rule** (markdown + not-never-prune + [totally-superseded OR workstream-closed working-memory] + zero references across **both** repos); three note sub-classes (evidentiary / verdict / working-memory); the standing **§ 6.6 hygiene Routine**. Ratified via a 14-scenario stress-test (`gandalf/notes/2026-06-30-doc-lifecycle-governance-stress-test.md` — evidentiary). The hygiene Routine is SPEC-READY but instantiation is **BLOCKED on a registered CCR environment** (`operating-procedures/canonical-hygiene-audit-routine.md`).

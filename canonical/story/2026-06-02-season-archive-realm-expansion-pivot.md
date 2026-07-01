@@ -1,9 +1,36 @@
 # Season Concept ARCHIVED — Realm Expansion Pivot
 
-**STATUS:** CURRENT (architectural commitment; load-bearing for all engine workflow + player-surface design from this point forward); player-facing-surface implementation amended 2026-06-05 per cosmograph pivot (see § 0 below)
+**STATUS:** ⚠ PARTIALLY SUPERSEDED 2026-06-30 (see BANNER below). The **isekai CONTENT-MODEL half** (Realm Expansion as content-release rhythm; ascension-as-content; kit-space-*browse*-as-player-content; economic-veteran alternatives; genre-departure framing) is RETIRED by Matt's *"all v1 isekai story is gone"* ruling. The **ENGINE-ARCHITECTURE spine** (§3.2 skill-naming · §3.3 continuous kit-space *emission* · §3.4 expansion chronicle · §6 season-data preservation) **REMAINS LOAD-BEARING** — it is the live-code canonical commitment behind `data/kit_space/` + the chronicle schema + `kit_space_emitter.py` and has **no other spec home**, so this doc is **NOT deleted** (partial-supersession per doc-lifecycle governance §6). Was: CURRENT architectural commitment (2026-06-02).
 **Date:** 2026-06-02
 **Author:** gandalf (story-and-design steward) per Pattern B substantive design session with Matt
-**Authority:** Matt 2026-06-02 ratification ("season = archived. We have lost the concept of season with the introduction of the 'chernoff celestial body'... Realm Expansion confirmed, path α, draft the canonical record")
+**Authority:** Matt 2026-06-02 ratification ("season = archived... Realm Expansion confirmed, path α, draft the canonical record"); **partial-supersession Matt 2026-06-30** ("all v1 isekai story is gone")
+
+---
+
+## ⚠ BANNER — PARTIAL SUPERSESSION (2026-06-30)
+
+Matt ruled **"all v1 isekai story is gone."** This doc was queued for deletion as an isekai casualty (its title reads that way). **Verify-then-prune HALTED the delete:** the doc is a **mixed engine/story record**, and its load-bearing core is **frame-neutral ENGINE ARCHITECTURE**, not isekai story.
+
+**DEAD (retired by the ruling — do not build against):**
+- **§2.3** ascension-as-content + Earth-meta-layer content-model
+- **§3.1** Realm Expansion as a content-**release rhythm** (new Maps/Acts/Game-Modes as the release device)
+- **§3.5** Realm-Expansion-targets-underplayed-kits (as a *release-design* discipline; the abstract "consult engagement telemetry" idea survives only as the unratified §9.1 candidate)
+- **§4** conscious-genre-departure-*toward-continuous-space-content-model* framing
+- **§5** economic-veteran alternatives (A1–A5 all built on the dead ascension / Earth-meta / Realm-Expansion mechanisms; the abstract market problem is genre-general and re-surfaces if/when trading scope opens)
+- **§1** season-as-content-**release-unit** retirement — *conclusion survives*, captured in v2: `reap-die-rise-story/gameplay-loop-design.md` §19 (seasonal-rotation = background, not a launch hook) + §23 (run-model)
+
+**LIVE + LOAD-BEARING (frame-neutral engine architecture; the reason this doc is NOT deleted; 8+ engine code/data inbound refs; NO other spec home):**
+- **§3.2** per-skill flavor-or-canonical naming (WS1A.4-lite Q18) → `generation/kit_space_skill_naming.py`, `generation/phase5_skill_naming.py`, `llm/ws1a4_lite_flavor_judgment.py`
+- **§3.3** continuous kit-space **emission** architecture — stable kit-ids, per-kit-entry output schema (NOT per-season-manifest) → `data/kit_space/`, `export/kit_space_emitter.py`
+- **§3.4** kit-space-expansion **chronicle** → `data/kit_space/chronicle/CHRONICLE_SCHEMA.md`
+- **§6** existing-season-data historical preservation (Path α) — governs `seasons/season_000001…000200` on disk
+- **§9.1 / §9.2** two unratified Disc #N candidates (substrate-led-at-content-engagement; player-driven-over-dev-driven) — §9.2 is frame-neutral and *reinforced* by the v2 run-model (jack-ryan's call if disciplines are revisited)
+
+**OPEN ENGINE QUESTION (gates the eventual fold + this doc's final deletion):** is the §3.3/§3.4 kit-space+chronicle **emission** model still the live-v2 emission architecture, or **superseded by the cycle-14 unified Godot-bundle emitter**? → engine tracker PART II (content-emission), star-lord/rocket seam. **If live** → fold §3.2/§3.3/§3.4/§6 into `reap-die-rise-engine/`, THEN delete this doc. **If superseded** → §3.3/§3.4 die too, but that is an ENGINE-supersession call (engine tracker + star-lord/rocket), NOT an isekai-story ruling. Either path, this doc **cannot be git-rm'd on the strength of "isekai story is gone."**
+
+**Governance re-points already applied 2026-06-30:** OP §3.8(b) + SKILL §3.7(b) + story-tracker A4 source-cite now point the seasonal-release-retirement *fact* at `gameplay-loop-design.md` §19/§23 (the live v2 home). Registered in: story-tracker + engine-tracker SESSION-DELTAs; fold-map. **Everything below the AMENDMENT NOTE is the original 2026-06-02 record — read the DEAD items above as struck, the LIVE items as still authoritative.**
+
+---
 
 **AMENDMENT NOTE (2026-06-05):** the chernoff-celestial-body player-facing surface design described in this record (cinematic constellation→materialization stages) was further refined to an **interactive cosmograph (force-directed graph)** per `canonical/story/2026-06-05-cosmograph-pivot.md`. The Realm Expansion architecture, content-rhythm decision, and substrate-led discipline ALL STAND. The change is to the visualization primitive of the chernoff-celestial-body player surface: cosmograph for substrate exploration + lasso + spirit lookup; Veo cinematic preserved for post-confirm materialization payoff. Read this record TOGETHER with the cosmograph-pivot record; they compose.
 **Companion docs:**
