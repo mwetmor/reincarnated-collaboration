@@ -13,10 +13,11 @@
 |---|---|
 | **The STORY spec** — death-faith frame, demigod-jailer / death-god patron / hub-ensemble cast, projection / Hall of Heroes / cosmograph / molting, the manufactured-rebellion keystone, villain-protagonist arc | `canonical/reap-die-rise-story/` |
 | **The ENGINE spec** — generation, simulation, balance, gear / stat / T4 architecture, progression, content-emission, the build / networking / perf / render stack | `canonical/reap-die-rise-engine/` |
-| **Where the build is vs. the spec** — the deltas, what's still owed | `canonical/current-to-end-state/` → `…-engine.md` (build gaps) + `…-story.md` (open story decisions) |
+| **Where the build is vs. the spec** — the deltas, what's still owed | `canonical/current-to-end-state/` → `…-engine.md` (build gaps) + `…-story.md` (open story decisions) + `…-game.md` (playable-presentation-build / Godot gaps — born 2026-06-30) |
+| **What's waiting on MATT** — the human-in-the-loop decision queue; check at session start/end | `canonical/matt_decision_needed/` (born 2026-06-30) |
 | **Anything older** — epoch history, wave-close records, superseded designs, curation logs, the old oracle | **git** — recoverable, searchable, not pre-load |
 
-**Two questions, two homes:** `reap-die-rise-{story,engine}` = the **END STATE** (what we're building). `current-to-end-state/{story,engine}` = the **DELTA** (how far the build is from it).
+**The shape:** `reap-die-rise-{story,engine}` = the **END STATE** (what we're building). `current-to-end-state/{story,engine,game}` = the **DELTA** (how far the build is from it) — three ledgers: the sim (engine), the narrative (story), the playable build (game). `matt_decision_needed/` = the **decision queue** (what's waiting on Matt).
 
 > **⚠ REORG IN PROGRESS (born 2026-06-30).** The folders + physical relocations are done; the content **fold** is mid-flight. Until it completes:
 > - the **engine spec** seed has landed in `reap-die-rise-engine/` (build/networking/perf/godot/vfx/design-decisions); the numbered docs `canonical/37–51` still fold in;
@@ -38,11 +39,11 @@ Plus role-specific:
 
 | Role | Also reads |
 |---|---|
-| **gandalf** | BOTH trackers + both spec folders (story-and-design steward spans both); `style-register`; legacy-categorical-cleanup-audit |
-| **knight-rider** | BOTH trackers (orchestrator — sequences engine build + the story-decision queue); latest `agentic_orchestration/skill_handoff_*`; current hive-mind state file; engineering-disciplines |
+| **gandalf** | ALL THREE trackers (engine + story + game) + both spec folders (story-and-design steward spans all); `matt_decision_needed/`; `style-register`; legacy-categorical-cleanup-audit |
+| **knight-rider** | ALL THREE trackers (orchestrator — sequences engine build + story-decision queue + game-presentation build); `matt_decision_needed/`; latest `agentic_orchestration/skill_handoff_*`; current hive-mind state file; engineering-disciplines |
 | **jack-ryan** | engineering-disciplines; decisions-log; latest critique-pair / Gate dispatch |
 | **rocket / gamora / star-lord** | `reap-die-rise-engine/` (your sections); engine tracker; engineering-disciplines |
-| **drax** | `reap-die-rise-story/` presentation sections; loadout / demo / godot repo READMEs |
+| **drax** | `current-to-end-state-game.md` (the playable-build tracker — your delta); `reap-die-rise-story/` presentation sections; loadout / demo / godot repo READMEs |
 | **galadriel** | `style-register`; visual-benchmark; geometry-vfx-coverage |
 | **elrond** | substrate / catalogue / lineage layer (elrond-owned, outside these three folders) |
 | **legolas** | latest gandalf request; relevant hive-mind protocol section |

@@ -1,0 +1,74 @@
+# Current State → End State: GAME (LIVING)
+
+**STATUS:** LIVING CANONICAL — the **game-side** delta tracker. Third sibling to `current-to-end-state-engine.md` (battle-sim + emission + v2-fit engine gaps) and `current-to-end-state-story.md` (open story decisions). This one tracks the **playable presentation build** — drax's `reincarnated-godot/`: what the player *camera sees and feels* vs. what the end-state experience spec needs.
+**Born:** 2026-06-30 (Matt-confirmed: *"agreed: current-to-end-state-game. Please stand it up."*). The king-rig opening scene ("the beginning of the game itself") is neither story nor engine — it is the **third thing**, the playable-presentation layer, and until now it had no home. This tracker is that home.
+**Author:** gandalf (SCENEWRIGHT — the experience-spec / end-state side). **Build side:** drax (`reincarnated-godot/`). Same split as engine (specialists build; gandalf + jack-ryan spec/review).
+
+> **Siblings:** `current-to-end-state-engine.md` (the sim) + `current-to-end-state-story.md` (the narrative). This one is the **playable build** that fuses them for the player. Three concerns, three ledgers.
+> **The three questions:** engine tracker = "how far is the build from the engine spec"; story tracker = "how settled is the story"; **game tracker = "how far is the playable build from the experience spec."**
+
+---
+
+## HOW THIS DOC WORKS (living-doc protocol)
+
+- **SESSION-DELTA LOG** at top: latest entry governs. Prepend a dated block when a presentation decision lands, a scene ships, or an open question surfaces/resolves.
+- **PART A** = the LOCKED presentation grammar (a SCENEWRIGHT/drax session may NOT silently reopen — Matt-ruled or ratified). **PART B** = the OPEN queue (game-layer decisions still owed). **PART C** = the presentation-grammar fold worklist (the carry-forward + king-rig sources folding into this tracker's spec).
+- Mark resolved items ✓ with date + ruling; never silently delete — strike and date.
+
+---
+
+## SESSION-DELTA LOG (latest governs all below)
+
+### 2026-06-30 — Doc born (Matt-confirmed name "game"); presentation grammar promoted from the cancelled-prototype carry-forward
+
+Stood up as the third current-to-end-state tracker. Seeds **PART A** by *promoting* the load-bearing presentation grammar out of `agentic_orchestration/gandalf/notes/2026-06-30-ravine-cancelled-learnings-carry-forward.md` (the two cancelled Godot prototypes' surviving learnings) + the BANKED ARPG camera + the "only author what the player camera sees" spine. Seeds **PART B** from the camera-ratification gap + the descent floor-authoring queue + the king-rig home gap. Seeds **PART C** with the two fold-sources (carry-forward note + king-rig brief) and the presentation-half of the story tracker's descent-recognition doc. This is a **promote-then-prune** move: the DECISIONS (camera, spine, method) now live here as the game-layer spec; the carry-forward note remains the detailed methodology reference until fully absorbed, then prunes. No presentation decision changed in the birth — capture + promotion only.
+
+---
+
+## PART A — The LOCKED presentation grammar (do not silently reopen)
+
+| # | Locked | State | Source |
+|---|---|---|---|
+| A1 | **"Only author and judge what the player camera sees."** The spine. Off-camera geometry is not authored, not judged, not a defect. Author to the frame, not to the floor-plan. | **Matt-ruled (verbatim)** | carry-forward note (crypt-vault § 6.3) |
+| A2 | **F1-resolution:** repetition **IN a frame** = design (rhythm, motif); repetition **WITHOUT a frame** = the bug (copy-paste sprawl). The discriminator is whether a composed camera frames the repeat. | **Ruled** | carry-forward note |
+| A3 | **Three-gate authoring method** for procedural floors: **G1** engine-truth (camera-independent spatial correctness) → **G2** register-CV (galadriel visual-similarity vs. genre peers) → **G3** human-coherence (Matt). A floor graduates only through all three. | **Ruled (worked template)** | carry-forward note (crypt-vault § 6.1) |
+| A4 | **King-rig opening scene is LIVE** — the small-square-room king-character scene (drax build; same Synty map pack as the cancelled crypt). This is the beginning of the game itself. NOT cancelled. | **LIVE** | `2026-06-22-king-rig-mcp-alignment-brief.md` |
+
+## PART A′ — BANKED (recommended, awaiting ratification at first use)
+
+| # | Banked recommendation | Ratifies when | Source |
+|---|---|---|---|
+| A′1 | **Project ARPG camera** — SE-looking-NW isometric, ~35° oblique, D2 standard. **BANKED, not ratified** — its ratifying scene (crypt) was cancelled and the live king-rig uses a different (prop-close) rig. | the **descent's first authored floor** adopts it as the starting recommendation and **ratifies** it (recognition → validate → commit). See B1. | carry-forward note (crypt-vault § 6.2) |
+
+PART A is the floor. A game-layer session works *above* it. A′ is the on-deck ratification.
+
+---
+
+## PART B — OPEN game-layer decisions (the queue a game session owes)
+
+| # | Open question | Gates | State |
+|---|---|---|---|
+| **B1** | **Camera ratification.** Adopt the BANKED ARPG camera (A′1) as the descent's first-floor starting recommendation and ratify it through the three-gate method (A3). Until ratified, it is banked, not locked. | descent first-floor authoring; galadriel register-CV pass (G2); Matt G3 | **OPEN — ratifies at first authored floor** |
+| **B2** | **Descent floor-authoring queue.** The procgen-middle floors. The G3 "blank page" risk is **retired** — the three-gate method + the ravine's socket/snap/no-void ruleset are the banked worked template (PART C). What remains: author the first floor, run it through the three gates, ratify the camera. | drax Godot build; the edge-socket contract as the G3 alignment problem (MCP = verification tool) | **OPEN — first floor not yet authored** |
+| **B3** | **King-rig design home.** The live king-rig scene's substance is currently ONLY in `2026-06-22-king-rig-mcp-alignment-brief.md` (verified 2026-06-30: NOT homed in any drax design doc). It needs a durable home — this tracker's PART A + a dedicated game-spec doc when it grows. | whether a `reap-die-rise-{game}/` spec folder is warranted, or this tracker suffices for now | **OPEN — home is here; dedicated doc TBD** |
+| **B4** | **Style-register application to the game layer.** The locked visual style register (`canonical/story/style-register.md`) is a consumption-time filter; how it binds the Godot/Synty asset choices for authored floors is a game-layer decision. | `style-register.md`; galadriel register-CV | **OPEN — not yet applied to the build** |
+
+---
+
+## PART C — Presentation-grammar fold worklist (promote-then-prune)
+
+The load-bearing presentation grammar was *promoted* into PART A above; the detailed methodology stays in the sources until fully absorbed, then prunes.
+
+| Source | What promotes (into PART A / a future game-spec) | Prune when |
+|---|---|---|
+| `agentic_orchestration/gandalf/notes/2026-06-30-ravine-cancelled-learnings-carry-forward.md` | the spine (A1), F1-resolution (A2), three-gate method (A3), BANKED camera (A′1); PLUS the detailed methodology still referenced (edge-socket snap-by-construction, exemplar→seed-vary→assemble, generate→gate→graduate loop, WFC-as-scale-path, two-footprint rule, R1–R14 + NV-1…5 no-void ruleset, tripod-gate, depth-toward-the-climax beat, layered far-wall, eye-flow crossing, annulus soft-boundary, Synty/Godot gotchas) | the first authored floor has consumed the ruleset AND a game-spec doc homes the detail — then the carry-forward note becomes a redundant pointer → prunable |
+| `agentic_orchestration/gandalf/notes/2026-06-22-king-rig-mcp-alignment-brief.md` | the king-rig scene's home is this tracker (A4 / B3); the `_seat_sword` prop-rig is scene-specific, not the player camera | when a king-rig design doc or `reap-die-rise-{game}/` section homes it (B3) |
+| `canonical/story/…/2026-06-22-seasonal-descent-architecture-recognition.md` (story tracker PART C) | the **presentation half** — floor authoring, camera, procgen-middle — folds HERE; the **descent-arc half** (the narrative shape) stays with the story tracker. A split-source. | when both halves are folded to their respective homes |
+
+**Discipline:** reconcile, do not amputate. The grammar is load-bearing; only the *cancelled-prototype-specific* detail (the exact ravine/crypt geometry) dies. Cross-ref: story tracker PART C (the descent-recognition doc is shared lineage) + engine tracker (the sim the game renders).
+
+---
+
+**Signed:** gandalf (SCENEWRIGHT), 2026-06-30. The engine tracker asks "how far is the build from the spec." The story tracker asks "how settled is the story." This one asks "how far is the playable build from what the player should feel when the camera opens on it." Three debts, three ledgers.
+
+**Tracker-delta:** self (this IS a tracker). Router (`00-ground-state.md`) updated to list the third tracker. Story tracker gets a SESSION-DELTA cross-ref (the descent-recognition doc is now a split-source).

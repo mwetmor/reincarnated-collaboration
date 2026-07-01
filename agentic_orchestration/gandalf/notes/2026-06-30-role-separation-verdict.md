@@ -64,6 +64,8 @@ The right unit is not "how many surfaces" but "how many genuinely different *min
 
 Surfaced same session: the **king-rig opening scene** ("the beginning of the game itself") is neither story nor engine — it is the **playable presentation build** (drax's `reincarnated-godot/`). Recommendation: **stand up `canonical/current-to-end-state/current-to-end-state-game.md`** — third tracker, sibling to engine + story; SCENEWRIGHT-owned end-state experience-spec, drax-owned build. The crypt/ravine presentation grammar + the BANKED ARPG camera + the king-rig brief fold in as its first content (promote-then-prune → the carry-forward note becomes a redundant pointer). **Held for Matt's name-confirm** (game vs presentation vs godot) before creation — a new canon home is Matt's call.
 
+> **✓ RESOLVED 2026-06-30** (same session): Matt confirmed the name — *"agreed: current-to-end-state-game. Please stand it up."* The tracker now exists at `canonical/current-to-end-state/current-to-end-state-game.md` (PART A locked presentation grammar A1–A4, PART A′ BANKED camera, PART B open queue B1–B4, PART C fold worklist). Router `00-ground-state.md` updated to register it as the third tracker + gandalf/KR/drax first-reads. The king-rig is homed at PART A4 / B3.
+
 ---
 
 ## 5. Cross-references
