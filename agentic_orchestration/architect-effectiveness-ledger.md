@@ -9,7 +9,12 @@
 - **jack-ryan (disinterested judge, scorer + ratifier):** *owns* the SCORE columns (Coverage / Classification / Utility / Verdict / Miss-log); *ratifies* this rubric (symmetry with jack-ryan owning engineering-disciplines — `canonical-doc-format.md § 6.7`). jack-ryan's grade is the durable one; gandalf's row-prep is just the setup.
 - **Matt:** reads the LEARNINGS section at session start/end; approves promotion of a recurring miss-class into a standing ARCHITECT rule.
 
-> **Ratification status:** the rubric below is **gandalf-proposed, PENDING jack-ryan ratification.** Until jack-ryan ratifies, rows may be pre-prepped but SCORE columns are provisional. Cross-ref: `matt_decision_needed/` is the *decision* queue; this is the *foresight-quality* ledger. Different instruments.
+> **Ratification status:** **RATIFIED by jack-ryan 2026-06-30 with two MANDATORY amendments (folded below)** — `agentic_orchestration/jack-ryan/notes/2026-06-30-governance-ratification-s15-and-architect-ledger.md` + two decisions-log entries. The four dimensions, the miss-class enum, and the ≥2 promotion threshold stand as proposed. The amendments close the same leak both governance items had: the escape-hatch (a substrate-emergent excuse) must be **earned by reference-checkable evidence, not granted by the rule-subject's assertion.** Cross-ref: `matt_decision_needed/` is the *decision* queue; this is the *foresight-quality* ledger. Different instruments.
+>
+> **jack-ryan MANDATORY amendments (2026-06-30):**
+> - **M1 — pre-run-knowability discriminator (closes the carve-out loophole).** A miss is `unforeseeable_substrate_emergent` **only if it required a NAMED run-produced empirical result** that could not exist pre-run. If the scorer cannot name that input, the miss **defaults to `foreseeable_missed`.** Ambiguity resolves *against* the rule-subject (gandalf), never for. Without this, "substrate-emergent" becomes a blanket excuse for real foreseeable misses.
+> - **M2 — scorer framing-audit reflex (Discipline #42).** Before reading gandalf's pre-prepped CLAIM columns, **jack-ryan independently re-derives the decision list from canon.** This prevents the CLAIM pre-prep from anchoring the score — the scorer's decision-enumeration must be independent, or the "Coverage" metric measures gandalf's self-report, not reality.
+> - **INFO (folded):** D1 denominator = *foreseeable* decisions hit (substrate-emergent decisions sit outside the ratio, neither credit nor debit); a ≥2 promotion cluster must share a **root-shape**, not merely the same enum tag; D3 Utility stays qualitative (not forced numeric).
 
 ---
 
@@ -31,7 +36,7 @@
 
 | Dimension | Tests which claim | Score |
 |---|---|---|
-| **D1 — Coverage** | Completeness | `foreseen ÷ decisions-the-run-actually-hit`. 1.0 = the pass listed every decision the run hit. |
+| **D1 — Coverage** | Completeness | `foreseen ÷ FORESEEABLE decisions the run hit` (per jack-ryan INFO — substrate-emergent decisions sit outside the ratio). 1.0 = the pass listed every foreseeable decision the run hit. Scorer re-derives the decision list from canon *independently* before reading gandalf's CLAIM (M2). |
 | **D2 — Classification accuracy** | Classification | of the foreseen decisions, fraction correctly classed (RESOLVED didn't re-open; GATE criterion held; OPEN genuinely needed Matt). |
 | **D3 — Utility** | Prioritization | did the gate prevent stalls? Did the run fire cleanly on the gated set, or did a mis-gated item block / mis-steer it? (qualitative + stall-count) |
 | **Verdict** | roll-up | **HELD** (foresight substantially complete; no expensive misses) / **PARTIAL** (useful but material misses) / **DRIFTED** (missed decisions that stalled or mis-steered the run). |
@@ -49,7 +54,7 @@
 | `misprioritized_gated_but_blocked` | pass judged safe-to-gate; the item actually blocked the run | YES |
 | `scope_boundary_error` | the decision belonged to a different run/seam than the pass assumed | YES |
 
-**Discipline:** `unforeseeable_substrate_emergent` misses do NOT count against the ARCHITECT pass — foreseeing substrate emergence would violate the very substrate-led discipline the project runs on. Only the *foreseeable* miss-classes drive rule-generation. A pass that "missed" only substrate-emergent decisions still scores **HELD**.
+**Discipline:** `unforeseeable_substrate_emergent` misses do NOT count against the ARCHITECT pass — foreseeing substrate emergence would violate the very substrate-led discipline the project runs on. Only the *foreseeable* miss-classes drive rule-generation. A pass that "missed" only substrate-emergent decisions still scores **HELD**. **Guard (jack-ryan M1):** a miss earns the `unforeseeable_substrate_emergent` tag ONLY if jack-ryan can name the run-produced empirical result it required; absent that named input, the miss **defaults to `foreseeable_missed`** (ambiguity resolves against gandalf, never for). The carve-out is earned by evidence, not granted by assertion.
 
 ---
 
