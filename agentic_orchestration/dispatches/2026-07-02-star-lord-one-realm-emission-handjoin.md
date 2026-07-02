@@ -85,3 +85,64 @@ This dispatch **defines a new cross-seam contract**: the Godot-consumable bundle
 - one-realm-mvp-scope.md §5.1 · §4 scope table · §3 roster
 - current-to-end-state-engine.md II.3 (MVP-CRITICAL bullet), IV.2 MVP-lens
 - MASTER: `2026-07-02-one-realm-mvp-build-MASTER.md`
+
+---
+
+## Completion record
+
+**Completed by:** star-lord, 2026-07-02
+**Tag:** `star-lord/v-one-realm-bundle-handjoin-1`
+**Status:** SCHEMA-DRAFT-PENDING-DRAX-HANDSHAKE (partial completion — schema + driver + tests done; full emit + round-trip smoke deferred to after drax D4 handshake per Gate-1 fold b)
+
+### What shipped
+
+1. **`export/math/2026-07-02-one-realm-bundle-schema-note.md`** — the mandatory pre-emit contract artifact (Gate-1 fold a). Full record shapes for all content types: KitRecord / SkillRecord / ProxyDecl / WeaponDescriptor / MonsterRecord / GearRecord / FactionBlock / FloorManifest. Sourcing trace (Gate-1 fold c). Flavortext decision table. 5 open questions for drax. Schema lock condition. Status: DRAFT-pending-drax-handshake.
+
+2. **`export/one_realm_bundle_assembler.py`** — the D1 hand-join assembly driver. Reads cycle-14 ClassData kits (TRACK NEW) + old-track monsters/*.json (TRACK OLD) + old-track gear via telemetry DB READ (TRACK OLD via DB) + cycle-14 faction staging + D2 proxy decls (inject_proxy_decls when D2 lands). Validates at the export boundary (Discipline #8). Enforces III.7 invariant at two levels (raw cluster check + emitted bundle validator). Gate-1 fold (c) enforced (rejects "telemetry" top-level key). CLI entry point for production runs.
+
+3. **`tests/test_one_realm_bundle_assembler.py`** — 60 new tests (Groups A-G). 60/60 PASS. 0 regressions on 4653 existing passing tests.
+
+4. **`export/MIGRATION.md § v1.83`** — full cross-seam contract entry for the one-realm demo bundle. Bundle record shapes summary for drax. III.7 invariant. Gate-1 fold (c) compliance. Flavortext sourcing decision. Consumer obligations. D2 dependency note. Schema lock condition.
+
+5. **`export/AGENT_STATE.md`** — updated with 2026-07-02 session block.
+
+### Scope checkboxes
+
+- [x] Bundle-schema note (the contract artifact for drax handshake) — DONE
+- [DEFERRED] One-realm emission: emit pending drax handshake lock + D2 proxy decls
+- [x] Per-floor element-rotation manifest in the bundle — DONE (FloorManifest in driver + schema note)
+- [x] Faction fields as presentation-restyle (III.7 invariant protected) — DONE (validator + driver)
+- [x] Weapon descriptors nice-not-critical — DONE (emit_weapon_descriptor() wired in build_kit_record; null if absent)
+- [DEFERRED] Schema note → drax handshake → LOCK → emit → round-trip smoke (handshake pending)
+- [x] MIGRATION.md — DONE (§ v1.83)
+- [x] AGENT_STATE.md updated — DONE
+- [x] Tag `star-lord/v-one-realm-bundle-handjoin-1` — DONE
+
+### Acceptance criteria status
+
+- [PENDING] Demo-realm bundle emits and validates — PENDING drax handshake + D2 decls
+- [PENDING] Summoner kits carry D2's real proxies — PENDING D2 (rocket/v-demo-summoner-proxy-decls-1)
+- [x] Faction is restyle layer; III.7 invariant demonstrably held — DONE (validator + driver + tests)
+- [PENDING] Schema drax-handshaked and LOCKED before emit — PENDING drax D4
+- [x] Bundle schema is emission-path-sourced only; does not widen spatial_telemetry.py boundary — DONE (Gate-1 fold c validated in driver + tests)
+- [x] MIGRATION.md written — DONE (§ v1.83)
+
+### Open questions resolved
+
+- **Bundle packaging format:** defaulted to single JSON manifest (inline records). Drax open question #1 — drax may adjust at handshake.
+- **Flavortext sourcing:** kit-level PRESENT (Wave B); skill-level NULL ACCEPTED (demo-scope gap); monster/gear NULL ACCEPTED (stored seasons). Documented in schema note + MIGRATION.md.
+- **D2 proxy decls:** driver built to accommodate the `proxies` key. inject_proxy_decls() slots in D2 decls when they land. All kits carry proxies=[] until D2 ships.
+- **Weapon descriptors:** wired via emit_weapon_descriptor() / substrate_binding path (nice-not-critical). null if substrate_binding absent (D7 narrow-blank). No block on the bundle.
+- **Faction fields:** presentation-restyle only; III.7 invariant enforced at raw-cluster level (before emission) AND at bundle validation level. load_faction_block() returns None if fight-model fields detected in raw data.
+
+### Pending actions for other agents
+
+- **drax (D4):** review `export/math/2026-07-02-one-realm-bundle-schema-note.md` and answer the 5 open questions (packaging / null-handling / SCAFFOLD ProxyDecl acceptance / FloorManifest granularity / III.7 confirmation). Signal schema lock to star-lord. Then build the Godot bundle loader.
+- **rocket (D2):** author 2-3 demo summoner proxy decls and notify star-lord. Star-lord will re-run assembly with proxy_decls_by_kit_id populated.
+- **star-lord (follow-on after both D4+D2):** re-run assemble_one_realm_bundle() with --locked flag (after drax signs) and proxy_decls_by_kit_id (after D2 lands). Run smoke_validate_bundle_from_file(). Complete the round-trip smoke acceptance criterion.
+
+### Carry-forward flags
+
+- Schema DRAFT — do NOT build Godot loader against this schema until drax signs the handshake
+- D2 proxy decls not yet landed — bundle carries proxies=[] on all kits
+- Production emit + round-trip smoke deferred to post-handshake session
