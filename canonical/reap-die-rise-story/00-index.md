@@ -1,6 +1,6 @@
 # Reap. Die. Rise. — STORY Spec (Index + Fold Worklist)
 
-**STATUS:** SCAFFOLD (born 2026-06-30, canonical reorg Tranche 2). This is the **END-STATE story spec** folder. It is being assembled by strategy **(b) heavyweight-fold** — distilling the surviving story content into a tight spec, deleting sources as content lands. Until the fold completes, the **authoritative story spec still lives in `canonical/reap-die-rise/`** (see migration table).
+**STATUS:** LIVE SPEC HOME (born 2026-06-30, canonical reorg Tranche 2; **stale-state corrected 2026-07-01** — the `canonical/reap-die-rise/` migration ALREADY LANDED in commit `6b9d6d1`; the three story docs live HERE and are authoritative). Assembly continues by strategy (b)/(b′) — folding surviving story content in, deleting sources as content lands.
 **Author:** gandalf.
 **Delta tracker (where the story is unsettled):** `canonical/current-to-end-state/current-to-end-state-story.md`.
 
@@ -10,7 +10,7 @@
 
 The locked story frame of *Reap. Die. Rise.* — death-faith premise, the demigod-jailer / death-god patron / hub-ensemble cast, the projection / Hall-of-Heroes / cosmograph / molting experiential structure, the manufactured-rebellion keystone, the villain-protagonist arc.
 
-## Migrates IN from `canonical/reap-die-rise/` (at the final verified rewire pass — held to avoid link-rot)
+## ✓ MIGRATED IN from `canonical/reap-die-rise/` (DONE 2026-06-30, commit `6b9d6d1` — folder dissolved)
 
 | Doc | Role |
 |---|---|
