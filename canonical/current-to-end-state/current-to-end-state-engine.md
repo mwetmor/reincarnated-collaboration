@@ -21,6 +21,22 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-02 — EMISSION TWO-STATE INSPECTION (Matt-commissioned): PART II verified + corrected; demo hand-join ACHIEVABLE; two unlisted gaps surfaced (skill flavor_text, proxies-absent)
+
+Matt commissioned the emission-pipeline mirror of the sim inspection (two target states: demo hand-join / launch serial driver). star-lord's read-only survey: `agentic_orchestration/star-lord/notes/2026-07-02-emission-two-state-inspection.md` (commit `9873c6b`) — full two-track pipeline map, six-type × two-track coverage matrix, LLM call inventory, five formal tracker corrections (C-1…C-5). Headline verdicts:
+
+1. **Two-track picture CONFIRMED; demo hand-join (State 1) ACHIEVABLE with bounded plumbing.** Ingredients exist: cycle-14 kits (named, 12 real skills) + old-track `seasons/<id>/monsters/*.json` (44/season) + gear via `season_exporter._load_gear_pool()` + D2 proxy decls. Genuinely missing: (i) an **assembly driver** (neither track produces the joined bundle), (ii) D2 decls (in flight), (iii) a **flavor decision** (below).
+2. **Launch serial driver (State 2): DOES NOT EXIST.** `season_orchestrator.py` + `generate-season` CLI deleted at `4b089e3` (b6, correct — it was the legacy pre-spatial path); nothing replaced it as a single-command emission entry. The route-vs-replace choice is an explicit Tier-3 PARK for Matt (`P1_ARCHITECTURE_PARK`, `cycle14_unified_bundle_emitters.py:46`). `emit_faction_block()` (:211) and `emit_weapon_descriptor()` (:522) are **built and validated — wiring is the only gap**.
+3. **Two gaps II.3 never listed (now (e)/(f)):** **(e) skill `flavor_text` is 100% NULL in cycle-14 output** (60 skills sampled) — root cause: `name_skill()` (Layer One, `llm/naming.py:197`) is never called in the cycle-14 pipeline; `phase5_skill_naming.py::name_skill_node()` writes WS1A4 judgment fields, NOT `flavor_text`. **(f) `proxies` is ABSENT from the emitted ClassData shape** (not even `[]`) — the `[]` claim was true at the `PlayerClassV2.to_dict()` generation layer only.
+4. **Old-track "LLM names" was an over-claim:** stored seasons carry stubs (`class_0001`, `monster_00001`, flavor NULL) — LLM naming paths exist (`name_class`/`name_monster`/`name_gear_item`) but were never run against stored seasons. "gear WORKING" likewise = "writer works when called"; **no complete `exports/<id>/` exists for any live season** (only stale `v2_narrow` research artifacts).
+5. **A third parallel track exists, previously unmapped:** `kit_space_emitter.py` (EAA-3/EAA-4) — per-kit JSONs + chronicle, a kit-identity store, not a Godot bundle.
+
+Corrections folded in place at II.1 (diagram + table) and II.3 (gap list). **Open Matt rulings:** (i) the **tracker-split** — PART II → its own `current-to-end-state-serial-content-emission.md` (gandalf lean: SPLIT; jack-ryan ratifies structure per § 6.7); (ii) the **demo flavor decision** — skill flavor_text for the demo = one bounded LLM naming pass over ~10 kits' skills, or accepted-NULL at demo scope; monster names for the demo realm likewise need one naming pass (or hand-curation — AI-tell line D7 favors curated output either way).
+
+**Signed:** gandalf, 2026-07-02 (fold-back unit; star-lord survey is the evidence substrate and D1's mandatory pre-emit schema-note feed).
+
+---
+
 ### 2026-07-02 — SIM TWO-STATE INSPECTION (Matt-commissioned): III.1b fight mechanism is BUILT — tracker corrected; demo-cert residual = bounded calibration
 
 Matt commissioned a full sim inspection against two target states (demo / complete Godot game). gamora's read-only survey: `agentic_orchestration/gamora/notes/2026-07-02-sim-two-state-inspection.md` (commit `66eada7`) — module inventory, flag/gate/scaffold table, five gating answers, tracker-corrections table. Headline: **the demo-load-bearing sim surface is LIVE**, and proxy-combat **W1+W2 (2026-06-22, `gamora/v-proxy-W1-allegiance-spawn-1` @ `ffea0b4` / `v-proxy-W2-realized-damage-1` @ `a84a395`) FALSIFY this tracker's "sim cannot create/position/resolve a player-summoned proxy" claim** — a hand-authored summoner kit runs end-to-end TODAY (spawn → position → navigate → deal realized damage → take damage → die → graded result; W2 spike: army WR 1.000 vs caster-alone 0.000 on a 60k `boss_with_adds`, 60000.0 realized ally damage). This tracker's PART III was authored 2026-06-23/24, straddling the W-wave landing — the staleness is corrected in place below (strikes + dated replacements at I.1, I.3, II.1, III.1b, IV.2).
@@ -240,7 +256,7 @@ This doc does **not** re-litigate the design doc. It tracks the **engine's dista
 - **Win-condition split (boss shells)**: survive-and-kill within 240s enrage, binary; DPS/TTK measured-never-gating `[d5b7ac2]`.
 - **Defensive axis CLOSED + offensive bands FINAL** (2026-06-21 G-C close): dm=5.0 boss @ cadence 4.5s, swarm 0.20 LOCKED as calibration anchors; 0.926 unmatched-resist survive+kill a watch-item `[decisions-log 4562-4649]`. **Calibrated at ≤8 concurrent only.**
 - **DPS is derived, not a gate** `[fit-audit: bounded_viability_validation.py:431]`: only a ≤1.5× cross-path variance check.
-- **Summoner/proxy CONTENT-EMIT is GATED OUT today — a GAP-TO-CLOSE, not a settled disposition** `[bc_target_composer.py:97,318 _DEFERRED_PROXY_BINS={proxy-light, proxy-heavy}]`: ~~the sim is solo-only (legacy Profile-A), so proxy-creating kits cannot be evaluated~~ *(corrected 2026-07-02 — FALSIFIED by W1+W2; the sim is allegiance-heterogeneous and an injected proxy kit evaluates end-to-end, gamora inspection §Q1)* — but the content gate holds: **every emitted kit carries `"proxies": []`** `[proxy_vocabulary_bridge.py:22-23]` and the fight magnitudes are uncalibrated scaffold. v2 makes summoning a **pillar** (grimoire §11/§13, summoner-identity §12/§17) → the engine is not to-spec until emit + calibration close. See PART III.1b.
+- **Summoner/proxy CONTENT-EMIT is GATED OUT today — a GAP-TO-CLOSE, not a settled disposition** `[bc_target_composer.py:97,318 _DEFERRED_PROXY_BINS={proxy-light, proxy-heavy}]`: ~~the sim is solo-only (legacy Profile-A), so proxy-creating kits cannot be evaluated~~ *(corrected 2026-07-02 — FALSIFIED by W1+W2; the sim is allegiance-heterogeneous and an injected proxy kit evaluates end-to-end, gamora inspection §Q1)* — but the content gate holds: **every kit carries `"proxies": []` at the generation layer** `[proxy_vocabulary_bridge.py:22-23]` *(C-3 precision 2026-07-02: at the emitted-ClassData layer the field is ABSENT entirely — II.3 gap (f))* and the fight magnitudes are uncalibrated scaffold. v2 makes summoning a **pillar** (grimoire §11/§13, summoner-identity §12/§17) → the engine is not to-spec until emit + calibration close. See PART III.1b.
 
 ### I.2 End state (where the sim must go)
 
@@ -266,10 +282,17 @@ TRACK NEW (cycle-14 wave5) → reincarnated-loadout app JSON
   KIT+FACTION-RICH, but: no monsters; skill flavor_text NULL; main_weapon NULL.
 
 TRACK OLD (season_exporter) → exports/<id>/{metadata,classes,monsters,gear_pool,...}.json
-  SIM-READY bundle, but: kit/monster/gear-only (factions ABSENT, weapon=null);
-  one-shot generate-season CLI driver DELETED (b6 deletion).
+  SIM-READY bundle SHAPE, but: kit/monster/gear-only (factions ABSENT, weapon=null);
+  one-shot generate-season CLI driver DELETED (b6 deletion, 4b089e3 — correct: legacy
+  pre-spatial path). NEVER DRIVEN for a live season (2026-07-02 verified: exports/
+  holds only stale v2_narrow research artifacts); stored seasons are STUB-NAMED
+  (class_0001 / monster_00001, flavor NULL — LLM naming paths exist, never run).
 
-THE GAP: the two tracks never meet. No single driver emits all content into one
+TRACK THIRD (kit_space_emitter, EAA-3/EAA-4) → data/kit_space/ per-kit JSONs + chronicle.
+  A kit-identity STORE, not a Godot bundle. Live, independent of both main tracks.
+  (Mapped 2026-07-02 — previously absent from this tracker.)
+
+THE GAP: the two main tracks never meet. No single driver emits all content into one
   Godot-consumable bundle. cycle-14 content never reaches season_exporter;
   season_exporter never gets factions / weapon-descriptors / cycle-14 kits.
 ```
@@ -278,12 +301,12 @@ THE GAP: the two tracks never meet. No single driver emits all content into one
 
 | Type | State | Evidence |
 |---|---|---|
-| **kits** | WORKING (solo) / **summoner EMIT GATED-OUT (gap → III.1b)** | `classes.json` full stat_distribution + skills + LLM names; every kit emits `proxies:[]` — summoner **content-emit** unbuilt, not "deferred" *(precision 2026-07-02: the summoner FIGHT mechanism is built, W1+W2 — the gap is emit + calibration)* |
-| **monsters** | WORKING (old track) / MISSING (cycle-14) | `monsters.json` 44 w/ stats+flavor; cycle-14 is kit-only |
-| **factions** | PARTIAL — generated, never written to bundle | schema `schemas.py:1174`; `_export_season_inner()` never writes it |
-| **gear** | WORKING | `gear_pool.json` 200 items + rolled_effects + LLM names |
-| **weapons** | PARTIAL — identity in substrate, not emitted | `main_weapon=None` everywhere; lives in `substrate_weapon_binding` |
-| **flavortext** | WORKING (class/monster/gear) / GAP (cycle-14 skill NULL) | `naming.py` live Anthropic calls |
+| **kits** | WORKING (solo) / **summoner EMIT GATED-OUT (gap → III.1b)** | `classes.json` full stat_distribution + skills + ~~LLM names~~ *(C-4 2026-07-02: stored old-track seasons are STUB-named `class_0001`, flavor NULL; cycle-14 kit names/flavor ARE populated via Wave B)*; ~~every kit emits `proxies:[]`~~ *(C-3 2026-07-02: `[]` at `PlayerClassV2.to_dict()` generation layer only — `proxies` is ABSENT from emitted ClassData JSON, gap (f))* — summoner **content-emit** unbuilt, not "deferred" *(precision 2026-07-02: the summoner FIGHT mechanism is built, W1+W2 — the gap is emit + calibration)* |
+| **monsters** | WORKING (old track, mechanically) / MISSING (cycle-14) | `monsters.json` 44 w/ stats+archetype; ~~+flavor~~ *(2026-07-02: name/flavor NULL in stored seasons — `name_monster()` path exists, never run)*; cycle-14 is kit-only |
+| **factions** | PARTIAL — generated, never written to bundle | schema ~~`schemas.py:1174`~~ *(C-1: `ExportFactionCluster` at `schemas.py:588`; `ExportSeason.faction_clusters` at `:1395`)*; `_export_season_inner()` never writes it; `emit_faction_block()` (`cycle14_unified_bundle_emitters.py:211`) built+validated, unwired |
+| **gear** | ~~WORKING~~ **WRITER-WORKS-WHEN-CALLED** *(C-2 2026-07-02)* | `gear_pool.json` 200-item writer + rolled_effects exists (`season_exporter.py:471-563`); **no complete `exports/<id>/` for any live season**; LLM names only if pipeline run w/ real client |
+| **weapons** | PARTIAL — identity in substrate, not emitted | `main_weapon=None` everywhere (explicit: `cycle14_wave5_emitter.py:518` avoids WeaponSlot schema mismatch); `emit_weapon_descriptor()` (`:522`) built+validated, unwired |
+| **flavortext** | ~~WORKING (class/monster/gear)~~ **PATHS-EXIST, LARGELY UNWIRED** *(2026-07-02)* / GAP (cycle-14 skill 100% NULL) | cycle-14 kit name+flavor LIVE (Wave B, `phase5_orchestrator.py`); skill/monster/gear flavor = `naming.py` paths present, **not invoked** in either live track — root cause gap (e) |
 
 ### II.2 End state
 
@@ -291,11 +314,13 @@ One driver emitting all six types into one sim-ready Godot bundle, with the cycl
 
 ### II.3 The gap (emission) — mostly rocket/star-lord plumbing; gandalf surface = content-shape specs
 
-- **[MVP-CRITICAL 2026-07-02] bounded ONE-REALM emission hand-join** — a single demo-realm Godot bundle (kits + monsters + gear + flavortext) as a hand-join of the two tracks, **NOT the II.2 unified driver** — *star-lord* (one-realm §5.1). Weapon descriptors nice-not-critical for the demo; faction fields stay presentation-side (III.7). The (a)–(d) general plumbing below stays launch-scope.
-- (a) single driver routing cycle-14 content through (or replacing) `season_exporter` — *star-lord/rocket*
+- **[MVP-CRITICAL 2026-07-02] bounded ONE-REALM emission hand-join** — a single demo-realm Godot bundle (kits + monsters + gear + flavortext) as a hand-join of the two tracks, **NOT the II.2 unified driver** — *star-lord* (one-realm §5.1). Weapon descriptors nice-not-critical for the demo; faction fields stay presentation-side (III.7). The (a)–(d) general plumbing below stays launch-scope. **Inspection-verified ACHIEVABLE (2026-07-02, star-lord §Q2):** sources = cycle-14 ClassData + old-track `seasons/<id>/monsters/` + `_load_gear_pool()` + D2 decls inserted per summoner kit; the assembly driver is the build; skill-flavor + monster-name passes are the open demo flavor decision (SESSION-DELTA above).
+- (a) single driver routing cycle-14 content through (or replacing) `season_exporter` — *star-lord/rocket*; route-vs-replace = explicit Tier-3 Matt PARK (`P1_ARCHITECTURE_PARK`, `cycle14_unified_bundle_emitters.py:46`)
 - (b) monster generation wired into the cycle-14 track — *rocket/star-lord*
-- (c) `faction_clusters` actually written — *star-lord, gated on the faction content-shape spec (gandalf)*
-- (d) weapon descriptor wired `substrate_weapon_binding → main_weapon` — *star-lord, gated on the weapon content-shape spec (gandalf)*
+- (c) `faction_clusters` actually written — *star-lord, gated on the faction content-shape spec (gandalf)*; `emit_faction_block()` built+validated, wiring only
+- (d) weapon descriptor wired `substrate_weapon_binding → main_weapon` — *star-lord, gated on the weapon content-shape spec (gandalf)*; `emit_weapon_descriptor()` built+validated, wiring only
+- **(e) [ADDED 2026-07-02, C-5] skill `flavor_text` wiring** — 100% NULL in cycle-14 output (60 skills sampled); `name_skill()` (Layer One) never called in the cycle-14 pipeline; `phase5_skill_naming.py` writes WS1A4 judgment fields, not `flavor_text` — *star-lord (wiring) + gandalf (whether demo accepts NULL or fires one bounded naming pass)*
+- **(f) [ADDED 2026-07-02, C-5] `proxies` absent from emitted ClassData shape** — not even `[]`; `build_proxies_surface()` output has no landing key in `cycle14_wave5_emitter.py::build_class_data()`; the D1 assembly driver must carry the D2 decls — *star-lord, joined to III.1b(c)*
 - **NEW v2 emission demands** (PART III.6): encounter-geometry-per-floor (seam-ownership unresolved); faction as presentation-restyle only (the hard invariant — III.7).
 - **Emission HELD / Matt-gated** `[export/MIGRATION.md v1.81-1.82]`: telemetry supports validation; it does NOT unlock emission.
 
