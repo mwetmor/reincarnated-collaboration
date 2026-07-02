@@ -112,6 +112,8 @@ This is a major analytical pillar resolved this session.
 - **[DECISION] The permanent page *remembers that spirit's realized apotheosis*** → first discovery is the *rare roll*; *re-living a known paged spirit* can *deterministically* re-reach the *same* apotheosis. (Randomness in *discovery*, reliability in *re-living* — this resolves the "re-reach the capstone every time" problem.)
 
 **[DECISION] Frame it as ARPG re-spec friction (a deliberate cost, not a chore).** Genre lesson: POE-brutal = commitment-but-exclusion; D3-free = zero-stakes; converged middle = "possible but a deliberate cost." Proposed: ~one free re-summon by endgame (accessibility on-ramp), then a play-earned cost.
+
+**[RULED — Matt 2026-07-01, sharpens the proposal above]:** **one free re-summon per playthrough; each additional costs ~3–5 hours of material accrual** (*"basically one 're-summon' per playthrough is free. After that, it will cost something like 3-5 hours of farming materials"*). Genre anchor: D2 1.13 respec — one free per difficulty, then Token-of-Absolution farming; same 1-free-then-farm shape. The magnitude is ruled; the [FRAGILE] earn-through-normal-play discipline below still governs *how* the materials accrue. The "playthrough" boundary for the free token intersects the B1 run-persistence contract (story tracker).
 - **[FRAGILE]** Materials must accumulate through *normal play* (and thematically through *conquest* — it's a ritual to recall a conquered spirit), **not** dedicated separate farming. "2–3 hours of play during which you also earn it" = fine; "2–3 hours of chore before the fun thing" = resented.
 - **[DECISION] Lean *repeatable-with-play-earned-cost*, NOT hard-gated** — the roads-not-taken pursuit is a *major retention engine*; hard-gating throttles it.
 
@@ -232,7 +234,7 @@ The analysis that led here (preserved because it informs PVP scaling and the gea
 - **[OPEN]** Patron-banter tech (LLM vs. templated); emergent-personality cheap-vs-expensive scope; deity's final desire (seal-break vs. holding-back-worse); alias + true-name reveal specifics.
 - **[FRAGILE / re-verify]** All backend netcode capabilities and hosting/BaaS pricing (Godot ~40-CCU ceiling, BaaS-for-guilds, perpetual PVP hosting cost) move fast and were planning-grade — re-verify before any spend (see backend doc).
 - **[OPEN/probe]** Inanna's stripping-at-each-gate as an escalating-cost-with-depth mechanic (tune against the sawtooth).
-- **[OPEN]** Re-summon exact cost/cadence tuning; bestiary internal taxonomy; "don't become it" / re-etch cost definitions.
+- **[OPEN → partially RULED]** Re-summon cost/cadence: **shape RULED 2026-07-01** (one free per playthrough + ~3–5h material accrual each after — §6); exact material identities / accrual curve / pity still tuning. Bestiary internal taxonomy; "don't become it" / re-etch cost definitions remain open.
 
 ---
 
