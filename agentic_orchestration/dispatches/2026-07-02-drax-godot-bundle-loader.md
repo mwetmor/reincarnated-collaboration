@@ -66,3 +66,37 @@ You are the **consumer** of D1's bundle-schema contract. The handshake is the ga
 
 - one-realm-mvp-scope.md §6.1 · §20d (the condition under test) · D1 + MIGRATION.md
 - MASTER: `2026-07-02-one-realm-mvp-build-MASTER.md`
+
+
+---
+
+## Park record — drax, 2026-07-02 (handshake SIGNED; loader BUILT vs locked shape; round-trip PARKED for star-lord lock-emit)
+
+**Status: PARKED at a clean boundary. Handshake signed, D10 stood up alongside, loader built + proven against the locked SHAPE. The §20d round-trip against real content is BLOCKED on the star-lord lock-emit — the intended sequencing park point.**
+
+### Scope completion
+- [x] **Handshake = sign the schema (fold 2):** answered Q1–5 → SIGNED at `agentic_orchestration/drax/notes/2026-07-02-one-realm-bundle-schema-handshake-drax-SIGNED.md`. Lock signal (a–e) all CONFIRMED. Escalated to KR (KR fires the star-lord lock-emit). Two conditions (all-keys-present guarantee; non-empty proxies) + one ambiguity (gear 10-vs-11 slot) are the only pushbacks.
+- [x] **WAIT-for-lock guard (fold 1) HONORED:** loader built against the LOCKED SHAPE (my signed answers); the round-trip against a real file does NOT run until MIGRATION.md v1.83 LOCKED AND ≥1 non-empty proxies. Enforced in-code (`bundle_roundtrip_smoke.gd` real-mode requires schema_status=LOCKED + non-empty proxies).
+- [x] **Godot bundle loader:** `scripts/bundle_loader.gd` — parses + instantiates kits/monsters/gear from records. **ZERO hand-built kits** (§20d honored — pure consumer).
+- [x] **Per-floor element-rotation manifest:** consumed (`get_floor_sequence()` / `dominant_element_for_floor()`).
+- [x] **Faction restyle (III.7 — restyle only):** `build_faction_restyle_map()` + `apply_faction_restyle()` — presentation overlay only; refuses any faction field colliding with a fight-model field (proven: NEG3 → III.7 VIOLATION fires).
+- [x] **Round-trip smoke + SCAFFOLD boundary (fold 3):** `bundle_roundtrip_smoke.gd` asserts the 4 SCAFFOLD magnitudes are flagged non-tuned (proven: a non-scaffold-flagged proxy → FAIL). Ran in `--shape-fixture` mode → SHAPE PASS.
+- [x] **Min-spec check per D10 (standing gate):** D10 stood up this session; the D4 acceptance checkbox wires in when the real round-trip closes (Godot render scene exists to profile).
+- [x] **AGENT_STATE updated.**
+- [x] **Tag:** `drax/v-godot-bundle-loader-1`.
+
+### Acceptance — status
+- [~] **A demo-realm kit/monster/gear set loads + is playable (playability predicate, fold 4):** PROVEN against the locked SHAPE (2/2 fixture kits resolve a non-degenerate primary_attack: name+geometry+range_m). **NOT yet closed against REAL content** — awaits the LOCKED emit. The predicate CODE is proven to fire (NEG2 range_m=0 → §20d PLAYABILITY FAIL).
+- [x] **Zero hand-built kits Godot-side:** held — the loader is a pure consumer; no kit authored Godot-side.
+- [~] **Round-trip smoke passes:** SHAPE PASS now; REAL round-trip closes on the lock-emit.
+- [~] **D10 min-spec check passes:** D10 harness green; the D4-scene min-spec run happens when the real content renders.
+
+### What's owed (the clean unblock)
+Star-lord: (1) resolve gear 10-vs-11 slot ambiguity; (2) re-run assembly `--locked` with D2's summoner decls injected (≥1 kit non-empty proxies — NOT `proxies:[]`); (3) emit `one_realm_demo_bundle.json` schema_status=LOCKED; (4) stamp MIGRATION.md v1.83 LOCKED. Then drax: `bundle_roundtrip_smoke.gd --bundle <emitted>` closes the §20d round-trip against real content.
+
+### Refutation conditions — none triggered; all three GUARDED
+- Loader requires hand-massaging content → NO (pure consumer; zero hand-built).
+- Schema forces brittle special-casing → fed the two conditions + one ambiguity back at handshake (the pushback happened).
+- Loading "works" but content not playable → the §20d playability predicate + non-empty-proxies guard exist precisely to catch this; both proven to fire on negatives.
+
+**Signed:** drax, 2026-07-02. Handshake signed, loader built to the locked shape, round-trip parked for the lock-emit. Reported to KR: fire star-lord, then bring me back to close the round-trip.

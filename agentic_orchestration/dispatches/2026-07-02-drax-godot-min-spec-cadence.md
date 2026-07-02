@@ -65,3 +65,38 @@ Presentation-side build/verification infra; no engine schema change.
 
 - one-realm-mvp-scope.md §6.7/§2 · engine perf-stack doc (flattering-machine warning)
 - MASTER: `2026-07-02-one-realm-mvp-build-MASTER.md`
+
+---
+
+## Completion record — drax, 2026-07-02 (STANDING GATE stood up; cadence wired)
+
+**Status: STOOD UP. The min-spec verification cadence exists as a standing build gate. This dispatch does not close — it becomes an acceptance checkbox on D4–D9.**
+
+### Scope completion
+- [x] **Min-spec target defined:** GTX-1650/RTX-3050 @ 1080p, **60 FPS proposed** (16.67 ms frame), 50–150 comfortable density band, POE-juiced ~300 = anti-target, Forward+, Jolt+MultiMesh hybrid — all sourced from `performance-target-specs.md` §4/§5/§1/§2. Doc: `reincarnated-godot/MINSPEC_CADENCE.md`.
+- [x] **Verification method stood up (profiling proxy — no card on hand):** `scripts/minspec_probe.gd` + `scripts/run_minspec.sh`. Measures the CPU-side sim-loop cost per frame (the min-spec-BINDING quantity, perf §0 — backend-agnostic; catches horde-loop regressions on Metal that surface on Vulkan). Two gates honestly split: **Gate A (Mac proxy, runs NOW)** = regression tripwire + absolute sim-loop budget; **Gate B (real GTX-1650 cert)** = parked, needs hardware. The Mac is the "flattering machine" (perf §7) — the proxy does NOT claim to certify the floor.
+- [x] **Cadence established:** every Godot dispatch D4–D9 carries `[ ] D10 min-spec check PASS` (green iff `run_minspec.sh` exits 0 for the dispatch's worst-case scene). Wired into D4 already; KR carries it into D5–D9 authoring.
+- [x] **Load-bearing hotspot D7 handled:** the cadence's job is to catch a D7 density regression before launch. `escape_density` baseline recorded (120 fodder + 4 champions = 124, comfortable band).
+- [x] **First application (Matt directive) — pre-D7 min-spec spike:** the `escape_density` proxy baseline IS the pre-D7 spike substrate. When D7's real density-per-area spec lands, re-run; a regression vs baseline flags a re-budget BEFORE the full AI+horde build. NOTE surfaced: the proxy proves the SIM loop scales; the render-cost floor still wants Gate-B real hardware at the D7 spike (the 50+ figures + VFX is where the flattered render cost matters).
+- [x] **Standing gate documented:** `reincarnated-godot/MINSPEC_CADENCE.md`.
+- [x] **Framerate-floor ratification routed (Gate-1 fold):** 60 FPS → `canonical/matt_decision_needed/` **Q5**; on Matt ratify → jack-ryan decisions-log entry (demo-acceptance invariant, not routine implementation).
+- [x] **AGENT_STATE updated.**
+- [x] **Tag:** `drax/v-godot-min-spec-cadence-1`.
+
+### Acceptance — all met
+- [x] Min-spec target defined (GTX-1650-class, explicit framerate/settings floor proposed + routed to Matt).
+- [x] Repeatable verification method exists + documented (`run_minspec.sh`, baselines, MINSPEC_CADENCE.md).
+- [x] Cadence wired as a standing checkbox on D4–D9.
+- [x] **Method demonstrably catches a density regression:** PROVEN — 3× density → FAIL (exit 1); comfortable-band repeat runs → PASS (exit 0). Empirical calibration (#11): tolerance set 1.5× for noise-robustness at sub-0.13ms magnitudes; absolute budget is the backstop.
+
+### Matt-gated items parked
+- **`canonical/matt_to_do/` T2:** provide GTX-1650/RTX-3050 Windows box or Steam Deck → unblocks Gate-B absolute certification (must run before Next Fest).
+- **`canonical/matt_decision_needed/` Q5:** ratify the 60-FPS floor → jack-ryan decisions-log entry.
+
+### Refutation conditions — none triggered
+- Verification only on Mac/Metal → acknowledged + bounded: Gate A is explicitly a proxy for the sim-loop question; Gate B (real HW) parked as T2, required before Fest. No Mac-only=certified claim.
+- One-shot vs standing → it is standing (checkbox D4–D9 + committed baselines that diff every run).
+- Floor too low/high → 60 FPS from the perf doc's own §4/§9; Matt ratifies against reality; 30-FPS is a data-driven fallback only.
+
+**Signed:** drax, 2026-07-02. The flattering machine tells you the sim loop scales; only the floor tells you the demo runs. Gate A stands now; Gate B waits on Matt's hands (T2).
+
