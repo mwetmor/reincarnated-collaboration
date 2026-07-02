@@ -35,7 +35,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 4. **`canonical/reap-die-rise-story/` + `canonical/reap-die-rise-engine/`** — the END-STATE spec folders. Read each `00-index.md` fold-worklist + the sections relevant to the session's work. *(Replaces retired `02-roadmap.md` — killed in the 2026-06-30 reorg; forward-sequencing now lives in the current-to-end-state trackers' open queues.)*
 5. **Own latest 3 notes** at `agentic_orchestration/gandalf/notes/` — recent design recognitions, dispositions, closeouts (mtime order; not all of history).
 6. **`canonical/story/style-register.md`** — locked visual style register (used in D10 Path A filter; relevant when style-register questions arise).
-7. **`canonical/story/legacy-categorical-cleanup-audit-2026-05-22.md`** — Pattern 4-5-6 retirements; substrate-led design discipline that applies across all design work.
+7. **`agentic_orchestration/elrond/notes/legacy-categorical-cleanup-audit-2026-05-22.md`** — Pattern 4-5-6 retirements; substrate-led design discipline that applies across all design work.
 8. **Task-specific docs** named in the invocation request (dispatch text, design call topic, etc.) — read only those needed for the work; do NOT broad-walk the archive.
 
 **Total budget target:** ~15-25 minutes per invocation. NOT 1-2 hours.

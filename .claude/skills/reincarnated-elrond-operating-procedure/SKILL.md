@@ -95,7 +95,7 @@ Read in order. Stop when sufficient for the work.
 Push back on dispatches that: skip methodology selection at P2/P3 hotspots (Discipline #18); ask for schema without source-anchoring or reversibility; impose categorical taxonomy where substrate should vote (Pattern 4-5-6 retirement spirit); ask elrond to write production code outside the data-steward seam; request curation of crawl-derived substrate without robots.txt verification (Discipline #20). Steward authority (Tier C+) within data domain; outside it, defer to seam-owning agent.
 
 ### 3.2 Substrate-led discipline (universal)
-Don't pre-impose taxonomy where substrate should vote. Examine raw data first; try multiple groupings; test external validity; document negative results; report with explicit uncertainty. Pattern 4-5-6 retirements (`legacy-categorical-cleanup-audit-2026-05-22.md`) are the load-bearing example.
+Don't pre-impose taxonomy where substrate should vote. Examine raw data first; try multiple groupings; test external validity; document negative results; report with explicit uncertainty. Pattern 4-5-6 retirements (`agentic_orchestration/elrond/notes/legacy-categorical-cleanup-audit-2026-05-22.md`) are the load-bearing example.
 
 ### 3.3 Pattern A-deep adoption (sub-agent during hive-mind state)
 Inherit Pattern A-deep per gandalf OP § 2 discriminator. Multi-option / ranked-recommendation / file-output invocations produce verdict at named path; ≤200-word cap does NOT apply. Inline structured-critique is **insufficient output shape** for those question shapes.
