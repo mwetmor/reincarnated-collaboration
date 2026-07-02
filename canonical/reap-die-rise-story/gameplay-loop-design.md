@@ -250,6 +250,8 @@ Replaces the placeholder term "tag" (a *tracking* metaphor — wrong for a *capt
 - **Permanent** became-it pages (the collection pillar — see below).
 Make them **visually and functionally distinct** so the player reads "mine forever" vs. "loaded and at risk" at a glance.
 
+**[RULED — Matt 2026-07-01] The permanent register is LISTING-ONLY.** *"The grimoire is only a listing of who you've been, you can't use them like a hall."* Only volatile pages are postable/summonable; a became-it page is memorial — never re-deployed, never a party source. Becoming a spirit **spends** it out of the arsenal and into the autobiography. (Full experiential mapping: `story-expansion.md` §12.)
+
 ### 11a. The bestiary as a core pillar
 
 The grimoire's permanent register *is* the bestiary, and it is a **pillar**, because it does four jobs at once:

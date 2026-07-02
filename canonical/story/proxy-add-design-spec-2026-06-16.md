@@ -11,7 +11,7 @@
 - `canonical/40-gear-balance-guide-architecture-2026-05-26.md` § 3.3 (capability toolkit), § 3.6 point-5 (no-skill-modifier rule; D54/D55), § 4 (85th-percentile endgame band).
 - `canonical/46-concentration-architecture-2026-05-27.md` § 3.3 (capability toolkit), Layer 3 (T4-scope reservation), D66 (one chain-T4 at a time).
 - `canonical/story/weapon-as-identity-surface-recognition-2026-06-14.md` § 4 — the three-layer identity model; **summon identity = skill-composition-derived runtime label** (D2/D4/Last-Epoch genre-true); the proxy surface inherits this layer.
-- `canonical/story/2026-06-13-companion-as-hall-of-heroes-ally-commitment.md` corollary 1 — **proxies are GENERIC constructs, NOT Hall-of-Heroes ascended forms** (scarcity-as-emotional-engine). The non-negotiable discipline this spec holds.
+- `canonical/reap-die-rise-story/story-expansion.md` §12 (companion-vs-proxies separation; was the 2026-06-13 companion doc corollary 1, folded 2026-07-01) — **proxies are GENERIC constructs, NEVER past selves or grimoire-listing pages** (scarcity-as-emotional-engine). The non-negotiable discipline this spec holds.
 - The 1D→2D battle-sim deletion (Matt-ruled 2026-06-16) — proxy contribution is **only honestly measurable spatially**; the deletion is ENABLING (§ 8).
 
 **Code anchors (the scaffolded-but-unpopulated proxy surface):**
@@ -285,7 +285,7 @@ Per recognition→validate→commit:
 - `canonical/40-gear-balance-guide-architecture-2026-05-26.md` § 3.3 (capability toolkit — `Proxy-adjusting` added § 5.1) / § 3.6 point-5 (no-skill-modifier) / § 4 (endgame band).
 - `canonical/46-concentration-architecture-2026-05-27.md` Layer 3 / D66.
 - `canonical/story/weapon-as-identity-surface-recognition-2026-06-14.md` § 4 — summon runtime-label.
-- `canonical/story/2026-06-13-companion-as-hall-of-heroes-ally-commitment.md` corollary 1 — proxies generic, NOT Hall forms.
+- `canonical/reap-die-rise-story/story-expansion.md` §12 — proxies generic, NEVER past selves (was the 2026-06-13 companion doc corollary 1; folded 2026-07-01).
 - Engine: `kit_architecture.py:6-8,44-48,151,230,290-292`; `composed_kit_adapter.py:~130`; `skill_schema.py`/`ability_schema.py`; `spatial_gauntlet/spatial_engine.py` (D4 port); `spatial_gauntlet/spatial_bc_measurement.py:187-196`; D4 math-note `generation/math/d4-proxy-port-axis2a-2026-06-16.md`.
 - `canonical/00-ground-state.md` § 1 — this doc registers as a new CURRENT entry.
 

@@ -24,7 +24,7 @@ Per `current-to-end-state-story.md` PART C — the surviving experiential-struct
 - ~~`2026-06-11-avatar-projection-and-hall-of-heroes-framing`~~ **✓ FOLDED 2026-06-30 → `story-expansion.md §12`** (Hall/possession vs. cosmograph/possibility; molting-as-harvest; sparse-hub; D7 lookup-not-generation). v2 forks → tracker B1/B2; presentation survivor → game-tracker A′2. Source deleted.
 - `2026-06-07-earth-avatar-cosmograph-creation-moment-architecture` — the creation-moment scene
 - `2026-06-05-cosmograph-pivot` — cosmograph = possibility space
-- `2026-06-13-companion-as-hall-of-heroes-ally-commitment` — companion = past-self; temporal dyad (open items → tracker B2/B3)
+- ~~`2026-06-13-companion-as-hall-of-heroes-ally-commitment`~~ **✓ FOLDED 2026-07-01 → `story-expansion.md §12`** (companion = claimed soul, never a past self — A11 two-register ruling; Path Pure run-1-alone survives; residue → tracker B3). Source deleted.
 - ~~`2026-06-22-seasonal-descent-architecture-recognition` + `…-faction-descent-and-reward-loop-recognition` + `…-content-audit`~~ **✓ FOLDED + DELETED 2026-06-30** → the descent trio captured in `gameplay-loop-design.md` §5–§11/§23 + engine-tracker PART III + game-tracker B2; the `faction-descent` anti-faction mega-boss lead ruled SUPERSEDED (v2 §8 Nemesis). Sources deleted; git holds lineage.
 
 **Discipline:** reconcile, do not amputate (`reap-die-rise-story/spec-index.md` §4). Open story decisions are NOT folded as settled — they route to the delta tracker PART B.

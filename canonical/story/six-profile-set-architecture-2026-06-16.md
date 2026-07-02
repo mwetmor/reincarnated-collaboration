@@ -110,7 +110,7 @@ Each profile is defined by its **dominant substrate signature** (the axis that m
 - **Genre touchstone:** D2 Necromancer skeleton army, D3 Helltooth gargantuans + Inna's mystic allies, PoE summoner/totem, Last Epoch minion builds.
 - **Membership evidence (doc 48 + proxy-add spec):** there is no pre-built proxy-primary archetype-shape to point at — membership is established **empirically** by the proxy-add work (proxy skills + gear) plus the hypothesis test. The canonical illustration of `has-a-summon-skill ≠ is-proxy-dominant` is **Beast Taming** (Matt 2026-06-16): ONE summon skill that populates *physical-ranged hunter* kits — the hunter captures an enemy beast-type combatant and uses it as a proxy — but it *supplements* the bow rather than replacing it, so the sim is *expected* to flag it **sub-threshold**. It carries a proxy skill and is NOT a Proxy-Commander. The proxy-add spec § 4.5 authors Beast Taming; the caster-side profile is completed by the proxy-add work Matt directed 2026-06-16.
 - **Matt ruling (verbatim intent):** "we just wired proxy battle into the 2D spatial sim and we just added proxy to T4 capstones … I will not skip proxy." Doc 48's "multi-spawn DEFERRED to v1.1" is a v1-framing artifact, **superseded** under v1.1-current. Proxy is first-class.
-- **Scarcity discipline (composition with `2026-06-13-companion-as-hall-of-heroes-ally-commitment.md` corollary 1):** the Proxy-Commander's army is **generic constructs**, NOT Hall-of-Heroes ascended forms. Proxies may be *flavored* as form-echoes but must never be literal Hall entries — the singular companion's reverence must not be diluted by disposable swarms. The Proxy-Commander set amplifies the constructs; it does not summon past selves.
+- **Scarcity discipline (composition with `reap-die-rise-story/story-expansion.md` §12 companion-vs-proxies separation; was the 2026-06-13 companion doc corollary 1, folded 2026-07-01):** the Proxy-Commander's army is **generic constructs**, NEVER past selves or grimoire-listing pages. Proxies may be *flavored* as form-echoes but must never be literal listing entries — the singular companion's reverence must not be diluted by disposable swarms. The Proxy-Commander set amplifies the constructs; it does not summon past selves.
 - **Player consequence:** "I don't fight directly. My constructs do — and the better I command, the more they become extensions of me."
 
 ---
@@ -283,7 +283,7 @@ Per recognition→validate→commit, predictions the spatial-sim validation will
 - `canonical/48-cycle-14-class-roster-2026-05-27.md` — membership evidence (the 10 archetype-shapes map onto the six profiles); class concept retired.
 - `canonical/story/weapon-as-identity-surface-recognition-2026-06-14.md` § 4 — Proxy-Commander inherits the skill-composition summon label.
 - `canonical/story/telegraph-dodge-temporal-decoupling-2026-06-15.md` — Berserker = glass-close-ST FLEX coordinate; dodge-layer viability.
-- `canonical/story/2026-06-13-companion-as-hall-of-heroes-ally-commitment.md` corollary 1 — proxies are generic constructs, NOT Hall forms.
+- `canonical/reap-die-rise-story/story-expansion.md` §12 — proxies are generic constructs, NEVER past selves (was the 2026-06-13 companion doc corollary 1; folded 2026-07-01).
 - `matt_notes_handoff_docs/armor-weapon-pipeline-recommendation.md` § 4.3 / § 5 — emission aura + element-flavor StyleProfile.
 - `canonical/00-ground-state.md` § 1 — this doc registers as a new CURRENT entry.
 

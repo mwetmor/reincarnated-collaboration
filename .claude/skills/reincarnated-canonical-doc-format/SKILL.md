@@ -181,7 +181,7 @@ If 1–2 hold but 3–4 are ambiguous → **surface for ratification**, never au
 
 ### 6.4 Total vs partial supersession (reconcile, do not amputate)
 
-The dominant real pattern is **partial** supersession: a doc is `STATUS: CURRENT` *and* carries a `⚠ FRAME PARTIALLY SUPERSEDED` banner — its load-bearing structure survives, only retired *labels* die. (Example: `2026-06-13-companion-as-hall-of-heroes-ally-commitment.md` — commitment + mechanics survive; isekai/spirit-guide labels die under v2.)
+The dominant real pattern is **partial** supersession: a doc is `STATUS: CURRENT` *and* carries a `⚠ FRAME PARTIALLY SUPERSEDED` banner — its load-bearing structure survives, only retired *labels* die. (Example: `2026-06-02-season-archive-realm-expansion-pivot.md` — the frame-neutral engine-architecture spine §3.2–3.4 survives; the isekai content-model dies under v2.)
 
 - **Partial supersession → reconcile in place.** Banner it; fold its surviving structure into the successor (the spec folder); the doc is **transition-lineage** and stays in the live tree until the fold-worklist (`spec-index.md §4` / the tracker PART C) marks it **fully absorbed**. Only then does it become git-lineage. **Never `git rm` a partially-superseded doc** — that amputates load-bearing structure.
 - **Total supersession → prune.** Only when the successor absorbs *all* load-bearing content.
