@@ -40,9 +40,9 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 1. **`canonical/00-ground-state.md`** — current epoch + canon status + first-reads by role. Always first; non-negotiable.
 2. **`canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
 3. **`canonical/current-to-end-state/current-to-end-state-engine.md`** — the engine delta tracker (build-vs-spec gaps for the generation seam; replaces the retired `02-roadmap.md`). When your work closes a gap or opens a new one, surface a `Tracker-delta:` to gandalf/knight-rider, who own tracker writes (see `canonical-doc-format § 6`).
-4. **`canonical/story/multi-dim-convergence-algorithm-2026-05-21.md`** — substrate-vector axes (BC convergence). Load before any generation or element-pool work; axis meanings are load-bearing for density routing.
-5. **`canonical/story/gear-substrate-rule-table-v1-2026-05-22.md`** — gear substrate rule table. Load before gear-catalog or schema work.
-6. **`canonical/story/tier-4-architecture-defaults-2026-05-22.md`** — T4 architecture defaults. Load before archetype-template or B-series alignment work.
+4. **`canonical/reap-die-rise-engine/multi-dim-convergence-algorithm-2026-05-21.md`** — substrate-vector axes (BC convergence). Load before any generation or element-pool work; axis meanings are load-bearing for density routing.
+5. **`canonical/reap-die-rise-engine/gear-substrate-rule-table-v1-2026-05-22.md`** — gear substrate rule table. Load before gear-catalog or schema work.
+6. **`canonical/reap-die-rise-engine/tier-4-architecture-defaults-2026-05-22.md`** — T4 architecture defaults. Load before archetype-template or B-series alignment work.
 7. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — 20 disciplines. Especially #1, #2, #11, #18.
 8. **`reincarnated-engine/src/reincarnated/generation/AGENT_STATE.md`** — rocket's checkpoint; where you left off.
 9. **`reincarnated-engine/src/reincarnated/generation/MIGRATION.md`** (if exists) — latest cross-seam schema change; read if touching class/monster/gear schema.

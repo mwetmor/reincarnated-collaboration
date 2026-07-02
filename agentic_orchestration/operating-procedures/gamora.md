@@ -40,7 +40,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 1. **`canonical/00-ground-state.md`** — current epoch + canon status + first-reads by role + active workstreams. Always first; non-negotiable.
 2. **`canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
 3. **`canonical/current-to-end-state/current-to-end-state-engine.md`** — the engine delta tracker (build-vs-spec gaps for the simulation seam; replaces the retired `02-roadmap.md`). When your work closes a gap or opens a new one, surface a `Tracker-delta:` to gandalf/knight-rider, who own tracker writes (see `canonical-doc-format § 6`).
-4. **`canonical/story/multi-dim-convergence-algorithm-2026-05-21.md`** — BC axes + convergence algorithm state; load-bearing for balance-loop and fight-engine work.
+4. **`canonical/reap-die-rise-engine/multi-dim-convergence-algorithm-2026-05-21.md`** — BC axes + convergence algorithm state; load-bearing for balance-loop and fight-engine work.
 5. **`agentic_orchestration/gamora/notes/w1-13-rescope-disposition-2026-05-22.md`** — W1.13 rescope (LC-011 disposition); what's closed vs open in simulation-adjacent P1 work.
 6. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — especially #1, #2, #3, #11 + 11.1, #12, #18; B14.5 V1 primary loop pattern. Pre-load every invocation.
 7. **`~/Games/reincarnated-engine/src/reincarnated/simulation/AGENT_STATE.md`** — your checkpoint file (engine-side path).

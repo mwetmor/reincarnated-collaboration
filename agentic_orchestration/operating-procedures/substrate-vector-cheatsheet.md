@@ -6,7 +6,7 @@
 
 **Authored:** 2026-05-23
 **Author:** gandalf (cross-cutting Stream 3 authoring; primary BC-axes designer)
-**Authoritative source:** `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md` (8-axis locked operational specification)
+**Authoritative source:** `canonical/reap-die-rise-engine/qd-engine-bc-axes-lock-2026-05-20.md` (8-axis locked operational specification)
 **Pattern:** universal quick-reference; load when design-spec-as-math, dispatch authoring, or methodology work touches BC axes
 **Companion skills:** `reincarnated-engineering-disciplines`; `reincarnated-hive-mind-protocol`; `reincarnated-critique-pair-gate-protocol`
 
@@ -161,4 +161,4 @@ Authored / maintained by **gandalf** (cross-cutting Stream 3 owner + primary BC-
 ---
 
 **Signed:** gandalf (cross-cutting Stream 3 reference-skill author)
-**For:** the universal quick-reference for the 8 BC axes (bin counts, labels, operational definitions, hybrid archetype cross-axis captures, total 68,040 cells). Authoritative source for full operational spec remains `canonical/story/qd-engine-bc-axes-lock-2026-05-20.md`. Loaded by agents working on substrate-vector queries, axis discovery, clustering, cohesion-judge calibration, design-spec-as-math handoffs.
+**For:** the universal quick-reference for the 8 BC axes (bin counts, labels, operational definitions, hybrid archetype cross-axis captures, total 68,040 cells). Authoritative source for full operational spec remains `canonical/reap-die-rise-engine/qd-engine-bc-axes-lock-2026-05-20.md`. Loaded by agents working on substrate-vector queries, axis discovery, clustering, cohesion-judge calibration, design-spec-as-math handoffs.
