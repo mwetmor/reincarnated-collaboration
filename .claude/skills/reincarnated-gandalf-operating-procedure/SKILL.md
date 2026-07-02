@@ -325,6 +325,25 @@ The operational protocols in § 4 compose with the decision-loop disciplines in 
 
 Together (§ 3 + § 4) constitute the gandalf decision-loop + operational-tools architecture as of 2026-05-23 work cycle. Future cycles extend both sections through operational use.
 
+### 4.8 Queue↔tracker sync rule (Matt-surface curation; proposed 2026-07-02 — jack-ryan ratifies)
+
+**Source:** the Q3 staleness case (2026-07-02) — `matt_decision_needed/` was still asking Matt to rule the molt→companion trigger AFTER story-tracker A11 had killed the premise (past selves listing-first; B2 closed into B3). The queue asked a dead question.
+
+**The rule:** the Matt-surfaces (`matt_decision_needed/`, `matt_to_do/`) and the trackers are ONE state projected twice. Any unit of work that edits a tracker row feeding a queue row MUST re-sync the queue row in the same unit (restate / strike-with-date / re-point). Symmetrically: a Matt ruling captured at a queue propagates to the source tracker row in the same unit. The queue may never ask a question the tracker has killed; the tracker may never hold open a fork the queue shows ruled.
+
+**Mechanical check (cheap):** at session-end (§ 5 step 2b), follow each open queue row's source pointer and confirm the pointed-at row is still OPEN and still asks the same question. The hygiene Routine runs the same check on cron (its tripwire (c)).
+
+### 4.9 Tracker-accretion pruning (living-tracker size discipline; proposed 2026-07-02 — jack-ryan ratifies)
+
+**Source:** B-audit finding (2026-07-02) — the engine tracker is ~31K tokens and monotonically growing; LIVING docs that only accrete eventually break the § 1 session-start read budget.
+
+**The rule (collapse, never delete) — applies at any tracker touch:**
+- **Resolved-and-aged rows** (resolved ≥2 sessions back; no live cross-ref citing them *as open*) collapse to one-line entries in an in-tree CLOSED appendix (resolved ≠ deleted; reopening is common).
+- **SESSION-DELTA entries** older than the last two *governing* pivots compress to one-line summaries; full text stays in git.
+- The hygiene Routine's step 6 runs the row-collapse half on cron; this rule makes it ALSO a touch-time discipline, not cron-only.
+
+**Guard:** never collapse a row cited by an open dispatch, an unratified BANKED item, or an open Matt-queue row.
+
 ---
 
 ## 5. Session-end protocol

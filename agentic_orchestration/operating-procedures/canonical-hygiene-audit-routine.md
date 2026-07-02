@@ -1,6 +1,6 @@
 # canonical-hygiene-audit — standing Routine spec (ready-to-instantiate)
 
-> **STATUS:** SPEC-READY, instantiation BLOCKED on CCR-environment availability (2026-06-30). The Routine defined by `canonical-doc-format.md § 6.6` is fully designed below; the `create_trigger` call failed with *"no session_id in auth claims, so cannot inherit environment_id"* and `list_environments` returned empty from this session's context. **Unblock criterion:** a registered CCR environment (e.g., Matt runs `claude remote-control` on the Mac, or this is instantiated from a session that carries CCR session context — a knight-rider remote-control session). Then a single `create_trigger` call with the fields below stands it up.
+> **STATUS:** SPEC-READY, instantiation BLOCKED on CCR-environment availability (2026-06-30). The Routine defined by `canonical-doc-format.md § 6.6` is fully designed below; the `create_trigger` call failed with *"no session_id in auth claims, so cannot inherit environment_id"* and `list_environments` returned empty from this session's context. **Unblock criterion:** a registered CCR environment (e.g., Matt runs `claude remote-control` on the Mac, or this is instantiated from a session that carries CCR session context — a knight-rider remote-control session). Then a single `create_trigger` call with the fields below stands it up. **Unblock is PARKED at `canonical/matt_to_do/` T1 (2026-07-02) — the CCR run is queued on Matt.**
 
 **Authored:** 2026-06-30
 **Author:** gandalf
@@ -32,19 +32,24 @@ SETUP (do first):
 2. Read `.claude/agents/gandalf.md` (role) + `agentic_orchestration/operating-procedures/canonical-doc-format.md` § 6 in full (the lifecycle governance you enforce) + `canonical/00-ground-state.md` (the three canon homes + never-prune classes). Read `agentic_orchestration/gandalf/notes/2026-06-30-doc-lifecycle-governance-stress-test.md` for the reasoning if any predicate call is ambiguous.
 
 THE SWEEP (§ 6.6 steps 1-6):
-1. FIND candidates — markdown design-artifacts (`canonical/**`, `agentic_orchestration/**/notes/**`, gandalf verdicts) that are TOTALLY superseded, or working-memory notes whose workstream has closed, or orphaned. Do NOT touch data/code/binary (`.json/.csv/.py/.png/.mp4/.html`) — out of scope (predicate 1). Do NOT touch the never-prune class (decisions-log, CHANGELOG, the two current-to-end-state trackers, 00-ground-state.md, AGENTS/GOVERNANCE/REVIEW_PROCESS, all OPs+skills, spec-folder 00-index.md).
+1. FIND candidates — markdown design-artifacts (`canonical/**`, `agentic_orchestration/**/notes/**`, gandalf verdicts) that are TOTALLY superseded, or working-memory notes whose workstream has closed, or orphaned. Do NOT touch data/code/binary (`.json/.csv/.py/.png/.mp4/.html`) — out of scope (predicate 1). Do NOT touch the never-prune class (decisions-log, CHANGELOG, the three current-to-end-state trackers, 00-ground-state.md, the Matt queues (matt_decision_needed/ + matt_to_do/), AGENTS/GOVERNANCE/REVIEW_PROCESS, all OPs+skills, spec-folder 00-index.md).
 2. REFERENCE CHECK (predicate 4) — for each candidate, grep for live references across BOTH repos: `~/Games/reincarnated-collaboration` AND `~/Games/reincarnated-engine` (decisions-log lives in the engine repo and cites collab-repo notes). Check decisions-log, engineering-disciplines, all OPs, all skills, `canonical/`, and the trackers. A candidate with ANY live citation is evidentiary → never prune.
 3. CLASSIFY each candidate into two tiers:
    - SAFE TIER = all 4 predicates hold (markdown + not-never-prune + [totally-superseded OR workstream-closed working-memory note] + zero live references across both repos).
    - JUDGMENT TIER = anything ambiguous, partially-superseded (banner+fold, never amputate — § 6.4), or "became irrelevant" with no supersession event (ALWAYS surfaces, never auto-fires).
 4. AUTO-PRUNE the SAFE TIER ONLY — `git rm` each, then `git commit` with a clear message listing what was pruned and why (co-author tag per project convention). CRITICAL: do NOT `git push` — push requires explicit Matt authorization. Everything stays in local unpushed commits so Matt can review/revert. If the safe tier is empty, commit nothing.
 5. PARTIAL-SUPERSESSION + Tracker-delta hygiene — (a) verify any partially-superseded doc carries its `⚠ FRAME PARTIALLY SUPERSEDED` banner and is in a fold-worklist; flag any that aren't. (b) grep recent `canonical/`-touching commits for a missing `Tracker-delta:` footer; flag them.
-6. TRACKER ROWS — scan both current-to-end-state trackers for resolved-and-aged rows; collapse them into the in-tree CLOSED appendix (resolved≠deleted; reopening is common). Do not delete tracker rows.
+6. TRACKER ROWS — scan all three current-to-end-state trackers (engine / story / game) for resolved-and-aged rows; collapse them into the in-tree CLOSED appendix (resolved≠deleted; reopening is common). Do not delete tracker rows.
+7. TRIPWIRES (reorg-integrity checks, added 2026-07-02) —
+   (a) DEAD-HOME REGRESSION: verify `canonical/story/`, `canonical/historical/`, `canonical/dead/` do NOT exist (dissolved/retired in the 2026-06-30→07-01 reorg). If any exists again, an agent rebuilt a dead home — flag loudly with the creating commit (`git log --diff-filter=A -- <dir>`).
+   (b) OP↔SKILL TWIN DRIFT: for each `agentic_orchestration/operating-procedures/<name>.md` with a `.claude/skills/reincarnated-*<name>*/SKILL.md` twin, diff the bodies (ignore skill YAML frontmatter). Divergence = drift-flag: name the pair + the first divergent section. Twins are amended together; drift is repaired by the twin's owner, NOT auto-fixed by this routine. (Known at authoring: the gandalf OP/skill pair already drifts at §4.7/§5 — first fire should flag it.)
+   (c) MATT-QUEUE SYNC: for each open row in `canonical/matt_decision_needed/` + `canonical/matt_to_do/`, follow the source pointer and verify the pointed-at row is still OPEN and still asks the same question (the Q3-staleness guard, gandalf OP § 4.8). Stale rows → flag.
 
 REPORT (this is what Matt reads in the notification):
 - SAFE TIER pruned: count + the file list + the commit hash (unpushed).
 - JUDGMENT TIER prune-list: each candidate + one-line why-it-needs-a-human-call. THIS IS THE ASK — Matt ratifies these before any prune.
 - Missing-banner / missing-Tracker-delta flags.
+- Tripwire results: dead-home regression / OP↔skill twin drift / Matt-queue staleness (flags only — no auto-fix).
 - Tracker rows collapsed.
 - If nothing actionable: say so plainly ("tree clean, no prunes, no flags").
 Keep the report tight and scannable. Do not editorialize about Matt's state or time-of-day; use workstream-relative framing only. Nothing is pushed.

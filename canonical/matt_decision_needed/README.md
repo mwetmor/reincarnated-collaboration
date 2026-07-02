@@ -10,6 +10,7 @@
 This is the **decision queue** — the short list of things **waiting on Matt specifically.** Glance here at session start/end.
 
 - **This queue = what MATT owes the work** (decisions gated on his ruling).
+- **`canonical/matt_to_do/` = actions only Matt can DO** (host/credential-level; born 2026-07-02). Decisions here, actions there.
 - **The `current-to-end-state/` trackers = what the WORK owes the spec** (build/story/game deltas). Different ledger.
 - **jack-ryan-gated or KR-gated items do NOT belong here** — only decisions that genuinely need *Matt*.
 

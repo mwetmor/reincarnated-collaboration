@@ -1,6 +1,6 @@
 ---
 name: reincarnated-canonical-doc-format
-description: Use this skill when authoring or amending docs under canonical/. Captures the three canon homes (spec folders reap-die-rise-{story,engine}/, the current-to-end-state/ trackers, the router + matt_decision_needed/ at canonical/ root), header structure (STATUS stamp + Date + Author + Status + Authority + Companion docs + Tracker-delta footer), STATUS protocol (CURRENT/HISTORICAL/DEAD stamps; git-is-archive — historical/dead subfolders retired 2026-06-30), cross-reference protocol, recognition record special case, and the doc-lifecycle governance system (§ 6): the Tracker-delta propagation convention, the four-predicate prune-safe rule, three note-classes (evidentiary/verdict/working-memory), total-vs-partial supersession (reconcile-not-amputate), and the hygiene-audit Routine. Authoritative canon-home source remains canonical/00-ground-state.md.
+description: Use this skill when authoring or amending docs under canonical/. Captures the three canon homes (spec folders reap-die-rise-{story,engine,game}/, the current-to-end-state/ trackers, the router + matt_decision_needed/ + matt_to_do/ at canonical/ root), header structure (STATUS stamp + Date + Author + Status + Authority + Companion docs + Tracker-delta footer), STATUS protocol (CURRENT/HISTORICAL/DEAD stamps; git-is-archive — historical/dead subfolders retired 2026-06-30), cross-reference protocol, recognition record special case, and the doc-lifecycle governance system (§ 6): the Tracker-delta propagation convention, the four-predicate prune-safe rule, three note-classes (evidentiary/verdict/working-memory), total-vs-partial supersession (reconcile-not-amputate), and the hygiene-audit Routine. Authoritative canon-home source remains canonical/00-ground-state.md.
 version: 0.2.0
 ---
 
@@ -18,7 +18,7 @@ version: 0.2.0
 
 ## 0. What this skill IS and IS NOT
 
-**IS:** the universal **format + lifecycle** spec for canonical docs under `canonical/` — the spec folders (`reap-die-rise-{story,engine}/`, which carry the numbered spine + story/lore/design artifacts + recognition records since the 2026-07-01 fold-completion), the trackers, and the router. Names: header structure, STATUS protocol, cross-reference rules, **and (§ 6) the authoring → propagation → pruning lifecycle** — how a canonical write feeds the current-to-end-state trackers, and when a doc/note is pruned. Loaded by any agent authoring or amending canonical artifacts.
+**IS:** the universal **format + lifecycle** spec for canonical docs under `canonical/` — the spec folders (`reap-die-rise-{story,engine,game}/`, which carry the numbered spine + story/lore/design artifacts + recognition records since the 2026-07-01 fold-completion, plus the playable-product scope since 2026-07-02), the trackers, and the router. Names: header structure, STATUS protocol, cross-reference rules, **and (§ 6) the authoring → propagation → pruning lifecycle** — how a canonical write feeds the current-to-end-state trackers, and when a doc/note is pruned. Loaded by any agent authoring or amending canonical artifacts.
 
 **IS NOT:** the substantive content guide (each doc's substance is per-topic). NOT the router itself (`canonical/00-ground-state.md` is always the source of canon-home truth). NOT the decisions-log format (`reincarnated-decision-log-format`). NOT a lifecycle for **data / code / binary** artifacts — those (`.json`, `.csv`, `.py`, `.png`, `.mp4`, `.html`) live under their seam owner's lifecycle, explicitly **out of § 6 scope** (§ 6.3).
 
@@ -30,9 +30,9 @@ Canon lives in **three homes** (per the router, `canonical/00-ground-state.md`):
 
 | Home | Contents |
 |---|---|
-| `canonical/reap-die-rise-story/` + `canonical/reap-die-rise-engine/` | the END-STATE **spec** folders (story frame; engine spec). Each has a `00-index.md` fold-worklist. |
-| `canonical/current-to-end-state/` | the **delta** trackers — `…-engine.md` (build-vs-spec gaps) + `…-story.md` (open story decisions). LIVING. |
-| `canonical/00-ground-state.md` + `canonical/matt_decision_needed/` | the router (sole file at `canonical/` root since the 2026-07-01 fold-completion) + the Matt decision queue |
+| `canonical/reap-die-rise-story/` + `canonical/reap-die-rise-engine/` + `canonical/reap-die-rise-game/` | the END-STATE **spec** folders (story frame; engine spec; playable-product/game spec — born 2026-07-02, One Realm MVP). Each has a `00-index.md`. |
+| `canonical/current-to-end-state/` | the **delta** trackers — `…-engine.md` (build-vs-spec gaps) + `…-story.md` (open story decisions) + `…-game.md` (playable-build gaps). LIVING. |
+| `canonical/00-ground-state.md` + `canonical/matt_decision_needed/` + `canonical/matt_to_do/` | the router (sole file at `canonical/` root since the 2026-07-01 fold-completion) + the Matt queues (decisions; actions) |
 
 **Anything older — superseded designs, epoch history, the old historical/dead registry — lives in git, recoverable, not pre-load.**
 
@@ -210,7 +210,7 @@ A standing scheduled Routine fires into a gandalf session on a fixed cadence and
 
 - **`canonical/00-ground-state.md`** (router) — gandalf authors + maintains
 - **`canonical/current-to-end-state/…-engine.md` + `…-story.md`** (trackers) — **gandalf + knight-rider write; all other agents read + surface deltas** (write-authority ruling, Matt 2026-06-30). *(Replaces the retired `canonical/02-roadmap.md`, killed in the 2026-06-30 reorg.)*
-- **`canonical/reap-die-rise-{story,engine}/`** (spec folders) — gandalf primary (story); gandalf + the engine seam owners (engine), per `00-index.md`
+- **`canonical/reap-die-rise-{story,engine,game}/`** (spec folders) — gandalf primary (story); gandalf + the engine seam owners (engine); gandalf spec-side + drax build-side (game), per `00-index.md`
 - **Numbered-spine docs** (`canonical/reap-die-rise-engine/<NN>-<topic>.md`, moved into the engine spec 2026-07-01) — gandalf primary; knight-rider orchestration-side; jack-ryan process-side
 - **Design/lore/recognition docs in the spec folders** (`<topic>-YYYY-MM-DD.md`) — primarily gandalf; occasionally jack-ryan (process), gamora (sim-architecture), star-lord (pipeline-architecture)
 - **Supersession / prune execution** — gandalf approves design-side; the hygiene Routine auto-fires the safe tier; knight-rider executes any restructure dispatch

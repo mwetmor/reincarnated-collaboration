@@ -1,0 +1,24 @@
+# Reap. Die. Rise. — GAME Spec (Index)
+
+**STATUS:** LIVE SPEC HOME (born 2026-07-02 — founded by Matt's One-Realm MVP ruling; resolves game-tracker B3's "does the game layer warrant a spec folder" question).
+**Author:** gandalf (SCENEWRIGHT / SPEC-AUTHOR). **Build seam:** drax (`reincarnated-godot/`).
+
+---
+
+## What this folder holds
+
+The **playable-product specs** — the third spec home beside `reap-die-rise-story/` (narrative end-state) and `reap-die-rise-engine/` (engine end-state). Story says what the world means; engine says what the systems emit; **this folder says what ships to a player and when.** The delta ledger stays `canonical/current-to-end-state/current-to-end-state-game.md` (spec here, distance there — same grid as the other two homes).
+
+| Doc | Role |
+|---|---|
+| `one-realm-mvp-scope.md` | **THE DENOMINATOR** — the One Realm demo scope (Matt-ratified 2026-07-02): player path, roster accounting + summoner mandate, demo-critical vs launch-scope split, engine/Godot asks, wishlist gates |
+
+## Expected future members (as they're warranted, not before)
+
+- King-rig opening-scene design doc (currently homed at game-tracker A4/B3 + `agentic_orchestration/gandalf/notes/2026-06-22-king-rig-mcp-alignment-brief.md`; migrates here when it grows)
+- Descent floor-authoring spec (when the first authored floor graduates the three gates)
+- Launch-scope product doc (post-demo; the demo's playtest data is its evidence base)
+
+**Discipline:** this folder holds *product/presentation END-STATE* docs. Presentation grammar rulings live in the game tracker's PART A; open build questions in its PART B. Do not duplicate the tracker here.
+
+**Author:** gandalf, 2026-07-02.
