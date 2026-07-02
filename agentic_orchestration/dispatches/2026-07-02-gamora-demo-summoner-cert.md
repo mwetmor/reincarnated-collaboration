@@ -1,11 +1,11 @@
-# Dispatch — 2026-07-02 — gamora — demo summoner sim-certification (W3-lite) (D3) — **HELD**
+# Dispatch — 2026-07-02 — gamora — demo summoner sim-certification (W3-lite) (D3)
 
-> ## ⛔ STATUS: HELD — DO NOT EXECUTE
-> This dispatch is **staged, not fired.** The ratified denominator (one-realm §5.3) scopes **exactly two engine asks** and states "**Nothing else.**" The demo-certification slice is gandalf-recommended as "engine ask 3" but the tracker (III.1b) marks it an **"Open Matt ruling ... pending Matt's ruling."** It **partially supersedes the W3 PARK's "no proxy build"** (Matt 2026-06-30, two days pre-mandate) → this is a **scope-amendment requiring fresh Matt-authorization** (CLAUDE.md). It fires ONLY when Matt ratifies the demo-certification slice. Until then: no execution, no tag, no commit.
+> ## ✓ STATUS: RATIFIED — QUEUED AFTER D2
+> **Matt ratified the demo-certification slice 2026-07-02** ("D3 — after D2 lands. Calibration wants real decls as fixtures; D2's are better than synthetics and arrive fast"). The prior HELD banner (scope-amendment concern) is DISCHARGED — this is now an approved third engine ask. **Sequence: fires AFTER D2 (`rocket/v-demo-summoner-proxy-decls-1`) lands** — the calibration consumes D2's real hand-authored decls as fixtures (better than synthetics). **Gate discipline: this is a SIM wave → jack-ryan DESIGN-MODE Gate-1 BEFORE build** (per the proxy-wave gate protocol, skill_handoff 2026-06-21). The dodge-ceiling stays Godot-gated per the W3 PARK; this dispatch calibrates the build-FLOOR only.
 
 **From:** knight-rider
 **To:** gamora
-**Proposed-approver:** Matt (PENDING — the D3 ruling; see MASTER §3)
+**Approved by:** Matt 2026-07-02 (the D3 ruling — demo-certification slice ratified as engine ask 3; sequenced after D2)
 **Estimated effort:** ~1 day (bounded calibration sweep; the fight mechanism is complete — no new production sim code)
 **Acceptance:** the four `proxy_vocabulary_bridge.py` scaffold magnitudes are calibrated against the ratified encounter-model shape + locked boss target, and the 2–3 demo summoner kits (D2 decls) grade at the build-floor vs. the demo roster floors.
 
@@ -42,7 +42,7 @@ The calibration SETS values in `proxy_vocabulary_bridge.py` — **rocket's file.
 - [ ] Grade the 2–3 demo summoners at the build-floor (survive-and-kill + typed-resistance floor) vs. the demo roster floors
 - [ ] Smoke-tier first (Discipline #2)
 - [ ] AGENT_STATE.md + math-note updated
-- [ ] Tag: `gamora/v-proxy-W2-realized-damage-1` **[NOTE: task-specified tag reuses the W2 slug — confirm with KR at fire whether this should be a new `gamora/v-proxy-fight-calibration-1` tag to avoid collision with the landed W2 tag @ `a84a395`]**
+- [ ] Tag: **`gamora/v-proxy-fight-calibration-1`** (KR-resolved 2026-07-02: fresh tag, NOT the task-mentioned `v-proxy-W2-realized-damage-1` which is the already-landed W2 tag @ `a84a395` — a collision. This is a distinct calibration wave against the built W2 machinery.)
 - [ ] Coordinate the rocket un-scaffold apply at completion
 
 ## Acceptance criteria

@@ -5,7 +5,7 @@
 **Approved by:** Matt 2026-07-02 (one-realm §5.1; the first of the two bounded engine asks)
 **Estimated effort:** 1–2 days
 **Acceptance:** a single Godot-consumable bundle for the demo realm (kits + monsters + gear + flavortext) exists, validates, and its schema is contract-handshaked with drax (D4).
-**Status:** READY — first fire (concurrent with D2; consumes D2's decls). Gate-1 required before execution.
+**Status:** GATED on the in-flight emission inspection (Matt 2026-07-02: "D1 after the emission inspection lands — it feeds D1's mandatory schema note"). Gate-1 folds already applied (see MASTER §4). Consumes D2's decls for the summoner-kit content. Fires when the inspection lands (likely this working window).
 
 ## Context
 

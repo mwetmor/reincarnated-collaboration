@@ -28,6 +28,7 @@ Presentation-side build/verification infra; no engine schema change.
 - [ ] Stand up a min-spec verification method (how to check without necessarily owning the exact card — documented proxy/profiling approach if hardware isn't on hand)
 - [ ] Establish the cadence: a min-spec check is a required acceptance item on every Godot dispatch (D4–D9)
 - [ ] The load-bearing hotspot: D7 (50+ enemies at min-spec for the escape) — the cadence must catch a density regression before it's a launch surprise
+- [ ] **First real application (Matt directive 2026-07-02): the pre-D7 min-spec perf spike** against D7's density-per-area spec — prove the density target holds at the GTX-1650-class floor BEFORE the full AI+horde build. If it fails, D7's density spec re-budgets first.
 - [ ] Document the standing gate so each subsequent drax dispatch runs it
 - [ ] AGENT_STATE updated
 - [ ] Tag: `drax/v-godot-min-spec-cadence-1`
