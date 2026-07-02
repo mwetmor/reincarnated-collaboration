@@ -84,3 +84,41 @@ The calibration SETS values in `proxy_vocabulary_bridge.py` — **rocket's file.
 - one-realm-mvp-scope.md §3/§5.2/§5.3 · current-to-end-state-engine.md III.1b · IV.2 (the (b′) calibration-slice framing)
 - gamora sim two-state inspection §Q2(c) · encounter-model firm-up disposition (RATIFIED)
 - MASTER: `2026-07-02-one-realm-mvp-build-MASTER.md` §3 (why HELD)
+
+---
+
+## ✓ Completion record — gamora, 2026-07-02
+
+**Status:** COMPLETE with a REFUTATION surfaced (gravecaller) → escalated to KR (fold-D territory; NOT self-authorized).
+
+**Tag:** `gamora/v-proxy-fight-calibration-1`. **Base seed:** 52,000,017 (next free 53M+). **Push:** HELD (Matt-gated).
+
+**Artifacts:**
+- Math note (Disc #1, authored FIRST): `reincarnated-engine/src/reincarnated/simulation/math/proxy-fight-calibration-2026-07-02.md` (§7.1 = the calibration result + the two load-bearing findings).
+- Calibration harness (INSTRUMENT): `reincarnated-engine/scripts/gamora_proxy_fight_calibration_2026_07_02.py`.
+- Full-pass raw: `agentic_orchestration/cycle-14-wave-5-season-001/d3-proxy-fight-calibration-2026-07-02-full.json` (84 cells, N=24, peak RSS 49 MB / 0.6% of 8GB).
+- State: `reincarnated-engine/src/reincarnated/simulation/AGENT_STATE.md` SESSION 43.
+
+**Scope executed (all boxes):**
+- [x] Math-note-first — the four-magnitude derivation against the LOCKED anchor + build-floor band.
+- [x] 1 dated calibration harness sweeping the 4 ally magnitudes on the injected D2 decls vs `boss_with_adds` + `mini_boss` at the locked anchor.
+- [x] Single-parameter sweep isolation (Disc #24 — asserted every cell: only the swept axis moves).
+- [x] **Summation-wiring integration assertion is the FIRST harness check (star-lord W3 carry) — PASSED** (`proxy_realized_damage_dealt`=Σ delivered; 0.0 solo) before any band read.
+- [x] Graded the 3 demo summoners at the build-floor vs the roster floors.
+- [x] Smoke-tier first (Disc #2); then full N=24 validation.
+- [x] AGENT_STATE + math-note updated.
+- [x] Tag `gamora/v-proxy-fight-calibration-1`.
+- [~] Coordinate the rocket un-scaffold apply (fold C) — the calibrated values are certified-HOLD (scaffold = build-floor), so the apply is a no-op-magnitude confirm; values are in math-note §7.1 for KR's follow-on micro-dispatch.
+
+**Acceptance criteria:**
+- [x] Four scaffold magnitudes calibrated against the encounter-model shape + locked boss anchor — RESULT: **certified-HOLD** (REFERENCE_HP 20000 / MAX_ACTIVE {minimal:3,mid:2,full:1} / dm 1.0 / interval 1.0). No floor breach requires pushing any lever for the melee demo roster.
+- [x] Demo summoners grade at the build-floor — **2 MELEE kits (bone_acolyte, crypt_lieutenant) PASS survive-and-kill** (WR 1.0 both shells); **1 RANGED kit (gravecaller) FAILS (D3-evaporate)**.
+- [x] Summation-wiring assertion passes before any band read.
+- [x] Round-trip N/A (magnitude values; rocket apply follow-on).
+
+**REFUTATION (per the dispatch's refutation conditions — surfaced, escalated, NOT papered over):**
+The `demo_gravecaller` caster-summoner cannot be certified by this calibration. It D3-evaporates for a **ranged-proxy NAVIGATION gap, NOT a magnitude** (Disc #11, first-hand): the archer ends 38.9m from the boss (range 10m) because the ally nav (`spatial_engine.py:~1996`, nearest-enemy) chases adds while the ally attack phase has boss-focus parity (`:2350`). `proxy_realized_damage_dealt` is insensitive to all four levers except a linear dm term. Two fixes, BOTH outside the four-magnitude scope: (a) a D2 content edit (raise the gravecaller decl `count` — rocket's field; confirmed count=2 → boss dead), or (b) a ranged-ally boss-focus nav fix in production sim code (a W2-mechanism amendment). **Per Gate-1 fold D I do NOT self-authorize either — escalated to KR.** The locked boss anchor held BY CONSTRUCTION (asserted unchanged every cell); no magnitude pressured it. The `f_army=1.0` figure is a harness artifact (my player kit delivers 0 even solo — the same ranged spatial gap), NOT a D2-dominance/faceroll signal.
+
+**Guards honored:** build-FLOOR only (dodge-ceiling untouched, Godot-gated); anchor held by construction; no `_DEFERRED_PROXY_BINS` lift; no production sim code touched; no telemetry write; no push. jack-ryan Gate-2 + KR gravecaller-refutation disposition next.
+
+**Signed:** gamora (simulation seam), 2026-07-02.
