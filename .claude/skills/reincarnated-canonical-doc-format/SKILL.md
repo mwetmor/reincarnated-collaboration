@@ -200,9 +200,32 @@ A standing scheduled Routine fires into a gandalf session on a fixed cadence and
 3. **auto-prunes the four-predicate-safe tier** (git-rm; in-scope auto-commit);
 4. **surfaces the judgment tier** (ambiguous / "became irrelevant") as a prune-list for Matt's ratification;
 5. flags canonical commits missing a `Tracker-delta:` footer (§ 6.2 enforcement);
-6. collapses resolved-and-aged tracker rows into the CLOSED appendix (§ 6.5).
+6. collapses resolved-and-aged tracker rows into the CLOSED appendix (§ 6.5);
+7. runs the reorg-integrity **tripwires** (dead-home regression · OP↔skill twin drift, § 6.8 · Matt-queue sync) — flag-only, never auto-fix (ratified jack-ryan 2026-07-02).
 
 **Distribute routine, centralize judgment:** each agent self-prunes its own working-memory notes at workstream-close; the gandalf sweep handles cross-cutting residue + the judgment tier + tracker collapse. Scales as agents are added.
+
+### 6.7 Rule-ownership — who RATIFIES doc-lifecycle governance (Matt 2026-06-30)
+
+The § 6 *rules* are a discipline, and a discipline has a conflict-of-interest hazard when the author is also its largest subject. gandalf is the meta-repo's largest note-producer; a gandalf-authored prune-rule that softens treatment of steward notes (the S15 finding, stress-test § 4) is **rule-maker = rule-subject** — the developer↔judge conflict transposed to governance. Matt 2026-06-30 ruled the fix by **symmetry with engineering-disciplines**:
+
+- **jack-ryan RATIFIES doc-lifecycle rules** (the same way jack-ryan owns engineering-disciplines — the rules engineers run under; § 6 is the sibling: the rules doc-producers run under).
+- **gandalf PROPOSES + EXECUTES** (proposes mechanisms as the practitioner who feels the pain; executes the prune/propagation on the established rules).
+- The **switch-moment is named in the open:** when gandalf proposes a governance rule — *especially one affecting gandalf's own output* — gandalf emits `⚠ SWITCH: CANON-STEWARD (proposer) → jack-ryan (ratifier)` (gandalf OP § 2 role-tags) and routes the rule to jack-ryan before it is canon.
+- **Execution is not the conflict.** gandalf (or any seam-owner on their own notes) *running* an established rule is fine — the conflict is only at rule-*authoring*. So proposal → gandalf; ratification → jack-ryan; execution → gandalf + seam-owners.
+
+**Pending ratification:** the **S15 substance-homing refinement** (stress-test § 4) is Matt-agreed *content* but its ratification-ownership now sits with jack-ryan — jack-ryan reviews S15 on next governance touch and either ratifies it into § 6.1/§ 6.3 or returns it. Until then S15 is Matt-agreed-but-not-jack-ryan-ratified, flagged as such in the stress-test record.
+
+### 6.8 OP↔SKILL twin-sync (RATIFIED jack-ryan 2026-07-02)
+
+Several operating-procedure docs (`agentic_orchestration/operating-procedures/<name>.md`) have an installed skill twin (`.claude/skills/reincarnated-*<name>*/SKILL.md`). **They are ONE document in two locations:**
+
+- **Amend together, same commit.** Any edit to an OP section with a twin lands in both bodies in the same unit of work (skill YAML frontmatter excepted — packaging, not content).
+- **The OP is source-of-truth** where the twins disagree; the skill is the installed copy.
+- **Drift is repaired by the twin's OWNER** (the agent whose OP it is) — the hygiene Routine's tripwire (b) FLAGS divergence (pair + first divergent section), never auto-fixes.
+- **Repair is ADR-002 tier** — jack-ryan-approved, no Matt gate (restoring ratified content to parity is not new rule-making).
+
+Sibling of § 6.2: the Tracker-delta rule keeps canon↔tracker in sync; this rule keeps OP↔skill in sync. Evidence case: the gandalf OP/skill drift (§ 1 step 2 / § 4.7 / § 5), flagged + repaired 2026-07-02 — and this doc's own skill twin, found missing § 6.7 during the same pass.
 
 ---
 
@@ -214,6 +237,7 @@ A standing scheduled Routine fires into a gandalf session on a fixed cadence and
 - **Numbered-spine docs** (`canonical/reap-die-rise-engine/<NN>-<topic>.md`, moved into the engine spec 2026-07-01) — gandalf primary; knight-rider orchestration-side; jack-ryan process-side
 - **Design/lore/recognition docs in the spec folders** (`<topic>-YYYY-MM-DD.md`) — primarily gandalf; occasionally jack-ryan (process), gamora (sim-architecture), star-lord (pipeline-architecture)
 - **Supersession / prune execution** — gandalf approves design-side; the hygiene Routine auto-fires the safe tier; knight-rider executes any restructure dispatch
+- **Doc-lifecycle RULE-ownership (§ 6.7, Matt 2026-06-30)** — **jack-ryan ratifies** the governance rules (symmetry with engineering-disciplines); **gandalf proposes + executes.** Rule-authoring that affects gandalf's own output routes to jack-ryan via the named `⚠ SWITCH: CANON-STEWARD (proposer) → jack-ryan (ratifier)` beat
 
 ---
 
