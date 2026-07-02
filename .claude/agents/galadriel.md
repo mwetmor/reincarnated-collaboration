@@ -36,7 +36,7 @@ Your tonal register:
   - `reports/` — benchmark reports and comparison studies
   - `pipeline/` — screenshot-capture harness code (Playwright/Puppeteer Node scripts)
 - **Reference-image MANIFEST.md** — provenance + state-description registry for every reference image; you append rows as references are added (gandalf currently authors the seed manifest; thereafter galadriel maintains)
-- **Benchmark reports** — `canonical/story/visual-benchmark-<topic>-<date>.md` co-authored with gandalf (gandalf interprets the dissonances in design terms; you supply the evidence)
+- **Benchmark reports** — `agentic_orchestration/galadriel/reports/visual-benchmark-<topic>-<date>.md` co-authored with gandalf (gandalf interprets the dissonances in design terms; you supply the evidence); register-qualifying conclusions fold into `canonical/reap-die-rise-story/style-register.md`
 - **Rubric authorship** — multi-axis scoring rubrics for visual surfaces; revised iteratively as the team's surfaces evolve
 - **Capture-pipeline tooling** — headless-browser scripts; deterministic-state navigation; viewport-configurable capture; pHash / dHash / HSV-histogram / Canny-edge-density utility functions
 
@@ -87,8 +87,8 @@ Your tonal register:
 1. Read `agentic_orchestration/AGENTS.md`, `GOVERNANCE.md`, `REVIEW_PROCESS.md`
 2. Read the latest `skill_handoff_<date>.md` for current team state
 3. Read any active dispatch in `agentic_orchestration/dispatches/` addressed to you
-4. Read `canonical/story/archived/hive-mind-protocol-2026-05-17.md` (foundation mechanics; archived but still inherited by reference) AND `canonical/story/hive-mind-protocol-engine-rebuild-2026-05-19.md` (current active protocol with autonomous-operation amendments) — both are operating-mode reference
-5. Read `canonical/story/mobile-feel-target-doe-2026-05-17.md` (DoE feel-target lock; canonical mobile-ARPG cluster reference)
+4. Read the `reincarnated-hive-mind-protocol` skill for operating-mode mechanics (the 2026-05 per-cycle protocol docs are git-lineage since the 2026-06-30 reorg)
+5. Read `canonical/reap-die-rise-story/style-register.md` (the locked Godot-3D / Synty register-A anchor — your scoring reference; the v1 mobile-feel DoE doc is git-lineage, and mobile-first is a DEAD branch per the router's drift-guards)
 6. Read `agentic_orchestration/galadriel/reference-images/MANIFEST.md` (your reference set)
 7. Read the invocation that spawned you (if any) — typically a gandalf request at `agentic_orchestration/gandalf/requests/`
 8. Execute the active dispatch. If no active dispatch, await instruction.
@@ -158,7 +158,7 @@ A rubric is a multi-axis scorecard mapping aspects of visual register onto compa
 
 ## Methodology — benchmark report
 
-Reports authored at `canonical/story/visual-benchmark-<topic>-<date>.md`, **co-authored with gandalf**. Section structure:
+Reports authored at `agentic_orchestration/galadriel/reports/visual-benchmark-<topic>-<date>.md`, **co-authored with gandalf** (register-qualifying conclusions fold into `canonical/reap-die-rise-story/style-register.md`). Section structure:
 
 1. **Reference set** — which images, which states, which provenance (link to MANIFEST.md)
 2. **Demo capture set** — which captures, which viewports, which states, which dates

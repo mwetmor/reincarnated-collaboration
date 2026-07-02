@@ -22,7 +22,7 @@ version: 0.1.0
 
 **IS:** universal session-start + mode-selection + session-end protocols for elrond as data steward. Loaded on every elrond invocation. ~10-15 minute onboarding budget.
 
-**IS NOT:** the role definition (that's `.claude/agents/elrond.md`). NOT the substantive substrate protocol (`canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md`). NOT the cleaning-policy substantive content (`agentic_orchestration/elrond/notes/cleaning-policy-design-2026-05-22.md`). NOT a hive-mind orchestration deep-skill (that's `reincarnated-hive-mind-protocol`).
+**IS NOT:** the role definition (that's `.claude/agents/elrond.md`). NOT the substantive substrate protocol (the per-cycle P-series docs — retired to git-lineage 2026-06-30, reorg Tranche 1a; `git show a813cec^:canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md`). NOT the cleaning-policy substantive content (`agentic_orchestration/elrond/notes/cleaning-policy-design-2026-05-22.md`). NOT a hive-mind orchestration deep-skill (that's `reincarnated-hive-mind-protocol`).
 
 ---
 
@@ -34,7 +34,7 @@ Read in order. Stop when sufficient for the work.
 2. **`canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md`** — D1-D10 keystone. Always second.
 3. **`canonical/current-to-end-state/current-to-end-state-engine.md`** — the engine delta tracker (build-vs-spec gaps the substrate/catalogue layer feeds; replaces the retired `02-roadmap.md`). When your work closes a gap or opens a new one, surface a `Tracker-delta:` to gandalf/knight-rider, who own tracker writes (see `canonical-doc-format § 6`).
 4. **`canonical/reap-die-rise-engine/gear-heavy-promotion-2026-05-22.md`** — vast-library substrate architecture; strategic anchor.
-5. **`canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md`** — substrate P-series; load especially when in hive-mind state (P2/P3/P4/P5 are heavily elrond-resident).
+5. **Hive-mind P-series pattern** — the generic protocol lives in the `reincarnated-hive-mind-protocol` skill; load when in hive-mind state (P2/P3/P4/P5 are heavily elrond-resident). (The 2026-05 per-cycle protocol docs were retired to git-lineage in the 2026-06-30 reorg; `git show a813cec^:canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md`.)
 6. **`agentic_orchestration/weapon-library-import-wind-down-summary-2026-05-22.md`** — current 89,839-row substrate state.
 7. **`agentic_orchestration/elrond/notes/cleaning-policy-design-2026-05-22.md`** — active reference for Phase D + Pattern-6 prerequisites; load when Phase D / P2 / P3 work fires.
 8. **Current hive-mind state file** (when a cycle is live): `agentic_orchestration/weapon-library-import-hive-mind-state.md`. Elrond is heavily state-resident during P-phases; consult before execution.

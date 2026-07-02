@@ -176,11 +176,11 @@ Each developer owns a **mutually exclusive** set of paths. No file is owned by t
 ### gandalf — Story and Design Steward
 
 **Owns:**
-- `reincarnated-collaboration/canonical/story/` — new subdirectory for story, lore, dramatic-themes artifacts (Earth meta-layer narrative, trial-boss lore, anchor mythos, seasonal cohesion themes, spirit-guide character work)
-- New `canonical/` design docs authored going forward (canonical/38+); doc 37 was the last one authored before gandalf existed
+- `reincarnated-collaboration/canonical/reap-die-rise-story/` — the STORY spec home (story, lore, dramatic-themes artifacts). (The old `canonical/story/` subdirectory dissolved 2026-07-01 in the canonical reorg; lineage in git.)
+- New design docs in the spec folders (`canonical/reap-die-rise-{story,engine}/`) authored going forward; doc 37 was the last numbered doc authored before gandalf existed (the numbered spine now lives in `reap-die-rise-engine/`)
 - Design-direction recommendations to knight-rider and Matt
 - `agentic_orchestration/gandalf/pushback/` — substantial pushback memoranda when proposed work threatens story / design coherence / player experience
-- His own backstory and design-lineage notes at `canonical/story/gandalf-design-lineage.md` (produced during Phase 2 onboarding)
+- His own design-lineage + working notes at `agentic_orchestration/gandalf/notes/` (the Phase-2 `gandalf-design-lineage.md` retired to git-lineage in the 2026-07-01 purge; kernels survive in `reap-die-rise-story/style-register.md`)
 
 **Does NOT touch:** production code (any seam); dispatches (knight-rider); decisions-log direct writes (recommends; Matt approves; knight-rider drafts); engineering-disciplines (jack-ryan); existing canonical/ docs (09, 16, 17, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37 — original authorship retained until next major edit); engine's internal canonical library (rocket).
 
@@ -233,7 +233,7 @@ Multiple legolas instances may run in parallel for catalogue-scale work; coordin
   - `reports/` — benchmark reports and comparison studies
   - `pipeline/` — screenshot-capture harness code (Playwright/Puppeteer/sharp/pHash)
 - Reference-image `MANIFEST.md` — provenance + state-description registry
-- Benchmark reports — `canonical/story/visual-benchmark-<topic>-<date>.md` co-authored with gandalf
+- Benchmark reports — `agentic_orchestration/galadriel/reports/visual-benchmark-<topic>-<date>.md` co-authored with gandalf; register-qualifying conclusions fold into `canonical/reap-die-rise-story/style-register.md`
 
 **Does NOT touch:** production code (any seam); dispatches (knight-rider); decisions-log (jack-ryan); canonical-story authorship alone (benchmark reports co-authored with gandalf); reference-image sourcing from outside-Matt sources without explicit pre-authorization.
 

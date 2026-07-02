@@ -7,7 +7,7 @@
 
 **Canonical reference status:**
 - **DoE set (mobile-feel cluster)** — locked mobile-ARPG *gameplay-feel + HUD-density + town-service-surface* reference per `canonical/story/mobile-feel-target-doe-2026-05-17.md`. **Survives the 2026-06-14 register pivot** for the gameplay/HUD/feel dimensions it anchors (DoE is itself a stylized-3D ARPG; its combat-density and service-surface reads are register-agnostic). It is NOT the *visual-register* anchor for the post-pivot 3D-stylized look — that role is the 2026-06-14 set below.
-- **3D-stylized-ARPG set (2026-06-14)** — the **visual-register anchor** for the post-pivot Godot-3D-2.5D-camera lock per `canonical/story/style-register.md` § "Register pivot." Establishes the register-2 (premium-stylized) target the Godot vertical-slice spike is measured against.
+- **3D-stylized-ARPG set (2026-06-14)** — the **visual-register anchor** for the post-pivot Godot-3D-2.5D-camera lock per `canonical/reap-die-rise-story/style-register.md` § "Register pivot." Establishes the register-2 (premium-stylized) target the Godot vertical-slice spike is measured against.
 
 **Retired references (2026-06-14):** Octopath Traveler / Triangle Strategy (the 2D-pixel HD-2D-lock visual anchors) are **RETIRED as the visual-register reference** per `style-register.md` § "Register pivot" → Cascade item 6. They were never in this manifest as image files (they were named anchors in the superseded 2D-lock doc); recorded here as formally retired so the lineage is inspectable. The DoE captures are NOT retired (see above — they anchor feel/HUD, not register).
 

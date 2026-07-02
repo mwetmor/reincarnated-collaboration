@@ -68,7 +68,7 @@ Every entry follows this structure:
 | Engine seam interface change | YES |
 | Discipline ratification or amendment | YES |
 | Pattern retirement (Patterns 4-5-6 type) | YES |
-| Recognition record (design hypothesis pending validation) | NO — recognition records live in `canonical/story/` per recognition discipline |
+| Recognition record (design hypothesis pending validation) | NO — recognition records live beside the spec they annotate (`canonical/reap-die-rise-story/` or `…-engine/`) per recognition discipline |
 | Routine implementation choice within established pattern | NO — capture in commit message + canonical doc if substantive |
 | Wave dispatch FIRE-READY | NO — dispatch artifact is durable; no decisions-log entry needed unless dispatch locked a new architectural commitment |
 | Recognition that may become architectural commitment | Author recognition record first; file decisions-log entry only when empirical-evidence criterion validates the commitment |
@@ -108,7 +108,7 @@ When a later decision supersedes or reverses an earlier one:
 ## 6. Cross-reference discipline
 
 Entries cite:
-- Canonical docs by path (`canonical/story/<doc>.md`)
+- Canonical docs by path (`canonical/reap-die-rise-{story,engine}/<doc>.md`)
 - Dispatches by path (`agentic_orchestration/dispatches/<dispatch>.md`)
 - Tags by name (`gamora/v1.3-b14-2`)
 - Commit hashes for substantive code commits

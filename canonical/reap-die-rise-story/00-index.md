@@ -1,6 +1,6 @@
 # Reap. Die. Rise. — STORY Spec (Index + Fold Worklist)
 
-**STATUS:** LIVE SPEC HOME (born 2026-06-30, canonical reorg Tranche 2; **stale-state corrected 2026-07-01** — the `canonical/reap-die-rise/` migration ALREADY LANDED in commit `6b9d6d1`; the three story docs live HERE and are authoritative). Assembly continues by strategy (b)/(b′) — folding surviving story content in, deleting sources as content lands.
+**STATUS:** LIVE SPEC HOME (born 2026-06-30, canonical reorg Tranche 2; **stale-state corrected 2026-07-01** — the `canonical/reap-die-rise/` migration ALREADY LANDED in commit `6b9d6d1`; the story docs live HERE and are authoritative). **✓ ASSEMBLY COMPLETE 2026-07-01** — all (b)-consolidation folds landed and `canonical/story/` DISSOLVED same day (style-register trimmed + re-homed here; everything else folded, harvested, or deleted — lineage in git).
 **Author:** gandalf.
 **Delta tracker (where the story is unsettled):** `canonical/current-to-end-state/current-to-end-state-story.md`.
 
@@ -18,7 +18,13 @@ The locked story frame of *Reap. Die. Rise.* — death-faith premise, the demigo
 | `story-expansion.md` | Worldbuilding expansion |
 | `gameplay-loop-design.md` (story half) | §§ story-frame, cast, banter, defiance↔devotion — the END-STATE AUTHORITY for the loop's story layer |
 
-## Folds IN from `canonical/story/` (the (b)-consolidation worklist; sources delete as content lands)
+## ✓ RE-HOMED IN (2026-07-01, `canonical/story/` dissolution)
+
+| Doc | Role |
+|---|---|
+| `style-register.md` | The locked visual style register — Godot 3D + fixed 2.5D camera; Synty register-A (A-holds locked 2026-06-15, extended to real curated content at 5.00/5). Trimmed of its 2D archaeology (git-lineage) and moved here — the register is player-facing game canon. |
+
+## ✓ Folds IN from `canonical/story/` — COMPLETE 2026-07-01 (all sources deleted; heading kept as the fold record)
 
 Per `current-to-end-state-story.md` PART C — the surviving experiential-structure docs, reconciled to v2 (retired labels die, structure survives):
 - ~~`2026-06-11-avatar-projection-and-hall-of-heroes-framing`~~ **✓ FOLDED 2026-06-30 → `story-expansion.md §12`** (Hall/possession vs. cosmograph/possibility; molting-as-harvest; sparse-hub; D7 lookup-not-generation). v2 forks → tracker B1/B2; presentation survivor → game-tracker A′2. Source deleted.

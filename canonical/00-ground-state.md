@@ -19,11 +19,7 @@
 
 **The shape:** `reap-die-rise-{story,engine}` = the **END STATE** (what we're building). `current-to-end-state/{story,engine,game}` = the **DELTA** (how far the build is from it) — three ledgers: the sim (engine), the narrative (story), the playable build (game). `matt_decision_needed/` = the **decision queue** (what's waiting on Matt).
 
-> **⚠ REORG IN PROGRESS (born 2026-06-30).** The folders + physical relocations are done; the content **fold** is mid-flight. Until it completes:
-> - the **engine spec** seed has landed in `reap-die-rise-engine/` (build/networking/perf/godot/vfx/design-decisions); the numbered docs `canonical/37–51` still fold in;
-> - the **story spec** seed has landed in `reap-die-rise-story/` (`story-keystone`, `story-expansion`, `gameplay-loop-design`, + `spec-index` — the v2 lexicon/supersession index); the surviving `canonical/story/` experiential-structure docs still fold in (a design session resolves them).
->
-> Each spec folder's **`00-index.md` carries the live fold-worklist and forwards you to the authoritative current location.** Read the index first when in doubt. Tracking ledger: `agentic_orchestration/gandalf/notes/2026-06-30-canonical-reorg-fold-map.md`.
+> **✓ REORG COMPLETE (2026-07-01).** The fold finished: the numbered engine spine (37–51 survivors) + the engine-mechanics corpus moved into `reap-die-rise-engine/`; `canonical/story/` **dissolved** (style-register trimmed + re-homed to `reap-die-rise-story/`; everything else moved, harvested, or deleted — lineage in git); `canonical/` root holds this router only. Each spec folder's **`00-index.md` carries the move/fold record** and forwards you to authoritative locations. Run ledger: `agentic_orchestration/gandalf/notes/2026-06-30-canonical-reorg-fold-map.md`.
 
 ---
 
@@ -31,7 +27,7 @@
 
 The reorg collapses the old bespoke per-agent reading lists. The universal shape is three items:
 
-1. **Your side's spec folder** — story work → `reap-die-rise-story/`; engine work → `reap-die-rise-engine/` (during the fold, plus the numbered docs its index forwards you to).
+1. **Your side's spec folder** — story work → `reap-die-rise-story/`; engine work → `reap-die-rise-engine/` (read its `00-index.md` first — it maps the corpus).
 2. **Your side's delta tracker** — `canonical/current-to-end-state/current-to-end-state-{story|engine}.md`.
 3. **Your own latest 2–3 notes** — `agentic_orchestration/<agent>/notes/`.
 
@@ -54,7 +50,7 @@ Plus role-specific:
 
 ## When docs disagree
 
-1. **The spec folders govern.** `reap-die-rise-{story,engine}/` (and the numbered `37–51` engine docs still folding in) override any older framing. Anything they superseded is git-lineage, not truth.
+1. **The spec folders govern.** `reap-die-rise-{story,engine}/` override any older framing. Anything they superseded is git-lineage, not truth.
 2. **The latter is canonical.** When two live docs disagree, the more recent wins.
 3. **`decisions-log.md` is temporal ground truth** for decisions; if it disagrees with a spec/story doc, decisions-log wins.
 4. **`engineering-disciplines.md`** overrides any older discipline lists.
@@ -64,7 +60,7 @@ Plus role-specific:
 
 ## Drift-guards (locked vocabulary + dead branches)
 
-*Migrating into the spec folders during the fold; held here through the transition.*
+*Held in the router — cheap to keep at the first-read surface.*
 
 - **Locked term — `flavor element`:** thematic flavor variant of a primary `canonical_element` (pure naming/visual layer; does NOT change damage_scaling_type, affinity, or resistance). Retired: `sub-element`, `element canonical-pair flavor`.
 - **DEAD — do not build on these:** isekai framing · the warm future-self **spirit guide** as an entity (RETIRED 2026-06-30; splits 3 ways — demigod-jailer / death-god patron / hub ensemble) · **seasonal-RELEASE** cadence (retired 2026-06-02; we ship runs/descents, not seasons) · pure-auto-combat (rejected; variable-execution-by-build is the lock) · mobile-first (PC/console-first) · non-humanoid playable forms · pre-imposed aesthetic/axis taxonomy (substrate votes). If you're building on any of these, stop — you're in a dead branch.

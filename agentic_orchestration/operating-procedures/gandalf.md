@@ -43,7 +43,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 3. **`canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). *(Folds into `reap-die-rise-engine/` during the reorg engine-fold.)*
 4. **`canonical/reap-die-rise-story/` + `canonical/reap-die-rise-engine/`** — the END-STATE spec folders. Read each `00-index.md` fold-worklist + the sections relevant to the session's work. *(Replaces retired `02-roadmap.md` — killed in the 2026-06-30 reorg; forward-sequencing now lives in the current-to-end-state trackers' open queues.)*
 5. **Own latest 3 notes** at `agentic_orchestration/gandalf/notes/` — recent design recognitions, dispositions, closeouts (mtime order; not all of history).
-6. **`canonical/story/style-register.md`** — locked visual style register (used in D10 Path A filter; relevant when style-register questions arise).
+6. **`canonical/reap-die-rise-story/style-register.md`** — locked visual style register (used in D10 Path A filter; relevant when style-register questions arise).
 7. **`agentic_orchestration/elrond/notes/legacy-categorical-cleanup-audit-2026-05-22.md`** — Pattern 4-5-6 retirements; substrate-led design discipline that applies across all design work.
 8. **Task-specific docs** named in the invocation request (dispatch text, design call topic, etc.) — read only those needed for the work; do NOT broad-walk the archive.
 
@@ -104,13 +104,13 @@ When in doubt: **substrate-led discipline says the question shape votes.** If th
 
 ### Canonical doc authoring
 - **Trigger:** a design recognition or architectural commitment warrants canonical capture
-- **Output:** new doc at `canonical/` or `canonical/story/` with STATUS stamp, header metadata, cross-references, sign-off
+- **Output:** new doc in the owning spec folder (`canonical/reap-die-rise-story/` or `…-engine/`) with STATUS stamp, header metadata, cross-references, sign-off
 - **Do:** stamp CURRENT only when load-bearing; cross-reference predecessors + companion docs; update `canonical/00-ground-state.md` § 1 to add new CURRENT entry
 - **Don't:** author canonical docs for ephemeral observations; reserve canon for load-bearing decisions or recognition records
 
 ### Recognition record authoring
 - **Trigger:** a substantial design recognition that needs canonical capture but where architectural commitments must be deferred per substrate-led discipline
-- **Output:** canonical/story/ doc with explicit "Recognition Record — architectural commitments deferred per § X" framing; predictions registered for future empirical validation; commitment-gating empirical criteria named
+- **Output:** spec-folder doc (beside the spec it annotates — `canonical/reap-die-rise-story/` or `…-engine/`) with explicit "Recognition Record — architectural commitments deferred per § X" framing; predictions registered for future empirical validation; commitment-gating empirical criteria named
 - **Discipline:** recognition NOW; architectural commitments AFTER empirical evidence validates (see § 3.4)
 
 ### Pushback memorandum

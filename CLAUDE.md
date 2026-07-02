@@ -66,15 +66,19 @@ The session reads the OP + role definition + session-start docs and operates as 
 
 | Need | Path |
 |---|---|
+| **Canon router — FIRST READ, every session** | `canonical/00-ground-state.md` (thin router to the three canon homes) |
+| **STORY spec (end-state)** — *Reap. Die. Rise.* death-faith frame, keystone, gameplay loop, style register | `canonical/reap-die-rise-story/` (read `00-index.md` first) |
+| **ENGINE spec (end-state)** — generation, simulation, balance, gear/stat/T4, progression, build/perf stack | `canonical/reap-die-rise-engine/` (read `00-index.md` first) |
+| **Build-vs-spec deltas + forward sequencing** — what's owed, open queues (replaces the retired roadmap) | `canonical/current-to-end-state/` (`…-engine.md` / `…-story.md` / `…-game.md`) |
+| **Matt decision queue** — human-in-the-loop items; check at session start/end | `canonical/matt_decision_needed/` |
 | Team topology + scope map | `agentic_orchestration/AGENTS.md` |
 | Founding ADRs | `agentic_orchestration/GOVERNANCE.md` |
 | Review process + 5 principles | `agentic_orchestration/REVIEW_PROCESS.md` |
 | Latest handoff context | `agentic_orchestration/skill_handoff_<date>.md` |
 | Team event log | `agentic_orchestration/CHANGELOG.md` |
-| Design discussion docs | `canonical/` (numbered: 09, 16, 17, 28, 29, 30, 31, 32, 33, ...) |
-| Engineering disciplines (12) | `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` |
+| Engineering disciplines | `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` |
 | Decisions log | `~/Games/reincarnated-engine/design/decisions/decisions-log.md` |
-| Current roadmap (B-series) | `canonical/historical/16-project-roadmap.md` |
+| Anything older (superseded designs, wave records, the old numbered `canonical/NN` root docs) | **git history** — searchable, not pre-load |
 
 ## Key conventions
 

@@ -6,7 +6,7 @@ version: 0.1.0
 
 # reincarnated-hive-mind-protocol — Work-Mode Skill
 
-> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — Stream 3 cross-cutting work-mode skill per `canonical/02-roadmap.md` § 2.2
+> **STATUS:** CURRENT (load-bearing as of 2026-05-23) — Stream 3 cross-cutting work-mode skill (the `02-roadmap` that placed it was retired in the 2026-06-30 reorg; placement lineage in git)
 >
 > **Skill packaging:** this Markdown doc is the source for the eventual installable skill `reincarnated-hive-mind-protocol` (per doc 38 § 4 step 2 + Skill Creator pass). Until skill packaging lands, install by reading this doc when entering hive-mind state.
 
@@ -14,8 +14,7 @@ version: 0.1.0
 **Author:** gandalf (story-and-design steward; protocol author per § 18.2 of substrate protocol)
 **Pattern:** cross-cutting work-mode skill — composes on top of per-agent OP skills when an agent enters hive-mind state
 **Companion docs (substantive content):**
-- `canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md` — substrate-acquisition P-series (current canonical hive-mind protocol)
-- `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` — engine-rebuild parent P-series
+- Per-cycle P-series protocol docs — **retired to git-lineage 2026-06-30 (reorg Tranche 1a, commit `a813cec`)**: substrate-acquisition P-series (`hive-mind-protocol-weapon-library-import-2026-05-22`) + engine-rebuild parent P-series (`hive-mind-protocol-qd-engine-rebuild-2026-05-21`); recover via `git show a813cec^:canonical/story/<name>.md`. Each new hive-mind cycle authors its own protocol/state doc; the generic pattern lives in THIS skill.
 - `agentic_orchestration/hive-mind-protocol-amendments-2026-05-21-evening.md` — amendments
 - `agentic_orchestration/gandalf/requests/2026-05-23-knight-rider-hive-mind-skill-decision-routing-directive.md` — Matt's verbatim decision-routing directive (LOCKED; embedded in § 4 below)
 - `agentic_orchestration/operating-procedures/knight-rider.md` § 2 Mode A + § 3.9 — immediate load-bearing application of decision-routing pattern
@@ -28,7 +27,7 @@ version: 0.1.0
 
 **IS:** the cross-cutting work-mode skill that activates when an agent enters **hive-mind state** — a coordinated multi-agent, multi-phase workstream operating against a shared substrate (catalogue DB, canonical artifact, or engine subsystem) with sustained background-process discipline, Wave-cycle cadence, and parallel sub-agent invocation. Captures the universal patterns that apply to ALL hive-mind cycles — not the substantive content of any one protocol.
 
-**IS NOT:** the substantive protocol docs (those live in `canonical/story/hive-mind-protocol-*.md` per cycle subject — substrate, engine-rebuild, future M1 mythological-named-weapons, etc.). NOT the per-agent OP skill (that's `operating-procedures/<agent>.md`). NOT the dispatch authoring template (that's `dispatches/README.md`). NOT a substitute for `canonical/00-ground-state.md` first-read.
+**IS NOT:** the substantive protocol docs (each cycle authors its own protocol/state doc at cycle entry, e.g. `agentic_orchestration/cycle-<N>-hive-mind-state.md`; the 2026-05 per-cycle docs are git-lineage — see § 11). NOT the per-agent OP skill (that's `operating-procedures/<agent>.md`). NOT the dispatch authoring template (that's `dispatches/README.md`). NOT a substitute for `canonical/00-ground-state.md` first-read.
 
 **Layering:** loaded on top of per-agent OP skill when in hive-mind mode. Knight-rider's OP § 1.5 names `reincarnated-hive-mind-protocol` as the Mode A companion. Specialists invoked sub-agent during a hive-mind cycle load this skill to understand the cadence + decision-routing surrounding their dispatch.
 
@@ -80,7 +79,7 @@ Matt can begin a hive-mind cycle through any of three valid paths. Knight-rider 
 Matt says (verbal or written): `"hive-mind <topic>"` OR `"engage hive-mind on <topic>"` OR `"fire hive-mind cycle for <topic>"`. Unambiguous trigger; knight-rider loads this skill and routes to step 1 of the entry protocol (route protocol-authoring to gandalf for substrate-shaped work; author himself for engine-rebuild-shaped work).
 
 **Path B — Explicit protocol-doc reference.**
-Matt says: `"Approve canonical/story/hive-mind-protocol-<cycle>.md for firing"` OR `"Fire the protocol at <path>"`. Direct reference to an authored protocol doc; knight-rider loads this skill and routes to step 3 of the entry protocol (Matt's authorization is implicit in the approval phrasing).
+Matt says: `"Approve the cycle protocol doc for firing"` (naming the authored doc, e.g. `agentic_orchestration/cycle-<N>-hive-mind-state.md`) OR `"Fire the protocol at <path>"`. Direct reference to an authored protocol doc; knight-rider loads this skill and routes to step 3 of the entry protocol (Matt's authorization is implicit in the approval phrasing).
 
 **Path C — Scope-intuited entry.**
 Matt describes the work without an explicit phrase ("the substrate library import" / "the engine-rebuild" / etc.). Knight-rider intuits hive-mind shape from project scope + recognizes the pattern from precedent cycles. Loads this skill; routes to step 1 (protocol authoring) or step 3 (if protocol already authored). **Variance risk:** Path C has higher variance than A or B; knight-rider should explicitly confirm hive-mind framing with Matt before firing if scope is ambiguous.
@@ -121,7 +120,7 @@ Same applies to subsequent wave entries within the cycle. Each wave entry requir
 | 2 | knight-rider | Wind-down summary authored — Matt-facing per § 9 of this skill |
 | 3 | knight-rider | State file archived (rename with `-completed-YYYY-MM-DD` suffix; or move to `agentic_orchestration/historical/`) |
 | 4 | knight-rider | CHANGELOG entry filed |
-| 5 | gandalf | If post-cycle recognitions surface, author recognition record (canonical/story/) per OP § 2 recognition-record mode |
+| 5 | gandalf | If post-cycle recognitions surface, author recognition record (in the spec folder it annotates — `canonical/reap-die-rise-story/` or `…-engine/`) per OP § 2 recognition-record mode |
 
 ### 2.4 Mid-cycle crash recovery (per knight-rider 2026-05-23 Phase E-1 crash-triage precedent)
 
@@ -478,7 +477,7 @@ When the final phase tag is cut:
 2. **State-file archival** — rename `<cycle>-hive-mind-state.md` to `<cycle>-hive-mind-state-completed-<YYYY-MM-DD>.md` OR move to `agentic_orchestration/historical/`
 3. **CHANGELOG entry** for cycle completion
 4. **Decisions-log entry** via jack-ryan for any architectural commitments locked during cycle
-5. **Recognition record** (gandalf) at `canonical/story/` if post-cycle design recognitions surfaced
+5. **Recognition record** (gandalf) in the spec folder it annotates (`canonical/reap-die-rise-story/` or `…-engine/`) if post-cycle design recognitions surfaced
 
 ### 9.3 Anti-pattern — silent cycle drift
 
@@ -531,9 +530,8 @@ Every hive-mind cycle has pre-flight checks specific to its scope. Universal che
 - `reincarnated-critique-pair-gate-protocol` (load for Pattern-B Gate-1 dispatch authoring + review)
 
 ### Cycle-specific (load when in that cycle)
-- Substrate cycle: `canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md` as substantive content
-- Engine-rebuild cycle: `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` as substantive content
-- Future cycles: respective canonical protocol doc
+- Active cycle: the cycle's own protocol/state doc as substantive content (authored at cycle entry; e.g. `agentic_orchestration/cycle-<N>-hive-mind-state.md`)
+- Historical cycles (substrate 2026-05-22 / engine-rebuild 2026-05-21): git-lineage — `git show a813cec^:canonical/story/hive-mind-protocol-<name>.md`
 
 ---
 
@@ -555,11 +553,9 @@ This is a cross-cutting work-mode skill — it evolves when:
 ## 13. Cross-references
 
 ### Canonical (substantive content)
-- `canonical/00-ground-state.md` — ground-state oracle (always first-read; § 4 first-reads by role)
-- `canonical/02-roadmap.md` § 2.2 — Stream 3 placement of this skill
-- `canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md` — D1-D10 delivery strategy keystone
-- `canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md` — substrate cycle protocol
-- `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` — engine-rebuild cycle protocol
+- `canonical/00-ground-state.md` — the canon router (always first-read)
+- `canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md` — D1-D10 delivery strategy keystone (D-item restamp bannered 2026-07-01)
+- Historical per-cycle protocol docs — git-lineage (retired 2026-06-30; see the companion-docs note at top)
 
 ### Operational
 - `agentic_orchestration/AGENTS.md` — seam ownership map (basis for § 4.1 seam-routing)

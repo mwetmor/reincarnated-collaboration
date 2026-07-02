@@ -13,7 +13,7 @@
 
 **IS:** the operational discipline that every Matt-authorized hive-mind cycle (and every multi-stage non-hive-mind sprint that involves knight-rider orchestration) opens with an explicit **scope-doc** enumerating what knight-rider can autonomously decide + execute + commit + push for that cycle. The scope-doc is **authoritative for the cycle** — knight-rider treats it as the ground-truth answer to "is this in my scope?"
 
-**IS NOT:** the substantive cycle protocol (that's `canonical/story/hive-mind-protocol-<cycle>.md` per cycle subject). NOT a substitute for ADR-002 tiered approval (architectural commitments still escalate per ADR-002 regardless of scope-doc). NOT a replacement for hive-mind decision-routing § 4 (seam-owner-first routing still applies; scope-doc just removes inference ambiguity about WHICH decisions are KR's to route vs Matt's to make).
+**IS NOT:** the substantive cycle protocol (each cycle authors its own protocol/state doc at cycle entry, e.g. `agentic_orchestration/cycle-<N>-hive-mind-state.md`). NOT a substitute for ADR-002 tiered approval (architectural commitments still escalate per ADR-002 regardless of scope-doc). NOT a replacement for hive-mind decision-routing § 4 (seam-owner-first routing still applies; scope-doc just removes inference ambiguity about WHICH decisions are KR's to route vs Matt's to make).
 
 ---
 

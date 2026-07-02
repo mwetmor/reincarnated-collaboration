@@ -32,7 +32,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 1. **`canonical/00-ground-state.md`** — current epoch + canon status + first-reads by role. Always first; non-negotiable.
 2. **`canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
 3. **`canonical/current-to-end-state/current-to-end-state-engine.md`** — the engine delta tracker (build-vs-spec gaps the visual-perception seam validates; replaces the retired `02-roadmap.md`). When your work closes a gap or opens a new one, surface a `Tracker-delta:` to gandalf/knight-rider, who own tracker writes (see `canonical-doc-format § 6`).
-4. **`canonical/story/style-register.md`** — locked visual style register (hand-drawn pixel-art in HD-2D-shaped register, Matt-locked 2026-05-15). **Load-bearing for every benchmark and coherence judgment galadriel renders.**
+4. **`canonical/reap-die-rise-story/style-register.md`** — locked visual style register (Godot 3D + fixed 2.5D camera; Synty register-A, pivoted 2026-06-14, A-holds locked 2026-06-15, extended to real curated content at 5.00/5). **Load-bearing for every benchmark and coherence judgment galadriel renders.**
 5. **`agentic_orchestration/galadriel/notes/visual-benchmark-vs2a-2026-05-18.md`** — benchmark precedent (Reincarnated demo vs DoE). Structural template: § 0 TL;DR → § 1 reference set → § 2 demo captures → § 3 rubric → § 4 scorecard → § 5 strongest dissonances → § 6 gaps + structured findings → § 7 gandalf interpretation → § 8 Mirror voice.
 6. **`agentic_orchestration/galadriel/notes/geometry-vfx-coverage-assessment.md`** — coverage assessment precedent. Demonstrates *severity-tier + collapse-vs-defer + watch-cell* output shape.
 7. **`agentic_orchestration/galadriel/reference-images/MANIFEST.md`** — reference-image set + provenance registry. Append-only; consult before scoring (every score traces to a manifest row).
@@ -82,7 +82,7 @@ Substrate-led: the question shape votes. If the invocation reads A-deep, produce
 
 ### Benchmark execution
 - **Trigger:** dispatch directs galadriel to score a new demo / loadout snapshot against the locked reference set
-- **Output:** `canonical/story/visual-benchmark-<topic>-<date>.md` co-authored with gandalf per vs2a precedent — galadriel writes evidence (§§ 1-4, 6, scorecard); gandalf interprets (§§ 5, 7, 8). Pipeline: capture → score → comparison-grid → draft → gandalf interpretation → integration commit.
+- **Output:** `agentic_orchestration/galadriel/reports/visual-benchmark-<topic>-<date>.md` co-authored with gandalf per vs2a precedent — galadriel writes evidence (§§ 1-4, 6, scorecard); gandalf interprets (§§ 5, 7, 8); register-qualifying conclusions fold into `canonical/reap-die-rise-story/style-register.md`. Pipeline: capture → score → comparison-grid → draft → gandalf interpretation → integration commit. (The v1 `canonical/story/visual-benchmark-*` reports are git-lineage since the reorg purge.)
 - **Don't:** score against absent references (becomes a *finding* in § 6, not a *score* in § 4); interleave aesthetic judgment with descriptive evidence (survey-mode constraint)
 
 ### Rubric authoring
@@ -151,7 +151,7 @@ Failure mode: **single-point calibration** — locking from one or two intuited 
 
 If sub-agent environment policy prevents direct file write to a named verdict path, return the full verdict to invoker (knight-rider); invoker captures to the named path. Per hive-mind-protocol § 5.5.4. NOT a failure mode — documented coordination pattern. Knight-rider's capture is durable; the verdict's authority is galadriel-authored.
 
-Galadriel always has write access within `agentic_orchestration/galadriel/` per role definition. The constraint applies when invocation targets a path outside that subtree (e.g., a `canonical/story/` benchmark report co-authored with gandalf).
+Galadriel always has write access within `agentic_orchestration/galadriel/` per role definition. The constraint applies when invocation targets a path outside that subtree (e.g., a register-fold into `canonical/reap-die-rise-story/style-register.md` co-authored with gandalf).
 
 ### 3.6 Substrate-led discipline
 
@@ -226,7 +226,7 @@ These compose with the decision-loop disciplines in this OP. Operational source 
 
 ### Universal (every galadriel session)
 - `reincarnated-engineering-disciplines` (the 20 disciplines — especially #4, #11, #17, #18)
-- `reincarnated-canonical-doc-format` (header stamping + cross-reference; load for co-authored `canonical/story/` benchmark reports)
+- `reincarnated-canonical-doc-format` (header stamping + cross-reference; load for register-fold contributions to `canonical/reap-die-rise-story/`)
 
 ### Cross-cutting (load when relevant)
 - `reincarnated-hive-mind-protocol` (load when sub-agent invoked during hive-mind state — verdict pattern § 5.5; PD Meshy gap-fill or P5 cohesion-judge calibration)
