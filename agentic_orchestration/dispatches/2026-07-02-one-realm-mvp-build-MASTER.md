@@ -18,7 +18,7 @@ The One Realm demo is the denominator: a free Steam demo, one ~25–27 min realm
 | # | Agent | Task | §ref | Tracker | Status |
 |---|---|---|---|---|---|
 | D2 | rocket | hand-authored proxy decls for 2–3 demo summoner kits | §5.2 | III.1b MVP-SPLIT | **🔥 FIRING** (Matt-fired 2026-07-02; no deps) |
-| D3 | gamora | demo summoner sim-certification (W3-lite) | ask 3 (ratified) | III.1b | **🔥 FIRING** (D2 landed; Gate-1 CLEARED 2026-07-02 — ENDORSE-WITH-CONCERNS, folds A–D applied) |
+| D3 | gamora | demo summoner sim-certification (W3-lite) | ask 3 (ratified) | III.1b | **✓ DONE** (`gamora/v-proxy-fight-calibration-1` @ `abb010d`) — 4 magnitudes certified-HOLD; 2 melee summoners PASS; gravecaller ranged-nav §20d finding → DEFERRED (see §6) |
 | D1 | star-lord | one-realm emission hand-join (single Godot-consumable bundle) | §5.1 | II.3 +1 MVP-CRITICAL | **✓ DONE** (`star-lord/v-one-realm-bundle-handjoin-1` @ `20e5e0f`) — schema note DRAFT-pending-drax-handshake; lock-emit-with-D2-decls is a star-lord follow-on after drax signs |
 | D4 | drax | Godot bundle loader | §6.1 | game tracker | **🔥 FIRING** (D1 landed; Gate-1 CLEARED — ENDORSE-WITH-CONCERNS, folds 1–4 applied; single drax session w/ D10) |
 | D5 | drax | verb realization incl. summon | §6.2 | game tracker | GATED on D4 + D2 decls |
@@ -71,6 +71,18 @@ The demo-certification slice was authored HELD (scope-amendment beyond the ratif
 ## 5. In-flight work continues (§9)
 
 This program re-prioritizes **new starts** only. In-flight engine instrument work (perception-asymmetry producer, deferral un-gates) proceeds and does NOT gate the demo. The demo is itself the validation instrument (§8) for the currently-unfalsifiable claims.
+
+## 6. D3 disposition — gravecaller DEFERRED, ranged-nav §20d finding logged (KR 2026-07-02)
+
+D3 landed a **certified-HOLD** on the four proxy fight-magnitudes and graded the two MELEE demo summoners (`demo_bone_acolyte`, `demo_crypt_lieutenant`) survive-and-kill PASS — the §3 summoner mandate (floor + ideal) is met. The FLEX third kit `demo_gravecaller` (ranged caster-summoner) **could not be certified** on a **ranged-proxy navigation gap, not a magnitude** (archer parks 38.9 m from a boss it hits at 10 m).
+
+**Critique-pair convergence (both consulted):**
+- **gandalf (design):** melee raise is the *establishing* necromancer verb (genre convention); ranged summon is a second-tier reveal, NOT demo-load-bearing. Defer-and-log is the honest §20d disposition; count-masking is "a lie the demo exists specifically to not tell" (§8 + #40).
+- **jack-ryan (process):** deferring the flex kit is a **clean KR orchestration call, not a scope-amendment** (§3 met). Nav gap → launch tracker III.1b/§20d as a narrowing of the W2 "complete" claim; option (b) W2 nav amendment is launch-scope. Count-edit mask violates #11 + #1 + Principle 4/§8. The rocket un-scaffold is a no-op-magnitude confirm (lightweight INFO, not a full Gate-2).
+
+**Enacted (KR authority; both stewards concurred):** gravecaller DEFERRED from the demo roster; ranged-ally boss-focus nav amendment (option b) logged on `current-to-end-state-engine.md` III.1b as a launch-track §20d residual. **Surfaced to Matt as awareness** (a real §20d datapoint — melee-summon parametrizes cheaply, ranged-summon does not) with the single product override available: keep gravecaller as a knowingly-count-masked demo shim (NOT recommended) vs. defer (enacted).
+
+**Follow-on queued:** rocket un-scaffold no-op-confirm (fold C) + gandalf's cheap content-differentiation check (the two melee summoners must read distinctly on-screen — horde vs. bruiser).
 
 ---
 
