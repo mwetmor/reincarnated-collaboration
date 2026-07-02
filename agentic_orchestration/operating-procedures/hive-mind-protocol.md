@@ -374,7 +374,7 @@ At every math hotspot:
 
 ### 7.4 Semantic-layer rep-audit (Discipline #18 amendment candidate; 2026-05-23 work cycle)
 
-**Source:** `canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md` § 2.4 + gandalf OP § 4.4 (canonical write at engineering-disciplines.md pending jack-ryan).
+**Source:** `agentic_orchestration/elrond/notes/marginal-lineage-tagging-pattern-2026-05-23.md` § 2.4 + gandalf OP § 4.4 (canonical write at engineering-disciplines.md pending jack-ryan).
 
 **The discipline:**
 

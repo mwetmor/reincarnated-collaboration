@@ -22,7 +22,7 @@
 
 **IS:** universal session-start + mode-selection + session-end protocols for elrond as data steward. Loaded on every elrond invocation. ~10-15 minute onboarding budget.
 
-**IS NOT:** the role definition (that's `.claude/agents/elrond.md`). NOT the substantive substrate protocol (`canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md`). NOT the cleaning-policy substantive content (`canonical/story/cleaning-policy-design-2026-05-22.md`). NOT a hive-mind orchestration deep-skill (that's `reincarnated-hive-mind-protocol`).
+**IS NOT:** the role definition (that's `.claude/agents/elrond.md`). NOT the substantive substrate protocol (`canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md`). NOT the cleaning-policy substantive content (`agentic_orchestration/elrond/notes/cleaning-policy-design-2026-05-22.md`). NOT a hive-mind orchestration deep-skill (that's `reincarnated-hive-mind-protocol`).
 
 ---
 
@@ -36,7 +36,7 @@ Read in order. Stop when sufficient for the work.
 4. **`canonical/story/gear-heavy-promotion-2026-05-22.md`** — vast-library substrate architecture; strategic anchor.
 5. **`canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md`** — substrate P-series; load especially when in hive-mind state (P2/P3/P4/P5 are heavily elrond-resident).
 6. **`agentic_orchestration/weapon-library-import-wind-down-summary-2026-05-22.md`** — current 89,839-row substrate state.
-7. **`canonical/story/cleaning-policy-design-2026-05-22.md`** — active reference for Phase D + Pattern-6 prerequisites; load when Phase D / P2 / P3 work fires.
+7. **`agentic_orchestration/elrond/notes/cleaning-policy-design-2026-05-22.md`** — active reference for Phase D + Pattern-6 prerequisites; load when Phase D / P2 / P3 work fires.
 8. **Current hive-mind state file** (when a cycle is live): `agentic_orchestration/weapon-library-import-hive-mind-state.md`. Elrond is heavily state-resident during P-phases; consult before execution.
 9. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — especially #11, #18, #20.
 10. **Latest dispatch / verdict request** named in invocation — only those needed; do NOT broad-walk the archive.

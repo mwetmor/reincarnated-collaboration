@@ -35,7 +35,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 4. **`~/Games/reincarnated-loadout/README.md`** + `git log --oneline -10` — loadout current state.
 5. **`~/Games/reincarnated-demo/README.md`** + `git log --oneline -10` — demo current state.
 6. **`reincarnated-loadout/AGENT_STATE.md`** + **`reincarnated-demo/AGENT_STATE.md`** — checkpoint state for both repos; critical for continuity.
-7. **Relevant `canonical/story/loadout-*` docs** — when loadout-specific design context is needed (e.g., `canonical/story/loadout-analytics-suite-information-architecture-2026-05-18.md` for analytics work).
+7. **Relevant `canonical/story/loadout-*` docs** — when loadout-specific design context is needed (e.g., `agentic_orchestration/drax/notes/loadout-analytics-suite-information-architecture-2026-05-18.md` for analytics work).
 8. **Latest MIGRATION.md from star-lord's seam** — when schema-consumer changes are in scope.
 9. **Task-specific docs** named in the invocation request — read only those needed; do NOT broad-walk the archive.
 

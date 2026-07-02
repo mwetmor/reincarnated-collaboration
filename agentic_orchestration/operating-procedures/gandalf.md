@@ -355,7 +355,7 @@ Operational vocabulary, protocols, and discipline-amendment candidates that surf
 
 ### 4.4 Semantic-layer rep-audit discipline (Discipline #18 amendment candidate)
 
-**Source:** `canonical/story/marginal-lineage-tagging-pattern-2026-05-23.md` § 2.4 (meta-record from sub-carry 9.11-G work).
+**Source:** `agentic_orchestration/elrond/notes/marginal-lineage-tagging-pattern-2026-05-23.md` § 2.4 (meta-record from sub-carry 9.11-G work).
 
 **The discipline-amendment candidate** (NOT yet ratified at engineering-disciplines.md; surfaced through operational use):
 
