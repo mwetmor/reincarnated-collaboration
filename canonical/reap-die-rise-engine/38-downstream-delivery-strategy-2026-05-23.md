@@ -2,6 +2,8 @@
 
 > **STATUS:** CURRENT (load-bearing as of 2026-05-24) — see `canonical/00-ground-state.md`
 >
+> **MOVED INTO ENGINE SPEC + D-ITEM RESTAMP (2026-07-01, canonical reorg B2 — this is the formal restamp the engine tracker flagged):** **D1 SUPERSEDED** (Unreal 5.7 + PC-first → **Godot-on-Mac**, drax seam, 2026-06-30 Unreal retirement; mobile trajectory intent survives). **D3 SUPERSEDED** (seasonal cadence → **v2 run-model**, `reap-die-rise-story/gameplay-loop-design.md` §19/§23). **D4 RESHAPED** (Earth Self / form library / spirit guide → v2 Grimoire + patron/jailer cast per `reap-die-rise-story/`; Earth meta-layer = future-product scope). **D10 RESOLVED-BY-RETIREMENT** (isekai-framing checkpoint — Matt 2026-06-30 "all v1 isekai gone"; the frame is *Reap. Die. Rise.*). **D2, D5, D6, D7 (AI-tell — load-bearing as ever), D8, D9 STAND.** Internal `canonical/NN-` paths read as sibling files in this folder.
+>
 > **AMENDMENT 2026-05-24 (Cycle 10 Stage 3 closure + Architecture B + composition policy v1 implications for D1-D10):**
 >
 > Cycle 10 substrate-curation work substantially complete on design-decision surface (Stage 3 design call CLOSED 2026-05-24 with D1-D7 all locked; composition policy v1 landed at `canonical/story/weapon-substrate-composition-policy-v1-2026-05-24.md`). Architecture B locked as production canonical engine architecture (`canonical/story/qd-engine-end-to-end-workflow-2026-05-24.md`). Implications per D-item:

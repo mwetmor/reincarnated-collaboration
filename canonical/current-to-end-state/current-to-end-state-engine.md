@@ -157,7 +157,7 @@ All **frame-neutral** (survive the isekai kill) and **NOT documented in the v2 e
 **Corrections to prior records this session makes (reconcile, do not act on stale):**
 - "Evicted kits become the bestiary" (prior recognition record) — **REFUTED.** Monsters are a separate generated bestiary with a closed archetype enum, not derived from kits `[fit-audit]`.
 - Mega-boss = "anti-faction contrast-inversion lead" (prior record) — **SUPERSEDED.** v2 §8 sets mega-boss = "holdout champion beyond the base 400 / curated experimental kit"; v2 drops the anti-faction concept entirely (contrast moves to per-lieutenant Goldilocks temperature).
-- Doc-38 Unreal platform layer — **decided-superseded but not formally restamped** (style-register retired Unreal; ground-state:52 still lists doc 38 CURRENT). KR restamp, flagged.
+- Doc-38 Unreal platform layer — ~~decided-superseded but not formally restamped~~ **✓ RESTAMPED 2026-07-01** (B2 move: doc 38 now at `canonical/reap-die-rise-engine/38-…` with D-item restamp banner — D1→Godot, D3→run-model, D4 reshaped, D10 resolved-by-retirement; D7 stands).
 
 **What did NOT move this session:** the content-emission plumbing (two-tracks-don't-meet) — zero movement; still rocket/star-lord seam work. No code authored; this is a consolidation + capture session.
 

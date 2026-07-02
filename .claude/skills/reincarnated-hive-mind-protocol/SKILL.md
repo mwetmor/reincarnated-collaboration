@@ -557,7 +557,7 @@ This is a cross-cutting work-mode skill — it evolves when:
 ### Canonical (substantive content)
 - `canonical/00-ground-state.md` — ground-state oracle (always first-read; § 4 first-reads by role)
 - `canonical/02-roadmap.md` § 2.2 — Stream 3 placement of this skill
-- `canonical/38-downstream-delivery-strategy-2026-05-23.md` — D1-D10 delivery strategy keystone
+- `canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md` — D1-D10 delivery strategy keystone
 - `canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md` — substrate cycle protocol
 - `canonical/story/hive-mind-protocol-qd-engine-rebuild-2026-05-21.md` — engine-rebuild cycle protocol
 

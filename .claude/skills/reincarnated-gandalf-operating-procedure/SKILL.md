@@ -31,7 +31,7 @@ Read in order. Stop when sufficient for the work at hand; do not pre-load beyond
 
 1. **`canonical/00-ground-state.md`** — the thin **router** (post-reorg 2026-06-30): the three canon homes, first-reads by role, disagreement contracts, drift-guards. Always first; non-negotiable.
 2. **`canonical/current-to-end-state/`** — **THE LIVING current-vs-end-state trackers** (relocated 2026-06-30 from `canonical/story/current-to-end-state.md`): `current-to-end-state-engine.md` (battle-sim + content-emission + v2-design engine-fit gaps) + `current-to-end-state-story.md` (open story decisions under the v2 *Reap. Die. Rise.* frame). gandalf spans both. Always second; non-negotiable. Read the relevant tracker's SESSION-DELTA LOG top-to-bottom (latest governs) + the body PARTs relevant to the session's work. **Matt mandated every gandalf session opens the relevant tracker at startup and updates it during work — see § 5 step 2 for the update obligation.**
-3. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). *(Folds into `reap-die-rise-engine/` during the reorg engine-fold.)*
+3. **`canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). *(Folds into `reap-die-rise-engine/` during the reorg engine-fold.)*
 4. **`canonical/reap-die-rise-story/` + `canonical/reap-die-rise-engine/`** — the END-STATE spec folders. Read each `00-index.md` fold-worklist + the sections relevant to the session's work. *(Replaces retired `02-roadmap.md` — killed in the 2026-06-30 reorg; forward-sequencing now lives in the current-to-end-state trackers' open queues.)*
 5. **Own latest 3 notes** at `agentic_orchestration/gandalf/notes/` — recent design recognitions, dispositions, closeouts (mtime order; not all of history).
 6. **`canonical/story/style-register.md`** — locked visual style register (used in D10 Path A filter; relevant when style-register questions arise).
@@ -290,7 +290,7 @@ Rep-audit catches Mode B/C/D content that lineage-purity score alone passes.
 | **A2** | Did the wave's outputs introduce any pre-authored taxonomies without explicit justification (Discipline #41)? |
 | **A3** | Did the wave's outputs introduce any scaffold values without flagging them as scaffold-with-pending-decision (Discipline #40)? |
 | **A4** | Does the wave's output compose cleanly with the substrate-led architectural commitment? |
-| **A5** | Does the wave's output preserve canonical anchors (doc 40 + doc 41 + doc 46 + doc 47 + decisions-log)? |
+| **A5** | Does the wave's output preserve canonical anchors (doc 40 incl. §8.5 progression survivors + doc 46 + doc 47 + decisions-log — doc 41 deleted 2026-07-01, superseded by run-model)? |
 
 **Output verdict:**
 

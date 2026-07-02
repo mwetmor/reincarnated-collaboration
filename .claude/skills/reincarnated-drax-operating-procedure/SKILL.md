@@ -30,7 +30,7 @@ version: 0.1.0
 Read in order. Stop when sufficient for the work at hand; do not pre-load beyond need.
 
 1. **`canonical/00-ground-state.md`** — current epoch + canon status + active workstreams. Always first; non-negotiable.
-2. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). D1, D8, D9 are most directly in drax's lane. Always second.
+2. **`canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). D1, D8, D9 are most directly in drax's lane. Always second.
 3. **`canonical/current-to-end-state/current-to-end-state-engine.md`** — the engine delta tracker (what the engine produces that you render; replaces the retired `02-roadmap.md`). Presentation-spec sections live in `canonical/reap-die-rise-story/`. When your work surfaces an engine gap, flag a `Tracker-delta:` to gandalf/knight-rider, who own tracker writes (see `canonical-doc-format § 6`).
 4. **`~/Games/reincarnated-loadout/README.md`** + `git log --oneline -10` — loadout current state.
 5. **`~/Games/reincarnated-demo/README.md`** + `git log --oneline -10` — demo current state.

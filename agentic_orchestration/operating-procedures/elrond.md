@@ -31,7 +31,7 @@
 Read in order. Stop when sufficient for the work.
 
 1. **`canonical/00-ground-state.md`** — current epoch + canon + first-reads + active workstreams. Always first.
-2. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — D1-D10 keystone. Always second.
+2. **`canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md`** — D1-D10 keystone. Always second.
 3. **`canonical/current-to-end-state/current-to-end-state-engine.md`** — the engine delta tracker (build-vs-spec gaps the substrate/catalogue layer feeds; replaces the retired `02-roadmap.md`). When your work closes a gap or opens a new one, surface a `Tracker-delta:` to gandalf/knight-rider, who own tracker writes (see `canonical-doc-format § 6`).
 4. **`canonical/story/gear-heavy-promotion-2026-05-22.md`** — vast-library substrate architecture; strategic anchor.
 5. **`canonical/story/hive-mind-protocol-weapon-library-import-2026-05-22.md`** — substrate P-series; load especially when in hive-mind state (P2/P3/P4/P5 are heavily elrond-resident).

@@ -30,7 +30,7 @@ version: 0.1.0
 Read in order. Stop when sufficient for the work at hand; do not pre-load beyond need.
 
 1. **`canonical/00-ground-state.md`** — current epoch + canon status + first-reads by role + active workstreams. Always first; non-negotiable.
-2. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
+2. **`canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
 3. **`canonical/current-to-end-state/current-to-end-state-engine.md`** + **`…-story.md`** — BOTH delta trackers (engine build-vs-spec + story-settledness; replaces the retired `02-roadmap.md`). You and gandalf own tracker writes: consolidate `Tracker-delta:` footers other agents surface, and keep both trackers' open queues current (see `canonical-doc-format § 6`).
 4. **Latest `agentic_orchestration/skill_handoff_<YYYY-MM-DD>.md`** — Matt-facing daily-state handoff from prior session (per § 3.1 reframing); pending decisions queue, awaiting-Matt blockers, recent decisions.
 5. **Current hive-mind state file** (if a substrate cycle is in flight): `agentic_orchestration/weapon-library-import-hive-mind-state.md` or successor.

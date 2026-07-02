@@ -30,7 +30,7 @@
 Read in order. Stop when sufficient for the work at hand; do not pre-load beyond need.
 
 1. **`canonical/00-ground-state.md`** — current epoch + canon status + first-reads by role. Always first; non-negotiable.
-2. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
+2. **`canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
 3. **`canonical/current-to-end-state/current-to-end-state-engine.md`** — the engine delta tracker (build-vs-spec gaps the visual-perception seam validates; replaces the retired `02-roadmap.md`). When your work closes a gap or opens a new one, surface a `Tracker-delta:` to gandalf/knight-rider, who own tracker writes (see `canonical-doc-format § 6`).
 4. **`canonical/story/style-register.md`** — locked visual style register (hand-drawn pixel-art in HD-2D-shaped register, Matt-locked 2026-05-15). **Load-bearing for every benchmark and coherence judgment galadriel renders.**
 5. **`agentic_orchestration/galadriel/notes/visual-benchmark-vs2a-2026-05-18.md`** — benchmark precedent (Reincarnated demo vs DoE). Structural template: § 0 TL;DR → § 1 reference set → § 2 demo captures → § 3 rubric → § 4 scorecard → § 5 strongest dissonances → § 6 gaps + structured findings → § 7 gandalf interpretation → § 8 Mirror voice.
@@ -96,7 +96,7 @@ Substrate-led: the question shape votes. If the invocation reads A-deep, produce
 - **Discipline guards:** methodology consultation BEFORE execution (§ 3.2); calibration-sweep emphasis (§ 3.4)
 
 ### Phase D Meshy gap-fill validation
-- **Trigger:** PD Meshy gap-fill cycle (per `canonical/story/asset-pipeline-meshy-swap-2026-05-22.md`); per-asset reference-image validation before asset lands in substrate
+- **Trigger:** PD Meshy gap-fill cycle (per `canonical/reap-die-rise-engine/asset-pipeline-meshy-swap-2026-05-22.md`); per-asset reference-image validation before asset lands in substrate
 - **Output:** per-asset note at `galadriel/notes/<date>-PD-<batch>-gap-fill-validation.md`; pass/refer/reject disposition per asset; style-register fidelity score; reference-row citation
 - **Discipline guard:** reject what fails register; refer borderline to gandalf; pass only what reads in-register without ambiguity
 

@@ -30,7 +30,7 @@ version: 0.1.0
 Read in order. Stop when sufficient for the work at hand; do not pre-load beyond need.
 
 1. **`canonical/00-ground-state.md`** — current epoch + canon status + first-reads by role + active workstreams. Always first; non-negotiable.
-2. **`canonical/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
+2. **`canonical/reap-die-rise-engine/38-downstream-delivery-strategy-2026-05-23.md`** — keystone delivery strategy (D1-D10). Always second.
 3. **`~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md`** — the 20 disciplines (you cite by number in findings; this is your primary reference).
 4. **`~/Games/reincarnated-engine/design/decisions/decisions-log.md`** — latest entries; especially "Decisions to revisit"; your owned file (single source of truth for design state).
 5. **Latest Gate-1 or Gate-2 dispatch** — typically named in invocation request; if not named, scan `agentic_orchestration/qa/pending/` for newest unreviewed item.
