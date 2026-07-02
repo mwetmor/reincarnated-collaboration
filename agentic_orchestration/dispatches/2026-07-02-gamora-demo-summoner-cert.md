@@ -15,6 +15,8 @@ The summoner FIGHT mechanism is BUILT (W1+W2, 2026-06-22). The demo-summoner-cer
 
 **Sequence AFTER D2** — certification consumes the hand-authored decls D2 emits.
 
+> **Path note (Gate-1 fold A):** all code paths below are `src/reincarnated/`-relative (e.g., `generation/proxy_vocabulary_bridge.py` → `src/reincarnated/generation/proxy_vocabulary_bridge.py`; `simulation/math/…` → `src/reincarnated/simulation/math/…`).
+
 ## Required reading before starting
 
 - `canonical/reap-die-rise-game/one-realm-mvp-scope.md` §3, §5.2, §5.3 ("Nothing else" — read why this dispatch is a scope-amendment)
@@ -26,12 +28,13 @@ The summoner FIGHT mechanism is BUILT (W1+W2, 2026-06-22). The demo-summoner-cer
 
 ## Math-before-code (Discipline #1 — REQUIRED)
 
-Math-note-first: `simulation/math/proxy-fight-calibration-<date>.md`. Derive the four fight magnitudes (`damage_multiplier` / `base_hp` via `PROXY_REFERENCE_HP` × tier / `proxy_max_active` via `PROXY_TIER_MAX_ACTIVE` — the load-bearing count wall = boss-grading lever / `attack_interval_s`) seeking the graded band: neither D3-evaporate (army melts, no contribution) nor D2-dominance (faceroll). `proxy_max_active` is the primary lever (max army boss-DPS = `proxy_max_active × per_proxy_realized_dps`). Pre-fire resource-bound projection (Discipline #1.1): the W2 load-bearing proof was <5s wall; a magnitude sweep is a bounded multiple, well under the 104k-fight budget — declare peak memory + verify vs host RAM.
+Math-note-first: `simulation/math/proxy-fight-calibration-<date>.md`. Derive the four fight magnitudes (`damage_multiplier` / `base_hp` via `PROXY_REFERENCE_HP` × tier / `proxy_max_active` via `PROXY_TIER_MAX_ACTIVE` — the load-bearing count wall = boss-grading lever / `attack_interval_s`) seeking the graded band: neither D3-evaporate (army melts, no contribution) nor D2-dominance (faceroll). `proxy_max_active` is the primary lever (max army boss-DPS = `proxy_max_active × per_proxy_realized_dps`). **#24 isolation (Gate-1 fold B):** isolation = each swept axis moves against the other three HELD, per Discipline #24; `proxy_max_active` is "primary" in *leverage*, not in *sweep-exclusivity* — the grid is a proper single-parameter-isolated sweep, not a coupled one. Pre-fire resource-bound projection (Discipline #1.1): the W2 load-bearing proof was <5s wall; a magnitude sweep is a bounded multiple, well under the 104k-fight budget — declare peak memory + verify vs host RAM.
 
 ## Cross-seam contract change? (Principle 6 gate)
 
 The calibration SETS values in `proxy_vocabulary_bridge.py` — **rocket's file.** Per the proxy_commander pattern, gamora derives the constants; **rocket un-scaffolds** (applies gamora's calibrated values), mirroring the calibrated Set-#6 ownership. No schema field change; internal magnitude values only.
 - `Round-trip: not applicable — no cross-seam schema change; magnitude values only. Cross-seam APPLY is a rocket follow-on (un-scaffold gamora's calibrated constants), coordinated at completion.`
+- **Rocket-apply handle (Gate-1 fold C):** the un-scaffold apply is a follow-on micro-dispatch KR authors at D3 completion — an additive magnitude edit to the four constants (`:68/77/232/255`); MIGRATION.md N/A (no schema change); jack-ryan Gate-2 on the applied values against gamora's math-note. This closes the ownership loop so the calibrated constants don't strand in a math-note.
 
 ## Scope
 
@@ -74,7 +77,7 @@ The calibration SETS values in `proxy_vocabulary_bridge.py` — **rocket's file.
 ## Open questions for the agent to resolve (document; escalate the tag-collision one to KR)
 
 - Tag name collision (see Scope) — resolve with KR before tagging
-- Whether `mini_boss` + `boss_with_adds` are the right two fixtures for the demo roster's actual boss shapes, or whether the demo's specific lieutenant/champion kits need bespoke fixtures
+- Whether `mini_boss` + `boss_with_adds` are the right two fixtures for the demo roster's actual boss shapes, or whether the demo's specific lieutenant/champion kits need bespoke fixtures. **(Gate-1 fold D):** if bespoke demo-boss fixtures are judged necessary, that is a scope-amendment → escalate to KR, do not self-authorize.
 
 ## References
 

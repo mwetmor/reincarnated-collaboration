@@ -18,7 +18,7 @@ The One Realm demo is the denominator: a free Steam demo, one ~25–27 min realm
 | # | Agent | Task | §ref | Tracker | Status |
 |---|---|---|---|---|---|
 | D2 | rocket | hand-authored proxy decls for 2–3 demo summoner kits | §5.2 | III.1b MVP-SPLIT | **🔥 FIRING** (Matt-fired 2026-07-02; no deps) |
-| D3 | gamora | demo summoner sim-certification (W3-lite) | ask 3 (ratified) | III.1b | **✓ RATIFIED — queued after D2** (Gate-1 before build) |
+| D3 | gamora | demo summoner sim-certification (W3-lite) | ask 3 (ratified) | III.1b | **🔥 FIRING** (D2 landed; Gate-1 CLEARED 2026-07-02 — ENDORSE-WITH-CONCERNS, folds A–D applied) |
 | D1 | star-lord | one-realm emission hand-join (single Godot-consumable bundle) | §5.1 | II.3 +1 MVP-CRITICAL | **GATED on emission inspection** (in-flight; feeds D1's mandatory schema note) |
 | D4 | drax | Godot bundle loader | §6.1 | game tracker | GATED on D1 contract |
 | D5 | drax | verb realization incl. summon | §6.2 | game tracker | GATED on D4 + D2 decls |
@@ -66,7 +66,7 @@ The demo-certification slice was authored HELD (scope-amendment beyond the ratif
 - **Cross-seam contract (Principle 6):** D1⟷D4 is the bundle-schema contract → MIGRATION.md required (star-lord authors the bundle schema; drax consumes). D2→D1 is intra-engine (rocket decl surface already exists on `PlayerClassV2.to_dict()` `proxies`).
 - **Wave-entry discipline (§3.10):** a wave is not entered until sub-agents FIRE. This MASTER is authored; D1+D2 fire on Matt's go.
 
-**Gate-1 status (2026-07-02):** first-fire wave cleared jack-ryan DESIGN-MODE Gate-1 — **D2 ENDORSE (fire as-authored); D1 ENDORSE-WITH-CONCERNS**, three contract-hygiene folds applied (a: schema note reframed as mandatory pre-emit artifact per Discipline #1; b: drax handshake gates the schema LOCK, not the round-trip; c: bundle schema emission-path-sourced only, no telemetry-boundary widening). D3-HELD call ENDORSED (ADR-002 tiered approval / Principle 4 — scope-amendment needs fresh Matt-auth). D4–D10 carry Gate-1-before-fire; design-track dispatches (D5 verbs, D6 floors register, D8 grimoire-fantasy) also draw gandalf design-fit as they approach firing.
+**Gate-1 status (2026-07-02):** first-fire wave cleared jack-ryan DESIGN-MODE Gate-1 — **D2 ENDORSE (fire as-authored); D1 ENDORSE-WITH-CONCERNS**, three contract-hygiene folds applied (a: schema note reframed as mandatory pre-emit artifact per Discipline #1; b: drax handshake gates the schema LOCK, not the round-trip; c: bundle schema emission-path-sourced only, no telemetry-boundary widening). D3-HELD call ENDORSED (ADR-002 tiered approval / Principle 4 — scope-amendment needs fresh Matt-auth); **Matt then ratified D3, which cleared jack-ryan Gate-1 2026-07-02 — ENDORSE-WITH-CONCERNS, four hygiene folds applied (A: `src/reincarnated/`-relative path note; B: #24 isolation phrasing — leverage-primary ≠ sweep-exclusive; C: rocket un-scaffold apply named as a KR follow-on micro-dispatch with Gate-2; D: bespoke-fixture need → scope-amendment escalation, not self-authorize). None block build; D3 FIRING.** D4–D10 carry Gate-1-before-fire; design-track dispatches (D5 verbs, D6 floors register, D8 grimoire-fantasy) also draw gandalf design-fit as they approach firing.
 
 ## 5. In-flight work continues (§9)
 
