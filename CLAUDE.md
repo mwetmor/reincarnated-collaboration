@@ -70,7 +70,7 @@ The session reads the OP + role definition + session-start docs and operates as 
 | **STORY spec (end-state)** — *Reap. Die. Rise.* death-faith frame, keystone, gameplay loop, style register | `canonical/reap-die-rise-story/` (read `00-index.md` first) |
 | **ENGINE spec (end-state)** — generation, simulation, balance, gear/stat/T4, progression, build/perf stack | `canonical/reap-die-rise-engine/` (read `00-index.md` first) |
 | **GAME spec (end-state)** — playable-product scope: One Realm MVP demo (THE DENOMINATOR), demo-critical vs launch-scope, wishlist gates | `canonical/reap-die-rise-game/` (read `00-index.md` first) |
-| **Build-vs-spec deltas + forward sequencing** — what's owed, open queues (replaces the retired roadmap) | `canonical/current-to-end-state/` (`…-engine.md` / `…-story.md` / `…-game.md`) |
+| **Build-vs-spec deltas + forward sequencing** — what's owed, open queues (replaces the retired roadmap) | `canonical/current-to-end-state/` (`…-engine.md` / `…-story.md` / `…-game.md` / `…-serial-content-emission.md`) |
 | **Matt decision queue** — human-in-the-loop items; check at session start/end | `canonical/matt_decision_needed/` |
 | **Matt to-do queue** — actions only Matt can perform (host/credential-level), parked with what they unblock | `canonical/matt_to_do/` |
 | Team topology + scope map | `agentic_orchestration/AGENTS.md` |

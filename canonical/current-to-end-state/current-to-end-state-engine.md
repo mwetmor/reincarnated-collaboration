@@ -33,6 +33,8 @@ Matt commissioned the emission-pipeline mirror of the sim inspection (two target
 
 Corrections folded in place at II.1 (diagram + table) and II.3 (gap list). **Open Matt rulings:** (i) the **tracker-split** — PART II → its own `current-to-end-state-serial-content-emission.md` (gandalf lean: SPLIT; jack-ryan ratifies structure per § 6.7); (ii) the **demo flavor decision** — skill flavor_text for the demo = one bounded LLM naming pass over ~10 kits' skills, or accepted-NULL at demo scope; monster names for the demo realm likewise need one naming pass (or hand-curation — AI-tell line D7 favors curated output either way).
 
+**Post-inspection Matt rulings (same session):** (i) **SPLIT RATIFIED** — PART II folded to `current-to-end-state-serial-content-emission.md` (fourth ledger; PART II is now a pointer stub); (ii) **all-six-types demo bundle with FULL LLM flavor** (weapons/factions/gear IN — the §5.1 holds overruled; inspection showed wiring-only); (iii) **zero hand-authored shipped content** — demo roster curated from a real un-gated emission run → **III.1b(c) flipped DEMO-CRITICAL**, D2 decls re-purposed to calibration fixtures, W3-PARK "no proxy build" clause superseded (dodge-ceiling deferral stands); (iv) **autonomous non-agentic pipeline direction registered** (callable → registered → triggered → surfaced; new ledger PART C).
+
 **Signed:** gandalf, 2026-07-02 (fold-back unit; star-lord survey is the evidence substrate and D1's mandatory pre-emit schema-note feed).
 
 ---
@@ -271,60 +273,15 @@ Carried B-series blockers (detail: predecessor spine doc): keystone-ceiling open
 
 ---
 
-## PART II — Content-emission pipeline: current state → end state
+## PART II — Content-emission pipeline → **SPLIT OUT 2026-07-02** to its own ledger
 
-### II.1 Current state — two emit tracks that do not meet
-
-```
-TRACK NEW (cycle-14 wave5) → reincarnated-loadout app JSON
-  run_season_production.py → kit-candidates → gauntlet+PM1 → mechanical-archive
-    → cohesion-judge LLM (faction identity / names) → joint-gate → cycle14_wave5_emitter
-  KIT+FACTION-RICH, but: no monsters; skill flavor_text NULL; main_weapon NULL.
-
-TRACK OLD (season_exporter) → exports/<id>/{metadata,classes,monsters,gear_pool,...}.json
-  SIM-READY bundle SHAPE, but: kit/monster/gear-only (factions ABSENT, weapon=null);
-  one-shot generate-season CLI driver DELETED (b6 deletion, 4b089e3 — correct: legacy
-  pre-spatial path). NEVER DRIVEN for a live season (2026-07-02 verified: exports/
-  holds only stale v2_narrow research artifacts); stored seasons are STUB-NAMED
-  (class_0001 / monster_00001, flavor NULL — LLM naming paths exist, never run).
-
-TRACK THIRD (kit_space_emitter, EAA-3/EAA-4) → data/kit_space/ per-kit JSONs + chronicle.
-  A kit-identity STORE, not a Godot bundle. Live, independent of both main tracks.
-  (Mapped 2026-07-02 — previously absent from this tracker.)
-
-THE GAP: the two main tracks never meet. No single driver emits all content into one
-  Godot-consumable bundle. cycle-14 content never reaches season_exporter;
-  season_exporter never gets factions / weapon-descriptors / cycle-14 kits.
-```
-
-**The six-content-type honest state** (NPC struck 2026-06-18 — "npc" = a companion/mercenary ally or future Engine-2 townsfolk, which is **future-product scope**, NOT one of the engine's six current content types):
-
-| Type | State | Evidence |
-|---|---|---|
-| **kits** | WORKING (solo) / **summoner EMIT GATED-OUT (gap → III.1b)** | `classes.json` full stat_distribution + skills + ~~LLM names~~ *(C-4 2026-07-02: stored old-track seasons are STUB-named `class_0001`, flavor NULL; cycle-14 kit names/flavor ARE populated via Wave B)*; ~~every kit emits `proxies:[]`~~ *(C-3 2026-07-02: `[]` at `PlayerClassV2.to_dict()` generation layer only — `proxies` is ABSENT from emitted ClassData JSON, gap (f))* — summoner **content-emit** unbuilt, not "deferred" *(precision 2026-07-02: the summoner FIGHT mechanism is built, W1+W2 — the gap is emit + calibration)* |
-| **monsters** | WORKING (old track, mechanically) / MISSING (cycle-14) | `monsters.json` 44 w/ stats+archetype; ~~+flavor~~ *(2026-07-02: name/flavor NULL in stored seasons — `name_monster()` path exists, never run)*; cycle-14 is kit-only |
-| **factions** | PARTIAL — generated, never written to bundle | schema ~~`schemas.py:1174`~~ *(C-1: `ExportFactionCluster` at `schemas.py:588`; `ExportSeason.faction_clusters` at `:1395`)*; `_export_season_inner()` never writes it; `emit_faction_block()` (`cycle14_unified_bundle_emitters.py:211`) built+validated, unwired |
-| **gear** | ~~WORKING~~ **WRITER-WORKS-WHEN-CALLED** *(C-2 2026-07-02)* | `gear_pool.json` 200-item writer + rolled_effects exists (`season_exporter.py:471-563`); **no complete `exports/<id>/` for any live season**; LLM names only if pipeline run w/ real client |
-| **weapons** | PARTIAL — identity in substrate, not emitted | `main_weapon=None` everywhere (explicit: `cycle14_wave5_emitter.py:518` avoids WeaponSlot schema mismatch); `emit_weapon_descriptor()` (`:522`) built+validated, unwired |
-| **flavortext** | ~~WORKING (class/monster/gear)~~ **PATHS-EXIST, LARGELY UNWIRED** *(2026-07-02)* / GAP (cycle-14 skill 100% NULL) | cycle-14 kit name+flavor LIVE (Wave B, `phase5_orchestrator.py`); skill/monster/gear flavor = `naming.py` paths present, **not invoked** in either live track — root cause gap (e) |
-
-### II.2 End state
-
-One driver emitting all six types into one sim-ready Godot bundle, with the cycle-14 kit/faction richness and the old-track monster/gear completeness joined.
-
-### II.3 The gap (emission) — mostly rocket/star-lord plumbing; gandalf surface = content-shape specs
-
-- **[MVP-CRITICAL 2026-07-02] bounded ONE-REALM emission hand-join** — a single demo-realm Godot bundle (kits + monsters + gear + flavortext) as a hand-join of the two tracks, **NOT the II.2 unified driver** — *star-lord* (one-realm §5.1). Weapon descriptors nice-not-critical for the demo; faction fields stay presentation-side (III.7). The (a)–(d) general plumbing below stays launch-scope. **Inspection-verified ACHIEVABLE (2026-07-02, star-lord §Q2):** sources = cycle-14 ClassData + old-track `seasons/<id>/monsters/` + `_load_gear_pool()` + D2 decls inserted per summoner kit; the assembly driver is the build; skill-flavor + monster-name passes are the open demo flavor decision (SESSION-DELTA above).
-- (a) single driver routing cycle-14 content through (or replacing) `season_exporter` — *star-lord/rocket*; route-vs-replace = explicit Tier-3 Matt PARK (`P1_ARCHITECTURE_PARK`, `cycle14_unified_bundle_emitters.py:46`)
-- (b) monster generation wired into the cycle-14 track — *rocket/star-lord*
-- (c) `faction_clusters` actually written — *star-lord, gated on the faction content-shape spec (gandalf)*; `emit_faction_block()` built+validated, wiring only
-- (d) weapon descriptor wired `substrate_weapon_binding → main_weapon` — *star-lord, gated on the weapon content-shape spec (gandalf)*; `emit_weapon_descriptor()` built+validated, wiring only
-- **(e) [ADDED 2026-07-02, C-5] skill `flavor_text` wiring** — 100% NULL in cycle-14 output (60 skills sampled); `name_skill()` (Layer One) never called in the cycle-14 pipeline; `phase5_skill_naming.py` writes WS1A4 judgment fields, not `flavor_text` — *star-lord (wiring) + gandalf (whether demo accepts NULL or fires one bounded naming pass)*
-- **(f) [ADDED 2026-07-02, C-5] `proxies` absent from emitted ClassData shape** — not even `[]`; `build_proxies_surface()` output has no landing key in `cycle14_wave5_emitter.py::build_class_data()`; the D1 assembly driver must carry the D2 decls — *star-lord, joined to III.1b(c)*
-- **NEW v2 emission demands** (PART III.6): encounter-geometry-per-floor (seam-ownership unresolved); faction as presentation-restyle only (the hard invariant — III.7).
-- **Emission HELD / Matt-gated** `[export/MIGRATION.md v1.81-1.82]`: telemetry supports validation; it does NOT unlock emission.
-
-**The bridge to Godot (Track B) does not exist** — content-consumption loader + GDScript combat-parity re-implementation are greenfield and the longest pole overall. This is downstream of both A and B.
+> **This PART folded to `current-to-end-state-serial-content-emission.md`** (same folder) — **Matt-ratified 2026-07-02** (*"I do certainly agree with the separation/creation"*). The emission pipeline is a cross-seam *product* (engine generation + LLM identity + export + consumption), now tracked as the **fourth ledger** in the family. Everything that lived here moved there, corrected against the star-lord two-state inspection (`9873c6b`): the three-track current state (TRACK NEW / TRACK OLD / kit_space), the six-content-type matrix with corrections C-1…C-5, the end state (**autonomous non-agentic callable pipeline + run registry + web tracker** — Matt direction 2026-07-02, staged callable → registered → triggered → surfaced), and the gap queue with the **demo-critical set** (all-six-types bundle with full LLM flavor; flavor-completion passes; faction + weapon wiring; proxy calibration → **summoner un-gate + demo emission run**; minimal run registry).
+>
+> **Engine-seam interlocks retained here:**
+> - **III.1b** keeps the sim-side summoner residual (calibration + grading); the content-emit un-gate = the new ledger's **D.1 #7** (demo-critical per Matt 2026-07-02; the 2026-06-24 *"Thanks for flipping PROXY"* ratification is its spec authority).
+> - **Emission HELD / Matt-gated** `[export/MIGRATION.md v1.81-1.82]`: telemetry supports validation; it does NOT unlock emission. (Unchanged; the demo emission run is its first Matt-authorized exercise.)
+> - **The bridge to Godot (Track B) does not exist** — the consumption-side loader is tracked in the game tracker (one-realm §6.1); still the longest pole overall.
+> - Completion target **(B)** at the top of this doc now reads against the new ledger.
 
 ---
 
@@ -347,8 +304,8 @@ Each item: what the v2 design asks · what the engine currently does · the gap 
 - **v2 asks**: summoning is a **pillar**, not flavor — the grimoire capture-and-summon economy (§11), temporal summoning of coveted champions into your next dungeon at your level (§13), and **summoner-as-revealed-identity** ("a player who chooses summoner every time *is* a summoner," §12/§17). Player-side proxy combatants are core to the loop.
 - **Support-role rides this (confirmed 2026-06-24; dependency SATISFIED sim-side 2026-07-02)**: support is NOT missing from the engine — `_ROLE_DEF_BASE["support"]="mitigator"`, `_ROLE_CTRL["support"]="mixed"` `[bc_target_source.py:29-40]`, aura geometry valid for support/any-element `[ability_grammar.py:250-257]`, and full support econ/level/weight tables exist `[bc_target_composer.py]`. It is `check_infeasibility`-deferred ONLY because Profile-A is solo (no ally to support). **The ally context now exists**: backline/support allies (`base_hp==0`, no damage) already enter the positional set (`_is_fighting_decl`, `spatial_engine.py:103` → non-attacking backline) — only the rocket bin un-gate remains.
 - **Engine does** *(corrected 2026-07-02)*: **sim side — the full proxy-combat path is LIVE**: spawn + position (`_build_positioned_allies` `spatial_engine.py:1791` / `_spawn_one_ally` `:1730`, owner-ring, `allegiance="ally"`), allegiance-total navigation (`_navigate_entity` `:991`), realized damage OUT on cadence through the same `_apply_skill_damage` path the player uses (`:2321-2399`), damage IN + death (mob attack-target generalized `:2173-2204`; standard `hp<=0` flip), graded through the SAME boss survive-and-kill gate (`gauntlet_sim.py:646`). Proven: W2 spike — army WR 1.000 vs caster-alone 0.000, 60000.0 realized ally damage, boss dies to ally hits. **Generation side — still gated**: `_DEFERRED_PROXY_BINS = {proxy-light, proxy-heavy}` `[bc_target_composer.py:97,318]`; ~~`reason="sim is solo-only (Profile A); proxy-creation mechanics absent"`~~ *(the recorded reason-string is now false in both clauses)*; every emitted kit carries `"proxies": []` `[proxy_vocabulary_bridge.py:22-23]`; the **fight magnitudes are SCAFFOLD** (`damage_multiplier` 1.0 `:232`, `PROXY_REFERENCE_HP` 20000 `:68`, `PROXY_TIER_MAX_ACTIVE` `:77`, `DEFAULT_ATTACK_INTERVAL_S` `:255` — "gamora calibrates, do-not-self-adjust"; distinct from the CALIBRATED Set-#6 contribution constants, `proxy_commander.py:59-70`).
-- **Gap** *(narrowed 2026-07-02)*: ~~The sim cannot create, position, or resolve a player-summoned proxy that deals spatial damage / takes aggro~~ *(FALSIFIED by W1+W2 — inspection §4)*. The live residual: **(a)** fight-magnitude calibration (the scaffold set above; `proxy_max_active` is the load-bearing count wall = the boss-grading lever, spec §5/§7.4); **(b)** grading criterion — W2 declined a graded WR band (knife-edge under the no-death-risk boss model); the encounter-model SHAPE is now RATIFIED (W3 PARK stamp 2026-06-30: build-floor + dodge-ceiling), and the **build-floor grade is LIVE** while the dodge-*ceiling* stays correctly Godot-gated; **(c)** content-emit (`_DEFERRED_PROXY_BINS` lift + 25% emission share + `check_infeasibility` reason-string) — launch-track.
-- **Resolution path** *(rewritten 2026-07-02)*: ~~build the player-side multi-actor path~~ *(BUILT — W1+W2)*. Remaining: **calibration slice** (gamora derives the four fight magnitudes on injected fixtures vs `boss_with_adds` + `mini_boss`, seeking neither D3-evaporate nor D2-dominance; rocket applies the calibrated values in `proxy_vocabulary_bridge.py` — the proxy_commander ownership pattern; math-note-first per Discipline #1; NO new production sim code) → **grade at the build-floor** (survive-and-kill + typed-resistance, both live) → **launch emit un-gate** (`_DEFERRED_PROXY_BINS` lift once graded proxy kits are wanted in generated rosters). The III.1 type-chart heuristic still does NOT discharge summoner *viability* — but viability now needs a calibration sweep, not an architecture. **Demo slice (one-realm §5.2 + proposed ask 3):** rocket hand-authors the 2–3 demo summoner decls; the calibration slice + build-floor grade certify them — pending Matt's ruling (partially supersedes the W3 PARK's "no proxy build," which predates the One Realm mandate).
+- **Gap** *(narrowed 2026-07-02)*: ~~The sim cannot create, position, or resolve a player-summoned proxy that deals spatial damage / takes aggro~~ *(FALSIFIED by W1+W2 — inspection §4)*. The live residual: **(a)** fight-magnitude calibration (the scaffold set above; `proxy_max_active` is the load-bearing count wall = the boss-grading lever, spec §5/§7.4); **(b)** grading criterion — W2 declined a graded WR band (knife-edge under the no-death-risk boss model); the encounter-model SHAPE is now RATIFIED (W3 PARK stamp 2026-06-30: build-floor + dodge-ceiling), and the **build-floor grade is LIVE** while the dodge-*ceiling* stays correctly Godot-gated; **(c)** content-emit (`_DEFERRED_PROXY_BINS` lift + `check_infeasibility` reason-string) — ~~launch-track~~ **DEMO-CRITICAL** *(Matt 2026-07-02, zero-hand-authored-content ruling: demo summoners ship from a real un-gated emission run — serial-emission ledger D.1 #7; the ~25% share TUNING stays launch)*.
+- **Resolution path** *(rewritten 2026-07-02)*: ~~build the player-side multi-actor path~~ *(BUILT — W1+W2)*. Remaining: **calibration slice** (gamora derives the four fight magnitudes on injected fixtures vs `boss_with_adds` + `mini_boss`, seeking neither D3-evaporate nor D2-dominance; rocket applies the calibrated values in `proxy_vocabulary_bridge.py` — the proxy_commander ownership pattern; math-note-first per Discipline #1; NO new production sim code) → **grade at the build-floor** (survive-and-kill + typed-resistance, both live) → **demo emit un-gate** *(flipped 2026-07-02)* (`_DEFERRED_PROXY_BINS` + `ProxySpawn` lift — both Matt-ratified 2026-06-24 — then ONE real seasonal emission with proxy bins live; demo summoners are curated from its gauntlet-passed output). The III.1 type-chart heuristic still does NOT discharge summoner *viability* — but viability now needs a calibration sweep, not an architecture. ~~**Demo slice (one-realm §5.2 + proposed ask 3):** rocket hand-authors the 2–3 demo summoner decls; the calibration slice + build-floor grade certify them — pending Matt's ruling~~ *(RULED 2026-07-02: hand-authored decls re-purpose to calibration FIXTURES only — zero hand-authored content ships; one-realm §5.2 amended. The W3 PARK's "no proxy build" clause is superseded by this ruling chain; its dodge-ceiling deferral stands.)*
 - **Owner**: **gamora** (fight-magnitude calibration + build-floor grading; ~~multi-actor sim + proxy combat~~ *done*) + **rocket** (decl hand-authoring for the demo; scaffold un-set; emit un-gate at launch); **gandalf** design-fit on summoner viability bands + the grimoire-summon combat contract. ~~Scope jointly with III.1 — shared multi-actor-sim foundation~~ *(decoupled 2026-07-02: the shared root is discharged for the player-side proxy case; III.1 kit-vs-kit remains its own unbuilt item — a second player-KIT slot does not exist, `spatial_engine.py:2944` single fight-entry confirmed accurate)*.
 
 ### III.2 — Per-kit level model (the descent is unvalidated) · [LAUNCH-SCOPE 2026-07-02 — demo sawtooth hand-tuned by playtest (one-realm §5.3); instrument still Q2-gated]
