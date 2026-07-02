@@ -5,7 +5,7 @@
 **Approved by:** Matt 2026-07-02 (one-realm §5.1; the first of the two bounded engine asks)
 **Estimated effort:** 1–2 days
 **Acceptance:** a single Godot-consumable bundle for the demo realm (kits + monsters + gear + flavortext) exists, validates, and its schema is contract-handshaked with drax (D4).
-**Status:** GATED on the in-flight emission inspection (Matt 2026-07-02: "D1 after the emission inspection lands — it feeds D1's mandatory schema note"). Gate-1 folds already applied (see MASTER §4). Consumes D2's decls for the summoner-kit content. Fires when the inspection lands (likely this working window).
+**Status:** 🔥 FIRING (KR-fired 2026-07-02). The in-flight emission inspection LANDED (`9873c6b` + gandalf fold `9da88d9`) — D1's gate cleared per Matt's ruling. Gate-1 folds applied (MASTER §4). Consumes D2's decls for summoner-kit content (D2 running; slot when it lands — decls are fast). Schema note builds on the landed inspection §Q2.
 
 ## Context
 
@@ -15,6 +15,7 @@ This bundle is the **root dependency of the entire Godot critical path** (§6). 
 
 ## Required reading before starting
 
+- **`agentic_orchestration/star-lord/notes/2026-07-02-emission-two-state-inspection.md` (YOUR OWN inspection — the primary input for the schema note).** It already establishes: the demo hand-join is ACHIEVABLE with bounded plumbing; §Q2 specs exactly what a minimal one-realm bundle needs + the **assembly driver** you must build (reads cycle-14 ClassData kits/names + old-track monsters + gear via season_exporter → one consolidated Godot JSON); where D2's proxy decls enter (the `proxies` key on ClassData — the cycle14 emitter drops it today, your driver must include it); the flavortext gap (cycle-14 skill `flavor_text` is NULL; monster/gear flavor need old-track; §Q4 naming-call inventory — resolve the demo's flavortext sourcing); factions are presentation-side (III.7, non-blocking); weapons nice-not-critical (§5.1, `main_weapon` NULL / `emit_weapon_descriptor` unwired).
 - `canonical/reap-die-rise-game/one-realm-mvp-scope.md` §0–§6 (the denominator; §5.1 is your ask, §3 the roster shape, §4 the scope table)
 - `current-to-end-state-engine.md` II.3 (emission gap — your bullet is the "+1 MVP-CRITICAL bounded one-realm hand-join"; the (a)–(d) general plumbing stays launch)
 - Your own AGENT_STATE + the existing emitters: `cycle14_unified_bundle_emitters.py` (:363-373 monster bundle fields — the banked bundle-field surface), season_writer output shape
