@@ -14,6 +14,10 @@ The buildable engine spec — generation, simulation, balance, gear/stat/T4 arch
 
 `build-architecture.md` · `backend-networking-stack.md` · `performance-target-specs.md` · `godot-agent-contract.md` · `vfx-pipeline.md` · `design-decisions-session.md`
 
+## ✓ FOLDED IN — cosmograph-trio engine survivor (2026-07-01)
+
+**Creation-flow engine contract** (from `story/2026-06-05-cosmograph-pivot.md` §4.1 + `story/2026-06-07-earth-avatar…` §12.6–12.7, folded per story-tracker A11; sources deleted): **the engine pre-generates the kit corpus; the game (Binding Rite, `reap-die-rise-story/story-expansion.md §13a`) SELECTS and LOOKS UP — nothing is generated at the altar** (composes with D7 lookup-not-generation). The rite's contract on the engine: **(1)** nearest-kit lookup over the pre-generated corpus **honoring the player-named precedent** (the elicitation-cascade INPUT ordering); **(2)** INPUT vs OUTPUT partition — inputs are player-committed (ancestry/element/weapon-form/power/style/harvest/horizon vocabulary), outputs are engine-emerged and narrated at emergence (attributes, off-hand, resource model, ailments, passives), never selected; **(3)** **coverage-filtered option display** — each cascade layer surfaces only options with non-zero substrate coverage within the committed precedent (no 0-match state reachable). Presentation halves live at game-tracker A′3; this folder owns only the lookup/emission contract.
+
 ## Folds IN — the numbered engine spine (`canonical/37–51`)
 
 KEEP→ENGINE: `37-engine-and-game-two-products` · `38-downstream-delivery-strategy` · `39-qd-engine-end-to-end-workflow` · `40-gear-balance-guide-architecture` · `41-progression-framework` · `42-stat-sheet-modifier-partition` · `46-concentration-architecture` · `47-damage-scaling-architecture` · `49-loadout-sample-player-surface` · `50-bounded-viability-with-specialization` · `51-investment-scaling-6-pattern`

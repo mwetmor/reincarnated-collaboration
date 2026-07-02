@@ -22,8 +22,8 @@ The locked story frame of *Reap. Die. Rise.* — death-faith premise, the demigo
 
 Per `current-to-end-state-story.md` PART C — the surviving experiential-structure docs, reconciled to v2 (retired labels die, structure survives):
 - ~~`2026-06-11-avatar-projection-and-hall-of-heroes-framing`~~ **✓ FOLDED 2026-06-30 → `story-expansion.md §12`** (Hall/possession vs. cosmograph/possibility; molting-as-harvest; sparse-hub; D7 lookup-not-generation). v2 forks → tracker B1/B2; presentation survivor → game-tracker A′2. Source deleted.
-- `2026-06-07-earth-avatar-cosmograph-creation-moment-architecture` — the creation-moment scene
-- `2026-06-05-cosmograph-pivot` — cosmograph = possibility space
+- ~~`2026-06-07-earth-avatar-cosmograph-creation-moment-architecture`~~ **✓ FOLDED 2026-07-01 → `story-expansion.md §13a` (The Binding Rite)** — creation moment reskinned per A11 (dark sacrament): dual-path selection, player-named-precedent elicitation cascade (re-voiced to the rite-conductor), INPUT/OUTPUT partition, vessel-as-canvas, sign-the-pact. Presentation → game-tracker A′3 + B5. Source deleted.
+- ~~`2026-06-05-cosmograph-pivot`~~ **✓ FOLDED 2026-07-01** (with `2026-06-07-…cross-surface-LOD-architecture`) — browse-surface DEAD (A11; possibility is encountered, not shopped); night-sky presentation + LOD + rune-glyph register banked → game-tracker A′3; engine lookup-boundary survivor → `reap-die-rise-engine/00-index.md` fold note. Sources deleted.
 - ~~`2026-06-13-companion-as-hall-of-heroes-ally-commitment`~~ **✓ FOLDED 2026-07-01 → `story-expansion.md §12`** (companion = claimed soul, never a past self — A11 two-register ruling; Path Pure run-1-alone survives; residue → tracker B3). Source deleted.
 - ~~`2026-06-22-seasonal-descent-architecture-recognition` + `…-faction-descent-and-reward-loop-recognition` + `…-content-audit`~~ **✓ FOLDED + DELETED 2026-06-30** → the descent trio captured in `gameplay-loop-design.md` §5–§11/§23 + engine-tracker PART III + game-tracker B2; the `faction-descent` anti-faction mega-boss lead ruled SUPERSEDED (v2 §8 Nemesis). Sources deleted; git holds lineage.
 
