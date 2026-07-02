@@ -30,6 +30,7 @@ Presentation-side build/verification infra; no engine schema change.
 - [ ] The load-bearing hotspot: D7 (50+ enemies at min-spec for the escape) — the cadence must catch a density regression before it's a launch surprise
 - [ ] **First real application (Matt directive 2026-07-02): the pre-D7 min-spec perf spike** against D7's density-per-area spec — prove the density target holds at the GTX-1650-class floor BEFORE the full AI+horde build. If it fails, D7's density spec re-budgets first.
 - [ ] Document the standing gate so each subsequent drax dispatch runs it
+- [ ] **Framerate-floor ratification routing (Gate-1 fold):** once Matt ratifies the framerate floor (open question 2), route it to jack-ryan for a decisions-log entry — it's a demo-acceptance invariant, not routine implementation (decision-log-format table)
 - [ ] AGENT_STATE updated
 - [ ] Tag: `drax/v-godot-min-spec-cadence-1`
 

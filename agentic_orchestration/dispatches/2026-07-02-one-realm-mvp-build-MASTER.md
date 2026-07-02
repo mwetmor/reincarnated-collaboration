@@ -19,14 +19,14 @@ The One Realm demo is the denominator: a free Steam demo, one ~25–27 min realm
 |---|---|---|---|---|---|
 | D2 | rocket | hand-authored proxy decls for 2–3 demo summoner kits | §5.2 | III.1b MVP-SPLIT | **🔥 FIRING** (Matt-fired 2026-07-02; no deps) |
 | D3 | gamora | demo summoner sim-certification (W3-lite) | ask 3 (ratified) | III.1b | **🔥 FIRING** (D2 landed; Gate-1 CLEARED 2026-07-02 — ENDORSE-WITH-CONCERNS, folds A–D applied) |
-| D1 | star-lord | one-realm emission hand-join (single Godot-consumable bundle) | §5.1 | II.3 +1 MVP-CRITICAL | **GATED on emission inspection** (in-flight; feeds D1's mandatory schema note) |
-| D4 | drax | Godot bundle loader | §6.1 | game tracker | GATED on D1 contract |
+| D1 | star-lord | one-realm emission hand-join (single Godot-consumable bundle) | §5.1 | II.3 +1 MVP-CRITICAL | **✓ DONE** (`star-lord/v-one-realm-bundle-handjoin-1` @ `20e5e0f`) — schema note DRAFT-pending-drax-handshake; lock-emit-with-D2-decls is a star-lord follow-on after drax signs |
+| D4 | drax | Godot bundle loader | §6.1 | game tracker | **🔥 FIRING** (D1 landed; Gate-1 CLEARED — ENDORSE-WITH-CONCERNS, folds 1–4 applied; single drax session w/ D10) |
 | D5 | drax | verb realization incl. summon | §6.2 | game tracker | GATED on D4 + D2 decls |
 | D6 | drax | three-beat floors (camera ratifies first floor) | §6.3 | game B1/A′1 | GATED on D4; camera beat EARLY |
 | D7 | drax | enemy AI baseline + horde-density RENDERING | §6.4 | III.3 LAUNCH (sim) / Godot render | GATED on D5+D6 |
 | D8 | drax | grimoire + scouting UI (minimal) | §6.5 | III.8 MVP-CRITICAL | parallel-safe (UI-independent) |
 | D9 | drax | king-rig → descent stitch (Binding-Rite-LITE) | §6.6 | game A′2 | GATED on D6 + king-rig (LIVE) |
-| D10 | drax | min-spec verification cadence (GTX-1650-class) | §6.7 | standing gate | STANDING — established early, applied to D4–D9 |
+| D10 | drax | min-spec verification cadence (GTX-1650-class) | §6.7 | standing gate | **🔥 FIRING** (stood up alongside D4, single drax session; Gate-1 ENDORSE) |
 
 ## 2. Sequencing rationale + dependency graph (Matt-ruled fire order, 2026-07-02)
 

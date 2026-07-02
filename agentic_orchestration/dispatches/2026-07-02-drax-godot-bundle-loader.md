@@ -25,18 +25,19 @@ You are the **consumer** of D1's bundle-schema contract. The handshake is the ga
 
 ## Scope
 
-- [ ] Contract handshake with star-lord on D1's bundle schema (loader ergonomics inform the format) — BEFORE building
+- [ ] **Handshake = sign the schema (Gate-1 fold 2):** answer schema-note open questions 1–5 (packaging / inline-vs-refs / null-handling / ProxyDecl SCAFFOLD acceptance / FloorManifest granularity) at `src/reincarnated/export/math/2026-07-02-one-realm-bundle-schema-note.md`. Your numbered answers ARE the lock signal (a–e); loader ergonomics govern the format. Escalate the signed answers back to KR (KR then fires the star-lord lock-emit follow-on).
+- [ ] **WAIT-for-lock guard (Gate-1 fold 1 — LOAD-BEARING):** do NOT build the loader against a real bundle file until (i) MIGRATION.md v1.83 `schema_status` reads LOCKED AND (ii) the emitted sample bundle contains ≥1 kit with a non-empty `proxies` payload (summoner mandate §3; D2's decls injected). You MAY build the loader against the LOCKED SCHEMA SHAPE (your own signed answers) in parallel; only the round-trip smoke waits on star-lord's emitted+proxies-populated file. Rationale: prevents building against a DRAFT schema or round-tripping a `proxies:[]` bundle that passes while the summon verb is untestable (Principle 6 + Discipline #8).
 - [ ] Godot bundle loader: parse the bundle, instantiate kits + monsters + gear from records (NO hand-built kits)
 - [ ] Per-floor element-rotation manifest consumed from the bundle
 - [ ] Faction restyle consumed as presentation layer (III.7 — restyle only)
-- [ ] Round-trip smoke (load sample bundle → instantiate → field-presence)
+- [ ] Round-trip smoke (load sample bundle → instantiate → field-presence) — **and assert the SCAFFOLD boundary (Gate-1 fold 3):** the loader must NOT bake the four SCAFFOLD proxy magnitudes (base_hp / damage_multiplier / attack_interval_s / proxy_max_active) into anything presented as tuned — they are gamora-D3 calibration targets (schema note :162-165; Discipline #9)
 - [ ] Min-spec check per D10 (standing gate)
 - [ ] `reincarnated-godot/` AGENT_STATE updated
 - [ ] Tag: `drax/v-godot-bundle-loader-1`
 
 ## Acceptance criteria
 
-- [ ] A demo-realm kit/monster/gear set loads from D1's bundle and is playable in Godot
+- [ ] A demo-realm kit/monster/gear set loads from D1's bundle and is playable in Godot — **playability predicate (Gate-1 fold 4, §20d honesty):** at least one loaded kit instantiates with a resolvable primary_attack skill (name + geometry + range_m present and non-degenerate), NOT merely a record that parses
 - [ ] Zero hand-built kits Godot-side (§20d condition demonstrably held — content comes from the bundle)
 - [ ] Round-trip smoke passes (consumer boundary of D1's contract)
 - [ ] D10 min-spec check passes at this stage
