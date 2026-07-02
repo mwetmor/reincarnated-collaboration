@@ -21,14 +21,18 @@ This bundle is the **root dependency of the entire Godot critical path** (§6). 
 - `agentic_orchestration/gamora/notes/2026-07-02-sim-two-state-inspection.md` §Q3 (which demo-load-bearing capabilities are LIVE — element rotation, arena shells, kit power)
 - D2 (`2026-07-02-rocket-demo-summoner-proxy-decls.md`) — the summoner kits' `proxies` payloads are an input to your bundle
 
-## Math-before-code
+## Math-before-code (Discipline #1 — the schema note IS the mandatory pre-emit artifact)
 
-Not a math dispatch. But **write a short bundle-schema note first** (`export/math/` or a schema doc) defining the bundle record shape BEFORE emitting — this is the artifact drax reviews at the contract handshake. Enumerate: kit record (stats/skills/proxies/element/archetype_tag/role_orientation/flavortext), monster record, gear record, per-floor element-rotation manifest, faction-restyle fields (presentation-side, III.7 invariant — faction is a restyle, not a stat change).
+Not magnitude-math, but the **bundle-schema note is the required pre-code artifact — emit does not begin until it exists** (Gate-1 fold, jack-ryan: don't treat it as a "not-math" aside; it is the contract drax reviews and it gates the code). Write it first (`export/math/` or a schema doc) defining the bundle record shape. Enumerate: kit record (stats/skills/proxies/element/archetype_tag/role_orientation/flavortext), monster record, gear record, per-floor element-rotation manifest, faction-restyle fields (presentation-side, III.7 invariant — faction is a restyle, not a stat change).
+
+**Emission-path sourcing (Gate-1 fold c, INFO):** confirm the bundle schema is sourced ONLY from the emission path (season_writer / `cycle14_unified_bundle_emitters.py:363-373`) and does NOT silently widen the `spatial_telemetry.py` star-lord consume-boundary (gamora inspection §63 flags telemetry as a separate consume-contract). If any telemetry field is pulled in, scope it deliberately as a second contract, don't let it leak into the bundle schema.
 
 ## Cross-seam contract change? (Principle 6 gate — YES)
 
-This dispatch **defines a new cross-seam contract**: the Godot-consumable bundle schema (star-lord producer → drax/Godot consumer). **MIGRATION.md REQUIRED** documenting the bundle schema. Acceptance MUST include a round-trip:
-- `Round-trip smoke: emit the demo-realm bundle from the production emission path; load-validate every record type against the schema; hand the schema + a sample bundle to drax (D4) for the contract handshake before the schema is locked.`
+This dispatch **defines a new cross-seam contract**: the Godot-consumable bundle schema (star-lord producer → drax/Godot consumer). **MIGRATION.md REQUIRED** documenting the bundle schema.
+
+**The handshake gates the schema LOCK, not the round-trip (Gate-1 fold b, jack-ryan):** the consumer signs the contract BEFORE the producer commits a shape. So the sequence is: (1) write the schema note → (2) hand it to drax (D4) for review → (3) drax signs / adjusts → (4) LOCK the schema → (5) emit + round-trip. Do not emit-to-lock and then handshake.
+- `Round-trip smoke: after the schema is drax-handshaked and locked, emit the demo-realm bundle from the production emission path; load-validate every record type against the locked schema.`
 
 ## Scope
 
@@ -37,7 +41,7 @@ This dispatch **defines a new cross-seam contract**: the Godot-consumable bundle
 - [ ] Per-floor element-rotation manifest in the bundle (engine-supported today — one-realm §4)
 - [ ] Faction fields present as **presentation-restyle** (III.7 invariant protected — faction does not change damage_scaling/affinity/resistance)
 - [ ] Weapon descriptors: nice-not-critical — include if cheap, do not block the bundle on them
-- [ ] Round-trip smoke + schema handshake with drax
+- [ ] Schema note → drax handshake → LOCK → emit → round-trip smoke (in that order; handshake gates the lock per Gate-1 fold b)
 - [ ] MIGRATION.md (bundle schema, star-lord↔drax boundary)
 - [ ] AGENT_STATE.md updated
 - [ ] Tag: `star-lord/v-one-realm-bundle-handjoin-1`
@@ -47,7 +51,8 @@ This dispatch **defines a new cross-seam contract**: the Godot-consumable bundle
 - [ ] A demo-realm bundle emits from the production path and validates against the schema note
 - [ ] Summoner kits in the bundle carry D2's real `proxies` payloads (not `[]`)
 - [ ] Faction is a restyle layer; III.7 invariant demonstrably held (no stat mutation)
-- [ ] Round-trip smoke: emit demo-realm bundle → load-validate all record types → schema handshaked with drax (D4) before lock
+- [ ] Schema drax-handshaked and LOCKED before emit; round-trip smoke then emits demo-realm bundle → load-validates all record types against the locked schema
+- [ ] Bundle schema is emission-path-sourced only; does not widen the `spatial_telemetry.py` consume-boundary (Gate-1 fold c)
 - [ ] MIGRATION.md written (bundle schema contract)
 
 ## Out of scope (explicit non-goals)

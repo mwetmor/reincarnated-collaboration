@@ -67,6 +67,8 @@ The ratified denominator (§5.3) scopes **exactly two engine asks** and states "
 - **Cross-seam contract (Principle 6):** D1⟷D4 is the bundle-schema contract → MIGRATION.md required (star-lord authors the bundle schema; drax consumes). D2→D1 is intra-engine (rocket decl surface already exists on `PlayerClassV2.to_dict()` `proxies`).
 - **Wave-entry discipline (§3.10):** a wave is not entered until sub-agents FIRE. This MASTER is authored; D1+D2 fire on Matt's go.
 
+**Gate-1 status (2026-07-02):** first-fire wave cleared jack-ryan DESIGN-MODE Gate-1 — **D2 ENDORSE (fire as-authored); D1 ENDORSE-WITH-CONCERNS**, three contract-hygiene folds applied (a: schema note reframed as mandatory pre-emit artifact per Discipline #1; b: drax handshake gates the schema LOCK, not the round-trip; c: bundle schema emission-path-sourced only, no telemetry-boundary widening). D3-HELD call ENDORSED (ADR-002 tiered approval / Principle 4 — scope-amendment needs fresh Matt-auth). D4–D10 carry Gate-1-before-fire; design-track dispatches (D5 verbs, D6 floors register, D8 grimoire-fantasy) also draw gandalf design-fit as they approach firing.
+
 ## 5. In-flight work continues (§9)
 
 This program re-prioritizes **new starts** only. In-flight engine instrument work (perception-asymmetry producer, deferral un-gates) proceeds and does NOT gate the demo. The demo is itself the validation instrument (§8) for the currently-unfalsifiable claims.
