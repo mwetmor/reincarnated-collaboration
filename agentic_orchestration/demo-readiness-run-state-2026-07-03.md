@@ -26,8 +26,8 @@
 | Registry-schema ratification (fast pass, no Matt gate — G9) | jack-ryan | Pattern-A invocation at W0/W1 boundary | W1.#8a-draft ✓ | ✓ **DONE — RATIFIED-WITH-AMENDMENTS** (+`generation_seed`, +`in_band_count`; see precondition 2 row) |
 | W2 Gate-1 critique-pair (jack-ryan + gandalf, parallel) | KR invokes | on `2026-07-03-rocket-gamora-w2-pairing-layer.md` | — (reviews dispatch text) | ✓ **CLEARED** (jack-ryan ENDORSE-WITH-FOLDS, E4 fold applied; gandalf ENDORSE ×5 NOTE) |
 | W2 Phase 1 (CONVERGENCE + DUAL_PROXY classes + wiring) | rocket | `2026-07-03-rocket-gamora-w2-pairing-layer.md` | ~~W0.classifier · W0.2-type-decl-check · W0.fixture · Gate-1-pair-CLEAR~~ **ALL ✓** | ✓ **DONE** (`rocket/v-demo-run-w2-pairing-1` @ `6a7190b`; matrix/pools DERIVED byte-match 15/65/14×3 import-asserted; E0–E5 test-pinned; η non-vacuous (fixture draws CONVERGENCE 0.679, 1-type draws DUAL 0.615, E1 refused, solo None); round-trip smoke 6/6 GREEN w/ v/vi labels at bundle boundary + negative-mutation; generation MIGRATION W2 entry before tag; no refutation fired; KR Disc #11-verified incl. live smoke 6/6 + 26/26 tests) |
-| W2 Phase 2 (cert + E4 sim-cost fold) | gamora | same dispatch | ~~W2.phase1~~ ✓ | 🔥 **FIRING** (engine chain slot 5; E4 pairs identified: autonomous_caster×delayed_position_shadow, delayed_position_shadow×passive_fighter) |
-| W3 THE EMISSION RUN (un-gate → pilot beat → full-spectrum → gauntlet → flavor split → assemble+register) | star-lord + rocket | authored at W3 entry | W0(all) · W1(all) · W2(soft — §7 degrade) · singleton-smoke-green · registry-schema-ratified | HELD |
+| W2 Phase 2 (cert + E4 sim-cost fold) | gamora | same dispatch | ~~W2.phase1~~ ✓ | ✓ **DONE** (`gamora/v-demo-run-w2-pairing-cert-1` @ `1ec8265`; **BOTH MEMBERS CERTIFIED** at propagation-live 0.6 floor — CONVERGENCE WR 1.0 both shells t 62.6s (merge pays ratified 0.8 tax, clears 300 singleton floor); DUAL WR 1.0 both cases, AQ4 in-band; fixture cert PASS, never-ships fence intact; **E4 PRICED→DEFERRED with named prerequisite** — ECHO-replay ally-attack channel absent from `_spawn_one_ally`, Mirror merge hollow, 2 pairs excluded from cert BY NAME (63/65 certified); seeds 54M+, next-free 55M+; no refutation fired; KR Disc #11-verified) |
+| W3 THE EMISSION RUN (un-gate → pilot beat → full-spectrum → gauntlet → flavor split → assemble+register) | star-lord + rocket | authored at W3 entry | ~~W0(all) · W1(all) · W2 · singleton-smoke-green · registry-schema-ratified~~ **ALL ✓ (W2 landed FULL — pairing η LIVE, not degrade)** | AUTHORING → fires next (rocket Phase A un-gate → star-lord Phase B emission) |
 | W4 verify + curate-prep (DRIFT-CRITIC · Gate-2 · G4 hypothesis test + tagging · offer-table verify · §8 shortlist) | gandalf · jack-ryan · gamora · KR | authored at W4 entry | W3 | HELD |
 | gandalf run-window parallel authoring (label→glyph · Glance contract · Binder) | gandalf | NOT wave dependencies (Gate-1 #8) | — | parked to gandalf's own session cadence |
 
@@ -52,3 +52,13 @@
 - **Failure-policy invocations:** ZERO (no halt, no degrade, no (b)-config)
 - **Push:** both repos at this closeout (engine: `a10a695`→`87c47a6` chain + 3 tags; meta: orchestration chain)
 - **Next:** W2 Phase 1 (rocket) fires — all gates ✓
+
+### W2 CLOSEOUT — 2026-07-03
+
+- **Phase 1 rocket** ✓ `6a7190b` (`rocket/v-demo-run-w2-pairing-1`): CONVERGENCE + DUAL_PROXY strategy classes live; matrix/pools DERIVED byte-match (15/65/14×3 import-asserted — spec drift breaks import); E0–E5 test-pinned (26 tests); η non-vacuous shown; round-trip smoke 6/6 GREEN with rule-v/vi labels at bundle boundary + negative-mutation proof; generation MIGRATION W2 entry before tag
+- **Phase 2 gamora** ✓ `1ec8265` (`gamora/v-demo-run-w2-pairing-cert-1`): both members MAGNITUDE-CERTIFIED at the propagation-live floor; fixture cert PASS; sim MIGRATION ADVISORY (no schema change)
+- **E4 disposition (Gate-1 fold honored):** priced FIRST, then deferred — ECHO player-skill-replay ally-attack channel absent from `_spawn_one_ally`; certifying Mirror pairs would be vacuous. 2 pairs excluded BY NAME (`{autonomous_caster, delayed_position_shadow}`, `{passive_fighter, delayed_position_shadow}`); **63/65 valid pairs certified**
+- **PARKED (named prerequisite, rides closeout report):** ECHO-replay ally-attack channel — generation/sim mechanism addition (second per-tick skill-resolution channel replaying player rotation). Halt reason: absent mechanism; certifying against it would be a vacuous pass. W3 may emit Mirror-shaped kits — they merge STRIKER-only until this lands. Not a W3 blocker.
+- **Failure-policy invocations:** ZERO (no stall, no degrade — W3 fires with FULL pairing η live)
+- **Push:** both repos at this closeout (engine `6a7190b`→`1ec8265` + 2 tags; meta chain)
+- **Next:** W3 THE EMISSION RUN — all gates ✓; rocket Phase A (un-gate) → star-lord Phase B (emission)
