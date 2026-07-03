@@ -100,3 +100,36 @@ Star-lord: (1) resolve gear 10-vs-11 slot ambiguity; (2) re-run assembly `--lock
 - Loading "works" but content not playable → the §20d playability predicate + non-empty-proxies guard exist precisely to catch this; both proven to fire on negatives.
 
 **Signed:** drax, 2026-07-02. Handshake signed, loader built to the locked shape, round-trip parked for the lock-emit. Reported to KR: fire star-lord, then bring me back to close the round-trip.
+
+---
+
+## Completion record — drax, 2026-07-02 (D4 CLOSED — §20d round-trip PASS against REAL LOCKED content)
+
+**Status: D4 ACCEPTANCE CLOSED.** The star-lord lock-emit landed (`star-lord/v-one-realm-bundle-LOCKED-2`, commit `08e6f24`; MIGRATION.md §v1.83 LOCKED; 54 kits / 40 monsters / 4 floors; 2 summoner kits with non-empty proxies). Ran the parked real round-trip; it passes. §20d honestly demonstrated: engine-emitted content playable in Godot, zero hand-built kits.
+
+### Acceptance — status FLIPPED to closed
+- [x] **A demo-realm kit/monster/gear set loads + is playable (playability predicate, fold 4):** CLOSED against REAL content. `bundle_roundtrip_smoke.gd --bundle res://data/one_realm_demo_bundle.json` → ROUND-TRIP PASS (exit 0). **54/54 kits** resolve a non-degenerate primary_attack (name + geometry + range_m=10.0). Not merely parses — the verb has geometry+range to realize.
+- [x] **Zero hand-built kits Godot-side:** held — pure consumer; no kit authored Godot-side.
+- [x] **Round-trip smoke passes:** REAL round-trip PASS (was SHAPE PASS at park).
+- [~] **D10 min-spec check passes:** the standing gate is GREEN (`run_minspec.sh` escape_density → PASS, 0.117 ms median, no regression). BUT D4 produces NO renderable scene (loader only; verbs=D5, floors=D6 out of scope). Per the dispatch conditional, the D4-scene min-spec checkbox RIDES THE SCENE — it wires in at D5+, not here.
+
+### The color-key answer (load-bearing for rocket's parked rotation)
+Loader keys theme/color off **`kit.dominant_element`**, NOT skill-level `canonical_element`. Codified as `kit["theme_element_key"]` in `bundle_loader.gd`. On the Crypt-Lieutenant these diverge (`dominant_element='earth'` vs skills' `canonical_element='water'`); loader themes on 'earth' (coherent). **rocket's parked water→dark skill-element rotation is NOT owed** for presentation coherence — the loader never surfaces the skill element as the theme key. Becomes owed only if a future dispatch re-keys theme off `canonical_element`.
+
+### Two residuals — routed, neither a D4 blocker
+- **gear_pool=0** (source season has no gear_instances table): loader handles empty gear pool gracefully (kits+monsters instantiate; gear list empty, WARN not FAIL). Routed to Matt separately. NO hand-authored gear.
+- **11-slot gear-slot vocab divergence:** the LOCKED emit's `gear_representative` ships 11 slots — 8 canonical match, but `main_weapon`~=`main_hand`, `secondary_item`~=`off_hand`, plus extra `legs`. This concretizes the handshake 10-vs-11 ambiguity. Consumed NON-FATALLY (deduped WARN). Routed to star-lord as an engine-side schema divergence; drax does not rename engine-side (read-only) nor hand-map (a §20d hand-massage).
+
+### Refutation conditions — none triggered
+Loader requires no hand-massaging (pure consumer). Content is genuinely playable (54/54 predicate, not a parse-only pass). SCAFFOLD boundary held (4 magnitudes flagged non-tuned, per-proxy verified). III.7 held. Summon verb loads as content (2/2 summoners' proxies resolve).
+
+### Artifacts
+- `reincarnated-godot/scripts/bundle_loader.gd` — `theme_element_key` + deduped gear-slot WARN.
+- `reincarnated-godot/scripts/bundle_roundtrip_smoke.gd` — real-mode round-trip (unchanged; ran `--bundle`).
+- `reincarnated-godot/scripts/verify_summoner_and_colorkey.gd` — NEW focused probe (summoners + SCAFFOLD + color-key).
+- `reincarnated-godot/data/one_realm_demo_bundle.json` — consumer-side snapshot of the LOCKED emit.
+- AGENT_STATE updated (D4 CLOSE entry).
+
+**Tag:** `drax/v-godot-bundle-loader-2` (D4 CLOSE — separate Gate-2 surface from `-1`).
+
+**Signed:** drax, 2026-07-02. D4 CLOSED. §20d demonstrated on real content. Two residuals routed (gear_pool=0 → Matt; 11-slot vocab → star-lord). D10 D4-scene checkbox rides D5+. Committed, NOT pushed.
