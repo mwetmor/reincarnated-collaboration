@@ -1,6 +1,6 @@
 # Scouting-Glyph Coordinate-Mapping Spec — the III.8 MVP-critical minimal mapping
 
-> **STATUS:** SPEC-CURRENT v1.0 (2026-07-03) — **glyph vocabulary PROVISIONAL until the W3 emission population validates it (§5)**
+> **STATUS:** SPEC-CURRENT v1.0 (2026-07-03) — **five glyph NAMES CONFIRMED (Matt 2026-07-03); derivation BOUNDARIES remain PROVISIONAL until the W3 emission population validates them (§5)**
 > **Author:** gandalf (SPEC-AUTHOR) · run-window authoring per demo-readiness-run-spec §9 (G10 window; NOT a wave dependency — Gate-1 #8)
 > **Serves:** `canonical/reap-die-rise-game/one-realm-mvp-scope.md` §1 step 2 + §3 (Goldilocks lieutenant spread) + §5 IN-list ("scouting glyphs, minimal label→glyph mapping") + the §20a/§20c scale-hook gestures (grimoire pages previewing archetypes the demo never spawns)
 > **Closes:** engine-tracker III.8 "scouting glyphs — feasible, vocabulary mismatch" **[MVP-CRITICAL]** (spec side; implementation is a post-run beat, §7)
@@ -48,7 +48,7 @@ Temperature enum, fixed now so the demo bundle schema is forward-compatible: `to
 
 ## 4. Identity-glyph derivation v0 — five glyphs, ordered rules, first match wins
 
-| # | Rule (on exported coordinates) | Glyph (name PROVISIONAL) | Genre read |
+| # | Rule (on exported coordinates) | Glyph (names CONFIRMED — Matt 2026-07-03) | Genre read |
 |---|---|---|---|
 | 1 | proxy bin ≠ `solo` (or `proxy_dominant` true) | **SUMMONER** | the proxies ARE the kit (W2 evidence: caster-alone WR 0.000); demo-mandated legible |
 | 2 | `role_orientation` = control | **CONTROLLER** | control-pure ctrl bin |
@@ -86,4 +86,4 @@ Re-cuts happen **at this table** (v0 → v1 of this spec), never by hand-relabel
 
 ---
 
-**Sign-off:** gandalf, 2026-07-03 (SPEC-AUTHOR). Anchors: one-realm-mvp-scope §1/§3/§5/§20a-c · engine-tracker III.8 · bc_target_source.py §2.2 guard · demo-readiness-run-spec-2026-07-03 §9. **Matt review load: the five v0 names (taste veto, cheap) — everything else is provisional-until-§5 by construction.**
+**Sign-off:** gandalf, 2026-07-03 (SPEC-AUTHOR). Anchors: one-realm-mvp-scope §1/§3/§5/§20a-c · engine-tracker III.8 · bc_target_source.py §2.2 guard · demo-readiness-run-spec-2026-07-03 §9. **The five names are Matt-CONFIRMED (2026-07-03); derivation boundaries remain provisional-until-§5 by construction.**

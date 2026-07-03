@@ -1,7 +1,7 @@
 # The Binder + Composer — Upstream Assembly Spec (one registry, two appliers)
 
 > **STATUS:** SPEC-CURRENT v1.0 (2026-07-03) — authored in the run window per Matt's G10 ruling ("yes, author it in the window"), **WIDENED same-session by Matt's upstream-assembly question** (*"could [we] assemble the kits with the gear and weapons or could we assemble the map pack assets into procedurally generated completed dungeon units?"*). The widening is answered YES in-session; this spec carries both halves.
-> **Matt review load — three exception rows (§11): scope-confirm the two-applier widening · the lighting call · the staging order.** Everything else is derivable from ruled canon.
+> **§11 exception rows: ALL THREE RULED AS-LEANED (Matt 2026-07-03) — two-applier widening CONFIRMED · lighting DYNAMIC · staging AS-STAGED.** The spec is fully ruled; decisions-log registration rides jack-ryan's next batch (post-run).
 > **Author:** gandalf (SPEC-AUTHOR) · **Ruled anchors:** zero-hand-authored-content (Matt 2026-07-02) · problem-class modality routing table (Matt 2026-07-02: spatial-perceptual → editor; systems/logic → text; regression → headless harness) · procgen mapping (loop-doc `reap-die-rise-story/gameplay-loop-design.md` ~§, "graph-grammar macro → prefab meta-tiles → WFC biome field") · Q6/Q7 derivation rule (vi) single visual identity · determinism contract (same kit → same look, every emission) · Glance truth-path discipline (no LLM in a deterministic path).
 
 ---
@@ -100,9 +100,9 @@ Rationale: the slice must not wait on the Binder (hand-bound with the right seam
 - **No LLM in bind or compose paths** (flavor is written at emission; these are truth-paths).
 - **No touches to the live W0–W4 run.** Both appliers consume its output; nothing here adds a run step.
 
-## 11. Exception rows for Matt (review load — three rulings)
+## 11. Exception rows — ALL RULED (Matt 2026-07-03, each as the stated lean)
 
-| # | Question | Lean |
+| # | Question | Lean → **RULING (Matt 2026-07-03)** |
 |---|---|---|
 | 1 | **Scope-confirm the widening:** one registry + TWO appliers (Binder = entities; Composer = spaces) as one system, per your upstream-assembly question | confirm — the Composer is the realization of already-ruled procgen canon, not new scope |
 | 2 | **Lighting:** dynamic (upstream-pure) vs baked lightmaps (re-couples editor/import per unit) | **dynamic** — genre-true and keeps the pipeline pure; revisit baked-GI per-chunk at launch-era |
