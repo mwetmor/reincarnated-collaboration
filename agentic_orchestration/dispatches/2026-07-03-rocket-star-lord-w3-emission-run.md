@@ -88,3 +88,44 @@ W0–W2 are closed with zero failure-policy invocations. Propagation is ON (gamo
 ## References
 
 - Run spec v1.1 (single authority) · registry ratification (state board precondition 2) · W0/W1/W2 tags: `e57b9d8` / `cbd47b5` / `87c47a6` / `6a7190b` / `1ec8265` · decisions-log `a10a695`
+
+---
+
+## Completion record — Phase A (rocket) — 2026-07-03 — REFUTATION FIRED · HALT-LOUD · NO un-gate · NO tag
+
+**Status:** HALT-LOUD per spec §7 + this dispatch's refutation condition (line 63). The un-gate reveals proxy bins were **never emission-viable via config-lift — a structural generation-pipeline gap, not a config gate.** I did NOT perform the lift and did NOT tag `rocket/v-demo-run-w3-ungate-1`. This is a finding requiring a Matt scope-ruling before W3 can proceed. **Phase B (star-lord) is BLOCKED pending that ruling** — it must not fire assuming proxy bins emit summoners.
+
+**Full finding (evidence + probe + options):** `reincarnated-engine/src/reincarnated/generation/notes/w3-ungate-refutation-fired-2026-07-03.md`. AGENT_STATE updated with the halt.
+
+### What I was asked to lift vs. what I found
+
+- **`_DEFERRED_PROXY_BINS` (`bc_target_composer.py:97,318`)** — a real gate. Lifting it (verified in-memory) lets proxy bins pass `check_infeasibility` and compose a `ComposedKit`. BUT the composed kit carries **zero summon skills** → `build_proxies_surface` returns `[]` → hollow proxy-heavy kit.
+- **`ProxySpawn` (`mechanic_alteration.py:46`)** — **NOT a live gate.** Line 46 is inside a docstring (lines 44–52); the `ProxySpawn` named at line 49 is the **RETIRED v1.1 dormant-register entry** (Matt ruling 2026-07-02, spec §6; provenance closed in git `f9762a8`→`d6bca67`, never designed). `ProxySpawnStrategy` was revived AS S6 of the proxy-T4 family then itself retired in the B1-REBASE. **There is no `ProxySpawn` gate to lift.**
+- **Stale reason-string:** `bc_target_composer.py:321` says "proxy-creation mechanics absent." That is now itself inaccurate — the mechanic `summon_proxy_basic` EXISTS in the pool (`unified_mechanic_pool.yaml:1194`) but is `deferred: true`, AND (the real blocker) no gen-path routes a proxy bin to a summon skill. I did NOT edit the string (halting supersedes cosmetics; correcting it would imply the lift proceeded).
+- **No `2026-06-24` ratification reference exists anywhere in the engine tree** (`grep -rn "2026-06-24" src/ design/` → empty). Noted; the spec authority still stands.
+
+### The structural gap (empirically demonstrated, in-memory probe, seed 53_000_001)
+
+Un-gate `_DEFERRED_PROXY_BINS`, compose `("mid-slow","multi-spawn","proxy-heavy","damage-pure","medium","variable","glass","steady")`, role=damage, profile=A → `ComposedKit`, **0 summon-category mechanics, 0 multi-spawn mechanics.** Three independent fatal blockers:
+1. Phase 4d (`bc_target_composer.py:756-757`) is a NO-OP stub assuming `proxy_bin=="solo"`.
+2. `multi-spawn` geo maps to `multi_projectile` mechanics (`:380-384`) — projectile multiplicity, not entity summoning.
+3. `PoolMechanic` carries no summon discriminator (`effect_category`/`proxy_geometry`/`proxy_acquisition`) that `build_proxies_surface` requires; the sole `is_proxy_creation` mechanic (`summon_proxy_basic`) is deferred out of `ACTIVE_MECHANIC_POOL` (71→67) and, even un-deferred, lacks those fields.
+
+Codebase's own current-state prose corroborates: `demo_summoner_kits.py:4-7` — *"no summoner kit comes out of the normal pipeline today and every kit emits `"proxies": []`."* Summoner content today is HAND-AUTHORED only.
+
+### Smoke results
+
+- **Proxy-draw smoke (the dispatch's step-2 requirement): FAILS by design** — proxy bins draw but produce hollow (`proxies: []`) kits. This IS the refutation.
+- **W0 singleton-config smoke: not re-run** — un-gating did not proceed, so there is no regression to check against (the tree is unchanged from the certified `1ec8265` state). The W0 smoke remains green as of the last certified run; I made no code change that could regress it.
+
+### MIGRATION disposition
+
+**No MIGRATION.md entry.** No code was edited; no emitted dict shape changed. The `proxies` surface, `t4_alteration_output`, and all emitted shapes are byte-identical to the W2 state (`1ec8265`). Generation-internal, and in fact no-change.
+
+### Tag / push
+
+**No tag.** `rocket/v-demo-run-w3-ungate-1` NOT created (the un-gate it names is not emission-viable). Nothing to push. The only artifacts are the finding note + AGENT_STATE update + this completion record.
+
+### Refutation fired
+
+YES — dispatch line 63 / spec §7: *"The un-gate reveals proxy bins were never emission-viable (structural gap, not config) — halt-loud, that's a finding."* Condition met and honored. Routing to KR/Matt for the scope-ruling (options in the finding note §"Options for Matt"). My pragmatic non-binding read: run W3 in a proxy-degrade config (full-spectrum SOLO emission + hand-authored curated summoners flagged not-emitted, per the existing III.1b demo=curated split) THIS run, with a named gen-path follow-on wave (math-first + Gate-1) to earn generation-emitted summoners — but the criterion-C/G4 re-touch makes it Matt's call.
