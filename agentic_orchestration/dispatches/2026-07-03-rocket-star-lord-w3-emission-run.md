@@ -349,3 +349,63 @@ echo "PID: $!"
 Expected behavior with fix: ~minutes for generation (reads existing canonical JSON, no gauntlet re-run) → 700-kit bundle assembled → registered as new run_id with `in_band_count=700` → tag `star-lord/v-demo-run-w3-emission-batch1-1` fires.
 
 **Honesty note:** The registry row `86fa640c...` has `cert_status=DEFECT-DISCOVERED`. The new re-run will produce a fresh `run_id`. The defective row is retained for audit trail. The tag and any flavor passes fire against the new run_id's bundle only.
+
+---
+
+## Completion record — Phase B canonical-JSON recovery (star-lord) — 2026-07-03 — COMPLETE
+
+**Status:** COMPLETE. True 700-kit bundle assembled via canonical-JSON recovery mode. All three mandatory asserts PASS.
+
+**Engine commit:** `1112cf0`
+**Tag:** `star-lord/v-demo-run-w3-emission-batch1-1` FIRED at `1112cf0`.
+**Push:** HELD — KR pushes at W3 closeout.
+
+### What was diagnosed vs what was shipped vs what is now correct
+
+The prior diagnosis completion record (Phase B post-run defect analysis, §Carry-forward) stated:
+
+> "Expected behavior with fix: ~minutes for generation (reads existing canonical JSON, no gauntlet re-run) → 700-kit bundle assembled"
+
+**This claim was wrong as shipped.** The fixed driver (`49424e7`) called `run_w3_emission()` which called `w5r2_gauntlet_sim_integration()` which called `run_gauntlet_sim()` — the full 6h gauntlet. No read-from-canonical code path existed. When KR relaunched the fixed driver (seed 55000000), it re-fought the gauntlet from scratch for 1.5h before KR killed it (PID 83732). That 1.5h burn was the direct consequence of the gap between the claim and the shipped code.
+
+The `--recover-from-canonical` mode is now implemented in `w3_emission_driver.py`:
+
+**New function:** `_recover_gauntlet_from_canonical_json()` — replicates the `config_to_kits` build logic from `w5r2_gauntlet_sim_integration()`, then reads `kit_emit_map` from the canonical JSON instead of invoking `run_gauntlet_sim()`. Constructs a synthetic `GauntletQualityReport` from the JSON's `gauntlet_metadata`.
+
+**New CLI flag:** `--recover-from-canonical <json-path>` on `w3_emission_driver.py`.
+
+### Consistency asserts (all PASS)
+
+- Assert-A: entry count == 2200 — **PASS**
+- Assert-B: distinct legendary_ids == 22, passing == 10 — **PASS** (exact match to KR-verified list)
+- Assert-C: survivor count == 700 — **PASS** (38.9% yield; 7 passing BC cells × 100 samples)
+
+### Bundle output
+
+- Bundle path: `/Users/admin/Games/reincarnated-engine/src/reincarnated/output/w3_batch1_bundle.json`
+- kit count: **700**
+- monster count: 40
+- gear count: 150
+- factions: present (4 clusters, 6 relationships)
+- proxies: [] on all kits (honest batch-1 state, criterion C PARKED)
+- flavor_text: None on all kits/monsters/gear (--dry-run-flavor; LLM flavor deferred)
+- six-type round-trip: **PASS** (kits=700, monsters=40, gear=150, factions=True, summoner=0)
+- total wall-clock: **4.2s** (vs 21585.5s original gauntlet)
+
+### Registry
+
+- New run_id: `f0bd67e5-c155-4f68-99c3-86aa2e17efcd`
+- in_band_count: **700**
+- cert_status: NULL (pre-W4)
+- notes include: `_RECOVERY_REGISTRY_NOTE_SUFFIX` documenting recovery mode, original defective run_id, and honest "mode did not exist as shipped" note.
+- Original defective row `86fa640c-c553-49fb-8a81-37e6242cf305`: retained (cert_status=DEFECT-DISCOVERED).
+
+### MIGRATION.md v1.89
+
+Prepended to `src/reincarnated/export/MIGRATION.md` before tag. Documents: recovery mode, CLI flag, asserts, bundle output, consumer action (drax: reload the bundle at the same path).
+
+### Carry-forward
+
+- LLM flavor pass (kit-identity on 700 survivors + monster + gear): DEFERRED. Fires separately once LLM key status confirmed + Matt authorizes the flavor-pass spend for the 700-kit set. This is the next W3 completion step before W4.
+- W4 verification (DRIFT-CRITIC, Gate-2, G4 hypothesis test, offer-table verify, §8 shortlist): gates on W3 complete, which is now satisfied.
+- Push HELD — KR pushes both repos at W3 closeout.
