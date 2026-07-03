@@ -14,6 +14,14 @@
 | 2 | **Run-registry schema** — the minimal runs-table write shape | star-lord proposes with B4 → jack-ryan Gate-1 → Matt ratifies | B4 (HELD until B1 lands) |
 | 3 | **Push authorization** — engine repo ahead of origin; meta-repo carries this session's relay + fold + wave + tracking commits unpushed; godot repo `300d07b` unpushed | Matt-explicit per ADR-006 (relay §1 confirmed the prior chain is on remote; forward = commits auto-fire, push at wave boundaries Matt-authorized) | Now — awaiting go |
 
+## ⛔ HEADLINE — B1 built against a RETIRED family (Matt ruling needed on re-base path)
+
+**gamora Phase 2 landed (`02d7cd5`) and CLOSES the dispatch mechanically (A2/A3/A5/A6 PASS) — but against the WRONG family.** Timeline: rocket Phase 1 (`17d5f80`, 21:55) + gamora Phase 2 (`02d7cd5`, 22:07) both executed the **drafted v1 S1–S6 register**. At **22:04** — between the two — a parallel gandalf session executed **Matt's own prior-art catch** (*"didn't we already have these scoped in a doc? I know for a fact we did"*) and REVISED the spec in place (`608c120`): v1 S1–S6 **retired**, the **ratified catalog-v2 PROXY family** (ASCENSION/SOVEREIGNTY/FISSION/INVERSION/CONVERGENCE/DUAL_PROXY, already in `t4_catalog_v2.py:53-58` with 7 gen-side consumers) **governs**. The revised spec closes verbatim: *"B1 fires against THIS revision."*
+
+**What this means:** the execution-layer strategy classes rocket built (`mechanic_alteration.py:986+`) are a duplicate parallel register the ratified spec now retires. The ratified six have **different eligibility gates and mechanics** (FISSION = on-death split; INVERSION = role-inversion; SOVEREIGNTY = parallel combatant) — a re-base, not a rename. The A3 "Matt-doubt PASS" (bone→LEGION / crypt→BULWARK, different tops) is a **valid method against the wrong family** — the differentiation machinery works; the members are retired. **Not wasted:** the §1 problem statement, W2/D3 evidence, η/emission machinery, R1–R5 boundary assertions, dormant-five revival, and test scaffolding carry forward per spec §3 retirement map.
+
+**Held:** B4 (consumes the proxy family) + B5 (curates it) stay HELD — no longer just "gated on B1," now gated on the RE-BASED B1. B2 (gear, `t4_catalog_v2` Set-#6 lane) is largely family-independent but shares the engine working tree → serialized behind the re-base. **Matt ruling needed:** fire a B1-rebase dispatch (rocket re-base execution classes onto ratified six → gamora re-cert) now, or fold. gandalf's §3 map + §6/§7 leans (ASCENSION+FISSION+INVERSION demo-critical) are the ready inputs.
+
 ## §20d headline datapoint (surfaced to Matt, not a blocker)
 
 **54 kits → 19 distinct verb signatures (collapse 2.84); refutation did NOT trip (19 ≥ 6).** Distinct verbs are CHEAP to realize (proven — the realizer is a pure projection), BUT the bundle's emitted primitive variety at the primary-attack layer is SHALLOW (2 geometries, 1 composition_mode, uniform strike). The cheapness is proven; the primitive-depth is the thing to watch for the 400-promise — candidate feedback into rocket generation / star-lord emission for bundle-v2 richness.
@@ -38,8 +46,8 @@
 
 ## Next-session pickup (concrete first action)
 
-1. **Process gamora B1 Phase-2 completion** (do NOT poll). On land → B1 fully CLOSED; verify A3 on the two real fixtures (do they draw DIFFERENT tops? — the make-or-break Matt-doubt test); confirm A2 deltas + A5/A6 assertions.
-2. **On B1 close → fire B2 (star-lord gear pass)** into the now-free engine window (Lane B serial). Then B3 (flavor). B4 stays HELD until B1 + the export-fold prerequisite both land.
+1. **RESOLVE the B1 re-base (see HEADLINE above).** gamora Phase 2 landed but B1 is built against the RETIRED v1 S1–S6 family; the ratified catalog-v2 PROXY family governs (`608c120`). Matt ruling: fire a B1-rebase dispatch (rocket re-base `mechanic_alteration.py:986+` strategy classes onto ratified six → gamora re-cert against them) or fold. Do NOT record B1 closed. Do NOT fire B4/B5 until the re-based B1 lands.
+2. **B2 (star-lord gear pass)** is family-independent but shares the engine tree → sequences behind the re-base (Lane B serial). Then B3 (flavor). B4 stays HELD until re-based B1 + the export-fold prerequisite both land.
 3. **Lane A render layer is Matt-gated:** nothing more fires for drax's visible layer until Q7 (rig retarget) is ruled; Camera B needs Q8. When Q7 lands, drax un-queues D5 VFX / D6 floor authoring + G2 / D8 UI.
 4. **Carry the §20d primitive-depth datapoint** as candidate bundle-v2 richness feedback (rocket generation / star-lord emission).
 5. **Carry Matt-plate items** (queue #1/#2) to the B4/B5 reports.
