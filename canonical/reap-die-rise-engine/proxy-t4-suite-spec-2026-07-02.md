@@ -4,7 +4,7 @@
 > gamora: sim-eval + magnitude certification).
 > **v3 AMENDED 2026-07-02 — Matt rulings folded:** five-name dormant register **RETIRED** (§6, provenance
 > verified: never designed, shortlist-tail); **ZONE_CONTROL enters as a newly DESIGNED 26th catalog member**
-> (§6.1, COMBAT-family lean); **PROXY_INVERSION DEFERRED WHOLLY** (§7.1, named disposition); demo family =
+> (§6.1, GEOMETRY family — Gate-1 ruled 2026-07-02); **PROXY_INVERSION DEFERRED WHOLLY** (§7.1, named disposition); demo family =
 > **five ratified members, two-phase activation** (§7). **The B1-rebase fires against THIS version.**
 > **v2 (same-day):** re-based on the ratified family after Matt's prior-art catch — *"didn't we already have
 > these scoped in a doc somewhere? I know for a fact we did"* — v1's parallel S1–S6 family retired per §3.
@@ -14,6 +14,9 @@
 > be emitted for selection."* (The "dormant capstones alive" clause of the same ruling is RESOLVED by the §6
 > retirement ruling — it reads as: activate the ratified catalog.)
 > **Author:** gandalf (SPEC-AUTHOR v1; DRIFT-CRITIC re-base v2; rulings-fold v3), 2026-07-02.
+> **v3.1 changelog (2026-07-02):** Gate-1 ruling fold — ZONE_CONTROL family COMBAT-lean → **GEOMETRY**
+> (mirrors GEOMETRY_COLLAPSE's family, `t4_catalog_v2.py:91`); §6.1 conflict-check resolved to a GEOMETRY
+> max-1 multi-slot rule; ELEMENT/DEFENSE paraphrase corrected (Session-1 §2.2 max-1 is DEFENSE-only).
 > **Denominators:** `one-realm-mvp-scope.md` §5 ask 4 · serial-emission ledger D.1 #9 (this spec gates both).
 > **Ratified prior art (GOVERNS):** `agentic_orchestration/gandalf/notes/2026-06-12-session-1-rulings-q1-q10-t4-catalog-expansion.md`
 > (authoritative ruling record, live) · decisions-log 2026-06-12 *"Session 1 architecture rulings Q1–Q10"*
@@ -161,7 +164,8 @@ The one fantasy from the retired list with **no catalog-v2 owner and real genre 
 survives; the register entry is new — this section is its design authority, superseding rocket's improvised
 revival class (code salvage permitted where it matches this design).
 
-- **Family:** COMBAT (lean — jack-ryan Gate-1 confirms; see conflict check below).
+- **Family:** GEOMETRY (Gate-1 ruled — GEOMETRY_COLLAPSE, whose dominance-gate ZONE_CONTROL mirrors, is
+  GEOMETRY-family at `t4_catalog_v2.py:91`; a member mirroring its gate belongs beside it; see conflict check below).
 - **Fantasy:** the battlefield itself becomes the weapon — persistent area-denial. Genre precedent: D2
   Bone Wall/Prison build identity; PoE totem-zone control archetypes; Grim Dawn ground-effect devotions.
 - **Eligibility:** the kit's dominant surface is control/AoE — gate derived from bc axes (control
@@ -175,9 +179,10 @@ revival class (code salvage permitted where it matches this design).
   AoeCastEvent producer just dispatched. The zone binds to those surfaces; gamora validates the binding.
 - **Acceptance intent:** measurable build-floor delta on control-heavy fixtures (the boss must fight
   *through* the zone); zero effect on non-eligible kits; magnitudes gamora-owned, math-note-first.
-- **Conflict check (Gate-1 item):** ZONE_CONTROL and GEOMETRY_COLLAPSE both reward AoE dominance — Gate-1
-  rules whether COMBAT needs a max-1 multi-slot rule (Session-1 §2.2 currently restricts only ELEMENT and
-  DEFENSE) and confirms family assignment.
+- **Conflict check (Gate-1 RULED):** ZONE_CONTROL and GEOMETRY_COLLAPSE both reward AoE dominance — resolved
+  by a **GEOMETRY-family max-1 multi-slot rule** (no kit draws both), mirroring the DEFENSE max-1 precedent
+  (intra-family mechanic homogeneity). Session-1 §2.2's max-1 currently restricts **DEFENSE only** (ELEMENT
+  has none); the GEOMETRY max-1 joins it. Family assignment confirmed GEOMETRY (see Family line above).
 
 ## 7. Demo family — ⚖ RULED 2026-07-02: five members, two-phase activation
 
