@@ -67,3 +67,68 @@ The §5 glyph-gate pre-run over the true 700-kit bundle (`gandalf/notes/2026-07-
 *Correction riding along:* the closeout phrase "role_orientation derivable-but-unpopulated" is wrong for that field specifically — it is **phantom** (hard-coded `"damage"` population-wide, `season_generation_pipeline.py:1557`; nothing exists to derive it from). `archetype_tag`/`dominant_element` are genuinely derivable — bridge specced in the findings note (F1), rides the glyph-stamp beat.
 
 **Signed:** gandalf, 2026-07-03 (addendum; evidence from the §5 pre-run).
+
+---
+
+## FAILED-CELL AUTOPSY (2026-07-03) — gamora: 11-cell failure-mode classification (ZERO fights simulated)
+
+> **Dispatch:** `dispatches/2026-07-03-gamora-failed-cell-autopsy.md` (Matt-approved, ruling-independent).
+> **Method:** read-only forensic over the W3 canonical `src/reincarnated/simulation/output/cycle-13-gauntlet-sim-results-2026-05-27.json` (the `--recover-from-canonical` file; 2,200 `kit_results`, 125,400 `encounter_results`). **ZERO FIGHTS SIMULATED** — on-disk data only. Reproducible script: `reincarnated-engine/src/reincarnated/simulation/notes/w3_failed_cell_autopsy_2026_07_03.py`.
+> **Evidence leg only** — this classifies the failure; it does NOT recommend Option 1 vs 2 (Matt's call).
+
+### The gate the autopsy reads (framing-audit correction — Discipline #23, the F2 phantom-axis lesson)
+
+`in_band`, `sg_overall`, and encounter-level `gauntlet_pass` are **FALSE/BLOCK across the ENTIRE 125,400-encounter population — survivors included** (`in_band` False ×125,400; `sg_overall` BLOCK ×125,400). They do **not** discriminate survivor from failure; reading them as the failure axis is a phantom-axis trap. The **live emission gate** is `kit_results.per_cohort[Balanced|Hybrid].eligible_encounters_passed >= eligible_pass_floor (9)`, which counts `tier_1_outcome=="PROVISIONAL_PASS"` across the 6 eligible shells. Survivors clear **11.0–18.0** eligible; every composed failure clears **3.6–6.0** — a sharp, unambiguous separation at floor 9. (The dispatch's "tier-1 REJECT-count bimodal" is a real description but is NOT the survivor axis — survivor cells span REJECT 2→5,100 too; the discriminator is PROVISIONAL-pass count on the structured shells, not raw REJECT.)
+
+### The 11-cell classification (each: file `cycle-13-gauntlet-sim-results-2026-05-27.json`)
+
+| # | Cell | Attr | **Primary mode** | Secondary | One-line evidence (field:value) |
+|---|---|---|---|---|---|
+| 1 | `mid_low_spiky_int_none` | INT | **STRUCTURAL** | — | `kit_results` rows = **0**; `legendary_id` for this stem absent from BOTH tables → generator composed ZERO candidates |
+| 2 | `ranged_low_spiky_int_none` | INT | **STRUCTURAL** | — | `kit_results` rows = **0**; no `legendary_id` anywhere → zero candidates |
+| 3 | `ranged_medium_variable_int_none` | INT | **STRUCTURAL** | — | `kit_results` rows = **0**; no `legendary_id` → zero candidates |
+| 4 | `ranged_medium_variable_int_light` | INT | **STRUCTURAL** | — | `kit_results` rows = **0**; no `legendary_id` → zero candidates (the one proxy-`light` INT cell — see Q3) |
+| 5 | `melee_high_flat_int_none` | INT | **CALIBRATION** | structural (ST-sustain) | composed (100 kit rows, all `season_emit=False`); `Balanced elig_passed=3.6/9`; boss `tier_1_kpm` med **0.74** (band [2.51,2.82]) yet packs kpm→**600** |
+| 6 | `melee_high_variable_wis_none` | WIS | **CALIBRATION** | structural (ST-sustain) | `Balanced elig_passed=3.6/9`; boss kpm med **0.68**; elite/magic PROV=100% at kpm 180–600 (pack overkill) |
+| 7 | `melee_medium_variable_wis_none` | WIS | **CALIBRATION** | structural (ST-sustain) | `Balanced elig_passed=3.8/9`; boss/choke/open PROV=0%, elite/magic PROV=100% |
+| 8 | `mid_medium_variable_wis_none` | WIS | **CALIBRATION** | structural (ST-sustain) | `Balanced elig_passed=3.9/9`; boss/choke/open PROV=0%; **see Q2** (the REJECT=0 lead is a home-shell artifact) |
+| 9 | `ranged_low_spiky_wis_none` | WIS | **CALIBRATION** | structural (ST-sustain) | `Balanced elig_passed=3.8/9`; boss/choke/open PROV=0%, packs PROV=100% |
+| 10 | `ranged_medium_variable_wis_none` | WIS | **CALIBRATION** | structural (ST-sustain) | `Balanced elig_passed=3.7/9`; boss/choke/open PROV=0%, packs PROV=100% |
+| 11 | `melee_high_flat_dex_none` | DEX | **CALIBRATION** (pure) | — | composed; `Balanced elig_passed=6.0/9` (closest to floor); boss PROV=**100%** (kpm 2.51–2.82, in-band) — fails on **chokepoint/open PROV=0%** (corridor overkill), NO ST-sustain collapse → the cleanest pure-calibration case |
+
+### Bimodal split resolved → it is actually TRIMODAL
+
+The one "FAIL" label hides **three** mechanisms, not two:
+
+- **(A) Generation gap (STRUCTURAL) — 4 INT cells (#1–#4):** the composer emitted **zero kits**. No fight ever ran under their `legendary_id`. This is a missing-generation-capability signature by the dispatch's own taxonomy — not fixable by any number.
+- **(B) Single-target-sustain collapse (CALIBRATION-primary, STRUCTURAL-secondary) — 6 composed caster cells (#5–#10):** these DO fight and DO deal damage — kpm **148–600 on packs** (the mana/AoE loop fires hard) — but collapse to kpm **0.25–1.14 on the single-target boss**, far below the razor-thin PROVISIONAL band [2.51, 2.82]. They fail tier-1 on boss/chokepoint/open, pass only on elite/magic packs → `elig_passed ~3.6–3.9 << 9`.
+- **(C) Corridor overkill (CALIBRATION, pure) — `melee_high_flat_dex` (#11):** passes the boss band cleanly (kpm ~2.7); fails only because its amplitude exceeds the corridor/open upper band edge. No caster mechanism involved; it is a martial-DEX kit tuned too hot for two shells.
+
+### Load-bearing answer: is the caster wipeout (10 INT/WIS cells) predominantly STRUCTURAL or CALIBRATION?
+
+**Predominantly STRUCTURAL — with a calibration-shaped surface on the composed subset.** Decomposition of the 10 caster cells:
+
+- **4/10 are purely structural** (no kit composed at all — a generation gap; #1–#4). No fight-side lever touches these; a proxy-live batch-2 re-fire recovers them **only if the gen-path first composes candidates for these cells**.
+- **6/10 are calibration-*primary*** (tier-1 band mismatch is the proximate emit-blocker) **but carry a structural secondary**: the single-target-boss kpm collapse (0.7 vs the survivors' 8.0+) is a **resource-economy / ST-sustain** signature, not a band-threshold miss. **A band re-tune (widening the boss PROVISIONAL band) would relabel the same collapsed kpm without creating single-target sustain.** Consistent with W2's caster-alone WR 0.000 and doc-48 (INT/WIS → mana): the mana economy delivers burst-AoE but no sustained single-target loop.
+
+**Net for the ruling:** a proxy-live batch-2 re-fire *without* a gen-path + economy fix would fire **partially blind** — it cannot compose the 4 missing-kit cells at all, and for the 6 composed cells it would face the ST-sustain collapse a re-fire alone does not resolve. The autopsy does NOT say "a number fixes casters." It says the caster absence is **majority-structural** (generation gap + ST-sustain economy gap), with a calibration layer riding on top of the composed subset.
+
+### Cheapest refuting test per verdict (Discipline #19.1)
+
+- **STRUCTURAL (4 INT cells):** SQL/JSON count — if a `legendary_id` for these 4 stems appears in `kit_results` or `encounter_results` of a re-run, the "zero candidates" verdict flips to calibration. (Current count: **0**, both tables.)
+- **CALIBRATION-primary on the 6 composed casters:** re-run those cells with the boss PROVISIONAL band widened to admit kpm≥0.25. If they then clear `elig_passed≥9`, the failure was pure calibration and the structural-secondary is refuted. **Prediction (not run — would require new fights, out of scope): they will NOT clear**, because pack-only PROVISIONAL caps `elig_passed` near the pack-shell count regardless of the boss band. If the prediction holds, the ST-sustain structural-secondary is confirmed. *(This is a re-fight; flagged as the refuting test, NOT executed — dispatch forbids simulation.)*
+- **CALIBRATION (pure) on `melee_high_flat_dex`:** re-run with corridor/open upper band edge raised. If it clears `elig_passed≥9`, pure-calibration confirmed. Its boss-band PASS (kpm 2.7) already rules out an ST-sustain gap.
+
+### The three dispatch open questions — answered
+
+1. **Defensive-cohort confound (`gauntlet_pass_by_cohort.Defensive=0`): ORTHOGONAL, not a confound.** Defensive's `eligible_encounters_total` is fixed at **6**, structurally below `eligible_pass_floor=9` → it can *never* pass, for **every** cell including all 7 survivors. Proof: **1,000/1,000** emit-kits have Defensive `gauntlet_pass=False` yet still `season_emit=True`. Defensive pass is not a precondition for emission; it is a fixture artifact (a cohort that runs too few eligible encounters to clear the floor) and does not touch the caster read.
+2. **`mid_medium_variable_wis` (REJECT=0, yet failed): NOT a clean band/survival-only failure — the REJECT=0 is a home-shell projection artifact.** Filtered by `encounter_id` (its home shell = `magic_pack`) it is 100% PROVISIONAL_PASS → REJECT=0 (the dispatch's lead). But the gate reads **all 6 shells** (via `legendary_id`): there it REJECTs **6,014** (boss/chokepoint/open PROV=0%), `Balanced elig_passed=3.9<<9`. Its mechanism is the **same** ST-sustain collapse as the other 5 composed WIS cells — it is neither the cleanest "calibration-not-structural" candidate nor its counter; it is an ordinary member of cohort (B). The REJECT=0 headline was reading the home-shell, not the cross-shell gate input.
+3. **`ranged_medium_variable_int_light` vs the `_none` INT cells: NO difference — proxy-density did not change caster viability at composition.** Both `_light` and `_none` INT variable cells have **zero composed kits** (identical structural absence). The one proxy-`light` INT cell composed exactly as many candidates as its `_none` siblings: **none**. So the closest on-disk proxy-density signal says proxy-`light` did **not** rescue the INT caster at the composition stage — the gap is upstream of proxy density. (This is the on-disk signal that bears on Option 1: proxy density alone, at the `light` level present here, did not move caster composition. Whether a heavier proxy tier would is not answerable from this data without new generation + fights.)
+
+### Assertions
+
+- **ZERO fights simulated.** All findings derive from on-disk `kit_results` + `encounter_results` in the cited canonical JSON. No re-simulation, no new fights, no gauntlet re-run.
+- No cross-seam contract change (read JSON, wrote this markdown section). Round-trip: not applicable.
+- Analysis artifact only; no production code touched; throwaway script under `simulation/notes/` (not tagged).
+
+**Signed:** gamora, 2026-07-03 (failed-cell autopsy; evidence leg for the summoner ruling). Awaiting jack-ryan DEV-MODE review of the classification method + evidence.
