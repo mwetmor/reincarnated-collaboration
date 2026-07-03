@@ -22,7 +22,7 @@
 ## Three-gate method (the authoring gate for each floor)
 
 - **G1 engine-truth** — the floor's content/encounters come from the engine bundle (not hand-invented Godot-side)
-- **G2 register-CV** — galadriel's visual-similarity CV gate against the style-register (each authored floor passes)
+- **G2 register-CV** — galadriel's visual-similarity CV gate against the style-register (each authored floor passes). **jack-ryan Gate-1 fold D6-1: G2 is a STANDING gate drax CANNOT self-clear** — floors author to G1+G3 now, but G2 sign-off is a galadriel dependency that may lag the authoring and must NOT be self-stamped. Do not close a floor "passed G1/G3, called it done" while G2 is unrun (Principle 4 — the gate is the truth; Disc #11 — don't self-certify another seam's gate). Note: the biome-crossing exterior open-WFC field is the style-register's least-proven surface (register validated on enclosed graybox + cathedral) — if G2 struggles there, that's a real register datapoint, not a drax failure
 - **G3 Matt** — final sign-off
 
 ## Cross-seam contract change? (Principle 6 gate)

@@ -32,6 +32,7 @@ Presentation-side realization of bundle content; no engine schema change.
 - [ ] **On-screen legibility rider (D3 disposition + `gandalf/findings/2026-07-02-one-realm-summoner-kit-designation.md`):** the two summoners must READ DISTINCTLY — Shadow Warden = horde (many-light-fast skeletons streaming, count-2/1-live) vs Crypt-Lieutenant = bruiser (one-heavy-slow bone-guard slam). Demonstrate the read; it's the only legibility lever for two same-proxy-type summons
 - [ ] Combat feel pass (§2 non-negotiable — stagger/responsiveness in the first ninety seconds)
 - [ ] Verbs read in-register (coordinate with D6's G2 galadriel gate)
+- [ ] **Summon VFX honors the A-lock (gandalf Gate-1 fold D5-a):** the spawn/raise read is carried by `GPUParticles3D` juice + lighting (the proven register-2 levers), NOT proxy-mesh fidelity; proxies are register-1 modular geometry. This is the spot most tempting to over-invest in proxy-mesh detail — don't
 - [ ] Min-spec check per D10 (verbs + summon at density is a perf hotspot — see D7)
 - [ ] AGENT_STATE updated
 - [ ] Tag: `drax/v-godot-verb-realization-1`
@@ -59,6 +60,7 @@ Presentation-side realization of bundle content; no engine schema change.
 - Realizing distinct verbs is expensive per-verb (the 400-promise economics break — surface the cost)
 - The summon verb drifts toward enemies-that-remember-you (patent hygiene, §2 / loop-doc §1a — becoming is beat-it-become-it, not nemesis)
 - Combat feel is sacrificed for verb count (§2: feel outranks content count everywhere)
+- **Allegiance legibility fails (gandalf Gate-1 fold D5-b):** player proxies and enemy adds must read as DISTINCT allegiances on-screen — the sim allegiance-filters (W1); the presentation must too. At horde density, friendly-vs-hostile skeletons must not become an indistinguishable soup (the necromancer-lieutenant boss raises adds too, §3)
 
 ## Open questions for the agent to resolve (document)
 

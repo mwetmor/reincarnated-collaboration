@@ -29,6 +29,7 @@ The gear pool populates a bundle field drax consumes; the vocab reconcile change
 
 - [ ] Drive the 200-item gear writer / `_load_gear_pool()` against the LOCKED season-001 → populate the bundle `gear_pool`
 - [ ] **Vocab reconcile:** rule on the 11-slot `gear_representative` vs 10-slot canonical divergence; document the ruling in MIGRATION; hand it to drax (so he trims/adjusts his loader slot list)
+- [ ] **jack-ryan Gate-1 fold B2-1 (timing hazard):** D8 is told (relay §4 rider) to build against the 11-slot schema NOW + consume the pool mid-wave. If your ruling lands on **10-slot** (not 11-slot), you MUST flag the **D8-in-flight collision to KR** — D8 is already building against the schema; a silent 10-slot ruling changes a schema out from under a concurrent build. Ruling toward 11-slot-canonical (drax trims) is collision-free; ruling toward 10-slot needs the KR flag
 - [ ] Re-emit the bundle (schema_status stays LOCKED; season-001; the two designated summoners' proxies preserved — do NOT drop them) with the populated gear pool
 - [ ] `validate_bundle()` passes (gear records carry all required fields; III.7 clean; no telemetry keys)
 - [ ] MIGRATION.md v1.84 entry (populated gear pool + vocab ruling)
