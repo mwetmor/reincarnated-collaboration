@@ -48,7 +48,7 @@ Grounds: (a) it is the only path consistent with your own 2026-07-02 integrity r
 1. **gamora's 4 doc-only autopsy corrections** (jack-ryan-required; the BLOCKed plank must be re-grounded in the decision file — jack-ryan's block already carries the corrected text if you rule before gamora lands them).
 2. **Spec v1.2 hygiene** (jack-ryan): strike the `ProxySpawn` lift + the unprovenance "2026-06-24" reference from criterion C — owed under BOTH ruling outcomes.
 3. **Defensive-cohort fixture artifact** (gamora): `eligible_encounters_total=6` < floor 9 means Defensive can never pass, for any kit — fix the totals or document as-designed.
-4. **API key rotation** (you): the flavor key transited chat this session. Hygiene verified clean in git, but rotate it.
+4. **API key rotation** (you): the flavor key transited chat this session. Hygiene verified clean in git, but rotate it. Note: an untracked file `matt_notes_handoff_docs/Anthropic API Key` exists on disk — gitignored at session close (never committed, verified); when you rotate, update or remove that file too.
 5. **KR tracker-delta folds** — the remaining queue from the handoff @ `1148c7c`.
 6. **E4 ECHO ally-attack channel** — named prerequisite; sequence it with (not before) the Option-1 build if that's the ruling, since both touch ally/proxy runtime.
 7. **GLASS CANNON fragility stat pass** — gates the "glass" flavor texture claim; low urgency until roster picks land.
