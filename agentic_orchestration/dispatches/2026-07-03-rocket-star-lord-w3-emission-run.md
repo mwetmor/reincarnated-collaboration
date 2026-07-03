@@ -129,3 +129,70 @@ Codebase's own current-state prose corroborates: `demo_summoner_kits.py:4-7` —
 ### Refutation fired
 
 YES — dispatch line 63 / spec §7: *"The un-gate reveals proxy bins were never emission-viable (structural gap, not config) — halt-loud, that's a finding."* Condition met and honored. Routing to KR/Matt for the scope-ruling (options in the finding note §"Options for Matt"). My pragmatic non-binding read: run W3 in a proxy-degrade config (full-spectrum SOLO emission + hand-authored curated summoners flagged not-emitted, per the existing III.1b demo=curated split) THIS run, with a named gen-path follow-on wave (math-first + Gate-1) to earn generation-emitted summoners — but the criterion-C/G4 re-touch makes it Matt's call.
+
+---
+
+## Completion record — Phase B step 0 (star-lord) — 2026-07-03 — DONE
+
+**Status:** COMPLETE — step-0 scope only, per KR carve-out (ruling-independent; criterion F satisfied under every Matt scope-ruling option).
+**Tag:** `star-lord/v-demo-run-w3-step0-registry-1` @ `dc00b2a` (engine repo)
+**Push:** HELD — KR pushes at W3 closeout (both repos together).
+**Schema ratification cited:** jack-ryan G9 W0/W1-boundary fast pass (`demo-readiness-run-state-2026-07-03.md` precondition-2 row) — DONE before building. Discipline #8 (ratify-before-build) + Gate-1 #5 honored.
+
+### Refutation check: HALTED/PARTIAL state expressibility
+
+Surfaced before executing. Result: **NO schema re-opening required.**
+
+`cert_status TEXT` is unconstrained (no SQL CHECK). `"HALTED"` and `"PARTIAL"` are valid values. A parked W3 (blocked pending Matt's scope-ruling) is registerable as:
+- `cert_status = "HALTED"`
+- `in_band_count = NULL` (gauntlet never fired)
+- `gauntlet_summary = NULL`
+- `notes` = halt reason + finding reference
+
+Test Group D (5 tests) closes this refutation condition empirically: all PASS.
+
+### What was built
+
+**Writer:** `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/run_registry.py`
+
+Table `emission_runs` in `data/emission_registry.db` (standalone SQLite, WAL mode, no FKs):
+- 15 base columns from ratified draft schema
+- `generation_seed INTEGER` (Amendment 1 — manifest.json source; reproducibility leg)
+- `in_band_count INTEGER` (Amendment 2 — gauntlet survivors; queryable for W4/§8)
+- Launch exclusions absent: no `cost_usd`, no `git_sha`, no FK columns
+- `CREATE TABLE IF NOT EXISTS` — idempotent; W3 re-fire requires no migration
+
+Public API: `initialize_registry()`, `register_run()` (INSERT OR REPLACE + Disc #8 boundary validation), `read_run()`, `list_runs()`, `update_cert_status()`, `compute_config_hash()`, `make_run_id()`. Constants: `CERT_STATUS_*`, `STAGE_*`.
+
+### Tests
+
+**File:** `/Users/admin/Games/reincarnated-engine/tests/test_run_registry.py`
+**Result:** 48/48 PASS (Groups A–G)
+- A (6): schema creation, column presence, launch exclusions absent, FK absent, idempotent DDL, PK check
+- B (10): row insert + round-trip (all fields, type coercions, NULL, timestamp UTC, config hash)
+- C (6): amendment fields — `generation_seed`, `in_band_count` — isolated, combined, queryable
+- D (5): HALTED/PARTIAL state expressibility — refutation check CLOSED
+- E (3): idempotent INSERT OR REPLACE + distinct-ID distinctness
+- F (5): `_validate_run_record` boundary enforcement (Discipline #8)
+- G (13): config hash determinism/length/collision, make_run_id, list_runs filters, update_cert_status
+
+**Regression:** 4822 total PASS / 118 pre-existing fail / 0 new regressions (baseline 4774 before this session's 48 additions).
+
+### MIGRATION.md
+
+v1.86 prepended to `export/MIGRATION.md` before tag. Registry DB is a new external artifact. Consumer obligations: W3 register step, W4 auditors.
+
+### AGENT_STATE.md
+
+Updated at `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/AGENT_STATE.md`.
+
+### What this does NOT do (per KR step-0 carve-out)
+
+- Pilot beat NOT fired (gates on Matt scope-ruling for W3 full emission)
+- Full-spectrum emission NOT run
+- Generation NOT touched
+- Phase B steps 1–7 NOT executed (held pending ruling)
+
+### Carry-forward for W3 re-fire
+
+When Matt rules and W3 re-fires (under any option): call `initialize_registry()` then `register_run()` with `generation_seed` from manifest.json and `in_band_count` from the gauntlet survivor count. If the run is blocked again, call with `cert_status=CERT_STATUS_HALTED`. The writer is re-callable without migration.
