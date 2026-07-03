@@ -5,7 +5,7 @@
 **Approved by:** Matt 2026-07-02 (serial-emission ledger D.1 #5; KR relay `gandalf/notes/2026-07-02-kr-relay-two-lane-fire-order.md` §3.2 + Lane B; gear-source RULED = generation pass against season-001, NOT a different season)
 **Estimated effort:** 1–2 days
 **Acceptance:** the demo bundle carries a **populated gear pool** generated against the LOCKED season-001 (the same season the two designated summoners live in), and the `main_weapon`≈`main_hand` 11-slot vocab divergence drax flagged is reconciled.
-**Status:** FIRES now (feeds Lane A D8; non-blocking mid-wave data swap into the loader). Gate-1 (jack-ryan DESIGN-MODE — cross-seam schema touch) required before execution.
+**Status:** 🔥 FIRING — **Gate-1 CLEARED (jack-ryan DESIGN-MODE, ENDORSE-WITH-FOLDS ×4; folds B2-1…B2-4 applied)**. B1-REBASE closed → engine tree free (Lane B serial). Feeds Lane A D8 (core DONE; UI Q7-blocked) via non-blocking data swap into drax's shipped D4 loader.
 
 ## Context
 
@@ -28,18 +28,18 @@ The gear pool populates a bundle field drax consumes; the vocab reconcile change
 ## Scope
 
 - [ ] Drive the 200-item gear writer / `_load_gear_pool()` against the LOCKED season-001 → populate the bundle `gear_pool`
-- [ ] **Vocab reconcile:** rule on the 11-slot `gear_representative` vs 10-slot canonical divergence; document the ruling in MIGRATION; hand it to drax (so he trims/adjusts his loader slot list)
-- [ ] **jack-ryan Gate-1 fold B2-1 (timing hazard):** D8 is told (relay §4 rider) to build against the 11-slot schema NOW + consume the pool mid-wave. If your ruling lands on **10-slot** (not 11-slot), you MUST flag the **D8-in-flight collision to KR** — D8 is already building against the schema; a silent 10-slot ruling changes a schema out from under a concurrent build. Ruling toward 11-slot-canonical (drax trims) is collision-free; ruling toward 10-slot needs the KR flag
+- [ ] **Vocab reconcile (jack-ryan Gate-1 fold B2-2 — two disposition classes, different authority):** rule on the 11-slot `gear_representative` vs 10-slot canonical divergence. **(a) 11-slot declared canonical → drax trims his loader slot list:** pure documentation, star-lord-owns as schema author (ADR-002 within-seam) — document in MIGRATION, hand to drax, fire it. **(b) reconcile TO 10-slot:** this touches the generation-side `gear_representative` — a cross-seam schema change to a LOCKED emit (v1.83) — which is **ESCALATE-to-Matt via KR**, NOT a silent star-lord ruling (ADR-002 tiered; Principle 4 — LOCKED-state is truth). Do not self-serve path (b)
+- [ ] **jack-ryan Gate-1 fold B2-1 (RESCOPED — the D8-in-flight hazard is stale):** D8's *core* is already DONE (`drax/v-godot-grimoire-scouting-ui-1` @ `300d07b`); only its on-screen UI layer is Q7-rig-blocked — there is NO live concurrent build against the 11-slot schema for your ruling to change out from under. The real consumer at risk is **drax's SHIPPED D4 loader** (`bundle_loader.gd`, deduped-WARN gear-slot handling). A **10-slot** ruling still needs the **KR flag** (it changes a schema drax's landed loader reads), but the collision is with the shipped loader, not an in-flight D8 build. Ruling toward 11-slot-canonical (drax trims) is collision-free. Cite: Principle 6 (cross-seam impact); Discipline #42 (framing-audit — the original B2-1 framing was refuted by MASTER line 27, D8 core done)
 - [ ] Re-emit the bundle (schema_status stays LOCKED; season-001; the two designated summoners' proxies preserved — do NOT drop them) with the populated gear pool
 - [ ] `validate_bundle()` passes (gear records carry all required fields; III.7 clean; no telemetry keys)
 - [ ] MIGRATION.md v1.84 entry (populated gear pool + vocab ruling)
-- [ ] Empirically verify (Discipline #11): `gear_count > 0`; the two summoner kits STILL carry non-empty scaffold-flagged proxies after re-emit; gravecaller still absent
+- [ ] Empirically verify (Discipline #11): `gear_count > 0`; **the two summoner kits' proxy blocks are pre/post-re-emit DIFFED — byte-identical OR an explicitly-ruled delta (jack-ryan Gate-1 fold B2-4)** — a presence-only "STILL non-empty" check misses mutation; re-emit could preserve *a* proxy while changing it; gravecaller still absent
 - [ ] AGENT_STATE updated
 - [ ] Tag: `star-lord/v-gear-pass-season-001-1`
 
 ## Acceptance criteria
 
-- [ ] Bundle `gear_pool` populated from season-001 (gear_count > 0)
+- [ ] Bundle `gear_pool` populated from season-001 (`gear_count > 0`) **AND each gear record carries a `scaffold`/provenance flag until B3 names it (jack-ryan Gate-1 fold B2-3, Discipline #40)** — populated gear values entering the LOCKED production bundle are scaffold-in-production-path; un-flagged gear values BLOCK (B3 must be able to tell generated-placeholder from ratified)
 - [ ] The gear_representative vocab divergence ruled + documented (MIGRATION) + handed to drax
 - [ ] Re-emit preserves the LOCKED summoner proxies + gravecaller-absent invariants (no regression on the D4-proven content)
 - [ ] MIGRATION v1.84 + validate_bundle passes
