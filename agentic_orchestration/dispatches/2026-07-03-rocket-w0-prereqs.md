@@ -73,3 +73,29 @@ The classifier output (proxy_type→family) is consumed by gamora in W2; the com
 ## References
 
 - Spec §11 Gate-1 record · engine `a10a695` (batched rulings registration) · B1-REBASE closeout (`40e351e`/`67fc0a9`) · MASTER board B1 row (F-f finding provenance)
+
+---
+
+## Completion record — 2026-07-03 (rocket)
+
+**Status: COMPLETE.** All six deliverables PASS. Smoke 28/28 GREEN. Engine tag `rocket/v-demo-run-w0-1` @ `e57b9d8` (push HELD — KR pushes at wave closeout).
+
+**Math note (Disc #1, BEFORE code):** `reincarnated-engine/src/reincarnated/generation/math/proxy-composition-knob-w0-2026-07-03.md`.
+**Smoke artifact (Disc #2):** `reincarnated-engine/src/reincarnated/generation/notes/w0_prereqs_smoke_2026_07_03.py` — 28/28 GREEN; `ARTIFACT_JSON` carries `singleton_config_green: true`, `composition_knob_default_mult: 1.0175`, `composition_knob_default_share: 0.25`.
+
+| # | Deliverable | Result | Evidence |
+|---|---|---|---|
+| 1 | Proxy composition knob (~25%) | **PASS** | `bc_target_cell_sampler.py`: `PROXY_COMPOSITION_WEIGHT_MULT` (=`solve_proxy_weight_mult(0.25)`=1.0175 via math-note Eq. 3) applied in `multi_fire_quota`; `proxy_share_for_mult` (Eq. 2, monotone) proves steer. Default → predicted share 0.2500. |
+| 2 | 2-type cross-family decl check | **PASS (not a gap)** | Generation emits exactly-2 cross-family decls (golem_construct/BULWARK × autonomous_caster/STRIKER) via `build_proxies_surface` + classifier. Smoke check 2. |
+| 3 | CONVERGENCE cert fixture | **PASS** | NEW `convergence_cert_fixture.py`, id `__fixture__convergence_cert` (marked FIXTURE, never ships). `assert_convergence_fixture_is_cross_family()` fail-loud. |
+| 4 | proxy_type→family classifier | **PASS** | `t4_catalog_v2.py`: `ProxyTypeFamily`(6) + `PROXY_TYPE_FAMILY`(14→6 per ratified pairing-spec §1) + `proxy_type_family()` + `proxy_decls_are_cross_family()`. Import-asserts: 14 types / 6 families / domain==sim `PROXY_TYPE_TIER`. |
+| 5 | F-f FAMILY_MAX_ONE consumer | **PASS** | `t4_catalog_v2.py`: `enforce_family_max_one(filter|assert)` + `find_family_max_one_violations` + `FamilyMaxOneViolation`. GEOMETRY_COLLAPSE+ZONE_CONTROL collision rejected(assert)/filtered(filter). Closes sim-MIGRATION F-f BLOCK (was inert data). |
+| 6 | Singleton-config smoke GREEN | **PASS (hard W3 precond)** | Phase-1 η members live (ASCENSION/SOVEREIGNTY/FISSION + ZONE_CONTROL); CONVERGENCE+DUAL_PROXY η-gated 0.0 (structurally — no class in any registry). Executable state verified: `select_proxy_t4` summon→SOVEREIGNTY, solo→None. |
+
+**Singleton-smoke artifact path:** `reincarnated-engine/src/reincarnated/generation/notes/w0_prereqs_smoke_2026_07_03.py` (section 6; `singleton_config_green: true`).
+
+**Refutation conditions:** NONE fired (checked before coding, math-note §6). "knob exists but can't steer" refuted by Eq. 2 monotonicity + smoke 1a. Alternative mechanism (per-proxy-skill weighting) named + ruled out (cannot move the cross-cell 25% share). No un-ratified pre-commit; no unflagged scaffold.
+
+**MIGRATION.md:** none written — **GENERATION-INTERNAL** (no emitted bundle/loadout dict key added/renamed/removed; composition knob changes only firing frequency). **Round-trip: not applicable — generation-internal.** gamora W2 consumes the new symbols additively (classifier + cross-family predicate + `enforce_family_max_one` + fixture).
+
+**W2/W3 handoff:** W2 (gamora) can now assert CONVERGENCE cross-family gate (`proxy_decls_are_cross_family`), derive DUAL pools (`proxy_type_family`), F-f invariant (`enforce_family_max_one(mode="assert")`), and cert AQ1 against the fixture. W3 singleton-only degrade config is verified executable + green — W3 can fire regardless of W2 state (spec §7).
