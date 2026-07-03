@@ -86,3 +86,30 @@ CONVERGENCE/DUAL_PROXY kit emission shape (paired decls, labeled inheritance fie
 **gandalf design-track: ENDORSE** (5 findings, all [NOTE], no folds): wiring-only fidelity confirmed (every scope line traces to a ratified table); legibility rules v/vi carried first-class into the round-trip smoke (fails if labels absent); fixture never-ships fence intact; quality criterion matches run-spec §8's mandatory CONVERGENCE row; vacuous-wiring refutation condition is the sharpest guard. No thematic drift; loop-discipline preserved via matrix byte-match.
 
 **KR disposition: Gate-1-pair-CLEAR ✓** — dispatch fires when the three W0 rocket returns (classifier · 2-type-decl-check · fixture) close.
+
+---
+
+## Completion record — Phase 1 (rocket) — PASS — 2026-07-03
+
+**Tag:** `rocket/v-demo-run-w2-pairing-1` — engine commit **`6a7190b`** (push HELD; KR pushes at closeout). Built on W0 `e57b9d8`; engine main head was `87c47a6`.
+
+**Both strategy classes: PASS.**
+- **CONVERGENCE** (`mechanic_alteration.ProxyConvergenceStrategy`): gates on exactly-2-cross-family-valid-65 decls; emits the deterministically-derived merge (rules i–vi) with rule-v labeled inheritance + rule-vi single visual identity. Matrix in NEW `generation/proxy_pairing_layer.py`.
+- **DUAL_PROXY** (`mechanic_alteration.DualProxyStrategy`): gates on exactly-1-pool-keyed type (entity-axis, T4_active only); emits `compatibility_pool` + `second_type` + `resummon_mode:single_action_both` (P7) + `independent_operation:true` (E3). 14×3 pools in `proxy_pairing_layer.py`.
+- Both added to `PROXY_T4_FAMILY` → offerable via `select_proxy_t4` / `rank_proxy_t4_family` (spec §4 η wiring).
+
+**Byte-match proof method:** the tables are TRANSCRIBED from the ratified spec, and the counts are DERIVED not hand-typed — `proxy_pairing_layer.py` import-time asserts: 15 merge classes over exactly C(6,2)=15 family-pairs; `VALID_CONVERGENCE_PAIRS` ENUMERATED (iterate C(14,2), strike same-family + E1/E2/E5) and asserted == 65; 14 pools each 3 members, each import-asserted cross-family vs its primary. A spec drift breaks import. Plus `tests/test_proxy_pairing_layer.py` (26 tests) pins name-templates, the six ratified examples legal, and the ratified pool rows order-preserved.
+
+**E0–E5 pin evidence** (`tests/test_proxy_pairing_layer.py::TestExceptionRows` + `TestConvergenceMatrixByteMatch`): E0 partition (W0 asserts, reused); E1 golem/bodyguard×shadow INVALID; E2 ONLY terrain_anchor×shadow of ATTENDANT×ECHO (warcry/conduit×shadow struck); E3 passive_fighter×terrain_anchor ∈ CONVERGENCE-65 AND ∈ passive_fighter's DUAL pool (independence, not exclusion); E4 exactly-2 STRIKER×ECHO sim-cost pairs, flag carried in the merge; E5 every fragile_escort cross-family pair struck (loop over all cross-family others).
+
+**η eligibility + non-vacuity:** CONVERGENCE offered only to exactly-2-cross-family-valid-65 kits; DUAL only to exactly-1-pool-keyed kits (T4_active). Non-vacuity SHOWN: the W0 fixture (golem_construct×autonomous_caster, valid-65 class-1 "Juggernaut") is drawable — CONVERGENCE η=0.679 competes (SOVEREIGNTY edges it at 0.704 on that full-body-singleton shape — both legitimate); a 1-type volatile_emitter kit draws DUAL (η=0.615, pool `[trap_mine, resource_conduit, delayed_position_shadow]`). Refutation guarded: an E1 pair (golem×shadow) NEVER draws CONVERGENCE (η=0.0, test-pinned); solo → None.
+
+**Round-trip smoke:** `generation/notes/w2_pairing_roundtrip_smoke_2026_07_03.py` — **6/6 GREEN**. W0 CONVERGENCE fixture → `build_proxies_surface` → `select_proxy_t4` → bundle-shape dict (mirrors `PlayerClassV2.to_dict` `proxies` + `t4_alteration_output`); asserts paired-decl fields + rule-v/vi labels PRESENT at the boundary. Acceptance-grade confirmed by negative-mutation: stripping the labels FAILS the boundary assert (labels are load-bearing, not decoration).
+
+**MIGRATION:** `generation/MIGRATION.md` — new [2026-07-03] W2 entry (bundle shape gains paired-decl sub-fields inside `t4_alteration_output.strategy_params`; ADDITIVE — drax renders `inherited_from_a/_b` + `single_visual_identity` for G1 legibility; star-lord no-action; gamora Phase-2 certs magnitudes + E4). MIGRATION written BEFORE the tag.
+
+**Refutation conditions checked (Quality Criterion + math-note §5):** NONE fired. W0 2-type-decl check filed no gap; the matrix strikes all E1/E2/E5 pairs (test-pinned, cannot produce a struck pair); acceptance is non-vacuous (an emitted candidate draws each member); no ratified-spec re-open (transcription + ratified derivation rules only).
+
+**Tests:** 95 PASS (pairing 26 + proxy-strategies 69 + catalog); two pre-existing strategy tests updated to the scan-gate ABC contract. two-layer/cycle13 t4 174 PASS. W0 smoke re-run 28/28 GREEN (6e/6f inverted from "η-gated 0.0" to "LIVE" — documented supersession, the singleton-only baseline is now W2-activated; solo/singleton invariance preserved by decl-shape gates). `test_cycle12_layer6_t4_wireup` 12-fail = PRE-EXISTING (SkillTreeGenerator retirement), confirmed identical on baseline via stash round-trip, NOT this work.
+
+**Handoff to gamora Phase 2:** magnitude derivation + cert (A2/A3/A5/A6; seeds 53M+; PROVISIONAL anchors HP=avg×1.2 / damage=sum×0.8 / class-8=70/70); **E4 STRIKER×ECHO sim-cost assessment** (the 2 flagged pairs — price first, or file the named prerequisite); W0 CONVERGENCE fixture cert (AQ1). Symbols to consume: `proxy_pairing_layer.{VALID_CONVERGENCE_PAIRS, STRIKER_ECHO_SIM_COST_PAIRS, DUAL_POOLS, derive_convergence_merge}` + `mechanic_alteration.{ProxyConvergenceStrategy, DualProxyStrategy, select_proxy_t4}`. — rocket, 2026-07-03.
