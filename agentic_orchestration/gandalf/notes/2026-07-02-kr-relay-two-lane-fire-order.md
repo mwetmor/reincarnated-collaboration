@@ -41,7 +41,7 @@
 
 | # | Dispatch | Owner | Gates / notes |
 |---|---|---|---|
-| B1 | **Dormant-T4 revival + PROXY-T4 SUITE** — all five v1.1-dormant strategies live (ResourceBuffer, MechanicReplacement, ZoneControl, ConditionalModifier, ProxySpawn) + proxy-T4 family (per-proxy damage / durability+taunt / count / spawn-cadence / death-conversion; tier-aware magnitudes; η wired so summon kits score proxy-T4s high) | rocket (strategies) + gamora (sim-eval + magnitudes) | **GATED on gandalf suite design spec — my next artifact after this relay.** The v1.1 "sim-extension-required" labels predate the spatial sim; assess per-strategy — several may be cheap now |
+| B1 | **Dormant-T4 revival + PROXY-T4 SUITE** — all five v1.1-dormant strategies live (ResourceBuffer, MechanicReplacement, ZoneControl, ConditionalModifier, ProxySpawn) + proxy-T4 family (**CORRECTED post-relay 2026-07-02:** = the **RATIFIED catalog-v2 PROXY six** — ASCENSION / SOVEREIGNTY / FISSION / INVERSION / CONVERGENCE / DUAL_PROXY, Session-1 rulings 2026-06-12, `t4_catalog_v2.py:53-58`; η wired so summon kits score proxy-T4s high) | rocket (strategies) + gamora (sim-eval + magnitudes) | **Spec AUTHORED + REVISED IN PLACE 2026-07-02** (`canonical/reap-die-rise-engine/proxy-t4-suite-spec-2026-07-02.md`) — **fire B1 against the REVISED spec** (Matt prior-art catch: the family was already ratified 2026-06-12; the spec is now the demo-activation layer over it, carrying two pending Matt rulings §6/§7). The v1.1 "sim-extension-required" labels predate the spatial sim; assess per-strategy — several may be cheap now |
 | B2 | **Gear pass against season-001** + `main_weapon`≈`main_hand` vocab reconcile | star-lord | Feeds D8; LLM gear naming rides B3 |
 | B3 | **Six-type flavor completion** — monster names/flavor (MUST — stubs unshippable) + skill `flavor_text` (`name_skill()` wiring) + gear names + faction/weapon block wiring | star-lord + gandalf curation | D7 AI-tell line: LLM generates, we curate |
 | B4 | **Summoner un-gate + DEMO EMISSION RUN** — lift `_DEFERRED_PROXY_BINS`, retire the stale reason-string; one real seasonal emission, proxy bins + full T4 set live; **run #1 in the registry** (minimal runs-table write, D.1 #8 rides this) | rocket (un-gate) + star-lord (run) | Depends on B1. Calibration ALREADY CLOSED — D3 certified-HOLD the four scaffold magnitudes (ledger D.1 #6 ✓) |
@@ -56,7 +56,7 @@
 
 ## 6. gandalf owed artifacts (sequence around me)
 
-1. **Proxy-T4 suite design spec** (gates B1) — my next unit; expect it before Lane B's B1 dispatch needs to fire.
+1. **Proxy-T4 suite design spec** (gates B1) — ✓ AUTHORED + **REVISED IN PLACE** 2026-07-02 (ratified-family re-base after Matt's prior-art catch; see the B1-row correction above).
 2. **Density-per-area spec** (feeds D7 + the pre-D7 perf spike) — owed when D6 floor work approaches D7.
 3. Gate-1 design-fit passes on D5/D6/D8 as they approach firing.
 

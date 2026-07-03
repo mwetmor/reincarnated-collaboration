@@ -12,7 +12,7 @@ The buildable engine spec — generation, simulation, balance, gear/stat/T4 arch
 
 ## ✓ AUTHORED IN (post-reorg new spec docs)
 
-- **`proxy-t4-suite-spec-2026-07-02.md`** — dormant-T4 revival + the proxy-focused capstone family (Matt-ruled 2026-07-02, demo-critical; gates Lane B1). Six members (S1 ProxyDamageAmplification / S2 ProxyBulwark / S3 ProxyLegion / S4 ProxySurge / S5 ProxyDeathConversion [named descope valve] / S6 ProxySpawn re-scoped as the non-summoner crossing member); η decl-shape axis-match; R1 no-DDA-propagation ruling; A1–A6 acceptance criteria. Companions: `tier-4-architecture-defaults` (register) · `proxy-commander-set-6-capstone-spec` + `proxy-add-design-spec` (calibrated-layer boundaries).
+- **`proxy-t4-suite-spec-2026-07-02.md`** — dormant-T4 revival + proxy-focused capstone family (Matt-ruled 2026-07-02, demo-critical; gates Lane B1). **REVISED IN PLACE same-day after Matt's prior-art catch:** v1 drafted a parallel S1–S6 family; v2 re-bases on the **ratified catalog-v2 PROXY family** (PROXY_ASCENSION / PROXY_SOVEREIGNTY / PROXY_FISSION / PROXY_INVERSION / PROXY_CONVERGENCE / DUAL_PROXY — Session-1 rulings Q1–Q10 2026-06-12, `t4_catalog_v2.py:53-58`) as the demo-activation + η/emission integration layer; carries the v1→ratified retirement map + two pending Matt rulings (dormant-register binding; demo-critical subset). Companions: `gandalf/notes/2026-06-12-session-1-rulings-q1-q10-t4-catalog-expansion.md` (authoritative ruling record) · `tier-4-architecture-defaults` (register) · `proxy-commander-set-6-capstone-spec` + `proxy-add-design-spec` (calibrated-layer boundaries).
 
 ## ✓ MIGRATED IN from `canonical/reap-die-rise/` (DONE 2026-06-30, commit `6b9d6d1` — folder dissolved)
 
