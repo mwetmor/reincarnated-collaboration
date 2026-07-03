@@ -196,3 +196,75 @@ Updated at `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/AGENT
 ### Carry-forward for W3 re-fire
 
 When Matt rules and W3 re-fires (under any option): call `initialize_registry()` then `register_run()` with `generation_seed` from manifest.json and `in_band_count` from the gauntlet survivor count. If the run is blocked again, call with `cert_status=CERT_STATUS_HALTED`. The writer is re-callable without migration.
+
+---
+
+## Completion record — Phase B steps 1-5 (star-lord) — 2026-07-03 — IN PROGRESS (full run fired)
+
+**Status:** Pre-run artifacts COMPLETE. Full 1,800-candidate unattended run FIRING NOW (~5.32h projected).
+**KR run-disposition ruling applied:** W3 fires as SOLO FULL-SPECTRUM BATCH 1. Criterion C PARKED (summoner emission = batch 2, gates on Matt ruling `canonical/matt_decision_needed/2026-07-03-w3-summoner-emission-structural-gap.md`). `_DEFERRED_PROXY_BINS` stays gated. `proxies=[]` on all batch-1 kits = honest state.
+**Engine commit:** `ea753a3` (pre-run artifacts — driver + pilot math note + tests + MIGRATION.md v1.87)
+**Tag:** `star-lord/v-demo-run-w3-emission-batch1-1` — TO BE FIRED after full run completes.
+**Push:** HELD — KR pushes both repos at W3 closeout.
+
+### Phase B step 1 — Pilot beat (UNCONDITIONAL §4): DONE
+
+**Math note:** `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/math/w3-pilot-beat-sizing-2026-07-03.md`
+
+Measurements (20-kit full-gauntlet pilot, seed 55_000_000):
+- Per-kit wall-clock: **10.65s** (Run B: 20 kits / 213.00s total)
+- In-band yield: **64%** (18/28 configs pass the cycle-14 v1 stratified floor at full 18 encounters)
+- Peak RSS: **48.7 MB** (Discipline #1.1 PASS — well under 8 GB host)
+
+Sizing decision: **N=100 → 1,800 candidates → ~5.32h** (2.68h slack for flavor + buffer; 8h window comfortable).
+Expected survivors at 64% yield: ~1,152 (well above the 100-400 estimate — honest measured output per Discipline #29).
+
+Full run UNBLOCKED — math note exists before run fires (spec §4 requirement).
+
+### Phase B step 2 — Driver (w3_emission_driver.py): DONE
+
+**File:** `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/w3_emission_driver.py`
+
+Key implementation notes:
+- Uses `w5r2_gauntlet_sim_integration()` (NOT `run_gauntlet_sim()` directly) — this is the production path that sets `kit.wr_bracket_pass` by reading the canonical JSON output at `simulation/output/cycle-13-gauntlet-sim-results-2026-05-27.json`.
+- `character_id → id` bridge applied before `build_kit_record()`: `to_character_dict()` outputs "character_id" but `_KIT_PASSTHROUGH_FIELDS` expects "id".
+- `_ENGINE_ROOT = Path(__file__).parents[3]` (was incorrectly parents[4] in draft).
+- `smoke_validate_bundle_from_file(require_proxies=False)` — new parameter to `one_realm_bundle_assembler.py` (backward-compat default=True); batch-1 honest state bypass.
+
+Smoke PASS: pipeline end-to-end, 5 kits, 40 monsters, 150 gear, round-trip PASS, run_id issued.
+
+### Phase B step 3 — Tests (Discipline #2): DONE
+
+**File:** `/Users/admin/Games/reincarnated-engine/tests/test_w3_emission_driver.py`
+**Result:** 24/24 PASS (Groups A–E):
+- A: SpendLedger (6) — initial state, accumulation, resumption, summary structure
+- B: _verify_resumability (5) — halt-loud on empty, missing id, passes on valid + pre-flavored
+- C: smoke_validate_bundle_from_file require_proxies param (2) — False passes, True rejects
+- D: smoke run integration (8) — pipeline end-to-end; id bridge; proxies=[]; proxy_scaling; round-trip; criterion C PARKED; registry notes
+- E: constants/config (3) — N=100, seed=55M, registry notes required phrases
+
+### Phase B step 4 — MIGRATION.md v1.87: DONE
+
+New bundle artifact (`src/reincarnated/output/w3_batch1_bundle.json`), API extension to `smoke_validate_bundle_from_file`, driver constants/CLI, pilot beat math note reference, batch-1 honest-state fields.
+
+### Phase B step 5 — Full run (IN PROGRESS)
+
+**Command fired:** `python3 -m reincarnated.export.w3_emission_driver --n-samples 100 --seed 55000000 --dry-run-flavor`
+
+NOTE: `--dry-run-flavor` used for the unattended run: bypasses LLM calls (wiring verified; full LLM flavor pass is a separate step once the survivor set is confirmed). This produces the gauntlet-only survivor bundle. LLM flavor passes (kit-identity on survivors, monster/gear) to be fired separately once count is confirmed and LLM key status verified.
+
+**Projected:** ~5.32h wall-clock (1,800 candidates × 10.65s/kit). Expected survivors: ~1,152 at 64% yield.
+
+### Report-back items (partial — full run still firing)
+
+- Pilot-beat wall-clock per kit: **10.65s** (20-kit pilot)
+- Sizing decision: **N=100 → 1,800 candidates → ~5.32h**
+- Total candidates emitted: **1,800** (projected; measured output to be confirmed from run log)
+- In-band survivor count: **PENDING** (run in progress)
+- Gauntlet stats: **PENDING**
+- LLM spend per pass: **$0** (--dry-run-flavor; LLM flavor pass deferred to separate step)
+- Bundle path: `/Users/admin/Games/reincarnated-engine/src/reincarnated/output/w3_batch1_bundle.json`
+- Registry row id: **PENDING** (run in progress)
+- Round-trip result: **PENDING**
+- Tag SHA: **PENDING** (tag fires after run + review)
+- Criterion C status: **PARKED** (summoner emission = batch 2, gates on Matt ruling 2026-07-03)
