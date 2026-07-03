@@ -14,13 +14,14 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
-### 2026-07-02 — FOUNDING + three Matt rulings (split ratified · all-six-types demo bundle · zero hand-authored shipped content)
+### 2026-07-02 — FOUNDING + four Matt rulings (split ratified · all-six-types demo bundle · zero hand-authored shipped content · dormant-T4 revival + proxy-T4 suite)
 
-Founded from the engine tracker's PART II (now a pointer stub there) on the star-lord inspection substrate. **Three Matt rulings land at founding:**
+Founded from the engine tracker's PART II (now a pointer stub there) on the star-lord inspection substrate. **Four Matt rulings land at founding (rulings 1–3 at founding; ruling 4 same session, post-KR-run review):**
 
 1. **Split RATIFIED** — this doc exists; PART II collapses to a stub. jack-ryan ratifies structure per `canonical-doc-format.md § 6.7` (rides the current KR team session).
 2. **The demo bundle carries ALL SIX content types with FULL LLM flavor** — Matt overrules the one-realm §5.1 "weapon descriptors nice-not-critical / factions presentation-side-only" holds: *"I definitely don't agree with the demo not needing full LLM flavor, full weapons/gear and factions. Why hold them out?"* Post-inspection this is cheap: `emit_faction_block()` + `emit_weapon_descriptor()` are **built+validated, wiring-only**; gear writer works-when-called; flavor gaps are call-wiring. One-realm §4/§5 amended in place.
 3. **Zero hand-authored shipped content** — *"They need to be balanced and pipeline emitted… we can pick from a seasonal emission of the serial content pipeline of battle-sim passed kits."* The demo roster = **curated selection from a REAL pipeline-emitted, gauntlet-passed seasonal run**. Consequences: (a) the summoner **content-emit un-gate moves DEMO-CRITICAL** (`_DEFERRED_PROXY_BINS` lift — already Matt-ratified as spec 2026-06-24 *"Thanks for flipping PROXY,"* now pulled onto the demo path); (b) D2's hand-authored proxy decls **re-purpose to calibration FIXTURES** (never shipped content); (c) a **demo emission run** (proxy bins live, post-D3-calibration) becomes the roster source — and run #1 in the registry (PART C).
+4. **Dormant-T4 revival + PROXY-T4 SUITE, demo-critical** — *"Summon-focused kits MUST have a proxy-focused T4… we are expecting summon-kits to time out or die to boss if not for their proxy's DPS… will only one T4 work for all Proxies? I'm doubtful… We need to make all of the dormant T4 capstones alive in the engine (including proxyspawn) and we also need a full suite of proxy-T4's for the demo, so decent proxy kits can be emitted for selection."* Gap-queue row D.1 #9 carries it; #7 (demo emission run) now depends on it. **Timing note:** the bundle-v1 chain (D1 LOCKED-2 → D4 CLOSED) executed against pre-ruling scope — bundle-v1 is a **development bridge** (Godot D5/D6/D8 build against it); the **v2 demo emission run** (proxy bins + full T4 set live) is the shipping roster source.
 
 **Direction registered (Matt, same session):** rebuild/assemble the pipeline as an **autonomously running, non-agentic, callable process** (triggered processes, results auto-written to disk), with **runs tracked in a database and eventually a website tracker**. Staged path adopted in PART C (callable → registered → triggered → surfaced). This gives the parked route-vs-replace choice (`P1_ARCHITECTURE_PARK`) a direction lean — formal un-park still Matt's, queued in PART E.
 
@@ -71,15 +72,16 @@ The core is *already* non-agentic (callable scripts, programmatic LLM calls, pur
 | 4 | **Weapon descriptor wiring** — `emit_weapon_descriptor()` into the bundle (substrate_binding path; avoids the WeaponSlot mismatch) | star-lord | Built+validated; Matt-ruled IN 2026-07-02 |
 | 5 | **Gear pool for the demo season** — drive the 200-item writer against a live season + LLM naming | star-lord | Writer works-when-called |
 | 6 | **Proxy calibration slice** (D3) — gamora derives the four scaffold magnitudes on D2 fixture decls; rocket applies | gamora → rocket | Precedes #7; math-note-first |
-| 7 | **Summoner un-gate + DEMO EMISSION RUN** — lift `_DEFERRED_PROXY_BINS` (+ ProxySpawn, Matt-ratified 06-24), retire the stale reason-string, run ONE real seasonal emission with proxy bins live; **demo roster curated from its gauntlet-passed output** | rocket (un-gate) + star-lord (run) | Matt-ruled demo-critical 2026-07-02; run #1 in the registry |
+| 7 | **Summoner un-gate + DEMO EMISSION RUN** — lift `_DEFERRED_PROXY_BINS`, retire the stale reason-string, run ONE real seasonal emission with proxy bins live **and the #9 T4 set live**; **demo roster curated from its gauntlet-passed output** (v2 supersedes the bundle-v1 bridge summoners) | rocket (un-gate) + star-lord (run) | Matt-ruled demo-critical 2026-07-02; run #1 in the registry; **depends on #6 + #9** |
 | 8 | **Run registry (minimal)** — runs table + write-path in the driver | star-lord | Stage 2 of PART C |
+| 9 | **Dormant-T4 revival + PROXY-T4 SUITE** — ALL five v1.1-dormant strategies go LIVE (ResourceBuffer, MechanicReplacement, ZoneControl, ConditionalModifier, ProxySpawn) **plus a proxy-focused T4 family** (per-proxy damage / durability+taunt / count (`max_active` — gamora owns the magnitude; it is the boss-grading count wall) / spawn-and-attack cadence / death-conversion axes; **behavioral-tier-aware magnitudes**, not 14-per-type explosion), with η axis-match wired so summon-bearing kits score proxy-T4s high | rocket (strategies) + gamora (sim-eval extension + magnitudes) + gandalf (suite design spec + η integration intent) | **Matt-ruled 2026-07-02:** *"summon-focused kits MUST have a proxy-focused T4… we need a full suite of proxy-T4's for the demo, so decent proxy kits can be emitted for selection."* Evidence: W2 caster-alone WR 0.000 / D3 build-floor passes ride proxy DPS — a self-cast capstone amplifies the zero. Note: the v1.1 "sim-extension-required" labels predate the spatial sim — several dormant strategies may map to now-existing spatial mechanics (triggers/energy/AoE); rocket+gamora assess per-strategy |
 
 ### D.2 LAUNCH-SCOPE (unchanged unless re-ruled)
 
 - **Unified serial driver** — route-vs-replace (`P1_ARCHITECTURE_PARK`, Tier-3 Matt PARK; direction lean registered, PART E) — star-lord/rocket
 - **Monster generation wired into the cycle-14 track** (demo uses old-track monsters) — rocket/star-lord
 - **Trigger layer** (scheduled emissions) + **web run-tracker** — star-lord + drax
-- **Proxy emission share tuning** (~25% target) + proxy-*amplifying* T4s ("your minions gain X" — classic Necro mastery fantasy; not in any current strategy list; natural Layer-2 addition post-calibration) — rocket/gamora
+- **Proxy emission share tuning** (~25% target) — rocket/gamora. ~~+ proxy-*amplifying* T4s at launch~~ **moved DEMO-CRITICAL 2026-07-02** (Matt proxy-T4 ruling → D.1 #9; launch keeps only share-tuning + suite *depth* beyond the demo family)
 - **Faction/weapon content-shape specs** (gandalf) — demo wiring ships with inspection-shaped defaults; the full spec pass stays launch
 - **Godot bundle loader** (consumption side) — drax, tracked in the game tracker (one-realm §6.1)
 
@@ -91,6 +93,7 @@ The core is *already* non-agentic (callable scripts, programmatic LLM calls, pur
 | Run-registry schema | star-lord proposes; jack-ryan Gate-1; Matt ratifies |
 | Web tracker placement (loadout-embedded vs standalone) | Open; drax proposes post-demo |
 | Whether DirectDamageAmplification propagates to proxy damage | Calibration-adjacent question — D3 notes it; likely NO today (decl `damage_multiplier` is a separate surface) |
+| **Ranged-proxy navigation gap** (D3 finding: `demo_gravecaller`'s archer proxy parks at 38.9 m, never closes — nav gap, not magnitude; defer-and-log at D3) | Blocks RANGED summoners from certifying in the v2 demo emission run. Matt rules: fix nav in the bundle-v2 engine wave, or **exclude ranged summoners from v2 curation** (melee summoners certify clean — D3 build-floor PASS ×2) |
 
 ---
 
