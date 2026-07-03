@@ -21,6 +21,19 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-03 (session close) — MATT HALT: summoner/caster ruling OPEN; two halt documents authored
+
+Matt halted at the summoner-ruling session ("we don't have any casters at all? … I really need to read all of the findings") — **no ruling made; the decision file stays OPEN** with the corrected half-structural/half-calibration decomposition as its authoritative input (jack-ryan verdict block). Two halt documents authored for next-session pickup, both `agentic_orchestration/gandalf/notes/`:
+
+1. **`2026-07-03-demo-readiness-run-full-findings.md`** — the full W0→W4 + carve-out record: exact chronology, defect chain, the 700-kit bank anatomy (per-cell/glyph/resource verified against the bundle), the 35 flavored finalists complete, the 11 failed cells with the corrected trimodal mechanisms, failed-kit samples with per-cohort numbers, mechanics-that-didn't-work catalog (10 items), process-findings ledger (12 items), costs, full commit/tag chain of custody.
+2. **`2026-07-03-next-session-recommendations.md`** — next-session start: the ruling first (options re-tabled with the sharpened evidence; my Option-1 recommendation stands, NOT pre-committed), the optional pre-ruling rocket diagnostic (why non-melee INT composes zero), G7a roster picks (ruling-independent, inputs complete), housekeeping queue (gamora's 4 corrections · spec v1.2 strikes · Defensive fixture artifact · **API key rotation** · KR tracker folds), anti-recommendations (no batch-2 before ruling+scoping; no isolated band re-tune; no 665 flavor; no spec blind-purge).
+
+Next-session open heads, in order: **(1) Matt ruling** (Option 1 vs 2) → consequent dispatch · **(2) G7a picks** (7 martial seats, 35 finalists ready) · (3) housekeeping. Empirical criterion that re-engages the summoner leg remains: **the ruling on the decision file** (not time-passage).
+
+**Signed:** gandalf, 2026-07-03 (session close).
+
+---
+
 ### 2026-07-03 (later session) — CARVE-OUTS EXECUTED: F1 bridge + identity_glyph LANDED · flavor 0/35 (key-gated) · failed-cell autopsy CLOSED half-structural/half-calibration (jack-ryan PASS-with-notes)
 
 The three ruling-independent carve-outs (Matt-approved, KR-staged at collab `b9b8b31`) fired from the gandalf session as parallel sub-agents; the autopsy dispatch's jack-ryan review leg fired sequenced after. Deltas:
