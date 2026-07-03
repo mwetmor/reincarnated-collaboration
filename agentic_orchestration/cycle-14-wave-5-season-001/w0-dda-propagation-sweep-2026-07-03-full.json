@@ -1,0 +1,172 @@
+{
+  "_meta": {
+    "base_seed": 53000017,
+    "n_fights_per_cell": 24,
+    "player_dm": 1.0,
+    "spatial_damage_scale": 0.6,
+    "dm_player_sp_inherited_on": 0.6,
+    "boss_anchor": {
+      "boss_dm": 5.0,
+      "boss_cadence_s": 4.5,
+      "swarm_dm": 0.2,
+      "boss_hp": 30000.0
+    },
+    "held_magnitudes": {
+      "reference_hp": 20000.0,
+      "max_active": 1,
+      "dm": 1.0,
+      "interval": 1.0
+    },
+    "peak_rss_mb": 48.4,
+    "host_ram_mb": 8192
+  },
+  "verdict": {
+    "dm_player_sp": 0.6,
+    "isolation_ok": true,
+    "arm_off_reproduces_d3": true,
+    "recert_wr": {
+      "demo_bone_acolyte": {
+        "boss_with_adds": 1.0,
+        "mini_boss": 1.0
+      },
+      "demo_crypt_lieutenant": {
+        "boss_with_adds": 1.0,
+        "mini_boss": 1.0
+      }
+    },
+    "recert_pass": true,
+    "double_dip_ok": true,
+    "double_dip_detail": [
+      {
+        "kit": "demo_bone_acolyte",
+        "shell": "boss_with_adds",
+        "t_off": 60.1,
+        "t_on": 103.7,
+        "linear_pred_t_on": 100.17,
+        "on_faster_than_off": false
+      },
+      {
+        "kit": "demo_bone_acolyte",
+        "shell": "mini_boss",
+        "t_off": 60.1,
+        "t_on": 103.7,
+        "linear_pred_t_on": 100.17,
+        "on_faster_than_off": false
+      },
+      {
+        "kit": "demo_crypt_lieutenant",
+        "shell": "boss_with_adds",
+        "t_off": 60.1,
+        "t_on": 103.7,
+        "linear_pred_t_on": 100.17,
+        "on_faster_than_off": false
+      },
+      {
+        "kit": "demo_crypt_lieutenant",
+        "shell": "mini_boss",
+        "t_off": 60.1,
+        "t_on": 103.7,
+        "linear_pred_t_on": 100.17,
+        "on_faster_than_off": false
+      }
+    ]
+  },
+  "cells": [
+    {
+      "kit": "demo_bone_acolyte",
+      "shell": "boss_with_adds",
+      "mode": "off",
+      "ally_damage_modifier": 1.0,
+      "wr": 1.0,
+      "mean_elapsed_s": 60.1,
+      "f_army": 1.0,
+      "mean_proxy_dmg": 30000.0,
+      "mean_player_dmg": 0.0,
+      "max_army_boss_dps": 500.0
+    },
+    {
+      "kit": "demo_bone_acolyte",
+      "shell": "boss_with_adds",
+      "mode": "on",
+      "ally_damage_modifier": 0.6,
+      "wr": 1.0,
+      "mean_elapsed_s": 103.7,
+      "f_army": 1.0,
+      "mean_proxy_dmg": 30000.0,
+      "mean_player_dmg": 0.0,
+      "max_army_boss_dps": 300.0
+    },
+    {
+      "kit": "demo_bone_acolyte",
+      "shell": "mini_boss",
+      "mode": "off",
+      "ally_damage_modifier": 1.0,
+      "wr": 1.0,
+      "mean_elapsed_s": 60.1,
+      "f_army": 1.0,
+      "mean_proxy_dmg": 30000.0,
+      "mean_player_dmg": 0.0,
+      "max_army_boss_dps": 500.0
+    },
+    {
+      "kit": "demo_bone_acolyte",
+      "shell": "mini_boss",
+      "mode": "on",
+      "ally_damage_modifier": 0.6,
+      "wr": 1.0,
+      "mean_elapsed_s": 103.7,
+      "f_army": 1.0,
+      "mean_proxy_dmg": 30000.0,
+      "mean_player_dmg": 0.0,
+      "max_army_boss_dps": 300.0
+    },
+    {
+      "kit": "demo_crypt_lieutenant",
+      "shell": "boss_with_adds",
+      "mode": "off",
+      "ally_damage_modifier": 1.0,
+      "wr": 1.0,
+      "mean_elapsed_s": 60.1,
+      "f_army": 1.0,
+      "mean_proxy_dmg": 30000.0,
+      "mean_player_dmg": 0.0,
+      "max_army_boss_dps": 500.0
+    },
+    {
+      "kit": "demo_crypt_lieutenant",
+      "shell": "boss_with_adds",
+      "mode": "on",
+      "ally_damage_modifier": 0.6,
+      "wr": 1.0,
+      "mean_elapsed_s": 103.7,
+      "f_army": 1.0,
+      "mean_proxy_dmg": 30000.0,
+      "mean_player_dmg": 0.0,
+      "max_army_boss_dps": 300.0
+    },
+    {
+      "kit": "demo_crypt_lieutenant",
+      "shell": "mini_boss",
+      "mode": "off",
+      "ally_damage_modifier": 1.0,
+      "wr": 1.0,
+      "mean_elapsed_s": 60.1,
+      "f_army": 1.0,
+      "mean_proxy_dmg": 30000.0,
+      "mean_player_dmg": 0.0,
+      "max_army_boss_dps": 500.0
+    },
+    {
+      "kit": "demo_crypt_lieutenant",
+      "shell": "mini_boss",
+      "mode": "on",
+      "ally_damage_modifier": 0.6,
+      "wr": 1.0,
+      "mean_elapsed_s": 103.7,
+      "f_army": 1.0,
+      "mean_proxy_dmg": 30000.0,
+      "mean_player_dmg": 0.0,
+      "max_army_boss_dps": 300.0
+    }
+  ]
+}

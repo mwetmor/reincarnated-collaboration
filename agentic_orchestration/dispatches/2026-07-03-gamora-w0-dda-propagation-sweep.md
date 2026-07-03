@@ -66,3 +66,41 @@ The bundle's `proxy_scaling` contract (spec §6) is star-lord's W1/W3 surface �
 ## References
 
 - Spec §6 + §11 finding #1 · D3 cert `abb010d` · B1-REBASE `67fc0a9` · decisions-log `a10a695`
+
+---
+
+## ✓ Completion record — gamora, 2026-07-03
+
+**Status:** COMPLETE — **PROPAGATION-LIVE FLOOR CERTIFIED**. Both melee demo summoners RE-CERT PASS. No degeneracy, no floor-regression. The run proceeds **propagation-ON**; (b)-config NOT invoked.
+
+**Tag:** `gamora/v-demo-run-w0-dda-sweep-1`. **Base seed:** 53,000,017 (sequential, deterministic; distinct run from SESSION-45's 53M — no parallel regen; Disc #3 holds). **Push:** HELD (KR pushes at wave closeout).
+
+**Artifacts:**
+- Math note (Disc #1, authored FIRST): `reincarnated-engine/src/reincarnated/simulation/math/dda-propagation-live-floor-2026-07-03.md` (§1 killing-blow arithmetic · §2 new floor + kill-margin + anchor-by-construction · §3 #24 isolation + refutation pre-check · §4 resource-bound · §6 double-dip · §7 predictions · §8 RESULT).
+- Sweep harness (INSTRUMENT): `reincarnated-engine/scripts/gamora_dda_propagation_sweep_2026_07_03.py`.
+- Full-pass raw: `agentic_orchestration/cycle-14-wave-5-season-001/w0-dda-propagation-sweep-2026-07-03-full.json` (8 cells, N=24, peak RSS 48 MB / 0.6% of 8GB).
+- State: `reincarnated-engine/src/reincarnated/simulation/AGENT_STATE.md` SESSION 46.
+
+**Scope executed (all boxes):**
+- [x] **Single-parameter flip (Disc #24)** — propagation ON = ally-as-attacker `damage_modifier` at `spatial_engine.py:1773` flips 1.0→`dm_player_sp`=0.6; ALL ELSE (four magnitudes, LOCKED anchor, D2 fixtures, both shells, player kit, seeds, N) HELD byte-identical. Isolation VERIFIED (the ONLY differing input OFF→ON is the ally `damage_modifier` scalar; asserted in `_analyze`).
+- [x] **(i) Propagation-live build-floor derived** — `max_army_boss_dps_NEW = max_army_boss_dps_OLD × dm_player_sp` (factor 0.6 at cert-fixture player power — a DECREASE, the conservative floor at the base of the curve). Boss anchor dm 5.0 @ 4.5s / swarm 0.20 held **BY CONSTRUCTION** (shown: the swept variable is disjoint from the boss/swarm mob-dict fields; `_assert_anchor_intact` per cell).
+- [x] **(ii) RE-CERTIFY both melee summoners against the NEW floor** — `demo_bone_acolyte` + `demo_crypt_lieutenant` both retain survive-and-kill **WR 1.0 on BOTH shells** under propagation-ON (army_dps 500→300, clear-time 60.1→103.7s, 136s margin under the 240s wall). **RE-CERT GATE: PASS.**
+- [x] **Double-dip degeneracy check** — CLEAN: ON clear-time NEVER faster than OFF (linear additive scaling; no super-linear path; player power appears in player + proxy streams as two SEPARATE additive attackers, not squared).
+- [x] Math note committed with code citations (#1.2: `:1428`, `:1491`, `:1510`, `:1730`, `:1757`, `:1773`, `:2757`, `:3050`).
+- [x] AGENT_STATE.md updated (SESSION 46).
+- [x] Tag `gamora/v-demo-run-w0-dda-sweep-1`.
+
+**Acceptance criteria:**
+- [x] Math note precedes code/sweep, with citations.
+- [x] Propagation-live floor derived; anchors hold BY CONSTRUCTION (shown, not asserted).
+- [x] Both melee summoners RE-CERTIFIED against the new floor (PASS — no halt, no (b)-config needed).
+- [x] Sweep isolation verified (#24).
+- [x] Round-trip: not applicable (sim-side sweep + cert; `proxy_scaling` EMIT is star-lord's W1/W3 seam).
+
+**Refutation conditions (Quality-criterion) — NONE fired:** (i) flip isolable (single scalar, no coupled side-effect, no SPATIAL_DAMAGE_SCALE double-apply); (ii) D3 method carries (Arm-OFF regression-equivalence reproduces the cert byte-for-byte; only one input scalar changed); (iii) non-vacuous cert (grades the two ACTUAL certified hand-authored kits); (iv) no launch-model pre-commit (floor fixed at base inherited value; percent-vs-minion-channel deferred to launch study).
+
+**Disc #12 semantic-shift declared:** the flip changes how proxy damage is interpreted (ally power inherits player power vs a flat 1.0). This is the G5 ruling made live, NOT a bug fix — framed in math note §1.2 + decisions-log G5 (`a10a695`) + AGENT_STATE. In-harness only for the sweep; production propagation is Godot-side via star-lord's `proxy_scaling` emit.
+
+**Guards honored:** anchor held by construction; single-parameter isolated; no production sim code touched; no telemetry write; no `_DEFERRED_PROXY_BINS` lift; no push. jack-ryan Gate-2 on the sweep next; W3 proceeds propagation-ON.
+
+**Signed:** gamora (simulation seam), 2026-07-03.
