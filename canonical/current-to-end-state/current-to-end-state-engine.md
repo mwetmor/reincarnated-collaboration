@@ -21,6 +21,18 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-03 — GLYPH §5 GATE PRE-RUN over the true batch-1 bundle: spec v1.1 re-cut · CASTER-WIPEOUT headline · 19-field export-envelope gap (F1 bridge → star-lord)
+
+gandalf pre-ran the scouting-glyph spec's §5 validation gate against the TRUE W3 bundle (700 kits, run_id `cbeb9471`, engine `2839caf`) ahead of the W4 invocation. Three findings (full record: `agentic_orchestration/gandalf/notes/2026-07-03-glyph-s5-pre-run-findings.md`):
+
+1. **F1 — export envelope hollow:** 19/31 kit fields None ×700 (`name`, `archetype_tag`, `energy_type`, `dominant_element`, `stat_distribution`, `primary_t4`…). Same defect class as the v1.90 `bc_target_cell` fix — driver↔assembler **vocabulary mismatch** (`to_character_dict()` emits `element`/`resource_model`/`cohort_archetype`; assembler reads cycle13 names). Data exists; bridge fix specced (star-lord, rides the glyph-spec §6 `identity_glyph` stamp beat, `gates-on: W4` — ~10s regen, no gauntlet re-run).
+2. **F2 — v0 glyph axis was phantom:** `role_orientation` is hard-coded `"damage"` population-wide (`season_generation_pipeline.py:1557`); not a `KitCandidate` coordinate. **Spec re-cut v1.0→v1.1** onto BC coordinates per its own §5 law (five Matt-locked names unchanged; rules 1/4/5 de-provisionalized — BRUISER 300 / GLASS CANNON 400; rules 2–3 provisional until a role-varied population emits). New §5 check-0: axis-existence.
+3. **F3 — CASTER WIPEOUT:** survivors = 7 whole cells × 100, STR/DEX-only. **All 10 INT+WIS cells failed the gauntlet** (+1 melee-DEX = the 11 failed). Skill-role template is invariant 4/4/2/2 across all 700 — no cross-kit role variety emitted. The W4 failed-cell autopsy item is hereby UPGRADED from "classify 11 failures" to "explain a systematic caster wipeout" (echoes W2 caster-alone WR 0.000; classification stays with the assigned W4 owners). **Matt fork parked at G7a** (`gates-on: W4`): demo roster from STR/DEX melee/ranged only (2 glyphs + pips, grimoire hook-honesty carries the rest) vs role-varied/caster-fixed batch-2 before the roster pick.
+
+**Signed:** gandalf, 2026-07-03.
+
+---
+
 ### 2026-07-02 — EMISSION TWO-STATE INSPECTION (Matt-commissioned): PART II verified + corrected; demo hand-join ACHIEVABLE; two unlisted gaps surfaced (skill flavor_text, proxies-absent)
 
 Matt commissioned the emission-pipeline mirror of the sim inspection (two target states: demo hand-join / launch serial driver). star-lord's read-only survey: `agentic_orchestration/star-lord/notes/2026-07-02-emission-two-state-inspection.md` (commit `9873c6b`) — full two-track pipeline map, six-type × two-track coverage matrix, LLM call inventory, five formal tracker corrections (C-1…C-5). Headline verdicts:
@@ -63,7 +75,7 @@ Matt commissioned a full sim inspection against two target states (demo / comple
 | III.4 hundreds-scale | LAUNCH | ~8–10 curated kits; hook honesty rides §20a/§20c gestures — numbered grimoire pages, glyph previews (§4) |
 | III.5 monster sourcing | LAUNCH | fodder bestiary + hand-picked champion-kits enact the lean by hand (§3) |
 | III.6 geometry seam | LAUNCH | demo floors authored via the three-gate method (§6.3) |
-| III.8 scouting glyphs | **MVP-CRITICAL (minimal)** | the minimal label→glyph mapping at the Goldilocks fork (§4) |
+| III.8 scouting glyphs | **MVP-CRITICAL (minimal)** — spec-side ✓ CLOSED (glyph spec **v1.1**, 2026-07-03; §5 gate pre-run over batch-1, see 2026-07-03 delta); stamp beat = star-lord post-run, `gates-on: W4` | ~~label→glyph~~ **coordinate→glyph** at the Goldilocks fork (§4) — v0's phrase was the smuggling trap |
 | III.8 gear-as-sim-variable | LAUNCH | gear ships as §5.1 bundle *content*; the `express_gear` instrument waits |
 
 **IV.2 consequence:** the demo pulls exactly **TWO engine asks** (hand-join + proxy decls); everything else in the queue is launch-track instrument work — it **continues** (one-realm §9: in-flight work not halted; the III.10 un-gates + perception-asymmetry producer proceed) but does **not gate the demo**. The demo is itself the validation instrument (one-realm §8) for the currently-unfalsifiable claims — sawtooth *feel*, +3 payoff, escape-clock band, and **the §20d parametric-verb condition (THE test)**: if ~10 kits can't become 10 distinct playable verbs cheaply, we must know before promising 400. Story-side sibling tags: `current-to-end-state-story.md` same-date delta (B1 = launch-gate, demo unaffected; B3/B4/B5 = not-MVP).
