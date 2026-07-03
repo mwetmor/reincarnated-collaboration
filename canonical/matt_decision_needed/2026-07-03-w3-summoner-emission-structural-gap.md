@@ -132,3 +132,58 @@ The one "FAIL" label hides **three** mechanisms, not two:
 - Analysis artifact only; no production code touched; throwaway script under `simulation/notes/` (not tagged).
 
 **Signed:** gamora, 2026-07-03 (failed-cell autopsy; evidence leg for the summoner ruling). Awaiting jack-ryan DEV-MODE review of the classification method + evidence.
+
+---
+
+## REVIEW VERDICT (2026-07-03) — jack-ryan, DEV-MODE (Gate 2, BLOCK authority)
+
+> **Dispatch:** `dispatches/2026-07-03-gamora-failed-cell-autopsy.md` § "Review leg". Scope: review the CLASSIFICATION METHOD AND EVIDENCE, not just conclusions. **ZERO fights simulated by this review** (read-only JSON queries + engine source read only).
+> **Principles applied:** Review Principles #1 (math-before-code / evidence-cited), #4 (decisions-log/gate-as-truth), #5 (severity). Disciplines #1, #12 (semantic shift), #19.1, #23 (framing-audit).
+
+### Verdict: **PASS-with-notes — but ONE load-bearing plank is BLOCKed and must be corrected before this informs the ruling.**
+
+The autopsy's **structural skeleton is sound and its top-line labels survive** (4 INT cells structural; `melee_high_flat_dex` pure-calibration; the floor-9 separation; the phantom-axis catch; Defensive orthogonality; int_light==int_none). But the narrative mechanism gamora attached to the 6 composed caster cells — the **"single-target-sustain collapse / boss-kpm 0.25–1.14 / a band re-tune cannot fix"** structural-secondary — is read off a **field the live emission gate does not use**, and is **contradicted by the field it does use**. Because Matt's Option-1-vs-2 ruling turns specifically on whether casters are structurally boss-broken, that plank must be corrected before it informs the ruling. Everything else PASSES.
+
+### CONFIRMED (verified by direct JSON query + engine source):
+
+1. **The 4-INT-cell STRUCTURAL verdict HOLDS — not a parsing artifact.** The apparent KR-vs-gamora conflict is resolved: `encounter_id` carries the ENCOUNTER-side (environment) cell; `legendary_id` carries the KIT's home cell. Query — raw substring (bypassing the regex) across `kit_results` for `mid_low_spiky_int`, `ranged_low_spiky_int`, `ranged_medium_variable_int_none`, `ranged_medium_variable_int_light`: **0 kit rows each** (only `int` kit ever composed is `melee_high_flat_int_none`, 100 rows). Same 4 stems on the ENCOUNTER side (`encounter_id`): **6,600 rows each**, with tier-1 REJECT = 6,300 / 5,100 / 5,100 — **exactly KR's bimodal lead.** KR counted kits-rejecting-INSIDE those cells' encounter shells; gamora counted kits FROM those cells (zero). Both internally correct; different axes. gamora's verdict stands; KR's "all 18 cells present" is true at the encounter-shell level but only 14 cells composed kits.
+2. **Floor-9 separation is real and gate-authoritative.** Read straight from `kit_results.per_cohort.Balanced.eligible_encounters_passed`: survivors **11.0–18.0**, composed failures **3.65–3.87**, `melee_high_flat_dex` **6.00** — all << floor 9. `eligible_encounters_passed` IS a live varying coordinate (survivors clear it). Matches gamora's cited numbers.
+3. **Phantom-axis catch is correct.** `in_band` (False ×125,400) and `sg_overall` (BLOCK ×125,400) are population-wide constants; reading them as the failure axis is the trap gamora correctly flagged (Discipline #23).
+4. **Defensive orthogonality — exact.** `eligible_encounters_total`=6 (min=max) < floor 9 for every kit; **1,000/1,000** emit-kits have Defensive `gauntlet_pass=False`. Orthogonal, confirmed.
+5. **int_light == int_none:** both zero composed. Proxy-`light` did not rescue INT composition; gap is upstream of proxy density. Confirmed.
+6. **ZERO fights:** gamora's script (`w3_failed_cell_autopsy_2026_07_03.py`) contains only `json.load` + reads — no `simulate`/`run_gauntlet`/`subprocess`/fight-execution. Assertion honest.
+
+### BLOCK (the load-bearing plank — cohort (B) mechanism is mis-attributed):
+
+**The live ship gate reads `tier_2`, not `tier_1`.** Per `gauntlet_sim.py:615-667` (`eligible_encounters_passed`): CLEAR shells pass iff **`tier_2_kpm`** in `ENCOUNTER_COHORT_KPM_BAND[shell][cohort]`; BOSS shells (`boss_with_adds`, `mini_boss`) pass iff **`tier_2_survival_rate >= SURVIVAL_FLOOR_BY_COHORT[cohort]`** — and (verbatim `:624-625`) *"The KPM band is NEVER consulted for boss shells."* The boss-gate move (`:167-179`, Matt-adopted 2026-06-19) explicitly **retired the tier_1 boss-KPM-REJECT** so boss shells route to tier_2 unconditionally. gamora's method (decision-file line 81 + script docstring `:21-23`) describes the gate as counting **`tier_1_outcome=='PROVISIONAL_PASS'`**. That is the wrong field family — and it drives the wrong mechanism story:
+
+- **Applying the ACTUAL gate per shell (Balanced), the 6 composed casters PASS the boss shells:** `boss_with_adds` survive-kill 94–95%, `mini_boss` 83–92% (`tier_2_survival_rate` median = **1.000**). **Casters DO survive and kill the single-target boss on the live gate.** gamora's "boss kpm 0.25–1.14 → ST-sustain collapse a band re-tune can't fix" reads the **retired tier_1 boss-KPM path** (`tier_1_kpm` med ~0.7), a field the gate abandoned for exactly the reason it manufactured a fake STR boss-crater (`:171-173`).
+- **Where the casters ACTUALLY fail the gate: the CLEAR shells.** `chokepoint_corridor` + `open_arena` fail on timeout (`tier_2_kpm`=0, `tier_2_survival_rate`=0); `elite_pack` + `magic_pack` fail by exceeding the band **CEILING** (band `(8.26, 28.13)` / `(18.61, 100.0)` but caster `tier_2_kpm` = 450 / 600 → **overkill above the ceiling**, not undershoot). The "600" gamora reads as pack throughput is a **documented tick-floor discretization artifact** (`t4_sim_cycling.py:720-723`; `gauntlet_sim.py:211`), not a real KPM.
+
+**Consequence for the mechanism, not the label:** cohort (B)'s failure on the live gate is **clear-shell calibration/geometry** — corridor/open timeout + pack-overkill-above-ceiling — **not a single-target-boss-sustain collapse.** The specific claim that a band re-tune "would relabel the same collapsed kpm without creating single-target sustain" is refuted: the casters already clear the boss survive-kill gate; the boss is not their blocker. This does **not** flip the four **primary-mode labels** (the 4 INT cells are still zero-composed = structural; the 6 casters still fail the floor; dex still pure-calibration). It **does** dissolve the *structural-secondary* that the "predominantly STRUCTURAL" caster headline leans on for the composed subset.
+
+### Does the "PREDOMINANTLY STRUCTURAL" headline survive for Matt's ruling? — **PARTIALLY. Re-state it as:**
+
+- **4/10 caster cells are unambiguously STRUCTURAL** (generation gap — zero kits composed). This half is rock-solid and is the part that actually bears on Option 1: a proxy-live batch-2 **cannot fight what was never composed.** The gen-path must compose INT candidates first.
+- **6/10 caster cells are CALIBRATION on the live gate** — clear-shell band mismatch (corridor/open timeout + pack overkill), with the boss survive-kill gate already PASSED. The prior "structural ST-sustain secondary" is **not supported by the gate field** and should be withdrawn or re-grounded. Whether these 6 recover on a proxy-live batch-2 is now a **calibration/geometry** question (do proxies change clear-shell tempo enough to bring `tier_2_kpm` into band on corridors/open, and off the ceiling on packs), not a resource-economy-loop question.
+
+**Net for the ruling:** the caster absence is **half structural (generation gap, 4 cells) and half calibration (clear-shell band, 6 cells)** — NOT "majority-structural + ST-sustain economy gap." A proxy-live batch-2 without a gen-path still fires **partially blind on the 4 zero-composed INT cells** (gamora's core Option-1 caution survives, and is the load-bearing one). But the 6 composed casters are a **calibration/geometry** recovery candidate, materially more tractable than "the mana economy has no single-target loop." Matt should rule with that corrected decomposition.
+
+### Required corrections (gamora — before this informs the ruling; ADR-002: doc-only, within jack-ryan approval once fixed):
+
+- [ ] **Correct the gate description** (decision-file line 81 + script docstring `:21-23`): the live gate counts `tier_2`-based pass (`tier_2_kpm` in-band for clear shells; `tier_2_survival_rate >= floor` for boss shells), **not** `tier_1_outcome=='PROVISIONAL_PASS'`. (`gauntlet_sim.py:615-667`.)
+- [ ] **Re-ground cohort (B)** (decision-file rows #5–#10 + "Bimodal split (B)" + the load-bearing answer): the composed casters PASS the boss survive-kill gate (`tier_2_survival_rate`≈1.0, boss-pass 94–95%); they FAIL the CLEAR shells (corridor/open timeout + pack `tier_2_kpm` **above ceiling**). Withdraw or re-evidence the "single-target-sustain collapse / band re-tune can't fix" secondary. The "kpm→600 pack overkill" phrasing reads a discretization artifact — drop or footnote it.
+- [ ] **Re-state the headline** as the corrected half-structural / half-calibration decomposition above.
+- [ ] **`melee_high_flat_dex` #19.1 note:** on the live gate it PASSES `boss_with_adds` (100%) but FAILS `mini_boss` (0%) and both non-boss clear shells — its "boss PROV=100%" is `boss_with_adds` tier_1 only. Primary-mode label (pure calibration) still holds; tighten the evidence line.
+
+### For Matt (this verdict gates whether the autopsy informs the Option-1-vs-2 ruling):
+
+- [ ] The autopsy is **usable for the ruling AFTER the four corrections land** (they are doc-only and do not require re-fight — every correction above is derivable from fields already on disk). The corrected takeaway — **4 caster cells structurally un-composable, 6 caster cells clear-shell-calibration with the boss already cleared** — is the honest input. If Matt is ruling on cadence before gamora re-grounds, use THIS block's corrected decomposition, not the "predominantly structural / ST-sustain" framing above it.
+
+### References
+- Canonical JSON: `reincarnated-engine/src/reincarnated/simulation/output/cycle-13-gauntlet-sim-results-2026-05-27.json` (read-only; kit_results 2,200, encounter_results 125,400).
+- Gate semantics: `reincarnated-engine/src/reincarnated/simulation/gauntlet_sim.py:158,167-186,615-667,690-715` (eligible_encounters_passed reads tier_2; boss survive-kill; floor 9); `ENCOUNTER_COHORT_KPM_BAND` bands (boss_with_adds `(2.49,3.78)`, elite_pack `(8.26,28.13)`, magic_pack `(18.61,100.0)`), `SURVIVAL_FLOOR_BY_COHORT` (Balanced 0.8).
+- 600 = discretization artifact: `t4_sim_cycling.py:100,720-723,748-756`; `gauntlet_sim.py:188-211`.
+- gamora's script: `reincarnated-engine/src/reincarnated/simulation/notes/w3_failed_cell_autopsy_2026_07_03.py` (read-only confirmed).
+
+**Signed:** jack-ryan, 2026-07-03 (DEV-MODE Gate-2 review of the failed-cell autopsy classification method + evidence). PASS-with-notes; cohort-(B) mechanism BLOCKed pending the four doc-only corrections above.
