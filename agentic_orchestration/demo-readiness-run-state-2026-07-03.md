@@ -25,7 +25,7 @@
 | W1.#8b registry writer | star-lord | **KR sequencing call: folds into the W3 dispatch as step 0** (post-ratification; saves a chain slot; still satisfies Gate-1 #5 ratify-before-build) | registry-schema-ratified | HELD → rides W3 |
 | Registry-schema ratification (fast pass, no Matt gate — G9) | jack-ryan | Pattern-A invocation at W0/W1 boundary | W1.#8a-draft ✓ | ✓ **DONE — RATIFIED-WITH-AMENDMENTS** (+`generation_seed`, +`in_band_count`; see precondition 2 row) |
 | W2 Gate-1 critique-pair (jack-ryan + gandalf, parallel) | KR invokes | on `2026-07-03-rocket-gamora-w2-pairing-layer.md` | — (reviews dispatch text) | ✓ **CLEARED** (jack-ryan ENDORSE-WITH-FOLDS, E4 fold applied; gandalf ENDORSE ×5 NOTE) |
-| W2 Phase 1 (CONVERGENCE + DUAL_PROXY classes + wiring) | rocket | `2026-07-03-rocket-gamora-w2-pairing-layer.md` | ~~W0.classifier · W0.2-type-decl-check · W0.fixture · Gate-1-pair-CLEAR~~ **ALL ✓** | QUEUED (engine chain slot 4, after gamora W0) |
+| W2 Phase 1 (CONVERGENCE + DUAL_PROXY classes + wiring) | rocket | `2026-07-03-rocket-gamora-w2-pairing-layer.md` | ~~W0.classifier · W0.2-type-decl-check · W0.fixture · Gate-1-pair-CLEAR~~ **ALL ✓** | 🔥 **FIRING** (background agent live post-W0/W1 closeout; engine chain slot 4) |
 | W2 Phase 2 (cert) | gamora | same dispatch | W2.phase1 | HELD |
 | W3 THE EMISSION RUN (un-gate → pilot beat → full-spectrum → gauntlet → flavor split → assemble+register) | star-lord + rocket | authored at W3 entry | W0(all) · W1(all) · W2(soft — §7 degrade) · singleton-smoke-green · registry-schema-ratified | HELD |
 | W4 verify + curate-prep (DRIFT-CRITIC · Gate-2 · G4 hypothesis test + tagging · offer-table verify · §8 shortlist) | gandalf · jack-ryan · gamora · KR | authored at W4 entry | W3 | HELD |
