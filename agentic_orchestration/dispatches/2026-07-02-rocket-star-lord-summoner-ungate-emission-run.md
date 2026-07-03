@@ -31,6 +31,7 @@ Matt ruled ZERO hand-authored shipped content (relay §2 ruling 3): the demo's ~
 ## Scope
 
 - [ ] **rocket:** lift `_DEFERRED_PROXY_BINS`; retire the stale reason-string with a one-line justification; verify proxy-bin kits now enter emission
+- [ ] **star-lord PRE-EMISSION prerequisite (B1 exit-gate finding, `rocket/v-proxy-t4-suite-strategies-1` @ `17d5f80`):** the emitter `export/cycle14_wave5_emitter.py` HARD-LOCKS `primary_t4` to DDA — `PRIMARY_T4` (:388) is a constant DDA dict and `validate_class_data()` (:741-754) enforces `_PRIMARY_T4_REQUIRED` (:698 → `DIRECT_DAMAGE_AMPLIFICATION`/`1.75`). **A proxy-family `primary_t4` RAISES ValueError at emission.** Widen the validator + the emit shape to accept a proxy-family `primary_t4` (the B1 six-member family) BEFORE the run; there is also a compact-emitter-shape vs `AlterationOutput` mismatch to reconcile. rocket documented this in generation MIGRATION.md; star-lord authors the export-side change + MIGRATION entry. **This is the hard prerequisite that makes B4 possible — no proxy kit emits until it lands.**
 - [ ] **star-lord:** run ONE real seasonal emission (proxy bins + full B1 T4 set live + B3 six-type flavor) → bundle-v2
 - [ ] **star-lord:** minimal runs-table write — this run is **run #1 in the registry** (D.1 #8); the run-registry schema proposed → Gate-1 → Matt-ratified BEFORE the write
 - [ ] **Measure (not force) the §4.5 bands:** proxy-heavy kits emit primary_t4 family-share ≥90%, proxy-light ≥60% — report the measured share (A1)

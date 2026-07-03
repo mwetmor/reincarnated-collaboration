@@ -118,13 +118,18 @@ Per Matt's ratified relay (`gandalf/notes/2026-07-02-kr-relay-two-lane-fire-orde
 
 | # | Dispatch file | Owner | Gate / dep | Status |
 |---|---|---|---|---|
-| B1 | `2026-07-02-rocket-gamora-proxy-t4-suite.md` | rocket (strategies) + gamora (eval+magnitudes) | gandalf spec `c764f40` (canonical) — **GATE OPEN**; Gate-1 critique-pair | **AUTHORED — fires as Lane-B lead** (critical path to B4; two-phase serial: rocket→gamora) |
+| B1 | `2026-07-02-rocket-gamora-proxy-t4-suite.md` | rocket (strategies) + gamora (eval+magnitudes) | gandalf spec `c764f40` (canonical) — GATE OPEN; Gate-1 cleared | **Phase 1 ✓ DONE** (`rocket/v-proxy-t4-suite-strategies-1` @ `17d5f80` — six strategies + 4 dormant revived; A3 shape verified; R2 clean; 73/73 tests). **Phase 2 🔥 FIRING** (gamora — final magnitudes + A2/A3-fixture/A5/A6) |
 | B2 | `2026-07-02-star-lord-gear-pass-season-001.md` | star-lord | Gate-1 (cross-seam schema); feeds D8 | **AUTHORED** — fires after B1 in the star-lord window (or concurrent-repo scheduling) |
 | B3 | `2026-07-02-star-lord-six-type-flavor-completion.md` | star-lord + gandalf curation | Gate-1; D7 AI-tell line (curate) | **AUTHORED** — after B2 (star-lord session) |
 | B4 | `2026-07-02-rocket-star-lord-summoner-ungate-emission-run.md` | rocket (un-gate) + star-lord (run) | **GATED on B1**; run-registry schema → Gate-1 → Matt | **AUTHORED — HELD until B1 lands** |
 | B5 | `2026-07-02-gandalf-v2-roster-curation.md` | gandalf | **GATED on B4** | **AUTHORED — HELD until B4 lands** |
 
 **Cross-lane interlock:** B4 lands → drax content-swaps v2 + re-runs `bundle_roundtrip_smoke.gd` (the §20d proof repeats on shipping content).
+
+**B1 Phase-1 findings routed (KR 2026-07-02):**
+- **Export exit-gate (B1-1 fold answer = YES) → folded into B4 as a star-lord PRE-EMISSION prerequisite.** The emitter `cycle14_wave5_emitter.py` hard-locks `primary_t4` to DDA (`_PRIMARY_T4_REQUIRED` :698; `PRIMARY_T4` :388) — a proxy-family `primary_t4` raises ValueError. star-lord widens the validator + emit shape before B4 emits any proxy kit. Verified on disk (Disc #11). rocket documented in generation MIGRATION; star-lord authors the export change.
+- **NAMED residual (no silent re-defer): MechanicReplacement replacement CATALOG** is un-authored CONTENT (not a sim gate) — the strategy is ALIVE + selectable with a conservative axis_match + `_named_residual` marker; the catalog rides gamora Phase-2 audit + a later content pass. Carried; not a B1 blocker.
+- **Five dormant `sim_prerequisite` → all None** (revived cleanly — the v1.1 labels predated the spatial sim, as gandalf's spec §6 anticipated). **S5 descope valve NOT taken** — all six family members stand (S5's on-death trigger-hook is a small named residual, not a wave cut).
 
 **Same-repo serialization note:** Lane B is all engine-repo (rocket/gamora/star-lord) → serial (one engine agent at a time to avoid working-tree collision). Lane A (drax, Godot repo) runs concurrent with the active Lane-B agent. Lane-B lead = B1-rocket (gate open + critical path).
 
