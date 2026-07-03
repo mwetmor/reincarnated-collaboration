@@ -107,9 +107,28 @@ All scope items checked:
 - `seasonal_dominant_element` vs `dominant_element`: `dominant_element` bridged from `element`. `seasonal_dominant_element` NOT bridged — no per-kit seasonal assignment in KitCandidate; bundle `floor_manifest` has per-floor element but it is a different concept. Documented in MIGRATION.md triage table.
 - `identity_glyph` read-vs-rederive: stamped field governs per spec §6; consumers may re-derive from `bc_target_cell` as display fallback (deterministic). Drax consumer action in MIGRATION.md.
 
-### Beat B — HALTED (LLM credentials unavailable)
+### Beat B — COMPLETE (resumed 2026-07-03)
 
-Beat B was not executed. `ANTHROPIC_API_KEY` removed from `.zshrc` (Max subscription billing; not available to python3 subprocesses). First test call to `anthropic.Anthropic()` raised auth error. Per dispatch instruction: halted loud, Beat A stands alone.
+**Engine commit:** (Beat B commit, this session)
+**Tag:** `star-lord/v-demo-run-flavor-shortlist-1`
 
-**Resume point for next Beat B dispatch:** run flavor script on the 35 kit ids from `w3-batch1-flavor-finalists-2026-07-03.md` with `ANTHROPIC_API_KEY` exported. All 700 kits have `name`/`flavor_text`/`title_completion`=None; Beat B fills exactly 35. No new fields needed — Bundle schema is Beat-B ready.
+All scope items checked:
+
+- [x] Beat B: 35 finalists flavored (name / flavor_text / title_completion). 665 remain None.
+- [x] Beat B: Script `export/w3_batch1_flavor_writer.py` — per-item resumable, key from env only. Never written to any file.
+- [x] Beat B: Post-write validation — all 8 asserts PASS (35/35 populated, 665 None, 35 unique names, Beat-A envelope asserts all hold).
+- [x] Beat B: Guardrail scan PASS — no caster-fantasy, no fragility claims, no "glass cannon" in flavor text (2 fixed before commit). Names 2-4 words, unique, diegetic.
+- [x] Beat B: NOT a cross-seam contract change (fills existing None string fields; no new/renamed field). MIGRATION.md Beat B note already present.
+- [x] AGENT_STATE.md updated.
+- [x] Dispatch completion record appended (this section).
+- [x] Key appears in no git-tracked content (grep clean before commit).
+
+**Cost:** $0.1289 (28,684 input / 2,857 output tokens, claude-sonnet-4-6). 0 retries.
+
+**5 sample entries for Matt (spanning all glyph types and one seat-7):**
+- `S1_endgame_bc_melee_low_spiky_str_none_s39` (BRUISER, physical+shadow): *Void Marrow Breaker* — "Rage pools slow and deliberate — each blow a shadow-laced concussion that waits for bone to answer. One opening. One burst. The fight ends in the dark."
+- `S1_endgame_bc_melee_medium_variable_str_none_s30` (BRUISER, physical+shadow): *Shadowmass Ravager* — "Rage pools between strikes, tipping the scale from sustained grind to sudden collapse — physical force and shadow void married in close iron. Variable amplitude means the threat is never fixed."
+- `S1_endgame_bc_mid_high_flat_dex_none_s21` (GLASS CANNON mid-range, fire+lightning): *Scorchbolt Fusillade* — "Feeds rage into a sustained barrage of fire-traced lightning — mid-range, high-tempo, output steady as a drum. No spike, no lull; just the flat burn of a fighter who never stops pulling the trigger."
+- `S1_endgame_bc_ranged_low_spiky_dex_none_s83` (GLASS CANNON ranged, fire+wind): *Sirocco Detonator* — "Builds combo through measured fire, then releases in a single scorching gust that hits like a hammer from twenty meters out. Wind feeds the ignition; patience feeds the shot."
+- `S1_endgame_bc_ranged_low_spiky_str_none_s27` (GLASS CANNON seat-7, physical+lightning): *Stormjavelin Detonator* — "Charges combos between throws, then unloads in a single arc of muscle and shock — javelin meets lightning at the apex of a low-tempo build. The burst does not announce itself; it simply arrives."
 </content>
