@@ -21,7 +21,7 @@
 |---|---|---|---|---|
 | W0.rocket (knob · 2-type-decl · fixture · classifier · F-f consumer · singleton smoke) | rocket | `2026-07-03-rocket-w0-prereqs.md` | — | ✓ **DONE** (`rocket/v-demo-run-w0-1` @ `e57b9d8`; all six PASS; no refutation fired; generation-internal, no MIGRATION owed; KR Disc #11-verified incl. live smoke re-run 28/28) |
 | W0.star-lord (export DDA-lock widen) + W1 (D.1 #1/#2/#3/#4/#5/#8a + G6 stub supersession) | star-lord | `2026-07-03-star-lord-w0-w1-pipeline-completion.md` | engine-tree-free ✓ | ✓ **DONE** (`star-lord/v-demo-run-w1-1` @ `cbd47b5`; MIGRATION v1.85; 202/202; six-type round-trip PASS w/ non-NULL counts; per-item flavor resumability VERIFIED (spec §11 Q1-iii); 60 stubs `_non_canonical` (G6); no refutation fired; KR Disc #11-verified tag+draft+MIGRATION on disk) |
-| W0.gamora (DDA propagation sweep → NEW build-floor + both demo summoners re-cert) | gamora | `2026-07-03-gamora-w0-dda-propagation-sweep.md` | engine-tree-free ✓ | 🔥 FIRING (chain slot 3) |
+| W0.gamora (DDA propagation sweep → NEW build-floor + both demo summoners re-cert) | gamora | `2026-07-03-gamora-w0-dda-propagation-sweep.md` | engine-tree-free ✓ | ✓ **DONE** (`gamora/v-demo-run-w0-dda-sweep-1` @ `87c47a6`; propagation-live floor CERTIFIED, factor ×0.6 conservative; anchors held by construction; both summoners RE-CERT WR 1.0 both shells, 136s margin; degeneracy CLEAN; #24 isolation verified; (b)-config NOT invoked — **run proceeds propagation-ON**; KR Disc #11-verified) |
 | W1.#8b registry writer | star-lord | **KR sequencing call: folds into the W3 dispatch as step 0** (post-ratification; saves a chain slot; still satisfies Gate-1 #5 ratify-before-build) | registry-schema-ratified | HELD → rides W3 |
 | Registry-schema ratification (fast pass, no Matt gate — G9) | jack-ryan | Pattern-A invocation at W0/W1 boundary | W1.#8a-draft ✓ | ✓ **DONE — RATIFIED-WITH-AMENDMENTS** (+`generation_seed`, +`in_band_count`; see precondition 2 row) |
 | W2 Gate-1 critique-pair (jack-ryan + gandalf, parallel) | KR invokes | on `2026-07-03-rocket-gamora-w2-pairing-layer.md` | — (reviews dispatch text) | ✓ **CLEARED** (jack-ryan ENDORSE-WITH-FOLDS, E4 fold applied; gandalf ENDORSE ×5 NOTE) |
@@ -41,3 +41,14 @@
 ## Wave-closeout ledger
 
 *(appended per wave: what closed, commits, push SHA, board deltas)*
+
+### W0 + W1 CLOSEOUT — 2026-07-03
+
+- **W0 rocket** ✓ `e57b9d8` (all six PASS; singleton smoke GREEN 28/28 = precondition 3; no MIGRATION owed — generation-internal)
+- **W0 star-lord + W1** ✓ `cbd47b5` (DDA-lock widened; six-type driver + wiring; MIGRATION v1.85; 202/202; per-item resumability VERIFIED; 60 stubs non-canonical per G6; #8b writer rides W3 step 0)
+- **W0 gamora** ✓ `87c47a6` (propagation-live floor certified; both demo summoners RE-CERT PASS; degeneracy clean; propagation-ON stands)
+- **Preconditions:** 1 ✓ `a10a695` · 2 ✓ RATIFIED-WITH-AMENDMENTS (+`generation_seed`, +`in_band_count`) · 3 ✓ smoke GREEN
+- **W2 Gate-1 pair** ✓ CLEARED (jack-ryan ENDORSE-WITH-FOLDS → E4 folded; gandalf ENDORSE)
+- **Failure-policy invocations:** ZERO (no halt, no degrade, no (b)-config)
+- **Push:** both repos at this closeout (engine: `a10a695`→`87c47a6` chain + 3 tags; meta: orchestration chain)
+- **Next:** W2 Phase 1 (rocket) fires — all gates ✓
