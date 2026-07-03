@@ -84,3 +84,40 @@ Intra-engine (generation strategy classes + simulation eval). The T4 decls surfa
 - proxy-t4-suite-spec-2026-07-02.md (THE authority) · serial-emission ledger D.1 #9 · relay §2 ruling 4
 - gamora D3 cert `abb010d` · mechanic_alteration.py / proxy_vocabulary_bridge.py / proxy_commander.py
 - MASTER: `2026-07-02-one-realm-mvp-build-MASTER.md` (Lane B)
+
+## Completion record — PHASE 2 (gamora sim-eval + magnitudes) — 2026-07-02
+
+**Status:** COMPLETE. Tag `gamora/v-proxy-t4-suite-eval-1`. Closes B1 (Phase 1 rocket + Phase 2 gamora both land). B4 demo-emission unblocks once the star-lord `export/` primary_t4 widening (rocket fold B1-1 blocker) also lands.
+
+**Math note (Disc #18, math-before-code):** `reincarnated-engine/src/reincarnated/simulation/math/proxy-t4-suite-eval-2026-07-02.md`.
+**Harness:** `reincarnated-engine/scripts/gamora_proxy_t4_suite_eval_2026_07_02.py` (a3 / a5a6 / smoke / full).
+**Test pins:** `reincarnated-engine/tests/test_proxy_t4_suite_eval.py` (9 pins; 27 green with rocket's 18 architecture tests).
+**Raw:** `agentic_orchestration/cycle-14-wave-5-season-001/b1-proxy-t4-suite-eval-2026-07-02-full.json`. **Seed base 53,000,017 → next free 54M+.**
+
+**Final magnitudes (spec §3 10-cell table — gamora-owned, sweep-CONFIRMED HOLD, no re-tune):**
+| Strategy | proxy-light | proxy-heavy |
+|---|---|---|
+| S1 DamageAmp | 1.75× | 1.5× |
+| S2 Bulwark | HP ×3.0 | HP ×2.0 |
+| S3 Legion | +1 | +2 (ceiling 3) |
+| S4 Surge | −30% | −40% |
+| S5 DeathConv | ~4s burst | ~2s burst (band only; new plumbing, not sim-run) |
+| S6 ProxySpawn | 0.5× (sub-summoner) | — |
+
+The current `_PROXY_SCAFFOLD_MAGNITUDES` in `mechanic_alteration.py` already equals these final values → rocket's dict is correct as-landed; a SCAFFOLD→CONFIRMED comment flip is a trivial rocket follow-on (values unchanged).
+
+**A2 measured deltas (S1-S4, both certified fixtures, both boss shells — ALL PASS):**
+- S1: kill-time 60→40s (bone) / 60→35s (crypt), army-DPS up.
+- S3 (strongest lever): 60→20s (bone +2) / 60→30s (crypt +1).
+- S4: 60→37s (bone) / 60→43s (crypt) via attack-interval shave.
+- S2: wall soaks 2-3× boss slams, WR holds 1.0 (survival-margin↑; no-death-risk boss → WR 1.0 both, margin is the read).
+- **NO member makes caster-alone viable:** proxy_decls=[] WR 0.0 baseline AND under every T4 (delta is proxy-borne only). R1 amplify-proxy-not-body proven.
+
+**A3 (THE Matt-doubt test) — PASS on the REAL certified fixtures. The two draw DIFFERENT tops:**
+- `demo_bone_acolyte` (count-2 horde) → **PROXY_LEGION** (η 0.704, clean margin).
+- `demo_crypt_lieutenant` (count-1 full) → **PROXY_BULWARK** (η 0.679).
+- **NAMED FRAGILITY (surfaced, not smoothed):** on crypt, BULWARK ties SURGE at η 0.679 — top by family-order tie-break, not margin. NOT a rework trigger (fixtures rank different tops, both crypt candidates are spec-predicted). Flagged for phase-5 axis_match review if crypt top must be margin-robust; gamora does NOT self-re-tune rocket's axis_match (Phase-1 seam).
+
+**A5/A6 — PASS.** R1 (DDA keys disjoint from proxy intent keys + sim invariance); R2 (no Set-#6/certified constant in code + certified baseline byte-unchanged under T4 apply, G-SCAFFOLD); A6 (S1-S5 zero on solo; S6 intended crossing-member grant on solo non-summoner).
+
+**Residual (carried from D3, unchanged):** `demo_gravecaller` ranged caster-summoner still uncertified (ranged-proxy NAV gap — a T4 multiplier cannot fix an archer that never reaches the boss). A2/A3 run on the 2 MELEE certified fixtures only. Same fold-D residual D3 surfaced to KR; Phase 2 does not re-open it.
