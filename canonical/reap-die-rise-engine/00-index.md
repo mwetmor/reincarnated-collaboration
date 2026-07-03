@@ -10,6 +10,10 @@
 
 The buildable engine spec — generation, simulation, balance, gear/stat/T4 architecture, progression, content-emission, the build/networking/perf/render technical stack.
 
+## ✓ AUTHORED IN (post-reorg new spec docs)
+
+- **`proxy-t4-suite-spec-2026-07-02.md`** — dormant-T4 revival + the proxy-focused capstone family (Matt-ruled 2026-07-02, demo-critical; gates Lane B1). Six members (S1 ProxyDamageAmplification / S2 ProxyBulwark / S3 ProxyLegion / S4 ProxySurge / S5 ProxyDeathConversion [named descope valve] / S6 ProxySpawn re-scoped as the non-summoner crossing member); η decl-shape axis-match; R1 no-DDA-propagation ruling; A1–A6 acceptance criteria. Companions: `tier-4-architecture-defaults` (register) · `proxy-commander-set-6-capstone-spec` + `proxy-add-design-spec` (calibrated-layer boundaries).
+
 ## ✓ MIGRATED IN from `canonical/reap-die-rise/` (DONE 2026-06-30, commit `6b9d6d1` — folder dissolved)
 
 `build-architecture.md` · `backend-networking-stack.md` · `performance-target-specs.md` · `godot-agent-contract.md` · `vfx-pipeline.md` · `design-decisions-session.md`
