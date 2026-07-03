@@ -43,3 +43,11 @@
   spec §3 + §6 (the register-by-accretion note is a second datapoint for jack-ryan's disciplines pass).
 
 **Signed:** gandalf, 2026-07-02, relaying Matt's rulings; spec v3 is the single authority the dispatch cites.
+
+---
+
+**ADDENDUM (same session):** the "gandalf owed" line above is **satisfied** — Q6/Q7 DELIVERED + RATIFIED:
+`canonical/reap-die-rise-engine/proxy-pairing-q6-q7-2026-07-02.md` v2 (Legolas fold complete; Matt ruled
+all six §6 exception rows AS-DRAFTED, 2026-07-02). **The Phase-2→3 gate is design-OPEN** — Phase 3 fires
+on Phase-1/2 completion + your Gate-1 critique-pair, no further Matt review. Phase 3's authority = the
+pairing spec (partition · 65-pair matrix · 14×3 pools · P1–P7 · derivation rules i–vi).

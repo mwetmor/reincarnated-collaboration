@@ -193,8 +193,10 @@ exist as live canon:
 - **Phase 1 (matrix-independent):** ASCENSION + SOVEREIGNTY + FISSION — plus ZONE_CONTROL (§6.1) riding the
   same dispatch.
 - **Phase 2 (behind gandalf artifacts):** CONVERGENCE + DUAL_PROXY. The Q6 pair-matrix and Q7 compatibility
-  pools are **gandalf-owed next artifacts**, authored per the ratified process (offline drafting + Legolas
-  Mode-A genre pull; **Matt reviews exception rows only**). Their sequencing gate (proxy-primary empirical)
+  pools are **DELIVERED + RATIFIED same-day** — `proxy-pairing-q6-q7-2026-07-02.md` v2 (Matt 2026-07-02,
+  all six exception rows as-drafted; 6-family partition · 15 merge classes → 65 valid pairs · 14 pools × 3,
+  P1–P7). **The Phase-2→3 gate is design-OPEN** — Phase 3 fires on Phase-1/2 completion + Gate-1, no
+  further Matt review. Their sequencing gate (proxy-primary empirical)
   resolved its kernel sub-question 2026-06-12 (`proxy_contribution_pct` 0.556, cheap branch); the
   corpus-population sub-question validates on the B4 emission run's telemetry.
 - **Phase-1 prerequisite check (named, not silent):** CONVERGENCE requires kits with exactly two
@@ -246,7 +248,8 @@ consume-at-fight-open (you built a Bodyguard kit in order to never use the Bodyg
 
 Final magnitudes (gamora — certification of the PROVISIONAL ratified numbers, Disc #18/#24, seeds 53M+) ·
 implementation architecture and strategy-class code (rocket) · grading thresholds (gamora) · T4 flavor
-naming/narration (phase-5 pass) · the Q6/Q7 artifacts' CONTENT (gandalf-owed, separate deliverable) · the
+naming/narration (phase-5 pass) · the Q6/Q7 artifacts' CONTENT (delivered + ratified 2026-07-02:
+`proxy-pairing-q6-q7-2026-07-02.md` — that spec governs the pairing layer) · the
 INVERSION-v2 redesign (parked, §7.1) · the ranged-proxy NAV question (PART E fork — D3 confirmed a decl
 `count` raise is a content-level mitigation).
 

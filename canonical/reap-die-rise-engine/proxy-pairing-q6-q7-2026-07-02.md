@@ -1,11 +1,12 @@
 # Proxy Pairing — Q6 CONVERGENCE Pair-Matrix + Q7 DUAL_PROXY Compatibility Pools
 
-> **STATUS:** CANONICAL DESIGN SPEC — **v2, LEGOLAS FOLD COMPLETE** (2026-07-02, same-day as v1).
-> Structure, partition, matrix, and pools complete; Mode-A findings FOLDED (loop-links on additive classes
-> 1/2/6 · derivation rules (v) labeled inheritance + (vi) single visual identity · P1–P5 → P1–P7 ·
-> Slot-Queue Emitter pool re-cut per P6 · §4 magnitude guidance). **Findings STRENGTHEN, none contradict,
-> the §6 exception rows.** Per the ratified Session-1 process (rulings Q6/Q7, 2026-06-12): gandalf authors
-> offline; **Matt reviews §6 EXCEPTION ROWS ONLY.**
+> **STATUS:** CANONICAL DESIGN SPEC — **v2 RATIFIED (Matt 2026-07-02):** all six §6 exception rows ruled
+> **AS-DRAFTED** (E0 ratify · E1 strike · E2 conditional · E3 independence · E4 valid-flagged · E5 strike).
+> The partition (6 families), the matrix (15 classes → 65 valid pairs), and the pools (14 × 3, P1–P7) are
+> **LAW**. **The B1-rebase Phase-2→3 gate is design-OPEN** — Phase 3 fires on Phase-1/2 completion +
+> Gate-1; no further Matt review. Legolas fold complete same-day (loop-links on classes 1/2/6 · derivation
+> rules (v)/(vi) · P1–P7 · SQE pool re-cut · §4 magnitude guidance). Authored per the ratified Session-1
+> process (rulings Q6/Q7, 2026-06-12): gandalf offline draft + Legolas pull; Matt exception rows only.
 > **Feeds:** B1-rebase **Phase 3** (CONVERGENCE + DUAL_PROXY activation) —
 > `proxy-t4-suite-spec-2026-07-02.md` v3 §7 names these artifacts as the Phase-2→3 gate.
 > **Ratified substrate (GOVERNS):** Session-1 T4 spec §3.1 CONVERGENCE/DUAL_PROXY definitions + exemplars
@@ -188,7 +189,7 @@ are different answers to the same pairing.
 - **AQ4:** DUAL power delta vs single-proxy baseline certified in-band; scalar lever documented if used.
 - **AQ5:** name derivation deterministic (same pair → same working name; feeds phase-5 narration).
 
-## 6. EXCEPTION ROWS — the Matt-review surface (everything else is process-ruled)
+## 6. EXCEPTION ROWS — ✓ RULED (Matt 2026-07-02, all six as-drafted)
 
 | # | Exception | My call | What review changes |
 |---|---|---|---|
@@ -198,6 +199,11 @@ are different answers to the same pairing.
 | E3 | "no convergence-conflicting pairs" read as **independence-assertion**, not pair-exclusion | pairs may exist on both surfaces; DUAL never merges | the exclusion reading would strike DUAL pool members that have strong merges (e.g. Fighter→Anchor) |
 | E4 | STRIKER×ECHO **valid with sim-cost flag** | fantasy is strong (attacker weaving your own skills); cost is gamora's to price | striking it removes 2 pairs pre-emptively |
 | E5 | **Fragile Escort struck from CONVERGENCE** (DUAL-legal stands) | merge erases its defining fragility or duplicates its ASCENSION lane | overruling adds 9 pairs + needs a fragility-conserving merge rule |
+
+**RULING (Matt 2026-07-02, verbatim concurrence — "I agree"):** E0 ratify · E1 strike · E2
+conditional-as-drafted · E3 independence · E4 valid-flagged · E5 strike. All six as-drafted — everything
+tabled above stands exactly as written; no re-derivation. Decisions-log registration rides jack-ryan's
+next pass.
 
 ## 7. Legolas fold — ✓ FOLDED (same-day)
 
@@ -217,4 +223,5 @@ contrast is exactly the independence-assertion read); E5 strengthened (fragility
 merge math erases). Named gap: Last Epoch **Falconer** is the closest Shadow/type-13 analogue — targeted
 pull available on demand if Gate-1 wants deeper type-13 grounding.
 
-**Signed:** gandalf, 2026-07-02 — v2 (Legolas-folded). Matt's §6 exception-row review fires on this text.
+**Signed:** gandalf, 2026-07-02 — v2 (Legolas-folded), **RATIFIED same-day** (Matt: all six §6 rows
+as-drafted). The Phase-2→3 gate is design-open; Phase 3 consumes this spec as-is.
