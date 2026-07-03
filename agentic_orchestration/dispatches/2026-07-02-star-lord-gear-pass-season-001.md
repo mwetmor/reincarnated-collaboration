@@ -70,3 +70,69 @@ The gear pool populates a bundle field drax consumes; the vocab reconcile change
 
 - serial-emission ledger D.1 #5/#4 · drax D4 CLOSE record (vocab flag) · one-realm §5 ask 1 (all-six-types)
 - MASTER: `2026-07-02-one-realm-mvp-build-MASTER.md` (Lane B)
+
+---
+
+## Completion record — star-lord, 2026-07-02
+
+**Status: B2 COMPLETE.**
+
+### Acceptance criteria — all closed
+
+- [x] **Bundle gear_pool populated from season-001 (gear_count > 0):** 150 items generated from
+  seasons/season_000001/gear/catalog.json (catalog-based generation path — DB path triggers
+  catalog fallback when gear_instances table absent from engine_root/telemetry.db).
+- [x] **All gear records carry _scaffold/provenance flag (fold B2-3 / Discipline #40):**
+  `_scaffold: true` + `_scaffold_source: "b2_generation_pass"` + `_scaffold_fields` on every
+  record. validate_bundle() enforces this: un-flagged gear → validation error (tested).
+- [x] **Vocab ruling documented + handed to drax:** PATH (a) — 11-slot gear_representative is
+  canonical for KitRecord. Documented in MIGRATION.md §v1.84. drax trims loader. No generation-side change.
+- [x] **Re-emit preserves LOCKED summoner proxies + gravecaller-absent invariants:**
+  Both proxy blocks byte-identical pre/post re-emit (fold B2-4 DIFF PASS). Gravecaller absent.
+- [x] **MIGRATION.md v1.84 authored:** vocab ruling, fold records B2-1 thru B2-4, gear generation
+  path, bundle before/after state, consumer obligations for drax.
+- [x] **validate_bundle() PASS:** gear records + scaffold enforcement + all-keys-present.
+- [x] **Round-trip smoke PASS:** schema_status=LOCKED; 54 kits (2 with proxies); 40 monsters; 150 gear.
+- [x] **77/77 tests PASS, 0 regressions** (60 original + 17 new: scaffold enforcement + gear mapping + catalog integration).
+- [x] **AGENT_STATE updated.**
+- [x] **Tag: `star-lord/v-gear-pass-season-001-1`** at commit a916632. Push HELD — Matt-gated.
+
+### Folds honored
+
+- **Fold B2-1 (RESCOPED):** D8-in-flight hazard is stale (D8 core DONE). Path (a) ruling is collision-free
+  with drax's SHIPPED D4 loader. A 10-slot ruling would have required a KR flag; path (a) avoids it.
+- **Fold B2-2 (vocab ruling authority):** Ruled PATH (a) — schema author's authority as 11-slot is
+  generation-vocabulary, not a LOCKED-emit mutation. No escalation to KR required.
+- **Fold B2-3 (Discipline #40):** Every gear record carries `_scaffold: true`. validate_bundle() enforces
+  it at write boundary. Tested (missing flag → error; flag present → passes).
+- **Fold B2-4 (Discipline #11 DIFF):** Pre-state proxy bytes captured before re-emit. Post-state:
+  byte-identical. Not a "still non-empty" presence check — an actual byte-level comparison.
+
+### Open question resolutions
+
+1. **11-slot vs 10-slot:** PATH (a) — 11-slot canonical for KitRecord.gear_representative. drax trims.
+2. **LLM gear naming fold-in:** CONFIRMED B3 per dispatch default. 150 records are scaffold-flagged
+   (`_scaffold_source: "b2_generation_pass"`) to target them for B3's name pass. Cost to fold would
+   be ~$0.50-1.50 for 150 gear names; B3 is the correct sequencing (B2 is mechanics; B3 is identity).
+
+### Note on item count (150 vs 200)
+
+season_000001 catalog has no off_hand base types → `generate_season_gear_pool()` produces
+3 active slots (weapon/armor/accessory) × 5 tiers × 10 = 150 items. The dispatch says "200-item
+gear writer" but that's the writer's capacity, not a requirement on a season without off_hand items.
+150 items is an honest pipeline-emitted pool from this season's catalog. Not a refutation condition.
+
+### Refutation conditions — none fired
+
+- Gear writer requires different season: NO — catalog path works for season_000001.
+- Vocab reconcile breaks drax's D4 loader: NO — path (a) is collision-free with the shipped loader.
+- Re-emit drops/mutates summoner proxies: NO — DIFF byte-identical.
+- Gear ships without required fields: NO — validate_bundle() PASS, scaffold enforced.
+
+### Consumer hand-off to drax (via KR)
+
+drax must re-run `bundle_roundtrip_smoke.gd --bundle res://data/one_realm_demo_bundle.json` against
+the B2-emitted bundle to close the gear leg of the D4 round-trip. See MIGRATION.md §v1.84 §Consumer
+obligations. Route through knight-rider.
+
+**Signed:** star-lord, 2026-07-02. B2 COMPLETE. Gear pool populated, vocab ruled, proxies preserved, MIGRATION authored. Tag at a916632. Push held.
