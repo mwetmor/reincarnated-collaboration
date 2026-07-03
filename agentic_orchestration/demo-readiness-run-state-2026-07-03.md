@@ -20,8 +20,8 @@
 | Row | Owner | Dispatch | gates-on | Status |
 |---|---|---|---|---|
 | W0.rocket (knob · 2-type-decl · fixture · classifier · F-f consumer · singleton smoke) | rocket | `2026-07-03-rocket-w0-prereqs.md` | — | 🔥 FIRING |
-| W0.gamora (DDA propagation sweep → NEW build-floor + both demo summoners re-cert) | gamora | `2026-07-03-gamora-w0-dda-propagation-sweep.md` | — | 🔥 FIRING |
-| W0.star-lord (export DDA-lock widen) + W1 (D.1 #1/#2/#3/#4/#5/#8a + G6 stub supersession) | star-lord | `2026-07-03-star-lord-w0-w1-pipeline-completion.md` | — | 🔥 FIRING |
+| W0.star-lord (export DDA-lock widen) + W1 (D.1 #1/#2/#3/#4/#5/#8a + G6 stub supersession) | star-lord | `2026-07-03-star-lord-w0-w1-pipeline-completion.md` | engine-tree-free (serial after rocket W0 — one engine agent at a time, B1-race lesson) | QUEUED (next in engine chain) |
+| W0.gamora (DDA propagation sweep → NEW build-floor + both demo summoners re-cert) | gamora | `2026-07-03-gamora-w0-dda-propagation-sweep.md` | engine-tree-free (serial after star-lord W0/W1) | QUEUED |
 | W1.#8b registry writer | star-lord | follow-up dispatch post-ratification | registry-schema-ratified | HELD |
 | Registry-schema ratification (fast pass, no Matt gate — G9) | jack-ryan | Pattern-A invocation at W0/W1 boundary | W1.#8a-draft | QUEUED |
 | W2 Gate-1 critique-pair (jack-ryan + gandalf, parallel) | KR invokes | on `2026-07-03-rocket-gamora-w2-pairing-layer.md` | — (reviews dispatch text) | 🔥 FIRING |
