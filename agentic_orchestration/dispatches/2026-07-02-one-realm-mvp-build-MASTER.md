@@ -19,8 +19,8 @@ The One Realm demo is the denominator: a free Steam demo, one ~25–27 min realm
 |---|---|---|---|---|---|
 | D2 | rocket | hand-authored proxy decls for 2–3 demo summoner kits | §5.2 | III.1b MVP-SPLIT | **🔥 FIRING** (Matt-fired 2026-07-02; no deps) |
 | D3 | gamora | demo summoner sim-certification (W3-lite) | ask 3 (ratified) | III.1b | **✓ DONE** (`gamora/v-proxy-fight-calibration-1` @ `abb010d`) — 4 magnitudes certified-HOLD; 2 melee summoners PASS; gravecaller ranged-nav §20d finding → DEFERRED (see §6) |
-| D1 | star-lord | one-realm emission hand-join (single Godot-consumable bundle) | §5.1 | II.3 +1 MVP-CRITICAL | **✓ DONE** (`star-lord/v-one-realm-bundle-handjoin-1` @ `20e5e0f`) — schema note DRAFT-pending-drax-handshake; lock-emit-with-D2-decls is a star-lord follow-on after drax signs |
-| D4 | drax | Godot bundle loader | §6.1 | game tracker | **🔥 FIRING** (D1 landed; Gate-1 CLEARED — ENDORSE-WITH-CONCERNS, folds 1–4 applied; single drax session w/ D10) |
+| D1 | star-lord | one-realm emission hand-join (single Godot-consumable bundle) | §5.1 | II.3 +1 MVP-CRITICAL | **✓ DONE + LOCKED** (`star-lord/v-one-realm-bundle-LOCKED-2` @ `08e6f24`) — schema LOCKED (drax handshake signed); bundle emitted w/ 2 summoner kits carrying non-empty scaffold-flagged proxies; MIGRATION §v1.83 LOCKED. See §7. |
+| D4 | drax | Godot bundle loader | §6.1 | game tracker | **✓ DONE** (`drax/v-godot-bundle-loader-2` @ godot `7e9a57a`) — §20d round-trip PASS against real LOCKED bundle; 54/54 kits resolve non-degenerate primary_attack; 2 summoners' proxies resolve; SCAFFOLD boundary held; zero hand-built kits. See §7 recovery chain. |
 | D5 | drax | verb realization incl. summon | §6.2 | game tracker | GATED on D4 + D2 decls |
 | D6 | drax | three-beat floors (camera ratifies first floor) | §6.3 | game B1/A′1 | GATED on D4; camera beat EARLY |
 | D7 | drax | enemy AI baseline + horde-density RENDERING | §6.4 | III.3 LAUNCH (sim) / Godot render | GATED on D5+D6 |
@@ -84,6 +84,26 @@ D3 landed a **certified-HOLD** on the four proxy fight-magnitudes and graded the
 
 **Follow-on queued:** rocket un-scaffold no-op-confirm (fold C) + gandalf's cheap content-differentiation check (the two melee summoners must read distinctly on-screen — horde vs. bruiser).
 
+## 7. D1→D4 lock-emit recovery chain (KR 2026-07-02) — the Godot spine closed
+
+The bundle-schema contract (D1⟷D4, the program's spine) closed through a five-link recovery after the first lock-emit surfaced a skipped sequencing decision. Discipline #11 (empirical inspection over sub-agent report) caught it at every seam.
+
+**The catch:** the first star-lord lock-emit (`LOCKED-1`, `5b92c68`) hit a stream-idle timeout mid-finish — the doc was flipped to LOCKED + claimed "emitted," but the JSON was absent and MIGRATION still read DRAFT. A fresh star-lord finished the emit + fixed 3 real pre-existing bugs (engine-root path off-by-one; two faction-JSON unwrap bugs). The emitted bundle then validated clean **but carried ZERO non-empty proxies** — the D2 summoner spec-labels (`demo_bone_acolyte`/`demo_crypt_lieutenant`) were never mapped to real emitted kit IDs. drax's §20d WAIT-guard (fold-1) correctly refused to close on an empty-proxies bundle rather than paper over it.
+
+**Root cause (skipped decision, not a bug):** D2 authored the summon *verb* proxies with spec-labels; D3 certified the proxies; D1 emitted 54 real `S1_endgame_bc_...` kits. Nobody designated WHICH two kits become the demo's summoners — a design-curation call the dispatch chain never assigned.
+
+**The recovery chain (each link verified by KR before the next fired):**
+1. **gandalf** (design designation, in-scope curation): chose `...int_none_s2` (*Shadow Warden*) = bone-acolyte [clean attach — the 1-of-54 kit already flavored necromancer] + `...int_none_s1` (*Tidewarden*) = crypt-lieutenant [attach + restyle owed]. Legibility PASS (horde vs bruiser lives on the proxies). **§20d honest datapoint:** the emitted palette has ZERO death element (earth 33/fire 12/physical 9) — mechanism-attach is free, theme-attach is a per-kit flavor tax when the palette doesn't natively cover the theme. Recorded as a post-demo engine open question (finding `1937ce4`); does NOT block the demo.
+2. **rocket** (bounded restyle): Tidewarden→*Crypt-Lieutenant of the Grounded Reach* (name+title+flavor; water→grave imagery; mechanics untouched). Source: `reincarnated-loadout/data/cycle-14-wave-5-season-001/classes/`. `rocket/v-demo-crypt-lieutenant-restyle-1` @ loadout `4d5def2`. Element rotation PARKED pending drax color-key answer.
+3. **star-lord** (re-emit): remapped proxies to gandalf's real kit IDs (gravecaller excluded), picked up the restyle. 2 kits non-empty scaffold-flagged proxies; validate PASS with `enforce_nonempty_proxies=True`. `star-lord/v-one-realm-bundle-LOCKED-2` @ `08e6f24`.
+4. **drax** (§20d round-trip close): ROUND-TRIP PASS on real content; 54/54 kits resolve non-degenerate primary_attack; 2 summoners' proxies resolve; SCAFFOLD boundary held; zero hand-built. **Color-key answer: loader keys off `kit.dominant_element` (earth) → rocket's parked water→dark rotation NOT owed.** `drax/v-godot-bundle-loader-2` @ godot `7e9a57a`.
+
+**Two residuals routed (neither a D4 blocker):**
+- `gear_pool=0` (source season has no `gear_instances` table) — needs a gear-source decision → **Matt** (`canonical/matt_decision_needed/`-adjacent). Loader handles empty gear gracefully.
+- 11-slot `gear_representative` gen-vocab divergence (`main_weapon`~=`main_hand` etc.) — drax consumes non-fatally (deduped WARN) → folded into the gear-source resolution (star-lord reconciles vocab when gear content lands; academic while `gear_pool=0`).
+
+**Parked follow-on DISMISSED:** rocket's water→dark element rotation — the color-key answer resolved it as not-owed.
+
 ---
 
-**Signed:** knight-rider, 2026-07-02. Two engine asks, seven Godot beats, one standing gate — the loop enacted once, playable from a real bundle.
+**Signed:** knight-rider, 2026-07-02. Two engine asks, seven Godot beats, one standing gate — the loop enacted once, playable from a real bundle. **The Godot spine (D1⟷D4) is closed: §20d demonstrated on real engine-emitted content, zero hand-built kits.**
