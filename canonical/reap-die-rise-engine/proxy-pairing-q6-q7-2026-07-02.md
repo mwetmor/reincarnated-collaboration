@@ -1,9 +1,11 @@
 # Proxy Pairing — Q6 CONVERGENCE Pair-Matrix + Q7 DUAL_PROXY Compatibility Pools
 
-> **STATUS:** CANONICAL DESIGN SPEC — **DRAFT v1** (2026-07-02). Structure, partition, matrix, and pools
-> complete; **Legolas Mode-A genre pull IN FLIGHT** (fold pass amends heuristics + anti-pattern checks on
-> return). Per the ratified Session-1 process (rulings Q6/Q7, 2026-06-12): gandalf authors offline;
-> **Matt reviews §6 EXCEPTION ROWS ONLY.**
+> **STATUS:** CANONICAL DESIGN SPEC — **v2, LEGOLAS FOLD COMPLETE** (2026-07-02, same-day as v1).
+> Structure, partition, matrix, and pools complete; Mode-A findings FOLDED (loop-links on additive classes
+> 1/2/6 · derivation rules (v) labeled inheritance + (vi) single visual identity · P1–P5 → P1–P7 ·
+> Slot-Queue Emitter pool re-cut per P6 · §4 magnitude guidance). **Findings STRENGTHEN, none contradict,
+> the §6 exception rows.** Per the ratified Session-1 process (rulings Q6/Q7, 2026-06-12): gandalf authors
+> offline; **Matt reviews §6 EXCEPTION ROWS ONLY.**
 > **Feeds:** B1-rebase **Phase 3** (CONVERGENCE + DUAL_PROXY activation) —
 > `proxy-t4-suite-spec-2026-07-02.md` v3 §7 names these artifacts as the Phase-2→3 gate.
 > **Ratified substrate (GOVERNS):** Session-1 T4 spec §3.1 CONVERGENCE/DUAL_PROXY definitions + exemplars
@@ -52,12 +54,12 @@ convergence behavior"* — with 15 rules instead of 79.
 
 | # | Class | Validity | Merge rule (mechanical) | Name template · exemplar |
 |---|---|---|---|---|
-| 1 | STRIKER×BULWARK | VALID | merged body attacks AND taunts/intercepts | "<X> Juggernaut" · Fighter+Golem → **Juggernaut** |
-| 2 | STRIKER×BATTERY | VALID | mobile attacker carries the battery's output cadence | "Barrage <X>" · Caster+Slot-Queue → **Barrage Caster** |
+| 1 | STRIKER×BULWARK | VALID | merged body attacks AND taunts/intercepts; **loop:** taunted/intercepted enemies take bonus damage from its strikes | "<X> Juggernaut" · Fighter+Golem → **Juggernaut** |
+| 2 | STRIKER×BATTERY | VALID | mobile attacker carries the battery's output cadence; **loop:** its own strikes load the queue/cadence | "Barrage <X>" · Caster+Slot-Queue → **Barrage Caster** |
 | 3 | STRIKER×TRIGGER | VALID | attacker's own hits arm the threshold; burst at cap | "Threshold <X>" · Fighter+Charged → **Threshold Duelist** |
 | 4 | STRIKER×ATTENDANT | VALID **(ratified class)** | attacker projects the attendant benefit while fighting | "Fighting <X>" · **Fighting Anchor** (ratified: +40% amp aura) |
 | 5 | STRIKER×ECHO | VALID ⚑ sim-cost (E4) | attacker interleaves replayed player skills | "Mirror <X>" · Fighter+Shadow → **Mirror Blade** |
-| 6 | BULWARK×BATTERY | VALID | anchored fortress: taunts/intercepts while firing | "Bastion <X>" · Golem+Totem → **Bastion Colossus** |
+| 6 | BULWARK×BATTERY | VALID | anchored fortress: taunts/intercepts while firing; **loop:** enemies taunted onto the fortress raise its fire rate | "Bastion <X>" · Golem+Totem → **Bastion Colossus** |
 | 7 | BULWARK×TRIGGER | VALID | absorbed hits FEED the charge; detonates at threshold | "Retribution <X>" · Bodyguard+Charged → **Retribution Ward** |
 | 8 | BULWARK×ATTENDANT | VALID **(ratified class)** | protection + benefit at 70% efficiency each | "Warding <X>" · **Shielded Augmenter** (ratified) |
 | 9 | BULWARK×ECHO | **INVALID (E1)** | hold-the-line and replay-from-position contradict — no single readable entity | — |
@@ -69,6 +71,12 @@ convergence behavior"* — with 15 rules instead of 79.
 | 15 | ATTENDANT×ECHO | **CONDITIONAL (E2)** | only Terrain Anchor+Shadow legible: zone replays player skills from within | "Haunted Ground" · others struck |
 
 All exemplar names are WORKING names — flavor rides the phase-5 T4 narration pass (spec v3 convention).
+
+**Loop discipline (Legolas fold):** the strongest genre signal is that great pairings are LOOPS, not
+adjacencies — PoE's Carrion Golem + zombie army became inseparable because each feeds the other, not
+because both are individually good. Every class rule states what each half does FOR the other; classes
+1/2/6 were additive in v1 and gained explicit loops at the fold. Class 8's additive 70%/70% is ratified
+text and stands as-ratified.
 
 ### 2.3 Per-pair strikes within valid classes
 
@@ -88,16 +96,30 @@ sim-cost flag.
 For valid pair (A, B): merged entity inherits (i) the higher behavioral tier of the two parents;
 (ii) the class merge rule as its behavior contract; (iii) each parent's SIGNATURE mechanic at the class's
 efficiency (default 100%/100% unless the class or ratified exemplar says otherwise — class 8 is 70%/70%
-by ratified text); (iv) name = class template instantiated with the non-template parent's noun. Same pair →
-same entity, every emission. Magnitudes: HP = avg×1.2, damage = sum×0.8 (ratified, PROVISIONAL — §4).
+by ratified text); (iv) name = class template instantiated with the non-template parent's noun;
+(v) **labeled inheritance** (fold) — the merged decl carries machine-readable `inherited_from_a` /
+`inherited_from_b` fields naming which mechanic came from which parent (SMT P5R's two-column inheritance
+display is the legibility gold standard; the D8 grimoire renders these at kit selection —
+preview-before-commit, the DQM synthesis lesson); (vi) **single visual identity** (fold) — dominant
+parent's silhouette + ONE accent element from the other, never both parents' VFX stacked (the 86-minion
+screen-clutter lesson; feeds D5/galadriel). Same pair → same entity, every emission. Magnitudes:
+HP = avg×1.2, damage = sum×0.8 (ratified, PROVISIONAL — §4).
 
 ## 3. Q7 — DUAL_PROXY compatibility pools (14 primaries × 3 members)
 
-**Selection principles** (P1–P5; Legolas fold validates/amends): P1 role coverage — output primaries get
-≥1 protective option, support primaries get ≥1 output option; P2 cadence contrast (continuous + burst);
-P3 spatial contrast (static primaries get ≥1 mobile option, mobile get ≥1 anchor); P4 trigger interplay
-(one generates conditions the other consumes); P5 no strictly-dominant member — options trade off against
-kit shapes, not rank (dead-choice guard, AQ3).
+**Selection principles** (P1–P7; fold-validated — Legolas confirms P1–P4, sharpens P5, adds P6/P7):
+P1 role coverage — output primaries get ≥1 protective option, support primaries get ≥1 output option;
+P2 cadence contrast (continuous + burst); P3 spatial contrast (static primaries get ≥1 mobile option,
+mobile get ≥1 anchor) — **anchored-member rule** (fold): the D2 Maggot-Lair lesson says narrow-corridor
+floors punish multiple FOLLOWER bodies, so any pool grant creating a second follower carries a perimeter
+rider (rows note it); P4 trigger interplay (one generates conditions the other consumes) — the fold's
+strongest signal: interplay is the pairing discriminator genre-wide; P5 differentiation by **playstyle,
+not power** (fold-sharpened) — pool members offer different ways to play the primary, never a
+strictly-better rank (PoE's aurabot dead-pool lesson; dead-choice guard, AQ3); P6 **no two-damage-dealer
+collapse** (fold) — a pool must not hand a DPS primary a member whose only contribution is more of the
+same DPS (two entities competing for one job read as one blurry entity); P7 **single-resummon** (fold) —
+a DUAL kit re-summons as ONE action restoring both entities, never two separate cast loops (Last Epoch
+zoo-friction lesson; rocket implements, gamora asserts).
 
 **Pool-member constraint:** each member is cross-family vs the PRIMARY (members need not be cross-family
 with each other — the pool offers alternatives, exactly one is granted). Pool size fixed at 3 (matches all
@@ -110,7 +132,7 @@ the current engine spec (a player-facing choice UI is future-product scope).
 | Primary (family) | Pool | Rationale |
 |---|---|---|
 | Passive Fighter (STR) | Terrain Anchor · Warcry · Totem/Turret | **RATIFIED** — amp zone / aura / covering fire behind the fighter |
-| Autonomous Caster (STR) | Golem · Resource Conduit · Trap/Mine | front-line cover, cast economy, approach denial (P1/P4) |
+| Autonomous Caster (STR) | Golem · Resource Conduit · Trap/Mine | front-line cover, cast economy, approach denial (P1/P4); Golem grant = two followers — P3 perimeter rider |
 | Golem (BUL) | Resource Conduit · Warcry · Fragile Escort | **RATIFIED** — the tank enables economy/aura/reward riders |
 | Totem/Turret (BAT) | Golem · Warcry · Trap/Mine | bodyguard-the-gun, amp, approach denial (P1/P3) |
 | Bodyguard (BUL) | Totem/Turret · Passive Fighter · Resource Conduit | defense is covered; pool supplies output + economy (P1) |
@@ -119,8 +141,8 @@ the current engine spec (a player-facing choice UI is future-product scope).
 | Resource Conduit (ATT) | Autonomous Caster · Slot-Queue Emitter · Trap/Mine | pure-economy primary needs output to spend into (P1) |
 | Trap/Mine (TRG) | Passive Fighter · Terrain Anchor · Totem/Turret | herding into traps, zone, covering fire (P4) |
 | Warcry (ATT) | Passive Fighter · Golem · Slot-Queue Emitter | a buff wants beneficiary bodies (P1) |
-| Fragile Escort (ATT) | Golem · Totem/Turret · Trap/Mine | aggro-shield + output while the escort pays out (P1/P3) |
-| Slot-Queue Emitter (BAT) | Warcry · Charged Threshold · Passive Fighter | burst-stacking + front-line (P2) |
+| Fragile Escort (ATT) | Golem · Totem/Turret · Trap/Mine | aggro-shield + output while the escort pays out (P1/P3); Golem grant = two followers — P3 perimeter rider |
+| Slot-Queue Emitter (BAT) | Warcry · Golem · Trap/Mine | **re-cut at fold (P6):** v1's Charged/Fighter members made both-DPS pairs; v2 = amp / aggro-shield for the static emitter / area denial (P1/P3) |
 | Delayed Position Shadow (ECH) | Golem · Terrain Anchor · Trap/Mine | line-holding + zone control while the shadow replays (P3) |
 | Charged Threshold (TRG) | Passive Fighter · Golem · Warcry | bodies that attract/generate the hits that feed charge (P4) |
 
@@ -144,6 +166,16 @@ are different answers to the same pairing.
   such stack; gamora asserts.
 - **STRIKER×ECHO (⚑ E4):** two skill sources on one merged entity — gamora assesses sim cost before the
   class activates; if deferred, the 2 affected pairs carry a named prerequisite, not a silent skip.
+- **Buff-provider floor (fold):** any kit whose grant is a Warcry/Conduit member must function at ≥70%
+  effectiveness with that member dead — the buff amplifies a working kit, it is never the kit (genre-wide
+  ~70% rule; gamora certifies via a kill-the-buff-member sim variant).
+- **Convergent death = RE-SUMMON event (fold):** a dead merged entity re-summons whole (SOVEREIGNTY's 20s
+  re-summon anchor extends), NEVER a permanent in-run loss — loss-risk on a build-defining entity
+  suppresses investment in it (the AG lesson: players bench what they fear losing).
+- **Merge power positioning (fold):** damage = sum×0.8 is a TAX; the class LOOP is what the tax buys
+  (the Necronomicon pair-vs-merge contrast: a merge must offer interplay two independents can't). gamora's
+  A2 pass certifies per-class that the loop pays — a class whose merged form underperforms its two parents
+  run DUAL is a design bug, not a balance knob.
 
 ## 5. Acceptance criteria (Phase 3; extends spec v3 §8)
 
@@ -167,11 +199,22 @@ are different answers to the same pairing.
 | E4 | STRIKER×ECHO **valid with sim-cost flag** | fantasy is strong (attacker weaving your own skills); cost is gamora's to price | striking it removes 2 pairs pre-emptively |
 | E5 | **Fragile Escort struck from CONVERGENCE** (DUAL-legal stands) | merge erases its defining fragility or duplicates its ASCENSION lane | overruling adds 9 pairs + needs a fragility-conserving merge rule |
 
-## 7. Legolas fold slot — PENDING
+## 7. Legolas fold — ✓ FOLDED (same-day)
 
-Mode-A pull in flight (minion-pairing precedent · fusion/merge legibility · complementarity heuristics ·
-anti-patterns; findings land at `agentic_orchestration/legolas/research/proxy-pairing-genre-pull-2026-07-02/`).
-Fold pass amends: P1–P5 validation, per-pool adjustments (marked as deltas), any anti-pattern strike this
-draft missed. Matt's exception-row review fires AFTER the fold, on the amended v2.
+Findings at `agentic_orchestration/legolas/research/proxy-pairing-genre-pull-2026-07-02/findings.md`
+(legolas-authored; gandalf durable-captured). Deltas folded: **loop-links** on additive classes 1/2/6
+(interplay is the pairing discriminator genre-wide; PoE Carrion Golem inseparability) · **derivation
+rules (v)/(vi)** (SMT P5R labeled inheritance → D8 preview-before-commit; single visual identity vs the
+86-minion clutter case) · **P1–P7** (P5 sharpened to playstyle-not-power per the aurabot dead-pool; P6 no
+two-damage-dealer collapse; P7 single-resummon per LE zoo friction; P3 anchored-member rule per D2
+Maggot-Lair) · **Slot-Queue Emitter pool re-cut** (the draft's only P6 violation) · **§4 magnitude
+guidance** (70% buff floor · death = re-summon per the AG loss-risk lesson · loop-pays-the-tax per the
+Necronomicon pair-vs-merge contrast).
 
-**Signed:** gandalf, 2026-07-02 — draft v1; Legolas fold + Matt exception-row review produce v2.
+**No finding contradicts a §6 exception row.** E1/E2 strengthened (merge-soup is the genre's recurring
+failure; illegible merges are the thing to strike); E3 strengthened (the Necronomicon pair-vs-merge
+contrast is exactly the independence-assertion read); E5 strengthened (fragility tension is a loop the
+merge math erases). Named gap: Last Epoch **Falconer** is the closest Shadow/type-13 analogue — targeted
+pull available on demand if Gate-1 wants deeper type-13 grounding.
+
+**Signed:** gandalf, 2026-07-02 — v2 (Legolas-folded). Matt's §6 exception-row review fires on this text.
