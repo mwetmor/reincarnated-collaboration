@@ -110,3 +110,37 @@ CONVERGENCE + DUAL_PROXY strategy classes + matrix/pool wiring + cert, authored 
 ## References
 - spec v3 (governs) · B1-REBASE relay (Matt 2026-07-02) · retired tags `17d5f80`/`02d7cd5` · D3 cert `abb010d` · provenance `f9762a8`→`d6bca67`
 - MASTER: `2026-07-02-one-realm-mvp-build-MASTER.md` §8 (Lane B — B1 row bumps to this scope)
+
+## Completion record — Phase 1 (rocket) — 2026-07-02
+
+**Status: PHASE 1 COMPLETE.** Tag `rocket/v-proxy-t4-rebase-strategies-1` @ `40e351e` (intermediate; push HELD, Matt-gated). Phase 2 (gamora) is now CLEAR TO FIRE.
+
+**Removed (spec §3/§6 — lineage in the commit body, no silent delete):**
+- The 6 v1 S1–S6 strategy classes (`mechanic_alteration.py`) + their v1 `STRATEGY_PROXY_*` constants.
+- The 4 improvised dormant-revival classes (ZoneControl-v1 / ConditionalModifier / ResourceBuffer / MechanicReplacement) + `REVIVED_DORMANT_STRATEGIES` registry + constants.
+- The `:45-46` docstring register + the `sim_prerequisite` mechanism it fed (ABC property + per-class overrides + the guards in `select_mechanic_alteration` / `select_proxy_t4` / `rank_proxy_t4_family`).
+- Dead cert file `tests/test_proxy_t4_suite_eval.py` (gamora's `02d7cd5`, certified the retired v1 members) + the prior v1 math note. **gamora re-authors both in Phase 2.**
+- Unused KitSubstrate helpers (`max_spawn_cadence_s`, `has_frequent_death_bodies`) + decl-shape thresholds that fed retired S3/S4/S5.
+
+**Activated (spec §2/§6.1):** ASCENSION + SOVEREIGNTY (ratified energy≠mana gate) + FISSION (entity axis, T4_active only) with the RATIFIED eligibility gates; `strategy_type` = ratified catalog constants (round-trip to `primary_t4`). SCAFFOLD magnitudes only (gamora Phase 2 owns cert).
+
+**ZONE_CONTROL:** added as the 26th catalog member in **GEOMETRY** (Gate-1 ruled) — catalog constant + family-map entry + count-guard 25→26 (F-c) + `FAMILY_MAX_ONE={DEFENSE,GEOMETRY}` (F-a max-1, mirrors DEFENSE; was DEFENSE-comment-only, elevated to data). Gate derivation: keys on `control_density=control-pure` (≥60% control budget, `bc_target_composer:388-391`) as PRIMARY denial signal, AoE-geometry an amplifying +0.15. **F-e denial-not-damage bar enforced at scan:** a damage-pure AoE kit (the GEOMETRY_COLLAPSE customer) sits at η≈0.29 < 0.35 floor → does NOT draw ZONE_CONTROL (verified empirically + test-pinned). **F-b:** the gate DOES capture control-flavored Terrain-Anchor kits (kit-BC control-pure) — closing the control-flavored slice of the Phase-1 defensive-lane gap; the pure-mitigation Terrain-Anchor slice is the residual thin case (⚑ Matt-plate B4 empirical gate). Documented as deliberate in the gate-derivation note §5.1.
+
+**INVERSION:** deferred-by-ruling exclusion (§7.1) — catalog constant STANDS; NO execution class exists → η never offers it; cite-comment in place (not a bare skip).
+
+**CONVERGENCE Phase-2 prerequisite (answered, NAMED not skipped):** generation CAN emit exactly-2 cross-family proxy decls — `build_proxies_surface()` emits one decl per summon skill, each carrying a Tier-1 `proxy_type` (confirmed first-hand + test `TestConvergencePrerequisite`). Two NAMED residuals filed on Phase 2/3: (1) a `proxy_type→proxy-family` classifier (CONVERGENCE's "cross-family" gate); (2) a 2-summon-skill demo kit (current demo kits are single-summon). Both are Phase-3 content behind gandalf Q6/Q7.
+
+**A3 differentiation (Matt-doubt test) verified empirically:** count-N minimal horde → ASCENSION (0.654); count-1 full-body non-mana → SOVEREIGNTY (0.704); count-N mid horde → FISSION (0.715) — DIFFERENT tops. The F-d named collapse pair (ASCENSION-vs-SOVEREIGNTY) separates via count-shape + the energy≠mana tiebreak.
+
+**Quality-Criterion refutation conditions — ALL CLEAR:**
+- Retirement complete (no v1 S1–S6 class, no revival class, no `:45-46` docstring survives — test-asserted `TestRetirementExecuted`). ✔
+- ZONE_CONTROL family/overlap resolved at Gate-1 (GEOMETRY + max-1), not by the agent — the agent derived only the gate THRESHOLD (its reserved scope). ✔
+- INVERSION unreachable (no class; η never offers — `TestInversionExclusion`). ✔
+- No member makes caster-alone viable (T4 amplifies proxies; R2 boundary untouched, zero diff). ✔
+- No eligible-kit class left with zero family members after INVERSION's deferral: defensive kits retain ASCENSION (+ control-flavored ones now also ZONE_CONTROL via F-b); the pure-mitigation thin slice is the ⚑ carried Matt-plate, not a zero-member regression. ✔
+- Magnitudes are SCAFFOLD only (not shipped as certified) — gamora Phase 2 owns the sweeps. ✔
+- CONVERGENCE prereq NAMED on Phase 2/3, not silently skipped. ✔
+
+**Boundaries:** R2 hard boundary (`proxy_commander.py:59-70`) UNTOUCHED (zero diff). Did NOT do gamora's Phase-2 magnitude cert. Tests: proxy strategies **32/32 PASS**; t4/mechanic surface **377/377 PASS** (the 12 `test_cycle12_layer6_t4_wireup` failures are PRE-EXISTING from the 2026-06-16 SkillTreeGenerator retirement — confirmed identical on the pre-rebase stashed baseline, NOT caused by this work). MIGRATION.md B1-REBASE entry written; AGENT_STATE updated; math-note-first (Disc #1).
+
+**Handoff to gamora (Phase 2):** re-cert magnitudes for the 4 activated members against the D3 scaffold; A2/A3/A5/A6 on ratified members; F-d (ASCENSION-vs-SOVEREIGNTY A3 tiebreak on the two certified fixtures); F-e (ZONE_CONTROL A2 fixture = boss forced THROUGH the zone, HARD requirement); F-f (A5 test: no kit draws both ZONE_CONTROL + GEOMETRY_COLLAPSE — the GEOMETRY max-1 enforcement); re-author the retired `tests/test_proxy_t4_suite_eval.py`. `select_proxy_t4` / `rank_proxy_t4_family` signatures are UNCHANGED.
