@@ -24,8 +24,8 @@
 | W0.gamora (DDA propagation sweep → NEW build-floor + both demo summoners re-cert) | gamora | `2026-07-03-gamora-w0-dda-propagation-sweep.md` | engine-tree-free (serial after star-lord W0/W1) | QUEUED |
 | W1.#8b registry writer | star-lord | follow-up dispatch post-ratification | registry-schema-ratified | HELD |
 | Registry-schema ratification (fast pass, no Matt gate — G9) | jack-ryan | Pattern-A invocation at W0/W1 boundary | W1.#8a-draft | QUEUED |
-| W2 Gate-1 critique-pair (jack-ryan + gandalf, parallel) | KR invokes | on `2026-07-03-rocket-gamora-w2-pairing-layer.md` | — (reviews dispatch text) | 🔥 FIRING |
-| W2 Phase 1 (CONVERGENCE + DUAL_PROXY classes + wiring) | rocket | `2026-07-03-rocket-gamora-w2-pairing-layer.md` | W0.classifier · W0.2-type-decl-check · W0.fixture · Gate-1-pair-CLEAR | HELD |
+| W2 Gate-1 critique-pair (jack-ryan + gandalf, parallel) | KR invokes | on `2026-07-03-rocket-gamora-w2-pairing-layer.md` | — (reviews dispatch text) | ✓ **CLEARED** (jack-ryan ENDORSE-WITH-FOLDS, E4 fold applied; gandalf ENDORSE ×5 NOTE) |
+| W2 Phase 1 (CONVERGENCE + DUAL_PROXY classes + wiring) | rocket | `2026-07-03-rocket-gamora-w2-pairing-layer.md` | W0.classifier · W0.2-type-decl-check · W0.fixture · ~~Gate-1-pair-CLEAR~~ ✓ | HELD (awaits rocket W0 returns) |
 | W2 Phase 2 (cert) | gamora | same dispatch | W2.phase1 | HELD |
 | W3 THE EMISSION RUN (un-gate → pilot beat → full-spectrum → gauntlet → flavor split → assemble+register) | star-lord + rocket | authored at W3 entry | W0(all) · W1(all) · W2(soft — §7 degrade) · singleton-smoke-green · registry-schema-ratified | HELD |
 | W4 verify + curate-prep (DRIFT-CRITIC · Gate-2 · G4 hypothesis test + tagging · offer-table verify · §8 shortlist) | gandalf · jack-ryan · gamora · KR | authored at W4 entry | W3 | HELD |

@@ -39,6 +39,7 @@ CONVERGENCE/DUAL_PROXY kit emission shape (paired decls, labeled inheritance fie
 
 **Phase 2 — gamora** (`gates-on: W2.phase1`):
 - [ ] Magnitude derivation + cert for both members (A2/A3/A5/A6 method carry; seeds 53M+)
+- [ ] **E4 STRIKER×ECHO sim-cost assessment** (Gate-1 fold, jack-ryan #2; pairing spec §4/E4): price the sim cost FIRST; if deferred, the 2 affected pairs carry a **named prerequisite — not a silent skip**
 - [ ] Fixture cert on the W0 CONVERGENCE fixture (fixture-only; never ships)
 - [ ] Boundary assertions (F-series carry as applicable) · math note first
 - [ ] Tag: `gamora/v-demo-run-w2-pairing-cert-1`
@@ -58,6 +59,7 @@ CONVERGENCE/DUAL_PROXY kit emission shape (paired decls, labeled inheritance fie
 - [ ] Both strategy classes live; matrix/pools byte-match the ratified spec tables
 - [ ] Exception rows E0–E5 respected (test-pinned)
 - [ ] gamora cert PASS both members (or halt-loud → degrade path + named follow-up)
+- [ ] E4 sim-cost assessed OR the 2 affected pairs filed as a named prerequisite (never silent)
 - [ ] Round-trip smoke at bundle boundary
 - [ ] MIGRATION.md before tags
 
@@ -73,6 +75,14 @@ CONVERGENCE/DUAL_PROXY kit emission shape (paired decls, labeled inheritance fie
 
 ---
 
-## Gate-1 record (critique-pair — REQUIRED before fire)
+## Gate-1 record (critique-pair — CLEARED 2026-07-03)
 
-*(jack-ryan DESIGN-MODE + gandalf design-track verdicts land here; KR folds before firing rocket.)*
+**jack-ryan DESIGN-MODE: ENDORSE-WITH-FOLDS** (verdict relayed by KR, parallel read-only pass; attribution: jack-ryan):
+- #1 [AMEND→affirmed] `Gate-1-pair-CLEAR` token is legitimate dependents-declare usage (this dispatch IS the Gate-1 target) — token retained.
+- #2 [AMEND→FOLDED above] E4 STRIKER×ECHO sim-cost must be priced in Phase-2, or the 2 affected pairs carry a named prerequisite (pairing spec §4/E4; Disc #24). Folded into Phase-2 scope + acceptance.
+- #3 [NOTE] byte-match + E0–E5 test-pin acceptance is non-vacuous — no change.
+- Degrade path, ADR-004/Principle-6, framing-audit (#23): all endorsed clean. Batched registration `a10a695` confirmed on disk (decisions-log line 4723).
+
+**gandalf design-track: ENDORSE** (5 findings, all [NOTE], no folds): wiring-only fidelity confirmed (every scope line traces to a ratified table); legibility rules v/vi carried first-class into the round-trip smoke (fails if labels absent); fixture never-ships fence intact; quality criterion matches run-spec §8's mandatory CONVERGENCE row; vacuous-wiring refutation condition is the sharpest guard. No thematic drift; loop-discipline preserved via matrix byte-match.
+
+**KR disposition: Gate-1-pair-CLEAR ✓** — dispatch fires when the three W0 rocket returns (classifier · 2-type-decl-check · fixture) close.
