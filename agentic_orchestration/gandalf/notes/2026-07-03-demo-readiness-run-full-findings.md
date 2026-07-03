@@ -247,7 +247,7 @@ Three ruling-independent carve-outs staged by KR @ collab `b9b8b31`, all fired o
 
 ### §10.3 Flavor Beat B (star-lord, after your key hand-off)
 
-First attempt halted honestly at 0/35 (no key in env) → `matt_to_do` filed → you provided the key in-session → fresh star-lord agent completed **35/35** (name/flavor_text/title_completion), **$0.1289**, @ engine `4786868`, tag `star-lord/v-demo-run-flavor-shortlist-1`. **Key hygiene verified: zero `sk-ant` occurrences in either git tree; key passed env-prefix-only, never persisted.** *(The key transited chat this session — rotation recommended; Doc 2 housekeeping.)*
+First attempt halted honestly at 0/35 (no key in env) → `matt_to_do` filed → you provided the key in-session → fresh star-lord agent completed **35/35** (name/flavor_text/title_completion), **$0.1289**, @ engine `4786868`, tag `star-lord/v-demo-run-flavor-shortlist-1`. **Key hygiene verified: zero occurrences of the Anthropic key prefix in either git tree (grep-verified pre-commit); key passed env-prefix-only, never persisted.** *(The key transited chat this session — rotation recommended; Doc 2 housekeeping.)*
 
 ### §10.4 A self-correction on the record (mine)
 
