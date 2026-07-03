@@ -259,12 +259,93 @@ NOTE: `--dry-run-flavor` used for the unattended run: bypasses LLM calls (wiring
 
 - Pilot-beat wall-clock per kit: **10.65s** (20-kit pilot)
 - Sizing decision: **N=100 → 1,800 candidates → ~5.32h**
-- Total candidates emitted: **1,800** (projected; measured output to be confirmed from run log)
-- In-band survivor count: **PENDING** (run in progress)
-- Gauntlet stats: **PENDING**
-- LLM spend per pass: **$0** (--dry-run-flavor; LLM flavor pass deferred to separate step)
-- Bundle path: `/Users/admin/Games/reincarnated-engine/src/reincarnated/output/w3_batch1_bundle.json`
-- Registry row id: **PENDING** (run in progress)
-- Round-trip result: **PENDING**
-- Tag SHA: **PENDING** (tag fires after run + review)
+- Total candidates emitted: **1,800** (confirmed from run log)
+- In-band survivor count: **7 REPORTED / 700 TRUE** (defect diagnosed — see below)
+- Gauntlet stats: 3,047,800 total fights | 21,585s wall-clock | 10 passing legendary_ids / 22 distinct
+- LLM spend per pass: **$0** (--dry-run-flavor; LLM flavor pass deferred)
+- Bundle path: `/Users/admin/Games/reincarnated-engine/src/reincarnated/output/w3_batch1_bundle.json` (DEFECTIVE — 7-kit bundle; true 700-kit bundle pending re-run)
+- Registry row id: `86fa640c-c553-49fb-8a81-37e6242cf305` (migrated; cert_status=DEFECT-DISCOVERED; in_band_count=NULL)
+- Round-trip result: PASS on defective 7-kit bundle; re-run will re-verify on true bundle
+- Tag SHA: **NOT FIRED** (holds until true survivor bundle stands)
 - Criterion C status: **PARKED** (summoner emission = batch 2, gates on Matt ruling 2026-07-03)
+
+---
+
+## Diagnosis record — Phase B post-run defect analysis (star-lord) — 2026-07-03
+
+**Status:** TWO DEFECTS DIAGNOSED + FIXED. Re-run required. Gauntlet 6h compute RECOVERABLE (NOT repeated).
+**Engine commit:** `49424e7` (defect fixes: config_to_kit overwrite + registry path + blind-spot test + MIGRATION v1.88 + AGENT_STATE)
+**Tag:** NOT YET FIRED — holds until true survivor bundle stands.
+**Push:** HELD — KR pushes at W3 closeout.
+
+### Defect 1 — Impossible survivor pattern (LOAD-BEARING)
+
+**Symptom:** Run reported 7 in-band survivors at 0.4% yield (160× discrepancy from 64% pilot). All 7 survivors were `_s99` (last sample of their BC cell). Statistically impossible by chance.
+
+**Root cause:** `season_generation_pipeline.py:w5r2_gauntlet_sim_integration()`
+
+```python
+# BEFORE (buggy):
+config_to_kit: dict[str, KitCandidate] = {}
+...
+config_to_kit[cfg["legendary_id"]] = kit  # OVERWRITES on each iteration
+...
+for legendary_id, kit in config_to_kit.items():
+    if kit_emit_map.get(legendary_id, False):
+        kit.wr_bracket_pass = True  # only s99 per cell — all others missed
+```
+
+`legendary_id` is derived from `kit.bc_cell_id` (not `character_id`):
+- Line 1331: `f"{kit.bc_cell_id}_t4_null"`
+- Line 1383: `f"{kit.bc_cell_id}_{chain_id}"`
+
+With 100 samples per cell, all 100 kits from the same cell share one `legendary_id`. Each iteration overwrote the dict, leaving only the last enumerated kit (`_s99`). The gauntlet DID run per-sample fights — the loss was purely in Python survivor collection.
+
+**Fix:** `config_to_kit: dict[str, KitCandidate]` → `config_to_kits: dict[str, list[KitCandidate]]`. All kits from a cell are appended; the marking loop iterates all kits per cell.
+
+**Recoverability: YES — 6h gauntlet compute is NOT repeated.**
+
+The canonical JSON at `src/reincarnated/simulation/output/cycle-13-gauntlet-sim-results-2026-05-27.json` (93 MB, 2,200 entries) encodes `season_emit` at the BC cell level — all 100 entries for the same `legendary_id` have identical `season_emit`. The fixed driver re-generates all 1,800 kits (fast, ~seconds) and reads the existing JSON to correctly mark 700 survivors.
+
+**True survivor count (from canonical JSON):**
+- Passing legendary_ids: 10 / 22
+- Passing BC cells: 7 / 18
+- **True in-band count: 700 kits** (7 cells × 100 samples each)
+- **True yield: 38.9%** (700/1800)
+- Passing cells: `endgame_bc_melee_high_flat_str_none`, `endgame_bc_melee_low_spiky_str_none`, `endgame_bc_melee_medium_variable_str_none`, `endgame_bc_mid_high_flat_dex_none`, `endgame_bc_ranged_high_flat_dex_none`, `endgame_bc_ranged_low_spiky_dex_none`, `endgame_bc_ranged_low_spiky_str_none`
+
+### Defect 2 — Registry DB path
+
+**Symptom:** Log: "Emission registry initialized: /Users/admin/Games/data/emission_registry.db" — outside engine repo.
+
+**Root cause:** `src/reincarnated/export/run_registry.py:62` — `_ENGINE_ROOT = Path(__file__).parents[4]`
+
+Correct is `parents[3]`:
+- parents[0] = `src/reincarnated/export/`
+- parents[1] = `src/reincarnated/`
+- parents[2] = `src/`
+- parents[3] = `reincarnated-engine/` ← correct
+- parents[4] = `Games/` ← wrong (one level too high)
+
+**Fix:** `parents[4]` → `parents[3]`. DB now at `reincarnated-engine/data/emission_registry.db`.
+
+**Migration:** W3 full run row (`run_id=86fa640c-c553-49fb-8a81-37e6242cf305`) migrated to correct-path DB with `cert_status="DEFECT-DISCOVERED"`, `in_band_count=NULL`, corrected `gauntlet_summary` with both buggy and true counts annotated.
+
+**Test blind-spot fixed:** All 48 prior tests used `:memory:` — never exercised `_DEFAULT_REGISTRY_PATH`. New test `TestSchemaCreation::test_default_registry_path_inside_engine_root` (test 49) asserts `_ENGINE_ROOT.name == "reincarnated-engine"` and `_DEFAULT_REGISTRY_PATH.is_relative_to(_ENGINE_ROOT)`. 49/49 PASS.
+
+### Carry-forward: re-run command for KR (detached)
+
+**KR fires this (NOT in-session):**
+```bash
+cd /Users/admin/Games/reincarnated-engine && \
+nohup python3 -m reincarnated.export.w3_emission_driver \
+  --n-samples 100 \
+  --seed 55000000 \
+  --dry-run-flavor \
+  > /tmp/w3_batch1_rerun_$(date +%Y%m%d_%H%M%S).log 2>&1 &
+echo "PID: $!"
+```
+
+Expected behavior with fix: ~minutes for generation (reads existing canonical JSON, no gauntlet re-run) → 700-kit bundle assembled → registered as new run_id with `in_band_count=700` → tag `star-lord/v-demo-run-w3-emission-batch1-1` fires.
+
+**Honesty note:** The registry row `86fa640c...` has `cert_status=DEFECT-DISCOVERED`. The new re-run will produce a fresh `run_id`. The defective row is retained for audit trail. The tag and any flavor passes fire against the new run_id's bundle only.
