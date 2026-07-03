@@ -5,7 +5,7 @@
 **Approved by:** Matt 2026-07-02 (one-realm §6.5)
 **Estimated effort:** 2–4 days
 **Acceptance:** minimal grimoire (visibly numbered pages, "page N of 400+") + scouting glyph preview at the Goldilocks fork, consuming the III.8 label→glyph mapping.
-**Status:** PARALLEL-SAFE (UI-independent of the combat path). Can fire alongside D5/D6. Gate-1 (jack-ryan + gandalf grimoire-fantasy) required.
+**Status:** FIRES against bundle-v1 (`star-lord/v-one-realm-bundle-LOCKED-2` @ `08e6f24`) — D4 CLOSED. PARALLEL-SAFE (UI-independent of the combat path); can fire alongside D5/D6. **D8 gear rider (relay §4):** build against the 11-slot `gear_representative` schema NOW; consume the populated gear pool when Lane B2 (gear pass) lands — a mid-wave data swap, non-blocking. **bundle-v1 is the development bridge** (relay §1). Gate-1 (jack-ryan + gandalf grimoire-fantasy) required.
 
 ## Context
 

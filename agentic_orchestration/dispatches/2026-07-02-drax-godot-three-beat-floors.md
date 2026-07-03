@@ -5,7 +5,7 @@
 **Approved by:** Matt 2026-07-02 (one-realm §6.3)
 **Estimated effort:** 5–8 days (the three-beat descent is the demo's spatial body)
 **Acceptance:** the §23.1 three-beat descent (Structure 1 → biome crossing → Structure 2) authored through the three-gate method, consuming the banked ravine/crypt ruleset; **camera ratifies on the FIRST floor** (game-tracker B1/A′1).
-**Status:** GATED on D4 (bundle loads). **Camera-ratification beat sequences EARLY** — lead with it, before the full three-beat authoring completes. Gate-1 critique-pair (jack-ryan + gandalf register + galadriel G2) required.
+**Status:** FIRES against bundle-v1 (`star-lord/v-one-realm-bundle-LOCKED-2` @ `08e6f24`) — D4 CLOSED. **bundle-v1 is the development bridge** (relay §1): author floor *capability* against it; the v2 demo-emission run swaps *content* through the D4-proven loader — no Godot rework. **Camera-ratification beat sequences EARLY** — lead with it, before the full three-beat authoring completes. Gate-1 critique-pair (jack-ryan + gandalf register + galadriel G2) required.
 
 ## Context
 

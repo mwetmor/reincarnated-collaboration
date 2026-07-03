@@ -21,10 +21,10 @@ The One Realm demo is the denominator: a free Steam demo, one ~25–27 min realm
 | D3 | gamora | demo summoner sim-certification (W3-lite) | ask 3 (ratified) | III.1b | **✓ DONE** (`gamora/v-proxy-fight-calibration-1` @ `abb010d`) — 4 magnitudes certified-HOLD; 2 melee summoners PASS; gravecaller ranged-nav §20d finding → DEFERRED (see §6) |
 | D1 | star-lord | one-realm emission hand-join (single Godot-consumable bundle) | §5.1 | II.3 +1 MVP-CRITICAL | **✓ DONE + LOCKED** (`star-lord/v-one-realm-bundle-LOCKED-2` @ `08e6f24`) — schema LOCKED (drax handshake signed); bundle emitted w/ 2 summoner kits carrying non-empty scaffold-flagged proxies; MIGRATION §v1.83 LOCKED. See §7. |
 | D4 | drax | Godot bundle loader | §6.1 | game tracker | **✓ DONE** (`drax/v-godot-bundle-loader-2` @ godot `7e9a57a`) — §20d round-trip PASS against real LOCKED bundle; 54/54 kits resolve non-degenerate primary_attack; 2 summoners' proxies resolve; SCAFFOLD boundary held; zero hand-built kits. See §7 recovery chain. |
-| D5 | drax | verb realization incl. summon | §6.2 | game tracker | GATED on D4 + D2 decls |
-| D6 | drax | three-beat floors (camera ratifies first floor) | §6.3 | game B1/A′1 | GATED on D4; camera beat EARLY |
-| D7 | drax | enemy AI baseline + horde-density RENDERING | §6.4 | III.3 LAUNCH (sim) / Godot render | GATED on D5+D6 |
-| D8 | drax | grimoire + scouting UI (minimal) | §6.5 | III.8 MVP-CRITICAL | parallel-safe (UI-independent) |
+| D5 | drax | verb realization incl. summon | §6.2 | game tracker | **🔥 FIRES** (Lane A; against bundle-v1 LOCKED-2 @ `08e6f24`; Gate-1 critique-pair) |
+| D6 | drax | three-beat floors (camera ratifies first floor) | §6.3 | game B1/A′1 | **🔥 FIRES** (Lane A; camera EARLY; against bundle-v1; Gate-1 critique-pair) |
+| D7 | drax | enemy AI baseline + horde-density RENDERING | §6.4 | III.3 LAUNCH (sim) / Godot render | GATED on D5+D6 (next Lane-A wave; pre-D7 perf spike + density-per-area spec slotted) |
+| D8 | drax | grimoire + scouting UI (minimal) | §6.5 | III.8 MVP-CRITICAL | **🔥 FIRES** (Lane A; parallel-safe; build against 11-slot gear_representative, consume B2 pool mid-wave; Gate-1) |
 | D9 | drax | king-rig → descent stitch (Binding-Rite-LITE) | §6.6 | game A′2 | GATED on D6 + king-rig (LIVE) |
 | D10 | drax | min-spec verification cadence (GTX-1650-class) | §6.7 | standing gate | **🔥 FIRING** (stood up alongside D4, single drax session; Gate-1 ENDORSE) |
 
@@ -107,3 +107,31 @@ The bundle-schema contract (D1⟷D4, the program's spine) closed through a five-
 ---
 
 **Signed:** knight-rider, 2026-07-02. Two engine asks, seven Godot beats, one standing gate — the loop enacted once, playable from a real bundle. **The Godot spine (D1⟷D4) is closed: §20d demonstrated on real engine-emitted content, zero hand-built kits.**
+
+---
+
+## 8. TWO-LANE fire order (KR relay execution 2026-07-02) — bundle-v2 wave opened
+
+Per Matt's ratified relay (`gandalf/notes/2026-07-02-kr-relay-two-lane-fire-order.md`): ONE KR session, TWO parallel lanes, this MASTER continues. **Lane A** (Godot, drax repo) fires now against bundle-v1 (the development bridge). **Lane B** (engine bundle-v2, engine repo) authored now; serial within lane (same-repo → one engine agent at a time, concurrent with drax's separate Godot repo). bundle-v2 is the SHIPPING roster source — Godot builds *capability* against v1; v2 swaps *content* through the D4-proven loader (no Godot rework).
+
+**Lane B — engine bundle-v2 wave:**
+
+| # | Dispatch file | Owner | Gate / dep | Status |
+|---|---|---|---|---|
+| B1 | `2026-07-02-rocket-gamora-proxy-t4-suite.md` | rocket (strategies) + gamora (eval+magnitudes) | gandalf spec `c764f40` (canonical) — **GATE OPEN**; Gate-1 critique-pair | **AUTHORED — fires as Lane-B lead** (critical path to B4; two-phase serial: rocket→gamora) |
+| B2 | `2026-07-02-star-lord-gear-pass-season-001.md` | star-lord | Gate-1 (cross-seam schema); feeds D8 | **AUTHORED** — fires after B1 in the star-lord window (or concurrent-repo scheduling) |
+| B3 | `2026-07-02-star-lord-six-type-flavor-completion.md` | star-lord + gandalf curation | Gate-1; D7 AI-tell line (curate) | **AUTHORED** — after B2 (star-lord session) |
+| B4 | `2026-07-02-rocket-star-lord-summoner-ungate-emission-run.md` | rocket (un-gate) + star-lord (run) | **GATED on B1**; run-registry schema → Gate-1 → Matt | **AUTHORED — HELD until B1 lands** |
+| B5 | `2026-07-02-gandalf-v2-roster-curation.md` | gandalf | **GATED on B4** | **AUTHORED — HELD until B4 lands** |
+
+**Cross-lane interlock:** B4 lands → drax content-swaps v2 + re-runs `bundle_roundtrip_smoke.gd` (the §20d proof repeats on shipping content).
+
+**Same-repo serialization note:** Lane B is all engine-repo (rocket/gamora/star-lord) → serial (one engine agent at a time to avoid working-tree collision). Lane A (drax, Godot repo) runs concurrent with the active Lane-B agent. Lane-B lead = B1-rocket (gate open + critical path).
+
+**Matt-plate items carried forward (relay §5):**
+- **Ranged-proxy nav fork** — fix nav (Lane B) vs. exclude ranged summoners from v2 curation (gandalf lean: exclude; nav fix post-demo). Does NOT gate B4 (run emits; B5 curation chooses). Surfaces for Matt's ruling at B5.
+- **Run-registry schema** — star-lord proposes with B4 → jack-ryan Gate-1 → Matt ratifies.
+
+**gandalf owed artifacts (relay §6):** proxy-T4 suite spec ✓ DONE (`c764f40`, gated B1 — now open) · density-per-area spec (feeds D7, owed when D6 approaches D7) · Gate-1 design-fit on D5/D6/D8 as they fire.
+
+**Signed (§8):** knight-rider, 2026-07-02 — two-lane relay executed: Lane A (D5/D6/D8) + Lane B (B1–B5) authored; Gate-1 critique-pair fires next, then Lane A drax + Lane B B1-rocket concurrent.

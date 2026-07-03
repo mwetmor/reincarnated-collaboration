@@ -5,7 +5,7 @@
 **Approved by:** Matt 2026-07-02 (one-realm §6.2)
 **Estimated effort:** 4–7 days (this is the heart of the §20d test)
 **Acceptance:** the §4 primitive subset (~6–10 ability primitives) realized as distinct playable Godot verbs, INCLUDING the summon-verb class (spawn / proxy AI / fight / despawn).
-**Status:** GATED on D4 (bundle loads) + D2 decls (summoner payloads in the bundle). Gate-1 critique-pair (jack-ryan + gandalf design-fit) required before execution.
+**Status:** FIRES against bundle-v1 (`star-lord/v-one-realm-bundle-LOCKED-2` @ `08e6f24`) — D4 CLOSED; the two summoner kits carry non-empty scaffold-flagged proxies. **bundle-v1 is the development bridge** (relay `gandalf/notes/2026-07-02-kr-relay-two-lane-fire-order.md` §1): build verb *capability* against it; the v2 demo-emission run swaps *content* through the D4-proven loader — no Godot rework. Gate-1 critique-pair (jack-ryan DESIGN-MODE + gandalf design-fit) required before execution.
 
 ## Context
 
@@ -28,6 +28,8 @@ Presentation-side realization of bundle content; no engine schema change.
 
 - [ ] Realize the §4 primitive subset (~6–10) as **distinct** playable verbs (distinctness is the deliverable — not 10 reskins of one verb)
 - [ ] The summon-verb class: spawn (owner-ring per the sim model) / proxy AI (navigate + attack allegiance-filtered) / fight (realized damage) / despawn (death/timeout)
+- [ ] **SCAFFOLD boundary (carry the D4 fold-3 discipline, #40):** the four proxy magnitudes (`base_hp`/`damage_multiplier`/`attack_interval_s`/`proxy_max_active`) render AS-LOADED and stay flagged non-tuned — they are gamora-D3 calibration TARGETS, not Godot-side tunables. Do NOT re-tune them to make the summon feel right; if it doesn't work at the loaded magnitudes, feed back to gamora
+- [ ] **On-screen legibility rider (D3 disposition + `gandalf/findings/2026-07-02-one-realm-summoner-kit-designation.md`):** the two summoners must READ DISTINCTLY — Shadow Warden = horde (many-light-fast skeletons streaming, count-2/1-live) vs Crypt-Lieutenant = bruiser (one-heavy-slow bone-guard slam). Demonstrate the read; it's the only legibility lever for two same-proxy-type summons
 - [ ] Combat feel pass (§2 non-negotiable — stagger/responsiveness in the first ninety seconds)
 - [ ] Verbs read in-register (coordinate with D6's G2 galadriel gate)
 - [ ] Min-spec check per D10 (verbs + summon at density is a perf hotspot — see D7)
