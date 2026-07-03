@@ -13,19 +13,19 @@
 |---|---|---|
 | 1 | jack-ryan batched decisions-log registration (G1–G10 + proxy-T4 four + Q6/Q7 six) | ✓ DONE — engine `a10a695`, unpushed; rides first wave-closeout push |
 | 2 | Registry schema mini-pass (star-lord drafts → jack-ryan ratifies at W0/W1 boundary → THEN #8b writer) | ⏳ draft riding star-lord W0/W1 dispatch; ratification queued |
-| 3 | Singleton-config smoke green before W3 (Phase-1 η live; CONVERGENCE+DUAL η=0.0) | ⏳ pulled early into rocket W0 dispatch |
+| 3 | Singleton-config smoke green before W3 (Phase-1 η live; CONVERGENCE+DUAL η=0.0) | ✓ **DONE** — rocket W0, 28/28 GREEN (`generation/notes/w0_prereqs_smoke_2026_07_03.py`; KR re-ran live, Disc #11) |
 
 ## Board
 
 | Row | Owner | Dispatch | gates-on | Status |
 |---|---|---|---|---|
-| W0.rocket (knob · 2-type-decl · fixture · classifier · F-f consumer · singleton smoke) | rocket | `2026-07-03-rocket-w0-prereqs.md` | — | 🔥 FIRING |
-| W0.star-lord (export DDA-lock widen) + W1 (D.1 #1/#2/#3/#4/#5/#8a + G6 stub supersession) | star-lord | `2026-07-03-star-lord-w0-w1-pipeline-completion.md` | engine-tree-free (serial after rocket W0 — one engine agent at a time, B1-race lesson) | QUEUED (next in engine chain) |
-| W0.gamora (DDA propagation sweep → NEW build-floor + both demo summoners re-cert) | gamora | `2026-07-03-gamora-w0-dda-propagation-sweep.md` | engine-tree-free (serial after star-lord W0/W1) | QUEUED |
+| W0.rocket (knob · 2-type-decl · fixture · classifier · F-f consumer · singleton smoke) | rocket | `2026-07-03-rocket-w0-prereqs.md` | — | ✓ **DONE** (`rocket/v-demo-run-w0-1` @ `e57b9d8`; all six PASS; no refutation fired; generation-internal, no MIGRATION owed; KR Disc #11-verified incl. live smoke re-run 28/28) |
+| W0.star-lord (export DDA-lock widen) + W1 (D.1 #1/#2/#3/#4/#5/#8a + G6 stub supersession) | star-lord | `2026-07-03-star-lord-w0-w1-pipeline-completion.md` | engine-tree-free ✓ | 🔥 FIRING (chain slot 2) |
+| W0.gamora (DDA propagation sweep → NEW build-floor + both demo summoners re-cert) | gamora | `2026-07-03-gamora-w0-dda-propagation-sweep.md` | engine-tree-free (serial after star-lord W0/W1) | QUEUED (chain slot 3) |
 | W1.#8b registry writer | star-lord | follow-up dispatch post-ratification | registry-schema-ratified | HELD |
 | Registry-schema ratification (fast pass, no Matt gate — G9) | jack-ryan | Pattern-A invocation at W0/W1 boundary | W1.#8a-draft | QUEUED |
 | W2 Gate-1 critique-pair (jack-ryan + gandalf, parallel) | KR invokes | on `2026-07-03-rocket-gamora-w2-pairing-layer.md` | — (reviews dispatch text) | ✓ **CLEARED** (jack-ryan ENDORSE-WITH-FOLDS, E4 fold applied; gandalf ENDORSE ×5 NOTE) |
-| W2 Phase 1 (CONVERGENCE + DUAL_PROXY classes + wiring) | rocket | `2026-07-03-rocket-gamora-w2-pairing-layer.md` | W0.classifier · W0.2-type-decl-check · W0.fixture · ~~Gate-1-pair-CLEAR~~ ✓ | HELD (awaits rocket W0 returns) |
+| W2 Phase 1 (CONVERGENCE + DUAL_PROXY classes + wiring) | rocket | `2026-07-03-rocket-gamora-w2-pairing-layer.md` | ~~W0.classifier · W0.2-type-decl-check · W0.fixture · Gate-1-pair-CLEAR~~ **ALL ✓** | QUEUED (engine chain slot 4, after gamora W0) |
 | W2 Phase 2 (cert) | gamora | same dispatch | W2.phase1 | HELD |
 | W3 THE EMISSION RUN (un-gate → pilot beat → full-spectrum → gauntlet → flavor split → assemble+register) | star-lord + rocket | authored at W3 entry | W0(all) · W1(all) · W2(soft — §7 degrade) · singleton-smoke-green · registry-schema-ratified | HELD |
 | W4 verify + curate-prep (DRIFT-CRITIC · Gate-2 · G4 hypothesis test + tagging · offer-table verify · §8 shortlist) | gandalf · jack-ryan · gamora · KR | authored at W4 entry | W3 | HELD |
