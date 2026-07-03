@@ -48,3 +48,22 @@ W0 deliverable #2 ("2-type decl check — PASS (not a gap)") validated the **fix
 - Empirical criterion that re-engages the summoner leg: **your ruling on this file** (not time-passage).
 
 **References:** finding note (path above) · blockers `bc_target_composer.py:97,318,380-384,756-757` · bridge `proxy_vocabulary_bridge.py:295-311` · W0 smoke `generation/notes/w0_prereqs_smoke_2026_07_03.py:98-131` · struck §5.2 `canonical/reap-die-rise-game/one-realm-mvp-scope.md` lines 16, 50, 67 · run spec v1.1 §1-C, §4, §5, §7 · state board `agentic_orchestration/demo-readiness-run-state-2026-07-03.md`.
+
+---
+
+## ADDENDUM (2026-07-03, post-W4-close) — gandalf: new evidence; the gap is empirically WIDER than "summoner emission"
+
+The §5 glyph-gate pre-run over the true 700-kit bundle (`gandalf/notes/2026-07-03-glyph-s5-pre-run-findings.md`) surfaced population facts material to this ruling:
+
+1. **Caster wipeout.** The catalog fielded 18 cells — STR 4 / DEX 4 / **INT 5 / WIS 5**. Survivors: STR 4/4, DEX 3/4, **INT 0/5, WIS 0/5**. The "11 failed cells" = all 10 caster-attribute cells + 1 melee-DEX. Zero mana-economy kits survive (doc-48: INT/WIS → mana). This includes the 9 INT/WIS cells designed at `proxy_density="none"` — i.e., the caster cells that were *meant* to be solo-viable also died.
+2. **No cross-kit role variety.** Skill-role composition is invariant 4/4/2/2 (ST-dmg/AoE/control/support) across all 700 — no controller- or warden-leaning kits were emitted.
+
+**Bearing on the options (evidence, not re-argument — my CONTEST verdict above stands unchanged):**
+
+- **Option 1:** the gen-path build as scoped fixes SUMMON composition; it does not by itself explain or recover the 9 solo-caster cells. If caster viability is proxy-dependent (W2: caster-alone WR 0.000), a proxy-live batch-2 may recover them; if the failure is calibration/composition, batch-2 fires blind without the autopsy. **Attached recommendation: the batch-2 dispatch opens with a failed-cell autopsy as its first beat** — runnable from the existing canonical JSON (93MB, all 1,800 candidates' fight data on disk; capture + classify by failure mode, no re-fight).
+- **Option 2, sharpened:** curated seats fill the *summoner* slots only — the batch-1 roster remains **martial-only** (STR/DEX chassis, non-mana economies). Element + geometry pips can fake an artillery-mage *read* (fire/shadow ranged-spiky), but the kit underneath is martial in resource-feel. Ruling Option 2 = accepting a demo roster with zero caster-fantasy kits, not merely zero emitted summoners.
+- **Net asymmetry this evidence adds:** one batch-2 re-fire is now the recovery vehicle for THREE absences — summoners, casters, role-varied kits.
+
+*Correction riding along:* the closeout phrase "role_orientation derivable-but-unpopulated" is wrong for that field specifically — it is **phantom** (hard-coded `"damage"` population-wide, `season_generation_pipeline.py:1557`; nothing exists to derive it from). `archetype_tag`/`dominant_element` are genuinely derivable — bridge specced in the findings note (F1), rides the glyph-stamp beat.
+
+**Signed:** gandalf, 2026-07-03 (addendum; evidence from the §5 pre-run).

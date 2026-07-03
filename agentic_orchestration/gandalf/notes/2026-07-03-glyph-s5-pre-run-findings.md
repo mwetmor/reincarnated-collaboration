@@ -43,7 +43,7 @@ The bundle's kit records carry full SUBSTANCE (12 skills each, chains, gear_repr
 | **0. Axis-existence (NEW)** | v0 FAIL (role_orientation phantom) → re-cut to BC coordinates; v1.1 PASS |
 | **1. Coverage (total function)** | v1.1 PASS — 700/700 map to exactly one glyph, no fall-through (computable from bc_target_cell alone, today) |
 | **2. Discrimination** | Re-scoped: measured against the **emitted design span**, not the full vocabulary (with 3 of 5 glyph-populations structurally absent, the "no glyph >40%" ceiling is arithmetically void — 2 live glyphs must average 50%). Within-span: 42.9/57.1 split is healthy. Full-vocabulary discrimination re-tests when a role-varied + proxy-viable population emits |
-| **3. Cluster fidelity spot-check** | DEFERRED to the W4 DRIFT-CRITIC beat as assigned (skill-tree reads per glyph) |
+| **3. Cluster fidelity spot-check** | LIGHT-PASS executed (post-W4-close reconciliation): **range promise VERIFIED** — BRUISER skill `range_m` median 3.0m (max 8), GLASS CANNON median 10.0m (max 12); clean band separation. **"Glass" (fragility) + "cannon" (outsized hit) texture UNVERIFIABLE** — `damage_multiplier` identical across glyphs (mean 1.01 both) and `stat_distribution`/`balance_metadata` are F1-None. Until the F1 bridge lands, GLASS CANNON is honestly a RANGED glyph; the glyph-ART brief (§7, drax/galadriel) should not promise fragility iconography the data can't yet back. Full qualitative tree-read rides the roster-pick session on the finalists, where it has curation value |
 
 ## Open fork for Matt (rides the caster-wipeout autopsy — no action now)
 
