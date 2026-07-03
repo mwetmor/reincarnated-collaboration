@@ -85,4 +85,31 @@ This dispatch **adds** the `identity_glyph` field and **populates** 19 previousl
 - v1.90 bridge precedent: engine `2839caf`; source seam `season_generation_pipeline.py:412` (`to_character_dict`), `one_realm_bundle_assembler.py:283` (`build_kit_record` passthrough), `:1557` (role_orientation hard-code)
 - ADR-004 (cross-seam MIGRATION): `agentic_orchestration/GOVERNANCE.md`
 - Disciplines #1 (math-before-code), #11 (attribution), #23 (framing-audit) — engineering-disciplines.md
+
+## Completion record
+
+**Completed by:** star-lord, 2026-07-03
+**Engine commit:** `62abdc7`
+**Tag:** `star-lord/v-demo-run-f1-glyph-1`
+
+### Beat A — COMPLETE
+
+All scope items checked:
+
+- [x] Beat A: 19 envelope fields triaged; 6 bridged (dominant_element, energy_type, archetype_tag, range_profile, engine_version, identity_glyph[new]); role_orientation explicitly NOT bridged (PHANTOM — None); 11 cycle13-legacy fields left None (documented in MIGRATION.md § v2.00 triage table). Name/flavor_text/title_completion None BY RULING.
+- [x] Beat A: identity_glyph stamped on all 700 — BRUISER=300, GLASS CANNON=400.
+- [x] Beat A: round-trip smoke — all 5 asserts PASS (dominant_element canonical ×700, energy_type doc-48 ×700, glyph 300/400, flavor None ×700, role_orientation None ×700).
+- [x] Beat A: MIGRATION.md § v2.00 prepended. Per-field triage documented. identity_glyph read-vs-rederive contract stated. Consumer action for drax noted.
+- [x] AGENT_STATE.md updated.
+- [x] Tag: `star-lord/v-demo-run-f1-glyph-1` created.
+
+**Open questions resolved:**
+- `seasonal_dominant_element` vs `dominant_element`: `dominant_element` bridged from `element`. `seasonal_dominant_element` NOT bridged — no per-kit seasonal assignment in KitCandidate; bundle `floor_manifest` has per-floor element but it is a different concept. Documented in MIGRATION.md triage table.
+- `identity_glyph` read-vs-rederive: stamped field governs per spec §6; consumers may re-derive from `bc_target_cell` as display fallback (deterministic). Drax consumer action in MIGRATION.md.
+
+### Beat B — HALTED (LLM credentials unavailable)
+
+Beat B was not executed. `ANTHROPIC_API_KEY` removed from `.zshrc` (Max subscription billing; not available to python3 subprocesses). First test call to `anthropic.Anthropic()` raised auth error. Per dispatch instruction: halted loud, Beat A stands alone.
+
+**Resume point for next Beat B dispatch:** run flavor script on the 35 kit ids from `w3-batch1-flavor-finalists-2026-07-03.md` with `ANTHROPIC_API_KEY` exported. All 700 kits have `name`/`flavor_text`/`title_completion`=None; Beat B fills exactly 35. No new fields needed — Bundle schema is Beat-B ready.
 </content>
