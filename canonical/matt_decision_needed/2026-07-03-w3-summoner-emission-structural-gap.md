@@ -1,5 +1,7 @@
 # MATT DECISION NEEDED — W3 summoner emission: structural gap (criterion C unsatisfiable as written)
 
+> **✓ RESOLVED 2026-07-06 — Matt ruled OPTION 1** (build the summon gen-path, re-fire as registered batch 2). Ruling record at the bottom of this file. Decisions-log: `2026-07-06: W3 summoner emission — Matt rules Option 1`. History below preserved.
+
 > **Raised:** 2026-07-03, mid-flight in the DEMO-READINESS UNATTENDED RUN (W3 Phase A halt-loud, first §7 invocation of the run).
 > **Finding:** `reincarnated-engine/src/reincarnated/generation/notes/w3-ungate-refutation-fired-2026-07-03.md` (rocket, engine `0a1706c`).
 > **Adjudication:** critique pair (jack-ryan + gandalf, parallel read-only) — verdicts folded below with attribution.
@@ -191,3 +193,31 @@ The autopsy's **structural skeleton is sound and its top-line labels survive** (
 - gamora's script: `reincarnated-engine/src/reincarnated/simulation/notes/w3_failed_cell_autopsy_2026_07_03.py` (read-only confirmed).
 
 **Signed:** jack-ryan, 2026-07-03 (DEV-MODE Gate-2 review of the failed-cell autopsy classification method + evidence). PASS-with-notes; cohort-(B) mechanism BLOCKed pending the four doc-only corrections above.
+
+---
+
+## GATE-2 RE-REVIEW — BLOCK LIFTED (2026-07-06) — jack-ryan, DEV-MODE
+
+> **Scope:** verify gamora's four doc-only corrections (CORRECTIONS LANDED note above) are correct + complete. **ZERO fights** — verified against on-disk fields + engine source only. **Principles applied:** #4 (gate-as-truth), #5 (severity). **Disciplines:** #11 (empirical inspection over assumption), #12 (semantic shift), #23 (framing-audit).
+
+**Verdict: BLOCK LIFTED. All four corrections land correctly and completely; no residual.**
+
+Verified against `gauntlet_sim.py:640-692` (the actual `eligible_encounters_passed` body): boss shells gate on `tier_2_survival_rate >= SURVIVAL_FLOOR_BY_COHORT[cohort]` (`:671-677`, "the KPM band is NEVER consulted for boss shells" `:649`); clear shells gate on `tier_2_kpm` in `ENCOUNTER_COHORT_KPM_BAND` (`:680-691`). This is exactly what the four corrections now assert.
+
+1. **Gate reads `tier_2` not `tier_1`** — CORRECT. Decision-file line 81 + script docstring `w3_failed_cell_autopsy_2026_07_03.py:25-40` now describe the gate as `tier_2`-based (survive-kill for boss, KPM-in-band for clear), with the `tier_1`/PROVISIONAL_PASS fields explicitly demoted to descriptive-context-only. Matches source.
+2. **Cohort (B) re-grounded** — CORRECT + complete. Rows #5–#10 now read "boss survive-kill PASS / clear shells FAIL (corridor/open timeout + pack `tier_2_kpm` above ceiling)"; the ST-sustain secondary is WITHDRAWN (line 101); the "600" is footnoted as a documented tick-floor discretization artifact (line 106, `t4_sim_cycling.py:720-723`), not real throughput. Q2 (`mid_medium_variable_wis`) re-grounded to ordinary clear-shell calibration.
+3. **Headline re-stated HALF-structural / HALF-calibration** — CORRECT. Line 111 + the load-bearing answer now read "4/10 STRUCTURAL (zero-composed) + 6/10 CALIBRATION (clear-shell, boss already cleared)," replacing "predominantly structural + ST-sustain economy gap." The load-bearing Option-1 caution (batch-2 cannot fight the 4 zero-composed INT cells) is preserved and correctly foregrounded.
+4. **`melee_high_flat_dex` #19.1 evidence tightened** — CORRECT. Rows #11 + trimodal (C) now state PASSES `boss_with_adds` (100%), FAILS `mini_boss` (0%) + both clear shells; the refuting-test line names the `mini_boss` + corridor/open band-edge raise. Primary-mode label (pure calibration) holds.
+
+**No residual.** All four are derivable from fields already on disk — no re-fight was needed or performed. The corrected decomposition is the honest ruling input, and Matt's Option-1 ruling used it.
+
+## RULING RECORD (2026-07-06) — Matt: OPTION 1
+
+**Ruled:** OPTION 1 — build the missing summon-skill generation path (math-first + Gate-1 critique-pair), then re-fire summoner + recovered-caster + role-varied emission as **registered batch 2**. Consistent with Matt's 2026-07-02 "balanced and pipeline emitted" ruling (one-realm-mvp-scope.md line 16). Option 2 (curated seats) NOT taken; Option 3 (undifferentiated stub) rejected.
+
+- **Criterion C un-PARKs**, with **batch 2 as its satisfaction path**. Run spec folded to **v1.2** (jack-ryan): the `ProxySpawn` lift + "2026-06-24 ratification" refs STRUCK from §1-C + §3 W3 step 1.
+- **Landed:** Leg 0 (INT-cell zero-composition root-cause, engine `2980182`); Leg 2; gamora's four Gate-2 autopsy corrections (BLOCK LIFTED, above). **In flight:** Leg 1 (summon gen-path build).
+- **Decisions-log entry:** `2026-07-06: W3 summoner emission — Matt rules Option 1 (build the summon gen-path, re-fire as batch 2); criterion C un-PARKs` (`reincarnated-engine/design/decisions/decisions-log.md`).
+- **Empirical close criterion for C:** a registered batch-2 bundle whose summoner + recovered-caster kits pass the `tier_2` ship gate (`eligible_encounters_passed >= 9`) — NOT time-passage.
+
+**Signed:** jack-ryan, 2026-07-06 (Gate-2 re-review BLOCK LIFT + ruling record; decision file RESOLVED, history preserved).

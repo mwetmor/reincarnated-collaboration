@@ -1,7 +1,7 @@
 # Demo-Readiness Unattended Run — Spec
 
-> **STATUS:** SPEC — CURRENT (Matt-ratified grill G1–G10, 2026-07-03). **Author:** gandalf (SPEC-AUTHOR).
-> **Gate-1:** ✓ PASSED-WITH-AMENDMENTS 2026-07-03 — jack-ryan DESIGN-MODE (2 BLOCK + 4 AMEND + 2 NOTE, **all folded — this is v1.1**) + gandalf DRIFT-CRITIC self-audit. Record: §11.
+> **STATUS:** SPEC — CURRENT (Matt-ratified grill G1–G10, 2026-07-03). **Author:** gandalf (SPEC-AUTHOR). **v1.2** (jack-ryan, 2026-07-06): criterion C hygiene strikes — `ProxySpawn` lift + "2026-06-24 ratification" refs removed (§1-C + §3 W3 step 1); C's satisfaction path re-pointed at the Option-1 batch-2 build (Matt-ruled 2026-07-06). See decisions-log `2026-07-06: W3 summoner emission — Matt rules Option 1`.
+> **Gate-1:** ✓ PASSED-WITH-AMENDMENTS 2026-07-03 — jack-ryan DESIGN-MODE (2 BLOCK + 4 AMEND + 2 NOTE, **all folded — v1.1**) + gandalf DRIFT-CRITIC self-audit. Record: §11.
 > **Authority chain:** `proxy-t4-suite-spec-2026-07-02.md` v3 · `proxy-pairing-q6-q7-2026-07-02.md` v2 (RATIFIED — Phase-3 authority: partition · 65-pair matrix · 14×3 pools · P1–P7 · rules i–vi) · `canonical/current-to-end-state/current-to-end-state-serial-content-emission.md` (D.1 queue) · `agentic_orchestration/gandalf/notes/2026-07-02-kr-relay-b1-rebase-fire-order.md` + addendum · Matt rulings §2 (this doc).
 > **Objective (Matt 2026-07-02, verbatim):** *"plan a comprehensive overnight run so that the engine and content emission pipeline are both 100% ready for the Demo."* Demo work (hero-rig Q7, camera Q8, the vertical slice) opens AFTER this run, from a real registered bundle.
 
@@ -13,7 +13,7 @@
 |---|---|
 | **A** | **One callable driver** emits all six content types (kits / monsters / factions / gear / weapons / flavortext) into a single Godot-consumable bundle — serial D.1 #1 assembly driver, with the `proxies` landing key present. **Supersedes the one-realm §5.1 hand-join** (dead — do not execute the stale ask). |
 | **B** | **Zero hollow spots** in the emitted bundle: no NULL `flavor_text`, no NULL `main_weapon`, no NULL names; monsters + gear pool + factions actually written. (Serial PART B's hollow-spot list, inverted, is the checklist.) |
-| **C** | **Summoner un-gate executed**: `_DEFERRED_PROXY_BINS` + `ProxySpawn` lifted (both Matt-ratified 2026-06-24) and the emission fires with proxy bins + the T4 suite + the pairing layer (G1) live. **Export-hold satisfied:** Matt's G-rulings (2026-07-03) authorize this emission exercise — the `export/MIGRATION.md` v1.81-1.82 hold's first Matt-authorized exercise. |
+| **C** | **Summoner un-gate executed**: `_DEFERRED_PROXY_BINS` lifted and the emission fires with proxy bins + the T4 suite + the pairing layer (G1) live. **Export-hold satisfied:** Matt's G-rulings (2026-07-03) authorize this emission exercise — the `export/MIGRATION.md` v1.81-1.82 hold's first Matt-authorized exercise. **v1.2 hygiene strikes (jack-ryan 2026-07-06):** the `ProxySpawn` lift reference is STRUCK — `ProxySpawn` (`mechanic_alteration.py:46`) is a docstring reference to the register Matt RETIRED 2026-07-02; there is nothing to lift. The "both Matt-ratified 2026-06-24" clause is STRUCK — no provenance for a 2026-06-24 ratification exists in the engine tree. **C's satisfaction path is Option-1 batch 2** (Matt-ruled 2026-07-06): the summon gen-path build + re-fire; the structural-gap finding is `canonical/matt_decision_needed/2026-07-03-w3-summoner-emission-structural-gap.md` (RESOLVED). |
 | **D** | **Full-spectrum scale (G2)**: thousands of candidates (samples-per-cell raised; mechanism seam-owned — one wide run or several registered batches), gauntlet-filtered to the in-band survivor set. Estimated 100–400 in-band; *"may be substantially less"* (Matt) — **the count is a measured output, not a promise.** Pilot beat (§4) sizes the run. |
 | **E** | **Composition target (G4)**: ~25% of emitted kits proxy-dominant, targeted at generation and **confirmed post-hoc by hypothesis test** with measured-composition tagging (§5). |
 | **F** | **Run(s) registered** — minimal run registry (serial D.1 #8): run_id · timestamp · config hash · bundle path · gauntlet summary · cert status. **star-lord drafts the schema, jack-ryan ratifies — no Matt gate (G9).** Lands the "callable → registered" stages of the staged-pipeline direction. |
@@ -67,7 +67,7 @@ CONVERGENCE + DUAL_PROXY strategy classes + 65-pair matrix + 14×3 pool wiring p
 
 **Preconditions (hard, Gate-1 #2/#5):** singleton-config smoke green + registry schema ratified.
 
-1. **Un-gate**: lift `_DEFERRED_PROXY_BINS` (`bc_target_composer.py:97,318`) + `ProxySpawn` (`mechanic_alteration.py:46`); correct the stale reason-string.
+1. **Un-gate**: lift `_DEFERRED_PROXY_BINS` (`bc_target_composer.py:97,318`); correct the stale reason-string. *(v1.2, jack-ryan 2026-07-06: the `ProxySpawn` lift reference is STRUCK — `mechanic_alteration.py:46` is a docstring reference to the register Matt RETIRED 2026-07-02; nothing to lift. The proxy-bin lift alone composes hollow kits until the summon gen-path exists — see criterion C's Option-1 batch-2 path.)*
 2. **Pilot beat** (§4): first ~20 candidates → measure per-kit wall-clock + convergence yield → project → size samples-per-cell to the run window.
 3. **Full-spectrum emission**: thousands of candidates, all six content types, T4 suite + pairing layer (per W2 state) + proxy bins live.
 4. **Gauntlet filter**: recompose-first balance loop + ≥9/18 criterion per kit → the in-band survivor set.
