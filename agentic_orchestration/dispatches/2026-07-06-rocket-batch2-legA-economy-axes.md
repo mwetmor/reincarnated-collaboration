@@ -73,4 +73,20 @@ Document, before any code:
 ---
 
 ## Completion record
-<!-- rocket appends on completion -->
+
+**Completed 2026-07-06 by rocket.** Math-first economy-axes design doc delivered: `reincarnated-engine/src/reincarnated/generation/notes/legA-economy-axes-math-2026-07-06.md`. NO code, NO emit, NO fire, NO gauntlet, NO tag (design-only per spec §2 / dispatch scope).
+
+**Three axes (same shape as Leg-1 §4, ranges justified, default corner = byte-verified current chassis → no pre-bias):**
+- **E1 cost curve** — `cost_scale c ∈ [0.60, 1.60]` on `_ENERGY_COST` + `cost_slope s ∈ {flat, escalating}` (BETA=0.25 fixed).
+- **E2 regen curve** — `regen_shape r ∈ {flat, on_kill, ramping}` + per-shape magnitude (`g_flat∈[0.60,1.80]` | on_kill `f∈[0.08,0.25]`·max_mana | `RAMP∈[0.0,0.04]`/s).
+- **E3 cadence** — `cadence_scale k ∈ [0.70, 1.50]` on `_COOLDOWN`; `_CAST_TIME` deliberately excluded (throughput confound).
+
+**#24 sweep-isolation:** CONFIRMED — disjoint emitted fields, interact only through the shared pool at fight time; no confounded pair; NOT overloaded onto the T4-keyed `gamora_combatant_fields` channel.
+
+**Leg-B sampling recommendation (§8 D4):** LATIN-HYPERCUBE within 6 strata (`s`×`r`), LHS over `{c, k, regen_magnitude}`, ~24/cell. Grid rejected (~384 cells). For jack-ryan Gate-1 ratification.
+
+**Structural-honesty clause:** default corner reproduces the known 0.0-KPM chassis; ranges span outward from a failing center; HALT genuine.
+
+**BINDING FINDING (Principle-6 gate = YES) — ESCALATED to knight-rider, not silently added:** the economy binds in resolution today (cost-check `combatant.py:393`, regen tick `:645`, cooldown gate `:100-104`) but the levers are stat/table-derived CONSTANTS — no kit-identity economy field exists. Letting the population vote **requires a new kit→sim loadout field** (a per-kit `resource_economy` multiplier dict). Regen is stat-derived in-sim (no field to bake into) and `on_kill` needs a kill-event mana-add hook. **Recommend Route B** (one additive `resource_economy` loadout dict, mirroring the `t4_cost_resource` precedent). This is a Gate-1 item: gamora adjacency picks Route A/B + confirms the kill-hook is trivial; MIGRATION.md + round-trip smoke author WITH the Leg-B build code, after Gate-1. Round-trip: not applicable this dispatch (no contract field added).
+
+**Open questions resolved:** LHS-within-strata sampling (justified §6); new loadout field required = YES (Route B, §5); economy identity partitions into cheap-sustained / builder-spender / flat-cost(baseline) / warm-up-channeler / glass-economy(negative anchor) (§3, for Leg-B map interpretability).
