@@ -78,6 +78,35 @@ npm run build:preview  # tolerant build (writes state.json even on MALFORMED) fo
 
 ## Deploy
 
-Standalone Vercel project, Root Directory = `glance/app`. `vercel.json` sets the
-SPA rewrite (all routes → index.html) — smoke-tested locally before every deploy
-(the May-12 missing-rewrite 404 lesson). Production deploys are Matt-authorized (ADR-006).
+Standalone Vercel project **`reincarnated-glance`**. Production alias:
+**https://reincarnated-glance.vercel.app** . Root Directory = `glance/app`.
+`vercel.json` sets the SPA rewrite (all routes → index.html) — smoke-tested
+locally before every deploy (the May-12 missing-rewrite 404 lesson). Production
+deploys are Matt-authorized (ADR-006).
+
+**Deploy from the meta-repo ROOT, not from `glance/app`.** The parser's only
+input is the sibling `canonical/` tree (`../../canonical` from `glance/parser/`).
+A CLI deploy from `glance/app` uploads only that subdir, so the parser can't
+reach `canonical/` and the build fails (`Cannot find module .../parser/parse.mjs`
+/ missing canon). Deploying from root uploads the whole context; Root Directory =
+`glance/app` (set on the project) makes the build + install run there while the
+parser still reaches `../../canonical`.
+
+`.vercelignore` (at meta-repo root) allowlists the context to `glance/` +
+`canonical/` only — Vercel CLI deploys ignore `.gitignore`, so without it a root
+deploy would upload ~4GB of untracked heavy dirs. Keep it in lockstep with the
+parser's input paths.
+
+Redeploy:
+
+```bash
+cd ~/Games/reincarnated-collaboration   # repo ROOT (project is linked here + at glance/app)
+npx vercel deploy --prod --yes          # Matt-authorized; preview = drop --prod
+```
+
+The parser's git best-effort reads (`repo_sha` / `last_commit`) return null in
+the Vercel build context (no `.git` there) — by design, non-fatal.
+
+Deployment SSO-protection is disabled on the project so the URL is publicly
+shareable (standalone-app ruling). Re-enabling it would gate the URL behind
+Vercel login.
