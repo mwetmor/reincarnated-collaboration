@@ -48,6 +48,20 @@
 3. **Re-extract, DON'T re-fight.** Leg-4 attribution + the solo-caster baseline come off the on-disk results file. Dependency-inversion payoff: **gamora's proxy-magnitude calibration prerequisite exists on disk even though the report layer broke — calibration queues the moment extraction lands.**
 4. Full-18-shell scoping → tiered-shells lever (see Rider 4 above); not a triage fix.
 
+### Triage OUTCOME (star-lord `2a9c31b`, tag `star-lord/v-pilot-join-contract-measurement-report-1`)
+
+**KR's join hypothesis was DISCONFIRMED — and that is the win.** star-lord confirmed against the published contract that the join logic is STRUCTURALLY CORRECT: the driver already keys by `legendary_id` via `_build_legendary_config` (`variation_pilot_driver.py:661`), matching the gauntlet emit-key (`gauntlet_sim.py:1437` `legendary_id = f"{kit.bc_cell_id}_{chain_id}"`). The published contract lives in `AGENT_STATE.md §W3-Batch-1-Post-Run-Defect-Record`, `MIGRATION.md §v1.88`, and `season_generation_pipeline.py:1437,1385`. **The "confirm via published contract before fixing" instruction prevented an ad-hoc rekey of code that was never broken.**
+
+**The ACTUAL defect was only the coupling (Item 2), now fixed:** `one_realm_bundle_assembler.validate_bundle()` fired demo constraints (no kits / no monsters) on a measurement run where 0 survivors is VALID DATA (log 8106-8111). New first-class module `export/measurement_report_writer.py` (own module, not a flag — SPRT-calibration imports it directly; MIGRATION §v2.10). Round-trip smoke ALL PASS.
+
+**The 0 survivors is REAL, not a join artifact — and it is a load-bearing balance finding:**
+
+Solo-caster baseline (report at `output/variation_pilot_measurement_report.json`):
+- `open_arena` / `chokepoint_corridor` (Balanced, Hybrid): **KPM = 0.0** — the caster TIMES OUT solo. Marginal-value → summon must carry the FULL clear (required contribution = 9.90 / 11.65).
+- `magic_pack` / `elite_pack`: **KPM = 600.0 / 426.9** — caster OVER-performs. Summon must add NO DPS (survivability/positioning only — matches jack-ryan Gate-1 condition #3).
+
+**⇒ The caster chassis is itself wildly out-of-band solo** (times out on single-target/corridor, over-clears on packs). This is arguably a bigger finding than the summon calibration: calibrating a summon to rescue an out-of-band chassis may be solving the wrong problem. **Belongs to Leg-4 analysis / a Matt read BEFORE spending on calibrated re-emit + re-fight** (band re-tuning was explicitly out-of-scope pre-pilot-evidence — this IS the evidence).
+
 ## Process lesson (Matt-flagged — for critique-pair run-boundary checklist)
 - Holding the launch was CORRECT — the inert-proxy finding was a **premise-change to Leg-4 outputs, not a seam call**.
 - rocket's `magnitudes=None` is a **legitimate layer-handoff** (named owner, named task), correctly caught at shell-prep.
