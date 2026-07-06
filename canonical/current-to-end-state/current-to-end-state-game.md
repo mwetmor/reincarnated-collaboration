@@ -19,6 +19,14 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-06 — THIRD RULING SET on the denominator: 18-kit run-composition model (one-realm §1/§3/§6 amended in place)
+
+Matt ruled the **run-composition model** (governing spec: `../reap-die-rise-engine/faction-derivation-stack-spec-2026-07-06.md`): the demo roster = **18 kits = 18 BC cells exactly 1:1** across **4 derived factions rotating roles per run** — Temple 1 casts 3–4 champions (faction A, must-beat ≥1), Biome casts 2 optional (faction C), Temple 2 casts 3–4 (faction B, must-beat ≥1), Escape is fodder-only. One-realm §3's ~8–10 slot table struck (lineage kept); the champions-are-kits/becomable principle unchanged. **The realm is ONE PEOPLE** — one derived family, zones cast its orders, no intra-realm war (peace-illusion law, loop-doc §23.3). Game-layer consequences: **(1)** §6 gains ask #8 — the **casting director** (faction-role rotation + Hades-class anti-repeat bias; consumes bundle-v2 faction blocks); **(2)** replayability sharpens — 9 kits/run means run 2 can be a **perfect partition** (guaranteed fully-fresh second run = the wishlist-conversion moment; asymmetry pin F1 open); **(3)** fodder/soldier-mass (incl. the escape horde, §6.4) is now **faction-derived** — palette/verbs inherit from the realm-family (derivation-stack §7). No PART A/B row changes — the descent build's critical path (B1 camera, B2 first floor, Q7 rig) is untouched; the casting director sequences AFTER bundle v2 exists.
+
+**Signed:** gandalf, 2026-07-06.
+
+---
+
 ### 2026-07-02 — ONE REALM MVP RULED; `reap-die-rise-game/` FOUNDED (B3 home-half ✓); MVP tags applied
 
 Matt ruled the One Realm demo scope: five of six forks as leaned + the **kit-composition correction** (lieutenants/champion COUNT as player kits → ~8–10 validated kits total, every one becomable; **summoner kits MANDATORY** — Necromancer theme; the certification *instrument* stays launch-track, the *content* is demo-critical). **`../reap-die-rise-game/one-realm-mvp-scope.md` is THE DENOMINATOR** — the B-rows below now carry MVP-critical vs launch-scope tags read against it. The founding resolves B3's home question. In-place updates: B1 MVP-CRITICAL (camera ratifies on the demo's first floor) · B2 MVP-CRITICAL (the three-beat floors ARE the demo) · B3 ½-resolved (folder founded; king-rig doc migrates when it grows) · B4 MVP-CRITICAL (G2 register gate = demo non-negotiable) · B5 SPLIT (Binding-Rite-LITE = MVP; the full §13a rite stays someday). A′3 cosmograph: confirmed OUT of demo scope (launch-track). Sibling surface: `canonical/matt_to_do/` born (T1 = the CCR run unblocking the hygiene routine).

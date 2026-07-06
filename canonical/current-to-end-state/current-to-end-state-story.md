@@ -19,6 +19,14 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-06 — Realm-coherence LAW ruled: one realm = ONE PEOPLE; no intra-realm war (annotates §19/§23.3; no open row changes)
+
+Matt posed the realm-coherence fork (one faction vs loosely-related vs opposing factions per realm); the accepted synthesis is now law in `../reap-die-rise-engine/faction-derivation-stack-spec-2026-07-06.md` §4: **a realm is ONE PEOPLE** (one derived family), its zones cast the family's **distinct orders**, and **no opposing factions exist within a realm** — an openly warring realm breaks §23.3's peace-illusion and with it the manufactured-rebellion reveal (Q4's keystone cluster depends on the realm *believing itself at peace*). Opposition the player feels lives at per-lieutenant Goldilocks temperature (§9) + across-realm variety (§19: *"its peoples become the season's factions"* — plural across the game, singular per realm). Rival-order **tension** (politics/doctrine, never war) is allowed via the existing relationship fields, constrained tension-grade. Story-side note: **race ruled a family-level presentation attribute diagnosed AFTER derivation** (never a generation input; race = form-family in the form-library sense). No PART B row changes — Q4's reveal-sequence content remains open; this ruling *protects* its precondition.
+
+**Signed:** gandalf, 2026-07-06.
+
+---
+
 ### 2026-07-02 — MVP-TAG PASS: PART B tagged against the One Realm demo denominator (no story decision changed)
 
 `canonical/reap-die-rise-game/one-realm-mvp-scope.md` (Matt-ratified 2026-07-02) fixes the demo scope; per its §9 the story queue is tagged for what gates the DEMO vs what gates LAUNCH. **Result: NO open story decision blocks the demo.** B1 = **LAUNCH-GATE** (it gates engine III.2's instrument; the demo is one run — *"a demo banks trivially or not at all,"* one-realm §9). B3 companion / B4 demigod tragedy-phase / B5 keystone reveal beats = **NOT-MVP** — the demo's entire narrative surface is the Binding-Rite-LITE assignment beat + one hand-in reaction line + the end-card (one-realm §1 + §4 STUBBED); it ends before any reveal content exists. Story sessions keep their own cadence: the demo does not wait on them, and they do not wait on the demo. Engine-side sibling tags: `current-to-end-state-engine.md` same-date delta.

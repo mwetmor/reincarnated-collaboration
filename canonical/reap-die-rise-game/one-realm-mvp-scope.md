@@ -15,6 +15,8 @@
 
 **Second ruling set (Matt 2026-07-02, post-emission-inspection — amends §3/§4/§5 in place):** (1) the demo bundle carries **ALL SIX content types with FULL LLM flavor** — the §5.1 "weapons nice-not-critical / factions presentation-side-only" holds are overruled (star-lord inspection `9873c6b` showed both emitters built+validated, wiring-only); (2) **zero hand-authored shipped content** — *"they need to be balanced and pipeline emitted… we can pick from a seasonal emission of the serial content pipeline of battle-sim passed kits"* — the demo roster is **curated from a real un-gated emission run**, pulling the summoner content-emit un-gate demo-critical and re-purposing hand-authored proxy decls to calibration fixtures; (3) the emission pipeline is now tracked in its own ledger, `../current-to-end-state/current-to-end-state-serial-content-emission.md`.
 
+**Third ruling set (Matt 2026-07-06 — the run-composition model; amends §1/§3/§6 in place):** governing spec = `../reap-die-rise-engine/faction-derivation-stack-spec-2026-07-06.md`. (1) **Full-emission-first:** complete 18-cell emission → factions DERIVED from the population (30–50 library, two-cut dendrogram) → monsters derived FROM factions (vertical faction model — fodder supports the lieutenants/bosses *"who will eventually be player controlled"*) → demo = best-subset selection. (2) **The roster is 18 kits = 18 BC cells 1:1** (supersedes §3's ~8–10 accounting) across **4 factions rotating roles per run**: Temple 1 anchors 3–4 champions of faction A, Biome carries 2 optional of faction C, Temple 2 anchors 3–4 of faction B, escape is fodder-only. (3) **The realm is ONE PEOPLE** — one derived family; its zones cast distinct orders; no intra-realm war (peace-illusion, §23.3). (4) A **casting director** (rotation + anti-repeat) joins §6's Godot asks.
+
 ## 1. The player path (one run, ~25–27 min, per loop-doc §23.1)
 
 1. **Opening** — the king-rig scene (LIVE, game-tracker A4) → **Binding-Rite-LITE**: a cut-down assignment beat that sets the first kit. The full §13a cathedral rite is launch/someday (game-tracker B5); the demo needs the *beat*, not the ceremony.
@@ -38,14 +40,25 @@
 
 ## 3. The demo roster — corrected accounting + the summoner mandate (Matt 2026-07-02)
 
-**Correction 1 — lieutenants and the champion ARE player kits** (loop-doc §5/§8: champions are kits, becomable). The roster budget counts them:
+**Correction 1 — lieutenants and the champion ARE player kits** (loop-doc §5/§8: champions are kits, becomable). ~~The roster budget counts them:~~ *(The 2026-07-02 slot table below is **superseded by the third ruling set 2026-07-06** — kept struck as lineage; the principle [champions are kits, becomable] is unchanged.)*
 
 | Slot | Count | Notes |
 |---|---|---|
-| Starting pool | 4–6 | player picks/receives one per run; spans melee / caster / ranged / controller / **summoner** |
-| Structure-1 lieutenants | 2–3 | the Goldilocks spread, **hand-picked temperatures** (hot / right / cold) — curated, not matrix-measured |
-| Structure-2 champion | 1 | the escape body — pick a kit whose verbs read spectacular in flight |
-| **Total validated player kits** | **~8–10** | **every one becomable** — beat a lieutenant, wear it |
+| ~~Starting pool~~ | ~~4–6~~ | ~~player picks/receives one per run; spans melee / caster / ranged / controller / **summoner**~~ |
+| ~~Structure-1 lieutenants~~ | ~~2–3~~ | ~~the Goldilocks spread, **hand-picked temperatures** (hot / right / cold) — curated, not matrix-measured~~ |
+| ~~Structure-2 champion~~ | ~~1~~ | ~~the escape body — pick a kit whose verbs read spectacular in flight~~ |
+| ~~**Total validated player kits**~~ | ~~**~8–10**~~ | ~~**every one becomable** — beat a lieutenant, wear it~~ |
+
+**Ruled accounting (third ruling set, 2026-07-06 — derivation-stack spec §5):**
+
+| Slot | Count | Notes |
+|---|---|---|
+| **Total roster** | **18** | **= 18 BC cells exactly 1:1** — every mechanical voice present once; every kit becomable |
+| Factions | 4 | derived orders of ONE realm-family (5/5/4/4 or similar); **roles rotate per run** |
+| Per-run cast | ~9 | Temple 1: 3–4 (faction A, must-beat ≥1) · Biome: 2 (faction C, optional) · Temple 2: 3–4 (faction B, must-beat ≥1) · Escape: fodder only |
+| Goldilocks | per temple | the hot/right/cold spread lives *within* each temple's 3–4 champions |
+
+The starting-kit pick and the becoming fork both draw from the same 18 — the roster IS the starting pool, the lieutenant spread, and the champion supply, cast by zone per run. Replayability (§1) sharpens: with 3+4+2 = 9 per run, **run 2 can be a perfect partition** — guaranteed fully-fresh (asymmetry pin F1, derivation-stack §11).
 
 **Correction 2 — the summoner mandate.** The game is Necromancer-themed; a death-cult demo where nothing can be raised breaks the fantasy promise in minute one (and the grimoire itself is a summoning fantasy — story-tracker A11: claimed souls usable/summonable). **≥1 summoner in the starting pool; ideally 1 summoner lieutenant** (a necromancer lieutenant raising adds is also the thematically perfect Structure-1 boss — and enemy-side adds are near-existing tech, `boss_with_adds` shell). ~~Summoner kits are **hand-tuned, playtest-validated demo content**; only the *certification instrument* (multi-actor sim, engine-tracker III.1b) stays launch-track.~~ *(Amended by the second ruling set 2026-07-02: summoner kits are **pipeline-emitted and gauntlet-passed** like every kit — calibration slice → un-gate → demo emission run; playtest tunes, it does not certify.)* What the mandate pulls demo-critical is in § 5.
 
@@ -77,6 +90,7 @@
 5. **Grimoire + scouting UI, minimal** (numbered pages; glyph preview).
 6. **King-rig → descent stitch** (Binding-Rite-LITE joins them; A′2's cheap-recurring-transition principle ratifies here).
 7. **Min-spec verification cadence** — GTX-1650-class checks as a standing build gate, not a launch surprise.
+8. **Casting director** *(added by the third ruling set 2026-07-06)* — per-run zone casting from the 18-kit roster: faction-role rotation (which order anchors which temple) + anti-repeat bias (Hades-class: bias against recently-seen, never hard-exclude). Consumes the bundle-v2 faction blocks; spec = derivation-stack §5/§10 step 8.
 
 ## 7. Wishlist machinery (gates are workstream-relative, ruled 2026-07-02)
 
