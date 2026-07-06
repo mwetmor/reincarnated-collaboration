@@ -45,3 +45,22 @@
 2. Melee-cell variation report (distinct t4/geometry/chains/role-split/resource — mechanics not palette per Ruling 2).
 3. Caster-cell variation report + static emitted-vs-curated summoner structural comparison (Rider 2).
 4. Conditional go/no-go framed per Rider 4.
+
+## Calibration-note Gate-1 disposition (2026-07-06) — RATIFY-WITH-CONDITIONS
+
+Critique-pair on `simulation/notes/proxy-magnitude-calibration-math-2026-07-06.md` (gamora `066ba37`). Both critics RATIFY-WITH-CONDITIONS. Math verified sound; NO Matt decision at this Gate; NO BLOCK; no MIGRATION.md (decl shape unchanged, ADR-004 untriggered).
+
+- **jack-ryan** (technical, `cb040b0`): every load-bearing number verified first-hand (KPM bands `gauntlet_sim.py:393-398`; WR-1.0 anchors + gravecaller quote `proxy-fight-calibration:302-304`; `None or 0.0` coalesce + `damage_modifier=1.0` default `spatial_engine.py:1741-1742,1773`; `SPATIAL_DAMAGE_SCALE=0.6` `:326`).
+- **gandalf** (design, per Matt's design-eyes requirement): endorses marginal-value frame ("the only frame that refuses to ship a lie"); proxy-dominant ceiling is a *design gate*, not a balance clamp.
+
+**The crux resolved — ranged/melee caveat does NOT block the re-fight.** jack-ryan: the re-fight runs CLEAR shells (packs), not boss shells; gravecaller's WR 0.0 was a BOSS-specific nav evaporate; on a dense pack field the nearest-enemy nav gap is far less binding. So the pack re-fight IS the honest empirical test of whether the melee-derived anchor transfers to a ranged proxy — **the primitive question is answered BY the fight, not before it.** The ranged/melee tier split, if needed, is a rocket-seam generation primitive (ADR-002) escalated to knight-rider WITH re-fight evidence — not a sim patch, not masked by a magnitude bump (gandalf concurs, structural).
+
+**Binding conditions on the calibrated re-emit + caster re-fight:**
+1. **(jack-ryan #1, non-optional)** Engagement gate BEFORE reading KPM — a nav evaporate must not be misread as a magnitude shortfall. **This operationalizes Matt's "does the emitted thing FIGHT?" run-boundary check.**
+2. **(jack-ryan #2)** State the 0.6-vs-1.0 `damage_modifier` regime as an explicit harness parameter (silent 1.67× otherwise).
+3. **(jack-ryan #3)** No DPS lever on above-ceiling pack shells — survivability only.
+4. **(jack-ryan #4 + gandalf #2)** Ranged-primitive escalation to knight-rider carries re-fight evidence; ranged-nav-evaporate is STRUCTURAL — do NOT mask with magnitude.
+5. **(gandalf #1)** Grade `[0.15, ~0.30)` f_army share as "balance-passing / fantasy-marginal" on the read — no silent PASS. Ranged floor likely higher than melee floor.
+6. **(gandalf #3, emission-time)** When rocket emits varied summoners, summons must READ as the summoner's own (thematic coherence with element/name/weapon), not generic proxies.
+
+**Sequencing:** pilot solo baseline fills gamora's open slot → rocket calibrated re-emit (chassis-coordinate magnitudes + engagement-gate hook) → gamora caster-cell-only re-fight (~20 min) under conditions 1-5 → ranged-primitive question surfaces to KR/Matt only IF the pack re-fight shows the melee anchor doesn't transfer.
