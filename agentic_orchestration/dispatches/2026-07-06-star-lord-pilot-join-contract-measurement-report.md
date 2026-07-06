@@ -61,4 +61,69 @@ Nothing is lost: the fight data (and the solo-caster baseline gamora's calibrati
 ---
 
 ## Completion record
-<!-- star-lord appends on completion -->
+
+**Completed:** 2026-07-06 by star-lord
+**Tag:** `star-lord/v-pilot-join-contract-measurement-report-1`
+**Engine commit:** (tagged at session end)
+
+### Item 1 — Root cause confirmed
+
+**Confirmed file:line (both keys):**
+- Gauntlet emit-key: `gauntlet_sim.py:1437` — `legendary_id = f"{kit.bc_cell_id}_{chain_id}"` in `_build_legendary_config` (cell-level, keyed by BC cell + T4 chain, NOT per-sample `character_id`)
+- Driver join-key: `variation_pilot_driver.py:661` — recovery path correctly calls `_build_legendary_config(kit, enc_idx2)` and joins via `config_to_kits[legendary_id]`. The join logic itself IS structurally correct.
+
+**Actual root cause:** The HALT-LOUD was NOT a join/namespace bug. It was demo-bundle coupling: `validate_bundle()` at `one_realm_bundle_assembler.py:1237` fired "Bundle has no monsters — demo requires monster content" (a demo constraint, irrelevant for a measurement run). Simultaneously "Bundle has no kits" — because 0 survivors (caster `season_emit=False` was valid measurement data, not a balance failure). Run log confirms at lines 8106-8111 of `variation_pilot_run.log`.
+
+**Published contract location:** The gauntlet-results↔kit-identity contract IS published in:
+1. `AGENT_STATE.md §W3-Batch-1-Post-Run-Defect-Record` (lines 189-199)
+2. `MIGRATION.md §v1.88` (Assert-B documentation)
+3. `season_generation_pipeline.py:_build_legendary_config():1437,1385` (code-citation in comments)
+4. NOW ALSO: `measurement_report_writer.py` (module docstring) + `MIGRATION.md §v2.10`
+
+### Item 2 — Measurement-report decoupling (PERMANENT)
+
+**New module:** `/Users/admin/Games/reincarnated-engine/src/reincarnated/export/measurement_report_writer.py`
+- `extract_pilot_measurement_report()`, `validate_measurement_report()`, `write_measurement_report()`, `smoke_validate_measurement_report()`
+- Zero coupling to `one_realm_bundle_assembler`. No monsters/gear required.
+- SPRT-calibration reuse: gamora imports from this module. Additive SPRT fields supported.
+
+**Design choice: own module (not a flag).** Rationale: separate contracts (demo-bundle vs measurement), separate consumers (drax vs gamora). A flag on the assembler would preserve the wrong coupling at the type level.
+
+**Driver changes:** `variation_pilot_driver.py` — `--emit-measurement-report` flag + `run_measurement_report()` + `PILOT_MEASUREMENT_REPORT_PATH` constant. `MIGRATION.md §v2.10` documents all changes.
+
+### Item 3 — Re-extraction (no re-fight)
+
+**Report path:** `/Users/admin/Games/reincarnated-engine/src/reincarnated/output/variation_pilot_measurement_report.json`
+
+**Solo-caster baseline (gamora §2 open slot — FILLED):**
+
+| Shell | Cohort | solo_caster_baseline_KPM | Required summon contribution |
+|---|---|---|---|
+| open_arena | Balanced | 0.0 | 9.90 (bar lo) |
+| open_arena | Hybrid | 0.0 | 9.90 |
+| chokepoint_corridor | Balanced | 0.0 | 11.65 |
+| chokepoint_corridor | Hybrid | 0.0 | 11.65 |
+| magic_pack | Balanced | 600.0 | 0.0 (above ceiling — survivability only) |
+| magic_pack | Hybrid | 600.0 | 0.0 |
+| elite_pack | Balanced | 426.89 | 0.0 |
+| elite_pack | Hybrid | 425.36 | 0.0 |
+
+**Leg-4 attribution:** MELEE cell — 2 legendary_ids, both `season_emit=True`, passes Balanced/Hybrid/DPS-min-maxer. CASTER plain — 2 legendary_ids, both `season_emit=False` (caster times out on clear shells without summon). CASTER proxy — 0 entries in results (the "light" proxy kits' legendary_id suffix `_int_light_*` is absent from this results file; 4/25 proxy-dominant kits confirmed in generation checkpoint).
+
+### Round-trip smoke (Principle 6) — ALL PASS
+
+```
+PASS: melee season_emit_count = 2 (non-zero legendary_ids mapped)
+PASS: validate_measurement_report returns no errors (zero monsters/gear required)
+PASS: solo_caster_baseline populated for 4 shells × 2 cohorts (8 pairs)
+PASS: round-trip smoke from disk (schema_version=pilot-v1)
+PASS: report has no monsters or gear_pool (decoupled from demo-bundle)
+```
+
+### MIGRATION.md
+
+`MIGRATION.md §v2.10` authored. Documents: new `measurement_report_writer.py`, schema `pilot-v1`, solo-caster baseline table, contract publication, round-trip smoke result, driver CLI changes.
+
+### Gamora calibration queue
+
+gamora's §2 open slot is now filled. Solo-caster baseline confirms the calibration note prediction exactly (open_arena/chokepoint: 0.0 KPM timeout → summon must carry full clear; magic_pack/elite_pack: 600.0/426 KPM → summon adds survivability only, not DPS). gamora can now proceed with the calibrated re-emit + caster-cell re-fight under Gate-1 conditions 1-5.
