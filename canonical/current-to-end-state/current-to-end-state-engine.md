@@ -101,7 +101,7 @@ Matt commissioned a full sim inspection against two target states (demo / comple
 | III.5 monster sourcing | LAUNCH | fodder bestiary + hand-picked champion-kits enact the lean by hand (§3) |
 | III.6 geometry seam | LAUNCH | demo floors authored via the three-gate method (§6.3) |
 | III.8 scouting glyphs | **MVP-CRITICAL (minimal)** — spec-side ✓ CLOSED (glyph spec **v1.1**, 2026-07-03; §5 gate pre-run over batch-1, see 2026-07-03 delta); stamp beat ✓ DONE (2026-07-03, `star-lord/v-demo-run-f1-glyph-1` — 300/400 stamped, element pip live) | ~~label→glyph~~ **coordinate→glyph** at the Goldilocks fork (§4) — v0's phrase was the smuggling trap |
-| III.8 gear-as-sim-variable | LAUNCH | gear ships as §5.1 bundle *content*; the `express_gear` instrument waits |
+| III.8b gear-as-sim-variable | LAUNCH | gear ships as §5.1 bundle *content*; the `express_gear` instrument waits |
 
 **IV.2 consequence:** the demo pulls exactly **TWO engine asks** (hand-join + proxy decls); everything else in the queue is launch-track instrument work — it **continues** (one-realm §9: in-flight work not halted; the III.10 un-gates + perception-asymmetry producer proceed) but does **not gate the demo**. The demo is itself the validation instrument (one-realm §8) for the currently-unfalsifiable claims — sawtooth *feel*, +3 payoff, escape-clock band, and **the §20d parametric-verb condition (THE test)**: if ~10 kits can't become 10 distinct playable verbs cheaply, we must know before promising 400. Story-side sibling tags: `current-to-end-state-story.md` same-date delta (B1 = launch-gate, demo unaffected; B3/B4/B5 = not-MVP).
 
