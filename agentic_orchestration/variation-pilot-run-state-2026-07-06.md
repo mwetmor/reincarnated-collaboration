@@ -2,6 +2,18 @@
 
 > Authored by knight-rider at Leg-3 launch. Records Matt's FORK RULING (Option 1 — fire the inert pilot now) and its four riders, so Leg-4 analysis and batch-2 sequencing honor them. Live ledger.
 
+## ⇒ C2 CHASSIS RULING (Matt 2026-07-06, relayed via gandalf) + merged fire-order
+
+**C2 — TWO CHASSIS BANDS keyed on the existing proxy-share knob** (0.250000 exact, no new mechanism). C1 (one-band) and C3 (summons-everywhere) REJECTED.
+- **Plain-caster band** (proxy ~0): solo single-target floor — MUST clear open_arena AND chokepoint solo. Current 0.0 KPM = gap-to-close, not a design position. **Floor placement = OUTPUT of gamora's calibration note.**
+- **Summoner band** (proxy ≥0.25): solo timeout ACCEPTABLE, proxy DPS mandatory (already ruled 2026-07-02). Summoner-band magnitudes defer to batch-2 measured data.
+
+**Fork resolved:** my (a) + report-first alternative MERGE into ONE gamora unit (dispatch `2026-07-06-gamora-calibration-finalize-leg4-report.md`, FIRED). My (b) sharpens: **no standalone calibrated re-emit/re-fight EVER — the plain-caster band re-tune becomes batch-2 config; the re-emit/re-fight IS batch-2. One batch, one fire, after the gen-path chain closes.**
+
+**Sequence after the gamora unit returns (NOT now):** Leg-4 report lands → pilot chain CLOSED → gandalf authors batch-2 build spec (Option-1 scope + C2 band config + measured floor + tiered-shells lever + per-cohort bucket keys + variation build, ≥100/cell × 18 cells) → ARCHITECT pass gates run authorization → KR dispatches batch-2 → derivation chain (elrond consult → clustering → Matt cut-ratification).
+
+**Paperwork:** serial-emission tracker ✓ RULED C2 (gandalf, done); decisions-log C2 registration batches with the 2026-07-06 ruling set on jack-ryan's next pass; gamora unit = analysis+report only → light jack-ryan read.
+
 ## Launch record
 
 - **Fired:** 2026-07-06 ~14:54 local, detached (`nohup`, PID 11337) from persistent KR session per Discipline #19 (NOT a sub-agent).
