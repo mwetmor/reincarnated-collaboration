@@ -57,4 +57,42 @@ Your calibration note (`simulation/notes/proxy-magnitude-calibration-math-2026-0
 ---
 
 ## Completion record
-<!-- gamora appends on completion -->
+
+**Completed:** 2026-07-06 (gamora SESSION 49). ANALYSIS + REPORT ONLY — ZERO fights, ZERO re-emit,
+ZERO re-fight, ZERO band re-tune, ZERO production code (edits confined to `simulation/notes/`). No tag.
+No push (Matt-gated). MIGRATION: N/A.
+
+**Two artifacts delivered (one unit):**
+1. `reincarnated-engine/src/reincarnated/simulation/notes/proxy-magnitude-calibration-math-2026-07-06.md`
+   — FINALIZED. §2 open baseline slot FILLED from the Gate-2-verified
+   `output/variation_pilot_measurement_report.json` (jack-ryan re-verified to 4 decimals). Both INFO
+   flags folded (§2.1 plain-caster-only / caster_proxy defers to batch-2; §2.2 magic_pack 600.0 =
+   `≥`-ceiling artifact). Plain-caster band gap QUANTIFIED (§2.3).
+2. `reincarnated-engine/src/reincarnated/simulation/notes/leg4-attribution-report-2026-07-06.md` — NEW.
+   The unsealed pre-registered attribution verdict.
+
+**Acceptance items, all met:**
+- [x] Calibration note finalized on the Gate-2-verified baseline.
+- [x] Plain-caster band gap quantified → **C2 floor placed at bar_lo: 9.90 KPM (open_arena) / 11.65 KPM
+  (chokepoint)**. Current chassis 0.0 on both → gap == floor (full timeout-to-floor jump). Output of
+  the measurement, not a pick.
+- [x] INFO flag 2 folded — **magic_pack 600.0 verdict: metric-domain ARTIFACT** (1/tick-floor =
+  kills/(0.1s/60) when a pack clears sub-tick; `t4_sim_cycling.py:108-113,273-277,720`; engine already
+  routes sub-`T_min` clears on COMPLETION via `CLEAR_SHELL_DOMAIN_TMIN_S=1.0`), NOT a min=max clamp,
+  NOT real DPS → reported as `≥`-ceiling. elite_pack 426.9 (genuine spread 163.6–450.0) = pack-
+  overperformance signal of record.
+- [x] INFO flag 1 folded — caster_proxy legitimately empty (int_light bucket-collapse); note anchors on
+  PLAIN-caster baseline only; summoner-band DEFERS to batch-2.
+- [x] Leg-4 report written — mechanism CONFIRMED (40/81 emit; chain-variants 15/15
+  eligible-encounters-passed; G4 knob z≈−1.0 in-range at 4/25) + chassis finding + triage lineage
+  (KR join hypothesis DISCONFIRMED via published contract; coupling was the whole defect; fix =
+  star-lord `measurement_report_writer.py` / MIGRATION §v2.10; Gate-2 PASS-WITH-FOLLOWUPS) +
+  attribution discipline (Rider 2: proxy-dominant = solo-baseline, summons inert; NEVER summoner
+  viability).
+- [x] One batch-2 spec line captured (per-cohort bucket keys) — handed to gandalf's batch-2 spec
+  (report §6), not made here.
+- [x] AGENT_STATE.md updated (SESSION 49).
+- [x] Auto-commit (authorized cycle work); no tag; no push.
+
+**Returns to KR:** pilot chain CLOSED → gandalf authors the batch-2 build spec (consumes the C2 floor
+placement + per-cohort-bucket-key spec line). Light jack-ryan read (analysis+report, no production code).
