@@ -80,6 +80,8 @@ Naming/flavor (step 6) · clustering + two-cut derivation (steps 3–5) · Matt 
 | D2 | Third pilot cell (hybrid/mid INT) | include iff marginal cost ~zero at Leg-B config time |
 | D3 | F2 cost-veto (extend-unstable-cells after consult) | survives unchanged at derivation step 3 |
 | D4 | Leg-B sampling scheme (grid vs LHS-class) | rocket/gamora pick at Gate-1 |
+| D5 | **Leg-B execution: SEQUENTIAL in one registered run** (Matt asked parallel-vs-sequential 2026-07-06; cells are independent by construction — distinct seeds, read-only shells — but Leg B is minutes-class sim and one run = one SHA/config/seed ledger across cells, which the comparative map requires) | sequential, single run record |
+| D6 | **Leg-C per-cell SHARDING (the parallelism that matters):** whether the 12–15h fire shards cells across processes hinges on whether the batch runner already parallelizes internally (core saturation on the single Mac host) — gamora implementation fact, resolved at dispatch. Constraints if sharded: distinct seeds per cell (holds by construction) · per-cell output paths · **ONE registry run record with a shard manifest** (PART-C seed+SHA+config law kept whole, never N loose runs) | gamora call at Leg-C dispatch |
 
 ---
 
