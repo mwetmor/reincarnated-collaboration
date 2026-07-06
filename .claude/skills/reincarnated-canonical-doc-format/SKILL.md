@@ -6,7 +6,7 @@ version: 0.2.0
 
 # reincarnated-canonical-doc-format — Canonical Doc Format + Lifecycle (Cross-cutting Reference)
 
-> **STATUS:** CURRENT (load-bearing). First authored 2026-05-23 (Stream 3 cross-cutting reference skill). **Amended 2026-06-30 — doc-lifecycle governance added (§ 6): propagation + pruning system, ratified by Matt 2026-06-30 after a 14-scenario stress-test.** The pre-amendment "demote to `canonical/historical/` subfolder" model is RETIRED (the reorg went git-is-archive); reconciled in § 1 + § 3.
+> **STATUS:** CURRENT (load-bearing). First authored 2026-05-23 (Stream 3 cross-cutting reference skill). **Amended 2026-06-30 — doc-lifecycle governance added (§ 6): propagation + pruning system, ratified by Matt 2026-06-30 after a 14-scenario stress-test.** The pre-amendment "demote to `canonical/historical/` subfolder" model is RETIRED (the reorg went git-is-archive); reconciled in § 1 + § 3. **Amended 2026-07-06 — the parse contract (§ 7) ratified by jack-ryan from gandalf's Glance contract-spec § 2 proposal (proposer→ratifier per § 6.7); old §§ 7–8 shifted to §§ 8–9. Mirrored as Discipline #60 (CI-fail-loud).**
 
 **Authored:** 2026-05-23 · **Amended:** 2026-06-30 (lifecycle governance)
 **Author:** gandalf (cross-cutting reference owner + primary canonical-doc author)
@@ -229,7 +229,65 @@ Sibling of § 6.2: the Tracker-delta rule keeps canon↔tracker in sync; this ru
 
 ---
 
-## 7. Ownership lineage (fixed 2026-06-30 — trackers replace the retired roadmap)
+## 7. The parse contract — the five legislated shapes (RATIFIED jack-ryan 2026-07-06)
+
+**Ratification lineage:** gandalf PROPOSED this as Glance contract-spec § 2 (`agentic_orchestration/operating-procedures/glance-contract-spec-2026-07-03.md`, 2026-07-03); routed to jack-ryan via the § 6.7 `⚠ SWITCH: CANON-STEWARD (proposer) → jack-ryan (ratifier)` beat. RATIFIED here 2026-07-06 with the amendments named in § 7.7. This section is the **canonical, authoritative** statement of the parse contract; the Glance parser (drax) builds against THIS, not the proposal text. Matt rulings embedded: Glance GO / STANDALONE / fork-4 `gates-on:` tokens LIVE on all queue-row writes NOW (Matt 2026-07-03).
+
+**What this legislates:** canonical docs are already semi-structured data wearing markdown clothes. This section codifies the **MINIMUM parseable set — exactly five shapes.** Everything else stays free markdown, rendered as prose, never modeled. The team's only new obligation: **keep writing what you already write, parseably.** This is minimum-legislation by design — do not expand the shape count without a fresh proposer→ratifier round.
+
+### 7.1 Shape 1 — STATUS banner
+The first blockquote in the doc containing the literal `**STATUS:**` marker. Parser captures: the stamp word(s) (`CURRENT`, `SPEC-CURRENT`, `LIVING`, `ROUTER`, ` HISTORICAL`, `DEAD`, `SUPERSEDED`, `PARTIALLY SUPERSEDED`), the first date found, and the raw line. This is the § 2 header structure surfaced as data — no new authoring obligation.
+
+### 7.2 Shape 2 — SESSION-DELTA LOG
+A `## SESSION-DELTA LOG` section whose entries are `### YYYY-MM-DD — <headline>` (multiple same-date entries permitted; suffixes like `(2)` tolerated). **Newest-first in the file; latest governs** (the § 4 supersession law delivered structurally). Entry body = everything until the next `###`/`##`.
+
+### 7.3 Shape 3 — Queue rows
+A markdown table under a queue heading where each data row's **first cell begins with a row ID** (`D.1#8`, `B1`, `W0.3`, `III.8`, `Q2`, or a plain ordinal) and some cell carries a **status prefix** from the enum:
+
+| Prefix | Meaning |
+|---|---|
+| `✓` | closed |
+| `⛔` | blocked |
+| `⚖` | awaiting Matt ruling |
+| `PARKED` | parked (named re-entry) |
+| `IN-FLIGHT` | executing |
+| `OPEN` *(or no prefix)* | open |
+
+The prefix is the contract; **the remainder of the cell is free prose** (`⛔ BLOCKED — REBASE` parses as blocked + prose). Bullet-list queues (non-table) are modeled **iff** the bullet begins with a row ID followed by `—` or `:`.
+
+### 7.4 Shape 4 — `gates-on:` tokens — fork-4 dependency law (LIVE NOW, Matt 2026-07-03)
+Grammar, anywhere within a modeled row's cells (or trailing on a modeled bullet):
+
+```
+gates-on: <token>[ (<qualifier>) ] [· <token>[ (<qualifier>) ]]*
+token     := row ID (W3, D.1#8, B1, W0.classifier) | named-gate slug (singleton-smoke-green)
+qualifier := free prose, captured not interpreted   — e.g. W2 (soft — §7 degrade)
+```
+
+**Semantics (verbatim law, Gate-1 #3): `gates-on: X` = *this row fires only after X closes.* Dependents declare their dependencies; the inverse ("unblocks") is NEVER encoded.** Multiple tokens = AND. A token *closes* when the row it resolves to reaches `✓`. A named-gate slug that resolves to no row stays **dangling** — rendered as a warning badge, never a build failure (§ 7.6), because named gates are events that may close in delta prose before any row exists.
+
+### 7.5 Shape 5 — Matt queues
+`canonical/matt_decision_needed/` + `canonical/matt_to_do/`: the `README.md` index is the modeled surface — an item = a heading or table row carrying a `Q`-style ID; **resolved** = `~~strikethrough~~` or residence in a resolved/appendix section. Counts feed the Glance header strip.
+
+### 7.6 Severity split — the discipline that makes CI livable
+This is the load-bearing enforcement contract. It is mirrored as **Discipline #60** in `engineering-disciplines.md` (CI-fail-loud); the two are ONE rule in two homes (the format-governance statement here; the engineering-enforcement statement there).
+
+- **MALFORMED instance of a legislated shape** (a row with an ID cell but broken table structure; a delta heading with an unparseable date; a duplicate row ID within one board) → **CI BUILD FAILURE, reported with file + line** — the same discipline as a broken test.
+- **UNRESOLVED reference** (a dangling `gates-on:` token) → **Glance warning badge** on the row + a global "dangling dependencies" counter. Visible debt, **not** a broken build.
+- **ABSENCE is never an error.** A doc with no delta log, a table that isn't a queue — fine. The parser models what matches the five shapes and renders the rest as prose.
+
+### 7.7 Ratification amendments to gandalf's § 2 proposal (jack-ryan 2026-07-06)
+Three tightening amendments; **zero scope expansion** (shape count held at five, per the minimum-legislation discipline):
+
+1. **Shape-numbering imposed (7.1–7.5).** The proposal named the five shapes as prose sub-sections (2.1–2.6) without a stable shape ordinal. Ratified form numbers them Shape 1–5 so the CI failure message and the § 7.6 severity split can cite a shape by number ("malformed Shape 3 row at file:line"). Reduces ambiguity in CI output — Review Principle #5 (severity matters: findings cite a stable referent).
+2. **MALFORMED is defined by an enumerated closed set, not an open "broken structure" phrase.** Ratified § 7.6 fixes the failure set to exactly three detectable conditions (broken table structure on an ID-bearing row · unparseable date on a delta heading · duplicate row ID within one board). A parser cannot fail loud on an open-ended predicate without producing false CI failures on legal free-prose docs (violating the "ABSENCE is never an error" floor). This bounds CI failure to structurally-decidable conditions — protecting the § 7.6 third bullet from erosion.
+3. **The severity split is bound to Discipline #60 by name.** The proposal described CI behavior; ratification makes the format-doc statement and the engineering-discipline statement an explicit ONE-rule-two-homes pair (like § 6.2 canon↔tracker and § 6.8 OP↔skill), so neither can drift from the other. Twin-sync obligation applies.
+
+**Held from the proposal unchanged:** the five shapes themselves, the status enum, the `gates-on:` grammar + AND-semantics + dangling-is-a-badge rule, the Matt-queue modeled surface, and the "keep writing parseably" minimum-obligation framing. The § 3 `state.json` output contract (Glance-internal) is NOT folded into canon — it is drax's build artifact, out of this doc's format-governance scope; it consumes § 7 but does not define it.
+
+---
+
+## 8. Ownership lineage (fixed 2026-06-30 — trackers replace the retired roadmap)
 
 - **`canonical/00-ground-state.md`** (router) — gandalf authors + maintains
 - **`canonical/current-to-end-state/…-engine.md` + `…-story.md`** (trackers) — **gandalf + knight-rider write; all other agents read + surface deltas** (write-authority ruling, Matt 2026-06-30). *(Replaces the retired `canonical/02-roadmap.md`, killed in the 2026-06-30 reorg.)*
@@ -241,13 +299,13 @@ Sibling of § 6.2: the Tracker-delta rule keeps canon↔tracker in sync; this ru
 
 ---
 
-## 8. Update protocol for this skill
+## 9. Update protocol for this skill
 
-This skill evolves when: a new STATUS state lands (rare); a new header field becomes load-bearing; a new recognition-record or lifecycle pattern is established; a canon-home partitioning changes. **Keep the OP source (`agentic_orchestration/operating-procedures/canonical-doc-format.md`) and the installed SKILL (`.claude/skills/reincarnated-canonical-doc-format/SKILL.md`) in sync** — they are the same content in two locations.
+This skill evolves when: a new STATUS state lands (rare); a new header field becomes load-bearing; a new recognition-record or lifecycle pattern is established; a canon-home partitioning changes; **a parse-shape is added or amended (§ 7 — proposer→ratifier round required).** **Keep the OP source (`agentic_orchestration/operating-procedures/canonical-doc-format.md`) and the installed SKILL (`.claude/skills/reincarnated-canonical-doc-format/SKILL.md`) in sync** — they are the same content in two locations.
 
 Authored / maintained by **gandalf** (cross-cutting reference owner + primary canonical-doc author).
 
 ---
 
-**Signed:** gandalf
-**For:** the universal **format + lifecycle** spec for canonical docs. Header + STATUS + cross-reference rules (§ 1–5) and the authoring → propagation → pruning system (§ 6): the `Tracker-delta:` convention, the four-predicate prune-safe rule, three note-classes, total-vs-partial supersession, and the hygiene Routine. Canon-home truth remains `canonical/00-ground-state.md`.
+**Signed:** gandalf (§ 1–6, 8–9); jack-ryan (§ 7 parse-contract ratification, 2026-07-06)
+**For:** the universal **format + lifecycle** spec for canonical docs. Header + STATUS + cross-reference rules (§ 1–5); the authoring → propagation → pruning system (§ 6): the `Tracker-delta:` convention, the four-predicate prune-safe rule, three note-classes, total-vs-partial supersession, and the hygiene Routine; and (§ 7) the parse contract — the five legislated shapes + `gates-on:` grammar + the CI severity split (mirrored as Discipline #60). Canon-home truth remains `canonical/00-ground-state.md`.
