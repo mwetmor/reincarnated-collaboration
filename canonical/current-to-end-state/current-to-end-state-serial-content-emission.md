@@ -14,6 +14,16 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-06 (third same-day entry) — PILOT CHAIN CLOSED (C2 floor MEASURED 9.90/11.65) · BATCH-2 SPEC AUTHORED + MATT-AUTHORIZED (staged pilot-gated: economy axes → economy pilot → full fresh 18-cell fire)
+
+The AV2 variation-pilot chain (Legs 0→4) **CLOSED** (`88ffb31`): gamora's Leg-4 report + calibration note delivered (`f414f64`), jack-ryan byte-verified both load-bearing derivations, no flags (`db2df69`) — **the C2 plain-caster floor is a MEASUREMENT: bar_lo = 9.90 KPM open_arena / 11.65 chokepoint** (current chassis 0.0 on both = full gap; gamora structural read: band re-tune alone may be insufficient → resource-economy dimension named for batch-2). magic_pack 600.0 = tick-quantization ≥-ceiling (not clamp); elite_pack 426.9 = pack signal of record. Mechanism thesis CONFIRMED; zero compute wasted (all re-extraction).
+
+**Batch-2 is SPECCED + AUTHORIZED:** governing spec **`../reap-die-rise-engine/batch2-build-spec-2026-07-06.md`** (v1.0 `a42cc0c` + D5/D6 `12ba39f`; ARCHITECT pass CLEAN). Matt rulings embedded: **Q1(a)** resource-economy as VARIATION AXES (population searches economy space; gauntlet + floor select) · **Q2(a)** full FRESH 18-cell emission (only Leg-C votes in the derivation; batch-1's 700 + finalists + both pilots = fixture bank, never members) · **staged pilot-gated sequence** (Matt: small representative pool along the curves first): Leg A economy-axes build (rocket) → Gate-1 → Leg B economy pilot (2–3 INT cells × ~25, coverage-sampled, bucket keys LIVE, **pre-registered GO/HALT** — GO = contiguous floor-clearing region + summoner-band cert intact; HALT escalates with the measured landscape) → Leg C detached ~12–15h fire (auto-continue on GO). Leg-B execution SEQUENTIAL-one-run (D5); Leg-C per-cell sharding = gamora call at dispatch (D6). **Matt fired the authorization into AV2 same-day** — Leg-A dispatch facts land in KR's next fold (his citations, not duplicated here).
+
+**Body impact:** the batch-2 leg's `gates-on:` chain is fully satisfied through authorization; the live gate is now **Leg-B GO/HALT** (empirical, pre-registered). Downstream unchanged: Leg-C close → elrond #18 consult → two-cut derivation → Matt cut-ratification (faction-stack §10).
+
+**Signed:** gandalf, 2026-07-06.
+
 ### 2026-07-06 (second same-day entry) — FACTION DERIVATION STACK RULED (full-emission-first · derived factions · 18-kit run composition) · pilot Leg-3 join-bug HALT → star-lord triage IN-FLIGHT · G7a roster session DEAD
 
 **The pipeline's product definition changed shape.** Matt's 2026-07-06 ruling set — governing spec **`../reap-die-rise-engine/faction-derivation-stack-spec-2026-07-06.md`** (all rulings verbatim there) — reorders the back half of this pipeline:
