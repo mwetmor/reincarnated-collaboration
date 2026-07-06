@@ -29,7 +29,7 @@
  *                               (still writes state.json so a preview can render)
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
@@ -645,8 +645,12 @@ function main() {
     dangling_gates: dangling,
   };
 
-  // write state.json into the app's public dir so vite bundles it
-  const outPath = join(__dirname, '..', 'app', 'public', 'state.json');
+  // write state.json into the app's public dir so vite bundles it.
+  // public/ may not exist on a fresh checkout (it holds only the gitignored
+  // state.json, so git doesn't track the empty dir) — create it.
+  const outDir = join(__dirname, '..', 'app', 'public');
+  if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
+  const outPath = join(outDir, 'state.json');
   writeFileSync(outPath, JSON.stringify(state, null, 2));
 
   const malformedFindings = findings.filter((f) => f.severity === 'MALFORMED');
