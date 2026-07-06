@@ -1,0 +1,27 @@
+# Vercel CLI deploy context allowlist for the standalone `reincarnated-glance`
+# project (Root Directory = glance/app).
+#
+# WHY THIS FILE EXISTS: Vercel CLI deploys do NOT honor .gitignore. Deploying
+# from the meta-repo root would otherwise upload ~4GB of untracked heavy dirs
+# (godot-sqlite vendored addon, duskweaver media-gen output, node_modules).
+# The Glance build only needs two trees:
+#   - glance/        (the app + its deterministic parser)
+#   - canonical/     (the parser's ONLY input: the 4 trackers + 2 Matt queues)
+# Everything else is excluded.
+#
+# Pattern: ignore everything, then negate the two trees the build reads.
+# NOTE: the parser's git best-effort reads (repo_sha/last_commit) will return
+# null in this context — that is by design (try/catch, never fatal).
+
+*
+
+!glance
+!glance/**
+!canonical
+!canonical/**
+
+# Within the two kept trees, still drop derived/heavy artifacts:
+glance/app/node_modules
+glance/app/dist
+glance/app/.vercel
+glance/app/.env.local
