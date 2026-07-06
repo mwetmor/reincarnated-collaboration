@@ -13,6 +13,17 @@ Merged gamora unit delivered (analysis+report only, zero compute): calibration n
 
 **Closure gate:** light jack-ryan read on the two load-bearing derivations (C2 floor + magic_pack artifact verdict) before they anchor batch-2. Pilot chain CLOSES on that read's return.
 
+### ✓ PILOT CHAIN CLOSED (jack-ryan light read `db2df69`)
+
+Both derivations byte-verified, no flags/caveats material to propagation:
+- **C2 floor 9.90/11.65** verified against `gauntlet_sim.py:393-394`; `gap = bar_lo − 0.0` correct; "predominantly structural" is a defensible read (corroborated by independent Session-48 W3 autopsy), not overreach.
+- **magic_pack 600.0** confirmed 1/tick-floor metric artifact (`t4_sim_cycling.py:108-117,277`; sub-`T_min` completion routing `:729-739`), NOT a min=max clamp; `≥`-ceiling reporting correct; elite_pack 426.9 is the real pack-overperformance signal.
+
+Finding: `qa/pending/2026-07-06-leg4-light-read-jackryan.md`. **The AV2 variation-pilot chain (Legs 0→4) is complete.**
+
+### Next phase (awaits Matt go — leads to compute)
+Per gandalf relay §5: gandalf authors **batch-2 build spec** (Option-1 scope + C2 band config + measured floor 9.90/11.65 + gen-path/resource-economy structural dimension + tiered-shells lever + per-cohort bucket keys + variation build, ≥100/cell × 18 cells) → ARCHITECT pass gates run authorization → KR dispatches batch-2 → derivation chain (elrond consult → clustering → Matt cut-ratification). **Empirical gate before batch-2 compute fires: ARCHITECT-pass authorization on gandalf's spec.** Spec authoring itself is design (no compute) and likely rides gandalf's Matt session.
+
 ## ⇒ C2 CHASSIS RULING (Matt 2026-07-06, relayed via gandalf) + merged fire-order
 
 **C2 — TWO CHASSIS BANDS keyed on the existing proxy-share knob** (0.250000 exact, no new mechanism). C1 (one-band) and C3 (summons-everywhere) REJECTED.
