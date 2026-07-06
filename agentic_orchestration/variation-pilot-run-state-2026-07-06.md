@@ -34,6 +34,19 @@
 - **Gates-on:** `proxy-magnitude-calibration` · `calibrated-caster-re-fight`.
 - Leg-4 go/no-go is a **CONDITIONAL go** (all learnings EXCEPT summoner survival); the re-fight finalizes it.
 - Firing batch-2 before calibration would reproduce inert summons at 18-cell scale. DO NOT fire batch-2 full-spectrum until both gate items clear.
+- **TIERED-SHELLS LEVER (Matt 2026-07-06, do-not-lose):** the pruned pilot ran the FULL 18-encounter gauntlet on 50 kits (118,350 fights / 903s) instead of just the 2 cells' shells. This scoping inefficiency is NOT a triage fix — it is the **tiered-shells lever, already on the batch-2 books**. Batch-2 must scope the gauntlet to the relevant shells per cell rather than the full 18-encounter sweep. Preserved here so it cannot fall through.
+
+## Run 2 (pruned, 25/cell) — join-contract defect + measurement-report decoupling (2026-07-06)
+
+**What happened:** relaunched at `--n-per-cell 25` (Matt pruned 200→50). Generation OK (25 melee 0-proxy + 25 caster {none:21, light:4}, 4/25 proxy-dominant). Gauntlet COMPLETED (`GAUNTLET_SIM_PASS=True`, 118,350 fights, 903s) and wrote results to `simulation/output/pilot/cycle-13-gauntlet-sim-results-2026-05-27.json` (3.4 MB, 81 configs, **40 season_emit=True incl. melee**). But the pilot driver reported `0/50 in-band → 0 survivors → empty bundle → HALT-LOUD (Discipline #8)`.
+
+**Root cause (leading hypothesis, star-lord to confirm):** the gauntlet keys results by `legendary_id` (e.g. `..._t4_chain_1`); the pilot driver joins survivors back by `character_id` (e.g. `..._s0`). Namespace mismatch → 0 join hits despite 40 emit=True. NOT a balance failure; the kits pass the gate.
+
+**Matt's triage ruling (2026-07-06):**
+1. **Fix the join via the PUBLISHED CONTRACT — not an ad-hoc rekey.** Locate the published gauntlet-results↔kit-identity contract (gamora is authority on what the gauntlet emits) and conform the driver to it.
+2. **Measurement-report path — uncouple PERMANENTLY.** A measurement pilot's deliverable is a REPORT, not a demo bundle. Requiring monsters/gear validity to measure fights couples unrelated contracts. Uncouple it permanently; **SPRT-calibration runs will need the same path.** (Matt part-owns this scope error from the dispatch's demo-bundle inheritance.)
+3. **Re-extract, DON'T re-fight.** Leg-4 attribution + the solo-caster baseline come off the on-disk results file. Dependency-inversion payoff: **gamora's proxy-magnitude calibration prerequisite exists on disk even though the report layer broke — calibration queues the moment extraction lands.**
+4. Full-18-shell scoping → tiered-shells lever (see Rider 4 above); not a triage fix.
 
 ## Process lesson (Matt-flagged — for critique-pair run-boundary checklist)
 - Holding the launch was CORRECT — the inert-proxy finding was a **premise-change to Leg-4 outputs, not a seam call**.
