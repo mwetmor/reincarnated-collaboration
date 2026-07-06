@@ -2,6 +2,17 @@
 
 > Authored by knight-rider at Leg-3 launch. Records Matt's FORK RULING (Option 1 — fire the inert pilot now) and its four riders, so Leg-4 analysis and batch-2 sequencing honor them. Live ledger.
 
+## ⇒⇒ LEG-4 COMPLETE — pilot chain ready to CLOSE (gamora `dddd569` / collab `f414f64`)
+
+Merged gamora unit delivered (analysis+report only, zero compute): calibration note finalized + Leg-4 attribution report. Artifacts: `simulation/notes/proxy-magnitude-calibration-math-2026-07-06.md` (finalized) + `simulation/notes/leg4-attribution-report-2026-07-06.md` (new).
+
+- **C2 plain-caster floor PLACED (measurement output, not a pick):** `bar_lo` = **9.90 KPM (open_arena) / 11.65 KPM (chokepoint)**. Current chassis = 0.0 on both → gap == full floor (hard solo timeout, not near-miss). **Structural nuance:** the full timeout-to-floor jump corroborates the Session-48 autopsy's PREDOMINANTLY-STRUCTURAL read — a band re-tune alone may be insufficient; the **gen-path + resource-economy dimension is named for batch-2**, not just a band number.
+- **magic_pack 600.0 = METRIC-DOMAIN ARTIFACT** (not real DPS, not a min=max clamp): `observed_kpm = kills/(duration_s/60)`, `duration_s` quantized to `TICK_SIZE=0.1s`; sub-tick pack clear reads `1/(0.1/60)=600`. Engine already routes sub-`T_min` clears on COMPLETION (`CLEAR_SHELL_DOMAIN_TMIN_S=1.0`; `t4_sim_cycling.py:108-113,273-277,720`). Reported as `≥`-ceiling. **elite_pack 426.9 (spread 163.6–450.0, n=124) = pack-overperformance signal of record.**
+- **Leg-4 verdict: mechanism thesis CONFIRMED** (40/81 season_emit; melee chain-variants 15/15 eligible-encounters-passed; G4 knob z≈−1.0 in-range at 4/25) + chassis finding = empirical basis for C2.
+- Per-cohort-bucket-key spec line handed forward to gandalf's batch-2 spec (report §6).
+
+**Closure gate:** light jack-ryan read on the two load-bearing derivations (C2 floor + magic_pack artifact verdict) before they anchor batch-2. Pilot chain CLOSES on that read's return.
+
 ## ⇒ C2 CHASSIS RULING (Matt 2026-07-06, relayed via gandalf) + merged fire-order
 
 **C2 — TWO CHASSIS BANDS keyed on the existing proxy-share knob** (0.250000 exact, no new mechanism). C1 (one-band) and C3 (summons-everywhere) REJECTED.
