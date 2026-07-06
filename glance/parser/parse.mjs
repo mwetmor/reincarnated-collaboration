@@ -599,23 +599,98 @@ function resolveGates(trackers) {
 }
 
 // ---------------------------------------------------------------------------
-// last commit (§3) — best-effort git read; never fatal
+// last commit (§3) — commit provenance for the Tier-0 freshness signal.
+//
+// PRECEDENCE (deterministic, no LLM, no network):
+//   1. Vercel build → read the injected build env vars as the PRIMARY source.
+//      Vercel does NOT expose full .git history in the build working dir
+//      (shallow/absent .git), so the git shell-out below returns nothing there.
+//      When VERCEL_GIT_COMMIT_SHA is set we are in a Vercel build → use env vars.
+//   2. Local / CLI build → full .git present → read via `git log`.
+//
+// Date subtlety: Vercel injects NO commit-DATE env var. "Age" is the whole point
+// of the freshness signal, so last_commit.date must still populate. On a Vercel
+// build we first try a git committer-date read (works if any git data exists);
+// if that yields nothing we fall back to generated_at as an EXPLICIT build-time
+// proxy, LABELED via date_is_build_time_proxy so the UI never silently claims a
+// commit timestamp it does not have.
 // ---------------------------------------------------------------------------
-function lastCommit() {
+function gitCommitDateISO() {
+  // committer date (ISO-8601) of HEAD, or null if git has no data.
   try {
+    const out = execSync('git log -1 --format=%cI', {
+      cwd: REPO_ROOT,
+      encoding: 'utf8',
+    }).trim();
+    return out || null;
+  } catch {
+    return null;
+  }
+}
+
+const COMMIT_FIELD_SEP = String.fromCharCode(0);
+
+function lastCommitFromGit() {
+  try {
+    // NUL-delimited (%x00) so subjects containing spaces never break the split.
     const out = execSync('git log -1 --format=%H%x00%an%x00%aI%x00%s', {
       cwd: REPO_ROOT,
       encoding: 'utf8',
     }).trim();
-    const [sha, author, date, subject] = out.split(' ');
-    return { sha, author, date, subject };
+    if (!out) return null;
+    const [sha, author, date, subject] = out.split(COMMIT_FIELD_SEP);
+    if (!sha) return null;
+    return {
+      sha,
+      author: author || null,
+      date: date || null,
+      subject: subject || null,
+      date_is_build_time_proxy: false,
+    };
   } catch {
-    return { sha: null, author: null, date: null, subject: null };
+    return null;
   }
 }
+
+function lastCommitFromVercelEnv(generatedAtISO) {
+  const sha = process.env.VERCEL_GIT_COMMIT_SHA;
+  if (!sha) return null; // not a Vercel build
+  const rawMsg = process.env.VERCEL_GIT_COMMIT_MESSAGE || '';
+  const subject = rawMsg.split('\n')[0].trim() || null; // first line only
+  const author =
+    process.env.VERCEL_GIT_COMMIT_AUTHOR_NAME ||
+    process.env.VERCEL_GIT_COMMIT_AUTHOR_LOGIN ||
+    null;
+  // Prefer a true commit timestamp if git happens to have it; else build-time proxy.
+  const gitDate = gitCommitDateISO();
+  return {
+    sha,
+    author,
+    date: gitDate || generatedAtISO,
+    subject,
+    date_is_build_time_proxy: gitDate === null,
+  };
+}
+
+function lastCommit(generatedAtISO) {
+  // Precedence: Vercel env (when present) → git.
+  return (
+    lastCommitFromVercelEnv(generatedAtISO) ||
+    lastCommitFromGit() || {
+      sha: null,
+      author: null,
+      date: null,
+      subject: null,
+      date_is_build_time_proxy: false,
+    }
+  );
+}
+
 function repoSha() {
+  // Same commit-provenance precedence: Vercel env SHA → git rev-parse.
+  if (process.env.VERCEL_GIT_COMMIT_SHA) return process.env.VERCEL_GIT_COMMIT_SHA;
   try {
-    return execSync('git rev-parse HEAD', { cwd: REPO_ROOT, encoding: 'utf8' }).trim();
+    return execSync('git rev-parse HEAD', { cwd: REPO_ROOT, encoding: 'utf8' }).trim() || null;
   } catch {
     return null;
   }
@@ -634,11 +709,12 @@ function main() {
   const matt_decision_needed = parseMattQueue('matt_decision_needed');
   const matt_to_do = parseMattQueue('matt_to_do');
 
+  const generatedAt = new Date().toISOString();
   const state = {
-    generated_at: new Date().toISOString(),
+    generated_at: generatedAt,
     repo_sha: repoSha(),
     gh_blob_base: GH_BLOB_BASE,
-    last_commit: lastCommit(),
+    last_commit: lastCommit(generatedAt),
     trackers,
     matt_decision_needed,
     matt_to_do,

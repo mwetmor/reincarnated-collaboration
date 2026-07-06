@@ -161,7 +161,7 @@ function Glance({
         />
         <PixelCard
           value={commitAge(state.last_commit.date)}
-          label="Last commit"
+          label={state.last_commit.date_is_build_time_proxy ? 'Last build' : 'Last commit'}
           sub={state.last_commit.author ? `@${state.last_commit.author}` : '—'}
           tone="neutral"
           href={state.last_commit.sha ? `${state.gh_blob_base.replace('/blob/main', '')}/commit/${state.last_commit.sha}` : undefined}

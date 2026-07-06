@@ -90,6 +90,10 @@ export interface State {
     author: string | null;
     date: string | null;
     subject: string | null;
+    // true when `date` is the build timestamp (generated_at) used as an honest
+    // proxy because the Vercel build container had no true commit date. The UI
+    // labels the age as build-time in that case rather than claiming commit-time.
+    date_is_build_time_proxy?: boolean;
   };
   trackers: Tracker[];
   matt_decision_needed: MattItem[];
