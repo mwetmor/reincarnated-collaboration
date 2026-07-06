@@ -53,3 +53,14 @@ matt_notes_handoff_docs/Roguelite Game Start Scene_v3/
 
 # Secrets — never committable (key transited chat 2026-07-03; rotation queued in Doc 2)
 matt_notes_handoff_docs/Anthropic API Key
+
+# === Glance (drax web seam) — build artifacts ===
+# state.json is DERIVED (parser output); committed for local dev convenience but
+# regenerated on every build. node_modules + dist are never committed.
+glance/app/node_modules/
+glance/app/dist/
+glance/app/.vercel/
+glance/app/tsconfig.tsbuildinfo
+# state.json is DERIVED on every build (parser output) — never hand-authored,
+# never committed stale. The build regenerates it before tsc/vite run.
+glance/app/public/state.json

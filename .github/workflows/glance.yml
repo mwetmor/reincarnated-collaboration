@@ -1,0 +1,66 @@
+name: glance
+
+# The parse-contract CI-fail-loud gate (Discipline #60 / canonical-doc-format.md § 7.6).
+# A MALFORMED instance of a legislated canon shape fails this build with file+line.
+# A dangling gates-on token is a warning (printed), never a failure.
+# Absence is never an error.
+#
+# This runs INDEPENDENTLY of the Vercel deploy (Vercel also runs `npm run build`
+# which runs the parser, so a red parse also stops the deploy). This job exists so
+# the parse contract is enforced on every PR touching canon, with the report visible
+# in the Actions log, before merge.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'canonical/**'
+      - 'glance/**'
+      - '.github/workflows/glance.yml'
+  pull_request:
+    paths:
+      - 'canonical/**'
+      - 'glance/**'
+      - '.github/workflows/glance.yml'
+  workflow_dispatch:
+
+jobs:
+  parse-contract:
+    name: parse contract (fail-loud on MALFORMED)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # parser reads git log for last_commit provenance
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Report mode: lists ALL malformed findings in one pass, then exits non-zero
+      # if any exist. This is the reconciliation surface — the full list in one run.
+      - name: Parse canon (report mode → CI fail-loud on MALFORMED)
+        run: node glance/parser/parse.mjs --report
+
+  build:
+    name: build glance app
+    runs-on: ubuntu-latest
+    needs: parse-contract
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install
+        working-directory: glance/app
+        run: npm install
+
+      # `npm run build` runs the parser again (non-report) which hard-fails on
+      # MALFORMED, then tsc + vite build. Green here == deployable.
+      - name: Build (parser + tsc + vite)
+        working-directory: glance/app
+        run: npm run build
