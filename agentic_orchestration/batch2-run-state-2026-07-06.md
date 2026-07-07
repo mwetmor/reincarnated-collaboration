@@ -172,9 +172,17 @@ F2 stays **36×36m** (no widen). Measured anchor (~48.9m legible × 36.5m deep) 
 |---|---|---|---|
 | `2026-07-07-gamora-step3-mob-lethality-calibration-stratified-repilot.md` | gamora | 2-lever calibration + stratified re-pilot + miss-taxonomy report + F4-martial measure-only + **R4 ship-gate flip** (`gauntlet_pass`→`family_certification_pass`) + F-b parity read | 🔥 running; tag + Gate-2 |
 | `2026-07-07-star-lord-f4-telemetry-migration-consume.md` | star-lord | MIGRATION v1.84 CONSUME — persist `escape_reached`+`continuous_spawned_total`, scope-relax `mobs_killed` invariant (F4 continuous), round-trip smoke | 🔥 running (parallel, independent); tag + Gate-2 |
-| jack-ryan (Pattern-A, no dispatch file) | jack-ryan | Rider-3 semantics registration (decisions-log) + **Disc-#24 methodology check** on the F3 two-knob coupling (report FAST if confounded so KR relays to gamora before she tunes) | 🔥 running (parallel) |
+| jack-ryan (Pattern-A, no dispatch file) | jack-ryan | Rider-3 semantics registration (decisions-log) + **Disc-#24 methodology check** on the F3 two-knob coupling (report FAST if confounded so KR relays to gamora before she tunes) | ✅ DONE (`2bfa599`) — semantics registered + #24 verdict CONFOUNDED-but-resolvable |
 
 **#24 hotspot:** lever (a) mob damage + lever (b) F3 boss HP BOTH touch F3 (damage→WR, HP→TTK, HP secondary WR). gamora math-note pre-registers sweep isolation w/ STOP-and-flag; jack-ryan parallel-checks; gamora's math-note is the checkpoint before tuning.
+
+**#24 RESOLUTION (jack-ryan, `2bfa599`) — CONFOUNDED (on F3 WR), but resolvable.** Isolation protocol jack-ryan authored:
+1. **Fix mob damage FIRST on F2** (the clean single-knob family) — lock the mob-damage scalar on F2 WR ∈ 0.85–0.95.
+2. **Carry the locked mob-damage into F3, then sweep boss HP ALONE against F3 TTK** — lock boss HP on TTK ∈ 15–90s.
+3. **Read F3 WR LAST, as an OUTPUT — do NOT tune to it.** If F3 WR misses 0.60–0.80 after (1)+(2), that is a *finding* (rooms not lethal enough at the F2-locked scalar) → **STOP and flag to KR**, do not add a third knob.
+jack-ryan's note: this **composes with — does not override — gamora's math-note checkpoint.** If her pre-registered isolation plan already sequences F2-first / boss-HP-on-TTK / WR-as-readout, it is clean as-written and the protocol is a *confirm*.
+
+**⚠ RELAY CONSTRAINT (KR, honest):** no live-messaging channel to the in-flight gamora agent exists in this session (SendMessage not surfaced; TaskStop would be destructive). The relay could NOT be injected mid-run. The protocol's intent is nonetheless **structurally guarded** by gamora's dispatch: (i) math-note committed BEFORE any tuning + (ii) explicit STOP-and-flag on the F3 coupling. **Enforcement point that IS still open: jack-ryan Gate-2 on the Step-3 tag becomes a HARD verification criterion — gamora's math-note MUST show F2-first / boss-HP-on-TTK / WR-as-readout sequencing, or a coupling flag.** If gamora's math-note derives a less-clean isolation and she tuned before flagging, that surfaces at Gate-2 as a re-tune, not a silent pass.
 
 **Guard now (freeze re-scoped kit-side):** kit-side constants FROZEN; room-side UNFROZEN for calibration; bars/bands fixed (fit-direction); Leg C HELD until re-pilot returns + Matt rules its numbers; F-b held confirm-unneeded; F4-martial deferred kit-side.
 
