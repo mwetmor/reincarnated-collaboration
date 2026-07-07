@@ -3,7 +3,7 @@
 **STATUS:** CANONICAL — authored 2026-07-07 (gandalf, SPEC-AUTHOR), absorbing Matt's mobile draft (`matt_notes_handoff_docs/reap-die-rise-agnostic-loot-system.md`, now bannered superseded-by-canon) + the 2026-07-06 review (`agentic_orchestration/gandalf/notes/2026-07-06-agnostic-loot-system-review.md`) + the 2026-07-07 Pattern-B ruling set (C1–C5 · G1 · G3 · body-persistence).
 **Companion (engine half):** `../reap-die-rise-engine/agnostic-loot-engine-spec.md` — operator algebra, universal axes, validation campaign, engine contracts. **This doc owns the fiction + the player-facing story surfaces; the engine doc owns the math + the build.** Where they overlap, each defers to the other's seam.
 **Governing anchors:** `gameplay-loop-design.md` §8 (sidegrade law) · §11 (Grimoire two-register + LISTING-FIRST) · §23 (run model: harvest §23.2, escape + body-persistence ruling §23.3, conduit moral economy §23.4–23.5).
-**Open micro-rulings:** `canonical/matt_decision_needed/README.md` **Q9** (this doc's §8).
+**Micro-rulings:** **Q9 ✓ RULED 2026-07-07 (Matt — all five as recommended; §4).** No open story-side rulings remain in this spec.
 
 ---
 
@@ -38,12 +38,12 @@ Cementing is the **personal micro-version of the harvest verb**: the cult binds 
 
 - **What it is:** during a run, the player may **soul-bind ("cement") a small number of items — cap 1–3 —** so they cross out of the realm at the escape. Everything else worn or carried is realm-stuff and stays (§6, cleansed crossing).
 - **The window closes at the eruption.** Once the conduits are combined and the realm turns (§23.3), there is no more cementing — the flight is for surviving, not shopping. Choose what you'll keep *before* you light the fuse. This puts a real decision-beat inside every run: of everything this realm gave me, what do I make **mine**?
-- **Diegetic valence — SANCTIONED (spec default, Matt may flip in Q9):** cementing is **the reaper's wage**, an allowed personal take within the holy work — NOT a transgression. Rationale (load-bearing): §23.4's conduit hand-in-vs-keep is deliberately **the** moral decision-object of the run economy; introducing a second transgressive-take mechanic would dilute the one dilemma the whole defiance↔devotion axis (§16/§23.5) is built on. The faith pays its instruments; the *conduit* is where your soul is weighed.
-- **Sanctioned payout channel is exempt from the cap:** the performance-scaled **bonus treasures** of §23.2 (faster clear / more possessions → more loot) cross home as the faith's payout without consuming cement slots. Cement slots are for **chosen** attachments; the wage is the wage. *(Q9 confirm.)*
-- **Open micro-rulings (→ Q9, with leans):**
-  1. **The cement-act's shape** — (a) spend-a-resource anywhere, (b) a brief rite at fixed shrine-stations along the descent, (c) a boss-deed (cement unlocked by a structure's champion). **Lean: (b)** — fixed stations are legible, procgen-friendly (one per beat: Structure 1 / crossing / Structure 2), and make the pre-eruption "last chance" station a natural dramatic beat.
-  2. **Cap size + growth** — **lean: start at 1**, expand to 2–3 via meta-progression keyed to **soul level** — the soul that sees more can carry more; gleaning and cementing then climb the same fictional spine.
-  3. **Failed escape** — does a death in the eruption keep cemented items? **Lean: cemented survives** — the binding is a **soul fact, not a pocket fact**; death costs the run's un-cemented spoils + §23.2 bonuses, which keeps escape-death expensive without confiscating the one thing the player deliberately made theirs.
+- **Diegetic valence — SANCTIONED (✓ RULED Matt 2026-07-07, spec default confirmed):** cementing is **the reaper's wage**, an allowed personal take within the holy work — NOT a transgression. Rationale (load-bearing): §23.4's conduit hand-in-vs-keep is deliberately **the** moral decision-object of the run economy; introducing a second transgressive-take mechanic would dilute the one dilemma the whole defiance↔devotion axis (§16/§23.5) is built on. The faith pays its instruments; the *conduit* is where your soul is weighed.
+- **Sanctioned payout channel is exempt from the cap:** the performance-scaled **bonus treasures** of §23.2 (faster clear / more possessions → more loot) cross home as the faith's payout without consuming cement slots. Cement slots are for **chosen** attachments; the wage is the wage. *(✓ Q9 confirmed, Matt 2026-07-07.)*
+- **Micro-rulings — ✓ RULED (Q9, Matt 2026-07-07, all as recommended):**
+  1. **The cement-act's shape — RULED: (b) shrine-stations** — a brief rite at fixed stations along the descent. Legible, procgen-friendly (one per beat: Structure 1 / crossing / Structure 2), and the pre-eruption "last chance" station is a natural dramatic beat. *(Rejected: (a) spend-anywhere, (c) boss-deed.)*
+  2. **Cap size + growth — RULED: start at 1**, expand to 2–3 via meta-progression keyed to **soul level** — the soul that sees more can carry more; gleaning and cementing climb the same fictional spine.
+  3. **Failed escape — RULED: cemented survives** — the binding is a **soul fact, not a pocket fact**; death costs the run's un-cemented spoils + §23.2 bonuses, which keeps escape-death expensive without confiscating the one thing the player deliberately made theirs.
 
 ## 5. Soul weapons — the flagship item (fiction LOCKED; build = engine doc §8 / Track D)
 
@@ -65,8 +65,8 @@ Cementing is the **personal micro-version of the harvest verb**: the cult binds 
 
 ## 8. What this doc does NOT decide
 
-- **Q9 micro-rulings (Matt):** cement-act shape · cap size/growth · failed-escape crossing · payout-exemption confirm · sanctioned-valence confirm (§4 leans stated).
-- **Engine-side open items (engine doc §9–§10 / Q10):** ω-penalty disposition under soul weapons · fairness-band widths per rarity · everything about the build.
+- ~~Q9 micro-rulings~~ **✓ RULED 2026-07-07** (all five as recommended — §4: shrine-stations · cap starts 1 · cemented survives · payout exempt · sanctioned wage).
+- **Engine-side open items (engine doc §9–§10 / Q10):** ~~ω-penalty · band widths~~ ✓ RULED 2026-07-07 — the one remaining Q10 item is resist/mitigation cap VALUES (band-time) · everything about the build.
 - **Reincarnation-choice pacing** (draft §10's second bullet — whether declining reincarnation needs its own gear path) — rides the §23.7 open-questions family, not this spec.
 
 ---
