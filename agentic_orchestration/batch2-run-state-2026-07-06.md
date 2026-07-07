@@ -296,13 +296,34 @@ Constants FROZEN; no further compute fires until the instrument is ruled.
 
 The caster HALT is fully resolved as an INSTRUMENT ARTIFACT (dead 300k/500k HP wall + 8-mob saturation cap + dead mob-damage channel). Casters were never underpowered — final proof: with a threatening F3 boss, caster F3 margin is **+0.40**. The four-family gauntlet instrument is now fully calibrated + Gate-2-passed across all four families (F1 dense_cell, F2 open_arena, F3 boss_with_adds, F4 escape_lane), with Rider-3 dispositions and the one-pilot-policy stamp. **F-b retired; #24 STOP ×2 both closed via disciplined tier-independent knob (never a hacky third-knob-in-place).**
 
-**Still open / gated (post-arc):**
-- **Milestone tag** of the four-family certification — **Matt's call** (jack-ryan flagged; not auto-dropped).
-- **F4-martial KPM floor** (35 fails) — kit-side, gated on the pilot-attribution probe; deferred, NOT fired.
-- **kit-side chassis 2.3384× fossil** — FROZEN; chassis-evidence #1 (F3 TTK-DPS-bound) + #2 (F2-cliff defense) accumulate for the FUTURE loot-campaign rebalance.
-- **Leg C** — HELD until Matt rules on this arc's numbers.
-- **Production DB apply of v2.20** (`telemetry.db`) — still Matt-gated (ADR-006); "push" ≠ "apply".
-- **Engine + collab pushes** — HELD (Matt-gated): engine `59dc832`/`61a7faf`/`a908ced`/`1ca3d79`/`8607840` + prior; collab findings auto-committed but not pushed by seam agents (KR meta-repo state IS pushed).
+**Still open / gated (post-arc):** — ALL RESOLVED by Matt's arc-close authorization batch below.
+
+## ⭐⭐ MATT ARC-CLOSE AUTHORIZATION BATCH (2026-07-07) — two-front demo assembly FIRED
+
+Matt's transmission IS the ruling for items 1–6; item 7 pre-folded by gandalf (meta-repo `e64a59d`, `93f231c`).
+
+**RULINGS:**
+1. **ARC NUMBERS RATIFIED** — F2 mds full-pop re-lock, boss_damage_scale=48.0, boss HP 9000 (genre-sane, never TTK-inflated), Rider-3 semantics (over-ceiling=FLAG_PASS_OVERPOWERED→certify+review; floor=hard fail). **→ LEG C UN-HELD; batch-2 population completion proceeds.**
+2. **MILESTONE TAG AUTHORIZED** — four-family certification is a true milestone; gamora drops the Matt-approved milestone tag (v<X.Y>-<feature>).
+3. **Q8 CAMERA B APPROVED** (G3 sign-off): **FOV 40 / pitch −55° / yaw 47° fixed / dist 34m.** Every floor inherits it.
+4. **RANGED-PROXY NAV:** EXCLUDE ranged summoners from v2 demo curation — melee summoners certify clean + satisfy the necromancer mandate. Nav fix → LAUNCH-track (PART E stays open there).
+5. **PUSHES AUTHORIZED:** engine 79796e2→a908ced (incl. decisions-log), godot ba5547d, production DB v2.20 APPLY (satisfies ADR-006). **[KR DONE: engine pushed `6468b57..a908ced` + intermediate tag; godot ba5547d confirmed already at remote. DB v2.20 apply → star-lord lane.]**
+6. **Q7 NOT RULED YET** — drax fires the BoneMap vs GeneralSkeleton two-option brief as FIRST BEAT; Matt rules same-session on return; drax executes immediately after. Not queued behind anything.
+7. **Q9 + Q10 SWEPT** (pre-folded; decisions-log only): Q9 all five as recommended; Q10 = transform cap 2 at v1 (3 gated on §7a audit live) / band-widths = band-sheet at campaign time / ω-penalty RETIRED-by-construction (Track-D tripwire) / defensive vocab per spec §2. Sole loot remainder = resist-cap VALUES riding the band-sheet. Loot build fully unblocked behind Leg C close.
+
+**LANES FIRED (2026-07-07, all background; KR sequences within seam):**
+| Lane | Fire | Status |
+|---|---|---|
+| **drax** | Beat 1 Q7 brief (BoneMap vs GeneralSkeleton) → Matt ruling → [gated: D6 three-beat floors under Camera B + D5 verb VFX + D8 grimoire UI] | 🔵 Q7 brief running; demo body HELD behind Q7 ruling |
+| **rocket** | gen-path legs 2–3 (summoner emission) · B1-REBASE Phase 1 vs `proxy-t4-suite-spec-2026-07-02.md` **v3 ONLY** | 🔵 running (leg 3 = summoner-path unblock; B1-REBASE Ph1 = gamora proxy-T4 unblock) |
+| **gamora** | milestone tag drop (item 2) · proxy-T4 sim-eval extension + magnitudes (rides B1-REBASE) | 🔵 running (sim-eval GATES on rocket B1-REBASE Ph1) |
+| **star-lord** | II.3 hand-join scaffold (MVP-CRIT, now) · gear-pool writer (live season) · **DB v2.20 APPLY** (item 5) · Leg C re-fire w/ rocket [GATED on rocket leg 3] | 🔵 running (3 items now; Leg C held on rocket leg 3) |
+| **jack-ryan** | decisions-log: arc ratification (item 1) + Q9/Q10 sweep (item 7) · Gate-2 per return | 🔵 decisions-log running; Gate-2s per-return |
+| **galadriel** | G2 register-CV as D6 floors land | ⏸ HELD — gates on drax D6 floors landing (not yet fired) |
+
+**GUARDS (standing, Matt-restated):** kit-side chassis constants FROZEN (2.3384× fossil); bars/bands FIXED (fit-direction); chassis-evidence #1/#2 accumulate for loot-campaign rebalance — nothing unfreezes this run. Kits vote BARE (provenance law); pilot_policy stamps on new bands. **LAUNCH-track, deliberately NOT this run:** counter-breadth scoping consult, F4-martial pilot-attribution probe, ranged-nav fix. Auto-commit per meta-repo addendum; pushes beyond the item-5 set remain Matt-gated.
+
+**KR sequencing watch-points:** (a) rocket leg 3 lands → unblock star-lord summoner Leg C re-fire + gamora summoner proxy-T4; (b) rocket B1-REBASE Ph1 lands → unblock gamora proxy-T4 sim-eval extension; (c) drax D6 floors land → fire galadriel G2 register-CV; (d) drax Q7 brief returns → relay to Matt for same-session ruling → re-fire drax demo body; (e) Gate-2 per tagged return.
 - **jack-ryan** → decisions-log for (2)+(3): retire F-b with parity statement + log the arc; register chassis-evidence #1 (TTK-DPS-bound) alongside the F2-cliff defense finding; record genre-sane-HP + population-wide-TTK-flag + nothing-unfreezes; confirm F2-WR-over-band = flag-pass per Rider 3. **✅ DONE (`1ca3d79`, not pushed) — 3 entries:** (1) F-b RETIRED, caster-HALT arc closed (~10× shortfall = artifact of 3 dead channels: 300k/500k wall + 8-mob saturation cap + dead mob-damage channel; casters never underpowered; freeze discipline prevented 3 phantom buffs; carried bound: re-read caster margins if a future per-family lethality knob lands). (2) Chassis-evidence #1 REGISTERED (F3 TTK real DPS-vs-HP mismatch, H1-refined confirmed) alongside chassis-evidence #2 (F2-cliff, ±17% flips pop); boss HP genre-sane (gamora sets value); TTK flag population-wide; fossil FROZEN; loot economy is the eventual lever. (3) Rider-3 flag-pass confirmation (F2 WR-over-band certifies; floor exclusionary / ceiling diagnostic); notes the cosmetic `_miss_taxonomy` mislabel (gamora's within-seam fix). Decision (1) `boss_damage_scale` left to its own ruling (not logged here — room-side knob).
 
 **Rider-3 confirmation (Matt-requested):** F2 mean WR at/over the band ceiling after best-effort full-pop re-lock disposes as an **OVERPOWERED FLAG → balance review (flag-pass), NOT a certification fail.** Encoded in the gamora dispatch; recorded by jack-ryan in the decisions-log.
