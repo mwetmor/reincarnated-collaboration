@@ -579,3 +579,16 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 
 **Next (on Gate-1 PASS + Matt run-auth):** KR authors leg-3 **STEP-2 rocket+star-lord co-dispatch** (4 touch-points above). Emission RUN itself stays Matt-gated (ADR-006).
 **ON MATT (3 items):** (i) Q7 (drax body held); (ii) 450MB telemetry.db blob; (iii) **leg-3 run-auth — envelope now in hand: $0 dry-run unconditional + ≤$10 flavor ceiling (~$6.50 exp).**
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — leg-3 STEP-1 Gate-1 PASS-WITH-CONDITIONS; STEP-2 co-dispatch AUTHORED (run Matt-gated)
+
+**jack-ryan Gate-1 on leg-3 STEP-1 → PASS-WITH-CONDITIONS** (finding `qa/findings/2026-07-07-rocket-leg3-summoner-emission-wire-projection-gate1.md`, `bdca4a7`; pending archived). All 5 load-bearing claims verified vs SOURCE at `0384dbb` (not trusted from note):
+- **Routing correction RATIFIED** — `season_generation_pipeline.py:404-412` is field-def only (never assigned, grep 0 hits); real DDA stamp `cycle14_wave5_emitter.py:546` (star-lord export). Emit-wire design SOUND (adapter Clause D `dict(PRIMARY_T4)` byte-identical for solo per validator `:795-841` DDA-match; `route_primary_t4` returns `AlterationOutput` dataclass ⇒ adapter net-new). §8-A1 bands correctly MEASURED-not-threshold. Cost projection honestly bounded ($0 dry-run levers real @ `:703`/`:792`). W3-smoke orthogonal-but-gates CONFIRMED.
+- **STEP-2 touch-point inventory CONFIRMED + seam-attributed:** 4 touch-points — 3 star-lord export (emit-wire+adapter `cycle14_wave5_emitter.py:546`, driver-drive + glyph-assertion-fix `w3_emission_driver.py:688`) + 1 rocket (`bc_target_composer.py:97` proxy-bin un-gate). ⇒ **STEP-2 = rocket+star-lord CO-DISPATCH.**
+- **4 fold conditions (none block):** C1 rocket doc-only line-ref (`chain_wide_own` vocab @ `:67-68` not `:451`); C2 carry ≤7-entity peak as STEP-2 rehearsal-measure; C3 carry §2.5 `t4_candidates` A1-coverage as STEP-2 measure; C4 star-lord §4.4 fix option (b) — non-empty + all-glyphs-valid, no exact split pinned.
+
+**KR authored STEP-2 co-dispatch** `dispatches/2026-07-07-rocket-starlord-leg3-STEP2-emission-wire-and-run.md` (design Gate-1-cleared; folds C1-C4). Structure: **STEP-2A WIRE** (lands on dispatch: star-lord emit-wire+adapter+driver+assertion-fix, rocket composer un-gate; round-trip smoke; MIGRATION lockstep) → **STEP-2B RUN two-tier, Matt-gated:** Tier-1 **$0 dry-run** (unconditional on Matt go; 0 LLM calls, ~23-36min, wire-proof + §8-A1 band measure + C2 peak + C3 A1-coverage) → Tier-2 **≤$10 flavor** (SEPARATE Matt rule, deferred until Tier-1 bands seen).
+
+**ON MATT (3 items) — run-auth now framed two-tier:** (i) Q7 (drax body held); (ii) 450MB telemetry.db blob; (iii) **leg-3 run-auth = (a) $0 dry-run unconditional now + (b) ≤$10 flavor ceiling deferred/optional** (jack-ryan's de-risking posture). STEP-2A wire may land on the co-dispatch immediately once Matt says go on the dispatch; STEP-2B run holds for the two-tier auth.
