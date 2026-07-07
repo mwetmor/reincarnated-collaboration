@@ -69,11 +69,11 @@ rocket authors a leg-2 math note covering:
 - [ ] Submit tagged commit(s) to `qa/pending/` for jack-ryan Gate-2 (certification/cross-seam path).
 
 **star-lord:**
-- [ ] Widen the DDA-locked emitter validator to admit proxy-family `primary_t4` for proxy-bearing kits (per the shared MIGRATION contract).
-- [ ] Preserve the DDA lock for non-summoner (empty-decl) kits — round-trip smoke BOTH cases GREEN.
-- [ ] export/telemetry MIGRATION.md entry in lockstep with rocket's.
-- [ ] AGENT_STATE.md updated. Tag: `star-lord/v-batch2-dda-lock-validator-widen-1`.
-- [ ] Submit tagged commit to `qa/pending/` for jack-ryan Gate-2 (emit-boundary change).
+- [x] Widen the DDA-locked emitter validator to admit proxy-family `primary_t4` for proxy-bearing kits (per the shared MIGRATION contract).
+- [x] Preserve the DDA lock for non-summoner (empty-decl) kits — round-trip smoke BOTH cases GREEN.
+- [x] export/telemetry MIGRATION.md entry in lockstep with rocket's.
+- [x] AGENT_STATE.md updated. Tag: `star-lord/v-batch2-dda-lock-validator-widen-1`.
+- [x] Submit tagged commit to `qa/pending/` for jack-ryan Gate-2 (emit-boundary change).
 
 **gamora (consume-side, Gate-1 C1):**
 - [ ] Route sites 2/3 (`gauntlet_sim.py:2267`, `unified_calibration_loop.py:3577`) through predicate P (or consume the emitted `primary_t4` directly) so sim simulates what rocket emits — close the emitted-vs-simulated divergence.
@@ -93,3 +93,15 @@ rocket authors a leg-2 math note covering:
 - rocket Phase-1 v3 note `a5adcf1` §1/§2/§5a; gamora `simulation/MIGRATION.md:8371`; spec v3 §1/§4/§4.5/§8
 - ADR-002 (tiered approval), ADR-004 (MIGRATION), Principle 6 (round-trip), Disciplines #1, #1.1, #3, #11, #12, #23
 - Run-state `batch2-run-state-2026-07-06.md` (Item-1 gen-path lane; leg-3 = unblocking event for star-lord Leg C + gamora summoner proxy-T4)
+
+## Completion record
+
+**Star-lord half COMPLETE (2026-07-07):**
+- Validator site: `src/reincarnated/export/cycle14_wave5_emitter.py:validate_class_data()` (line ~745)
+- Widen logic: `proxy_decls = class_data.get("proxies") or []` → `is_proxy_bearing = bool(proxy_decls)` gates the proxy-family branch. ACCEPTED_PROXY_PRIMARY_T4 imported from t4_catalog_v2 (C2 single source); local `_PROXY_FAMILY_PRIMARY_T4_STRATEGIES` retired as local frozenset, now alias. ZONE_CONTROL excluded (was in W0 local set; GEOMETRY-family, not proxy-decl-gated).
+- Round-trip smoke BOTH cases GREEN: (1) summoner kit + PROXY_FISSION → admit → read-back intact; (2) empty-decl kit + stray PROXY_ASCENSION → reject. All 5 C2 members verified.
+- 115/115 tests PASS (test_cycle14_wave5_loadout_emission.py); 303/303 broader regression PASS.
+- Tag: `star-lord/v-batch2-dda-lock-validator-widen-1` (engine commit `0f7de25`)
+- MIGRATION.md: `export/MIGRATION.md` § leg-2 VALIDATOR-WIDEN (newest entry)
+- Gate-2: `agentic_orchestration/qa/pending/2026-07-07-star-lord-dda-lock-validator-widen-gate2.md`
+- C1 interim divergence window status: OPEN — gamora's `gamora/v-batch2-primary-t4-consume-widen-1` PENDING; leg-3 emission run HELD until gamora lands + coordinated Gate-2.
