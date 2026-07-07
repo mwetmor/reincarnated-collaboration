@@ -12,8 +12,8 @@
 |---|---|---|---|
 | A | economy-axes build (math-first) | rocket (+ gamora adjacency) | ✅ **DONE** — `legA-economy-axes-math-2026-07-06.md` (engine `ed6c349`) |
 | A-gate | Gate-1 on the axis math (critique pair + sim consult) | jack-ryan + gandalf + gamora | ✅ **RATIFY-WITH-CONDITIONS** (all three) |
-| B-build | wire the `resource_economy` loadout field (Route B) — cross-seam | rocket (emit) + gamora (consume) | ⏳ **NEXT** — dispatch authored |
-| B-gate | Gate-2 on the cross-seam field | jack-ryan | pending B-build |
+| B-build | wire the `resource_economy` loadout field (Route B) — cross-seam | rocket (emit) + gamora (consume) | ✅ **DONE** — emit `rocket/…-emit-1` (`9eca04c`) + consume `gamora/…-consume-1` (`7e1a5d1`); C3 round-trip GREEN, C4 default-corner 0.0-KPM CONFIRMED |
+| B-gate | Gate-2 on the cross-seam field | jack-ryan | ⏳ **IN FLIGHT** |
 | B-fire | economy pilot: 2–3 cells × ~25 LHS-within-strata; pre-registered GO/HALT | star-lord (fire) · gamora (read) | pending B-gate |
 | C | full fresh 18-roster emission, all axes live, detached ~12–15h | star-lord (gamora shells) | gates-on B-GO **+ Leg-C-entry gate below** |
 | close | batch-2 run report → elrond #18 consult | star-lord → elrond | pending C |
@@ -46,6 +46,15 @@ Spec §8 D1 default = auto-continue Leg C on B-GO. Gate-1 added two Leg-C-gating
 2. **gandalf G1 — Axis-5 structural-bin hole ruling** (Matt).
 
 Leg C auto-continues on B-GO **AND** these two closed. HALT on B always escalates to Matt regardless.
+
+## B-build result (2026-07-06) — Route B wired, binding CONFIRMED
+
+- **Emit (rocket):** `resource_economy` on both loadout boundaries (`season_generation_pipeline.py:533`, `bc_target_player_class.py:428`), key always present, sibling of `proxies`. Sampler `generation/resource_economy.py` (LHS-within-6-strata, salt `1_800_000`). Emit smoke GREEN; regression clean.
+- **Consume (gamora):** entity-init read `spatial_engine.py:2694` (`_econ = class_dict.get("resource_economy") or DEFAULT_RESOURCE_ECONOMY` — sim default IS the emit contract, no drift). Cost `:2745`, cadence `:2126`, regen `:2820`/ramp `:2440`. on_kill hook `_on_kill_energy_burst` at both flip sites (`:1536`/`:1549`).
+- **C3 round-trip GREEN:** favorable corner moves a REAL season-001 caster off 0.0 KPM on both shells (open_arena 0.0→1.0/2.67 ramping; chokepoint 0.0→1.0).
+- **C4 CONFIRMED (load-bearing):** default corner reproduces 0.0 KPM on BOTH shells + byte-identical to no-economy-key path → the binding is real.
+- **Instrument fact (matters for the pilot fire):** economy bites ONLY on the PRODUCTION (bounded-pool) path — the projection/harness path pins `mana=1e9` and cannot starve (`spatial_resolver_adapter.py:192`). **The Leg-B pilot MUST fire through the production path.**
+- **WIRE_RESOURCE_ECONOMY** precondition asserted on the run path.
 
 ## QA / note trail
 - jack-ryan Gate-1: `qa/pending/2026-07-06-legA-economy-axes-gate1-jackryan.md` (`bf2f571`)
