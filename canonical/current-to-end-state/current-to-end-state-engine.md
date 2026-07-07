@@ -93,7 +93,7 @@ Matt commissioned a full sim inspection against two target states (demo / comple
 | Item | Tag | The demo's route (one-realm cite) |
 |---|---|---|
 | **II.3 emission** | **+1 MVP-CRITICAL bullet** | bounded one-realm hand-join (single demo-realm bundle), **NOT the II.2 unified driver** (§5.1, star-lord) |
-| III.1 matchup matrix | LAUNCH | demo Goldilocks = hand-picked lieutenant temperatures (§3, §5.3) |
+| III.1 matchup matrix | LAUNCH **(re-classed 2026-07-07: emission-certification instrument, second customer)** | demo Goldilocks = hand-picked lieutenant temperatures (§3, §5.3). **Matt law 2026-07-07 (counter-breadth emission gate):** a kit must not pass scale emission if it counters too WIDE or too FEW a variety of other kits — same ~24×24 grouping matrix, per-kit row/column temperature-distribution banded BOTH directions (counters + countered-by), **remediation-first** (diagnose → adjust/recompose → re-measure; withhold last resort). COMPOSES with (does not supersede) the "NOT for withholding" ruling: weakness → encounter-layer safety envelope; topology degeneracy → emission gate. Binds SCALE emission only (demo = hand-picked). The gamora/star-lord scoping consult inherits this second customer. Ledger: serial-content-emission tracker fifth entry 2026-07-07 |
 | **III.1b summoner** | **MVP-SPLIT** | **hand-authored proxy decls** for the demo summoners (§5.2, rocket) = the demo's 2nd engine ask; the sim-certification un-gate stays launch |
 | III.2 per-level model | LAUNCH | demo sawtooth = one descent hand-tuned by playtest (§5.3); the instrument stays Q2-gated (§9) |
 | III.3 horde density | LAUNCH (sim) | the demo's density need is Godot **RENDERING** at min-spec (§6.4, drax) — not certification-at-density |
