@@ -1,6 +1,6 @@
 # Gauntlet Run-Beat Families — the re-based certification instrument (four families, genre-anchored)
 
-**STATUS:** DRAFT FOR RATIFICATION — authored 2026-07-07 (gandalf, design half of the instrument design session). **Matt's ratification of this doc = the instrument-direction ruling** the paused KR sequence (Steps 3–4) waits on. Two passes follow ratification: **jack-ryan metrology pass** (§6 bar-derivation execution + saturation guards) and **gamora feasibility pass** (§8 implementation items). Neither reopens the family structure — they execute inside it.
+**STATUS:** ✓ RATIFIED — **Matt 2026-07-07, R1–R5 as drafted**, one named contingency (verbatim): *"assuming no issues on monster count for godot game's playable PC or mobile phone system specs."* **Contingency operationalized:** the §3 density targets (F1 ~24 · F2 ~40 · F4 continuous) must be render-feasible at the ruled 60-FPS floor (Q5 ruling, GTX-1650/RTX-3050 min-spec class) AND on mobile-class targets → **drax perf spike** (composes with the pre-D7 horde-density spike the Q5 ruling already governs). **Spike failure = re-open trigger** (§3 populations shrink → §6 bars re-derive) — **NOT a blocker on sim-side build.** Authored 2026-07-07 (gandalf, design half of the instrument design session). Two passes execute inside the ratified structure: **gamora feasibility pass** (§8 implementation items) and **jack-ryan metrology pass** (§6 bar-derivation + saturation guards). Neither reopens the family structure. Fire order: `agentic_orchestration/gandalf/notes/2026-07-07-kr-relay-q11-fire-order.md`.
 **Governing laws (Matt 2026-07-07, this doc's spine):**
 > **(a) Fit-direction law:** *"I do not want to fit the simulation gauntlet parameters to pass kits into my game, I want to fit kits from my game into ARPG genre canonical monsters per area, KPM, win rate."* Bars derive from genre canon (external reference standard); the kit population is the SUBJECT under measurement, never the calibration source. A kit that fails a genre-anchored bar gets fixed; the bar moves only if genre evidence says the bar misread canon.
 > **(b) One-spatial-contract law:** room dimensions are authored ONCE, in meters, and consumed by BOTH the sim gauntlet arenas and the Godot presentation rooms — no runtime re-determination of the Godot room representation.
@@ -98,15 +98,17 @@ Nothing is deleted; the 300k-HP "wall" parametrization retires as a certificatio
 4. **Then the paused sequence resumes:** stratified re-pilot → F-b residual sizing (if it survives re-measurement) → Leg C.
 5. **The loot §7 fairness campaign inherits this instrument as-built** (`agnostic-loot-engine-spec.md` §7) — one instrument, two customers.
 
-## 9. Ratification asks (Matt)
+## 9. Ratification asks (Matt) — ✓ RULED 2026-07-07
 
-| # | Ask | My lean |
-|---|---|---|
-| R1 | Four-family structure + certification = pass all four | as specced |
-| R2 | Family dims (16×22 / 36×36 / ~30 / 60×16 lane) as the one spatial contract | as specced; drax camera-verify may adjust ±20% |
-| R3 | Genre density targets (F1 ~24, F2 ~40, F4 continuous 2–4×) | as specced |
-| R4 | STR boss-shell carve-out retires under §5 universality | retire |
-| R5 | F3 add-waves + F4 spawner as the two build enhancements | approve, gamora sequences |
+**All five ratified AS DRAFTED** (Matt verbatim: *"Ratify R1–R5 as drafted, assuming no issues on monster count for godot game's playable PC or mobile phone system specs."*). The monster-count assumption is the **standing contingency on R3** (and on R2's dims insofar as density scales with area) — operationalization + re-open trigger in the STATUS banner. Table kept as lineage:
+
+| # | Ask | My lean | Ruling |
+|---|---|---|---|
+| R1 | Four-family structure + certification = pass all four | as specced | ✓ as drafted |
+| R2 | Family dims (16×22 / 36×36 / ~30 / 60×16 lane) as the one spatial contract | as specced; drax camera-verify may adjust ±20% | ✓ as drafted |
+| R3 | Genre density targets (F1 ~24, F2 ~40, F4 continuous 2–4×) | as specced | ✓ as drafted — **carries the perf contingency** |
+| R4 | STR boss-shell carve-out retires under §5 universality | retire | ✓ retire |
+| R5 | F3 add-waves + F4 spawner as the two build enhancements | approve, gamora sequences | ✓ approve |
 
 ---
 
