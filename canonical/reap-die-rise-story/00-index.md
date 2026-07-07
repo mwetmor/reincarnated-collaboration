@@ -10,6 +10,10 @@
 
 The locked story frame of *Reap. Die. Rise.* — death-faith premise, the demigod-jailer / death-god patron / hub-ensemble cast, the projection / Hall-of-Heroes / cosmograph / molting experiential structure, the manufactured-rebellion keystone, the villain-protagonist arc.
 
+## ✓ AUTHORED IN (post-assembly new spec docs)
+
+- **`agnostic-loot-story-spec.md`** (2026-07-07) — the loot fiction canonized: **soul-as-lens** (item = fixed light, soul = lens — the mechanic IS the theme) · **two clocks, three verbs** (harvest §23.2 macro / **cementing** intra-run binding rite, window closes at the eruption / **gleaning** inter-run soul-level reveal, drops-stay-primary guardrail) · **soul weapons** on catalogue-substrate bases (museum/mythic lineage, per-body re-expression) · **banking triad** (conduits for the faith, body for yourself, cemented items for the soul — composes with the §23.3 body-persistence ruling + cleansed crossing) · naming/description surface contract (LLM names only, computed rules text, D7). Absorbs Matt's mobile draft (bannered) + the 2026-07-07 ruling set. Engine half: `../reap-die-rise-engine/agnostic-loot-engine-spec.md`. Open micro-rulings → decision queue **Q9**.
+
 ## ✓ MIGRATED IN from `canonical/reap-die-rise/` (DONE 2026-06-30, commit `6b9d6d1` — folder dissolved)
 
 | Doc | Role |
