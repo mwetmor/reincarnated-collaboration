@@ -14,6 +14,14 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-06 (fourth same-day entry) — batch-2 in-flight decisions RULED: ADR-002 `resource_economy` contract SIGNED (Leg B cleared to fire) · Axis-5 cost-TYPE structural bins = reserved, EMPTY-BY-RULING (three guards)
+
+Two decisions KR surfaced from the Leg-A build landed same-session: **(1) ADR-002 sign-off** — Matt signed the `resource_economy` generation→sim cross-seam contract (rocket's Gate-1-ratified route; the binding-in-fight-resolution condition independently verified) → **Leg B economy pilot cleared to fire**. **(2) Axis-5 RULED:** the three structural cost-TYPE mechanisms — HP-economy (blood magic) · damage-taken-converts (vengeance) · charge-stack (builder/spender) — are different sim *plumbing*, not Leg-A axis values → **reserved, empty-by-ruling**, three guards now canon (batch-2 spec §8 **R1**, → v1.1 · derivation-stack §11 **F5** amended with the pre-registered re-derivation trigger): registry honesty at the elrond #18 consult · structural-cost arrival = re-derivation event (new-branch entry; families bootstrap-stable; affected-cut re-ratification only) · no unbacked identity claims at naming. Batch-2's economy axes explore the **mana substrate only**; the reserved bins are a named coverage boundary, never a silent absence.
+
+**Body impact:** none beyond the third entry — live gate remains **Leg-B GO/HALT** (now firing).
+
+**Signed:** gandalf, 2026-07-06.
+
 ### 2026-07-06 (third same-day entry) — PILOT CHAIN CLOSED (C2 floor MEASURED 9.90/11.65) · BATCH-2 SPEC AUTHORED + MATT-AUTHORIZED (staged pilot-gated: economy axes → economy pilot → full fresh 18-cell fire)
 
 The AV2 variation-pilot chain (Legs 0→4) **CLOSED** (`88ffb31`): gamora's Leg-4 report + calibration note delivered (`f414f64`), jack-ryan byte-verified both load-bearing derivations, no flags (`db2df69`) — **the C2 plain-caster floor is a MEASUREMENT: bar_lo = 9.90 KPM open_arena / 11.65 chokepoint** (current chassis 0.0 on both = full gap; gamora structural read: band re-tune alone may be insufficient → resource-economy dimension named for batch-2). magic_pack 600.0 = tick-quantization ≥-ceiling (not clamp); elite_pack 426.9 = pack signal of record. Mechanism thesis CONFIRMED; zero compute wasted (all re-extraction).
