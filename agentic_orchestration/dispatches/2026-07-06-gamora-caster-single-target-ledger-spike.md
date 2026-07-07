@@ -46,4 +46,43 @@ Leg-B HALT resolved toward world (1) — caster chassis under-built — with a n
 ---
 
 ## Completion record
-<!-- gamora appends on completion -->
+
+**Completed:** 2026-07-06 by gamora. **Ledger:** `reincarnated-engine/src/reincarnated/simulation/notes/caster-single-target-ledger-spike-2026-07-06.md`
+
+**Ledger CLOSES? NO — flagged as an unclosed-ledger finding.** The idealized per-cast throughput
+reconstructed from named engine constants exceeds the measured 1.0 KPM by **~3–6×**. The residual
+beyond the seed ratio is **spatial/geometry, not damage-arithmetic**, and is **path-symmetric**
+(a martial single_target kit eats the same de-rating) — so it is not a caster-specific damage defect.
+
+**Two named factors flip the naive framing:**
+1. **Seed ratio is net-cancelled by pools.** 2.3384× verified exact (`per_skill_emitter.py:125-126`),
+   BUT the INT caster's scaffold weapon carries `spell_damage_modifier=90%` (1.90×,
+   `substrate_weapon_binding.py:76`) vs the martial's `physical_damage_pct=5%` (1.05×). Pool ratio
+   1.81× ≈ cancels the 2.34× seed. **Net per-cast the caster is within ~1.07× of the martial** (even
+   ahead post-mitigation once the martial's 15% dodge-gate tax, `damage_resolver.py:444`, is counted).
+2. **Dominant throttle = single_target geometry + composition.** All emitted skills are
+   `single_target` (`per_skill_emitter.py:585`, `bc_amplitude="variable"`→default) → pack-multiply
+   channel (`damage_resolver.py:466-468`) never fires → one cast, one mob against the dispersed
+   8×300k wall. Pilot also drew `support_specialist` (least-damage template; 5/9 attack slots).
+
+**Ranked residuals:** (1) spatial single_target de-rating ~3–6× [path-symmetric]; (2) composition
+~1.4–1.6×; (3) seed ratio 2.34× raw / **~1.07× net of pools**; crit-EV ≤1.029× (negligible);
+resistance tax **0 — armor & resist symmetric** on both walls (`combatant.py:1111`, driver
+`:258-268`); investment **not** a residual (max-profile 1.0×, symmetric, `spatial_engine.py:3048`).
+
+**Sized fix:** **F-b alone suffices** for the arithmetic layer (F-c/crit recovers <3% — texture, not
+required). BUT F-b must be sized to the **pool-adjusted** seed ratio, NOT the naked 2.34× or nominal
+4×: with scaffold pools that = 2.3384/1.81 ≈ **~1.3×**. Sizing to the naked ratio would over-buff.
+The rank-1 spatial/geometry residual is a separate structural lever outside F-b/F-c.
+
+**Provenance flag:** the 9.90 bar exceeds the 8-mob cap (`spatial_engine.py:2527`, no respawn), so it
+was NOT measured on the same 8×300k wall as the caster's 1.0 — part of the nominal "4× residual" is a
+units mismatch. F-b MUST calibrate caster-vs-martial on the IDENTICAL wall, never against 9.90.
+
+**One unread input:** the 90% spell_pool is the scaffold default; the pilot's DB binding may differ.
+Reading the exact production pool requires a re-emit (out of spike scope). Ledger brackets both
+(spell_pool 0 → 3.13 idealized kills; 90 → 5.95); either way the residual is spatial, not the seed.
+
+**Discipline:** #1 (math-before-code — no constant moved, no code touched), #11 (every ledger line
+cites file:line/artifact). Read-only. No re-emit/re-fire/re-pilot/constant-change/Axis-5. Auto-commit,
+no push.
