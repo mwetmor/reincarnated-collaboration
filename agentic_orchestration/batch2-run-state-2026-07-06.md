@@ -15,7 +15,7 @@
 | B-build | wire the `resource_economy` loadout field (Route B) — cross-seam | rocket (emit) + gamora (consume) | ✅ **DONE** — emit `rocket/…-emit-1` (`9eca04c`) + consume `gamora/…-consume-1` (`7e1a5d1`); C3 round-trip GREEN, C4 default-corner 0.0-KPM CONFIRMED |
 | B-gate | Gate-2 on the cross-seam field | jack-ryan | ✅ **PASS-WITH-FOLLOWUPS** (`77e634b`) — re-ran all suites, no BLOCK |
 | B-sign-off | **ADR-002 cross-seam-schema sign-off on `resource_economy`** | **Matt** | ✅ **SIGNED 2026-07-06** |
-| B-fire | economy pilot: 2–3 cells × ~25 LHS-within-strata; pre-registered GO/HALT; PRODUCTION path | star-lord (fire) · gamora (read) | ⏳ **FIRING** — gate cleared |
+| B-fire | economy pilot: 2–3 cells × ~25 LHS-within-strata; pre-registered GO/HALT; PRODUCTION path | star-lord (fire) · gamora (read) | ✅ **FIRED** — report emitted; gamora reads GO/HALT |
 | C | full fresh 18-roster emission, all axes live, detached ~12–15h | star-lord (gamora shells) | gates-on B-GO **+ Leg-C-entry gate below** |
 | close | batch-2 run report → elrond #18 consult | star-lord → elrond | pending C |
 
@@ -75,8 +75,39 @@ The 3 structural-cost bins (**HP-economy / damage-taken-converts / charge-stack*
 - **Instrument fact (matters for the pilot fire):** economy bites ONLY on the PRODUCTION (bounded-pool) path — the projection/harness path pins `mana=1e9` and cannot starve (`spatial_resolver_adapter.py:192`). **The Leg-B pilot MUST fire through the production path.**
 - **WIRE_RESOURCE_ECONOMY** precondition asserted on the run path.
 
+## B-fire result (2026-07-06/07) — pilot FIRED, gamora reads GO/HALT
+
+**Run ID:** `617409b8-3508-4a4f-a307-107c6f564246`
+**Engine commits:** `bfb6097` (driver) + `3a09a4d` (artifacts)
+**Wall time:** 101.3s — DETACHED nohup (PID 31410, exit 0)
+**Seed base:** `62_000_000`
+
+**Cells fired:**
+- plain_caster: `endgame_bc_ranged_medium_variable_int_none` (proxy=none), 25 configs, calibrated mobs (300k/500k HP, dmod=0.3)
+- summoner: `endgame_bc_ranged_medium_variable_int_none` (proxy=light), 25 configs, same calibration
+- Third cell (D2): EXCLUDED — marginal cost not ~zero at config time; documented in run config
+
+**Assertions confirmed on run path:**
+- `WIRE_RESOURCE_ECONOMY is True` — PASS (FU-2 carried from Gate-2)
+- Production path: `from_player_class` → bounded pool — CONFIRMED
+- C4 default-corner: open_arena=0.0 KPM, chokepoint=0.0 KPM — PASS (HARD CHECKED ASSERTION)
+
+**Measured landscape (gamora reads GO/HALT):**
+- plain_caster open_arena: max KPM = 1.0 (bar lo 9.90); 0/25 configs clear
+- plain_caster chokepoint: max KPM = 2.1 (bar lo 11.65); 0/25 configs clear
+- n_configs_clearing_both: 0
+
+**Measurement report:** `output/economy_pilot/economy_pilot_measurement_report.json` (schema `economy-pilot-v1`)
+**Checkpoint:** `output/economy_pilot/economy_pilot_checkpoint.json`
+
+Per-cohort bucket keys LIVE: `_econ_key()` encodes all 7 fields as stable string hash — no cohort collapse.
+
+**GO/HALT verdict:** gamora reads and reports per spec §3 pre-registered criteria.
+
 ## QA / note trail
 - jack-ryan Gate-1: `qa/pending/2026-07-06-legA-economy-axes-gate1-jackryan.md` (`bf2f571`)
 - gandalf Gate-1: `gandalf/notes/2026-07-06-legA-economy-axes-gate1-gandalf.md` (`fdd9082`)
 - gamora consult: `simulation/notes/2026-07-06-legA-economy-binding-consult.md` (`be6c7c6`)
 - rocket axis math: `generation/notes/legA-economy-axes-math-2026-07-06.md` (`ed6c349`)
+- star-lord B-fire driver: `export/economy_pilot_driver.py` (`bfb6097`)
+- star-lord B-fire artifacts: `output/economy_pilot/` (`3a09a4d`)

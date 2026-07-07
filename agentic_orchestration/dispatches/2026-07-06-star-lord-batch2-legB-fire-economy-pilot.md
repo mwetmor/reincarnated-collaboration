@@ -58,4 +58,63 @@ Leg-B build is Gate-2 PASS-WITH-FOLLOWUPS: the `resource_economy` field (Route B
 ---
 
 ## Completion record
-<!-- star-lord + gamora append on completion -->
+
+**star-lord — 2026-07-06/07**
+
+### Run executed — COMPLETE
+
+**Run ID:** `617409b8-3508-4a4f-a307-107c6f564246`
+**Seed base:** `62_000_000` (disjoint from T4 +500, role-split +900k, variation-pilot 60M/61M blocks)
+**Wall time:** 101.3 s — run was DETACHED (nohup OS-process per Discipline #19); process PID 31410 exited 0
+
+### Cells fired
+
+| Cell label | Cell ID | Proxy density | N configs | Shell MOB HP (GO/HALT shells) |
+|---|---|---|---|---|
+| plain_caster | endgame_bc_ranged_medium_variable_int_none | none | 25 | 300k open_arena / 500k chokepoint (dmod=0.3) |
+| summoner | endgame_bc_ranged_medium_variable_int_none | light | 25 | 300k open_arena / 500k chokepoint (dmod=0.3) |
+
+**D2 decision (third cell):** EXCLUDED. Marginal cost is NOT ~zero at config time — requires a different BC cell ID; non-trivial config cost. Two INT cells span the critical space. Documented in `run_config.d2_decision`.
+
+### FU-2 assertion (Gate-2 carry-forward)
+
+`assert WIRE_RESOURCE_ECONOMY is True` — PASS. Written on the PILOT run path (not just the build smoke). An OFF flag now fails loudly before any sweep starts.
+
+### Production path confirmation
+
+Run threads `from_player_class` → bounded pool via `combatant_from_player_class`. Economy bites on the bounded pool. Confirmed live: `run_config.production_path = "from_player_class → bounded_pool (economy bites here)"`. Projection/harness path (`mana=1e9`) NOT used.
+
+### Default-corner sanity (C4 — HARD CHECKED ASSERTION)
+
+| Shell | Default KPM | Bar lo | Result |
+|---|---|---|---|
+| open_arena | 0.0 | 9.90 | PASS |
+| chokepoint_corridor | 0.0 | 11.65 | PASS |
+
+Assertion fires in driver; exit != 0 on failure. PASS — C4 anchor confirmed.
+
+### Measurement report
+
+**Path:** `/Users/admin/Games/reincarnated-engine/src/reincarnated/output/economy_pilot/economy_pilot_measurement_report.json`
+**Schema:** `economy-pilot-v1` — no demo-bundle coupling; valid with zero monsters/gear.
+**Checkpoint (pre-gauntlet):** `/Users/admin/Games/reincarnated-engine/src/reincarnated/output/economy_pilot/economy_pilot_checkpoint.json`
+
+### Registry
+
+Registered in run registry (ADR-006, authorized per Matt batch-2 authorization).
+
+### Engine commits
+
+- `bfb6097` — `economy_pilot_driver.py` (Batch-2 Leg B FIRE driver)
+- `3a09a4d` — economy pilot run artifacts (checkpoint + measurement report)
+
+### Measured landscape (for gamora read — do NOT interpret GO/HALT here)
+
+Per the pre-registered criteria (spec §3), the measured landscape is:
+- **plain_caster cell, open_arena:** max KPM across 25 configs = 1.0 (bar lo = 9.90). 0/25 configs clear.
+- **plain_caster cell, chokepoint_corridor:** max KPM across 25 configs = 2.1 (bar lo = 11.65). 0/25 configs clear.
+- **n_configs_clearing_both (both single-target shells):** 0
+
+GO/HALT verdict is gamora's read. Report path handed off above.
+
+<!-- gamora appends verdict below -->
