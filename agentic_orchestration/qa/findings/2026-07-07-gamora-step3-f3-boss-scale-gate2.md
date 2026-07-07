@@ -1,0 +1,46 @@
+# Finding — 2026-07-07 — gamora Step-3 COMPLETION: F3 tier-independent `boss_damage_scale` + full-pop F2 re-lock + genre-sane boss HP
+
+**Reviewer:** jack-ryan
+**Severity:** INFO (verdict: PASS-WITH-FOLLOWUPS)
+**Target:** tag `gamora/v-batch2-step3-f3-boss-scale-1` (engine HEAD `61a7faf`; math note `59dc832`)
+**Developer:** gamora (two-session authorship: math note + tier-scoped knob by session 1; sweep/re-pilot/tag by session 2 after an infra API-overload kill — verified as one unit)
+**Principles applied:** #1 (math-before-code), #2 (smoke-gate), #3/#6 (cross-seam / MIGRATION), #4 (decisions-log as truth)
+**Disciplines cited:** #1, #1.1 (math note + resource-bounds pre-tuning), #11 (empirical inspection — witness measured not asserted), #12 (semantic-shift framing), #24 (single-parameter sweep isolation)
+
+## What I found
+
+This closes the second Discipline-#24 STOP on the four-family gauntlet certification, executing Matt's four-decision ruling parts (1)+(4). Every load-bearing claim in gamora's submission reproduced on-disk and by independent re-run. The code matches the pre-registered math note byte-for-byte. The two-session authorship is a single coherent unit — the math note (`59dc832`) pre-registers exactly what the implementation commit (`61a7faf`) executes.
+
+**Mechanism (independently re-run against source, Discipline #11):** the tier-independent `boss_damage_scale` attaches as a second multiplicative factor gated to `is_boss_tier = tier in {boss, mini-boss, miniboss}` ONLY — elite explicitly excluded. Re-running `_mob_skills_for_tier` first-hand: swarm/magic/elite dm are IDENTICAL across bds ∈ {1.0, 5.0, 48.0} (no leakage into non-boss tiers); boss dm = 5.0 (native), 0.15 (defanged STOP at mds=0.03,bds=1.0), 7.2 (locked mds=0.03,bds=48.0 = 5.0·0.03·48.0). At bds=1.0 the boss block is skipped entirely (`if is_boss_tier and boss_damage_scale != 1.0`), so bds=1.0 is a strict no-op — the pre-decouple behavior is byte-reproduced. The strictly-positive guard raises `ValueError` on bds=0.0 and bds=-1.0 (confirmed), correctly refusing the `spatial_resolver_adapter.py:118` `or 1.0` native-aliasing trap.
+
+**The load-bearing no-leakage witness is REAL and MEASURED, not asserted.** The sweep sidecar's `no_leakage_witness` block carries both 40-element per-kit WR vectors at bds=1.0 and bds=5.0; they are byte-identical (`identical: true`), pop WR 0.9446 == 0.9446. The sweep script computes them by actually running the F2 population at both bds values and comparing (`_f2_pop_wr_at_bds(1.0)` vs `_f2_pop_wr_at_bds(5.0)`), not by assertion. This is the crux of the #24 orthogonality claim — the two knobs are cleanly decoupled by construction (disjoint tier sets) AND confirmed empirically. No BLOCK.
+
+**Locks + sweeps (reproduced from sidecar):** F2 `mob_damage_scale`=0.03 → full-pop wheel-avg WR 0.9446 ∈ [0.85,0.95] at the band-ceiling edge; cliff 0.025→0.9982, 0.03→0.9446, 0.035→0.7071 (< floor) — 0.03 is the sole in-band member. F3 `boss_damage_scale`=48.0 → pop WR 0.7018 ∈ [0.60,0.80]; monotone descent across the working region (35→0.857, 40→0.818, 46→0.761, 48→0.702, 50→0.639). Boss HP FIXED at 9000 across every bds row (not swept). All figures reconcile with the submission.
+
+**Rider-3 dispositions (reproduced from the re-pilot report):** F1 25/40, F2 36/40 (8 PASS + 28 FLAG_PASS_OVERPOWERED + 4 FAIL), **F3 28/40 (0 PASS + 28 FLAG_PASS_OVERPOWERED + 12 FAIL) — CERTIFIES**, F4 5/40 + 35 FAIL. The `passes_bar`/`n_pass_bar` strict-in-band count is preserved separately from `n_certified = PASS + FLAG_PASS_OVERPOWERED`; over-ceiling does NOT auto-fail, under-floor DOES (`_rider3_disposition`: floor beats ceiling). Caster margins F1 +0.05, F3 +0.40, F4 +0.20 — all pass. `pilot_policy=scripted-rotation-v1` stamped. F3 TTK 5.036s → 38 standing overpowered flags. Cosmetic INFO fix confirmed (`disp["wr"] = wr` written in the kpm_band branch).
+
+**Hard-guards (all hold):** NO kit-side chassis-constant changes (BASE_PHYSICAL/SPELL_DAMAGE_L50 + 2.3384× fossil appear only in AGENT_STATE prose asserting the freeze, never in any code diff). NO bar/band moves (`wr_floor`/`wr_ceiling`/`kpm_floor`/`kpm_ceiling` are only READ in `_rider3_disposition`, never reassigned). NO boss-HP inflation to force TTK (HP constant at 9000 across all sweep rows; TTK-under-15s recorded as a flag, not a fix trigger). Boss knob scoped boss/mini-boss ONLY (no leakage into trash/swarm/champion — verified empirically). Regression `test_cycle13_wave5_gauntlet_sim` reproduced: **50/50 PASS**.
+
+**No MIGRATION.md — verified structurally.** The commit touches only sim drivers + a sweep script + sidecar JSON + math note + AGENT_STATE. No telemetry/export/output-schema/season_writer/llm files in the diff (`git show --stat` grep = none). The `boss_damage_scale` is an in-memory keyword arg on `_build_standard_mob_dicts`; boss HP is an in-memory `_HP_BY_TIER` value; the reports are sidecar JSON. The `schema_version` bump to `-v2-boss-damage-scale` is the sidecar report's own internal version field, not a persisted telemetry/consumer boundary. Principle 6 / ADR-004 not triggered.
+
+## Rationale
+
+The submission satisfies Principles #1 (math note pre-registers the attachment, no-leakage proof, guard, and sweep order before any tuning — committed at `59dc832` ahead of `61a7faf`), #2 (regression 50/50 + full sweep + re-pilot), #3/#6 (no cross-seam boundary touched — verified, not taken on report), and Discipline #11 (the no-leakage witness is measured; I re-derived the mechanism from source rather than trusting the reported numbers). The two Discipline-#12 semantic shifts are honestly framed in the math note, commit message, and forwarded to me for the log.
+
+On the shifts (my lane, Principle #4): **SHIFT 2 (over-ceiling = FLAG_PASS_OVERPOWERED, not auto-fail)** was already fully logged — the Miss-taxonomy/Rider-3 parent entry, the Chassis-evidence #1 entry, and the explicit F2 WR-over-band FLAG-PASS confirmation all cover it; `n_certified` is the mechanical realization of already-ruled semantics, no new decision. **SHIFT 1 (the tier-independent `boss_damage_scale` third knob / calibration decoupling)** was forward-referenced across three existing entries as "Matt's separate decision (1), recorded by its own ruling" — but that standalone ruling entry did not yet exist. That is a genuine completeness gap in my own lane on an architectural commitment (a new calibration-model lever), so I authored the entry rather than BLOCK: the code/math/orthogonality are all sound; only the log record was owed.
+
+## Action
+
+- [x] jack-ryan: authored the standalone decisions-log entry `2026-07-07 — F3 tier-independent boss_damage_scale third knob AUTHORIZED` (resolves the forward-reference gap; records the decoupling as the Discipline #12 shift with the empirical no-leakage witness).
+- [ ] gamora (INFO, non-blocking, next-touch): (a) the `_caster_margins` F3 row reports `still_passes=True` on a floor-check, but caster F3 WR=1.0 is itself over the 0.80 ceiling — a FLAG_PASS_OVERPOWERED, not a clean pass. The margin table is a floor-check by design so this is not a defect, but a future report iteration could surface the caster over-band flag alongside the floor margin for symmetry with the martial dispositions. (b) The bds sweep shoulder past ~55 goes one-shot (TTK collapses 5.0→2.05→1.7→0.5, WR non-monotone as kits stop landing any hit); the locked 48.0 sits well inside the clean monotone region, so this is a grid-shoulder observation only, not a lock concern.
+- [ ] Matt: none required. Verdict is PASS-WITH-FOLLOWUPS within jack-ryan authority (ADR-002: within-seam sim work, no cross-seam schema, no milestone-tag drop). The third-knob authorization was already Matt-ruled (decision (1)); this finding + log entry record it, they do not seek new approval. Milestone tagging (dropping the seam prefix) remains Matt's when the four-family certification is milestone-tagged.
+
+## References
+
+- Tag / commits: `gamora/v-batch2-step3-f3-boss-scale-1` → `61a7faf` (impl), `59dc832` (math note), engine repo `~/Games/reincarnated-engine`.
+- Code reviewed: `src/reincarnated/simulation/gauntlet_four_family_metrology_driver.py` (`_build_standard_mob_dicts`, `_mob_skills_for_tier`, `_bar_disposition`, `_rider3_disposition`); `src/reincarnated/simulation/gauntlet_lived_channel_repilot_driver.py` (locks, `n_certified`, `_caster_margins`, `_fb_parity_read`); `src/reincarnated/simulation/scripts/gamora_step3_lived_calibration_sweep_2026_07_07.py` (witness construction).
+- Math note: `src/reincarnated/simulation/math/step3-f3-boss-damage-scale-2026-07-07.md`.
+- Sidecars: `src/reincarnated/output/step3_calibration/step3_lived_sweep.json` (no_leakage_witness, step1/step2 sweeps); `src/reincarnated/output/gauntlet_lived_channel_repilot/lived_channel_repilot_report.json` (per-family dispositions, caster margins).
+- Regression: `tests/test_cycle13_wave5_gauntlet_sim.py` (50/50).
+- Decisions-log entry authored: `~/Games/reincarnated-engine/design/decisions/decisions-log.md` (`2026-07-07 — F3 tier-independent boss_damage_scale third knob AUTHORIZED`).
+- Predecessor finding: `qa/findings/2026-07-07-gamora-step3-lived-channel-repilot-gate2.md` (`9ecccff`).
