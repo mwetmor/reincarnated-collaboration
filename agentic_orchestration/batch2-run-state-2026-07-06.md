@@ -562,3 +562,20 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 **Two B4-scoped leg-2 followups (parked, NOT leg-3):** rocket `enforce_family_max_one` live-wiring before B4; then F-f test promotion.
 
 **ON MATT (now 3 items):** (i) **Q7** BoneMap-vs-GeneralSkeleton (drax body held); (ii) **450MB telemetry.db blob** disposition; (iii) **leg-3 emission-run authorization** — pending rocket's STEP-1 resource/LLM-cost projection (KR will relay it).
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — leg-3 STEP-1 RETURNED (design+projection+W3 root-cause); Gate-1 FIRED
+
+**rocket leg-3 STEP-1 → DELIVERED** (math note engine `0384dbb` `generation/math/leg3-summoner-emission-wire-and-projection-2026-07-07.md`, collab `297220a`; Gate-1 pending `qa/pending/2026-07-07-rocket-leg3-summoner-emission-wire-projection-gate1.md`). Three findings:
+
+1. **⚠️ LOAD-BEARING ROUTING CORRECTION (re-scopes STEP-2):** the leg-3 dispatch's cited wire site `season_generation_pipeline.py:404-412` is only a **dataclass field def** — `KitCandidate.primary_t4` is NEVER assigned in the pipeline. The **REAL DDA emission stamp is `cycle14_wave5_emitter.py:546`** — **star-lord's export seam.** ⇒ **STEP-2 is a rocket+star-lord CO-DISPATCH, NOT a solo rocket landing.** 4 touch-points: **3 in star-lord export/** (emit-wire + adapter, driver-drive, glyph-assertion-fix) + **1 in rocket** (`bc_target_composer.py` proxy-bin un-gate). *(This is the staged-dispatch discipline paying off — STEP-1-first caught the seam error before a blind cross-seam build fired.)*
+
+2. **Disc #1.1 resource/LLM-cost projection (THE run-auth artifact):** ≤200-candidate deterministic pilot, **seed 56M**, ~23 min expected / ≤36 min worst-case, **50–80 MB RSS**, ≤7 concurrent entities. LLM cost: **$0 dry-run** (no LLM calls) / **≤$10 flavor ceiling** (~$6.50 expected) if named pilot kits wanted. **rocket recommended run-auth framing (verbatim):** *"authorize the $0 dry-run unconditionally + a ≤ $10 flavor ceiling if named pilot kits are wanted."*
+
+3. **W3-smoke root-cause:** `test_w3_emission_driver` fails on clean baseline via a hard-coded `BRUISER==300 / GLASS_CANNON==400` glyph-split assertion (no smoke guard) — **orthogonal to the emit path (zero proxy refs) but WILL halt a proxy-inclusive pilot run.** Fix = population-aware assertion in **star-lord's export seam** → folds into STEP-2.
+
+**jack-ryan Gate-1 FIRED** (`afbe3d240a44f97f1`, RUNNING): verify routing correction vs source (real stamp @ `cycle14_wave5_emitter.py:546`), confirm STEP-2 co-dispatch touch-point inventory + seam attribution, sanity-check projection/call-count math, verify W3 orthogonality.
+
+**Next (on Gate-1 PASS + Matt run-auth):** KR authors leg-3 **STEP-2 rocket+star-lord co-dispatch** (4 touch-points above). Emission RUN itself stays Matt-gated (ADR-006).
+**ON MATT (3 items):** (i) Q7 (drax body held); (ii) 450MB telemetry.db blob; (iii) **leg-3 run-auth — envelope now in hand: $0 dry-run unconditional + ≤$10 flavor ceiling (~$6.50 exp).**
