@@ -501,3 +501,22 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 - **Two B4-scoped follow-ups re-surfaced to KR (NOT blockers, NOT gamora-owed):** (1) rocket owes `enforce_family_max_one` live-wiring before B4 wires the emission pipeline; (2) when it lands, the F-f probe flips True → F-f test promotes to live-consumer assertion (gamora §3 sub-case-1). Parked for the B4 dispatch.
 
 **Still in flight:** rocket leg-2 PRODUCER (`ac088b7121feeea0c`). On landing → fire star-lord validator-widen ∥ gamora consume-side (sites 2/3) against rocket's C2 constant → rocket leg-3 → three-seam Gate-2 → unblocks star-lord Leg C + gamora summoner proxy-T4.
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — leg-2 producer LANDED; consume/validate halves fired
+
+**rocket leg-2 PRODUCER → DONE** (commit `996f77d`, tag `rocket/v-batch2-leg2-summoner-emission-route-1` = engine HEAD; Gate-2 filed `0f973b6`):
+- **C2 shared constant** `ACCEPTED_PROXY_PRIMARY_T4: frozenset` @ `t4_catalog_v2.py:128-171` (derived from named PROXY constants, import-time guards: exactly-5 / subset-of-family / INVERSION excl / ZONE_CONTROL excl). star-lord + gamora IMPORT it.
+- **Route** `route_primary_t4()` @ `mechanic_alteration.py:1962` — `select_proxy_t4` first (non-None ⇒ proxy member is `primary_t4`), else DDA fallback; self-cast stays `t4_candidates`. DDA displaced, not removed.
+- **S1/S2 14/14 GREEN** (`generation/notes/leg2_primary_t4_route_smoke_2026_07_07.py`): S1 route-correctness (bone→FISSION / crypt→SOVEREIGNTY under `focus`; routed == ranker argmax = faithful pass-through); S2 `$0` byte-diff (8-kit non-summoner × {[],None} byte-identical off route). 263 regression PASS.
+- **C1** captured in `generation/MIGRATION.md [2026-07-07] LEG-2` (three-seam lockstep; interim divergence window documented). Leg-3 HELD (confirmed).
+
+**⚑ KR-TRIAGE FLAG (pre-existing, NOT leg-2):** `tests/test_w3_emission_driver.py::TestW3EmissionDriverSmokeRun::test_smoke_dry_run_completes` FAILS on the CLEAN baseline too (verified by stashing rocket's leg-2 files: 1 failed / 13 passed) — a pre-existing ENVIRONMENTAL emission-driver smoke failure with documented history, independent of the additive landing. **Watch-point for leg-3:** leg-3 IS an emission run; confirm whether this smoke failure touches the leg-3 emission driver path BEFORE the leg-3 run relies on it (rocket to assess in the leg-3 fire; captured in rocket AGENT_STATE + Gate-2 submission).
+
+**Fired (parallel — both build against rocket's C2 constant @ HEAD):**
+- **star-lord validator-widen** (`ad49a55a92efb5630`): widen DDA-lock to admit `ACCEPTED_PROXY_PRIMARY_T4` for proxy-bearing kits; preserve lock for empty-decl; round-trip both cases; export MIGRATION lockstep. Tag `star-lord/v-batch2-dda-lock-validator-widen-1` → Gate-2.
+- **gamora consume-side** (`af9955be987c9ea90`): route sim sites 2/3 (`gauntlet_sim.py:2267`, `unified_calibration_loop.py:3577`) through rocket's `route_primary_t4()` (same fn as emit ⇒ provably no divergence) OR consume emitted `primary_t4`; cert-baseline byte-intact; sim MIGRATION lockstep. Tag `gamora/v-batch2-primary-t4-consume-widen-1` → Gate-2.
+
+**Next:** both halves land → **coordinated three-seam Gate-2** (rocket+star-lord+gamora; cite S1/S2 GREEN per C3/C4) → **rocket leg-3 emission run** (owes its own Disc #1.1 resource/LLM-cost projection + the W3-smoke check) → unblocks **star-lord Leg C** + **gamora summoner proxy-T4**.
+**ON MATT unchanged:** Q7 (drax body held) + 450MB telemetry.db blob.
