@@ -492,3 +492,12 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 - After rocket's C2 constant + emit route lands → fire **star-lord validator-widen** + **gamora consume-side (sites 2/3)** in parallel, both importing rocket's C2 constant.
 - After those land → **rocket leg-3 emission run** → coordinated three-seam Gate-2 → unblocks **star-lord Leg C** + **gamora summoner proxy-T4**.
 - **ON MATT unchanged:** Q7 (drax body held) + 450MB telemetry.db blob.
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — gamora proxy-T4 extension Gate-2 → PASS (lane CLOSED)
+
+**jack-ryan Gate-2 on `gamora/v-proxy-t4-rebase-eval-extension-1` @ `8a29009` → PASS** (finding `qa/findings/2026-07-07-gamora-proxy-t4-rebase-eval-extension-gate2.md`, `dce4ae4`; pending archived). Independently reproduced: 20/20 pins + full harness (EXIT=0, all A2/A3 numbers exact); diffstat touches ZERO gen/production code; own AST F-f probe = False (honest eval-side HOLD, no inert guard, Disc #12); D3 baseline byte-unchanged; `energy_type` consumer-side only (star-lord owes nothing; Principle 3/6/ADR-004 OK). Within ADR-002 tier — no Matt escalation. **⇒ proxy-T4 sim-eval lane CLOSED + certified.**
+- **Two B4-scoped follow-ups re-surfaced to KR (NOT blockers, NOT gamora-owed):** (1) rocket owes `enforce_family_max_one` live-wiring before B4 wires the emission pipeline; (2) when it lands, the F-f probe flips True → F-f test promotes to live-consumer assertion (gamora §3 sub-case-1). Parked for the B4 dispatch.
+
+**Still in flight:** rocket leg-2 PRODUCER (`ac088b7121feeea0c`). On landing → fire star-lord validator-widen ∥ gamora consume-side (sites 2/3) against rocket's C2 constant → rocket leg-3 → three-seam Gate-2 → unblocks star-lord Leg C + gamora summoner proxy-T4.
