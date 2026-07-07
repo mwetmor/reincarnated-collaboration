@@ -171,7 +171,7 @@ F2 stays **36×36m** (no widen). Measured anchor (~48.9m legible × 36.5m deep) 
 | Dispatch | Owner | Scope | State |
 |---|---|---|---|
 | `2026-07-07-gamora-step3-mob-lethality-calibration-stratified-repilot.md` | gamora | 2-lever calibration + stratified re-pilot + miss-taxonomy report + F4-martial measure-only + **R4 ship-gate flip** (`gauntlet_pass`→`family_certification_pass`) + F-b parity read | 🔥 running; tag + Gate-2 |
-| `2026-07-07-star-lord-f4-telemetry-migration-consume.md` | star-lord | MIGRATION v1.84 CONSUME — persist `escape_reached`+`continuous_spawned_total`, scope-relax `mobs_killed` invariant (F4 continuous), round-trip smoke | 🔥 running (parallel, independent); tag + Gate-2 |
+| `2026-07-07-star-lord-f4-telemetry-migration-consume.md` | star-lord | MIGRATION v1.84 CONSUME — persist `escape_reached`+`continuous_spawned_total`, scope-relax `mobs_killed` invariant (F4 continuous), round-trip smoke | ✅ DONE (`7d999db`, tag `star-lord/v-batch2-f4-telemetry-consume-1`) — Gate-2 FILED (`qa/pending/2026-07-07-star-lord-f4-telemetry-consume-gate2.md`); jack-ryan Gate-2 🔥 running |
 | jack-ryan (Pattern-A, no dispatch file) | jack-ryan | Rider-3 semantics registration (decisions-log) + **Disc-#24 methodology check** on the F3 two-knob coupling (report FAST if confounded so KR relays to gamora before she tunes) | ✅ DONE (`2bfa599`) — semantics registered + #24 verdict CONFOUNDED-but-resolvable |
 
 **#24 hotspot:** lever (a) mob damage + lever (b) F3 boss HP BOTH touch F3 (damage→WR, HP→TTK, HP secondary WR). gamora math-note pre-registers sweep isolation w/ STOP-and-flag; jack-ryan parallel-checks; gamora's math-note is the checkpoint before tuning.
@@ -183,6 +183,16 @@ F2 stays **36×36m** (no widen). Measured anchor (~48.9m legible × 36.5m deep) 
 jack-ryan's note: this **composes with — does not override — gamora's math-note checkpoint.** If her pre-registered isolation plan already sequences F2-first / boss-HP-on-TTK / WR-as-readout, it is clean as-written and the protocol is a *confirm*.
 
 **⚠ RELAY CONSTRAINT (KR, honest):** no live-messaging channel to the in-flight gamora agent exists in this session (SendMessage not surfaced; TaskStop would be destructive). The relay could NOT be injected mid-run. The protocol's intent is nonetheless **structurally guarded** by gamora's dispatch: (i) math-note committed BEFORE any tuning + (ii) explicit STOP-and-flag on the F3 coupling. **Enforcement point that IS still open: jack-ryan Gate-2 on the Step-3 tag becomes a HARD verification criterion — gamora's math-note MUST show F2-first / boss-HP-on-TTK / WR-as-readout sequencing, or a coupling flag.** If gamora's math-note derives a less-clean isolation and she tuned before flagging, that surfaces at Gate-2 as a re-tune, not a silent pass.
+
+### star-lord F4-telemetry consume RESULT (2026-07-07) — DONE; Gate-2 FILED
+
+- **Schema delta v2.20:** two nullable `ALTER TABLE` columns on `spatial_fight_results` — `escape_reached` (INT NULL: NULL=pre-v2.20 / 0=no-escape / 1=escape-win) + `continuous_spawned_total` (INT NULL: NULL=pre / 0=non-F4 / N=reinforcements). No DDL change to `mobs_killed`.
+- **Scoped invariant:** `mobs_killed ≤ total_mob_count` is a semantic contract (not `validate()`-enforced); relaxation scopes to F4 ONLY via discriminant `continuous_spawned_total > 0` (or `scenario_id == 'escape_lane'`). Six existing rooms emit `escape_reached=0` + `continuous_spawned_total=0` byte-identically; tight invariant preserved + asserted (`test_non_f4_room_tight_invariant_preserved`).
+- **Round-trip smoke (Principle 6) GREEN — both cases:** CASE 1 (F4 escape) `mobs_killed=35 > total=8`, `escape_reached=1`, `spawned=27` persists+reads intact; CASE 2 (non-F4) `mobs_killed=8 ≤ 8`, tight invariant holds.
+- **Regression:** 78 round_trip_spatial_telemetry (70 pre + 8 new `TestF4EscapeLaneTelemetrySchema220`) + 174 additional round-trip/spatial PASS; zero regressions.
+- **MIGRATION lockstep:** telemetry `MIGRATION.md` v2.20 + export `MIGRATION.md` v2.20-telemetry entries; AGENT_STATE updated.
+- **⚑ Production DB apply (`telemetry.db`) PENDING Matt explicit authorization (ADR-006) — NO DB write executed.** Schema/migration code shipped; the on-disk apply is a separate Matt-gated external-systems action.
+- **→ Gate-2 FILED** `qa/pending/2026-07-07-star-lord-f4-telemetry-consume-gate2.md`; jack-ryan Gate-2 running.
 
 **Guard now (freeze re-scoped kit-side):** kit-side constants FROZEN; room-side UNFROZEN for calibration; bars/bands fixed (fit-direction); Leg C HELD until re-pilot returns + Matt rules its numbers; F-b held confirm-unneeded; F4-martial deferred kit-side.
 
