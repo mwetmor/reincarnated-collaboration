@@ -64,3 +64,40 @@ Document, in a math/design note, BEFORE touching config or code:
 - legolas genre metrology `legolas/findings/2026-07-07-arpg-genre-canon-encounter-metrology.md`
 - ADR-004 (MIGRATION if any cross-seam field surfaces), Discipline #1 (design-before-code), #1.1 (resource-bounds), #11 (attribution), #12 (semantic-shift — the instrument change extends the certification contract)
 - Run-state `batch2-run-state-2026-07-06.md` (the sequence this unblocks)
+
+---
+
+## Completion record — gamora, 2026-07-07 (Lane 1 BUILD complete)
+
+**Status:** COMPLETE — instrument built + build-smoke green + tagged + submitted to Gate-2. Bars NOT derived (Lane 3). No re-pilot. Constants FROZEN (unchanged).
+
+**Tag:** `gamora/v-batch2-gauntlet-four-family-instrument-1` (engine commit `8d45f95`) — **NOT pushed** (Matt-gated).
+**Math/design note (Discipline #1, committed FIRST):** `simulation/math/gauntlet-four-family-instrument-build-2026-07-07.md` (commit `657524a`).
+**Gate-2 submission:** `agentic_orchestration/qa/pending/2026-07-07-gamora-gauntlet-four-family-instrument-gate2-submission.md` (notes Lane-3 metrology depends on this landing).
+**MIGRATION:** `simulation/MIGRATION.md` v1.84 (F4 `escape_reached` + `continuous_spawned_total` fight-result fields + `mobs_killed` range semantic-shift → star-lord telemetry boundary).
+
+### Scope checklist (all items)
+- [x] Design/math note first (all bullets), committed before code (`657524a`).
+- [x] F1 `dense_cell` — NEW canonical, 16×22m, ~24 (20 trash + champion pack of 4). Per §3-F1.
+- [x] F1 variants — `chokepoint_corridor` re-populated 8→24 (funnel kept); `magic_pack` re-roled champion-pack variant, +trash to 24.
+- [x] F2 `open_arena` — re-dimensioned 50×50→36×36 AND re-populated 8→40 (28 trash + 3 rare packs). THE saturation repair. `elite_pack` kept as isolated-pack probe variant.
+- [x] F3 — `boss_with_adds` + `mini_boss` as-is; +2 timed add-waves on `boss_with_adds` (R5, t=80/160s; injection VERIFIED at runtime 3→7 mobs).
+- [x] F4 `escape_lane` — NEW canonical, 60×16m lane, continuous spawner (k=3/1s/cap50), champion-elevation ×2.0, `escape_reached` win at y≥58, fixed 60s window. Spawner FIRES + escape RESOLVES + ceiling LIFTED (pop 12→50).
+- [x] R4 — STR boss-shell carve-out RETIRED (`family_certification_pass` four-family gate; `gauntlet_pass` keeps legacy floor until Lane-3 bars, one-line flip is Lane 3's; comments demoted).
+- [x] §4 wall disposition — 300k-HP wall DEMOTED to diagnostic `open_arena_wall_diag` (not deleted); six existing rooms survive per §4 table.
+- [x] Compute-cost estimate — peak ~51 live entities on 8GB host, no bounds risk; full-instrument ~53min worst-case (Lane-3 planning; smoke-first).
+- [x] Smoke — BUILD smoke green (each family instantiates + runs a functional kit end-to-end without erroring). NOT a certification run.
+- [x] AGENT_STATE.md updated (SESSION 52).
+- [x] Tag `gamora/v-batch2-gauntlet-four-family-instrument-1`.
+- [x] Submit tagged commit to `qa/pending/` for jack-ryan Gate-2 (notes Lane-3 dependency).
+
+### Guardrails honored
+- Read §3 dims verbatim; invented no dimension. No §3 dim proved infeasible in-sim → no spec-amendment flag raised.
+- NO bar derivation, NO re-pilot, NO F-fork adjudication, NO constant changes (verified `SPATIAL_DAMAGE_SCALE`/`MOB_HP_DIFFICULTY_MULTIPLIER`/KPM bands byte-unchanged).
+- Cross-seam field surfaced (F4 `escape_reached`/`continuous_spawned_total` + `mobs_killed` range) → MIGRATION.md v1.84 written + flagged to star-lord.
+- Discipline #12 semantic-shifts framed (R4 contract / open_arena re-base / mobs_killed range) → routed to jack-ryan decisions-log.
+- Regression: 254 tests pass across 8 spatial suites; 2 tests updated to the new instrument (magic_pack 4→24, open_arena mob-dict helper).
+
+**Empirical criterion gating Lane 3:** the four family arenas exist + register + run a functional kit (this build, smoke-verified) → jack-ryan derives per-family bars on them (spec §6). Then the paused Step-3 re-pilot resumes.
+
+**Signed:** gamora, 2026-07-07 — the four beats are four rooms; the carve-out retired; the bars are Lane 3's.
