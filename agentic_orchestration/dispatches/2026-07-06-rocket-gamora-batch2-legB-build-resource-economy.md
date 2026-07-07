@@ -75,4 +75,21 @@ Additive-only; sibling of `t4_cost_resource`. Default corner `{1.0,"flat","flat"
 ---
 
 ## Completion record
-<!-- rocket + gamora append on completion -->
+
+### rocket (EMIT side) — COMPLETE 2026-07-06 — tag `rocket/v-batch2-legB-economy-emit-1` (engine `9eca04c`), NO push
+
+- **Frozen `resource_economy` dict emitted** (exact contract, no drift): both boundaries carry it, KEY ALWAYS PRESENT.
+  - **EMIT SITE (pilot production boundary):** `season_generation_pipeline.py:533` (`KitCandidate.to_character_dict`; dataclass field `:424`), sibling of `proxies`.
+  - **EMIT SITE (contract parity):** `bc_target_player_class.py:428` (`PlayerClassV2.to_dict`; field `:332`), mirrors the `proxies` two-path contract.
+- **Sampler module (rocket-owned):** `generation/resource_economy.py` — `sample_resource_economy(base_seed, samples_per_stratum=4)` (`:124`) = LHS-within-6-strata (6 strata = cost_slope×regen_shape; 3-col LHS, 4-col in on_kill; ~24/cell). Deterministic + salted `ECONOMY_SALT_BASE=1_800_000` (`:64`, disjoint from Leg-1). Also owns `DEFAULT_RESOURCE_ECONOMY` (`:50`, the C4 anchor) + `COST_SLOPE_BETA=0.25`.
+  - **Pilot driver requests it (star-lord, downstream, after Gate-2):** `sample_resource_economy(base_seed, samples_per_stratum)` → ~24 frozen dicts per cell; attach each to a kit loadout pre-fight. `DEFAULT_RESOURCE_ECONOMY` is the named regression anchor. Pure function — no fights, no sim touch.
+- **C4 default-corner byte-reproduction: VERIFIED (emit side).** `{1.0,"flat","flat",1.0,0.0,0.0,1.0}` == `DEFAULT_RESOURCE_ECONOMY` on emit (smoke E2 GREEN); it is the IDENTITY element of every sim scaling op → sim scaling is a no-op → chassis reproduced. Sim-side 0.0-KPM HARD ASSERTION is gamora's against this emit.
+- **Smoke (Disc #2, EMIT half of C3):** `generation/notes/legB_economy_emit_smoke_2026_07_06.py` ALL GREEN (E1/E2/E3/E4). Regression: Leg-1 smoke GREEN; subspace 27 PASS; emitter/proxy/bundle/season-production 122 PASS.
+- **Math note (Disc #1, before code):** `generation/notes/legB-economy-emit-math-2026-07-06.md`.
+- **MIGRATION.md:** generation-declares half authored (`generation/MIGRATION.md` [2026-07-06] batch-2 Leg B entry); gamora appends the sim-consume half.
+- **Out of scope honored:** NO pilot fire, NO gauntlet, NO population emit-at-scale, NO sim-consume (spatial_engine untouched), NO 3 unreachable Axis-5 structural bins.
+- **Coordination-order answer (open question):** rocket emitted the frozen dict FIRST (parallel viable since contract frozen); gamora wires the reconciling sim-consume + owns the joint round-trip smoke against this landed emit. Sampler home = `generation/resource_economy.py` (rocket); pilot driver requests via `sample_resource_economy()`.
+
+### gamora (sim-consume side) — pending
+<!-- gamora appends on completion of the sim-consume half -->
+
