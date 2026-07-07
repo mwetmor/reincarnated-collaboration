@@ -546,3 +546,19 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 
 **Next (on Gate-2 PASS):** **leg-3** — rocket wires the emit assignment (`season_generation_pipeline.py:404-412`, still DDA slot) to call `route_primary_t4()` + runs the emission; owes Disc #1.1 resource/LLM-cost projection + the pre-existing `test_w3_emission_driver` smoke check. Leg-3 = the unblocking event for **star-lord Leg C re-fire** + **gamora summoner proxy-T4**.
 **ON MATT unchanged:** Q7 (drax body held) + 450MB telemetry.db blob.
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — leg-2 coordinated Gate-2 PASS (leg-2 CERTIFIED); leg-3 STEP-1 prep fired
+
+**Coordinated three-seam leg-2 Gate-2 → PASS-WITH-FOLLOWUPS** (jack-ryan, finding `qa/findings/2026-07-07-leg2-summoner-emission-route-coordinated-gate2.md`, `3bae44a`; 4 pending items archived incl. Phase-1 disposal; 2026-07-07 pending queue CLEAR). All 6 points verified vs SOURCE as a UNIT: (1) C2 single-source, no divergent copies (star-lord W0 local = bare alias; gamora/star-lord import); (2) C1 divergence CLOSED by construction (both sim sites call rocket's exact `route_primary_t4` w/ same `build_proxies_surface`; sim==emit, 3 MIGRATIONs cross-ref); (3) C3/C4 re-run GREEN (rocket 14/14, gamora S2 8/8); (4) validator both directions (115/115: admit-on-summoner / reject-on-empty-decl / ZONE_CONTROL reject); (5) cert-baseline byte-intact, emit path NOT wired (`season_generation_pipeline:404-412` still DDA) ⇒ leg-2 INERT pre-leg-3 (Disc #12); (6) 378 tests green across all three seams together. **NO BLOCK.** ⇒ **leg-2 three-seam machinery CERTIFIED.** Leg-3 readiness call: **GREEN.**
+
+**Leg-3 = a distinct Matt-gated phase.** jack-ryan explicit: leg-3 needs "its own dispatch + Gate-1 + **Matt authorization for the run**" (emission run = ADR-006 external/compute action + LLM-cost). **KR authored leg-3 dispatch** (`dispatches/2026-07-07-rocket-leg3-summoner-emission-wire-and-run.md`) STAGED:
+- **STEP 1 (prep, NO code/run — fires now):** emit-wiring design note (`season_generation_pipeline:404-412` DDA slot → `route_primary_t4()`) + **Disc #1.1 resource/LLM-cost projection (the artifact Matt authorizes the run against)** + `test_w3_emission_driver` root-cause (gating vs orthogonal) → Gate-1.
+- **STEP 2 (wire + run — fires ONLY on Matt run-auth + Gate-1 PASS):** land emit-wiring, run pilot emission (within projected envelope), measure §8-A1 bands, → Gate-2. **= unblocking event for star-lord Leg C + gamora summoner proxy-T4.**
+
+**rocket leg-3 STEP-1 FIRED** (`afca173ebc7fb5326`): design + projection + W3-root-cause → Gate-1. Reports the cost envelope to KR → KR relays to Matt for run-auth.
+
+**Two B4-scoped leg-2 followups (parked, NOT leg-3):** rocket `enforce_family_max_one` live-wiring before B4; then F-f test promotion.
+
+**ON MATT (now 3 items):** (i) **Q7** BoneMap-vs-GeneralSkeleton (drax body held); (ii) **450MB telemetry.db blob** disposition; (iii) **leg-3 emission-run authorization** — pending rocket's STEP-1 resource/LLM-cost projection (KR will relay it).
