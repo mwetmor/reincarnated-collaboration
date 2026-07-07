@@ -51,6 +51,8 @@ Before firing, document:
 - [ ] Q1 answered YES/NO with the measured numbers.
 - [ ] Q2 distribution reported.
 - [ ] Calibration target for the eventual re-pilot named = the two-shell structure (open_arena + chokepoint as separate gates — the C2 band shape), NEVER a whole-encounter median (finding §7.1 — don't re-fossilize).
+- [ ] **(Gate-1 condition 1) Clearing definition FROZEN as an explicit output artifact** — emit the exact clearing/kill definition used (fraction-of-wall vs absolute-kills-in-window, window seconds, metric) as a named field in the report so **step 3's re-pilot cites it VERBATIM**. Do not leave it implicit — an un-emitted definition is a soft loop that lets step 3 drift.
+- [ ] **(Gate-1 condition 2) Q1 metric normalization PINNED** — report RAW mobs-killed per fight AND any normalization applied; explicitly flag if a metric OTHER than absolute-kills-in-window is needed for caster-vs-martial comparability. (The original failure was a mob-count normalization mismatch — this prevents an accidental "YES" dressed over a "NO".)
 - [ ] Round-trip: not applicable because no cross-seam contract change (measurement fire only).
 
 ## Out of scope (explicit non-goals)

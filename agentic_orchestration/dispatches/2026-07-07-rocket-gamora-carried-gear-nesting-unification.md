@@ -26,8 +26,8 @@ Today this is masked because the pilot uses the un-nested builder. But gandalf f
 
 ## Math-before-code (Discipline #1)
 Not a math dispatch, but document BEFORE editing:
-- The canonical `carried_gear` shape decision (top-level vs nested) and WHY — the binding source (`:653`) is top-level and the combatant reader (`:893-901`) is top-level, so top-level is the lower-churn canonical target. Confirm and record.
-- Every current PRODUCER of a `carried_gear` dict (grep) and every CONSUMER (combatant read sites) — so the unification is exhaustive, not just the two known sites.
+- **(Gate-1 condition 3 — precision) The canonical shape decision, stated precisely so no THIRD shape is minted.** jack-ryan verified the wiring: `combatant.py:893-901` is a **3-key alias or-chain** that resolves the slot dict FIRST, then reads `spell_damage_modifier` off it — the decl bug is NOT a top-level key absence, it is an **extra `substrate_binding` nesting LEVEL** at `season_generation_pipeline.py:472`. **Canonical shape = the binding directly under the slot key** (matching `_build_real_player_class` at `:1604`). Fix the PRODUCER (`:472`) to match the pilot builder; do not touch the reader.
+- **(Gate-1 condition 4 — REQUIRED, not optional) Enumerate EVERY consumer of the nested `substrate_binding` wrapper before editing `:472`.** jack-ryan already found TWO beyond the combatant read that read the nested wrapper TODAY and **WILL BREAK if `:472` is un-nested**: the reconstruction reader (`season_generation_pipeline.py:1885-1890`) and the substrate-field validator (`:2308-2322`). These MUST be reconciled to the canonical shape in the same change and round-tripped. Grep for any further `substrate_binding` readers and reconcile all.
 
 ## Cross-seam contract change? (Principle 6 gate — knight-rider completes this at authoring time)
 **YES.** `carried_gear` is a loadout-boundary dict crossing generation (rocket, `season_generation_pipeline.py`) → simulation (gamora, `combatant.py`). Unifying its shape modifies an inter-seam fixture dict.
@@ -36,9 +36,10 @@ Not a math dispatch, but document BEFORE editing:
 
 ## Scope
 - [ ] **Decide + document the canonical `carried_gear` shape** (top-level `main_weapon` → binding dict, per the source + reader — confirm).
-- [ ] **rocket:** unify the emission-decl producer (`season_generation_pipeline.py:472`) to the canonical shape (un-nest, matching `_build_real_player_class`).
-- [ ] **gamora:** confirm `combatant.py:893-901` reads the canonical shape correctly for BOTH producers; adjust the reader ONLY if the canonical shape decision requires it (prefer fixing the producer, not the reader, to match the already-correct pilot path).
-- [ ] **MIGRATION.md** at the generation→sim boundary (ADR-004).
+- [ ] **rocket:** unify the emission-decl producer (`season_generation_pipeline.py:472`) to the canonical shape (un-nest the extra `substrate_binding` level, matching `_build_real_player_class:1604`).
+- [ ] **(Gate-1 condition 4) rocket:** reconcile the TWO other nested-wrapper consumers that break on the un-nest — reconstruction reader (`season_generation_pipeline.py:1885-1890`) and substrate-field validator (`:2308-2322`) — to the canonical shape, in the SAME change, and round-trip them. Grep for any further `substrate_binding` readers and reconcile all.
+- [ ] **gamora:** confirm `combatant.py:893-901` reads the canonical shape correctly for BOTH producers; the reader is already correct — do NOT touch it (fix producers only).
+- [ ] **(Gate-1 condition 5) MIGRATION.md** at the generation→sim boundary (ADR-004) — **UPDATE the EXISTING `substrate_binding` entries in lockstep** (`generation/MIGRATION.md:287`, `simulation/MIGRATION.md:4126-4130`), not just append, or MIGRATION lies about the shape.
 - [ ] **Round-trip smoke** (below) — decl-built AND pilot-built combatants both read non-zero spell pool.
 - [ ] Emit-side + sim-side smoke GREEN; regression clean (the pilot path must NOT change behavior — it was already correct).
 - [ ] AGENT_STATE.md updated (both seams).
@@ -48,8 +49,9 @@ Not a math dispatch, but document BEFORE editing:
 - [ ] ONE canonical `carried_gear` shape produced by BOTH the decl path and the gauntlet/pilot builder.
 - [ ] Decl-built INT combatant reads non-zero `spell_damage_modifier` (was 0.0). Concrete regression proof of the fix.
 - [ ] Pilot/gauntlet-built combatant STILL reads the same non-zero value — NO regression on the already-correct path.
-- [ ] Round-trip smoke: decl player_class → carried_gear → combatant → non-zero spell pool for INT; pilot path unchanged. (Principle 6.)
-- [ ] MIGRATION.md written (generation→sim boundary).
+- [ ] **(Gate-1 condition 4) Reconstruction reader (`:1885-1890`) + substrate-field validator (`:2308-2322`) reconciled to the canonical shape and round-tripped** — proof they still resolve the binding after the un-nest.
+- [ ] Round-trip smoke: decl player_class → carried_gear → combatant → non-zero spell pool for INT; pilot path unchanged; reconstruction + validator paths still resolve. (Principle 6.)
+- [ ] MIGRATION.md written + EXISTING `substrate_binding` entries updated in lockstep (`generation/MIGRATION.md:287`, `simulation/MIGRATION.md:4126-4130`) (generation→sim boundary).
 
 ## Out of scope (explicit non-goals)
 - **NO constant changes** (BASE_SPELL, multipliers, SC-6b values) — this is pure shape unification.
