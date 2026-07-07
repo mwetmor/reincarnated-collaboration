@@ -224,9 +224,15 @@ Constants FROZEN; no further compute fires until the instrument is ruled.
 | Agent | Task | State |
 |---|---|---|
 | gamora | Step-3 redux: (A)+(C) channel fix + (B) 7-element wheel + lever sweeps (#24 F2-first protocol) + TTK-anomaly mechanism check + lived-channel stratified re-pilot + miss-taxonomy + caster-margin re-confirm + F4-martial measure-only + F-b closing read + docstring WARN fix + pilot_policy cert stamp. Dispatch `2026-07-07-gamora-step3-instrument-fix-lived-channel-repilot.md` (`97dc802`). Tag `gamora/v-batch2-step3-lived-channel-repilot-1` + Gate-2 | 🔥 running |
-| jack-ryan | decisions-log: (1) release Q11-Step3 instrument-fix decision; (2) ratify one-pilot-policy contract as 3rd law; (3) canonicalize `pilot_policy` version string + stamp bands; (4) record F4-martial pilot-attribution-probe gate + GOAP-cut + utility-scorer-approved. Pattern-A (no dispatch file) | 🔥 running |
+| jack-ryan | decisions-log: (1) release Q11-Step3 instrument-fix decision; (2) ratify one-pilot-policy contract as 3rd law; (3) canonicalize `pilot_policy` version string + stamp bands; (4) record F4-martial pilot-attribution-probe gate + GOAP-cut + utility-scorer-approved. Pattern-A (no dispatch file) | ✅ DONE (`8607840`) — 4 entries in `design/decisions/decisions-log.md` (repo-root path); metrology note stamped |
 
 **⚑ rocket INFO owed (via KR, from jack-ryan Gate-2):** a zero-emit season-gen run is EXPECTED right now (R4 gate tightened; F4 band unregistered until the lived-channel re-pilot lands) — NOT a regression, no rocket schema/code action. Flag to rocket before any season-gen run.
+
+**jack-ryan decisions-log canon DONE (`8607840`) — 4 entries (all 2026-07-07, in `design/decisions/decisions-log.md` at repo root):**
+1. Q11-Step3 instrument-fix ruling (A mob-dict unification + sweep, C F4 dead-effect probe, B wheel-average cert, lever-b pre-registered mechanism check; §7-survival recorded; Gate-2 HOLD released).
+2. Third governing law: the one-pilot-policy contract (+ planned-re-derivation corollary; GOAP CUT, utility-scorer APPROVED, pack-spacing=balance-param — ratified-but-not-now).
+3. Canonical `pilot_policy` version stamp — **string = `pilot_policy=scripted-rotation-v1`** (fully-qualified: player=`_select_player_skill_v2` `spatial_engine.py:1335` + monster=`skill_rotation_priority` `spatial_engine.py:1190`, deterministic+seeded). **Bands stamped now** in the metrology note (header + §7). **gamora stamps certs with the short string `pilot_policy=scripted-rotation-v1`** (consumes it via the metrology note, her required reading — no dependency stall).
+4. F4-martial pilot-attribution-probe gate (pre-registered, deferred post-re-pilot).
 
 **Work-products:** math note `simulation/math/step3-mob-lethality-calibration-2026-07-07.md` · probe + `step3_probe.json` · R4 flip `gauntlet_sim.py:854` · MIGRATION v1.85 · Gate-2 submission `qa/pending/2026-07-07-gamora-step3-mob-lethality-calibration-r4-flip-gate2.md`.
 
