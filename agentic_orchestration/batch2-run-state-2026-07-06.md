@@ -13,8 +13,9 @@
 | A | economy-axes build (math-first) | rocket (+ gamora adjacency) | ✅ **DONE** — `legA-economy-axes-math-2026-07-06.md` (engine `ed6c349`) |
 | A-gate | Gate-1 on the axis math (critique pair + sim consult) | jack-ryan + gandalf + gamora | ✅ **RATIFY-WITH-CONDITIONS** (all three) |
 | B-build | wire the `resource_economy` loadout field (Route B) — cross-seam | rocket (emit) + gamora (consume) | ✅ **DONE** — emit `rocket/…-emit-1` (`9eca04c`) + consume `gamora/…-consume-1` (`7e1a5d1`); C3 round-trip GREEN, C4 default-corner 0.0-KPM CONFIRMED |
-| B-gate | Gate-2 on the cross-seam field | jack-ryan | ⏳ **IN FLIGHT** |
-| B-fire | economy pilot: 2–3 cells × ~25 LHS-within-strata; pre-registered GO/HALT | star-lord (fire) · gamora (read) | pending B-gate |
+| B-gate | Gate-2 on the cross-seam field | jack-ryan | ✅ **PASS-WITH-FOLLOWUPS** (`77e634b`) — re-ran all suites, no BLOCK |
+| B-sign-off | **ADR-002 cross-seam-schema sign-off on `resource_economy`** | **Matt** | ⛔ **GATE — awaiting Matt** (gates B-fire) |
+| B-fire | economy pilot: 2–3 cells × ~25 LHS-within-strata; pre-registered GO/HALT; PRODUCTION path | star-lord (fire) · gamora (read) | dispatch AUTHORED, gated on B-sign-off |
 | C | full fresh 18-roster emission, all axes live, detached ~12–15h | star-lord (gamora shells) | gates-on B-GO **+ Leg-C-entry gate below** |
 | close | batch-2 run report → elrond #18 consult | star-lord → elrond | pending C |
 
@@ -38,6 +39,16 @@
 - **gandalf G3 — categorical-shape findings stamped pilot-confidence** (~4 LHS points/stratum is directional; densification is Leg C's job).
 - **gamora carry-forwards:** (a) caster population is mana-default-only = the correct C2 instrument (build-spend economies deferred, separate rocket item); (b) **RUN PRECONDITION: `WIRE_RESOURCE_ECONOMY=True` must be asserted** — pilot fires inert if the flag is OFF (`spatial_engine.py:1221`); (c) Discipline #12 semantic-shift extends Phase-1; MIGRATION+round-trip with the B-build code.
 - **gamora file-location correction (Discipline #11):** the binding fight loop is `spatial_gauntlet/spatial_engine.py` (regen tick `:2407`, energy gate `:1213/:1244`, cast decrement `:2136/:2319`, kill flip `:1506-1508/:1519-1521`), NOT `combatant.py` kernel. rocket's cites were correct as kernel cites; the wiring lands in spatial_engine.
+
+## Gate-2 disposition (2026-07-06) — PASS-WITH-FOLLOWUPS (`77e634b`)
+
+jack-ryan re-ran all suites (Disc #11, didn't trust GREEN): consume 7/7, emit 4/4, pathb-1a 35/35, generation 266 (superset of claimed 122), no Leg-1 regression. C4 confirmed a genuine hard assertion (exit≠0 on failure; re-ran → 0.0 KPM both shells + byte-identical to no-key path). Production-path instrument fact sound + documented. No contract drift; `_validate` rejects extra/missing keys. **Escalates to Matt for ADR-002 cross-seam-schema sign-off — engineering is PASS, this is a tiered-approval gate, not a defect.**
+
+**Followups:**
+- **FU-1 (jack-ryan):** decisions-log continuity entry for the Disc-#12 semantic shift (KPM now varies with per-kit economy identity) — jack-ryan authors.
+- **FU-2 (star-lord pilot dispatch):** carry `assert WIRE_RESOURCE_ECONOMY is True` onto the PILOT run path (currently asserted in build smoke only) — **folded into the B-fire dispatch.**
+- **FU-3 (rocket/gamora, cosmetic):** stale MIGRATION `file:line`s (read `:2694`→`:2780`; flips `:1506/:1519`→`:1536/:1550`) — code correct, citations drifted; batch on next touch.
+- **FU-4 (optional):** add no-key==default byte-identity check to the smoke.
 
 ## Leg-C-entry gate (auto-continue is no longer blind)
 
