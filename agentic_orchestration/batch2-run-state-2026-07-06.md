@@ -124,9 +124,19 @@ Matt ruled the instrument-design fork: **"Ratify R1–R5 as drafted, assuming no
 **Three-lane fire order (dispatches authored 2026-07-07):**
 | Lane | Owner | Task | State |
 |---|---|---|---|
-| 1 | gamora | feasibility pass + build the four family configs + R4 carve-out retire + wall→diagnostic + cost estimate | 🔥 **FIRE NOW** — `dispatches/2026-07-07-gamora-gauntlet-four-family-instrument-build.md`; tag + Gate-2 |
+| 1 | gamora | feasibility pass + build the four family configs + R4 carve-out retire + wall→diagnostic + cost estimate | ✅ **BUILD DONE** (engine `8d45f95`, math note `657524a` before code, tag `gamora/v-batch2-gauntlet-four-family-instrument-1`; NOT pushed, Matt-gated). **→ Gate-2 FIRED (jack-ryan).** See result below |
 | 2 | drax | perf-contingency spike (F2 ~40 + F4 continuous under Camera B vs 60-FPS floor, min-spec + mobile) — compose w/ pre-D7 horde spike + non-gating §7 camera-verify | ✅ **DONE — PASS** (godot `ba5547d`, tag intent `drax/v-godot-perf-contingency-spike-1`; NOT pushed, Matt-gated). See result below |
 | 3 | jack-ryan | §6 metrology pass — derive bars on new instrument vs legolas genre bands + saturation guards + re-run martial/caster distributions + decisions-log registration | ⛔ **GATED on Lane 1** — `dispatches/2026-07-07-jack-ryan-gauntlet-metrology-pass.md`; triggers on Lane-1 Gate-2 PASS. ⚑ resolve the F2 camera-verify ±20% amendment (gandalf) in the window BEFORE this fires |
+
+### Lane 1 RESULT (gamora, 2026-07-07) — BUILD DONE; Gate-2 in flight
+
+- **Instrument built at spec §3 dims/populations.** F1 `dense_cell` NEW 16×22m/~24 (20 trash + champion pack of 4); `chokepoint_corridor` re-pop 8→24 (funnel kept); `magic_pack` re-roled champion-pack variant. **F2 `open_arena` re-dimensioned 50×50→36×36 + re-pop 8→40** (28 trash + 3 rare packs — the saturation repair). F3 `boss_with_adds` +2 timed add-waves (R5; injection verified 3→7 mobs at runtime). F4 `escape_lane` NEW 60×16m, continuous spawner (k=3/1s/cap50, seeded-deterministic), champion-elevation ×2.0, `escape_reached` win — population grows 12→50, the 8-mob no-respawn ceiling LIFTED by construction.
+- **R4:** STR boss-shell carve-out RETIRED via new `family_certification_pass` (four-family gate). `gauntlet_pass` keeps the legacy floor until Lane-3 bars — the one-line flip is Lane 3's (confirm staging at Gate-2).
+- **§4:** wall demoted to diagnostic `open_arena_wall_diag` (not deleted); six existing rooms survive.
+- **Cross-seam (MIGRATION v1.84 → star-lord):** F4 fight-result fields `escape_reached` + `continuous_spawned_total` (claimed additive/brownfield-safe) + `mobs_killed` range semantic-shift. **Gate-2 verifies whether star-lord must consume before safe.**
+- **Guardrails:** §3 dims read verbatim (no invented dims, no infeasibility→no spec-amendment flag); NO bar derivation; NO constant changes (byte-unchanged verified); build-smoke = "does-the-room-work" not certification. `mobs_killed=0` in smoke = fixture-DPS artifact (reproduces on known-good rooms) → Lane-3 concern, not a room defect (Gate-2 to assess). Compute (Disc #1.1): peak ~51 live entities on 8GB host, no bounds risk. Regression: 254 tests / 8 spatial suites pass, 2 updated.
+- **Discipline #12 semantic-shifts** (R4 contract / open_arena re-base / mobs_killed range) routed to jack-ryan decisions-log.
+- **→ Gate-2 FIRED (jack-ryan, scoped Gate-2 ONLY — Lane 3 held for the gandalf ±20% amendment).** Submission `qa/pending/2026-07-07-gamora-gauntlet-four-family-instrument-gate2-submission.md`.
 
 ### Lane 2 RESULT (drax, 2026-07-07) — PASS; Q11 re-open trigger NOT tripped
 
