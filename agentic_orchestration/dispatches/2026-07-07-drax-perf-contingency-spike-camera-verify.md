@@ -46,3 +46,28 @@ Matt ratified R1–R5 **"assuming no issues on monster count for godot game's pl
 - Spec `gauntlet-run-beat-families-spec.md` §3/§7 + STATUS contingency; fire order Lane 2
 - Q5 ruling (60-FPS floor, min-spec class) — the pre-D7 horde-density spike this composes with
 - Genre precedent: Diablo Immortal population-scale mobile density (MultiMesh/LOD path)
+
+---
+
+## Completion record — drax, 2026-07-07
+
+**Status:** DONE. Both tasks executed as scoped. Auto-committed to `reincarnated-godot` (`ba5547d`, tag intent `drax/v-godot-perf-contingency-spike-1`); NOT pushed (Matt-gated). Full detail in `reincarnated-godot/AGENT_STATE.md` (2026-07-07 entry).
+
+### (a) PERF SPIKE — DETERMINATION: PASS vs the 60-FPS floor · Q11 RE-OPEN TRIGGER NOT TRIPPED
+Rendered real Synty-class DarkFantasy character meshes (~6520-tri bodies) under Camera B (FOV 40 / pitch −55° / yaw 47° / dist 34m), windowed Metal / Forward+ / vsync-off, across three scenarios:
+
+| Scenario | Concurrent | Arena | render-CPU submit (median) | draw calls | primitives (tris) |
+|---|---|---|---|---|---|
+| F2 open-field | 40 (34 MM + 6 individuated) | 36×36m | 0.389 ms | 45 | 111,876 |
+| F4 escape-lane | 50 engaged (40 + 10) | 16×60m lane | 0.438 ms | 75 | 190,136 |
+| combo worst-case | 72 (streaming-tail backlog) | 16×60m | 0.396 ms | 91 | 228,224 |
+
+The load-bearing evidence is the GEOMETRY LOAD: 112K–228K tris / 45–91 draw calls is ~1–2% of a GTX-1650's per-frame budget (a 1650 sustains millions of tris + hundreds of draw calls at 60fps; genre ships 5–10× this). Even pessimistic 3.0× extrapolation of the render-CPU signal clears 60 FPS with >600 eq-FPS on all three. Mobile-class read (5.0×, 1080p-equiv): ~2.0–2.7 ms render slice → ~380–510 eq-FPS band, before the Diablo-Immortal res/LOD lever. **§3 densities are render-feasible as-drafted; no shrink; jack-ryan Lane-3 bars derive on the ratified populations.** Composed with the pre-D7 horde-density spike (one spike, two customers — the escape-density sim-loop baseline covers the CPU slice, this covers the render slice).
+
+**Honest limitation carried (perf §7):** Godot 4.6.3's Metal backend does NOT populate per-viewport GPU render time (returns 0, verified under a 2000-object probe). Verdict rests on geometry-load feasibility + render-CPU submission, NOT a Mac GPU-ms figure. Absolute GPU-ms certification remains Gate B on a real GTX-1650 (`canonical/matt_to_do/` T2) before Next Fest. This spike answered the CONTINGENCY (is the density plausibly feasible? YES), not the CERT question.
+
+### (b) CAMERA-VERIFY — MEASURED footprint runs WIDER than the spec §7 estimate → ±20% dim FLAG (not applied)
+Measured (4 screen-corner rays → y=0 plane, pure geometry): eye height 29.1m; NEAR-edge width 40.6m · FAR-edge width 68.4m (foreshortened) · total floor DEPTH span 36.5m · **LEGIBLE-BAND width at aim depth ~48.9m.** Spec §7 estimate was ~28–35m wide × 20–26m deep — **the measured legible width (~49m) is OUTSIDE (wider than) the estimate band.** F2's 36m spec width FITS inside the ~49m legible band (no clip). **FLAGGED to KR→gandalf as a candidate ±20% spec amendment (R2), NOT applied** — one-spatial-contract law: drax reports the number, gandalf owns the spec, both consumers re-point on acceptance.
+
+### Guardrails honored
+Measurement-and-report only. No Godot floor authoring / D6 build (Q7-gated). No engine change (no `reincarnated-engine/` file read/modified/run). No sim work. No unilateral spec-dim change (the camera-verify finding is flagged up, not applied). Fired independent of gamora Lane-1. Both findings routed UP (camera-verify → gandalf; the Metal GPU-timer gap is a Godot-engine-of-record note for Gate B, not a reincarnated-engine bug). No `// TODO(drax)` debt.
