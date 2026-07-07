@@ -160,7 +160,23 @@ F2 stays **36×36m** (no widen). Measured anchor (~48.9m legible × 36.5m deep) 
 
 **Work-products (`e1f12b8`, main):** `simulation/math/gauntlet-four-family-metrology-2026-07-07.md` (bands→bars + guards + re-run §7) · `simulation/gauntlet_four_family_metrology_driver.py` · `output/gauntlet_four_family_metrology/metrology_report.json` · `design/decisions/decisions-log.md`.
 
-**⚑ MATT DECISION POINT (guard: "no F-fork adjudication until new-instrument bars land + Matt ruling" — bars have NOW landed):** Step 3 (stratified re-pilot) is ready to resume, but its SHAPE changed — it is now a **mob-lethality calibration** to exercise the WR bands, not an F-b-premium sizing exercise (F-b looks increasingly unneeded). **Awaiting Matt: rule the Step-3 direction + go.** Until then: Leg C HELD, constants FROZEN, no F-fork adjudication, R4 flip + star-lord MIGRATION queued.
+**⚑ MATT DECISION POINT — ✅ RULED 2026-07-07: GO on reshaped Step 3** (mob-lethality calibration + stratified caster+martial re-pilot vs the new bars). F-b held confirm-unneeded — the re-pilot IS its closing criterion (parity beyond the 2-cell caster sample ⇒ F-b retires to git). Three riders + two precisions folded verbatim into the gamora dispatch.
+
+### Step 3 GO (Matt 2026-07-07) — riders + precisions + 3-dispatch fan-out
+
+**Riders (binding):** (1) pre-registered calibration split by knob — (a) mob damage UP → F2 WR 0.85–0.95 + F3 WR 0.60–0.80; (b) F3 boss HP → boss TTK 15–90s (6000 was placeholder); reference pop = stratified pilot pop (both paths, template-stratified per seventh-entry finding), never curated subset; bands/bars do NOT move (fit-direction one layer down). (2) F4-martial stays OUT of room-calibration bucket = the KIT finding; MEASURED in re-pilot, disposition kit-side (AOE/cleave), NOT fired in Step 3. (3) miss-taxonomy split under-floor/over-ceiling/WR-side; floor = hard cert line; **ceiling = OVERPOWERED flag → balance review, NOT auto-fail** (matches F3 overpowered-flag + doc-50 bounded-viability).
+**Precisions (binding):** (1) **FREEZE SPLITS** — kit-side chassis constants (BASE_PHYSICAL/SPELL_DAMAGE_L50 + kin, 2.3384× fossil) remain FROZEN (Matt rules after re-pilot numbers land); room-side mob constants (damage scalars, boss HP, MOB_HP_DIFFICULTY_MULTIPLIER-class) explicitly UNFROZEN for the calibration (the unfreeze IS the point of Step 3). (2) the two queued flags fire with this go.
+
+**3 dispatches FIRED in parallel 2026-07-07:**
+| Dispatch | Owner | Scope | State |
+|---|---|---|---|
+| `2026-07-07-gamora-step3-mob-lethality-calibration-stratified-repilot.md` | gamora | 2-lever calibration + stratified re-pilot + miss-taxonomy report + F4-martial measure-only + **R4 ship-gate flip** (`gauntlet_pass`→`family_certification_pass`) + F-b parity read | 🔥 running; tag + Gate-2 |
+| `2026-07-07-star-lord-f4-telemetry-migration-consume.md` | star-lord | MIGRATION v1.84 CONSUME — persist `escape_reached`+`continuous_spawned_total`, scope-relax `mobs_killed` invariant (F4 continuous), round-trip smoke | 🔥 running (parallel, independent); tag + Gate-2 |
+| jack-ryan (Pattern-A, no dispatch file) | jack-ryan | Rider-3 semantics registration (decisions-log) + **Disc-#24 methodology check** on the F3 two-knob coupling (report FAST if confounded so KR relays to gamora before she tunes) | 🔥 running (parallel) |
+
+**#24 hotspot:** lever (a) mob damage + lever (b) F3 boss HP BOTH touch F3 (damage→WR, HP→TTK, HP secondary WR). gamora math-note pre-registers sweep isolation w/ STOP-and-flag; jack-ryan parallel-checks; gamora's math-note is the checkpoint before tuning.
+
+**Guard now (freeze re-scoped kit-side):** kit-side constants FROZEN; room-side UNFROZEN for calibration; bars/bands fixed (fit-direction); Leg C HELD until re-pilot returns + Matt rules its numbers; F-b held confirm-unneeded; F4-martial deferred kit-side.
 
 ### Lane 1 RESULT (gamora, 2026-07-07) — BUILD DONE; Gate-2 PASS
 
