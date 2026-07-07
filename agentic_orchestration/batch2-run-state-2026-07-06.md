@@ -209,6 +209,25 @@ Constants FROZEN; no further compute fires until the instrument is ruled.
 - **Fix concerns that VALIDATE gamora's ruling-asks:** **(B)** `emit_skills_for_threat_tier("boss",...)` **REJECTS `physical`** — signature_element must be one of the 7 rotating elements → the genre-neutral choice is a genuine per-run parameter needing a ruling. **(C)** the F4 continuous-spawn fodder path was NOT probed, may share the dead-effect defect → must be checked before the full re-pilot (ties to the F4 caster-margin caveat).
 - **jack-ryan is HOLDING the decisions-log Q11-Step3 entry pending Matt's ruling** (so it records the DECISION, not just the flag).
 
+### ⚑ Matt instrument-fix ruling + canon directives (2026-07-07) — Step-3 redux FIRED
+
+**Instrument-fix ruling (VERBATIM):** "Authorize A and C. B: deterministic within-kit rotation across the full 7-element wheel — every kit faces the identical seeded element schedule; certification judged on the wheel average; worst-element recorded as a diagnostic flag, not a gate. Pre-register the lever-(b) TTK-saturation anomaly for a mechanism check post-fix."
+- **(A) authorized** — source both mob-dict builders from `emit_skills_for_threat_tier` + sweep. **(C) authorized** — F4-fodder dead-effect check. **(B) ruled** — 7-element wheel, kit-invariant seeded schedule, cert on WHEEL AVERAGE, worst-element = diagnostic-flag-not-gate. **TTK-saturation anomaly** pre-registered for a falsifiable post-fix mechanism check.
+
+**Canon directives (VERBATIM):** "ratify the one-pilot-policy contract (gandalf's 2026-07-07 recognition note) as canon — jack-ryan adds it to the decisions-log beside the two laws; stamp all derived bands/certs with pilot_policy version; GOAP is cut; utility-scorer direction approved for when the Godot combat layer scopes. F4-martial: pilot-attribution probe gates any kit-side design response post-re-pilot."
+- **One-pilot-policy contract RATIFIED as the THIRD governing law** (beside fit-direction + one-spatial-contract): pilot policy authored ONCE, deterministic+seeded, consumed by BOTH sim gauntlet + Godot combat layer; human-feel diffs are registered degradations of the same policy, never a second policy; planned-re-derivation corollary on ship-pilot upgrade. Source note `gandalf/notes/2026-07-07-pilot-policy-contract-recognition.md`.
+- **`pilot_policy` version stamp** on all derived bands + certs (traceability; policy upgrade → registered re-derivation). jack-ryan canonicalizes the version string; gamora stamps certs with it.
+- **GOAP CUT entirely** (not reserved for bosses). **Utility-scorer-over-kit-axes APPROVED** for when the Godot combat layer scopes (future spec-work, un-parks then; scripted rotation adequate now). Pack-spacing = balance parameter.
+- **F4-martial pilot-attribution-probe GATE:** no kit-side martial (AOE/cleave) response fires until a pilot-attribution probe rules artifact-vs-defect. Pre-registered, deferred post-re-pilot.
+
+**Two parallel fires (2026-07-07):**
+| Agent | Task | State |
+|---|---|---|
+| gamora | Step-3 redux: (A)+(C) channel fix + (B) 7-element wheel + lever sweeps (#24 F2-first protocol) + TTK-anomaly mechanism check + lived-channel stratified re-pilot + miss-taxonomy + caster-margin re-confirm + F4-martial measure-only + F-b closing read + docstring WARN fix + pilot_policy cert stamp. Dispatch `2026-07-07-gamora-step3-instrument-fix-lived-channel-repilot.md` (`97dc802`). Tag `gamora/v-batch2-step3-lived-channel-repilot-1` + Gate-2 | 🔥 running |
+| jack-ryan | decisions-log: (1) release Q11-Step3 instrument-fix decision; (2) ratify one-pilot-policy contract as 3rd law; (3) canonicalize `pilot_policy` version string + stamp bands; (4) record F4-martial pilot-attribution-probe gate + GOAP-cut + utility-scorer-approved. Pattern-A (no dispatch file) | 🔥 running |
+
+**⚑ rocket INFO owed (via KR, from jack-ryan Gate-2):** a zero-emit season-gen run is EXPECTED right now (R4 gate tightened; F4 band unregistered until the lived-channel re-pilot lands) — NOT a regression, no rocket schema/code action. Flag to rocket before any season-gen run.
+
 **Work-products:** math note `simulation/math/step3-mob-lethality-calibration-2026-07-07.md` · probe + `step3_probe.json` · R4 flip `gauntlet_sim.py:854` · MIGRATION v1.85 · Gate-2 submission `qa/pending/2026-07-07-gamora-step3-mob-lethality-calibration-r4-flip-gate2.md`.
 
 ### star-lord F4-telemetry consume RESULT (2026-07-07) — DONE; Gate-2 FILED
