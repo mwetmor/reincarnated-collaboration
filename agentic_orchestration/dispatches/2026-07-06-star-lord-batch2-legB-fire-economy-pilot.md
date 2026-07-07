@@ -118,3 +118,18 @@ Per the pre-registered criteria (spec §3), the measured landscape is:
 GO/HALT verdict is gamora's read. Report path handed off above.
 
 <!-- gamora appends verdict below -->
+
+**gamora — 2026-07-06 — READ/REPORT COMPLETE**
+
+**VERDICT: HALT** (pre-registered, spec §3 — designed outcome, not a failure).
+
+- **0 / 25** plain-caster configs clear EITHER single-target shell solo; **0 / 25** clear both. No clearing point exists → contiguity moot. GO condition (i) not met.
+- **Sweep confirmed live** (all 3 anchors PASS): C4 default corner 0.0/0.0 KPM; production path `from_player_class`→bounded pool; FU-2 `WIRE_RESOURCE_ECONOMY` guard PASS.
+- **Measured landscape:** best open 1.0/9.90 (10.1% of floor, ~10x short); best choke 2.1/11.65 (18.0% of floor, ~5.5x short). Gradient is **STEEP-but-SHORT** — economy levers have grip (reorder 0→2.1 KPM) but the whole axis' travel is ~1–2 KPM against a ~10–12 KPM floor. Economy cannot close a 10x gap. **Structural-honesty-clause prediction CONFIRMED.**
+- **Economy-identity (Axis-5, pilot-confidence):** warm-up/ramping got closest (best config = ramping×flat); builder-spender/on_kill is dead-floor on both shells (chicken-and-egg kill-bootstrap failure); cheap-sustained/flat sits mid. Only warm-up gives a caster any footing — but even it is ~10x short.
+- **Summoner cell:** per-cohort measurement INTACT (Balanced/Hybrid scored separately, 25 distinct econ_keys, no bucket collapse); certification machinery instrument-ready. Solo KPM ~1–2 (non-disqualifying per C2).
+- **Structural layer implicated:** single-target damage-vs-HP scaling / cast mechanics — NOT the economy layer, NOT band re-tune (Leg-4 prediction confirmed). Pack shells fine (3–4 KPM, economy-independent) vs single-target broken localizes the deficit to single-target throughput. Deeper structural work precedes any Leg-C 18-roster fire.
+
+**Full read:** `reincarnated-engine/src/reincarnated/simulation/notes/legB-economy-pilot-read-2026-07-06.md`.
+
+No re-fire, no re-emit, no code, no goalpost move. Escalates to Matt with the measured landscape per spec §3.
