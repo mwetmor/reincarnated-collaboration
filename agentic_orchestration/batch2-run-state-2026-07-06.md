@@ -452,3 +452,24 @@ Per-cohort bucket keys LIVE: `_econ_key()` encodes all 7 fields as stable string
 - **leg-2 routing code + star-lord validator-widen** — fire AFTER Gate-1 passes (co-dispatch, MIGRATION lockstep) → leg-3 emission → unblocks star-lord Leg C + gamora summoner proxy-T4.
 
 **ON MATT (2 items):** (i) **Q7** BoneMap-vs-GeneralSkeleton (drax recommends Option A; drax demo body D6/D5/D8 HELD behind this — his same-session ruling); (ii) **450MB telemetry.db blob** disposition (gitignore+seed recommended).
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — rocket returned; gamora + jack-ryan-Gate-1 returned
+
+**rocket (`a389f472`) DONE — both deliverables:**
+1. **DoF-A `focus` field LANDED** `1af6889` (tag `rocket/v-batch2-dof-a-focus-field-1`): additive `energy_type="focus"` on all 3 `DemoSummonerSpec` necromancer fixtures + exported read accessors `demo_summoner_energy_type(kit_id)` / `all_demo_summoner_energy_types()` (gamora reads → retires `_A3_ENERGY="charge_stack"`). doc-48 pop table UNTOUCHED; MIGRATION line written; 262 tests PASS. **= gamora A3 unblocking event.**
+2. **leg-2 math note** `cbac6ed` (`generation/math/leg2-summoner-primary-t4-routing-math-2026-07-07.md`) + Gate-1 request filed. NO routing code (Gate-1-gated).
+
+**jack-ryan Gate-1 on leg-2 note → PASS-WITH-CONDITIONS** (finding `a5ebd17`; pending archived). All 5 dims clear vs SOURCE (predicate-P empty-decl no-op is an EXISTING passing test `w0_prereqs_smoke:207`; FROZEN 5-member value-set structural; band framing faithful to spec §4.5). **⚑ Verdict UPGRADED leg-2 to a THREE-SEAM lockstep — 4 conditions folded into the co-dispatch:**
+- **C1 (load-bearing):** gamora sites 2/3 (`gauntlet_sim.py:2267`, `unified_calibration_loop.py:3577`) re-derive `primary_t4` via old always-DDA `select_primary_t4` → summoner would EMIT proxy but SIMULATE DDA (divergence). gamora added as consume-side seam; MIGRATION must cross-ref her patch OR document a known-transient divergence window.
+- **C2:** freeze `ACCEPTED_PROXY_PRIMARY_T4` = {ASCENSION, SOVEREIGNTY, FISSION, CONVERGENCE, DUAL_PROXY} as ONE shared MIGRATION constant all 3 seams build against.
+- **C3:** $0 S2 byte-diff GREEN + CITED at Gate-2. **C4 (INFO):** S1 route-correctness unit case (bone→FISSION, crypt→SOVEREIGNTY under `focus`) cited at Gate-2.
+- Confirmed: F-f stays structurally unreachable through the summoner route (ZONE_CONTROL isolated) — B4-scoped disposition correct; no decisions-log conflict.
+
+Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora consume-side leg + Gate-1 conditions section + gamora scope block + tag `gamora/v-batch2-primary-t4-consume-widen-1`.
+
+**KR sequencing (updated):**
+- **gamora proxy-T4 A2+A3** (`aa5862005af8111bd`) — RUNNING; independent of leg-2. Fold its return first.
+- **leg-2 implementation = THREE-seam coordinated build** (rocket route + star-lord validator-widen + gamora consume-side) with C1–C3 folded — fires AFTER gamora's proxy-T4 pass returns (avoids double-booking gamora on the sim seam). → leg-3 emission → unblocks star-lord Leg C + gamora summoner proxy-T4.
+- **ON MATT unchanged:** Q7 (drax body held) + 450MB telemetry.db blob.

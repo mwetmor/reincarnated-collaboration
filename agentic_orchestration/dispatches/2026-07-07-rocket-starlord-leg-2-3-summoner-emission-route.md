@@ -1,7 +1,9 @@
 # Dispatch — 2026-07-07 — rocket ∥ star-lord — Gen-path legs 2-3: summoner emission-route (primary_t4 proxy-family routing + DDA-lock validator widen)
 
 **From:** knight-rider
-**To:** rocket (generation seam — emit route) ∥ star-lord (export/telemetry seam — validator widen). **CO-DISPATCH — coordinated MIGRATION lockstep required.**
+**To:** rocket (generation seam — emit route) ∥ star-lord (export/telemetry seam — validator widen) ∥ **gamora (simulation seam — consume-side re-derive sites, added at Gate-1 C1)**. **CO-DISPATCH — coordinated THREE-SEAM MIGRATION lockstep required.**
+
+> **⚑ GATE-1 STATUS: PASS-WITH-CONDITIONS (jack-ryan, finding `a5ebd17`, 2026-07-07).** Routing code proceeds once C1–C3 (below) are folded. The verdict UPGRADED this from a two-seam to a THREE-seam lockstep — see "Gate-1 conditions" section.
 **Approved by:** Matt 2026-07-07 (arc-close batch, Item 1 lane: "rocket: gen-path legs 2–3 (summoner emission path)"). This dispatch is the KR-owed scoping brief rocket's Phase-1 note (§5a) correctly refused to fire blind.
 **Estimated effort:** medium (rocket: routing change + math note + Gate-1; star-lord: validator widen + round-trip). Multi-hour, cross-seam certification path.
 **Acceptance:** a summoner kit (non-empty `proxy_decls`) emits a `primary_t4` carrying the highest-η **ratified proxy-family** member (ASCENSION / SOVEREIGNTY / FISSION per decl shape) instead of the hard-coded universal DDA; the DDA-locked emitter validator is widened to admit proxy-family `primary_t4` values without regressing the non-summoner DDA lock; both sides land in coordinated MIGRATION lockstep; leg-3 emission run produces pilot-ready summoner kits into the four-family instrument. **Leg-3 completion is the unblocking event for star-lord's Leg C re-fire + gamora's summoner proxy-T4 sim-eval** (Matt's Item 1).
@@ -20,7 +22,16 @@ rocket's B1-REBASE Phase-1 v3 note (`generation/math/proxy-t4-b1-rebase-phase1-v
 
 - **rocket (PRODUCE/route side):** the `select_primary_t4` → `select_proxy_t4` routing at `mechanic_alteration.py:1831`; the leg-2 math note; the leg-3 emission run. Do NOT touch star-lord's validator.
 - **star-lord (VALIDATE/emit side):** widen the DDA-locked emitter validator to admit proxy-family `primary_t4` values for proxy-bearing kits, WITHOUT loosening the DDA lock for non-summoner kits (the lock must still catch a stray non-DDA `primary_t4` on a kit with empty `proxy_decls`). Round-trip smoke required. Do NOT touch rocket's routing.
-- **Serialize the landing:** rocket's routing change is the PRODUCER; star-lord's validator-widen must admit what rocket emits. Coordinate the exact accepted value-set via a shared MIGRATION entry BEFORE either side tags. If rocket's math note reshapes the accepted set, star-lord's widen tracks it in lockstep.
+- **gamora (CONSUME/re-derive side — added at Gate-1 C1):** two sim sites re-derive `primary_t4` via the old always-DDA `select_primary_t4` today — `gauntlet_sim.py:2267` + `unified_calibration_loop.py:3577`. Without a matching consume-side patch, a summoner kit would **emit** a proxy member but be **simulated** as DDA (emitted-vs-simulated divergence — the leg's integrity failure). gamora routes these two sites through the same predicate P (or consumes the emitted `primary_t4` directly rather than re-deriving), so sim reflects the emitted kit. Do NOT touch rocket's emit route or star-lord's validator.
+- **Serialize the landing:** rocket's routing change is the PRODUCER; star-lord's validator-widen must admit what rocket emits; gamora's sim must simulate what rocket emits. Coordinate the exact accepted value-set via a shared MIGRATION entry (C2 constant) BEFORE any side tags. If rocket's math note reshapes the accepted set, star-lord's widen AND gamora's re-derive track it in lockstep.
+
+## Gate-1 conditions (jack-ryan PASS-WITH-CONDITIONS, `a5ebd17`) — FOLD before routing code lands
+
+- **C1 (load-bearing — the leg's integrity condition):** THREE-seam MIGRATION lockstep, not two. The MIGRATION must cross-ref gamora's consume-side patch of sites 2/3 (`gauntlet_sim.py:2267`, `unified_calibration_loop.py:3577`) — OR explicitly state a known-transient divergence window if gamora's patch is separately sequenced. A NAMED obligation is not a CAPTURED one; the divergence must be closed or documented, not just cited.
+- **C2:** freeze `ACCEPTED_PROXY_PRIMARY_T4` = `{PROXY_ASCENSION, PROXY_SOVEREIGNTY, PROXY_FISSION, PROXY_CONVERGENCE, DUAL_PROXY}` as a SINGLE shared MIGRATION constant all three seams build against (rather than three independent copies of the set).
+- **C3:** the `$0` S2 byte-diff (non-summoner population byte-identical off the route) must be GREEN and CITED at Gate-2 — not merely named as available.
+- **C4 (INFO):** add the S1 route-correctness unit case (bone→FISSION, crypt→SOVEREIGNTY under DoF-A `focus`) and cite at Gate-2.
+- **Confirmed at Gate-1 (no action):** F-f GEOMETRY max-1 stays structurally unreachable through the summoner route (ZONE_CONTROL isolated in `GEOMETRY_ZONE_STRATEGIES`) — rocket's "re-surface to KR as still-B4-scoped" disposition is correct. No decisions-log conflict (governed by the 2026-07-06 Matt Option-1/batch-2 authorization).
 
 ## Required reading before starting
 **rocket:**
@@ -63,6 +74,13 @@ rocket authors a leg-2 math note covering:
 - [ ] export/telemetry MIGRATION.md entry in lockstep with rocket's.
 - [ ] AGENT_STATE.md updated. Tag: `star-lord/v-batch2-dda-lock-validator-widen-1`.
 - [ ] Submit tagged commit to `qa/pending/` for jack-ryan Gate-2 (emit-boundary change).
+
+**gamora (consume-side, Gate-1 C1):**
+- [ ] Route sites 2/3 (`gauntlet_sim.py:2267`, `unified_calibration_loop.py:3577`) through predicate P (or consume the emitted `primary_t4` directly) so sim simulates what rocket emits — close the emitted-vs-simulated divergence.
+- [ ] Build against the shared `ACCEPTED_PROXY_PRIMARY_T4` constant (C2).
+- [ ] simulation MIGRATION.md entry in lockstep with rocket + star-lord.
+- [ ] AGENT_STATE.md updated. Tag: `gamora/v-batch2-primary-t4-consume-widen-1`.
+- [ ] Submit tagged commit to `qa/pending/` for jack-ryan Gate-2 (sim-consume of a changed emit contract).
 
 ## Out of scope (FROZEN / deferred / separate)
 - **NO kit-side chassis constant changes** (2.3384× fossil FROZEN).
