@@ -54,6 +54,16 @@ The ruled "full fresh 18-cell emission" (batch-2 spec §4) has **no code-level c
 
 The composer **already registers** the three structural bins as deferred (`_DEFERRED_ECON_BINS`) with HP-economy hard-infeasible citing LC-030. Under build-to-spec discipline (OP §3.7) a bare "deferred" flag is a gap-to-close; **the 2026-07-06 Axis-5 ruling converts these from drift-suspect deferrals into RULED reserved bins** (`reserved, empty-by-ruling`, batch-2 spec §8 R1 + derivation-stack F5 re-entry). The code flag and the canon row now agree — the un-drift is the point.
 
+## 6. APPENDED same-session — the 25→18 mapping RESOLVED (Matt Q: "which 7 are held out?")
+
+The W3 catalog is recorded (`canonical/matt_decision_needed/2026-07-03-w3-summoner-emission-structural-gap.md:60`): **fielded 18 = STR 4 / DEX 4 / INT 5 / WIS 5**, including all 9 none-density INT/WIS cells + Arcane-Familiar (light). Mapped onto the sampler roster:
+
+- **Fielded 18:** cells 1,2,3,4 · 6,7,8,9 · 12,13,14,15,**16** · 19,20,21,22,23 — 17 solo cells + Arcane-Familiar Mage (16, proxy-light).
+- **Held-out 7:** **5** Ancestor-Warrior (STR·light, pool-dup of 1) · **10** Falconer/Pet-Archer (DEX·light, pool-dup of 7) · **11** Trap Assassin (DEX·heavy) · **17** Necromancer Summoner (INT·heavy) · **18** Totem Hierophant (INT·heavy) · **24** Druid Beastmaster (WIS·heavy) · **25** Witch Doctor Petmaster (WIS·heavy).
+- **Pattern:** the holdout = ALL 5 proxy-heavy cells + the 2 pool-duplicate proxy-light variants — i.e., **the entire pet/minion dialect** (solo-only sim era). The "18" was never an arbitrary subset; it was the solo-fieldable catalog.
+
+**Design consequence (converges with jack-ryan C1, `batch2-run-state-2026-07-06.md:33`):** batch-2 CANNOT reuse that 18 — the summon gen-path (Leg-1) + C2 summoner band + one-realm summoner mandate exist precisely to field the held-out dialect. Ruled roster stays 18 (run math intact); the **emission catalog** widens to whatever the landed gen-path supports (rocket enumerates the supported subset of {5,10,11,17,18,24,25} at Leg-A Gate-1); "1:1" reads per C1 as *18 roster kits tiling 18 distinct cells, selected at shopping (step 7)*. Compute delta visible to Matt: +N cells × 100 kits. Spec C1 vocab fix lands with Matt's catalog-width pin — before Leg-B GO (D1 auto-continue must not fire Leg C on an unpinned catalog).
+
 ---
 
 **Signed:** gandalf, 2026-07-06 (ARCHITECT). The lattice describes; the partition prescribes; the population votes.
