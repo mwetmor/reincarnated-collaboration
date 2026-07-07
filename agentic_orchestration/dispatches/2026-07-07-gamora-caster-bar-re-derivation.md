@@ -76,4 +76,51 @@ Before firing, document:
 ---
 
 ## Completion record
+
+**gamora — 2026-07-07 — COMPLETE**
+
+**Metrology fire executed. Q1 = NO on both shells; the 9.90/11.65 bars were NEVER valid for the caster's instrument.**
+
+### Reproducibility
+- **Run ID:** `8e98a01d-84a7-4c80-afa8-356c34454e70`
+- **Seed base:** `63_000_000` (disjoint from pilot's 62M block)
+- **Engine SHA at run:** `6811239`
+- **Config:** 8 STR/DEX (martial) cells × 5 role-split templates × 2 shells × 10 fights = 80 records; DEFAULT economy; production `from_player_class` → bounded pool
+- **Wall time:** 14.8 s in-session (below the Discipline #19 detached threshold; canonical checkpoint written pre-gauntlet regardless)
+- **Driver:** `reincarnated-engine/src/reincarnated/simulation/martial_bar_rederivation_driver.py` (reuses `economy_pilot_driver._build_mob_dicts_calibrated` + the same kit-build/production fight path → BYTE-IDENTICAL wall to the pilot)
+- **Math note (Discipline #1, written BEFORE the fire):** `reincarnated-engine/src/reincarnated/simulation/math/caster-bar-rederivation-instrument-match-2026-07-07.md`
+- **Report note:** `reincarnated-engine/src/reincarnated/simulation/notes/caster-bar-rederivation-2026-07-07.md`
+- **Report JSON:** `reincarnated-engine/src/reincarnated/output/martial_bar_rederivation/martial_bar_rederivation_report.json`
+- **Tag:** `gamora/v-batch2-caster-bar-rederivation-1`
+
+### Q1 — pre-registered validity check ANSWERED (with numbers)
+
+| Shell | Bar under test | Martial MAX (mean-mobs-killed) | Metric ceiling | Q1 |
+|---|---|---|---|---|
+| open_arena | 9.90 | **8.0** | 8.0 | **NO** |
+| chokepoint_corridor | 11.65 | **8.0** | 8.0 | **NO** |
+
+The metric `mean_mobs_killed` is hard-capped at the spawn count 8 (`spatial_engine.py:2527,3262`; 8 spawns `arena.py:366-378,435-443`; no respawn). `8.0 < 9.90 < 11.65`. No martial, at any power, can reach the bars on an 8-mob no-respawn wall. Pre-registered arithmetic (math note §2-3) confirmed empirically. **The bars were never valid for this shell — that is the finding.**
+
+### Q2 — martial per-shell DISTRIBUTION (matched instrument, 40 kits/shell)
+
+| Shell | min | median | mean | max | spread |
+|---|---|---|---|---|---|
+| open_arena | 1.0 | **8.0** | 7.125 | **8.0** | 7.0 |
+| chokepoint_corridor | 2.2 | **8.0** | 7.288 | **8.0** | 5.8 |
+
+Distribution is **ceiling-saturated + bimodal**: 7/8 cells saturate the 8.0 ceiling (kill all 8) across ALL 5 role-split templates; 1 cell (`endgame_bc_melee_high_flat_dex_none`) floors at ~1 (open) / ~2-3 (choke) — a per-cell engagement stall vs the dispersed high-HP wall (the path-symmetric single-target throughput regime, ledger §2), not template/noise. Because the healthy martial mass is PINNED at the ceiling, this instrument cannot represent 9.90/11.65 at all.
+
+### Gate-1 conditions honored
+- **Condition 1 (clearing definition FROZEN):** emitted as the named `frozen_clearing_definition` field in the report JSON + report note §3 — metric = ABSOLUTE mean-mobs-killed, kind = absolute-kills-in-window, window = 120.0 s, ceiling = 8, no respawn, open 300k/choke 500k HP, dmod 0.3, production path. Includes a `NOTE_FOR_STEP3` directing the re-pilot to cite it verbatim and NOT compare against 9.90/11.65 as if reachable on 8 mobs.
+- **Condition 2 (Q1 normalization PINNED):** emitted as the named `q1_normalization_pin` field — RAW mean-mobs-killed, NO normalization; comparability flag states no metric other than absolute-kills-in-window is needed for caster-vs-martial comparability ON THIS SHELL, and explicitly guards against an accidental "YES" dressed over a "NO."
+
+### Were the bars valid for this shell?
+**NO.** Bar/instrument mismatch (metrology), not a caster-power defect, not a reason to move the C2 principle. **Corrected calibration target named = the two-shell structure** (open_arena + chokepoint as separate gates; NEVER boss_with_adds — finding §7.1). Flagged for step 4 (not actioned): because the martial mass saturates the 8.0 ceiling, a distribution-shaped sizing target with martial HEADROOM above the caster requires a higher-ceiling instrument (more spawns / respawn / a kills-per-minute RATE metric — a DIFFERENT metric) — a step-3/4 instrument-design decision, out of scope here.
+
+### Scope honored (HARD out-of-scope)
+NO constant change, NO bar edit, NO C2 principle change (NOT F-d), NO caster re-pilot (step 3), NO nesting-bug fix (parallel step-2 rocket — pilot/gauntlet path uses the un-nested builder, measurement valid as-is), NO boss_with_adds target, NO Axis-5 back-door. Round-trip: not applicable (measurement fire; no cross-seam contract change; the driver imports two read-only helper functions from `economy_pilot_driver.py` — a read, not a modification; no MIGRATION.md required).
+
+Auto-committed; NO push (Matt-gated).
+
 <!-- gamora appends on completion -->
