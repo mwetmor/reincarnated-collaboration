@@ -74,3 +74,28 @@ Not a math dispatch, but document BEFORE editing:
 
 ## Completion record
 <!-- rocket + gamora append on completion -->
+
+### rocket — 2026-07-07 — STOP-and-FLAG (no in-seam edit; re-scope to star-lord)
+
+**Outcome:** dispatch NOT executed as written. The named fix (`season_generation_pipeline.py:472` un-nest) is founded on a false premise. Flagging per OP §3.1 + the dispatch's own STOP clause. NO code change, NO tag, NO qa/pending submission (nothing to review — there is no correct in-seam edit).
+
+**Canonical-shape finding (Discipline #1 design-before-code, Discipline #11 empirical):** `gear_representative` and `carried_gear` are TWO DISTINCT structures with TWO DISTINCT correct shapes — NOT one dict at different nesting depths:
+- `gear_representative.main_weapon` = a full 10-field gear-slot entry (verified against actual phase2 JSON: `gear_instance_id, slot, rarity, partition_modifiers, capability_modifiers, t4_annotation, set_bonus, set_bonus_rank, is_unique, triggered_passive`), with the binding attached as sub-key `substrate_binding` BY DESIGN (to avoid colliding with the 10 slot fields). Nested-on-purpose.
+- `carried_gear.main_weapon` = the binding DIRECTLY (canonical, documented in `generation/MIGRATION.md:325` + `simulation/MIGRATION.md:4126-4130`; produced by pilot builder `:1604`; read by `combatant.py:893-901`).
+
+**All consumers enumerated (Gate-1 condition 4):**
+- `season_generation_pipeline.py:472` (producer) — CORRECT. Nests binding onto the gear-slot entry by design. Un-nesting would collide binding fields with slot fields and break downstream.
+- `season_generation_pipeline.py:1885-1890` (reconstruction reader) — CORRECT. This is the BRIDGE: pulls `substrate_binding` OUT of nested `gear_representative` → `KitCandidate.substrate_weapon_binding` (`:1926`) → `:1604` re-wraps FLAT into `carried_gear`. The JSON-decl → combatant round-trip already produces correct flat carried_gear.
+- `season_generation_pipeline.py:2308-2322` (validator) — CORRECT. Validates the nested `gear_representative.main_weapon.substrate_binding` (11+ fields) — the right structure to validate.
+- `export/cycle14_unified_bundle_emitters.py:545,571` (weapon-descriptor emitter, STAR-LORD seam) — reads BOTH `.get("substrate_binding")` AND slot-level `.get("gear_instance_id")`. Would BREAK on an un-nest. Not named in the dispatch; found by grep.
+- `combatant.py:893-901` (reader, gamora seam) — CORRECT (per dispatch). Untouched.
+
+**The ACTUAL defect (star-lord's `export/` seam):** `export/cycle13_normal_season_export.py:367-378` `_derive_carried_gear(char_data)` returns the whole nested `gear_representative` verbatim as `carried_gear` → persisted to `classes.carried_gear` TEXT (`recorder.py:1211-1222`) → read back (`season_exporter.py:725`) → combatant reads `.get("main_weapon")` = slot dict → `.get("spell_damage_modifier")` = absent → **0.0**. Fix = flatten `main_weapon.substrate_binding` up to `carried_gear["main_weapon"]` in that ONE export function, matching `:1604`.
+
+**MIGRATION:** no lockstep edit needed. `generation/MIGRATION.md:325` + `simulation/MIGRATION.md:4126-4130` already document the two-shape contract accurately (`carried_gear` = flat `{"main_weapon": ...}`; `gear_representative` = nested slot-entry + `substrate_binding` sub-key). If anything, star-lord adds a note that `_derive_carried_gear` must flatten.
+
+**Inversion finding:** unaffected by this shape issue; remains a later design fork (gandalf §8.2/§8.4). Not acted on.
+
+**Artifacts:** design note `agentic_orchestration/rocket/notes/2026-07-07-carried-gear-nesting-STOP-flag.md` (commit `b3e5658`, collaboration repo); AGENT_STATE checkpoint (commit `6811239`, engine repo). Routed to knight-rider for re-scope to star-lord.
+
+**Recommendation to knight-rider:** re-scope the fix to star-lord — `export/cycle13_normal_season_export.py:_derive_carried_gear` transforms nested `gear_representative.main_weapon.substrate_binding` → flat `carried_gear["main_weapon"]`; round-trip smoke: DECL char JSON → `_derive_carried_gear` → combatant reads non-zero `spell_damage_modifier` for INT; pilot path unchanged. gamora's confirm-only role stands (reader is correct).
