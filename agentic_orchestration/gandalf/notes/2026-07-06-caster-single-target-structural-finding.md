@@ -69,6 +69,12 @@ One scalar (2.3384) carries what should be a small **path × geometry-class matr
 
 Output = multiplier ledger table → F-b/F-c sizing is then arithmetic; re-pilot validates; Leg C fires only after GO on the re-pilot.
 
+## 7. APPENDED same-session — two constraints carried into the fix build (pushed unprompted; Matt invited)
+
+1. **Calibration-target discipline — don't re-fossilize.** The root failure mode was not the 2.3384 value; it was calibrating a flat constant against a **single encounter mix** (boss_with_adds whole-encounter KPM) that let a compensating channel hide a per-cast asymmetry. When F-b sizing fires, the calibration target MUST be the **two-shell floor structure** (open_arena + chokepoint, pack + wall as separate gates — the C2 band shape), never a whole-encounter median. If `unified_calibration_loop.py` still converges on boss_with_adds, the fix build re-targets it before any constant moves. Otherwise we mint a new flat scalar with a new hidden subsidy and meet this HALT again in a different costume.
+
+2. **Size to the martial DISTRIBUTION, not the floor.** 9.90/11.65 is batch-1 martial-derived `bar_lo`. If F-b sizes casters to *just clear* it, the caster band becomes a floor-scraper population while martial kits distribute well above — and Leg C's caster-cell yield collapses far below martial's 38.9% (a yield surprise at 12–15h scale, exactly what the pilot discipline exists to prevent). Sizing target = the martial **median/distribution shape** on the same shells, floor as the gate it already is. The re-pilot's GO criterion should check yield-rate comparability, not bare floor-clearance existence.
+
 ---
 
 **Signed:** gandalf, 2026-07-06 (ARCHITECT). The weapon never left — it fossilized into a constant; the wall just removed the crowd it was hiding behind.
