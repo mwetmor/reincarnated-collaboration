@@ -77,6 +77,23 @@ jack-ryan re-ran all suites (Disc #11, didn't trust GREEN): consume 7/7, emit 4/
 - **Two flags:** (a) the 9.90 martial bar EXCEEDS the 8-mob cap (`spatial_engine.py:2527`, no respawn) → NOT measured on the same wall as the caster's 1.0; part of the nominal "4×" is a **units mismatch**; F-b must calibrate on the identical wall. (b) The 90% spell pool is the **scaffold default** — the pilot's DB binding may differ; reading the exact value needs a re-emit (out of spike scope); the ledger brackets both.
 - **CRITIQUE-PAIR CONTRADICTION:** gamora's ledger materially overturns gandalf's authored §1–§4 arithmetic + the F-b sizing basis. Steward (gandalf, finding author + F-b proposer) response pass warranted before Matt rules the fix fork. **Surfaced to Matt.**
 
+### Critique-pair CONVERGED (gandalf §8 CORRECTION, commit `9fb3467`) — 2026-07-06
+
+gandalf closed gamora's declared 0%→90% spell-pool bracket EMPIRICALLY (SC-6b enrichment LIVE: `weapon_sim_props` 2601/2601; INT avg 88.4% spell_damage_modifier, WIS 71.8, STR 7.3, DEX 5.2; the ~90% caster pool WAS live in the pilot via the un-nested gauntlet builder). **"43% per cast" RETRACTED**; true per-cast martial advantage ≈ **1.15–1.25×** (near-parity).
+
+- **Inversion finding:** post-Path-α the substrate weapon does NOTHING for martials (physical pool fed only by `gear_set`={} in pilot) and +88% for casters. Today's near-parity is an ACCIDENT of two opposing legacy asymmetries (fossil 2.3384× seed × caster-only weapon pool). Fragile — moves when SC-6b shifts, loot lands, or WIS cells pilot (71.8 vs INT 88.4 → WIS ~9% behind from pool alone). Eventual fix should collapse both into ONE principled path×geometry surface with the weapon pool as an explicit term.
+- **Reconciled defect stack (§8.3):** (1) bar/instrument mismatch [metrology]; (2) spatial/geometry single-target throughput, path-symmetric [design fork for Matt]; (3) composition (support_specialist draw) [sampling]; (4) residual damage asymmetry ~1.15–1.25× [F-b IF it survives re-measurement, sized to ~1.2× NOT 2.34×; F-c texture <3%]; (5) latent carried_gear nesting bug [wiring].
+
+### 5-step sequencing (both stewards aligned; Matt-relayed 2026-07-06/07)
+
+1. **Bar re-derivation** (gamora, metrology) — re-derive per-shell martial DISTRIBUTIONS on the instrument-matched Leg-B shells; pre-registered validity check (can martials reach 9.90 on the 8-mob dispersed wall?). NOT F-d. → dispatch `2026-07-07-gamora-caster-bar-re-derivation.md`. **Gate-1 RATIFY-WITH-CONDITIONS (jack-ryan, `70a6eab`); conditions folded (`c3444c4`); FIRED (background).**
+2. **carried_gear nesting unification** (rocket+gamora, cross-seam) — one shape both paths; decl un-nest + reconcile 2 other nested-wrapper consumers (`:1885-1890`, `:2308-2322`); MIGRATION lockstep. Independent of step 1 (pilot path unaffected). → dispatch `2026-07-07-rocket-gamora-carried-gear-nesting-unification.md`. **Gate-1 RATIFY-WITH-CORRECTION (conditions folded `c3444c4`); FIRED (background); code change → Gate-2 after tag.**
+3. **Stratified re-pilot** (gamora) — role-split templates pinned/stratified; economy sweep re-run vs re-derived bars; GO = yield-rate comparability vs martial (finding §7.2), NOT bare floor-clearance. **HELD — gates on step-1 re-derived bars.**
+4. **Residual assessment** — F-b sized to resolved ~1.2× ONLY if the gap survives re-measurement; F-c texture-only (<3%). **HELD — gates on step 3.**
+5. **Leg C stays HELD.** The spatial/geometry fork (single-target rotation vs dispersed wall, path-symmetric) → Matt design session AFTER re-measurement (empirical criterion: re-derived per-shell bars + stratified re-pilot ledger in hand).
+
+**Guard intact:** NO constants move until step 3 empirical output + Matt fix ruling. recognition→validate→commit.
+
 ## Leg-C-entry gate (auto-continue is no longer blind)
 
 Spec §8 D1 default = auto-continue Leg C on B-GO. Gate-1 added two Leg-C-gating findings that resolve **during the Leg-B window** (independent of the pilot fire):
