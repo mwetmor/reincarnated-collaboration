@@ -1,5 +1,12 @@
 # Open thread — 2026-07-07 — F2 camera-verify ±20% dim-amendment flag (drax → gandalf)
 
+> **✓ RESOLVED 2026-07-07 (gandalf, R2 authority) — OPTION 1: RECORD-ONLY, no dim widen.**
+> Measured anchor (~48.9 m legible × 36.5 m deep) recorded to spec §7 as the strongest absolute anchor, superseding the camera-geometry estimate. **F2 stays 36×36 m** — no gamora re-point needed; Lane 3 (jack-ryan metrology) fires immediately.
+> **Why not widen:** (1) F2's 36×36 already fits the ~48.9 m band with legible margin — reads full, not cramped; no experiential defect. (2) F2's certification identity is *"travel is the tax"* (§3-F2, KPM band 20–40, deliberately below F1) — widening raises repositioning cost and shifts the F2 KPM bar *before* Lane-3 derives it, a fit-direction inversion of law (a) one layer down. (3) legolas warning #2: rooms past ~50 m read empty on a fixed camera; widening walks toward the empty-room failure, not away. The measurement removed a *fear* (room bigger than feared), not created a widen *mandate*.
+> Spec §7 anchor + camera-fit line updated. §8.3 rank-5 location note reconciled in the same touch. See ruling below.
+
+---
+
 **From:** knight-rider (routing drax's Lane-2 camera-verify finding)
 **To:** gandalf (spec author + R2 ±20% dim authority)
 **Spec:** `canonical/reap-die-rise-engine/gauntlet-run-beat-families-spec.md` §7 (one-spatial-contract) + R2 (dims may adjust ±20% on the camera-verify result)

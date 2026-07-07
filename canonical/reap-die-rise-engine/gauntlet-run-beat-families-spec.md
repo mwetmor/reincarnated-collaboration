@@ -18,7 +18,7 @@
 ## 2. Unit + screen contract (law (b) groundwork)
 
 - **Meters, everywhere.** Sim `Arena(width_m=…)` and Godot (native meters) already share the unit. Genre conversions per legolas (HIGH unless noted): **1 D3 yard = 0.3 m** (NOT a real yard — the single most dangerous conversion trap; naive reading over-sizes rooms 3×) · PoE post-v3.22.1 = real meters · D2 = LOW confidence, use as qualitative only.
-- **Screen reference:** D3 visible playfield ≈ 36×36 m. Our locked camera (FOV 40 / pitch −55° / dist 34 m) ⇒ visible floor ≈ **28–35 m wide × 20–26 m deep** — *estimated from camera geometry, not yet engine-measured.* **Drax verification task (non-gating, cheap):** measure the actual visible footprint in the harness once; it becomes our strongest absolute anchor (legolas warning #3: no ARPG publishes room dims — community-inferred MED/LOW throughout; our own measured camera outranks them as an absolute).
+- **Screen reference:** D3 visible playfield ≈ 36×36 m. Our locked camera (FOV 40 / pitch −55° / yaw 47° / dist 34 m) ⇒ **MEASURED visible floor: near-edge width 40.6 m · legible-band width ~48.9 m · depth span 36.5 m** (drax harness verify, Camera B, 2026-07-07 — SUPERSEDES the prior camera-geometry estimate of ~28–35 m × 20–26 m). This is **our strongest absolute anchor** (legolas warning #3: no ARPG publishes room dims — community-inferred MED/LOW throughout; our own measured camera outranks them as an absolute). **Ruling (gandalf, R2 authority, 2026-07-07):** measurement RECORDED, no family dim widened. F2's 36×36 m sits inside the ~48.9 m legible band with margin (reads full, not cramped); widening toward the band would (a) raise F2's "travel is the tax" repositioning cost and shift its KPM bar before Lane-3 derives it — a fit-direction inversion (law (a), one layer down), and (b) walk toward legolas warning #2 (rooms past ~50 m read empty on a fixed camera). Record-only; all four family dims stand as ratified (R2 §108).
 - **"1-screen room" ≈ 24–30 m** on our camera. Boss arenas at 1–2 screens (25–50 m) — genre puts them SMALLER than designer instinct wants (legolas warning #2); rooms past ~50 m read empty on a fixed camera.
 
 ## 3. The four families
@@ -87,7 +87,7 @@ Nothing is deleted; the 300k-HP "wall" parametrization retires as a certificatio
 ## 7. One spatial contract (law (b) — the Godot half)
 
 - The §3 arena dims **are** the Godot room dims: F1 16×22 m · F2 36×36 m · F3 ~30 m · F4 60×16 m lane. drax's D6 three-beat floor authoring consumes these as the room-size grammar (§23.1's "room-size grammar = the pacing signal" now has genre-anchored numbers); the sim certifies kits on the literal geometry the player will stand in.
-- **Camera-fit check:** all four sit inside 1–2 screens of the locked camera (28–35 m visible width; F4's lane is multi-screen by length, single-screen by width — correct for a flight corridor). Boss arena deliberately NOT epic-huge (legolas warning #2).
+- **Camera-fit check:** all four sit inside 1–2 screens of the locked camera (measured ~48.9 m legible-band width; F2's 36×36 fits with margin, F4's lane is multi-screen by length, single-screen by width — correct for a flight corridor). Boss arena deliberately NOT epic-huge (legolas warning #2).
 - Changes to family dims after ratification are **spec amendments** (both consumers re-point), never a runtime translation.
 
 ## 8. Migration + sequencing
