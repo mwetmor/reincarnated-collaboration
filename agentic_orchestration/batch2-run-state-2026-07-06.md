@@ -126,7 +126,11 @@ Matt ruled the instrument-design fork: **"Ratify R1–R5 as drafted, assuming no
 |---|---|---|---|
 | 1 | gamora | feasibility pass + build the four family configs + R4 carve-out retire + wall→diagnostic + cost estimate | ✅ **BUILD DONE** (engine `8d45f95`, math note `657524a` before code, tag `gamora/v-batch2-gauntlet-four-family-instrument-1`; NOT pushed, Matt-gated). **→ Gate-2 FIRED (jack-ryan).** See result below |
 | 2 | drax | perf-contingency spike (F2 ~40 + F4 continuous under Camera B vs 60-FPS floor, min-spec + mobile) — compose w/ pre-D7 horde spike + non-gating §7 camera-verify | ✅ **DONE — PASS** (godot `ba5547d`, tag intent `drax/v-godot-perf-contingency-spike-1`; NOT pushed, Matt-gated). See result below |
-| 3 | jack-ryan | §6 metrology pass — derive bars on new instrument vs legolas genre bands + saturation guards + re-run martial/caster distributions + decisions-log registration | ⛔ **GATED on Lane 1** — `dispatches/2026-07-07-jack-ryan-gauntlet-metrology-pass.md`; triggers on Lane-1 Gate-2 PASS. ⚑ resolve the F2 camera-verify ±20% amendment (gandalf) in the window BEFORE this fires |
+| 3 | jack-ryan | §6 metrology pass — derive bars on new instrument vs legolas genre bands + saturation guards + re-run martial/caster distributions + decisions-log registration | 🔥 **FIRED** — gate cleared (Lane-1 Gate-2 PASS + gandalf F2 ruling RECORD-ONLY, 36×36 stands, no re-point). `dispatches/2026-07-07-jack-ryan-gauntlet-metrology-pass.md` |
+
+### gandalf F2 dim-amendment RULING (2026-07-07) — OPTION 1 RECORD-ONLY (`02ca347`)
+
+F2 stays **36×36m** (no widen). Measured anchor (~48.9m legible × 36.5m deep) recorded to spec §7 as the strongest absolute anchor, superseding the camera-geometry estimate. **Why not widen:** (1) 36×36 already fits the ~48.9m band with legible margin — reads full, no experiential defect; (2) widening raises repositioning cost + shifts F2's travel-sensitive KPM bar BEFORE Lane-3 derives it = fit-direction inversion one layer down; (3) legolas warning #2 (rooms >~50m read empty on a fixed camera) — widening walks toward the empty-room failure. **No gamora re-point; Lane 3 fires directly.** Secondary: §8.3 rank-5 nesting-bug location note reconciled (decl `:472` → export-path `_derive_carried_gear`; bug class unchanged).
 
 ### Lane 1 RESULT (gamora, 2026-07-07) — BUILD DONE; Gate-2 in flight
 
