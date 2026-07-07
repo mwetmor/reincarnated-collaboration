@@ -261,6 +261,25 @@ Constants FROZEN; no further compute fires until the instrument is ruled.
 
 **Work-products:** math note `simulation/math/step3-mob-lethality-calibration-2026-07-07.md` · probe + `step3_probe.json` · R4 flip `gauntlet_sim.py:854` · MIGRATION v1.85 · Gate-2 submission `qa/pending/2026-07-07-gamora-step3-mob-lethality-calibration-r4-flip-gate2.md`.
 
+### ⚑ Matt 4-decision ruling (2026-07-07) — F3 boss-scale completion + F-b retire + chassis-evidence FIRED
+
+**Ruling (VERBATIM):** "Authorize (1) — boss_damage_scale, boss/mini-boss tier only. Retire (2) — F-b to git with the parity statement; jack-ryan logs the arc. On (3): register as chassis-evidence #1 for the loot-campaign rebalance alongside the F2-cliff defense finding; boss HP set at genre-sane ratio; the TTK overpowered flag stands population-wide; nothing unfreezes. Accept (4) with the fold, and confirm F2 WR-over-band disposes as flag-pass per Rider 3, not fail."
+
+| # | Decision | Lane | Fire |
+|---|---|---|---|
+| (1) | Authorize tier-independent `boss_damage_scale` — **boss + mini-boss tier ONLY** (decoupled from swarm `mob_damage_scale`); tune F3 WR ∈ [0.60,0.80]. | gamora | ✅ dispatched (`b38de08`, tag-target `gamora/v-batch2-step3-f3-boss-scale-1`) |
+| (2) | **Retire F-b** (caster-damage-premium fork) to git with the parity statement; log the full caster-HALT arc (resolved as instrument artifact — dead wall + saturation cap + dead mob-damage channel; casters never underpowered). | jack-ryan (decisions-log) | ✅ dispatched |
+| (3) | Register **TTK-DPS-bound = chassis-evidence #1** for the FUTURE loot-campaign rebalance, alongside the F2-cliff defense finding; boss HP at **genre-sane ratio** (NOT swept to force TTK); TTK-under-15s = **standing population-wide overpowered flag**; **nothing kit-side unfreezes** (2.3384× fossil stays frozen). | jack-ryan (decisions-log) + gamora (HP sizing) | ✅ dispatched |
+| (4) | **Accept F2 full-pop re-lock** (~0.032–0.035) **folded into the F3 re-run under one seed stream**; **F2 WR-over-band = flag-pass per Rider 3, NOT fail** (confirmed). | gamora | ✅ dispatched |
+
+**Fires (2026-07-07, both background):**
+- **gamora** → dispatch `2026-07-07-gamora-step3-f3-boss-scale-completion.md` (`b38de08`): decisions (1)+(4) — tier-scoped `boss_damage_scale`, F2 full-pop re-lock, genre-sane boss HP, full four-family re-pilot, Rider-3 dispositions, cosmetic `_miss_taxonomy` label fix. Math-note-before-tuning + no-leakage proof + #24 orthogonality guard built in. Tag `gamora/v-batch2-step3-f3-boss-scale-1` → Gate-2.
+- **jack-ryan** → decisions-log for (2)+(3): retire F-b with parity statement + log the arc; register chassis-evidence #1 (TTK-DPS-bound) alongside the F2-cliff defense finding; record genre-sane-HP + population-wide-TTK-flag + nothing-unfreezes; confirm F2-WR-over-band = flag-pass per Rider 3.
+
+**Rider-3 confirmation (Matt-requested):** F2 mean WR at/over the band ceiling after best-effort full-pop re-lock disposes as an **OVERPOWERED FLAG → balance review (flag-pass), NOT a certification fail.** Encoded in the gamora dispatch; recorded by jack-ryan in the decisions-log.
+
+**Still frozen / gated:** kit-side chassis constants FROZEN (chassis-evidence accumulates for the future loot-campaign rebalance, not a now-fix); production DB apply of v2.20 (`telemetry.db`) still Matt-gated (ADR-006 — "push" ≠ "apply"); Leg C HELD until Step-3 completes + Matt rules; F4-martial kit response gated on the pilot-attribution probe.
+
 ### star-lord F4-telemetry consume RESULT (2026-07-07) — DONE; Gate-2 FILED
 
 - **Schema delta v2.20:** two nullable `ALTER TABLE` columns on `spatial_fight_results` — `escape_reached` (INT NULL: NULL=pre-v2.20 / 0=no-escape / 1=escape-win) + `continuous_spawned_total` (INT NULL: NULL=pre / 0=non-F4 / N=reinforcements). No DDL change to `mobs_killed`.
