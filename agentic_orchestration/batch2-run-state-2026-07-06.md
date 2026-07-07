@@ -109,6 +109,29 @@ Step 1 proved the caster-viability measurement instrument is BROKEN in two ways:
 
 **Guard intact:** NO constants move until step 3 empirical output + Matt fix ruling. recognition→validate→commit.
 
+### ✅ INSTRUMENT FORK CLOSED — Q11 RATIFIED (Matt 2026-07-07) → four-family gauntlet instrument
+
+Matt ruled the instrument-design fork: **"Ratify R1–R5 as drafted, assuming no issues on monster count for godot game's playable PC or mobile phone system specs."** Governing spec `canonical/reap-die-rise-engine/gauntlet-run-beat-families-spec.md` (RATIFIED). Fire order `gandalf/notes/2026-07-07-kr-relay-q11-fire-order.md`. The 9.90/11.65 bars are DEAD as certification targets (they presupposed throughput above the 8-mob supply cap); successors derive on the NEW instrument only.
+
+**The new instrument = four run-beat families** (replaces the 6-room monster-tier ladder as the certification question; rooms largely survive as members/diagnostics):
+- **F1 dense_cell** 16×22m / ~24 mobs (20 trash + 1 champion pack) — confined-space clear throughput.
+- **F2 open_arena** 36×36m / re-populated 8→~40 (THE saturation repair) — spread-target throughput.
+- **F3 boss_with_adds + mini_boss** ~30m + 1–2 timed add-waves — single-target boss viability (success-rate-judged, NOT KPM).
+- **F4 escape_lane** 60×16m directional lane / continuous spawner, champion-elevated — the escape crescendo (NEW room; the purest spatial/geometry signal).
+- **R4:** STR boss-shell carve-out RETIRES (pass ALL FOUR, no exemptions). Wall demotes to diagnostic; nothing deleted.
+- **Two governing laws:** (a) fit-direction (bars answer to genre, kits are the subject); (b) one-spatial-contract (§3 dims ARE the Godot floor dims, authored once, both consumers read the spec).
+
+**Three-lane fire order (dispatches authored 2026-07-07):**
+| Lane | Owner | Task | State |
+|---|---|---|---|
+| 1 | gamora | feasibility pass + build the four family configs + R4 carve-out retire + wall→diagnostic + cost estimate | 🔥 **FIRE NOW** — `dispatches/2026-07-07-gamora-gauntlet-four-family-instrument-build.md`; tag + Gate-2 |
+| 2 | drax | perf-contingency spike (F2 ~40 + F4 continuous under Camera B vs 60-FPS floor, min-spec + mobile) — compose w/ pre-D7 horde spike + non-gating §7 camera-verify | 🔥 **FIRE NOW (parallel)** — `dispatches/2026-07-07-drax-perf-contingency-spike-camera-verify.md`. Spike failure = Q11 re-open trigger, NOT a Lane-1 blocker |
+| 3 | jack-ryan | §6 metrology pass — derive bars on new instrument vs legolas genre bands + saturation guards + re-run martial/caster distributions + decisions-log registration | ⛔ **GATED on Lane 1** — `dispatches/2026-07-07-jack-ryan-gauntlet-metrology-pass.md`; triggers on Lane-1 Gate-2 PASS |
+
+**Then Steps 3–4 resume:** stratified re-pilot (vs the NEW bars) → F-b sizing ONLY if the gap survives re-measurement → Leg C. **Gate state until new-instrument numbers land: Leg C HELD, constants FROZEN, no F-fork adjudication.** Loot fairness campaign inherits the instrument as-built (one instrument, two customers).
+
+**Guard intact:** NO constants move until Lane-1 build + Lane-3 metrology land + Step-3 re-pilot output + Matt fix ruling. recognition→validate→commit.
+
 ## Leg-C-entry gate (auto-continue is no longer blind)
 
 Spec §8 D1 default = auto-continue Leg C on B-GO. Gate-1 added two Leg-C-gating findings that resolve **during the Leg-B window** (independent of the pilot fire):
