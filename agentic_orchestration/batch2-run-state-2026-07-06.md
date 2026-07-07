@@ -14,8 +14,8 @@
 | A-gate | Gate-1 on the axis math (critique pair + sim consult) | jack-ryan + gandalf + gamora | ✅ **RATIFY-WITH-CONDITIONS** (all three) |
 | B-build | wire the `resource_economy` loadout field (Route B) — cross-seam | rocket (emit) + gamora (consume) | ✅ **DONE** — emit `rocket/…-emit-1` (`9eca04c`) + consume `gamora/…-consume-1` (`7e1a5d1`); C3 round-trip GREEN, C4 default-corner 0.0-KPM CONFIRMED |
 | B-gate | Gate-2 on the cross-seam field | jack-ryan | ✅ **PASS-WITH-FOLLOWUPS** (`77e634b`) — re-ran all suites, no BLOCK |
-| B-sign-off | **ADR-002 cross-seam-schema sign-off on `resource_economy`** | **Matt** | ⛔ **GATE — awaiting Matt** (gates B-fire) |
-| B-fire | economy pilot: 2–3 cells × ~25 LHS-within-strata; pre-registered GO/HALT; PRODUCTION path | star-lord (fire) · gamora (read) | dispatch AUTHORED, gated on B-sign-off |
+| B-sign-off | **ADR-002 cross-seam-schema sign-off on `resource_economy`** | **Matt** | ✅ **SIGNED 2026-07-06** |
+| B-fire | economy pilot: 2–3 cells × ~25 LHS-within-strata; pre-registered GO/HALT; PRODUCTION path | star-lord (fire) · gamora (read) | ⏳ **FIRING** — gate cleared |
 | C | full fresh 18-roster emission, all axes live, detached ~12–15h | star-lord (gamora shells) | gates-on B-GO **+ Leg-C-entry gate below** |
 | close | batch-2 run report → elrond #18 consult | star-lord → elrond | pending C |
 
@@ -53,10 +53,18 @@ jack-ryan re-ran all suites (Disc #11, didn't trust GREEN): consume 7/7, emit 4/
 ## Leg-C-entry gate (auto-continue is no longer blind)
 
 Spec §8 D1 default = auto-continue Leg C on B-GO. Gate-1 added two Leg-C-gating findings that resolve **during the Leg-B window** (independent of the pilot fire):
-1. **C1 — 18-cell vocab fix** (gandalf spec edit).
-2. **gandalf G1 — Axis-5 structural-bin hole ruling** (Matt).
+1. **C1 — 18-cell vocab fix** (gandalf spec edit) — OPEN, gandalf before Leg C.
+2. **gandalf G1 — Axis-5 structural-bin hole ruling** — ✅ **RULED by Matt 2026-07-06** (see below).
 
 Leg C auto-continues on B-GO **AND** these two closed. HALT on B always escalates to Matt regardless.
+
+### Axis-5 ruling (Matt 2026-07-06) — 3 structural bins INTENTIONALLY-EMPTY-FOR-NOW
+
+The 3 structural-cost bins (**HP-economy / damage-taken-converts / charge-stack**) are ruled **intentionally-empty-for-now** in the batch-2 / faction derivation — the mana-default caster population by construction. NOT a gap; a scoped decision. Ships with **gandalf's three guards** (all binding):
+
+- **Guard 1 — reserved, empty-by-ruling.** The 3 bins are recorded RESERVED / empty-by-ruling in the Axis-5 schema, and the **elrond #18 consult is told the coverage explicitly** (so the clustering does not silently form factions around economy-*absence*). → routing: gandalf annotates the axis schema; knight-rider briefs elrond at the derivation-step-3 consult.
+- **Guard 2 — F5 re-derivation pre-registered as the arrival path.** When a structural-cost population ships, it enters as its **own build, own pilot, NEW-BRANCH entry**, and triggers **affected-cut re-ratification only** (not a full library re-derivation). → routing: pre-registered in decisions-log / spec (jack-ryan + gandalf).
+- **Guard 3 — naming/flavor may not claim identity the population lacks.** The naming/flavor pass (derivation step 6) may NOT assign structural-cost identity (HP-cost, damage-converts, charge-stack flavor) to a population that is mana-default. → routing: constraint on the step-6 naming/flavor dispatch (gandalf).
 
 ## B-build result (2026-07-06) — Route B wired, binding CONFIRMED
 

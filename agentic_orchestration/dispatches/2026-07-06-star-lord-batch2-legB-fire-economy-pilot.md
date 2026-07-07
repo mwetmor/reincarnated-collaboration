@@ -2,7 +2,7 @@
 
 **From:** knight-rider
 **To:** star-lord (fire) · gamora (read/report)
-**Approved by:** Matt 2026-07-06 (batch-2 auth) — **GATED ON: Matt ADR-002 cross-seam-schema sign-off on `resource_economy`** (Gate-2 escalation). DO NOT FIRE until that sign-off lands.
+**Approved by:** Matt 2026-07-06 (batch-2 auth) — **ADR-002 cross-seam-schema sign-off SIGNED 2026-07-06** (`resource_economy` generation→sim contract approved). GATE CLEARED — cleared to fire.
 **Estimated effort:** fire minutes-to-tens-of-minutes class (variation pilot precedent: 50 kits ≈ 903s full gauntlet); report ~1–2h
 **Acceptance:** the economy pilot runs on the PRODUCTION path across 2–3 coverage-sampled cells, per-cohort bucket keys live, measurement report emits (no demo-bundle coupling), and gamora reports the pre-registered GO/HALT verdict + the economy-identity read.
 
