@@ -15,8 +15,8 @@
 | B-build | wire the `resource_economy` loadout field (Route B) — cross-seam | rocket (emit) + gamora (consume) | ✅ **DONE** — emit `rocket/…-emit-1` (`9eca04c`) + consume `gamora/…-consume-1` (`7e1a5d1`); C3 round-trip GREEN, C4 default-corner 0.0-KPM CONFIRMED |
 | B-gate | Gate-2 on the cross-seam field | jack-ryan | ✅ **PASS-WITH-FOLLOWUPS** (`77e634b`) — re-ran all suites, no BLOCK |
 | B-sign-off | **ADR-002 cross-seam-schema sign-off on `resource_economy`** | **Matt** | ✅ **SIGNED 2026-07-06** |
-| B-fire | economy pilot: 2–3 cells × ~25 LHS-within-strata; pre-registered GO/HALT; PRODUCTION path | star-lord (fire) · gamora (read) | ✅ **FIRED** — report emitted; gamora reads GO/HALT |
-| C | full fresh 18-roster emission, all axes live, detached ~12–15h | star-lord (gamora shells) | gates-on B-GO **+ Leg-C-entry gate below** |
+| B-fire | economy pilot: 2 cells × 25 LHS-within-strata; pre-registered GO/HALT; PRODUCTION path | star-lord (fire) · gamora (read) | 🛑 **HALT** — 0/50 clear; verdict gamora (`6c5303b`) → escalated to Matt |
+| C | full fresh 18-roster emission, all axes live, detached ~12–15h | star-lord (gamora shells) | ⛔ **HELD — does NOT auto-continue on HALT.** Awaiting Matt structural direction |
 | close | batch-2 run report → elrond #18 consult | star-lord → elrond | pending C |
 
 ## Gate-1 disposition (2026-07-06) — RATIFY-WITH-CONDITIONS
@@ -49,6 +49,19 @@ jack-ryan re-ran all suites (Disc #11, didn't trust GREEN): consume 7/7, emit 4/
 - **FU-2 (star-lord pilot dispatch):** carry `assert WIRE_RESOURCE_ECONOMY is True` onto the PILOT run path (currently asserted in build smoke only) — **folded into the B-fire dispatch.**
 - **FU-3 (rocket/gamora, cosmetic):** stale MIGRATION `file:line`s (read `:2694`→`:2780`; flips `:1506/:1519`→`:1536/:1550`) — code correct, citations drifted; batch on next touch.
 - **FU-4 (optional):** add no-key==default byte-identity check to the smoke.
+
+## B-fire VERDICT (2026-07-06) — 🛑 HALT (pre-registered, spec §3 — designed outcome, not a failure)
+
+**gamora read `6c5303b`** (`simulation/notes/legB-economy-pilot-read-2026-07-06.md`). Run `617409b8…`, seed base `62_000_000`, 101.3s detached.
+
+- **Formal call:** 0/25 plain-caster configs clear EITHER shell solo → 0/25 clear both → GO condition (i) fails. Sweep confirmed genuinely LIVE via all three anchors: C4 default-corner 0.0/0.0, production path (`from_player_class`→bounded pool, not un-starvable projection), FU-2 `WIRE_RESOURCE_ECONOMY` guard passed.
+- **Landscape headline:** best open_arena config 1.0 vs 9.90 (**10.1% of floor, ~10× short**); best chokepoint 2.1 vs 11.65 (**18% of floor, ~5.5× short**). Gradient is **STEEP-but-SHORT** — economy levers HAVE grip (reorder configs), but the axis's ENTIRE dynamic range is worth ~1–2 KPM against a ~10–12 KPM requirement. **Economy tuning cannot close a 10× gap.**
+- **Structural-honesty prediction CONFIRMED + sharpened:** the block is below the economy layer — not a bad-region-sampled miss. It's the whole economy layer that's insufficient (Leg-4 "band re-tune may be insufficient" confirmed).
+- **Diagnostic seam (localizer):** caster is FINE on packs (3–4 KPM, economy-independent) and broken ONLY on single targets (1–2 KPM, economy-limited) → deficit localizes to **single-target damage-per-cast × cadence vs the 300k/500k HP wall** — a layer the economy cannot govern.
+- **Economy-identity read (Axis-5, pilot-confidence):** warm-up/ramping got closest; builder-spender/on_kill dead-floor (chicken-and-egg: can't land the first kill to bootstrap the refund); cheap-sustained mid. Economy identity determines which caster feels LEAST-broken, not which is viable.
+- **Summoner cell:** per-cohort measurement INTACT (Balanced/Hybrid scored separately across 25 econ_keys; the empty-`caster_proxy` miss did NOT recur). Certification machinery instrument-ready for when the structural block clears.
+
+**Consequence:** Leg C is HELD (does not auto-continue on HALT). C1 vocab fix also parked — Leg C is not the next move regardless. **Escalated to Matt for structural direction** (analysis only; no fire recommended).
 
 ## Leg-C-entry gate (auto-continue is no longer blind)
 
