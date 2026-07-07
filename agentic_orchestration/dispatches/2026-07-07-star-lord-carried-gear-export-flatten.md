@@ -74,4 +74,56 @@ The original step-2 dispatch (`2026-07-07-rocket-gamora-carried-gear-nesting-uni
 ---
 
 ## Completion record
-<!-- star-lord appends on completion -->
+
+**Completed:** 2026-07-07
+**Engine commit:** `64289f0`
+**Tag:** `star-lord/v-batch2-carried-gear-export-flatten-1`
+**Gate-2 submitted:** `agentic_orchestration/qa/pending/2026-07-07-star-lord-carried-gear-export-flatten-gate2.md`
+
+### Open question 1 resolution
+
+**FLATTEN IS SAFE.** The persisted `carried_gear` has no consumer besides the sim combatant that reads `main_weapon`'s internal substrate fields:
+
+- Demo `CarriedGear` interface (`weapon/off_hand/armor/accessory` keys, `GearInstance` values) is a completely separate contract; applies to old-format seasons (season_002011 etc.), not the cycle-13 persist path.
+- Loadout (`reincarnated-loadout`) has `carried_gear: null` for all classes in `v2_narrow_phase_5` and cycle-13 data.
+- Loadout WeaponDescriptor (`main_weapon` field) is produced by `_derive_main_weapon()` (line 381), which reads `gear_representative` directly. This is a SEPARATE exported field from `carried_gear`.
+- Telemetry DB stores `carried_gear` as opaque TEXT — no internal shape validation.
+- Sim combatant (`combatant.py:893-901`) is the SOLE consumer of `carried_gear["main_weapon"]["spell_damage_modifier"]`.
+
+### Fix applied
+
+`cycle13_normal_season_export.py:_derive_carried_gear` now extracts `gear_representative["main_weapon"]["substrate_binding"]` and returns `{"main_weapon": substrate_binding}` (flat). Null-safe when binding is None or absent (static cycle-13 classes return `None`, correct scaffold behavior).
+
+### cycle14 emitter confirmed unaffected
+
+Zero references to `carried_gear` in `cycle14_unified_bundle_emitters.py`. It reads `phase2_kit.get("gear_representative")` exclusively — uses `gear_representative["main_weapon"]["substrate_binding"]` and `gear_representative["main_weapon"]["gear_instance_id"]` at the two-level nested structure, which is unchanged.
+
+### Round-trip smoke — ALL PASS
+
+```
+SMOKE TEST 1: _derive_carried_gear flat output
+  spell_damage_modifier = 0.72 at top level of main_weapon (no nesting)
+  PASS
+
+SMOKE TEST 2: combatant from_player_class read path
+  combatant reads spell_damage_modifier = 0.72 (was 0.0 before fix)
+  PASS
+
+SMOKE TEST 3: null-safety (4 cases)
+  All null-path cases return None correctly
+  PASS
+
+SMOKE TEST 4: in-memory pilot path unchanged
+  fixed exporter output byte-equivalent to pilot builder carried_gear shape
+  PASS
+
+SMOKE TEST 5: real cycle-13 static char (S1_endgame_int_01_standard_wizard)
+  substrate_binding = None → None (correct scaffold sentinel for non-substrate classes)
+  PASS
+```
+
+### MIGRATION.md updates (lockstep, 3 files)
+
+- `export/MIGRATION.md` — new batch-2 step 2 entry with full shape contract, consumer analysis, round-trip results, and inversion-finding out-of-scope note
+- `generation/MIGRATION.md:325` — shape contract clarification appended (substrate path: binding is flat under main_weapon, not the slot entry)
+- `simulation/MIGRATION.md:4126-4130` — key-alias note (main_hand/weapon/main_weapon or-chain) + persisted-path fix note appended
