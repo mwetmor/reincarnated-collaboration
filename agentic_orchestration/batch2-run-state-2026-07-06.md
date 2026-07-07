@@ -63,6 +63,11 @@ jack-ryan re-ran all suites (Disc #11, didn't trust GREEN): consume 7/7, emit 4/
 
 **Consequence:** Leg C is HELD (does not auto-continue on HALT). C1 vocab fix also parked — Leg C is not the next move regardless. **Escalated to Matt for structural direction** (analysis only; no fire recommended).
 
+### Post-HALT structural diagnostic (2026-07-06) — gandalf finding → gamora ledger spike
+
+- **gandalf finding** `gandalf/notes/2026-07-06-caster-single-target-structural-finding.md` — resolves the Leg-B HALT fork toward world (1) chassis-under-built with a NAMED mechanism: the weapon-era damage advantage fossilized into `BASE_PHYSICAL_DAMAGE_L50=48,012.6` vs `BASE_SPELL_DAMAGE_L50=20,532.2` (**2.3384×**); the AOE-pack channel (`damage_resolver.py:466-468`) compensated it at whole-encounter calibration; a lone wall zeroes the compensation and exposes the naked ratio. Arithmetic sanity: 9.90÷2.3384≈4.2 caster ceiling vs measured 1.0 → **~4× residual to decompose.** Fix forks: F-a REJECT (over-buffs trash-clear), **F-b geometry-keyed magical single-target premium (gandalf lean)**, F-c INT spell-crit channel (texture beside F-b), F-d REJECT (C2 floor stays).
+- **gamora ledger spike** — dispatch `dispatches/2026-07-06-gamora-caster-single-target-ledger-spike.md` (Matt-approved 2026-07-06; committed `1b746e4`). ANALYSIS-ONLY: reproduce measured 1.0 KPM from named constants, decompose the ~4× residual, RANK the factors → sizes F-b/F-c as arithmetic. **FIRED (background subagent).** Out of scope: NO constant changes, NO re-emit/re-fire, NO fix verdict (Matt's ELICITOR call). Guard: recognition→validate→commit — ledger BEFORE constants move.
+
 ## Leg-C-entry gate (auto-continue is no longer blind)
 
 Spec §8 D1 default = auto-continue Leg C on B-GO. Gate-1 added two Leg-C-gating findings that resolve **during the Leg-B window** (independent of the pilot fire):
