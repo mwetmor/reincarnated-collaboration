@@ -126,13 +126,43 @@ Matt ruled the instrument-design fork: **"Ratify R1–R5 as drafted, assuming no
 |---|---|---|---|
 | 1 | gamora | feasibility pass + build the four family configs + R4 carve-out retire + wall→diagnostic + cost estimate | ✅ **BUILD DONE** (engine `8d45f95`, math note `657524a` before code, tag `gamora/v-batch2-gauntlet-four-family-instrument-1`; NOT pushed, Matt-gated). **→ Gate-2 FIRED (jack-ryan).** See result below |
 | 2 | drax | perf-contingency spike (F2 ~40 + F4 continuous under Camera B vs 60-FPS floor, min-spec + mobile) — compose w/ pre-D7 horde spike + non-gating §7 camera-verify | ✅ **DONE — PASS** (godot `ba5547d`, tag intent `drax/v-godot-perf-contingency-spike-1`; NOT pushed, Matt-gated). See result below |
-| 3 | jack-ryan | §6 metrology pass — derive bars on new instrument vs legolas genre bands + saturation guards + re-run martial/caster distributions + decisions-log registration | 🔥 **FIRED** — gate cleared (Lane-1 Gate-2 PASS + gandalf F2 ruling RECORD-ONLY, 36×36 stands, no re-point). `dispatches/2026-07-07-jack-ryan-gauntlet-metrology-pass.md` |
+| 3 | jack-ryan | §6 metrology pass — derive bars on new instrument vs legolas genre bands + saturation guards + re-run martial/caster distributions + decisions-log registration | ✅ **DONE** (engine `e1f12b8`, main). Bars derived + guards PASS + re-run + decisions-log registered. See result below. **INSTRUMENT REBUILD COMPLETE.** |
 
 ### gandalf F2 dim-amendment RULING (2026-07-07) — OPTION 1 RECORD-ONLY (`02ca347`)
 
 F2 stays **36×36m** (no widen). Measured anchor (~48.9m legible × 36.5m deep) recorded to spec §7 as the strongest absolute anchor, superseding the camera-geometry estimate. **Why not widen:** (1) 36×36 already fits the ~48.9m band with legible margin — reads full, no experiential defect; (2) widening raises repositioning cost + shifts F2's travel-sensitive KPM bar BEFORE Lane-3 derives it = fit-direction inversion one layer down; (3) legolas warning #2 (rooms >~50m read empty on a fixed camera) — widening walks toward the empty-room failure. **No gamora re-point; Lane 3 fires directly.** Secondary: §8.3 rank-5 nesting-bug location note reconciled (decl `:472` → export-path `_derive_carried_gear`; bug class unchanged).
 
-### Lane 1 RESULT (gamora, 2026-07-07) — BUILD DONE; Gate-2 in flight
+### Lane 3 RESULT (jack-ryan, 2026-07-07) — bars derived; INSTRUMENT REBUILD COMPLETE; ⚑ MATT DECISION POINT
+
+**Derived per-family bars (ALL provisional-hypotheses-pending-playtest; from legolas genre bands as external reference, NEVER fitted to kits):**
+| Family | Metric | Bar |
+|---|---|---|
+| F1 | KPM | floor 30 / ceiling 60; WR ≥0.95 |
+| F2 | KPM | floor 20 / ceiling 40; WR ∈[0.85, 0.95] |
+| F3 | **success-rate + TTK (NOT KPM)** | WR/attempt ∈[0.60, 0.80]; boss-TTK rail 15–90s (<15s = overpowered flag); KPM wide sanity rail only |
+| F4 | KPM + progress + exit | KPM floor 60 / ceiling 150; exit-within-window ≥0.80 |
+
+**Saturation guards (§5 headroom law) — all four PASS, registered not just applied:** F1 24≥20, F2 40≥13.3, F4 by-construction (~180 stream > 150 ceiling), F3 exempt (success-judged). **The KPM RATE metric (declared distinct from Step-1's absolute-count) removes the supply-ceiling pin that killed the dead 9.90/11.65 bars.**
+
+**Re-run on the NEW instrument (80.9s, seed 64M, native threat-tier HP — NO dead 300k/500k wall):**
+- **F1** — HEALTHY, non-saturated: martial KPM median 45.3 in-band, 25/40 pass; **casters 2/2.**
+- **F2** — KPM fine (median 42.3) but WR saturates 1.0 (above 0.85–0.95) → 0/40 pass.
+- **F3** — WR=1.0 (above 0.60–0.80) + TTK median 6.0s (below 15–90s rail) → overpowered-flag → 0/40 pass.
+- **F4** — exit median 1.0 (escape resolves); martial KPM median 23.9 BELOW the 60 floor → 5/40 KPM-half; **casters 2/2.**
+
+**⭐ REFRAMING (the load-bearing takeaway):** on the properly-populated instrument with native HP, **casters PASS the cells they ran (F1 2/2, F4 2/2)** — the original ~10× caster shortfall was substantially a DEAD-WALL + saturation-cap ARTIFACT, not a caster damage defect. The remaining misses (F2/F3 WR saturation, F3 sub-rail TTK, F4 martial-KPM-below-floor) are **native-HP / mob-LETHALITY calibration signals — NOT bar moves (fit-direction) and NOT caster-vs-martial asymmetry.** jack-ryan flags: Step-3 re-pilot tunes mob lethality to exercise the WR-competency bands. **This puts the F-b caster-damage-premium fork increasingly in question — Step 3 confirms empirically.** (Caster n is small — 2 cells — so Step 3 stratification is the real test.)
+
+**Decisions-log registered (jack-ryan owns it):** Q11 ratification + both governing laws (fit-direction, one-spatial-contract) + all three Disc-#12 semantic shifts (R4 cert-contract, open_arena re-base, mobs_killed range).
+
+**Two downstream flags to route — BOTH queued for Step-3/4 resume, NOT fired (gated on Matt ruling):**
+1. **R4 ship-gate one-line flip** — gamora added `family_certification_pass()` (`gauntlet_sim.py:771`) but `gauntlet_pass()` (`:812`) still reads the legacy ≥9-of-18 W-α6 floor. Wiring one into the other IS the R4 flip. **gamora's seam** — dispatch when Step 3/4 resumes.
+2. **star-lord telemetry MIGRATION** — `escape_reached` + `continuous_spawned_total` (`spatial_engine.py:2868-2869`) + `mobs_killed` range shift (F4 unbounded by initial spawn). Telemetry-boundary; star-lord consumes `mean_mobs_killed`. **star-lord's seam** — fire when export/persistence needs F4 telemetry on-disk.
+
+**Work-products (`e1f12b8`, main):** `simulation/math/gauntlet-four-family-metrology-2026-07-07.md` (bands→bars + guards + re-run §7) · `simulation/gauntlet_four_family_metrology_driver.py` · `output/gauntlet_four_family_metrology/metrology_report.json` · `design/decisions/decisions-log.md`.
+
+**⚑ MATT DECISION POINT (guard: "no F-fork adjudication until new-instrument bars land + Matt ruling" — bars have NOW landed):** Step 3 (stratified re-pilot) is ready to resume, but its SHAPE changed — it is now a **mob-lethality calibration** to exercise the WR bands, not an F-b-premium sizing exercise (F-b looks increasingly unneeded). **Awaiting Matt: rule the Step-3 direction + go.** Until then: Leg C HELD, constants FROZEN, no F-fork adjudication, R4 flip + star-lord MIGRATION queued.
+
+### Lane 1 RESULT (gamora, 2026-07-07) — BUILD DONE; Gate-2 PASS
 
 - **Instrument built at spec §3 dims/populations.** F1 `dense_cell` NEW 16×22m/~24 (20 trash + champion pack of 4); `chokepoint_corridor` re-pop 8→24 (funnel kept); `magic_pack` re-roled champion-pack variant. **F2 `open_arena` re-dimensioned 50×50→36×36 + re-pop 8→40** (28 trash + 3 rare packs — the saturation repair). F3 `boss_with_adds` +2 timed add-waves (R5; injection verified 3→7 mobs at runtime). F4 `escape_lane` NEW 60×16m, continuous spawner (k=3/1s/cap50, seeded-deterministic), champion-elevation ×2.0, `escape_reached` win — population grows 12→50, the 8-mob no-respawn ceiling LIFTED by construction.
 - **R4:** STR boss-shell carve-out RETIRED via new `family_certification_pass` (four-family gate). `gauntlet_pass` keeps the legacy floor until Lane-3 bars — the one-line flip is Lane 3's (confirm staging at Gate-2).
