@@ -90,6 +90,30 @@ Additive-only; sibling of `t4_cost_resource`. Default corner `{1.0,"flat","flat"
 - **Out of scope honored:** NO pilot fire, NO gauntlet, NO population emit-at-scale, NO sim-consume (spatial_engine untouched), NO 3 unreachable Axis-5 structural bins.
 - **Coordination-order answer (open question):** rocket emitted the frozen dict FIRST (parallel viable since contract frozen); gamora wires the reconciling sim-consume + owns the joint round-trip smoke against this landed emit. Sampler home = `generation/resource_economy.py` (rocket); pilot driver requests via `sample_resource_economy()`.
 
-### gamora (sim-consume side) — pending
-<!-- gamora appends on completion of the sim-consume half -->
+### gamora (SIM-CONSUME side) — COMPLETE 2026-07-06 — tag `gamora/v-batch2-legB-economy-consume-1`, NO push (Matt-gated)
+
+**BUILD + SMOKE ONLY.** ZERO pilot fire, ZERO gauntlet, ZERO population emit, ZERO emit-side touch (rocket owns `generation/`), ZERO attempt at the 3 unreachable Axis-5 structural bins. Math-before-code honored (Disc #1): `simulation/math/legB-economy-consume-math-2026-07-06.md` written BEFORE the wiring.
+
+- **Consume sites (all `spatial_gauntlet/spatial_engine.py`), against rocket's landed emit (`9eca04c`):**
+  - **Entity-init read:** `entity_from_class_dict:2694` — `_econ = class_dict.get("resource_economy") or DEFAULT_RESOURCE_ECONOMY` (imports rocket's `DEFAULT_RESOURCE_ECONOMY` anchor → sim default IS the emit contract, no drift).
+  - **E1 cost** folded into `skill_energy_costs` at init (`:2745` region): `_ENERGY_COST[tier]·cost_scale·slope_factor(cost_slope,tier)`, `slope_factor(escalating,tier)=1+0.25·(tier-1)`. ONE site → the selector affordability gate (`:1222`) AND the cast decrement (`:2136`) both inherit it (Disc #24 single measurement site; anti-collapse per consult §4).
+  - **E3 cadence:** new `SpatialEntity.cadence_scale` multiplied at the PLAYER cast write site `:2126`. Cooldown is read LIVE (not pre-baked), so cadence binds at the write, not init. Player-only; mob path untouched.
+  - **E2 regen (flat/on_kill):** `energy_regen · regen_magnitude` at init (`:2820` region); ticked unchanged at `:2440`.
+  - **E2 on_kill hook:** new `SpatialEntity.on_kill_frac` → **`_on_kill_energy_burst(attacker)` helper (`:1440` region)** called at BOTH HP-cross-zero flip sites — **`:1536` (resolver path)** and **`:1549` (flat path)**; burst = `on_kill_frac · max_energy` to the killer, player-only. New consumer of the modeled `ProxyResourceGen.on_kill_bonus` semantic.
+  - **E2 ramping:** new `SpatialEntity.ramp_per_s` → regen tick `:2440` becomes `energy_regen·(1 + ramp_per_s·elapsed)`, player-only.
+- **WIRE_RESOURCE_ECONOMY precondition (item 4):** ASSERTED as a HARD `assert SE.WIRE_RESOURCE_ECONOMY is True` at the top of the smoke run path — a checked precondition, not an assumption. An OFF flag makes the whole sweep inert; that is now impossible to fire silently.
+- **Per-cohort measurement (item 5):** the economy is consumed as a first-class named dict on the loadout (NOT baked into per-skill values), so economy identity survives to measurement time — the direct fix for the Leg-4 bucket-collapse miss (consult §4). This BUILD does not itself bucket (no fire in scope); it guarantees the identity is READABLE on the entity.
+
+**JOINT — round-trip smoke (C3) + HARD default-corner assertion (C4): `simulation/notes/legB_economy_consume_smoke_2026_07_06.py`, 7/7 GREEN.**
+- Instrument: a REAL season-001 caster PlayerClass (`endgame_bc_ranged_medium_variable_int_none`, a C2 plain-caster cell) on the PRODUCTION path (bounded pool). The projection/harness path pins mana=1e9 and CANNOT starve (consult §1.3a) → it cannot demonstrate a resource-driven move; the production path is the faithful instrument.
+- **C4 (does the default corner reproduce 0.0 KPM on BOTH shells? — the built-in refutation): YES.** Default corner `{1.0,"flat","flat",1.0,0.0,0.0,1.0}` → **0.0 KPM on open_arena AND chokepoint_corridor** (at the caster's resource-bound margin: open mob_hp 300k / choke 500k, dmod 0.3). The binding is CONFIRMED — the C2 timeout is reproduced. **C4 does NOT block Gate-2.**
+- **C3 (does a non-default corner move KPM?): YES.** Favorable corner (cheap cost + fast cadence + rich regen + on_kill burst) moves KPM off 0.0 on both shells: open 0.0→1.0 (favorable) / 2.67 (ramping); choke 0.0→1.0. Field-presence check on the joined `resource_economy` key GREEN. The economy demonstrably modulates the fight.
+- **Byte-identity bonus check:** a class_dict with NO `resource_economy` key (pre-Leg-B path) produces IDENTICAL `mean_mobs_killed`+`mean_elapsed_s` to the default corner — the default corner is a true no-op.
+- **Adjacent regression:** pathb-1a sim-consumption smoke 35/35 GREEN.
+
+**MIGRATION (item 6):** sim-consume half appended to `simulation/MIGRATION.md` [2026-07-06] batch-2 Leg B (gamora CONSUME) — exact landed sites, WIRE_RESOURCE_ECONOMY precondition, Disc #12 semantic-shift note (KPM now varies with per-kit economy identity — EXTENDS Phase-1). NO telemetry/export schema change; star-lord NO ACTION.
+
+**Coordination-order answer (open question):** parallel-against-frozen-contract, as rocket proposed — rocket emitted FIRST; gamora wired the reconciling sim-consume + owns the joint round-trip smoke against the landed emit. Tags kept SEPARATE per seam (`rocket/v-batch2-legB-economy-emit-1` + `gamora/v-batch2-legB-economy-consume-1`) rather than a joint tag — each seam's work is independently reproducible from its own tag; jack-ryan Gate-2 verifies the pair.
+
+**→ Gate-2 (jack-ryan):** verify the round-trip (C3) + the C4 default-corner assertion before any pilot fire. C4 PASSED — the binding is correct.
 
