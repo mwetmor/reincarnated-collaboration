@@ -531,3 +531,18 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 - Cert-baseline byte-intact (all-non-summoner pop → DDA fallback byte-identical; Disc #12 no live-behavior shift). Non-summoner no-regression 8/8 byte-identical. C1 summoner route verified: bone→FISSION / crypt→SOVEREIGNTY / gravecaller→SOVEREIGNTY, all ∈ `ACCEPTED_PROXY_PRIMARY_T4` (imported from C2). MIGRATION lockstep CLOSES the v1.83/`:8371` producer divergence window.
 
 **Awaiting:** star-lord validator-widen (`ad49a55a92efb5630`, in flight). On landing → **coordinated three-seam Gate-2** (rocket `996f77d` + star-lord + gamora `8d8e76b`; S1/S2 GREEN cited per C3/C4) → **leg-3** (rocket: wire emit assignment + emission run; owes Disc #1.1 projection + W3-smoke check) → unblocks star-lord Leg C + gamora summoner proxy-T4.
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — leg-2 VALIDATOR (star-lord) DONE; all 3 halves landed; coordinated Gate-2 FIRED
+
+**star-lord leg-2 VALIDATOR-widen → DONE** (tag `star-lord/v-batch2-dda-lock-validator-widen-1` @ `0f7de25` = engine HEAD; Gate-2 filed `qa/pending/2026-07-07-star-lord-dda-lock-validator-widen-gate2.md`):
+- Site `export/cycle14_wave5_emitter.py::validate_class_data()` (~L745). Conditional widen: `is_proxy_bearing = bool(proxy_decls)`; proxy-family branch rejects if `not is_proxy_bearing` ⇒ empty-decl DDA lock preserved. **Imports `ACCEPTED_PROXY_PRIMARY_T4` from `t4_catalog_v2` (C2 single-source); RETIRED the W0 local `_PROXY_FAMILY_PRIMARY_T4_STRATEGIES`; ZONE_CONTROL now correctly excluded** (it was wrongly in the W0 local set).
+- Round-trip 3 cases GREEN (summoner+FISSION admit / empty-decl+stray reject / ZONE_CONTROL-on-summoner reject). 115/115 validator suite + 303/303 broad regression PASS.
+
+**⇒ ALL THREE leg-2 halves landed, linear on HEAD:** rocket `996f77d` (producer) → gamora `8d8e76b` (consume) → star-lord `0f7de25` (validator). C2 constant single-sourced in `t4_catalog_v2`; C1 divergence closed by construction (gamora routes via rocket's exact `route_primary_t4()`).
+
+**Coordinated three-seam Gate-2 FIRED** (jack-ryan `a9c8804f2a218600e`): verifies the three AS A UNIT (C2 single-source no divergent copies / C1 sim==emit / C3 S2 byte-diff + C4 S1 route-correctness / validator both directions / cert-baseline byte-intact + leg-2-inert-pre-leg-3 / regression). Also disposing the lingering `qa/pending/2026-07-07-rocket-proxy-t4-b1-rebase-phase1-v3-refire-gate1.md` (decisions already ratified piecemeal: gandalf DoF-A + jack-ryan F-f-B4-scoped at `a5ebd17` + gamora ext Gate-2 `dce4ae4`).
+
+**Next (on Gate-2 PASS):** **leg-3** — rocket wires the emit assignment (`season_generation_pipeline.py:404-412`, still DDA slot) to call `route_primary_t4()` + runs the emission; owes Disc #1.1 resource/LLM-cost projection + the pre-existing `test_w3_emission_driver` smoke check. Leg-3 = the unblocking event for **star-lord Leg C re-fire** + **gamora summoner proxy-T4**.
+**ON MATT unchanged:** Q7 (drax body held) + 450MB telemetry.db blob.
