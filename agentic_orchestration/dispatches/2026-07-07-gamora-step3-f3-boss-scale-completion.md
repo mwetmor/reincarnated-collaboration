@@ -68,3 +68,27 @@ Unpacked for your scope:
 - gamora lived-channel re-pilot (`6468b57`); jack-ryan Gate-2 (`9ecccff`, finding above); decisions-log canon (`8607840`)
 - Spec `gauntlet-run-beat-families-spec.md`; metrology note; Disciplines #1, #1.1, #11, #12, #24; fit-direction law; Rider-3 miss-taxonomy semantics
 - Run-state `batch2-run-state-2026-07-06.md`
+
+---
+
+## Completion record
+
+**Completed:** 2026-07-07 by gamora (resumed after the prior session was killed mid-execution by an infra API-overload error; the math note `59dc832` + the tier-scoped knob implementation were already in place — verified against the plan-of-record, then finished the remaining scope).
+
+**Engine tag:** `gamora/v-batch2-step3-f3-boss-scale-1` (HEAD `61a7faf`; push HELD — Matt-gated).
+**Gate-2 submission:** `qa/pending/2026-07-07-gamora-step3-f3-boss-scale-gate2.md` (meta-repo `5d5f674`).
+**Plan-of-record math note:** `simulation/math/step3-f3-boss-damage-scale-2026-07-07.md` (`59dc832`).
+
+### Results (all executed per the math note)
+- **(1) Tier-scoped `boss_damage_scale`** — boss + mini-boss ONLY (NOT elite/swarm/magic); strictly-positive guard raises on `bds<=0.0`; genre-sane boss HP 9000 = 60× trash (mini-boss HP key added). `bds=1.0` = byte-identical pre-change.
+- **(4) F2 full-pop re-lock:** `mob_damage_scale = 0.03` IN_BAND, full-pop wheel-avg WR **0.9446** (band-ceiling edge; the beat lock holds on 40 kits).
+- **F3 boss knob:** `boss_damage_scale = 48.0` WR_IN_BAND, F3 pop WR **0.7018** ∈ [0.60,0.80] (boss dm = 5·0.03·48 = 7.2).
+- **Genre-sane boss HP = 9000 (60× trash);** F3 TTK = **5.036 s → STANDING population-wide overpowered flag** (38 kits; kit-DPS-bound; chassis-evidence #1; recorded, NOT auto-fail, NOT HP-inflated).
+- **No-leakage witness: IDENTICAL** (F2 pop WR 0.9446 at `bds=1.0` and `bds=5.0` — the boss knob is a proven no-op on the F2 lock; measured per Disc #11).
+- **Full four-family re-pilot (one seed stream):** F3 NOW CERTIFIES 28/40 (Rider-3; WR med 0.8214) — was the STOP. F2 8 PASS + 28 FLAG_PASS_OVERPOWERED + 4 FAIL = 36/40 cert (over-band = flag-pass per Matt (4)). F1 25 cert; F4 5 cert + 35 FAIL (KPM floor — kit-side, deferred).
+- **Miss-taxonomy split** (per-family under-floor / over-ceiling-flag / wr-side) recorded; cosmetic INFO fix landed (over-band now labels `wr_over_band`, verified).
+- **Caster margins re-confirmed** on the new F2 scale + F3: F1 +0.05, F3 +0.40, F4 +0.20 (all pass).
+- **Semantic shifts (Disc #12) framed:** (a) mob-damage calibration decoupled (boss lever independent of swarm chip); (b) Rider-3 over-ceiling = FLAG_PASS_OVERPOWERED (was auto-fail). Routed to the decisions-log via the Gate-2 submission.
+
+### Guards honored
+NO kit-side chassis constants (FROZEN); NO bar/band moves; NO boss-HP inflation; NO F-b/F4-martial/Leg-C; NO tier scalar beyond boss/mini-boss. Sim-internal + sidecar JSON → NO MIGRATION.md (no persisted-field boundary; math note §8). `pilot_policy=scripted-rotation-v1` carried. Regression `test_cycle13_wave5_gauntlet_sim` 50/50 PASS. NO push (Matt-gated).
