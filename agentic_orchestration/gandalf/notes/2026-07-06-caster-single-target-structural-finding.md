@@ -77,4 +77,41 @@ Output = multiplier ledger table → F-b/F-c sizing is then arithmetic; re-pilot
 
 ---
 
-**Signed:** gandalf, 2026-07-06 (ARCHITECT). The weapon never left — it fossilized into a constant; the wall just removed the crowd it was hiding behind.
+## 8. CORRECTION APPEND — gamora spike-ledger reconciliation (DRIFT-CRITIC, same session)
+
+> gamora's per-cast ledger (KR relay) contested §2's headline. I closed their declared 0%→90% bracket empirically. **The bracket closes on gamora's side.** This section supersedes §2's per-cast claim and §3's residual arithmetic; §1 (architecture), §3 (pack channel), §7 (fix-build constraints) stand.
+
+### 8.1 The verified chain (every link read, file:line)
+
+1. **SC-6b enrichment is LIVE, not scaffold.** `weapon_sim_props`: 2601/2601 rows carry `spell_damage_modifier_pct` AND `weapon_type_family` (the `sc6b_live` gate, `substrate_weapon_binding.py:548-549`). By primary_stat: **INT avg 88.4%** (30–150), WIS 71.8%, STR 7.3%, DEX 5.2%.
+2. Binding dict carries `spell_damage_modifier` at **top level** (`substrate_weapon_binding.py:653`).
+3. Gauntlet/pilot builder passes it **un-nested**: `carried_gear = {"main_weapon": kit.substrate_weapon_binding}` (`season_generation_pipeline.py:1604-1606`, `_build_real_player_class`; pilot reaches it via `economy_pilot_driver.py:456-459`).
+4. Combatant reads it: `_carried.get(...\"main_weapon\")` → `.get("spell_damage_modifier", 0.0)` (`combatant.py:893-901`) → feeds `spell_pct_pool` (`damage_resolver.py:867-874`).
+
+**The ~90% caster pool was LIVE in the pilot fights.** My §2 claim — "43% per cast, purely from the seed constant" — is **WRONG as a fight-time claim.** Root cause of my miss: grep pattern `weapon_damage|weapon_dps|weapon_bonus|weapon_mult` cannot match `spell_damage_modifier` or `substrate_weapon_binding.py`; I read combatant scaffold defaults (0.0) and stopped one layer short of the emission binding.
+
+### 8.2 The inversion finding (new — from closing the bracket)
+
+Post-Path-α, the physical pool is fed ONLY by `gear_set` ability_modifiers (`physical_damage_pct`, `damage_resolver.py:758-760`) — and `gear_set = {}` in the pilot (`economy_pilot_driver.py:457`) and is untouched by `_build_real_player_class`. Weapon `base_physical_damage` is inert by design (Path α docstring, `:717-740`). **So as-built: the substrate weapon does NOTHING for martial kits and +88% for casters.** Matt's original hypothesis had the right shape with the sign flipped — casters are the ones getting weapon damage; martials get the fossil (2.3384× seed). Two unprincipled legacy asymmetries currently ~cancel: 48,012.6 / (20,532.2 × ~1.88–2.03) ≈ **1.15–1.25× martial per-cast advantage** (gamora's ~1.07 after crit/hit adjustments; their 1.81× pool ratio slightly understates — martial's 5% feeds the SPELL pool, which martial physical skills never read, so true pool ratio ≈ 1.88×).
+
+### 8.3 Reconciled defect stack (supersedes §5's sizing premise)
+
+| Rank | Defect | Nature | Disposition |
+|---|---|---|---|
+| 1 | **Bar/instrument mismatch** — 9.90 bar exceeds the 8-mob wall's throughput cap in the measurement window; bar never measured on the caster's shell | Metrology | Re-derive bar per-shell on the same instrument. **This is NOT F-d bar-lowering** — the C2 principle (casters must meaningfully kill lone targets) survives; its NUMBER was derived on a mismatched instrument |
+| 2 | **Spatial/geometry throughput** — single-target rotation vs dispersed wall; pack-multiply never fires; travel/target-switch dead time; **path-symmetric** | Gauntlet + kit design | Real design surface, fork for Matt AFTER re-measurement (geometry-aware gauntlet criteria extending C2's band logic / nuke-channel / movement-cast rules) |
+| 3 | Composition — pilot drew support_specialist template (5/9 attack slots), ~1.4–1.6× | Sampling | Re-pilot stratifies/pins role-split templates |
+| 4 | Residual damage asymmetry ~1.15–1.25× per-cast | Constants | F-b sized to the RESOLVED number (~1.2×, not 2.34×) — and only if it survives re-measurement on the fixed instrument. F-c recovers <3% (gamora) — texture only |
+| 5 | **Latent nesting bug (flag to rocket/gamora)** — emission path nests binding under `gear_representative[main_weapon_key]["substrate_binding"]` (`season_generation_pipeline.py:472`) but combatant reads `spell_damage_modifier` at top level → any combatant built from DECL carried_gear gets 0.0. Pilot/gauntlet path unaffected (different builder, un-nested) | Wiring | Unify the two shapes before loot work multiplies carried_gear consumers |
+
+### 8.4 What stands, what falls, what's fragile
+
+- **Stands:** §1 (fossilized ratio, path-blind tables, no auto-attack, DEX-keyed crit), §3's pack-channel mechanism (gamora's geometry reframe USES it), §7's two fix-build constraints (instrument-shape calibration; distribution sizing), C2 principle.
+- **Falls:** §2's "43% per cast" as a fight-time claim; §3's "residual ~4×" decomposition premise; §5 F-b's 2.34× sizing premise.
+- **Fragile (design point, carries into loot work):** today's near-parity is an ACCIDENT of two opposing legacy asymmetries (fossil seed ratio × scaffold-era weapon pool asymmetry). When SC-6b values shift, when loot operators land, when WIS pilots (71.8% pool vs INT's 88.4% — WIS runs ~9% behind INT from pool alone), the cancellation moves. The eventual fix should COLLAPSE both into one principled surface — a deliberate path×geometry damage matrix with the weapon pool as an explicit term — not leave two wrongs netting to a right.
+
+**Sequencing alignment:** gamora's recommendation holds — no constants move; instrument fix + stratified re-pilot first; Leg C stays held. The critique-pair did its job: static read caught the fossil; dynamic ledger caught the cancellation; neither alone had the truth.
+
+---
+
+**Signed:** gandalf, 2026-07-06 (ARCHITECT §1-7; DRIFT-CRITIC §8). The weapon never left — it fossilized into a constant; and its ghost turned out to be feeding the other side of the duel.
