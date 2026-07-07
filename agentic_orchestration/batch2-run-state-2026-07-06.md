@@ -473,3 +473,22 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 - **gamora proxy-T4 A2+A3** (`aa5862005af8111bd`) — RUNNING; independent of leg-2. Fold its return first.
 - **leg-2 implementation = THREE-seam coordinated build** (rocket route + star-lord validator-widen + gamora consume-side) with C1–C3 folded — fires AFTER gamora's proxy-T4 pass returns (avoids double-booking gamora on the sim seam). → leg-3 emission → unblocks star-lord Leg C + gamora summoner proxy-T4.
 - **ON MATT unchanged:** Q7 (drax body held) + 450MB telemetry.db blob.
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — gamora proxy-T4 DONE; leg-2 producer + gamora-ext Gate-2 fired
+
+**gamora proxy-T4 sim-eval EXTENSION → DONE** (tag `gamora/v-proxy-t4-rebase-eval-extension-1` @ `8a29009`, 20/20 pins). Both §7 gates cleared in one pass:
+- **A2** = HOLD, no band re-opened; all scaffold bands CERTIFIED-HOLD (N=24/cell; axis-directional; R1-by-construction; D3 byte-unchanged; peak 59.8MB).
+- **A3** = UNCONDITIONAL PASS; retired eval-side `_A3_ENERGY="charge_stack"` in harness+tests, now reads landed `focus` via `demo_summoner_energy_type()` → SOVEREIGNTY gate opens → bone→FISSION / crypt→SOVEREIGNTY. Hidden eval-side coupling removed.
+- **F-f** = HELD at eval-side invariant (probe False; live-wiring B4-scoped; NOT promoted — no inert guard on frozen surface, Disc #12).
+- MIGRATION: consumer-read note (consumes rocket's `energy_type`; cross-ref rocket DoF-A line); NO producer/schema change → star-lord owes nothing. Gate-2 filed `qa/pending/2026-07-07-gamora-proxy-t4-rebase-eval-extension-gate2.md`.
+
+**Fired (parallel):**
+- **jack-ryan Gate-2** (`a5ada10355e1ae157`) on gamora's proxy-T4 extension.
+- **rocket leg-2 PRODUCER half** (`ac088b7121feeea0c`): define shared C2 constant `ACCEPTED_PROXY_PRIMARY_T4` (T4-catalog home) + emit route (predicate P) + S1 route-correctness case (bone→FISSION/crypt→SOVEREIGNTY under `focus`) + S2 byte-diff + generation MIGRATION cross-ref'ing gamora sites 2/3 + star-lord validator. **NO leg-3 yet** (gates on consume/validate halves). Tag `rocket/v-batch2-leg2-summoner-emission-route-1` → Gate-2.
+
+**KR sequencing (updated):**
+- After rocket's C2 constant + emit route lands → fire **star-lord validator-widen** + **gamora consume-side (sites 2/3)** in parallel, both importing rocket's C2 constant.
+- After those land → **rocket leg-3 emission run** → coordinated three-seam Gate-2 → unblocks **star-lord Leg C** + **gamora summoner proxy-T4**.
+- **ON MATT unchanged:** Q7 (drax body held) + 450MB telemetry.db blob.
