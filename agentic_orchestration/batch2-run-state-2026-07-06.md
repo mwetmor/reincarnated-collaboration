@@ -520,3 +520,14 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 
 **Next:** both halves land → **coordinated three-seam Gate-2** (rocket+star-lord+gamora; cite S1/S2 GREEN per C3/C4) → **rocket leg-3 emission run** (owes its own Disc #1.1 resource/LLM-cost projection + the W3-smoke check) → unblocks **star-lord Leg C** + **gamora summoner proxy-T4**.
 **ON MATT unchanged:** Q7 (drax body held) + 450MB telemetry.db blob.
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — leg-2 CONSUME-side (gamora) DONE; awaiting star-lord validator half
+
+**gamora leg-2 CONSUME-side (C1) → DONE** (tag `gamora/v-batch2-primary-t4-consume-widen-1` @ `8d8e76b`, on rocket's `996f77d`; Gate-2 filed `qa/pending/2026-07-07-gamora-leg2-primary-t4-consume-gate2.md`):
+- Both sim sites route through rocket's SHARED `route_primary_t4()` (not a re-impl, not a persisted-field consume): `gauntlet_sim.py:2279` + `unified_calibration_loop.py:3592`, with `proxy_decls = build_proxies_surface(kit.skills)` = the emit source verbatim (`season_generation_pipeline.py:528`) ⇒ sim decls == emit decls byte-for-byte. Divergence closed by construction, not mirrored.
+- **⭐ Structural clarification (load-bearing for leg-3 scoping):** rocket's leg-2 added the route FUNCTION but has NOT wired the emit assignment — `season_generation_pipeline.py:404-412` still holds the old DDA slot. **Wiring the emit assignment to call `route_primary_t4()` + running the emission IS leg-3** (rocket's separate fire). ⇒ leg-2 (route fn + validator + consume) is INERT on the current all-non-summoner population; the proxy-bearing behavior change reaches the population only at leg-3.
+- Cert-baseline byte-intact (all-non-summoner pop → DDA fallback byte-identical; Disc #12 no live-behavior shift). Non-summoner no-regression 8/8 byte-identical. C1 summoner route verified: bone→FISSION / crypt→SOVEREIGNTY / gravecaller→SOVEREIGNTY, all ∈ `ACCEPTED_PROXY_PRIMARY_T4` (imported from C2). MIGRATION lockstep CLOSES the v1.83/`:8371` producer divergence window.
+
+**Awaiting:** star-lord validator-widen (`ad49a55a92efb5630`, in flight). On landing → **coordinated three-seam Gate-2** (rocket `996f77d` + star-lord + gamora `8d8e76b`; S1/S2 GREEN cited per C3/C4) → **leg-3** (rocket: wire emit assignment + emission run; owes Disc #1.1 projection + W3-smoke check) → unblocks star-lord Leg C + gamora summoner proxy-T4.
