@@ -1031,3 +1031,21 @@ Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT t
 **NOW FIRING R3a step-4 RE-RUN:** $0 gauntlet re-run, seed 56000000, n=1, `dry_run_flavor` (R6 $0 guard), kill-verify clean (rider-7 — no concurrent same-seed emission). Detached (`start_new_session=True`). Budget ~25-30 min / <5MB (gamora Disc #1.1 projection; up from 879.8s — ~375 previously-unrun cells now admitted to tier-2). **On completion: read `tier_1_reject_breakout` FIRST (proves the ~375 cells entered tier-2 — jack-ryan's instruction), THEN judge the §4 gradient on the FULL 6-scenario surface → verdict to Matt.**
 
 **Matt touchpoints outstanding: R5 VALUES + the §4-verdict-on-full-surface report (imminent).** Sole live KR shell; firing re-run now.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — R3a step-4 RE-RUN COMPLETE: §4 FAILS but failure mode INVERTED (ceiling-saturation); re-band worked; selection lives at tier-1 → strategic fork to Matt
+
+**Step-4 re-run complete** (PID 32539, seed 56M, `dry_run_flavor`, 1469.5s / <5MB — kill-verify clean, detached, $0). Fights 24,030→31,530 (~7,500 more = the ~375 admitted cells). Same TP3 HALT-LOUD on 0/18 emit (emission gate, not §4).
+
+**BREAKOUT (read first, per jack-ryan) — re-band WORKED exactly as projected:** open_arena 0→**204 entered_tier2** (36 above/12 below), chokepoint 0→**171 entered** (18 above/0 below). breakout `entered_tier2` matched measured counts cell-for-cell across all 6 scenarios. The ~375 previously-unrun cells now run tier-2.
+
+**§4 FULL-SURFACE VERDICT = FAIL, but failure mode INVERTED (ceiling-saturation, not floor).** Clean surface = `tier_1_outcome==PROVISIONAL_PASS` cells (genuinely ran tier-2; NOT `winner_tally present` — that filter was contaminated by tier-1-REJECT rows carrying placeholder `{0,0,timeout:20}` tallies on boss/mini_boss; KR caught + corrected before verdict):
+- **769 entered tier-2: 765 ceiling / 4 MID / 0 floor. mid-fraction 0.0052, ceil-fraction 0.995.** Per-scenario: boss_with_adds 7/0/0/7ceil · chokepoint 171 all-ceil · elite_pack 315 all-ceil · magic_pack 36 all-ceil · mini_boss 36 (1 mid @0.90) · open_arena 204 (3 mid @0.85-0.95, 201 ceil).
+- **The original "everything floors" was an ARTIFACT** — unrun tier-1-rejected cells defaulting to survival=0.0. With four inherited-uncalibrated gates cleared (HP un-stack, serial-engagement, tier-1 re-band ×open_arena+chokepoint), the TRUE tier-2 surface is CEILING-saturated: kits win everything they're measured on. A §4 gradient cannot exist on a layer where everyone wins.
+
+**STRUCTURAL FINDING (new, load-bearing for the fork):** all real kit-vs-content SELECTION happens at TIER-1 (the KPM gate), NOT tier-2 (survival). tier-2 survival is a near-constant 1.0 for anyone who enters. boss_with_adds rejects 182/189 at tier-1 — **117 killed ZERO mobs** (`tier_1_kpm=0.0` = genuine content non-viability, can't fight the room), the 7 that enter faceroll. magic_pack rejects 153/189 (117 below-floor + 36 above). So §4 (a tier-2-WR-gradient criterion) is measuring a layer where the variance has already been spent at tier-1.
+
+**STRATEGIC FORK → MATT (not autonomous levers — this questions the instrument frame, not a stale constant):** the campaign has cleared the inherited-uncalibrated gates; what's revealed is (a) tier-2 encounters undertuned relative to kit power (universal ceiling — possible content re-tune), (b) §4/tier-2 may be the wrong acceptance layer given selection lives at tier-1, (c) genuine content non-viability on boss_with_adds (0-KPM kits — bimodal, not a band). This is a design-steward (gandalf, §4 author) + Matt decision, NOT more autonomous re-banding. KR recommendation: fire gandalf for the §4 design read on the inverted surface (his authored criterion) → Matt steers. KR did NOT autonomously fire gandalf or another lever — surfacing the inflection to Matt first because it questions the campaign frame.
+
+**Matt touchpoints outstanding: this §4-verdict fork (LIVE) + R5 VALUES.** Sole live KR shell; no run in flight.
