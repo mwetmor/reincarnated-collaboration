@@ -19,6 +19,18 @@
 
 ---
 
+## FLOW (end-to-end at a glance — Glance shape #6, contract spec § 2.7)
+
+> Ordered process view for Glance Tier-0. Stage STATE is DERIVED from the mapped PARTs' modeled queue rows — never hand-stamp a stage. Maintain this map when PARTs restructure. *(Matt-ruled fork (b), 2026-07-07.)* PART II (serial content emission) split out to its own tracker 2026-07-02 — it carries its own FLOW.
+
+1. **Frame** ← PART 0
+2. **Battle-sim deltas** ← PART I
+3. **V2 engine-fit gaps** ← PART III
+4. **Forward queue** ← PART IV
+5. **Verified fit** ← PART V
+
+---
+
 ## SESSION-DELTA LOG (latest governs all below)
 
 ### 2026-07-07 (gandalf Pattern-B session) — VISIBLE-ENGAGEMENT-BAND LAW registered (Camera B′ consequence) · batch-2 spec reconciled to v1.2

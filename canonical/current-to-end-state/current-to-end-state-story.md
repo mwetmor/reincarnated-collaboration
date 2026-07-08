@@ -17,6 +17,16 @@
 
 ---
 
+## FLOW (end-to-end at a glance — Glance shape #6, contract spec § 2.7)
+
+> Ordered process view for Glance Tier-0. Stage STATE is DERIVED from the mapped PARTs' modeled queue rows — never hand-stamp a stage. Maintain this map when PARTs restructure. *(Matt-ruled fork (b), 2026-07-07.)*
+
+1. **Locked frame** ← PART A
+2. **Open story decisions** ← PART B
+3. **Reconciliation worklist** ← PART C
+
+---
+
 ## SESSION-DELTA LOG (latest governs all below)
 
 ### 2026-07-07 — DoF-A summoner energy designation RULED: demo melee-summoner fixture = `focus` (death-magic tether economy) — cross-seam gate cleared

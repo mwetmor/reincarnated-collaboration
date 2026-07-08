@@ -12,6 +12,18 @@
 
 ---
 
+## FLOW (end-to-end at a glance — Glance shape #6, contract spec § 2.7)
+
+> Ordered process view for Glance Tier-0. Stage STATE is DERIVED from the mapped PARTs' modeled queue rows — never hand-stamp a stage. Maintain this map when PARTs restructure. *(Matt-ruled fork (b), 2026-07-07.)*
+
+1. **Pipeline frame** ← PART A
+2. **Current state** ← PART B
+3. **End state (staged)** ← PART C
+4. **Gap queue** ← PART D
+5. **Open Matt rulings** ← PART E
+
+---
+
 ## SESSION-DELTA LOG (latest governs all below)
 
 ### 2026-07-07 (sixth entry) — Q9 + Q10 SWEPT ("item 7 as recommended") · loot-canonization residue CLOSED except band-time cap values · pervasive KR authorization prompt drafted (two-front demo assembly)

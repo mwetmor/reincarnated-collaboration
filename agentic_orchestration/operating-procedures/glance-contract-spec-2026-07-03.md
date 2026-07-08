@@ -1,6 +1,6 @@
 # Glance — Contract Spec (parse contract · state model · render rules)
 
-> **STATUS:** SPEC-CURRENT v1.0 (2026-07-03) — **Matt rulings embedded (2026-07-03): GO on the staged build · STANDALONE app · named "Glance" · fork-4 `gates-on:` tokens live on all queue-row writes NOW.**
+> **STATUS:** SPEC-CURRENT v1.1 (2026-07-07) — **Matt rulings embedded (2026-07-03): GO on the staged build · STANDALONE app · named "Glance" · fork-4 `gates-on:` tokens live on all queue-row writes NOW. v1.1 (2026-07-07, Matt-ruled fork (b)): shape #6 FLOW declaration added (§2.7) — Tier-0 renders each tracker as an abstracted end-to-end process view with drill-in; all four trackers carry `## FLOW` blocks as of this date.**
 > **§2 (the format law) is PROPOSED, not canon** — per `canonical-doc-format.md` §6.7, gandalf proposes + executes, **jack-ryan RATIFIES** doc-lifecycle/format governance. ⚠ SWITCH: CANON-STEWARD (proposer) → jack-ryan (ratifier) — §2 routes to jack-ryan's next governance touch; on ratification he folds it into `canonical-doc-format.md` (+ skill twin, same commit, §6.8).
 > **Author:** gandalf (SPEC-AUTHOR) · run-window authoring per demo-readiness-run-spec §9 — not a wave dependency of the live run.
 > **Builder:** drax (parser + app + CI — his web seam; never touches the engine tree; interleaves after the current KR run closes).
@@ -29,7 +29,7 @@ push to canonical/**  →  GitHub Action  →  parser (~300 lines, deterministic
 
 ## 2. THE FORMAT LAW — the parse contract *(PROPOSED → jack-ryan per §6.7)*
 
-The trackers are already semi-structured data wearing markdown clothes — ~80% of a parse contract nobody designed on purpose. This section codifies that surface. **Scope discipline: legislate the MINIMUM parseable set — five shapes.** Everything else stays free markdown, rendered as prose, never modeled. The team's only new obligation: keep writing what they already write, *parseably*.
+The trackers are already semi-structured data wearing markdown clothes — ~80% of a parse contract nobody designed on purpose. This section codifies that surface. **Scope discipline: legislate the MINIMUM parseable set — six shapes** *(five at v1.0; shape #6 FLOW added v1.1, Matt-ruled)*. Everything else stays free markdown, rendered as prose, never modeled. The team's only new obligation: keep writing what they already write, *parseably*.
 
 ### 2.1 STATUS banner
 First blockquote in the doc, containing the literal `**STATUS:**` marker. Parser captures: the stamp word(s) (e.g., `SPEC-CURRENT`, `CURRENT`, `LIVING`, `SUPERSEDED`, `PARTIALLY SUPERSEDED`), the first date found, the raw line.
@@ -70,6 +70,19 @@ qualifier := free prose, captured not interpreted   — e.g. W2 (soft — §7 de
 - **UNRESOLVED reference** (dangling `gates-on:` token) → **Glance warning badge** on the row + a global "dangling dependencies" counter. Visible debt, not a broken build.
 - **ABSENCE is never an error.** A doc with no delta log, a table that isn't a queue — fine; parser models what matches, renders the rest as prose.
 
+### 2.7 FLOW declaration — shape #6 *(v1.1, Matt-ruled fork (b) 2026-07-07)*
+
+A `## FLOW` section near the top of a tracker declaring the doc's ordered end-to-end process view — the Tier-0 abstraction Matt asked for ("see the entire process for each system end to end, then drill in"). Grammar — an ordered list where each item is:
+
+```
+N. **<stage name>** ← <section-ref> [· <section-ref>]*
+```
+
+- **section-ref** = a substring of a `##` heading in the same doc (e.g. `PART III`). Resolution is **most-specific-first**: longer refs claim their headings before shorter refs bind (live case: the game tracker's `PART A′` must bind before `PART A`). One heading maps to at most one stage.
+- **Stage state is DERIVED, never hand-stamped** — the founding principle applied to stages. Parser aggregates the modeled queue rows (§2.3) under each stage's mapped sections into the standard counter object, plus a **dominant token** for rendering, precedence: `⛔ blocked > ⚖ awaiting_ruling > IN-FLIGHT > OPEN > PARKED > ✓`. A stage whose sections carry **no modeled rows** is `quiet` (rendered neutral — frame/lineage PARTs are legitimately row-less).
+- **Severity (extends §2.6):** section-ref resolving to no heading → **warning badge** + global `dangling_flow_refs` counter (visible debt, like a dangling `gates-on:` token) — never a build failure, because PARTs restructure and the FLOW map may lag a commit. Tracker with no `## FLOW` at all → fine; its Tier-0 card renders without a flow-bar. **Malformed list item** inside a declared FLOW (missing `←`, missing bold stage name, unparseable ordinal) → CI failure — malformed instance of a legislated shape, same as §2.6 rule 1.
+- **Maintenance obligation:** the FLOW map is authored (it's a declaration, not derivation) — whoever restructures a tracker's PARTs updates its FLOW refs in the same commit. The dangling-ref badge is the drift alarm.
+
 ## 3. `state.json` — the parser's output contract
 
 ```jsonc
@@ -90,11 +103,21 @@ qualifier := free prose, captured not interpreted   — e.g. W2 (soft — §7 de
         "line": 214
       }]
     }],
-    "counters": { "open": 0, "in_flight": 0, "blocked": 0, "awaiting_ruling": 0, "parked": 0, "closed": 0 }
+    "counters": { "open": 0, "in_flight": 0, "blocked": 0, "awaiting_ruling": 0, "parked": 0, "closed": 0 },
+    "flow": {                              // §2.7 — node ABSENT when the doc declares no FLOW
+      "line": 24,
+      "stages": [{
+        "n": 1, "name": "Battle-sim deltas", "refs": ["PART I"], "resolved": true,
+        "counters": { "open": 2, "in_flight": 1, "blocked": 0, "awaiting_ruling": 0, "parked": 0, "closed": 5 },
+        "dominant": "in_flight",           // §2.7 precedence; "quiet" when no modeled rows
+        "line": 26
+      }]
+    }
   }],
   "matt_decision_needed": [{ "id": "Q2", "title": "…", "resolved": false, "path": "…", "line": 9 }],
   "matt_to_do":          [{ "…": "…" }],
-  "dangling_gates": [{ "token": "singleton-smoke-green", "row": "D.1#8", "path": "…", "line": 214 }]
+  "dangling_gates": [{ "token": "singleton-smoke-green", "row": "D.1#8", "path": "…", "line": 214 }],
+  "dangling_flow_refs": [{ "ref": "PART X", "tracker": "engine", "stage": 3, "path": "…", "line": 27 }]
 }
 ```
 
@@ -113,7 +136,7 @@ Done right, Glance is *more* truthful at a glance than reading the raw file top-
 ## 5. Tier 0 — the glance (one screen, phone-first)
 
 - **Header strip:** `matt_decision_needed` open count — **the your-move number, the most important pixel on the screen** · `matt_to_do` count · last commit (agent + age) · global dangling-gates count.
-- **Four tracker cards:** condensed STATUS · latest delta (date + headline + one line) · counters (open / in-flight / ⛔ / ⚖ / parked / ✓) · top-3 open items (first three non-✓ rows by board order).
+- **Four tracker cards:** **flow-bar first** *(v1.1 — when the tracker declares FLOW, §2.7)*: the ordered stages as a compact segmented bar, each segment colored by its dominant token, counters on tap — the abstracted end-to-end process view is the card's LEAD element (Matt 2026-07-07: "see the entire process for each system end to end, then drill into each sub-section"). Tapping a segment deep-links to that stage's sections in Tier 1. Beneath it: condensed STATUS · latest delta (date + headline + one line) · counters (open / in-flight / ⛔ / ⚖ / parked / ✓) · top-3 open items (first three non-✓ rows by board order).
 - **"Since you last looked":** the four delta logs merged, newest first; entries newer than the client's last-seen watermark highlighted. v1 watermark = **max delta-date seen** (localStorage, no server); v1.1 upgrades to SHA-precise via parser-side git-blame on delta entries. *This affordance is ~60% of the system's value — it ends re-reading-to-find-what-changed.*
 
 ## 6. Tier 1 — the drill · Tier 2 — the source
@@ -139,10 +162,10 @@ Done right, Glance is *more* truthful at a glance than reading the raw file top-
 
 | Who | What | When |
 |---|---|---|
-| gandalf | this contract ✓ · §2 proposal routed | done (this doc) |
-| jack-ryan | **ratify §2** → fold into `canonical-doc-format.md` §7 (+ skill twin, same commit per §6.8) · add the CI-fail-loud entry to disciplines | his next governance touch |
-| drax | parser + app + CI + Vercel project, built against §2/§3/§4/§5 **as ratified** | after the current KR run closes (KR sequences; zero collision — web seam only) |
-| all agents | emit `gates-on:` on queue-row writes | **NOW (Matt ruling, fork 4)** |
+| gandalf | this contract ✓ · §2 proposal routed · **v1.1 §2.7 FLOW amendment ✓ + all four trackers' `## FLOW` blocks authored (2026-07-07)** | done (this doc) |
+| jack-ryan | **ratify §2 (now six shapes — #6 FLOW rides the same ratification)** → fold into `canonical-doc-format.md` §7 (+ skill twin, same commit per §6.8) · add the CI-fail-loud entry to disciplines | his next governance touch |
+| drax | parser + app + CI + Vercel project, built against §2/§3/§4/§5 **as ratified** — v1.1 adds: FLOW parse (§2.7) + `flow` node (§3) + Tier-0 flow-bar (§5) | after the current KR run closes (KR sequences; zero collision — web seam only) |
+| all agents | emit `gates-on:` on queue-row writes · whoever restructures a tracker's PARTs updates its FLOW refs same-commit (§2.7) | **NOW (Matt ruling, fork 4; FLOW maintenance from v1.1)** |
 
 ---
 

@@ -17,6 +17,17 @@
 
 ---
 
+## FLOW (end-to-end at a glance — Glance shape #6, contract spec § 2.7)
+
+> Ordered process view for Glance Tier-0. Stage STATE is DERIVED from the mapped PARTs' modeled queue rows — never hand-stamp a stage. Maintain this map when PARTs restructure. *(Matt-ruled fork (b), 2026-07-07.)*
+
+1. **Locked grammar** ← PART A
+2. **Banked awaiting first-use** ← PART A′
+3. **Open build decisions** ← PART B
+4. **Fold worklist** ← PART C
+
+---
+
 ## SESSION-DELTA LOG (latest governs all below)
 
 ### 2026-07-07 — CAMERA B′ RULED + COMMITTED (dist 34→20, D3 register 8.02%) · D5/D6/D8 capture hold LIFTED · F1-scale review room
