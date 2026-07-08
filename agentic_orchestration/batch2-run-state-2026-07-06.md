@@ -1223,3 +1223,15 @@ Matt touchpoints live: **R5 VALUES** (+ the post-R5 season-emission run). No run
 5. **gamora bottom line: (a) EXPECTED metrology reference measurement; does NOT block the chain.** The metrology report is jack-ryan's Lane-3 reference deliverable, stands as-is. The season_emit verdict routes to the generation-pipeline run. Reference-kits-passing is a KIT-TUNING question (rocket seam), not an instrument/band fix.
 
 **KR CHAIN POSTURE: R4 metrology SUCCEEDED (band measurements + escape_lane distribution produced). NOT halted.** But a genuine sequencing fork surfaced to Matt (below): does the chain proceed to R5 band-sheet draft from the genre-anchored metrology bars, OR run the real-candidate season_emit test (generation pipeline → run_gauntlet_sim, F4-registered gate — LLM-posture TBD, possible R6 touchpoint) BEFORE R5 so bands are validated against an engaging population? Presented decision-ready.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — Matt rules (B): real-candidate season_emit test fires BEFORE R5, at $0 (dry_run_flavor), NO R6 touchpoint
+
+**Matt ruling (verbatim intent):** (B) — the real-candidate season_emit test runs BEFORE R5, at **$0 via `dry_run_flavor`**. gandalf verified at source: `w3_emission_driver.py:519,922` — the flavor pass is the ONLY LLM gate; generation → gauntlet → season_emit all run dry. R2 precedent. **No R6 touchpoint needed — this is sim-posture, autonomous.**
+
+**Pre-stated verdict criterion (gandalf's rider — anti-Goodhart, prevents me re-making the framing error):** the test asks **"does an engaging F4 population exist + what is the certified-set composition,"** NOT "N% pass." Wholesale F4 failure forks HONESTLY to one of: band-re-derivation / content-finding / room-design-read — it is a diagnosis fork, not a chain halt.
+
+**Sequence (locked):** (B) run → **jack-ryan F4-band re-check** against the *engaging* distribution (PROVISIONAL retires OR re-derivation fires) → **R5 band-sheet draft** from VALIDATED bands → **Matt VALUES touchpoint**. The flavored (LLM) emission run stays post-R5, Matt-touchpoint, per standing ruling.
+
+**→ (B) FIRING (KR autonomous, $0):** commissioning gamora — verify `dry_run_flavor` threads through `season_generation_pipeline → run_gauntlet_sim` for a true $0 real-candidate run (confirm no LLM call fires); kill-verify no prior driver PID (never two same-seed emissions); launch DETACHED (`subprocess.Popen(start_new_session=True, close_fds=True)` — survives sub-agent return); capture (a) `season_emit` count via `family_certification_pass` on REAL generated candidates, (b) the F4 escape_lane distribution from an engaging population (jack-ryan re-check data), (c) certified-set composition (identity_glyph / element split). KR monitors, then routes per the pre-stated criterion.
