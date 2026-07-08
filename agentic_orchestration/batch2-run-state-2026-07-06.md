@@ -680,3 +680,19 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 **No Gate-2 submission written** — there is no passing artifact; a Tier-1 "measurements" Gate-2 for an empty HALT-LOUD run would be dishonest. This is a FAILURE/forensics record.
 
 **ROUTED TO MATT — same diagnosis dispatch, sharper signal.** Not the earlier hang; a 0-yield calibration floor. Recommended **gamora + star-lord co-diagnosis before any Tier-1 re-fire:** (a) **gamora (sim, primary):** the R2 spatial-gauntlet is broadly floor-saturated at `MOB_HP=1.5` for endgame BC classes — is the L1-authority `MOB_HP 1.5→1.25` reduction the right move, and is this a KNOWN uncalibrated state (gamora Step-3 / R2 work) that leg-3's pilot inherited, orthogonal to the wire? (b) **star-lord (driver):** should an 18×1 $0 band-measurement dry-run even gate season_emit on the full spatial gauntlet, or is the WR-bracket threshold wrong at n_samples=1? **Held for Matt's routing nod.** Engine HEAD `2779b62` unchanged (0 survivors ⇒ no new artifacts committed).
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — gandalf Lane-C GO: co-diagnosis dispatch AUTHORED (gamora PRIMARY + star-lord); both deltas pushed
+
+**gandalf Lane-C v3-aware verdict (Matt) = GO on both.** Deltas `3d2b8aa` + `6d11556` confirmed on remote (push up-to-date). Co-diagnosis dispatch authored: `dispatches/2026-07-08-gamora-starlord-spatial-floor-diagnosis.md` (Pattern B co-fire, gamora PRIMARY / star-lord secondary). All 8 riders folded:
+1. **MEASURE-THEN-FILTER (star-lord):** decouple §8-A1 band REPORT from WR-bracket GATE — measure all 18, report bands+gate side by side; next re-fire yields §8-A1 bands even if 0 pass bracket (coin-flip → guaranteed diagnostic yield).
+2. **Convergence/fail-loud guard (gamora):** REQUIRED unconditional deliverable — R2 loop must HALT-LOUD on non-convergence, not wedge silent (v2 29-min wedge = Disc-#24 violation; v3 same-params completion ⇒ INTERMITTENT).
+3. **Diagnosis GATES LEG C** (critical path; nothing Tier-1+ re-fires until dispositioned).
+4. **Don't fix CONTENT to satisfy INSTRUMENT:** 11/12 floor-saturating ⇒ instrument suspect; `melee_medium_variable` bimodality (open 0.000 / choke 1.000) = positional identity, live hypothesis not defect.
+5. **Goodhart guard (gamora G1, load-bearing fork):** MOB_HP 1.5→1.25 legit ONLY if 1.5 known-uncalibrated-inherited; if 1.5 RULED ⇒ WR=0.000 is a DESIGN FINDING, softening = drift.
+6. **Recovery-mode batch-1 fossil (700/2200)** = NAMED follow-up, out of scope.
+7. **Kill-verify before re-fire** (v2/v3 parallel-same-seed window).
+8. **Credit:** failure infra WORKED — TP3, round-trip smoke, registry-honesty, $0; wire PROVEN, breakage is upstream.
+
+**Gate posture:** code deliverables (gamora guard + conditional MOB_HP; star-lord decoupling) → jack-ryan Gate-2 on submission. G1 disposition (ruled vs inherited) routes back to Matt/gandalf. Re-fire = SEPARATE Matt run-auth (ADR-006) AFTER this lands. **Launch:** `cd ~/Games/reincarnated-engine && claude --agent gamora` (+ a star-lord session); both read `dispatches/` at start.
