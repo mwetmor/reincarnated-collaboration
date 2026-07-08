@@ -68,4 +68,53 @@ The ultimate validation is step 4 ($0 re-run, separate). The bar there: **the WR
 - gandalf design read + §5.2-AMEND (`1906598`); gamora G1/G2 (`03076c0`) + termination-split (`18dbba5`); R2 before-side artifact (`75637f5`); dispatch `2026-07-08-gamora-starlord-spatial-floor-diagnosis.md`; run-state `batch2-run-state-2026-07-06.md` (817-841 + recent deltas). ADR-004 (MIGRATION), Principle 6, Disciplines #1/#1.1/#2.1/#11/#23.
 
 ## Completion record
-*(gamora appends on completion: math-notes, code changes, smoke results, resource projection, tag, Gate-2 path, boundary call on D3, commit hashes.)*
+
+**Completed:** gamora, 2026-07-08. §6 fork A/YES/YES implemented. Math-note-first (Disc #1) all three
+deliverables; smoke PASS/PASS/PASS; 77+87 regression tests GREEN (legacy path byte-identical).
+
+### Math notes (4)
+- `simulation/math/r3a-d1-mob-hp-unstack-endgame-2026-07-08.md`
+- `simulation/math/r3a-d2-serial-engagement-2026-07-08.md`
+- `simulation/math/r3a-d3-winner-tally-recording-flip-2026-07-08.md`
+- `simulation/math/r3a-step3-resource-projection-2026-07-08.md`
+
+### D1 — un-stack (Option A)
+- `run_spatial_fight` gains `apply_mob_hp_difficulty_multiplier: bool = True` (default = every caller
+  byte-identical). Gate: `flag AND scenario_id in MOB_HP_DIFFICULTY_SCENARIOS`. Endgame-BC path
+  (`t4_sim_cycling._w4g_run_fight_batch`) passes `False`. **`arena.py:49 = 1.5` UNTOUCHED** (legacy
+  convergence instrument). Budget: open_arena/chokepoint swarm eff-HP 39,750→26,500 (÷1.5, −33%);
+  magic_pack unchanged (never in scope). **Legacy path verified unaffected** (77 tests green + smoke).
+
+### D2 — serial-engagement
+- New latching `CombatantState.is_activated` + `serial_activation_radius_m`; gated behind
+  `serial_engagement=True`. Activation gate in `_navigate_entity` (hold-at-spawn until player within R)
+  + no-attack-while-unactivated in mob action phase. **Radii (gamora-derived, framing-audit):**
+  open_arena **12m** (peak concurrent ~4; ~3-4 bites), magic_pack **9m** (shallow 14m room; ~3 bites).
+- **LEASH decision:** did NOT re-base the shared `LEASH_DISTANCE_OVERRIDE_M_SWARM=35.0` (shared by 3
+  incompatible-geometry rooms; chokepoint OUT OF SCOPE). Activation gate SUBSUMES the concern in-scope;
+  chokepoint-scoped re-base REPORTED as a follow-on, not fixed. magic_pack addressed via the tighter
+  radius (room-depth respected; no geometry edit; NOT added to MOB_HP_DIFFICULTY_SCENARIOS).
+
+### D3 — winner-tally (BOUNDARY CALL)
+- `StratumFightBatch.winner_tally` + `GauntletEncounterResult.tier_2_winner_tally` {player, monster,
+  timeout} in the results JSON `encounter_results` rows. **BOUNDARY: WITHIN-SEAM, NO MIGRATION** —
+  in-JSON gamora-side aggregate of the already-owned `FightSummary.termination_reason`; no star-lord
+  export boundary, no `spatial_fight_results` DB column. Confirms gandalf §5.2-AMEND lean. **Did NOT
+  cross the star-lord boundary → did NOT flag KR for star-lord coordination.**
+
+### Smoke (Disc #2.1)
+`simulation/scripts/gamora_r3a_step3_unstack_serial_winner_smoke_2026_07_08.py` — **PASS**:
+D1 factor-drop 1.5 endgame / unchanged legacy + magic 1.0; D2 open 4/40 + magic 10/24 active at tick-0
+(== geometry within-radius) = staged-not-full-field; D3 tally {3,2,1} sums to 6, in `to_dict`.
+
+### Resource projection (Disc #1.1)
+Step-4 re-run: **~25-35 min, <5MB peak** — same class as R2 (~25 min, <5MB). D1 (down)/D2 (up) partly
+offset; 120s cap unchanged. No same-seed parallelism (rider 7 unaffected).
+
+### Tag + Gate-2 + commits
+- Tag: `gamora/v-r3a-step3-unstack-serial-engagement-1` (engine `e649659`).
+- Gate-2 submission: `qa/pending/2026-07-08-gamora-r3a-step3-unstack-serial-winner-gate2-submission.md` (collab `5ded435`).
+- Push: granted (R6) — pushed after commit.
+
+**HALT/ambiguity:** none. No design ambiguity requiring gandalf/Matt. Ready for jack-ryan Gate-2 → step-4
+$0 re-run (KR fires) → §4 gradient acceptance check.
