@@ -1000,3 +1000,20 @@ Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT t
 **CHAIN HALTED at Matt fork — NEW-LEVER AUTHORIZATION (not re-asking run-auth; a genuine scope point):** the tier-1 band re-fit is a THIRD R3a-class lever, NOT part of the §6 A/YES/YES ruling (which named exactly two: un-stack + serial-engagement). Authorizing a new constant move exceeds the ratified R3a budget and is Matt's call per the §6-fork-is-Matt's precedent + scope-amendment rule. The chain cannot proceed to R4/R5 until the surface can be measured (R4 Leg-C + R5 band-sheet are downstream of batch-2 closing on a gradiented surface). **KR recommendation to Matt: authorize the re-band as a one-constant R3a follow-on (math-note-first + Gate-2, identical discipline to the un-stack) → re-run step-4 → judge §4 on a surface where all 6 scenarios actually run tier-2.** Honesty caveat surfaced to Matt: even the 603 already-MEASURED cells are still railed (elite_pack all-ceiling, magic_pack partial-floor, etc.), so the re-band unblocks MEASUREMENT of the two worst scenarios but does not guarantee the whole surface gradients — there may be further work after. Conditional Lever-4 is MOOT (gandalf).
 
 **Matt touchpoints outstanding: (NEW, LIVE) tier-1 re-band authorization + R5 VALUES.** Sole live KR shell; no run in flight; diagnosis chain closed.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — R3a step-5 tier-1 band re-derivation COMPLETE (gamora); firing jack-ryan Gate-2
+
+**Matt AUTHORIZED the re-band as R3a step-5** (verbatim: scoped to the two stale tuples `gauntlet_sim.py:434-435`; riders per gandalf — density-anchored re-derivation with percentile cross-check math-note-first, §4 unchanged, Gate-2, cohort-invariance preserved, residual-reject breakout in after-report; then re-run step-4 for the §4 verdict on the full surface). KR authored the dispatch (`2026-07-08-gamora-r3a-step5-tier1-band-rederive.md`, committed), fired gamora.
+
+**gamora COMPLETE** (engine `649ff6a`, collab `750ada4`, tag `gamora/v-r3a-step5-tier1-band-rederive-1`, all pushed):
+- **Band values (old→new):** open_arena (9.90, 15.53)→**(20.87, 53.33)** [45s,115s @ 40 mobs]; chokepoint (11.65, 15.88)→**(12.52, 60.00)** [24s,115s @ 24 mobs]. Model `KPM = mob_count×60/clear_s` (exact for all_mobs_killed / KILLS_ONLY full-clear). `_route_tier_1` byte-identical; other 4 shells byte-identical.
+- **Density-anchor vs percentile — AGREE, with one finding surfaced (rider-4 held):** open_arena agrees cleanly (density ≈ percentile within ~1.5 KPM). chokepoint first-pass DISAGREED (naive model gave open_arena's fast-clear ceiling → 38% in-band); gamora surfaced it as a FINDING and **corrected the DENSITY MODEL** (24s funnel sweep grounded in the room's cone/line-AOE geometry, NOT the observed distribution) → 90% in-band. She corrected the model against the room's geometry, never the band against the kits. **← THE crux for Gate-2 to stress: is the corrected funnel model genuinely geometry-grounded, or a reverse-engineered justification to reach the percentile?**
+- **Cohort-invariance PRESERVED** — single per-shell tuple replicated across all 4 cohort columns, no branching; per-cohort mean KPM agrees <0.16. Verified structurally + empirically (math note §4).
+- **Residual-reject breakout — WITHIN-SEAM (no MIGRATION, no star-lord):** `tier_1_reject_breakout` top-level aggregate in results JSON (re-aggregation of already-serialized `tier_1_outcome`+`tier_1_kpm` vs band; D3 precedent). Simulated split admits ~375 of 441 previously-unrun cells into tier-2 (open 204 in/36 above/12 below; choke 171 in/18 above/0 below).
+- **Smoke ALL PASS**; regression 50+27 green; **step-4 re-run projection ~25-30 min / <5MB / $0** (up from 879.8s — ~375 cells added to tier-2).
+
+**FIRING jack-ryan Gate-2** (`qa/pending/2026-07-08-gamora-r3a-step5-tier1-band-rederive-gate2.md`). On PASS → KR fires the $0 step-4 RE-RUN (kill-verify first, seed 56M, dry_run_flavor, budget ~25-30 min) → §4 verdict on the FULL surface (all 6 scenarios running tier-2) → to Matt. Sole live KR shell; no run in flight.
+
+**Matt touchpoints outstanding: R5 VALUES + the §4-verdict-on-full-surface report (next).**
