@@ -1049,3 +1049,23 @@ Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT t
 **STRATEGIC FORK → MATT (not autonomous levers — this questions the instrument frame, not a stale constant):** the campaign has cleared the inherited-uncalibrated gates; what's revealed is (a) tier-2 encounters undertuned relative to kit power (universal ceiling — possible content re-tune), (b) §4/tier-2 may be the wrong acceptance layer given selection lives at tier-1, (c) genuine content non-viability on boss_with_adds (0-KPM kits — bimodal, not a band). This is a design-steward (gandalf, §4 author) + Matt decision, NOT more autonomous re-banding. KR recommendation: fire gandalf for the §4 design read on the inverted surface (his authored criterion) → Matt steers. KR did NOT autonomously fire gandalf or another lever — surfacing the inflection to Matt first because it questions the campaign frame.
 
 **Matt touchpoints outstanding: this §4-verdict fork (LIVE) + R5 VALUES.** Sole live KR shell; no run in flight.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — Matt rules A on gandalf §4 acceptance-layer REFRAME; KR sequencing jack-ryan review → gamora re-point → step-4-bis → R4
+
+**Matt RULING: A** on `gandalf/notes/2026-07-08-s4-inverted-surface-acceptance-reframe.md` (gandalf's verdict on his OWN §4 criterion; DRIFT-CRITIC on SPEC-AUTHOR self). The reframe:
+- **tier-1 KPM = THE MEASUREMENT** (per-scenario clear-speed envelope = the discrimination surface; ~2.4× spread empirically live in the SAME run that failed §4-as-authored — open p10/p90 22.3/53.8, choke 23.3/57.1).
+- **tier-2 WR = VALIDITY SCREEN** (clears on-tier ⇒ viable; cannot engage ⇒ flagged non-viable; the WR number beyond that bit is NOT the discriminant).
+- **WR-gradient's true home = the difficulty LADDER** (per-build wall depth = descent depth-scaling run-model; POST-DEMO instrument).
+- **§4-as-authored = uncontested FAIL, but the CRITERION was mis-pointed, not the engine** — a single-rung WR gradient is the one shape the genre (D3 GR-farm, PoE mapping) never produces; discrimination is CLEAR SPEED. The un-stack removed the lockout that made rails=broken; WR≈1.000 now = competent pop clearing on-tier content.
+- **Goodhart self-test PASSED + shown (§4):** stands on falsifiable genre + in-run-data claims independent of the gate outcome; preserves §4's spirit (spread-not-rails, relocated to KPM space where it's live + still demandable); deletes NO finding. Key reassurance: **the certification architecture ALREADY runs on KPM bands** (`season_emit`/`family_certification_pass` consume band verdicts) — the amendment is SMALL (rule tier-2 WR → validity bit, not gradient).
+- **Findings preserved:** boss_with_adds genuine non-viability (117/189 kits kill ZERO mobs — content, parallel lane, possible boss-KPM-mis-instrumentation fork); magic_pack band (18.61,100.00) never got step-5 density re-derivation (audit it); lethality-floor = Godot game-feel/playtest workstream, explicitly NOT a certification gate.
+
+**MATT SEQUENCE (serial, each gates the next):**
+1. **jack-ryan review of the note** — independent review of a self-amended criterion (mandatory per note §6.1). FIRING NOW (Pattern-A). Scrutiny: the Goodhart self-test, the genre claims' defensibility, the "certification already runs on KPM bands" architectural claim (VERIFIABLE in code), whether any finding is silently deleted. Also: the reframe is decisions-log-worthy (architectural acceptance-criterion change) + the earlier §6 proposal still pends at `qa/pending/` — jack-ryan's authoring authority to batch.
+2. **gamora certification re-point per note §6.2** — tier-2 WR → validity bit + non-viability flags; KPM bands stay discrimination surface; magic_pack band gets the step-5 density-anchored audit; Gate-2 per ADR-004. Small diff (architecture already points this way). GATED ON jack-ryan clearing the note.
+3. **step-4-bis verdict on EXISTING run data** (no re-run — KPM spread live, validity screen 765/769 viable, flags emitted) → expected PASS under amended criterion → chain unblocks.
+4. **chain proceeds to R4 / Leg-C** (summoner campaign), boss_with_adds carried as a FLAGGED scenario (KR sequences whether content fix lands pre/post-R4 on gamora's data pull).
+
+**Matt touchpoints outstanding: R5 VALUES** (+ any that surface from jack-ryan review / the boss_with_adds content lane). Sole live KR shell; no run in flight.
