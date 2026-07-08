@@ -742,3 +742,20 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 - Round-trip smoke `test_zero_passing_round_trip_read_back`: 18 all-failing stubs → report persisted → read back → gate=0/18 truthful, bands intact, honesty riders present. 32/32 driver tests pass. Commit `061176c` touched ONLY export/ (KR-verified — no sim/drax/gamora consumer changes). Tag `star-lord/v-batch2-measure-then-filter-1`. MIGRATION § MEASURE-THEN-FILTER (additive). Gate-2 `qa/pending/2026-07-08-star-lord-measure-then-filter-gate2.md`.
 
 **LANE STATE:** both code halves DONE + KR-verified. Two Gate-2 submissions pending → **jack-ryan Gate-2 firing on both.** G1 design-finding (MOB_HP recalibration on Leg-C critical path) routed to Matt as a scheduling decision. **Re-fire (ADR-006, Matt-gated) is NO LONGER a coin-flip:** with measure-then-filter, a re-fire yields §8-A1 bands even at 0/18 pass — so a diagnostic re-fire is now decoupled from the difficulty disposition. Matt owns: (a) re-fire-now-for-bands vs hold-for-recalibration, (b) MOB_HP recalibration scheduling.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — R6 push-as-you-go executed; R2 ARMED (4/5 green, waiting on jack-ryan Gate-2); R1→R4 nuance FLAGGED
+
+**R6 push executed:** collab `2d7b51e..2e0fa5f`, engine `4aad1f1..061176c` + chain tags (`gamora/v-spatial-fail-loud-convergence-guard-1`, `star-lord/v-batch2-measure-then-filter-1`). Chain commits on remote.
+
+**R2 (Tier-1 auto-re-fire) criteria status — ARMED, one gate remaining:**
+- (a) G3 convergence guard landed + tested — ✅ GREEN (gamora, 312 tests, byte-neutral; KR-verified)
+- (b) measure-then-filter landed + 0/18-pass round-trip smoke green — ✅ GREEN (star-lord, 32/32; KR-verified :674<:901)
+- (c) R1 dispositioned green — ✅ branch-(a) [inherited-uncalibrated, NOT the ruled difficulty]; R1-(b) Matt-halt did NOT fire
+- (d) kill-verify (no prior driver PID alive) — ⏳ KR checks at fire-time
+- (e) **jack-ryan Gate-2 green on both deliverables — ⏳ IN FLIGHT** (the only remaining gate)
+
+**On jack-ryan Gate-2 GREEN, KR auto-executes (no Matt ask, per R2 + Matt reaffirmation 2026-07-08):** fold verdict → push (R6) → kill-verify → fire Tier-1 $0 re-fire (dry_run_flavor, seed 56M, bounded by G3 guard, guaranteed yield via measure-then-filter) → push §8-A1 band artifact → log session-close.
+
+**⚠️ R1→R4 NUANCE FLAGGED (KR one-step-ahead catch — for the R4 evaluation point, NOT a Tier-1 blocker):** R1 branch-(a) presumed "inherited-uncalibrated → scalar remedy auto-applies → instrument fixed." gamora's diagnosis broke that presumption: the `1.5→1.25` remedy is **structurally incapable** (1.5 doesn't touch magic_pack = 111/323 floor events), so gamora applied **NO constant** and routed the real fix (open_arena leash/positional geometry + magic_pack HP-scope) as **scheduling-pending recalibration work on Leg-C's critical path.** Consequence: **the instrument stays floor-saturated.** This is FORK-INDEPENDENT for R2/Tier-1 (measurement yields §8-A1 bands regardless — R3 confirms). BUT **R4 (Leg-C emission at ruled arc numbers) would emit ~0 surviving kits against the still-floor-saturated gauntlet** — so R4's "hold clears automatically when Tier-1 bands land + R1/R3 green" is NOT cleanly satisfied. **Likely a THIRD Matt touchpoint the pre-ratification didn't anticipate: schedule the recalibration BEFORE R4.** Surfaced now; adjudicate at the R4 point (post-Tier-1-bands). Tier-1 proceeds unaffected.
