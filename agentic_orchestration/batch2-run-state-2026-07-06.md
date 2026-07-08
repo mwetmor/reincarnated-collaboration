@@ -624,3 +624,16 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 **DECISION ROUTED TO MATT — §8-A1 band coverage:** (1) run pilot as-is = wire-proof + LIGHT band + C2 + C3, report HEAVY NOT-EXERCISED [$0, no new scope — rocket + KR rec]; (2) author deferred proxy-heavy cells [content wave, own math-note+Gate-1]; (3) re-point driver at `bc_target_cell_sampler.CELL_DEFINITIONS` [star-lord driver-source swap, cross-seam]. **KR rec: Option 1 now + Option 2 as named follow-up** (alongside the held Tier-2 flavor decision). On Matt Option-1 nod → fire star-lord TP1-3 + Tier-1 $0 dry-run → band report.
 
 **Process note:** staged-dispatch discipline caught the inert-edit + STEP-1 causal error at STEP-2A execution BEFORE any run fired (STEP-1-first + Disc #11 inspect-source). Gate-1 verified routing/touch-points vs source but did not re-derive the composer→0-proxy causal claim (it lived in rocket §3.1, trusted by both). No harm — caught pre-run.
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — Matt RULED §8-A1 STOP-flag = OPTION 1 (run pilot as-is) + 3 binding riders; star-lord TP1-3 + Tier-1 FIRED
+
+**Matt ruling: OPTION 1 — run the leg-3 pilot as-is.** Three BINDING riders:
+1. **Composer un-gate (TP4) = DEFERRED-NOT-DROPPED** → re-home to **batch-2 Leg C** (summoner leg). **rocket verifies Leg C actually consumes `bc_target_composer` BEFORE landing it there; if nothing downstream consumes it either, flag as DEAD CODE rather than carry forward.** [PARKED — rocket, Leg C.]
+2. **§8-A1 proxy-heavy band + C2 worst-case peak-entity read = re-home to batch-2 Leg C** (population-level) and/or **gamora sim-side concurrency measurement.** Option 2 stays PARKED unless something gates on a heavy read before Leg C. **Option 3 REJECTED** — a cross-seam driver re-point mid-authorization invalidates the Gate-1-reviewed run projection. [PARKED — Leg C / gamora.]
+3. **Report honesty (batch-2 R1 registry-honesty discipline):** Tier-1/Tier-2 reports carry an explicit **NOT-EXERCISED** line for the proxy-heavy band; C2 peak-entity read is **light-band-only** (1 light cell, n_proxies=1); the **≤7 worst-case bound stays UNPROVEN** this pilot. No coverage claims beyond the catalog's 17 none / 1 light / 0 heavy. [BINDING on star-lord's run.]
+
+**star-lord FIRED:** TP1 emit-wire+adapter @ `cycle14_wave5_emitter.py:546`, TP2 driver drive @ `w3_emission_driver.py` (NO driver-source re-point — Option 3 rejected; drive catalog as-is), TP3 glyph-assertion→population-aware @ `:688` (option b). Round-trip smoke + export MIGRATION lockstep + tag `star-lord/v-batch2-leg3-emission-wire-1`. Then **Tier-1 $0 dry-run** (`dry_run_flavor=True`, seed 56M, ≤200 cand) → measure LIGHT §8-A1 band + C2 (light-only) + C3 A1-coverage, honesty riders binding → Gate-2 submit. → band report to Matt.
+
+**Parked follow-ups (post-run):** rider-1 (rocket composer→LegC-consumer-verify-or-deadcode), rider-2 (heavy-band + C2 worst-case → LegC/gamora), Tier-2 flavor decision (Matt, after Tier-1 bands). **drax Q7 dispatch launched-parallel (godot).**
