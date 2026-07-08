@@ -971,3 +971,17 @@ Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT t
 **FIRING gandalf (Pattern-A, $0 read-only design verdict):** §4 is gandalf's authored criterion; the next-lever call is his §5 taxonomy. Routing (a) the official §4 verdict on the corrected 603-cell surface, (b) a next-move design read given levers-spent + §4-unmet + the tier-1-reject finding. Output → a Matt-ready design-informed fork, NOT a raw options menu. Then I consolidate step-4 + gamora forensics + gandalf verdict for Matt.
 
 **Matt touchpoints outstanding: R5 VALUES + the now-LIVE next-lever fork.** Sole live KR shell; no run in flight.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — gandalf §4 verdict = FAIL (uncontested); tier-1 gate identified as 4th inherited-uncalibrated constant; firing gamora $0 tier-1-gate read to sharpen Matt's fork
+
+**gandalf design verdict** (note `agentic_orchestration/gandalf/notes/2026-07-08-r3a-step4-s4-verdict-and-next-move.md`, commit `988663e`):
+1. **§4 = uncontested FAIL.** 603-cell authoritative surface 482 ceil / 120 floor / 1 mid = 0.0017; correction moved it the non-rescuing direction. Still a step function.
+2. **Levers right-but-INSUFFICIENT.** §1 (HP-not-discriminant) over-determined → un-stack predictably moved nothing. Serial-engagement (a TIER-2 fix) was aimed at open_arena+chokepoint, which REJECT AT TIER-1 (`_route_tier_1` band_override → tier-1 KPM outside calibrated band → TIER_1_REJECT → continue, tier-2 never simulated). A tier-2 lever cannot move a tier-1-death scenario. Root: **the tier-1 KPM band is a FOURTH inherited-uncalibrated gate** (calibrated pre the 2026-07-07 re-population) — Discipline #13 drift one layer down, same shape as the three §1 constants. The band report masked it by collapsing "died in arena" and "never entered arena" into one WR=0.000 floor.
+3. **Conditional Lever-4 is MOOT** — its trigger was "gradient returns + structural fails persist"; gradient did NOT return. Do not spend a Matt touchpoint ruling a criterion that judges a still-broken surface.
+4. **Recommended ONE next thing ($0):** read-only tier-1-gate structural investigation — is the tier-1 KPM band for open_arena+chokepoint a cheap re-band (one field, 4th inherited constant) or genuine kit non-viability (→ Option-C)? Converts Matt's fork from raw menu to a sharp **re-band vs Option-C** binary. re-opening lever magnitudes = rejected by mechanism (no dial reaches a tier-1-rejected room).
+
+**FIRING gamora (Pattern-A, $0 read-only) on the tier-1-gate investigation** — scoped to the ~441 tier-1-rejected open_arena+chokepoint cells. This is the direct continuation of the already-taken "diagnose before any further lever move" branch: no lever moves, no spend, no scope-amendment → in-scope autonomous (firing a $0 read is not a Matt touchpoint). AFTER this read I STOP and consolidate the full picture (step-4 §4-FAIL + gamora forensics + gandalf verdict + tier-1 read) for Matt as a decision-ready **re-band vs Option-C** fork — because THAT choice is a lever decision that exceeds autonomous scope and is Matt's.
+
+**Matt touchpoints outstanding: R5 VALUES + the next-lever fork (re-band vs Option-C, to be sharpened by the tier-1 read).** Sole live KR shell; no run in flight.
