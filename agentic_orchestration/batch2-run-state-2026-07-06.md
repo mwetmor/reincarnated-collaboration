@@ -918,3 +918,21 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT this dispatch). Out-of-scope: no constant move, no content re-tuning, no Lever-4 change, no step-4 re-run in this dispatch. Principle-6 gate assessed at authoring (D1/D2 no boundary; D3 conditional). **Gate-1 not separately fired: the design gate already happened upstream (gandalf design-read + Matt A/YES/YES ruling); the ratified plan specifies Gate-2 for step 3.** Firing gamora on the dispatch now (Pattern-B, KR-fired per chain execution protocol).
 
 **Matt touchpoints outstanding: R5 VALUES + conditional Lever-4 only.**
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — R3a step-3 Gate-2 PASS (all 3 deliverables); firing R3a step-4 $0 after-side re-run
+
+**jack-ryan Gate-2 = PASS on all three deliverables** (finding `qa/findings/2026-07-08-gamora-r3a-step3-unstack-serial-winner.md`, submission cleared, commit `30b410e` pushed). No BLOCKs, no conditions. Verified independently (trust-but-verify, not narrated-trust):
+- **Smokes re-run PASS×3** — reproduced un-stack factor (39,750→26,500 = ÷1.5), serial-engagement wave counts (open 4/40, magic 10/24), winner-tally sums.
+- **164 regression tests green** (77+87).
+- **Goodhart guard confirmed** — `arena.py:49 = 1.5` genuinely untouched (last change `24cdc7e`, 2026-05-19 R2 recalibration; not this commit). Constant did NOT move; only the endgame gauntlet call-path stopped applying it. Rider-5 intact.
+- **Scoping confirmed** — only `t4_sim_cycling.py:1236` passes `apply_mob_hp_difficulty_multiplier=False`; every other caller byte-identical (default True); legacy convergence instrument keeps ×1.5. Un-stack is surgical to endgame-BC.
+- **Rider-4 confirmed** — 10-file commit, zero kit/content/bar/band touches (no bending content to green the instrument).
+- **D3 within-seam confirmed** — in-JSON aggregate only, no DB column, no star-lord telemetry boundary crossed → no MIGRATION needed (gamora's boundary call correct). ADR-004 / Principle-6 satisfied.
+
+**NOW FIRING R3a step 4 (the after-side re-run):** $0 gauntlet re-run, seed 56000000, n=1, `dry_run_flavor` (no LLM — R6 $0 guard), kill-verify clean (no prior driver PID; rider-7 satisfied — never two same-seed emissions concurrent). The endgame-BC gauntlet now carries un-stack + serial-engagement + winner-tally. Expected artifacts: after-side §8-A1 bands + native termination split (D3 flip). star-lord sub-agent launches DETACHED (`subprocess.Popen(start_new_session=True)`) so the run survives the sub-agent lifecycle (the R2 attempt-1 reaping lesson). Projected ~25-35 min / <5 MB (gamora resource note).
+
+**On completion → §4 anti-Goodhart gradient acceptance check:** the gate is "WR surface regains a gradient — mass in (0.05, 0.95), differentials persist as spread not rails" — **NOT "N/18 pass."** If the surface gradients AND structural fails persist → conditional Lever-4 certification-criterion ruling (a Matt touchpoint, WITH data). If it still rails → diagnose before any further lever move (no schedule-bending).
+
+**Matt touchpoints outstanding: R5 VALUES + conditional Lever-4 only.** Sole live KR shell; kill-verify clean; firing step-4 now.
