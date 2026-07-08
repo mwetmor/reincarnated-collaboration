@@ -842,6 +842,23 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 
 ---
 
+## ⭐ KR DELTA (2026-07-08) — R3a step 3 CODE COMPLETE (gamora, KR-spot-verified); firing jack-ryan Gate-2
+
+**gamora R3a-step-3 DONE** (tag `gamora/v-r3a-step3-unstack-serial-engagement-1`, engine `e649659` pushed w/ tag; Gate-2 submission collab `5ded435`; completion record collab `6e78cad`). 4 math-notes (Disc #1), smokes PASS×3, **77+87 regression tests GREEN**, no HALT, no design ambiguity, no boundary crossing.
+
+- **D1 un-stack:** endgame-BC swarm eff-HP **39,750→26,500 (÷1.5, −33%)** on open_arena+chokepoint; magic_pack unchanged (never in `MOB_HP_DIFFICULTY_SCENARIOS` — the very reason the log's `1.5→1.25` was structurally incapable). Mechanism = caller-flag `apply_mob_hp_difficulty_multiplier: bool = True` (existing callers byte-identical) with only `_w4g_run_fight_batch` (`t4_sim_cycling.py:1236`) passing `False`; gate at `spatial_engine.py:3457` = flag AND scenario-membership. **`arena.py:49 = 1.5` UNTOUCHED — scope-retirement, not a constant move (Goodhart guard intact).** Legacy convergence path verified unaffected.
+- **D2 serial-engagement:** activation radii **open_arena 12m** (~4 peak concurrent, ~3-4 bites) / **magic_pack 9m** (14m-deep room, ~3 bites), derived from spawn-table geometry (framing-audit Disc #23). Shared `LEASH_DISTANCE_OVERRIDE_M_SWARM=35.0` **NOT re-based** (shared across 3 incompatible-geometry rooms incl. out-of-scope chokepoint; activation gate subsumes the concern in-scope) — chokepoint-scoped re-base **REPORTED, not fixed** (rider-4 honest finding).
+- **D3 winner-tally:** `{player,monster,timeout}` 3 ints/(class,scenario) row from `FightSummary.termination_reason`, surfaced in `GauntletEncounterResult.to_dict`. **WITHIN-SEAM, NO MIGRATION** (in-JSON aggregate — confirms gandalf §5.2-AMEND lean; no star-lord coordination needed).
+- **Resource projection (Disc #1.1):** step-4 re-run **~25-35 min, <5MB peak** (same class as R2; D1-down/D2-up partly offset; 120s cap unchanged).
+
+**KR spot-verified (trust-but-verify):** `arena.py:49`=1.5 untouched ✅; caller-flag default True, only endgame path passes False ✅; tag present ✅; kill-verify clean ✅. Load-bearing Goodhart-guard + scoping claims hold at spot-check.
+
+**NOW FIRING jack-ryan Gate-2** on the coordinated submission (`qa/pending/2026-07-08-gamora-r3a-step3-unstack-serial-winner-gate2-submission.md`) — balance/difficulty-affecting engine change; the ratified plan's "Gate-2 each" gate. **On Gate-2 GREEN → R3a step 4: KR fires the $0 gauntlet re-run** (seed 56M, kill-verify first) → after-side §8-A1 bands + native termination split → **§4 anti-Goodhart gradient acceptance check** (mass in 0.05-0.95, differentials as spread not rails — NOT "N/18 pass"). If Gate-2 BLOCKs → chain STOPS, route to Matt.
+
+**Matt touchpoints outstanding: R5 VALUES + conditional Lever-4 only.**
+
+---
+
 ## ⭐ KR DELTA (2026-07-08) — fresh autonomous shell: R2 FIRED (detached, in flight); one prior attempt failed on sub-agent lifecycle, not engine
 
 **Fresh shell state-derivation (one-live-KR-shell discipline):** derived from THIS file + dispatch completion records. Diagnosis dispatch = COMPLETE (both halves, KR-verified). jack-ryan Gate-2 = PASS/PASS. §6 fork = Matt-RULED A/YES/YES (R1 CONSUMED). R2 = ARMED 5/5, NOT fired by prior shell (Matt-directed handoff). **This shell's first chain act = fire R2.** Kill-verify at derivation: clean.
