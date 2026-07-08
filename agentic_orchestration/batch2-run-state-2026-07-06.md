@@ -592,3 +592,21 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 **KR authored STEP-2 co-dispatch** `dispatches/2026-07-07-rocket-starlord-leg3-STEP2-emission-wire-and-run.md` (design Gate-1-cleared; folds C1-C4). Structure: **STEP-2A WIRE** (lands on dispatch: star-lord emit-wire+adapter+driver+assertion-fix, rocket composer un-gate; round-trip smoke; MIGRATION lockstep) → **STEP-2B RUN two-tier, Matt-gated:** Tier-1 **$0 dry-run** (unconditional on Matt go; 0 LLM calls, ~23-36min, wire-proof + §8-A1 band measure + C2 peak + C3 A1-coverage) → Tier-2 **≤$10 flavor** (SEPARATE Matt rule, deferred until Tier-1 bands seen).
 
 **ON MATT (3 items) — run-auth now framed two-tier:** (i) Q7 (drax body held); (ii) 450MB telemetry.db blob; (iii) **leg-3 run-auth = (a) $0 dry-run unconditional now + (b) ≤$10 flavor ceiling deferred/optional** (jack-ryan's de-risking posture). STEP-2A wire may land on the co-dispatch immediately once Matt says go on the dispatch; STEP-2B run holds for the two-tier auth.
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — MATT RULINGS BATCH (Q7 / 450MB / leg-3 STEP-2 GO + Tier-1 run-auth)
+
+**Matt 2026-07-07 ruled 4 items + fire order.** Standing guards unchanged (chassis FROZEN, bars/bands FIXED, kits vote BARE, no magnitude touch, no leg-2 machinery changes; Gate-2 on STEP-2 artifacts).
+
+1. **Q7 → OPTION A** (authored per-variant BoneMaps → GeneralSkeleton). `apply_hero_retarget.py` + per-family `.tres` (`sidekick_bone_map` + `goblin_bone_map`) = v2 demo canonical retarget contract; superset eye-check-skip nuance adopted. **drax UNBLOCKED → D6 (three-beat floor + capture) + D5 (verb VFX + summon meshes) + D8 (grimoire portraits)**, all under FIXED Camera B (FOV40/pitch−55°/yaw47°/dist34m, not re-litigated). Dispatch `dispatches/2026-07-07-drax-q7-optionA-rig-gated-D6-D5-D8.md`. jack-ryan files decisions-log.
+
+2. **450MB telemetry.db → gitignore + seed fixture. DONE (star-lord).** Engine push was HARD-BLOCKED by GH 100MB hook (`e57b796` v2.20 APPLY bloated the tracked DB to 450MB). star-lord: gitignored `telemetry.db` (kept on disk), rewrote unpushed history `e57b796`→`1c00a06` stripping ONLY the blob (all scaffold/gear-pool work preserved), added `telemetry_seed.db` (376KB, empty v2.20 schema — fresh checkout reconstructs via `initialize_telemetry_db()`; registry = durable record), re-pointed 6 seam tags + confirmed milestone tag. **PUSHED: `a908ced..44fc92d` engine main + 15 tags incl. milestone `v2.2-batch2-four-family-certification`.** KR-verified: HEAD==origin/main, .db untracked+ignored+on-disk, seed tracked, .db absent from HEAD tree. **Engine push blocker CLEARED; four-family cert milestone now on remote.**
+
+**Also pushed this batch (Matt "yes please"):** collaboration main + 8 tags, demo main, loadout main + 2 tags. godot clean. (engine was the only reject; now resolved.)
+
+3. **Leg-3 STEP-2 co-dispatch → GO.** STEP-2A wire lands now (star-lord TP1-3 + rocket TP4, C1-C4 folded) on clean engine HEAD.
+
+4. **Run-auth two-tier (ADR-006):** **TIER-1 AUTHORIZED** = $0 dry-run (`dry_run_flavor=True`, ≤200 cand, seed 56M, 0 LLM). Report to Matt: §8-A1 bands + C2 peak-concurrent-proxy + C3 A1-coverage. **TIER-2 NOT YET** — ≤$10 flavor is a SEPARATE ruling Matt takes AFTER the Tier-1 band report; NO LLM spend on this lane until then.
+
+**Fire order:** blob-fix DONE+pushed → jack-ryan decisions-log (Q7+450MB) FIRING → STEP-2A co-dispatch GO (rocket+star-lord, clean HEAD) → Tier-1 $0 dry-run → band report to Matt. drax runs parallel (godot/demo, no engine conflict).
