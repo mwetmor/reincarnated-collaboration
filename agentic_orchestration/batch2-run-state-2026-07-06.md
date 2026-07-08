@@ -956,3 +956,18 @@ Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT t
 **BRANCH TAKEN:** per my stated step-4 branch — "still rails → diagnose before any further lever moves; no schedule-bending." Firing gamora Pattern-A ($0 read-only) on the two anomalies + which surface is the authoritative §4 input. The authorized R3a lever budget is exhausted, so the NEXT move (Option-C per-scenario difficulty spec / re-open lever magnitudes / Lever-4 criterion) is a genuine design+authority fork the ratified table did NOT pre-rule — that goes to Matt/gandalf as a consolidated picture AFTER gamora clears the surface-trust question. This is NOT re-asking run-auth (pre-satisfied); it is surfacing an un-pre-ruled fork.
 
 **Matt touchpoints outstanding: R5 VALUES + the now-LIVE next-lever fork (levers spent, §4 unmet).** Conditional Lever-4 as originally framed ("gradient returns + structural fails persist") did NOT trigger — gradient did not return. Sole live KR shell; no run in flight (16764 exited).
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — gamora forensics CLEAR the surface-trust question (§4 FAIL confirmed, not confounded); firing gandalf for the design verdict + next-move read
+
+**gamora $0 read-only forensics** (note `agentic_orchestration/gamora/notes/2026-07-08-r3a-step4-coherence-forensics.md`, commit `b87d394`) resolved BOTH anomalies:
+- **Anomaly 1 = SEMANTIC, not a D3 defect.** Over all 603 tally-bearing cells `survival_rate ≈ winner_tally.player/n` to <1e-6 (0 mismatches). The contradiction is an aggregation artifact: `tier_2_survival_rate` dataclass-defaults to **0.0** (`gauntlet_sim.py:609`) while `tier_2_winner_tally` defaults to **None** (`:616`); on a tier-1 CLEAR-shell reject the loop `continue`s (`t4_sim_cycling.py:1278-1288`) without running tier-2, so **594 of 1197 cells never ran tier-2** and read as FLOOR by 0.0-default. D3 flip is clean; jack-ryan Gate-2 stands. **Caveat for any writeup: do NOT read the winner-tally aggregates as a death/timeout split — they only cover the ceiling cells that reached tier-2.**
+- **Anomaly 2 = different namespaces.** `[R2 calibration]` WARNINGs = raw `spatial_engine` instrument-health probe (separate loop); the final gate surface is the tier-1/tier-2 gate. open_arena's apparent ceiling→floor inversion is the unrun 0.0-default, not a math flip.
+- **CORRECTED AUTHORITATIVE SURFACE = the 603 genuinely-simulated cells: 482 ceiling / 120 floor / 1 mid = 0.0017 mid-fraction.** **§4 read is TRUE and not confounded in the rescuing direction. Still a step function. §4 FAILS.**
+
+**STRUCTURAL BYPRODUCT (new input the §5 lever taxonomy didn't have):** open_arena (252) + chokepoint_corridor (189) are **100% unrun at tier-2 — they reject at tier-1.** Serial-engagement is a tier-2 engagement fix; it could not have moved scenarios dying at tier-1. The next-move question is therefore NOT purely tier-2 engagement geometry — it implicates the tier-1 gate structure.
+
+**FIRING gandalf (Pattern-A, $0 read-only design verdict):** §4 is gandalf's authored criterion; the next-lever call is his §5 taxonomy. Routing (a) the official §4 verdict on the corrected 603-cell surface, (b) a next-move design read given levers-spent + §4-unmet + the tier-1-reject finding. Output → a Matt-ready design-informed fork, NOT a raw options menu. Then I consolidate step-4 + gamora forensics + gandalf verdict for Matt.
+
+**Matt touchpoints outstanding: R5 VALUES + the now-LIVE next-lever fork.** Sole live KR shell; no run in flight.
