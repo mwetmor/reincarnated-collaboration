@@ -936,3 +936,23 @@ Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT t
 **On completion → §4 anti-Goodhart gradient acceptance check:** the gate is "WR surface regains a gradient — mass in (0.05, 0.95), differentials persist as spread not rails" — **NOT "N/18 pass."** If the surface gradients AND structural fails persist → conditional Lever-4 certification-criterion ruling (a Matt touchpoint, WITH data). If it still rails → diagnose before any further lever move (no schedule-bending).
 
 **Matt touchpoints outstanding: R5 VALUES + conditional Lever-4 only.** Sole live KR shell; kill-verify clean; firing step-4 now.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — R3a step-4 after-side re-run COMPLETE: §4 gradient acceptance FAILS (still rails); two coherence anomalies → gamora diagnosis before any Matt report
+
+**Step-4 $0 re-run complete** (PID 16764, seed 56000000, `dry_run_flavor`, 879.8s / <1MB — kill-verify clean pre-launch, detached survived, $0 confirmed). Same TP3 HALT-LOUD on empty survivors (0/18 emit — CORRECT gate behavior; not the §4 criterion). Artifacts fresh: `leg3_pilot_section8a1_band_measurement.json` (seed 56M, mtime 02:53) + `cycle-13-gauntlet-sim-results-20260708_065352.json` carrying `tier_2_winner_tally` (D3 flip landed).
+
+**§4 ANTI-GOODHART GRADIENT ACCEPTANCE = FAIL (robust under both surface readings):**
+- **Final per-cell WR surface (authoritative, post-calibration `tier_2_survival_rate` over 1197 cells): mid-fraction = 0.001 — ONE cell in (0.05, 0.95).** Still a step function. floor=714 / MID=1 / ceil=482.
+- Per-scenario final cells: `chokepoint_corridor` 189 floor / 0 mid / 0 ceil · `open_arena` 252 / 0 / 0 floor · `magic_pack` 153 / 0 / 36 · `boss_with_adds` 117 / 0 / 72 · `elite_pack` 0 / 0 / 315 (all ceiling) · `mini_boss` 3 / 1 / 59.
+- Calibration-warning surface (secondary): floor 323→127, ceiling 278→414. Levers REDISTRIBUTED cells across rails (some floor→ceil) but produced NO mid-band mass.
+- **Verdict holds under either reading: no gradient. The two authorized R3a levers (un-stack + serial-engagement) are SPENT and §4 is not met.**
+
+**TWO COHERENCE ANOMALIES (routed to gamora — sim seam — NOT resolved by KR inference):**
+1. **winner-tally ⟂ survival_rate:** `magic_pack` = WR-floor 153/189 yet `tier_2_winner_tally` player=1.00 / monster=0 / timeout=0. `monster=0` across ALL scenarios. A floored survival surface with zero monster-wins is contradictory. Bears on (a) is the surface trustworthy for §4, (b) does D3 have a latent defect (Gate-2 verified tally SUMS on a smoke, NOT surface-coherence on the real run).
+2. **calibration-warning ⟂ final-cell surface:** warnings logged `open_arena` ceiling-heavy (225); final cells show `open_arena` 252/252 floor. Opposite. Likely a `scenario_shell_id` mapping vs calibration-loop-scenario distinction — but gamora confirms.
+
+**BRANCH TAKEN:** per my stated step-4 branch — "still rails → diagnose before any further lever moves; no schedule-bending." Firing gamora Pattern-A ($0 read-only) on the two anomalies + which surface is the authoritative §4 input. The authorized R3a lever budget is exhausted, so the NEXT move (Option-C per-scenario difficulty spec / re-open lever magnitudes / Lever-4 criterion) is a genuine design+authority fork the ratified table did NOT pre-rule — that goes to Matt/gandalf as a consolidated picture AFTER gamora clears the surface-trust question. This is NOT re-asking run-auth (pre-satisfied); it is surfacing an un-pre-ruled fork.
+
+**Matt touchpoints outstanding: R5 VALUES + the now-LIVE next-lever fork (levers spent, §4 unmet).** Conditional Lever-4 as originally framed ("gradient returns + structural fails persist") did NOT trigger — gradient did not return. Sole live KR shell; no run in flight (16764 exited).
