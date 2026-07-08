@@ -1163,3 +1163,16 @@ Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT t
 - **Step R5 (Matt touchpoint):** band-sheet VALUES — parked, the designed human gate.
 
 Matt touchpoints live: **R5 VALUES** (+ the post-R5 season-emission run). No run in flight.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — gamora F4-a COMPLETE (values CONFIRMED density-anchored); firing jack-ryan F4-b (Lane-3 ratification + Gate-2 + decisions-log)
+
+**gamora F4-a** (tag `gamora/v-batch2-f4-escape-lane-registration-1`, engine+collab pushed; note `gamora/notes/2026-07-08-f4-escape-lane-band-registration.md`):
+- **Density-anchored verdict: 60/150/≥0.80 ALL THREE CONFIRMED** (not rubber-stamped per gandalf's rider). Derived escape_lane's honest demand from spawn arithmetic (55m lane / ~3-per-s stream / ~192 supply / 60s window / ×2.0 champion elevation); the inherited Lane-3 bars CONFIRM because escape_lane was BUILT to the §3-F4 genre spec → genre-anchored bars + geometry-anchored demand consistent by construction (contrast step-5/step-6 which ADJUSTED).
+- **Anti-curve-fit cross-check: HONESTLY UNAVAILABLE** — no observed escape_lane distribution on disk (F4 branch was dead → no cert run ever produced one). Derived geometry-only, named the falsifier, did NOT invent a distribution.
+- **Observable: exit-within-window ≥0.80 PRIMARY + KPM [60,150] SECONDARY** (escape_reached = success/exit metric, like F3 success-judged not KPM-primary). **Field-identity (no new schema):** exit fraction IS `tier_2_survival_rate` for escape_reached rooms — `winner=="player"` IFF `escape_reached` (`spatial_engine.py:2874-2888`).
+- **Wiring:** new branch in `_shell_result_passed` + 3 constants (`_F4_ESCAPE_SHELL_GATE_TYPES`, `_F4_EXIT_WITHIN_WINDOW_FLOOR=0.80`, `_F4_KPM_BAND=(60,150)`) + docstring updates. **`family_certification_pass` now reachable-True** (smoke proves a walled/under-KPM kit still fails F4 = no manufactured passes); **F1/F2/F3 byte-identical.** MIGRATION v1.86 (within-seam discharge of the v1.85 zero-emit contract; no star-lord schema change).
+- Pre-existing P5-cohesion-judge LLM-seam test failure, git-stash-verified NOT this seam (Disc #11).
+
+**→ Firing jack-ryan F4-b (Pattern A):** Lane-3 ratification + Gate-2, with two KR-flagged pressure points: (1) **is "CONFIRMED by construction" a legitimate verification or a circular rubber-stamp?** — the room was built to the spec that set the bars, so agreement may be tautological, not corroborative; gandalf's rider exists precisely to catch this. (2) **The band is being registered with the anti-curve-fit cross-check UNAVAILABLE** — the R4 cert sweep will be the FIRST live escape_lane result; is registering a never-observed band acceptable, or does the band get a re-check after R4 produces the first distribution? Plus: the deferred Lane-3 decisions-log entries (R4 cert-contract shift + open_arena re-base + mobs_killed range + F4 registration) AND the §4-reframe entry jack-ryan advised earlier + the still-pending §6 proposal at `qa/pending/`.
