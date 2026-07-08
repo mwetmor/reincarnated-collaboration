@@ -839,3 +839,19 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 **Matt touchpoints outstanding: R5 VALUES + conditional Lever-4 only.**
 
 **Signed:** gandalf (ELICITOR — fork resolved upstream, queue stays drained), 2026-07-08.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — fresh autonomous shell: R2 FIRED (detached, in flight); one prior attempt failed on sub-agent lifecycle, not engine
+
+**Fresh shell state-derivation (one-live-KR-shell discipline):** derived from THIS file + dispatch completion records. Diagnosis dispatch = COMPLETE (both halves, KR-verified). jack-ryan Gate-2 = PASS/PASS. §6 fork = Matt-RULED A/YES/YES (R1 CONSUMED). R2 = ARMED 5/5, NOT fired by prior shell (Matt-directed handoff). **This shell's first chain act = fire R2.** Kill-verify at derivation: clean.
+
+**R2 attempt #1 — FAILED (sub-agent lifecycle, NOT engine).** First star-lord sub-agent launched the driver as a normal background job + returned before completion; the process was reaped when the sub-agent session ended (~01:27), killed mid-gauntlet on candidate `melee_high_flat_dex` (~6 min in, `/tmp/leg3_r2_run.log` ends 01:26:33, no completion marker, no HALT-LOUD, no traceback). **G3 guard did NOT fire; fights ran clean; $0 held — engine is fine.** The on-disk §8-A1 artifact was STALE (seed 55M / 5-cand smoke, not our seed 56M / 18-cand). No fresh bands produced. Lesson: a ~4.3hr detached run must NOT depend on sub-agent lifetime.
+
+**R2 attempt #2 — LAUNCHED DETACHED, IN FLIGHT.** star-lord relaunched via `subprocess.Popen(start_new_session=True)` (macOS has no `setsid`; this is the native equivalent) → **PID 12819, PPID=1, own session — survives session exit.** Params: `--dry-run-flavor --seed 56000000 --n-samples 1`, 18 endgame-BC candidates, G3-guard-bounded, **$0**. Clean start verified (seed 56000000 · 18 candidates enumerated · into STEP 3/4 gauntlet · no traceback). Driver's own budget projection (Disc #1.1): **~45,360 fights | ~4.3 hrs wall-clock | <5MB peak.** KR-verified exactly ONE driver alive (no same-seed duplicate — rider-7 satisfied). Log: `/tmp/leg3_r2_run2.log`.
+
+**Wait posture:** KR (persistent shell) owns the wait via a completion-triggered notifier (bg poll on PID 12819 exit → dumps log tail + artifact seed/cand/pass check). No context-burning poll. measure-then-filter guarantees the §8-A1 artifact at `output/leg3_pilot_section8a1_band_measurement.json` lands regardless of gate (expect ~0/18 pass — floor-saturated instrument; this is the before-side snapshot, gandalf §5.1).
+
+**On R2 completion, this shell auto-continues (NO Matt ask — §6 pre-ruled) into R3a per line 827–835:** (1) verify fresh artifact (seed 56M/18-cand) + push (R6) + append dispatch completion record → (2) gamora $0 termination-split of the 323 v3 floor events → (3) gamora Option-A un-stack + serial-engagement pass (math-note-first, Gate-2 each) → (4) $0 gauntlet re-run → before/after diff → (5) §4 gradient acceptance check → conditional Lever-4 / R4 hold-clear. **KR capture obligation (line 837): draft the decisions-log entry for the §6 A/YES/YES ruling during chain execution.**
+
+**Matt touchpoints outstanding: R5 VALUES + conditional Lever-4 only** (unchanged). No dispatch double-fired; one run (PID 12819) in flight; this shell is the sole live KR shell.
