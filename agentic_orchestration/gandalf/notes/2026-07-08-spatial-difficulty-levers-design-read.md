@@ -195,6 +195,58 @@ gate.
 
 ---
 
+## 5.2-AMEND — DRIFT-CRITIC ruling on the two premise-changes (2026-07-08, R3a re-route)
+
+**Trigger:** R3a step 2 returned FAIL-LOUD (gamora `18dbba5`). Two premises in §5.2 as written broke:
+(1) the split does NOT come free from the v3 log — the R2 run used the Null stub writer
+(`stub_write`), which debug-logs `winner` while the driver ran at INFO → zero winner rows persisted;
+getting the split now costs an instrumented $0 re-run after a near-free recording flip. (2) Option A
+made Lever 1 a **binary scope-retirement** — no magnitude to weight — so the split's stated purpose
+("weights Lever 1 vs Lever 2 magnitudes") is dissolved; Lever 2's radii come from room geometry /
+bite-size (~3-4 waves), not the death:timeout ratio.
+
+**RULING: (a) — fold the winner-tally recording flip INTO R3a step 3; no dedicated before-side split re-run.**
+
+**One-line reason:** the before-side termination split is now **confirmatory, not load-bearing** — my
+§4 acceptance criterion judges the WR surface (mass in 0.05-0.95, differentials as spread not rails),
+NOT termination reasons, and my own §1 magic_pack smoking gun (floors at the LOWEST HP while the
+corridor walls at the HIGHEST) already over-determines that HP is not the discriminant, so a $0/~25-min
+run to re-confirm a ruled mechanism is exactly the "bend the schedule to feed the instrument" move
+rider-4 forbids.
+
+**Why (b) loses:** it buys a clean before/after termination comparison the design does not need. The
+weighting decision that comparison would inform no longer exists (Option A). What IS load-bearing —
+the before-side BANDS — we already have from R2 (none=17/light=1/heavy=0). The after-side split arrives
+NATIVELY on the step-4 re-run once recording is flipped, at zero marginal run cost. So (a) yields the
+same permanent telemetry-gap closure as (b) with one fewer run.
+
+**No load-bearing before-side split reason I missed:** I checked for one. The only candidate would be
+if the death:timeout ratio *changed the shape* of Lever 2 (e.g., death-dominant → tighter activation
+radii). It does not — bite-size is set by wave count against room geometry (gamora's derivation), and a
+floor is a floor for the gradient check whether the kit died or timed out. The after-side split still
+earns its keep: it tells us WHETHER the levers moved deaths→wins vs timeouts→wins (a mechanism-health
+read on the recalibrated instrument), which is genuinely useful — hence fold-and-keep, not drop entirely.
+
+**Recording-flip boundary (design intent, gamora makes the final call at execution):** winner-tally is
+a **within-seam gamora aggregate** in my read. `winner` is already computed and passed to
+`write_fight_result`; retaining three ints per (class, scenario) row in the results JSON is a gamora-side
+aggregation of a value the simulation already owns — no new schema field crosses the star-lord export
+boundary, no MIGRATION. It only becomes a star-lord/MIGRATION matter IF it lands as a persisted
+`spatial_fight_results` DB column / export-schema field. Design intent: **keep it in-JSON, within-seam**
+— the termination split is a difficulty-diagnostic surfaced into the band report, not a telemetry-export
+product. That keeps the recording flip near-free and on gamora's critical path without a cross-seam
+hand-off. (gamora confirms she'll math-note the boundary at step 3/4 execution; this is my design lean,
+not an override of her seam call.)
+
+**Amended sequence:** step 2 is now CLOSED as a missing-instrument finding (not re-attempted). New
+order: (3) fold winner-tally recording flip into the lever execution — Lever-1 un-stack + Lever-2
+serial-engagement radii from geometry, math-note-first + Gate-2 each; (4) $0 re-run yields after-side
+BANDS (§4 gradient check) + the termination split NATIVELY; (5) Lever 4 if needed; (6) R4/Leg-C
+hold-clears. Net: one re-run, permanent telemetry-gap closure, before-side bands retained, after-side
+split gained. — gandalf, DRIFT-CRITIC.
+
+---
+
 ## 6. Asks (ELICITOR — Matt rules)
 
 | # | Fork | gandalf lean |
