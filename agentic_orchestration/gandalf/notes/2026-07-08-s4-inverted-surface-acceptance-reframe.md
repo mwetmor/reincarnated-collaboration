@@ -7,7 +7,17 @@
 > (spec-gap vs `design-decisions-session.md §7` "validated as geared units") and ruled a geared arm
 > onto pilot Leg i (`certification_gear` v0; spec + succession clause:
 > `2026-07-08-leg-i-geared-arm-certification-gear-spec.md`) — bands re-fit when the baseline moves;
-> (2) **jack-ryan independent review leg still OWED** (self-amended criterion; §7's routing stands).
+> (2) **jack-ryan independent review leg ✓ CLOSED same-day — PASS-with-notes, no BLOCK**
+> (engine `agentic_orchestration/qa/findings/2026-07-08-s4-inverted-surface-acceptance-reframe.md`,
+> commit `94ec548`). All four review questions PASS; moving-goalposts test held ("the KPM spread was
+> produced by the very run that failed §4 — the reframe cannot be accused of shopping for confirming
+> data"). Two WARN-class quoting riders: (a) **"~2.4× spread" is STRIPPED-baseline-provisional** —
+> quote the ruling as "clear-speed KPM is THE measurement" (structural, durable), never "~2.4× and
+> therefore healthy" (magnitude, baseline-pending); (b) **arm G's stripped-vs-geared spread delta is
+> elevated to REFRAME-VALIDITY input** — registered falsifier: if gear compresses the KPM spread
+> toward point-mass, ruling A's measurement claim gets re-examined (not the structure — the
+> discriminating power at the declared baseline). Post-demo note: the difficulty ladder doubles as
+> the Goodhart cross-check on certified-KPM (wall-depth resists band-centering).
 > Tracker delta: `canonical/current-to-end-state/current-to-end-state-engine.md` 2026-07-08 rulings block.
 
 **Author:** gandalf (DRIFT-CRITIC on own SPEC-AUTHOR work — the conflict seam is the point)

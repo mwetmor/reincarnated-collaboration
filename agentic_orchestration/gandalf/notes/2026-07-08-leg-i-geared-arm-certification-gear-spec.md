@@ -80,6 +80,13 @@ Compose two existing, already-ruled instruments (both currently dormant on the g
   arm G (certification_gear v0, all four cohorts — the disjunction finally measured as designed).
 - **Deliverable:** per-family (F1-F4) WR/KPM deltas stripped-vs-geared, per cohort. These deltas
   are the band re-fit's input AND the empirical answer to "does gear saturate the surface."
+  **ELEVATED (jack-ryan review, same-day PASS-with-notes — engine qa/findings same-name, `94ec548`):
+  the stripped-vs-geared KPM-SPREAD delta is a first-class REFRAME-VALIDITY input**, not just band
+  input — ruling A (§4 = KPM-as-measurement) carries a registered falsifier: if arm G compresses
+  the KPM spread materially toward point-mass, that is a finding about KPM's discriminating power
+  at the declared baseline and ruling A's measurement claim gets re-examined. Quoting discipline:
+  the "~2.4× spread" figure is a STRIPPED observation — never propagate it as a geared/certified
+  property; the durable quote is "clear-speed KPM is THE measurement" (structural).
 - **#2-FF rider for arm G:** instrument identity = "certification_gear v0" named in the run
   start-banner; pre-fire verification = one grep proving `measured_gear_stats` is threaded on the
   gauntlet path (`grep -n measured_gear_stats simulation/t4_sim_cycling.py` → non-empty) + first-log
