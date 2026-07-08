@@ -1,7 +1,7 @@
 # Q7 — Skeleton-retargeting approach for the v2 Godot demo: BoneMap vs GeneralSkeleton
 
-> **STATUS:** DECISION NEEDED — Matt rules same-session. **Author:** drax (presentation seam). **Date:** 2026-07-07.
-> **Scope:** ONLY the Synty POLYGON rig → animation retargeting path in `reincarnated-godot/`. Q8 Camera B is APPROVED and fixed (FOV 40 / pitch −55° / yaw 47° / dist 34m) — not re-litigated here.
+> **STATUS:** ✓ RULED 2026-07-07 (Matt) — **Option A as recommended** (authored per-variant BoneMaps → GeneralSkeleton; superset nuance adopted: author a `.tres` ONLY where a rig needs one). Decisions-log entry: engine `design/decisions/decisions-log.md` "2026-07-07 — Q7 RULED (Option A)". **Author:** drax (presentation seam). **Date:** 2026-07-07.
+> **Scope:** ONLY the Synty POLYGON rig → animation retargeting path in `reincarnated-godot/`. Q8 Camera B is APPROVED and fixed (FOV 40 / pitch −55° / yaw 47°) — not re-litigated here. *(Dist superseded post-ruling: 34 m → **20 m** per the Camera B′ dist-only revision, engine `a0bf7fd` — all capture configs fire at dist 20.)*
 > **This fire = the brief only.** On Matt's ruling, drax executes the chosen path immediately (D6/D5/D8 render/capture layers, currently rig-gated).
 
 ---
