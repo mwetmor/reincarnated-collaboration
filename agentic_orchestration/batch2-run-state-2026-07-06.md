@@ -855,3 +855,20 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 **On R2 completion, this shell auto-continues (NO Matt ask — §6 pre-ruled) into R3a per line 827–835:** (1) verify fresh artifact (seed 56M/18-cand) + push (R6) + append dispatch completion record → (2) gamora $0 termination-split of the 323 v3 floor events → (3) gamora Option-A un-stack + serial-engagement pass (math-note-first, Gate-2 each) → (4) $0 gauntlet re-run → before/after diff → (5) §4 gradient acceptance check → conditional Lever-4 / R4 hold-clear. **KR capture obligation (line 837): draft the decisions-log entry for the §6 A/YES/YES ruling during chain execution.**
 
 **Matt touchpoints outstanding: R5 VALUES + conditional Lever-4 only** (unchanged). No dispatch double-fired; one run (PID 12819) in flight; this shell is the sole live KR shell.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — R2 COMPLETE: §8-A1 before-side bands landed (0/18, floor-saturated); measure-then-filter PROVEN live; R3a step 2 (gamora termination-split) firing
+
+**R2 ran to completion** (detached PID 12819, 25,530 fights, **1507.6s** — the 4.3hr projection was conservative; ~25 min actual). Result EXACTLY as the measure-then-filter design intended:
+- `GAUNTLET_SIM_PASS=False` · `round_trip_smoke_pass=True` · WR-bracket **0 passing / 18 failing**.
+- **§8-A1 band report persisted at STEP 4 (log line 22) BEFORE the TP3 HALT-LOUD (line 26)** — the decoupling fix proven in-flight. TP3 halt on empty survivors is CORRECT (emission gate); the before-side snapshot is on disk regardless.
+- G3 convergence guard **did NOT fire** (calibration completed clean, no wedge). $0 (dry_run_flavor). Exactly one driver alive throughout (rider-7 satisfied).
+
+**Fresh artifact (KR-read, not narrated):** `engine:src/reincarnated/output/leg3_pilot_section8a1_band_measurement.json` — seed 56000000 · 18 candidates · gauntlet 1507.7s · gate 0/18 `emission_certified=false` · bands **none=17 (all fail) / light=1 (fail) / heavy=0 NOT-EXERCISED** · registry-honesty riders all present (proxy-heavy NOT-EXERCISED, C2 light-only, ≤7 UNPROVEN, catalog 17/1/0) · all 18 per-candidate records truthful. **This is the before-side snapshot for R3a's before/after gradient diff (gandalf §5.1).**
+
+**star-lord close-out (Pattern-A, KR-orchestrated):** engine artifact + AGENT_STATE committed+pushed (`75637f5`, `ae46047`); dispatch R2-fire completion record appended+pushed (`3a4c082`). Kill-verify clean. (star-lord's sign-off said "R3a gated on Matt run-auth" — that reflects the ORIGINAL dispatch's struck re-fire clause, which star-lord sees but the full chain does not carry: **R2's re-fire clause was pre-satisfied by the ratified table AND §6 is already Matt-ruled A/YES/YES — R3a is authorized, no fresh Matt disposition.** KR carries the chain context; star-lord's narrow close-out was correct.)
+
+**NOW FIRING R3a step 2 (gandalf §5.2 / run-state line 830): gamora $0 termination-reason split** of the ~323 floor events (death vs timeout-with-mobs-alive, per scenario). This EMPIRICALLY WEIGHTS Lever 1 (HP budget — timeout-dominant floors) vs Lever 2 (engagement model — death-dominant floors) before either moves. It is NOT a go/no-go gate (both levers authorized regardless — ruling line 824); it sizes the magnitudes. Pattern-A ($0, minutes). Then R3a step 3: gamora Option-A un-stack + serial-engagement pass (math-note-first, Gate-2 each).
+
+**Matt touchpoints outstanding: R5 VALUES + conditional Lever-4 only.** Sole live KR shell; no run in flight (PID 12819 exited clean).
