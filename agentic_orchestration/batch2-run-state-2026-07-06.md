@@ -637,3 +637,26 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 **star-lord FIRED:** TP1 emit-wire+adapter @ `cycle14_wave5_emitter.py:546`, TP2 driver drive @ `w3_emission_driver.py` (NO driver-source re-point — Option 3 rejected; drive catalog as-is), TP3 glyph-assertion→population-aware @ `:688` (option b). Round-trip smoke + export MIGRATION lockstep + tag `star-lord/v-batch2-leg3-emission-wire-1`. Then **Tier-1 $0 dry-run** (`dry_run_flavor=True`, seed 56M, ≤200 cand) → measure LIGHT §8-A1 band + C2 (light-only) + C3 A1-coverage, honesty riders binding → Gate-2 submit. → band report to Matt.
 
 **Parked follow-ups (post-run):** rider-1 (rocket composer→LegC-consumer-verify-or-deadcode), rider-2 (heavy-band + C2 worst-case → LegC/gamora), Tier-2 flavor decision (Matt, after Tier-1 bands). **drax Q7 dispatch launched-parallel (godot).**
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — Tier-1 $0 dry-run FAILED (hung in STEP 3/4 live gauntlet); NO bands, $0 spent; re-fire routed to Matt
+
+**OUTCOME: Tier-1 dry-run did NOT complete. No bundle, no §8-A1 bands, no measurements. $0 spent (never reached flavor).** Process launched 23:11:04, hung, sat silent 29 min, vanished 23:44:04. No OOM, no crash trace, no partial output.
+
+**Forensic timeline (verified against `/tmp/leg3_pilot_n1_run.log`, 18163 lines):**
+- Header confirms authorized Tier-1 params: `n_samples_per_cell=1  seed=56000000  smoke=False  dry_run_flavor=True`. ✓
+- [STEP 0] Setup ✓ → [STEP 2] generated **18 candidates** ($0, no LLM) ✓ (23:11:04).
+- **[STEP 3/4] "Running gauntlet on 18 candidates via w5r2_gauntlet_sim_integration…"** ← fired a **LIVE gauntlet sim**.
+- Live gauntlet entered R2 spatial-gauntlet calibration; **last-logged locus = non-converging class `S1_endgame_bc_melee_medium_variable_str_none_s0`** (bimodal geometry — open_arena WR=0.000 floor-saturating / chokepoint_corridor WR=1.000 ceiling-saturating; calibrator not resolving). Log froze **23:15:15** mid-calibration.
+- Process persisted **29 min silent** (23:15→23:44), then disappeared. **STEP 5+ (§8-A1 band measure / bundle write) NEVER reached.**
+
+**Root locus (honest framing per registry-honesty rider):** the run hung in the STEP 3/4 **live gauntlet**, last logging the non-converging melee-class calibration. The 29-min silent gap (23:15→23:44) is UNOBSERVED — the *proven* fact is the hang was in STEP 3/4; the *exact* hang mechanism (infinite calibration retry vs deadlock vs post-calibration stall) is UNPROVEN from the frozen log.
+
+**Why recovery-mode didn't save it:** `w3_emission_driver.py` has a `--recover-from-canonical` fast-path (`_recover_gauntlet_from_canonical_json`, skips re-running the 6h gauntlet) — but it's **hard-coded to the batch-1 shape** (`_RECOVERY_EXPECTED_SURVIVOR_COUNT=700` = 7 cells × 100 samples; `_RECOVERY_EXPECTED_ENTRY_COUNT=2200`). This 18×1 pilot is a different population ⇒ recovery would halt-loud on its asserts ⇒ the **live gauntlet was the only available path**, and it hung.
+
+**Disc #1.1 / #2.1 miss:** the Gate-1-reviewed resource projection (~23–36 min) modeled the emission/band phase but **under-modeled STEP 3/4** — that a live gauntlet on 18 endgame candidates (incl. a non-converging bimodal-geometry class) can hang unbounded. No resource-scaling rehearsal of STEP 3/4 preceded the run.
+
+**Cost posture: CLEAN.** $0 LLM (dry_run_flavor + never reached flavor). Only cost = ~33 min wasted local compute. No ADR-006 spend harm. Engine HEAD `2779b62` unchanged by the failed run (1 unpushed = star-lord's pre-run in-progress commit; no new commits).
+
+**ROUTED TO MATT — re-fire disposition.** KR will NOT reschedule (process dead) and will NOT re-fire blind (ADR-006; it'll hang again). Recommended: **star-lord + gamora diagnosis dispatch** before any Tier-1 re-fire — (a) star-lord: does STEP 3/4 need a live gauntlet at all for a $0 band-measurement dry-run, or can the driver gate/skip the gauntlet (or generalize recovery-mode) for the leg-3 pilot config? (b) gamora: the `medium_variable` spatial-calibration non-convergence (bimodal floor/ceiling) — is it a calibration bug or a genuine geometry-partition problem, and does it need a convergence-timeout guard? **Held for Matt's routing nod.**
