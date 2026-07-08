@@ -1124,3 +1124,24 @@ Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT t
 - **"WR-bracket filter" in `season_generation_pipeline.py:1816` is a LEGACY MISNOMER, not a residual WR-gradient gate** — line 1772 relays each kit's `season_emit` bool from the gauntlet JSON (`kit_result.get("season_emit", False)`), downstream of `family_certification_pass`. No separate gradient gate in generation. (Disc-#12 label-hygiene item, functionally correct — queue with gamora's docstring fixes.)
 - **OPEN: season_emit yield.** Last empirical data point (step-4 re-run bs2ptidcr, under step-5 bands, PRE-step-6 magic_pack re-band) = `kits_season_emit=0`, 0/18 in-band survivors. R4/Leg-C exists to produce bands for R5; 0-emit ⇒ chain cannot reach R5. Must confirm current HEAD (step-5+step-6 bands) produces >0 emit before/at R4.
 - **OPEN: R6 LLM-spend guardrail.** R4/Leg-C posture (summoner campaign) must be $0 or it HALT-LOUDs per R6. Verifying scope + cost posture before firing.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — R4 NOT READY: F4 escape_lane band unregistered → season_emit=0 by construction. CHAIN STOPS at R4 for Matt routing (the anticipated "third touchpoint")
+
+**KR pre-fire readiness check (did NOT fire R4 blind) → gamora $0 read-only diagnosis → DEFINITIVE:**
+
+**R4/Leg-C would emit ZERO kits by construction. The blocker is NOT the R3a recalibration (that closed PASS) — it is the un-done half of the Q11 four-family lane: the F4 `escape_lane` band was never wired into `_shell_result_passed`.**
+
+- `season_emit` (`gauntlet_sim.py:989`) = `any(gauntlet_pass(c) ...)`; `gauntlet_pass` (`:979`, R4-flip `08972d0`) → `family_certification_pass` (`:893`) = conjunction over ALL FOUR families. **F4 = frozenset({"escape_lane"})** (`:245`), sole member, no substitute.
+- **F4 is dead code:** `escape_lane` appears ONLY at `:245` (the set) + `:966` (a docstring narrating its own absence). The F4 branch (`:847-851`) is **comment-only** — sets no band, falls through to the clear-shell KPM lookup where escape_lane has no entry → `:856 return False`. `family_passed(cohort,"F4")` is **False for every cohort** → `family_certification_pass` universally False → **season_emit=0 unconditionally.** This is the KNOWN "zero emit until Lane-3 registers F4" state (MIGRATION.md:21; run-state :229).
+
+**Why R3a couldn't move it (two decoupled instruments):**
+- R3a recalibrated the **T1 6-shell pilot gauntlet** (open_arena/chokepoint/magic_pack/boss_with_adds) — NO escape_lane, NO dense_cell.
+- `season_emit` rides the **four-family cert instrument** (`gauntlet_four_family_metrology_driver.py` + `arena.py:1037` escape_lane) — a DIFFERENT code path. R3a's spatial bands cannot move season_emit. Both hypotheses A + B true; A is the root cause.
+
+**The blocker = F4 escape_lane criterion wiring into `_shell_result_passed` (`:847-851`).** The VALUES EXIST (run-state :143, Lane-3-derived: F4 KPM floor 60 / ceiling 150 / exit-within-window ≥0.80) but were never wired. **Seam split:** wiring = gamora's (`_shell_result_passed` is her code; math-note-before-code per Disc #1); band-VALUES cert-criterion ratification = jack-ryan Lane-3 (`:832` design-note handoff). **Scope:** distinct dispatch, un-done half of the Q11 four-family lane; in-scope for batch-2 but NOT enumerated in the ratified R1-R6 table → a scope-extension.
+
+**LLM-spend ambiguity (R6 guardrail):** "Leg-C" is OVERLOADED in run-state. Pure-sim four-family cert sweep = $0/autonomous but emits 0 (blocked above). star-lord's **Leg-C season-emission is gated behind rocket's gen-path leg-3 = an LLM-EMISSION run** (run-state :318) → if R4/Leg-C means THAT, it is a **Matt HALT-LOUD per R6 regardless of the F4 fix.**
+
+**KR ROUTING DECISION: CHAIN STOPS at R4. Surfaced to Matt** (my line-763 flag realized: "likely a THIRD Matt touchpoint the pre-ratification didn't anticipate"). NOT auto-firing the F4-registration dispatch — it's a scope-extension (needs fresh Matt-auth per CLAUDE.md) AND requires a cert-criterion ratification AND the downstream emission-run LLM posture is unresolved. Decision-ready fork presented to Matt. **No run in flight. Matt touchpoints now live: (1) this R4-blocker routing; (2) R5 VALUES (still parked downstream).**
