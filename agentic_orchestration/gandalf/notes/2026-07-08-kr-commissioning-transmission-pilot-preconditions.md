@@ -72,5 +72,22 @@ pilot's verdicts land and the rulings close.
 
 ---
 
+## Addendum (same session, later) — F2 RULED · one added gamora beat · rulings ledger CLEAN
+
+- **F2 flag-pass RULED Option A (Matt, 2026-07-08):** step-5/step-6 density-anchored re-bands
+  **RATIFIED** (were STACK-FOR-MATT in `gauntlet_sim.py`; jack-ryan decisions-log registration
+  fired); residual over-ceiling = **FLAG_PASS_OVERPOWERED** per the already-Active Rider-3
+  semantics (decisions-log:4840). The pilot's "8/40 + 32 over-band" figure is DEAD (stale-ceiling
+  artifact, gamora b469351) — Leg i arm S re-measures F2 at the ratified bands.
+- **gamora beat 3 (joins her commissioned session, after F3-verify + arm-G wire):** verify
+  elite_pack's band ((8.26, 28.13), fit 2026-06-21 pre-re-lock) against its CURRENT population —
+  density-anchored re-derivation if the 2026-07-07 re-lock moved elite_pack; stands if not.
+- **`pilot_policy` entry:** name the operative band set (step-5/6 density-anchored + elite_pack
+  post-verify) + Rider-3 disposition semantics ALONGSIDE the two arms — the pilot's F2 verdicts
+  read under these.
+- **Parallel track CLOSED — all rulings in:** §4-A ✓ (jack-ryan review PASS-with-notes) · gear
+  Option 3 ✓ (arm spec filed) · F2 Option A ✓. F4-martial fork stays parked post-Leg-ii by
+  design. **Pilot verdicts land decision-ready.**
+
 **Sign-off:** gandalf, 2026-07-08. Companion: Discipline #2-FF proposal (jack-ryan ratification
 queue) — `2026-07-08-discipline-2-amendment-full-fire-rider-proposal.md`.
