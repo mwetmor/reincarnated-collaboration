@@ -775,4 +775,37 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 - **§6 asks = the R1 Matt touchpoint, in design-finding form (this IS the third touchpoint I flagged):** (1) HP-difficulty governance fork — **A** un-stack legacy ×1.5 from endgame path [gandalf lean; resolves the parked recalibration as SCOPE-RETIREMENT, no constant moves] / B extend+re-rule / C per-scenario spec block; (2) authorize serial-engagement (pack-local activation) design pass for open_arena + magic_pack [gandalf lean YES — restores genre open-field grammar the room certifies against]; (3) schedule steps 2-4 as the pre-R4 work unit on Leg-C's critical path [gandalf lean YES]. Anti-Goodhart acceptance criterion (§4): NOT "N/18 pass" — "WR surface regains a gradient: mass in (0.05,0.95), differentials persist as spread not rails."
 - **Sequencing (§5):** R2 fires now ($0, before-side) → gamora $0 termination-split of the 323 floor events (death vs timeout, weights Lever 1 vs Lever 2) → Matt rules the §6 fork → gamora executes ruled levers + $0 re-run → before/after gradient check → R4/Leg-C hold-clears against a coherent difficulty state.
 
-**KR execution NOW (R2 auto-fire, R6 push-as-you-go):** push chain commits (`3f525c5` + `1cb2f62`) → fire Tier-1 $0 re-fire via star-lord sub-agent (dry_run_flavor, seed 56M, n_samples=1, bounded by G3 guard, §8-A1 bands via measure-then-filter = the before-side diff) → verify + push band artifact → log session-close. **The §6 fork goes to Matt as the R1 touchpoint (surfaced, non-blocking); R4 stays held until Matt rules it + recalibration lands.**
+**KR execution (R6 push-as-you-go done; R2 fire HANDED OFF):** pushed chain commits (`3f525c5` + `1cb2f62` + `efdb84d`) to remote. **The §6 fork goes to Matt as the R1 touchpoint (surfaced, non-blocking); R4 stays held until Matt rules it + recalibration lands.**
+
+> ⚠️ **CORRECTION (this delta's header said "R2 FIRED" — it did NOT fire).** Matt directive (2026-07-08): **do NOT fire R2 from this shell.** R2 is **ARMED 5/5** and **handed to a fresh autonomous session** which fires it as its FIRST chain act. See the SESSION-CLOSE + R2-HANDOFF delta below for the exact fire spec. This shell closes without firing.
+
+---
+
+## ⭐ SESSION-CLOSE + R2 HANDOFF (2026-07-08) — R2 ARMED 5/5, handed to the next (fresh autonomous) shell
+
+**Matt directive (2026-07-08):** append the Gate-2-fold delta + push (DONE, `efdb84d` on remote), then **do NOT fire R2 from this shell** — log the arming state and hand off. **The fresh autonomous session fires R2 as its first chain act.**
+
+**R2 (Tier-1 auto-re-fire) — ARMED, ALL 5 CRITERIA GREEN:**
+- (a) G3 convergence guard landed + tested — ✅ (gamora, `03076c0`, 312 tests, byte-neutral; KR-verified)
+- (b) measure-then-filter landed + 0/18-pass round-trip smoke green — ✅ (star-lord, `061176c`, 32/32; KR-verified `:674`<`:901`)
+- (c) R1 dispositioned green — ✅ branch-(a) [inherited-uncalibrated, NOT the ruled difficulty]; gandalf R1-read `1cb2f62` ratifies R2 proceeds ("before-side of the diff")
+- (d) kill-verify — ✅ no driver/emission PID alive as of this session-close (**the next shell MUST re-run kill-verify at its own fire-time** — this is a point-in-time check, not a durable one)
+- (e) jack-ryan Gate-2 green — ✅ PASS/PASS, `3f525c5`, no BLOCK, no conditions
+
+**FIRE SPEC for the next shell (R2 first chain act — the exact intended invocation):**
+- Fire via a **star-lord sub-agent** (running `w3_emission_driver.py` is star-lord's export/driver seam; coordinated sub-agent firing is KR's seam).
+- Params: `dry_run_flavor=True` (**$0 — hard requirement**; HALT-LOUD if the path would spend LLM), seed `56000000`, `n_samples_per_cell=1`, bounded by the G3 guard.
+- **Re-run kill-verify at fire-time** (`ps aux | grep w3_emission_driver`) before firing — NEVER two same-seed emissions.
+- measure-then-filter yields the §8-A1 band artifact at `output/leg3_pilot_section8a1_band_measurement.json` **regardless of the gate outcome** — this is the CURRENT-state "before-side" snapshot of the recalibration diff (gandalf §5.1). Expect ~0/18 gate pass (floor-saturated instrument); the TP3 HALT-LOUD at `:901` firing on empty survivors is CORRECT, and the artifact at `:674` persists BEFORE it.
+- On completion: verify the artifact contents (read the file, don't narrate), push the band artifact (R6), report bands + gate outcome, append completion record to `dispatches/2026-07-08-gamora-starlord-spatial-floor-diagnosis.md`.
+
+**AFTER R2 bands land — the sequenced continuation (gandalf §5, do NOT skip ahead):**
+1. gamora $0 termination-split of the 323 floor events (death vs timeout, per scenario) — weights Lever 1 (HP) vs Lever 2 (engagement) empirically.
+2. **Matt rules the §6 fork** (the R1 touchpoint, design-finding form): (1) HP-difficulty governance A/B/C [gandalf lean **A** un-stack legacy ×1.5 from endgame path]; (2) authorize serial-engagement design pass for open_arena+magic_pack [gandalf lean **YES**]; (3) schedule steps 2-4 as pre-R4 work on Leg-C critical path [gandalf lean **YES**]. Ref `gandalf/notes/2026-07-08-spatial-difficulty-levers-design-read.md`.
+3. gamora executes ruled levers + $0 gauntlet re-run → before/after band diff → §4 gradient check (acceptance = "WR surface regains a gradient: mass in (0.05,0.95), differentials persist as spread not rails" — NOT "N/18 pass").
+4. Lever-4 certification-criterion ruling if structural fails persist on a working gradient (with data).
+5. **R4 / Leg-C hold-clears** against a coherent difficulty state. R5 band-sheet VALUES = the remaining designed Matt touchpoint.
+
+**Matt touchpoints outstanding:** (1) the §6 spatial-difficulty fork (R1, now live — surfaced above; adjudicate after R2 bands + gamora's termination-split); (2) R5 band-sheet VALUES (later, post-Leg-C).
+
+**ONE-LIVE-KR-SHELL discipline (per the pre-ratified execution protocol):** this shell is CLOSING and holds NOTHING in flight. R2 has NOT fired. The fresh autonomous session derives state from THIS file + the dispatch completion records, re-runs kill-verify, and fires R2 as its first act. No dispatch was double-fired; no run is in flight.
