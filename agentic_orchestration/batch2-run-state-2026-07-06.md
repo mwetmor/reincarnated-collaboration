@@ -714,6 +714,8 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 | **R5** | **Band-sheet pre-draft.** When Leg-C bands land, the band-sheet proposal drafts automatically (gamora numbers → gandalf design-spec → jack-ryan review). **Matt ratifies VALUES** (resist/mitigation caps, band widths — the Q10 remainder) — the designed human gate, unchanged. |
 | **R6** | **Chain guardrails.** $0 LLM throughout — any step that would spend LLM halts loud (ADR-006 posture) · any HALT-LOUD anywhere STOPS the chain, no auto-resume past a halt · **push-as-you-go granted for chain commits** (per-workstream push pattern, CLAUDE.md). |
 
+> **R1 CONSUMED + R3a AUTHORIZED (2026-07-08, post-ratification amendment):** the R1 touchpoint fired in design-finding form and **Matt ruled A/yes/yes** — see the ⭐ MATT RULING delta at the file tail (latest-governs). The recalibration work unit (R3a) is now pre-authorized chain work between R2's bands and R4. Matt touchpoints outstanding: **R5 VALUES** + a *conditional* Lever-4 certification-criterion ruling (fires only if structural fails persist on a working gradient).
+
 **Execution protocol (seam discipline, structural):** KR fires all sub-agent sessions/dispatches HIMSELF — coordinated sub-agent firing is KR's seam (hive-mind decision-routing, Matt 2026-05-23; CLAUDE.md team addendum 2026-05-25). Matt's transmission of this table = the authorization act; per-step "should I fire X?" asks are the retired anti-pattern. **Matt touchpoints in this chain are EXACTLY TWO: (1) the R1-(b) halt, if it fires; (2) R5 band-sheet VALUES.** Everything else: execute, commit, push, log deltas here. **ONE LIVE KR SHELL per this workstream** (the orchestration twin of kill-verify): a takeover session derives state from THIS file + the dispatch's completion record before acting — fire only what has not fired; NEVER re-fire a fired dispatch or run a step a prior shell holds in flight.
 
 **Signed:** gandalf (ELICITOR → ARCHITECT), 2026-07-08.
@@ -809,3 +811,31 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 **Matt touchpoints outstanding:** (1) the §6 spatial-difficulty fork (R1, now live — surfaced above; adjudicate after R2 bands + gamora's termination-split); (2) R5 band-sheet VALUES (later, post-Leg-C).
 
 **ONE-LIVE-KR-SHELL discipline (per the pre-ratified execution protocol):** this shell is CLOSING and holds NOTHING in flight. R2 has NOT fired. The fresh autonomous session derives state from THIS file + the dispatch completion records, re-runs kill-verify, and fires R2 as its first act. No dispatch was double-fired; no run is in flight.
+
+---
+
+## ⭐ MATT RULING (2026-07-08) — §6 fork RULED **A / YES / YES**; R1 touchpoint CONSUMED; R3a recalibration work unit AUTHORIZED
+
+**Matt ruled the §6 fork (Pattern-B session with gandalf, 2026-07-08 — verbatim "I agree with the 1-2 asks (A/yes/yes)").** Ref: `gandalf/notes/2026-07-08-spatial-difficulty-levers-design-read.md` §6. This consumes the R1 Matt touchpoint. **The SESSION-CLOSE block's "AFTER R2" step 2 ("Matt rules the §6 fork") is PRE-RULED — the fresh shell does NOT stop there.**
+
+**The three rulings:**
+
+1. **Ask 1 = OPTION A (un-stack).** The endgame-BC gauntlet path **stops applying `MOB_HP_DIFFICULTY_MULTIPLIER`**. The constant itself stays 1.5, untouched, for the legacy convergence instrument it was ruled for (2026-05-19). The parked Matt-scheduling-pending recalibration workstream (decisions-log 4240 + 5223) **resolves as SCOPE-RETIREMENT — no constant moves.** Single application-site change (`spatial_engine.py:3441` region); gamora seam; math-note-first; Gate-2.
+2. **Ask 2 = YES (serial-engagement design pass).** Pack-local activation for open_arena + magic_pack so open rooms engage in proximity waves (~3-4 bites), restoring both the rooms' stated certification intent ("repositioning cost") and genre open-field grammar. gamora maths the activation radii. **The termination-split (death vs timeout) WEIGHTS the lever magnitudes; it is NOT a go/no-go gate — both levers are authorized regardless of the split's outcome.**
+3. **Ask 3 = YES (scheduling).** The recalibration work unit is **R3a**, the pre-R4 unit on Leg-C's critical path.
+
+**R3a — the authorized work unit (fresh shell sequences via gamora dispatch(es), KR fires per seam discipline):**
+
+1. R2 bands land (before-side snapshot) →
+2. gamora **$0 termination-split** of the 323 floor events from the v3 log (death vs timeout, per scenario) →
+3. gamora executes **Option-A un-stack** + **serial-engagement pass** (math-note-first; Gate-2 each; gamora determines MIGRATION need) →
+4. **$0 gauntlet re-run** → before/after band diff →
+5. **§4 gradient acceptance check** — the anti-Goodhart gate: "WR surface regains a gradient: mass in (0.05, 0.95); differentials persist as spread, not rails." **NOT "N/18 pass."** Rider-4 stands: no content re-tuning; kits still floored on a calibrated gradient = TRUE content findings — REPORT them, do not fix them.
+6. If structural certification fails persist on a working gradient → **conditional Lever-4 Matt touchpoint** (certification-criterion ruling, with data). Otherwise →
+7. **R4 hold-clears** → Leg-C at ruled arc numbers → batch-2 closes → R5 band-sheet VALUES (Matt).
+
+**Capture obligation:** KR drafts the decisions-log entry for this ruling during chain execution (scope-retirement of the parked multiplier workstream + serial-engagement authorization; cites gandalf's design read + gamora's design-finding note; jack-ryan reviews per governance).
+
+**Matt touchpoints outstanding: R5 VALUES + conditional Lever-4 only.**
+
+**Signed:** gandalf (ELICITOR — fork resolved upstream, queue stays drained), 2026-07-08.
