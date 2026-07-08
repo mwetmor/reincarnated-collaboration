@@ -152,3 +152,92 @@ arm S and arm G run SEQUENTIALLY at seed 57000000.
 
 **Sign-off:** gamora, 2026-07-08. Gate CLOSED (governance-only, §0 — no code change). Pre-fire GREEN.
 **STOP — awaiting Matt's explicit fire-go.** Dispatch auto-committed (in-scope); NOT pushed.
+
+---
+
+## Completion record — HALTED LOUD (NO run fired) — 2026-07-08 (SESSION 59)
+
+**Disposition: HALT. Did NOT fire.** Matt's explicit fire-go received; on re-verifying the instrument
+immediately before firing, the **arm-G disjunction is UNREACHABLE on the Leg-i cell-grain emission
+path** with the code on HEAD (`818509806`). Firing would produce a mis-instrumented run — exactly the
+class the dispatch's own stop-rule names ("If anything looks mis-instrumented … HALT LOUD and report
+rather than grinding").
+
+### The three pre-fire greps: GREEN — but they do not test what matters
+- grep1 `measured_gear_stats` in `t4_sim_cycling.py` → 4 hits (GREEN)
+- grep2 `escape_lane` in `endgame_encounter_catalog.py` → 11 (GREEN)
+- grep3 `GAUNTLET_ENCOUNTER_COUNT_EXPECTED = 20` → 1 (GREEN); sentinel `scripted-rotation-v1`, IS_PENDING=False (GREEN)
+
+These greps prove the **leaf wire exists** and the **catalog member exists**. They do NOT prove the
+gear is **threaded through the emission path**. That is the blind spot that let the instrument read
+FIRE-READY while arm G was structurally dead.
+
+### Root-cause finding (mechanism, not symptom)
+The geared-arm wire (SESSION-58 beat d) threaded `measured_gear_stats` **only at the leaf**
+`_run_spatial_w4g_batch` (`t4_sim_cycling.py:1181` param, `:1244` thread onto `run_spatial_fight`).
+The emission path reaches that leaf through two intermediaries that **neither accept nor forward** the
+param:
+- `w4g1_tier_1_sweep` (`t4_sim_cycling.py:1296`) — no `measured_gear_stats`; its batch call `:1359`
+  omits it → defaults `None`.
+- `w4g2_tier_2_full_sim` (`t4_sim_cycling.py:1389`) — no `measured_gear_stats`; its batch call `:1434`
+  omits it → defaults `None`.
+- `w5g1_gauntlet_execution` (`gauntlet_sim.py:1254`) — the emission driver — has **no arm/gear
+  selection**; its w4g1 call (`gauntlet_sim.py:1411-1419`) and w4g2 call (`:1455-1461`) pass no gear.
+- `certification_gear` / `_build_cohort_combatant_stats` have **ZERO call sites in `gauntlet_sim.py`**
+  (grep exit 1). The cohort tilt that arm G is supposed to vary is never computed on this path.
+
+Consequence: both "arms" would run byte-identical stripped (`measured_gear_stats=None` everywhere) →
+a fraudulent **zero-delta** arm-G deliverable and a **bogus REFRAME-VALIDITY** read (the spread would
+look uncompressed only because arm G literally equals arm S). Worse than not firing.
+
+Why the beat-d smoke looked green: it called `_run_spatial_w4g_batch` **directly** with a hand-composed
+gear dict against an ad-hoc 231k-HP boss (AGENT_STATE SESSION-58 beat d: "arm G clears faster … cohort
+differentiation confirmed"). That proved the LEAF thread in isolation — it **bypassed the emission
+path** (`w5g1→w4g1/w4g2`), so it never exercised the missing plumbing.
+
+The math note `simulation/math/certification-gear-v0-composition-2026-07-08.md` §6 **step 2** is the
+un-done half — it explicitly specified: *"gains an optional `arm` … that, for arm G, computes
+`certification_gear(cohort)` and passes it as `measured_gear_stats=…`"* — implemented at the leaf,
+never plumbed up. This is a HALF-DONE math-note step, not a fresh design gap.
+
+### What is actually needed before Leg-i can fire two arms (hours-scale, math-note-first)
+1. `w4g1_tier_1_sweep` + `w4g2_tier_2_full_sim`: add `measured_gear_stats: dict | None = None`, forward
+   into their `_run_spatial_w4g_batch` calls (`:1359`, `:1434`).
+2. `w5g1_gauntlet_execution`: add arm selection; for arm G, compute `certification_gear(cohort, tilt)`
+   per cohort inside the cohort loop (`gauntlet_sim.py:1342`) and thread down; arm S = None (byte-identical).
+3. A two-arm cell-grain **Leg-i driver/wrapper** — it does NOT exist. Only `leg_ii_kit_grain_spatial_harness.py`
+   (KIT-grain) exists; that harness's own docstring (lines 8-9) says *"Leg-i (a separate driver) is the
+   CELL-GRAIN certification arm"* — that separate driver was never written. The wrapper owes: seed-57000000
+   post-dedup config-set assembly (cell-grain, one representative kit/cell), the `"N distinct configs |
+   20 encounters"` start-banner naming BOTH arms, the sequential arm-S-then-arm-G run (Disc #3, same seed),
+   and the PIPE + YIELD + per-cohort S-vs-G delta emit.
+
+None of (1)–(3) were started: Matt authorized a **FIRE**, not a build. Completing the wire is a scope
+step beyond the fire-go and gets math-note-first + Gate coverage per the pilot's own discipline.
+
+### Deliverables status (all BLOCKED on the above)
+- **PIPE:** not producible — the two-arm emission wrapper doesn't exist; escape_lane IS a catalog member
+  (11 hits, F4), so the catalog side of the four-family conjunction is present, but no driver emits the
+  per-family verdict conjunction over a config set.
+- **YIELD:** not producible — no `season_emit` per-cell × per-family map emitted (that is `w5g1`'s output,
+  and w5g1 has no two-arm wrapper / config-set assembly at seed 57000000).
+- **Arm-S vs arm-G deltas / REFRAME-VALIDITY falsifier:** not measurable — arm G would equal arm S.
+  **Explicitly NOT quoting any "~2.4×" figure** (per dispatch + gandalf §4 quoting discipline).
+- **Geometry-only bands (dense_cell, escape_lane):** not confirm/falsified — no emission distribution
+  produced. Bands remain geometry-anchored (falsifiers named in their math notes), UNTUNED (correct — the
+  dispatch forbids pre-fire tuning; there is simply no run to confirm against).
+- **21 wave5 ERRORs:** not reproduced (no run).
+
+### Config count + wall-time
+- **Config count: N/A (no run).** Cannot report the near-free post-dedup config count because the
+  seed-57000000 config-set assembly is part of the missing Leg-i wrapper.
+- **Wall-time: 0 (halted at pre-fire).**
+
+### Commit
+NO run artifacts (nothing fired). Committed: this halt record + AGENT_STATE SESSION-59 halt entry
+(in-scope autonomous-run bookkeeping). NOT pushed (Matt batches).
+
+**Awaiting Matt:** authorize the completion-build (plumb w4g1/w4g2/w5g1 + write the two-arm cell-grain
+Leg-i driver, math-note-first, Gate-covered) → then I re-present FIRE-READY and fire; OR re-scope.
+
+**Sign-off (halt):** gamora, 2026-07-08 SESSION 59.
