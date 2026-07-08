@@ -695,4 +695,25 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 7. **Kill-verify before re-fire** (v2/v3 parallel-same-seed window).
 8. **Credit:** failure infra WORKED — TP3, round-trip smoke, registry-honesty, $0; wire PROVEN, breakage is upstream.
 
-**Gate posture:** code deliverables (gamora guard + conditional MOB_HP; star-lord decoupling) → jack-ryan Gate-2 on submission. G1 disposition (ruled vs inherited) routes back to Matt/gandalf. Re-fire = SEPARATE Matt run-auth (ADR-006) AFTER this lands. **Launch:** `cd ~/Games/reincarnated-engine && claude --agent gamora` (+ a star-lord session); both read `dispatches/` at start.
+**Gate posture:** code deliverables (gamora guard + conditional MOB_HP; star-lord decoupling) → jack-ryan Gate-2 on submission. G1 disposition (ruled vs inherited) routes back to Matt/gandalf. ~~Re-fire = SEPARATE Matt run-auth (ADR-006) AFTER this lands.~~ *(Superseded 2026-07-08 — the run-auth is PRE-GRANTED by the ratified chain table below, R2.)* **Launch:** `cd ~/Games/reincarnated-engine && claude --agent gamora` (+ a star-lord session); both read `dispatches/` at start.
+
+---
+
+## ⭐ PRE-RATIFIED AUTONOMOUS CHAIN (gandalf-authored, Matt-ratified "Agreed" 2026-07-08) — the diagnosis-return execution contract
+
+> **Authority:** Matt ratified R1–R6 (gandalf ELICITOR grill, 2026-07-08 session). This table IS the run-authorization for the chain below — **it pre-satisfies the dispatch's "re-fire = SEPARATE Matt run-auth (ADR-006)" clause** (ADR-006 honored by THIS pre-authorization; the clause above is struck accordingly). KR executes against this table without fresh Matt asks.
+
+**The chain:** diagnosis returns → [R1] → guards + decoupling land + Gate-2 → [R2] Tier-1 re-fire ($0) → §8-A1 bands + gate report → [R4] Leg-C full fire (ruled arc numbers) → batch-2 closes → [R5] band-sheet draft → **Matt ratifies VALUES** → §7 loot campaign (already zero-round-trip per the 2026-07-07 Q9/Q10 rulings).
+
+| # | Ruling (Matt-ratified 2026-07-08) |
+|---|---|
+| **R1** | **MOB_HP disposition conditional.** G1 = inherited-uncalibrated → the L1 remedy (`1.5→1.25` or gamora's calibrated value) auto-applies (+ MIGRATION + Gate-2); chain proceeds. G1 = 1.5 IS the ruled difficulty → **HALT-LOUD for Matt** (design finding: endgame BC can't clear ruled difficulty — content/difficulty ruling is his). |
+| **R2** | **Tier-1 auto-re-fire.** Fires with NO fresh Matt ask once ALL empirical criteria are green: (a) G3 convergence guard landed + tested · (b) star-lord measure-then-filter landed + 0/18-pass round-trip smoke green · (c) R1 dispositioned green (branch a, or branch b subsequently ruled) · (d) kill-verify — no prior driver PID alive, never two same-seed emissions · (e) **jack-ryan Gate-2 green on the dispatch deliverables**. Run posture: $0 (dry_run_flavor), bounded (guard), guaranteed yield (measure-then-filter). |
+| **R3** | **Bimodality containment.** If G2 finds genuine positional identity, the scalar-vs-vector certification-semantics fork is a **Leg-C gate item** (flagged on the Leg-C run report), never a Tier-1 blocker. Tier-1 measures regardless — measurement is fork-independent by construction. |
+| **R4** | **Leg-C hold-clear.** The rider-3 hold clears AUTOMATICALLY when Tier-1 bands land + R1/R3 green. Leg C fires at the ruled arc numbers with the §8-A1 re-homes (heavy-band coverage + C2 worst-case peak) as REQUIRED report items. No fresh authorization round-trip — Leg C was already authorized (ARC NUMBERS ruling + Option-1 riders, 2026-07-07). |
+| **R5** | **Band-sheet pre-draft.** When Leg-C bands land, the band-sheet proposal drafts automatically (gamora numbers → gandalf design-spec → jack-ryan review). **Matt ratifies VALUES** (resist/mitigation caps, band widths — the Q10 remainder) — the designed human gate, unchanged. |
+| **R6** | **Chain guardrails.** $0 LLM throughout — any step that would spend LLM halts loud (ADR-006 posture) · any HALT-LOUD anywhere STOPS the chain, no auto-resume past a halt · **push-as-you-go granted for chain commits** (per-workstream push pattern, CLAUDE.md). |
+
+**Execution protocol (seam discipline, structural):** KR fires all sub-agent sessions/dispatches HIMSELF — coordinated sub-agent firing is KR's seam (hive-mind decision-routing, Matt 2026-05-23; CLAUDE.md team addendum 2026-05-25). Matt's transmission of this table = the authorization act; per-step "should I fire X?" asks are the retired anti-pattern. **Matt touchpoints in this chain are EXACTLY TWO: (1) the R1-(b) halt, if it fires; (2) R5 band-sheet VALUES.** Everything else: execute, commit, push, log deltas here.
+
+**Signed:** gandalf (ELICITOR → ARCHITECT), 2026-07-08.
