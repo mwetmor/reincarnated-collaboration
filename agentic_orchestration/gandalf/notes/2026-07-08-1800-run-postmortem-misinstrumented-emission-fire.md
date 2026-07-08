@@ -10,6 +10,13 @@ jack-ryan (companion amendment proposal — separate doc, same date).
 **Disciplines:** #2 (smoke-before-full-regen — the violated one), #11 (empirical inspection),
 #12 (semantic-shift honesty), #23 framing-audit (OP §4.1 — the un-run checklist).
 
+> **⚠ CORRECTED SAME-DAY — read §8 before citing §2/§3/§6.** star-lord's forensic refuted this
+> note's mechanism claim ("legacy gate instead of family-cert"); gandalf source re-verification
+> confirms the refutation AND confirms the conclusion (season_emit = 0 by construction) via the
+> true mechanism: the fought encounter catalog contains **zero escape_lane rooms** — the F4
+> criterion was registered in the judge, the room was never added to the rotation. §8 carries
+> the retraction, the corrected diagnosis, the dedup-contract finding, and the revised pilot.
+
 ---
 
 ## TL;DR
@@ -141,6 +148,99 @@ Glance (jack-ryan ratification lane).
 
 ---
 
+## §8 — SAME-DAY CORRECTION (star-lord forensic + gandalf source re-verification)
+
+**Trigger:** star-lord's read-only forensic (KR-relayed) contradicted §2/§3's mechanism claim.
+Re-verified everything against source before reconciling. He was right about the gate; I was
+wrong about the mechanism; the conclusion survives one layer down. The critique pair worked.
+
+### §8.1 — RETRACTED (two claims, both mine)
+
+1. **"The survivor criterion is legacy ≥9/18" — FALSE.** `gauntlet_pass()` returns
+   `family_certification_pass(cohort)` (`gauntlet_sim.py:1023`; R4 flip FIRED 2026-07-07;
+   `season_emit` = any-cohort conjunction at `:1026`). I cited a **stale docstring**
+   (`w3_emission_driver.py:505`) over live code — a Discipline #11 violation inside my own
+   forensics, the exact failure the discipline names.
+2. **"Log scenario inventory (complete)" — SAMPLING-FRAME ERROR.** The WP-R2-A-2 ceiling
+   warnings are code-scoped to `MOB_HP_DIFFICULTY_SCENARIOS` = {open_arena, chokepoint_corridor}
+   only (`spatial_engine.py:3590`). Four of the six fought shell types log **silently**.
+   Log-absence was never evidence of not-fought. My "complete inventory" was complete only over
+   warning-instrumented scenarios.
+
+### §8.2 — CONFIRMED (the conclusion, corrected mechanism)
+
+**season_emit = 0 by construction STANDS — via the catalog, not the gate.** Complete shell
+inventory of `generation/endgame_encounter_catalog.py` (the 18 encounters actually fought):
+`boss_with_adds ×3 · chokepoint_corridor ×3 · elite_pack ×4 · magic_pack ×3 · mini_boss ×1 ·
+open_arena ×4`. **ZERO escape_lane. ZERO dense_cell.** `family_passed()` iterates *fought
+results* for a member-shell match (`gauntlet_sim.py:903-916`); no fought result can ever carry
+`scenario_shell_id="escape_lane"` → F4 = False for every kit → the four-family conjunction =
+False for every kit → season_emit ≡ 0. **The F4-a registration (2026-07-08) armed the JUDGE;
+nobody added the ROOM.** The registration docstring's claim that the flip made
+`family_certification_pass()` "REACHABLE-True" is true at the criterion layer and false at the
+system layer — reachability requires a room that exists in the rotation.
+
+**Three-seam hole:** criterion registered (gamora seam) · driver wired (star-lord seam) ·
+catalog rooms (rocket seam) — **the conjunction across seams had no owner.** Also resolved:
+KR's mapping worry — chokepoint→F1 is correct (`F1 = {dense_cell, chokepoint_corridor,
+magic_pack}`); the gauntlet runs a **subset** of the family space, not a superset. F1 is
+satisfiable via 2-of-3 members, but note the **rigor mismatch**: emission judges F1 without
+dense_cell while the pilot-instrument F1 standard included it — F1 is easier in emission than
+in pilots. Design question for the catalog-extension spec.
+
+### §8.3 — The volume finding (star-lord's, confirmed + sharpened)
+
+The feed (`season_generation_pipeline.py:1717-1726`) submits **2,422 legendary configs** from
+the 1,800 candidates (log line 13:29:00) with `all_configs.append(cfg)` **unconditional** —
+while `config_to_kits` dedups by `legendary_id`. But `legendary_id` is **cell-derived**
+(`{bc_cell_id}_t4_null` / `{bc_cell_id}_{chain_id}`, `:1331/:1383`), and the code's own contract
+comment (`:1710-1714`) states: *"The gauntlet result is cell-level: all submissions sharing a
+legendary_id receive identical season_emit (PlayerClass shape is cell-derived, not
+sample-derived)."* **Certification is ALREADY cell-grain by documented design. The sim
+re-fights the same cell-config ~100×.** Star-lord's dedup is therefore NOT a
+certification-grain change — it enforces the existing contract. His Discipline-#1 find (the
+5.32h math-note estimate never re-derived against the current instrument) also stands.
+
+### §8.4 — Corrected layer table (supersedes §3's driver row)
+
+| Layer | Corrected verdict |
+|---|---|
+| Four-family gate | LIVE and correct (R4 flip 2026-07-07) — star-lord right, my §2/§3 wrong |
+| Encounter catalog (rocket seam) | **THE instrument gap**: F4 room absent (fatal — conjunction unsatisfiable), dense_cell absent (rigor mismatch) |
+| Candidate feed | **Volume regression**: unconditional config submission vs cell-grain contract — ~100× redundant fights |
+| My (B) transmission | Unchanged — proximate cause; and my post-hoc forensics ALSO mis-fired (§8.1), which **strengthens** #2-FF clause (a): pre-registered verification commands exist because ad-hoc grepping under confirmation pressure fails. New exhibits: a stale docstring (:505) and a contract comment the code half-honors (:1710) — comments lie; halt-loud asserts don't. |
+
+### §8.5 — Revised pilot + gates (supersedes §6's gate table and sizing)
+
+The pilot splits into **two cheap legs** on two harnesses:
+
+- **Leg i — emission-path, cell-grain (PIPE + YIELD):** after dedup + catalog extension, the
+  emission gauntlet fights only **distinct legendary configs (~20-70)** — near-free. PIPE
+  verdict re-mechanized: fought rotation contains ≥1 escape_lane room; per-family verdicts emit;
+  conjunction reachable. YIELD: per-cell × per-family pass map = the season_emit yield **by
+  construction** (emission stamps at cell grain).
+- **Leg ii — kit-grain spatial sample (GRAIN, new fourth verdict):** 18 cells × ~6 kits through
+  gamora's spatial harness. Measures **within-cell verdict heterogeneity** — is the cell-grain
+  stamp leaky? (F1 pilot's 25/40 kit-grain split is prima facie evidence it may be.) If
+  same-cell kits diverge on family verdicts, the **demo-roster kits get individual kit-grain
+  certification** (roster-sized ≈ dozens — cheap) while population certification stays
+  cell-grain. SIZING falls out of both legs.
+
+**Pilot preconditions (REVISED — instrument-validity only):** (1) rocket catalog extension
+(escape_lane mandatory; dense_cell recommended; band tables + 18-count assertions updated);
+(2) dedup fix with a **halt-loud byte-identity assert** (same-lid configs must be identical —
+if `_build_legendary_config` leaks sample-derived fields, the :1710 comment lies and we want to
+know loudly); (3) gamora F3 boss_damage_scale fix (F3 leg validity). **Matt's three rulings
+(F2 flag-pass · F4-martial disposition · §4 reframe) gate verdict-INTERPRETATION and any
+emission re-fire — NOT the pilot's firing.** They can land in parallel.
+
+**Sign-off (§8):** gandalf, 2026-07-08 (same-day correction unit). Anchors:
+`gauntlet_sim.py:903-1026` (live gate), `generation/endgame_encounter_catalog.py` shell
+inventory, `season_generation_pipeline.py:1710-1726` (cell-grain contract + unconditional
+submission), `spatial_engine.py:3590` (warning scope), run-log line 13:29:00 (2,422 configs).
+
+---
+
 **Sign-off:** gandalf, 2026-07-08. Anchors: kill-state log (final line 14:56:27),
 `w3_emission_driver.py:505`, `gauntlet_sim.py:109` + `:264-269`, four-family pilot verdicts,
-reframe note §6 chain.
+reframe note §6 chain. **Superseded in part by §8 (same day) — §8 governs where they conflict.**
