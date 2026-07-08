@@ -1,6 +1,6 @@
 # Glance — Contract Spec (parse contract · state model · render rules)
 
-> **STATUS:** SPEC-CURRENT v1.2 (2026-07-08) — **Matt rulings embedded (2026-07-03): GO on the staged build · STANDALONE app · named "Glance" · fork-4 `gates-on:` tokens live on all queue-row writes NOW. v1.1 (2026-07-07, Matt-ruled fork (b)): shape #6 FLOW declaration added (§2.7) — Tier-0 renders each tracker as an abstracted end-to-end process view with drill-in; all four trackers carry `## FLOW` blocks as of this date. v1.2 (2026-07-08): §7.1 RUN-STATE pane data path spec'd — run-state docs enter parse scope + registry-snapshot export; entry criterion for the pane is MET (emission_runs registry live with 14 rows as of this date).**
+> **STATUS:** SPEC-CURRENT v1.3 (2026-07-08) — **Matt rulings embedded (2026-07-03): GO on the staged build · STANDALONE app · named "Glance" · fork-4 `gates-on:` tokens live on all queue-row writes NOW. v1.1 (2026-07-07, Matt-ruled fork (b)): shape #6 FLOW declaration added (§2.7) — Tier-0 renders each tracker as an abstracted end-to-end process view with drill-in; all four trackers carry `## FLOW` blocks as of this date. v1.2 (2026-07-08): §7.1 RUN-STATE pane data path spec'd — run-state docs enter parse scope + registry-snapshot export; entry criterion for the pane is MET (emission_runs registry live with 14 rows as of this date). v1.3 (2026-07-08, Matt full-run-pivot directive): §7.2 SURFACE-LEDGER card — `canonical/current-to-end-state/surface-ledger.md` enters the modeled set as a fifth Tier-0 card (same six shapes, zero new parse logic); header strip gains the surfaces-agreed counter (the demo-gate number).**
 > **§2 (the format law) is PROPOSED, not canon** — per `canonical-doc-format.md` §6.7, gandalf proposes + executes, **jack-ryan RATIFIES** doc-lifecycle/format governance. ⚠ SWITCH: CANON-STEWARD (proposer) → jack-ryan (ratifier) — §2 routes to jack-ryan's next governance touch; on ratification he folds it into `canonical-doc-format.md` (+ skill twin, same commit, §6.8).
 > **Author:** gandalf (SPEC-AUTHOR) · run-window authoring per demo-readiness-run-spec §9 — not a wave dependency of the live run.
 > **Builder:** drax (parser + app + CI — his web seam; never touches the engine tree; interleaves after the current KR run closes).
@@ -90,7 +90,7 @@ N. **<stage name>** ← <section-ref> [· <section-ref>]*
   "generated_at": "ISO-8601", "repo_sha": "…",
   "last_commit": { "sha": "…", "author": "…", "date": "…", "subject": "…" },
   "trackers": [{
-    "id": "engine",                       // engine | story | game | serial-content-emission
+    "id": "engine",                       // engine | story | game | serial-content-emission | surface-ledger (v1.3)
     "path": "canonical/current-to-end-state/…md",
     "status_banner": { "stamp": "LIVING", "date": "…", "raw": "…", "line": 3 },
     "deltas": [{ "date": "2026-07-03", "headline": "…", "body_md": "…", "line": 12 }],   // newest first
@@ -135,7 +135,7 @@ Done right, Glance is *more* truthful at a glance than reading the raw file top-
 
 ## 5. Tier 0 — the glance (one screen, phone-first)
 
-- **Header strip:** `matt_decision_needed` open count — **the your-move number, the most important pixel on the screen** · `matt_to_do` count · last commit (agent + age) · global dangling-gates count.
+- **Header strip:** `matt_decision_needed` open count — **the your-move number, the most important pixel on the screen** · `matt_to_do` count · **surfaces agreed `✓N / M` (v1.3 — derived from the surface-ledger card's counters; the demo-gate number: GATE1 closes at N = M)** · last commit (agent + age) · global dangling-gates count.
 - **Four tracker cards:** **flow-bar first** *(v1.1 — when the tracker declares FLOW, §2.7)*: the ordered stages as a compact segmented bar, each segment colored by its dominant token, counters on tap — the abstracted end-to-end process view is the card's LEAD element (Matt 2026-07-07: "see the entire process for each system end to end, then drill into each sub-section"). Tapping a segment deep-links to that stage's sections in Tier 1. Beneath it: condensed STATUS · latest delta (date + headline + one line) · counters (open / in-flight / ⛔ / ⚖ / parked / ✓) · top-3 open items (first three non-✓ rows by board order).
 - **"Since you last looked":** the four delta logs merged, newest first; entries newer than the client's last-seen watermark highlighted. v1 watermark = **max delta-date seen** (localStorage, no server); v1.1 upgrades to SHA-precise via parser-side git-blame on delta entries. *This affordance is ~60% of the system's value — it ends re-reading-to-find-what-changed.*
 
@@ -159,6 +159,16 @@ The pane's two feeds, both preserving the founding principle (derived-never-auth
 2. **Registry snapshot export:** the parser NEVER reads the engine tree (§8 holds). Instead, the emission driver's registry-write step (star-lord seam) also exports a snapshot JSON to `agentic_orchestration/run-registry/emission-runs-snapshot.json` in this repo (append-on-register, committed by the run — the same cross-repo pattern star-lord's completion records already use). The pane renders registry rows from the snapshot with the same path+line provenance discipline; staleness is self-declaring (snapshot carries its own `exported_at` + source mtime).
 
 Sequencing: feed 1 is pure parser scope (drax, v1 if trivial — it's the same six shapes on two more globs); feed 2 needs star-lord's export hook (small; fires with the next registered run). Neither requires new Matt rulings — the pane itself was ruled staged 2026-07-03; this section only specs its data.
+
+### 7.2 v1.3 — SURFACE-LEDGER card (2026-07-08, Matt full-run-pivot directive — IN v1, not staged)
+
+Matt directive (verbatim, 2026-07-08): *"build a surface chart/table out EXACTLY like this in the Glance report as we go along. Once I agree on all surfaces for the engine, story, demo/game and content emission pipeline, then we can proceed with the demo in full view."* Operationalized without violating the founding principle — the ledger is a **canon doc written in the already-legislated shapes**, not a Glance feature:
+
+- **`canonical/current-to-end-state/surface-ledger.md`** joins the modeled set as a **fifth Tier-0 card** (id `surface-ledger`). It is already inside the §8 parse charter (`canonical/**`) and carries STATUS (§2.1) + SESSION-DELTA (§2.2) + queue rows (§2.3, status-prefixed) + `gates-on:` (§2.4) + FLOW (§2.7). **Zero new parse logic** — one more entry in the tracker glob.
+- **Row semantics (rendering note, not parser logic):** a ledger row's status prefix encodes the **Matt-agreement state** of a surface (⚖ awaiting ruling · IN-FLIGHT = ruled-FLIP being executed · ✓ = Matt-agreed · ⛔ = gate-bound). The card's counters therefore read as *surfaces agreed vs. outstanding* — surfaced in the header strip as `✓N / M` (§5).
+- **The demo-gate render:** the ledger's `GATE1` row carries `gates-on: all-surfaces-agreed` (a named gate, §2.4 — dangling by design until closed in a delta). Tier-3, when it lands, renders GATE1 as the sink node of the dependency graph: the demo, visibly gated on every un-agreed surface.
+- **Not a fifth tracker** (ledger header states this): trackers = build-vs-spec queues; ledger = trivialization-audit surfaces + per-surface Matt agreement. The parser doesn't care; the distinction is editorial discipline.
+- **Ratification rider:** this section rides the same jack-ryan §2 ratification as the rest of the format law — no new shapes were legislated, so it adds no ratification surface beyond the glob addition.
 
 ## 8. Out of scope — permanently or by charter
 
