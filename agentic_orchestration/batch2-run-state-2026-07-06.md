@@ -730,3 +730,15 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 - **Artifacts:** Gate-2 `qa/pending/2026-07-08-gamora-g3-fail-loud-convergence-guard-gate2.md`; design-finding `gamora/notes/2026-07-08-spatial-floor-saturation-g1-g2-design-finding.md`; math note `simulation/math/r2-calibration-fail-loud-convergence-guard-2026-07-08.md`. Auto-committed both repos, NOT pushed (Matt-gated).
 
 **CONSEQUENCE FOR MATT/gandalf (routed):** the parked `MOB_HP_DIFFICULTY_MULTIPLIER` recalibration is now on **Leg-C's critical path**. Correct levers = open_arena leash/positional geometry + the magic_pack HP-scope question — NOT a `1.5→1.25` tweak. That scheduling decision is Matt's. **star-lord (measure-then-filter) still running.**
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — star-lord measure-then-filter COMPLETE + KR-verified; both halves Gate-2-ready; jack-ryan Gate-2 firing
+
+**star-lord done, KR-verified against source:**
+- **Ordering correct (the load-bearing check):** `_build_section8a1_band_report()` call @ `w3_emission_driver.py:666`, persist @ `:674`; TP3 HALT-LOUD assert @ `:901`. **674 < 901** — the §8-A1 band report persists BEFORE the emission gate can halt. A 0/18-pass re-fire now yields bands regardless. KR-verified line numbers.
+- Report reads `bc_proxy_density`/`character_id` from ALL 18 KitCandidates (not just survivors); records per-candidate WR-bracket pass/fail + gate_outcome + band_summary + embedded `registry_honesty` (proxy-heavy NOT-EXERCISED, ≤7 UNPROVEN, C2 light-only, 17/1/0). Artifact: `output/leg3_pilot_section8a1_band_measurement.json` (analysis JSON only — bundle + run_registry schema unchanged; run_registry additively references path @ `:1290`).
+- TP3 unchanged (still HALT-LOUDs empty survivor set — correct as emission gate).
+- Round-trip smoke `test_zero_passing_round_trip_read_back`: 18 all-failing stubs → report persisted → read back → gate=0/18 truthful, bands intact, honesty riders present. 32/32 driver tests pass. Commit `061176c` touched ONLY export/ (KR-verified — no sim/drax/gamora consumer changes). Tag `star-lord/v-batch2-measure-then-filter-1`. MIGRATION § MEASURE-THEN-FILTER (additive). Gate-2 `qa/pending/2026-07-08-star-lord-measure-then-filter-gate2.md`.
+
+**LANE STATE:** both code halves DONE + KR-verified. Two Gate-2 submissions pending → **jack-ryan Gate-2 firing on both.** G1 design-finding (MOB_HP recalibration on Leg-C critical path) routed to Matt as a scheduling decision. **Re-fire (ADR-006, Matt-gated) is NO LONGER a coin-flip:** with measure-then-filter, a re-fire yields §8-A1 bands even at 0/18 pass — so a diagnostic re-fire is now decoupled from the difficulty disposition. Matt owns: (a) re-fire-now-for-bands vs hold-for-recalibration, (b) MOB_HP recalibration scheduling.
