@@ -1145,3 +1145,21 @@ Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT t
 **LLM-spend ambiguity (R6 guardrail):** "Leg-C" is OVERLOADED in run-state. Pure-sim four-family cert sweep = $0/autonomous but emits 0 (blocked above). star-lord's **Leg-C season-emission is gated behind rocket's gen-path leg-3 = an LLM-EMISSION run** (run-state :318) → if R4/Leg-C means THAT, it is a **Matt HALT-LOUD per R6 regardless of the F4 fix.**
 
 **KR ROUTING DECISION: CHAIN STOPS at R4. Surfaced to Matt** (my line-763 flag realized: "likely a THIRD Matt touchpoint the pre-ratification didn't anticipate"). NOT auto-firing the F4-registration dispatch — it's a scope-extension (needs fresh Matt-auth per CLAUDE.md) AND requires a cert-criterion ratification AND the downstream emission-run LLM posture is unresolved. Decision-ready fork presented to Matt. **No run in flight. Matt touchpoints now live: (1) this R4-blocker routing; (2) R5 VALUES (still parked downstream).**
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — Matt rules F4-registration AUTHORIZED as chain-extension; R4/Leg-C = pure-sim $0 cert sweep; sequence F4 → R4 → R5. Firing gamora F4 wiring.
+
+**MATT RULING (2026-07-08):**
+1. **YES — F4-registration authorized as chain-extension.** gamora wiring (math-note-first, $0); jack-ryan Lane-3 ratification WITH **gandalf's rider: verify the 60/150/≥0.80 values against escape_lane's spawn arithmetic via the step-5 density-anchored method, NOT rubber-stamp**; Gate-2.
+2. **R4/Leg-C = the pure-sim four-family cert sweep** — $0, autonomous, fires on F4 green. The season-EMISSION run is **post-R5 by design** (bands → Matt VALUES → emit once) and stays a Matt touchpoint per R6 HALT-LOUD.
+- **Sequence:** F4 work unit → R4 cert sweep → R5 VALUES touchpoint.
+- gandalf's §6 chain (`gandalf/notes/2026-07-08-s4-inverted-surface-acceptance-reframe.md`) HOLDS, with **F4 inserted before R4.**
+
+**KR execution structure (autonomous, $0 throughout):**
+- **Step F4-a (gamora, FIRING NOW, Pattern A):** math-note-FIRST = the density-anchored verification of F4 escape_lane values (KPM floor 60 / ceiling 150 / exit-within-window ≥0.80) against escape_lane spawn arithmetic via the step-5 density-anchored method (gandalf's rider; may ADJUST values if arithmetic disagrees). THEN wire the (verified) criterion into `_shell_result_passed` (`gauntlet_sim.py:847-851`, currently comment-only). Smoke-test (four-family cert now reachable), tag, commit+push, completion note for jack-ryan.
+- **Step F4-b (jack-ryan, GATED on F4-a):** Lane-3 ratification of the F4 band criterion + Gate-2 on gamora's wiring, enforcing gandalf's anti-rubber-stamp rider (confirm the verification was density-anchored, not an inherited-value rubber-stamp). ALSO lands the deferred Lane-3 decisions-log entries (run-state :357: R4 cert-contract shift + open_arena re-base + mobs_killed range + the F4 registration).
+- **Step R4 (KR, GATED on F4-b green):** fire the pure-sim four-family cert sweep ($0, `gauntlet_four_family_metrology_driver.py`); judge yield — expected >0 season_emit now that F4 can pass. Carry boss_with_adds + magic_pack trimodal-LOW as FLAGGED content-lane items (not emission gates).
+- **Step R5 (Matt touchpoint):** band-sheet VALUES — parked, the designed human gate.
+
+Matt touchpoints live: **R5 VALUES** (+ the post-R5 season-emission run). No run in flight.
