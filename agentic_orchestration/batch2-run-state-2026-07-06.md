@@ -1017,3 +1017,17 @@ Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT t
 **FIRING jack-ryan Gate-2** (`qa/pending/2026-07-08-gamora-r3a-step5-tier1-band-rederive-gate2.md`). On PASS → KR fires the $0 step-4 RE-RUN (kill-verify first, seed 56M, dry_run_flavor, budget ~25-30 min) → §4 verdict on the FULL surface (all 6 scenarios running tier-2) → to Matt. Sole live KR shell; no run in flight.
 
 **Matt touchpoints outstanding: R5 VALUES + the §4-verdict-on-full-surface report (next).**
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — R3a step-5 Gate-2 PASS (no conditions); firing step-4 RE-RUN ($0, full surface)
+
+**jack-ryan Gate-2 = PASS, no conditions, no BLOCK** (finding `qa/findings/2026-07-08-gamora-r3a-step5-tier1-band-rederive.md`, submission cleared, commit `82f71bb`). The crux (chokepoint density-model = geometry-grounded vs curve-fit-in-disguise) VERIFIED geometry-grounded on three independent tests:
+- The room-structure difference the correction rests on is REAL in `arena.py`, predating the dispatch: open_arena `serial_activation_radius_m=12.0` (serial gating → slower clear) vs chokepoint `None` (funnel geometry, no serial gate). gamora's first-pass error (applying open_arena's serial 45s shape to a non-serial room) has a verifiable cause; the correction follows the room definition, not the target.
+- The AOE-concentration term is the room's OWN documented cert intent (source comments at definition time).
+- **Anti-curve-fit signature:** the corrected 60.0 ceiling sits ABOVE observed p90 (57.14) by ~2.9 KPM — a curve-fit lands ON the percentile; an independent geometry anchor with headroom lands PAST it. A band fitted to kits could not produce that.
+- All else reproduced exactly: scope (predicate + 4 shells byte-identical, only 2 tuples), cohort-invariance preserved, within-seam breakout (no MIGRATION correct), percentiles/in-band/split, regression 77 green, §4 gate untouched. Three INFO notes (non-blocking): floors timeout-anchored not density-anchored; 24s choke ceiling is a coarse brisk-sweep estimate (revisit if choke rails at ceiling); breakout `else`-branch buckets completion-gate-fails into below_floor (doesn't affect open/choke).
+
+**NOW FIRING R3a step-4 RE-RUN:** $0 gauntlet re-run, seed 56000000, n=1, `dry_run_flavor` (R6 $0 guard), kill-verify clean (rider-7 — no concurrent same-seed emission). Detached (`start_new_session=True`). Budget ~25-30 min / <5MB (gamora Disc #1.1 projection; up from 879.8s — ~375 previously-unrun cells now admitted to tier-2). **On completion: read `tier_1_reject_breakout` FIRST (proves the ~375 cells entered tier-2 — jack-ryan's instruction), THEN judge the §4 gradient on the FULL 6-scenario surface → verdict to Matt.**
+
+**Matt touchpoints outstanding: R5 VALUES + the §4-verdict-on-full-surface report (imminent).** Sole live KR shell; firing re-run now.
