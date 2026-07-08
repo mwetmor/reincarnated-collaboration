@@ -1,5 +1,15 @@
 # §4 Inverted-Surface Design Read — Acceptance-Layer Reframe (Verdict on My Own Criterion)
 
+> **✓ RULED — Matt, 2026-07-08 (same-day, rulings session): OPTION A** ("I agree with option A").
+> KPM = the measurement · WR = validity screen · WR-gradient → difficulty ladder (post-demo).
+> **Two riders attach to the ruling:** (1) **declared-baseline condition** — the KPM bands are
+> calibrated at a NAMED gear state; Matt same-turn surfaced that the gauntlet fights STRIPPED kits
+> (spec-gap vs `design-decisions-session.md §7` "validated as geared units") and ruled a geared arm
+> onto pilot Leg i (`certification_gear` v0; spec + succession clause:
+> `2026-07-08-leg-i-geared-arm-certification-gear-spec.md`) — bands re-fit when the baseline moves;
+> (2) **jack-ryan independent review leg still OWED** (self-amended criterion; §7's routing stands).
+> Tracker delta: `canonical/current-to-end-state/current-to-end-state-engine.md` 2026-07-08 rulings block.
+
 **Author:** gandalf (DRIFT-CRITIC on own SPEC-AUTHOR work — the conflict seam is the point)
 **Date:** 2026-07-08
 **Consumes:** R3a step-4 re-run verdict (769 clean-surface cells: 765 ceiling / 4 mid / 0 floor,
