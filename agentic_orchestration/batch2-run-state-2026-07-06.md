@@ -1105,3 +1105,22 @@ Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT t
 - Cosmetic note: stray `.claude/worktrees/` test copy causes conftest glob collision; ran clean from `tests/`.
 
 **→ Step 3 FIRING: gandalf step-4-bis verdict** on EXISTING run data under the AMENDED criterion (Pattern A). Expected PASS. Then step 4 = chain proceeds to R4/Leg-C.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — gandalf step-4-bis VERDICT = PASS; R3a arc CLOSED; R4 readiness under investigation (season_emit yield + LLM posture)
+
+**gandalf step-4-bis: PASS** (`gandalf/notes/2026-07-08-r3a-step4-bis-verdict.md`, `8bce543`). Scored the endgame-BC surface against the AMENDED §3 criterion (not the retired single-rung WR gradient), on EXISTING run data, no re-run. All three pass-conditions met:
+1. **tier-1 KPM discrimination LIVE** — falsifier (point-mass ⇒ FAIL) checked, does NOT fire. ~2.4× spread (open 22.3/31.9/53.8, choke 23.3/35.2/57.1), median off both tails. Wide, not a reach.
+2. **tier-2 WR validity screen** — 765/769 viable (0.995 ceil-fraction); non-engagement FLAGGED via `tier_1_reject_breakout`, not silently gating.
+3. **Non-viability preserved, not deleted** — boss_with_adds (117/189 zero-kill) + magic_pack trimodal-LOW (117 timeout non-clears) both carried FLAGGED.
+- **Goodhart self-audit held explicit:** four FAIL-conditions named (KPM point-mass, silent gating, floor curve-fit, deleted finding); none fired. magic_pack re-band (in-band 36→54) STRENGTHENS the verdict in the reframe's own direction (+18 admitted = HIGH-mode fast-clears = the live discrimination signal).
+
+**→ The 4-step Matt sequence (jack-ryan review → gamora re-point → step-4-bis → R4) is COMPLETE through step 3. R3a recalibration arc (steps 1-6 + step-4-bis) CLOSED and PASSED.**
+
+**R4 carry-forward (from gandalf verdict):** (a) boss_with_adds + (b) magic_pack trimodal-LOW as FLAGGED content-lane items — NOT emission gates on Leg-C; (c) KPM-primacy is a CLEAR-shell statement only — boss rooms gate on the survival-viability bit.
+
+**KR one-step-ahead check BEFORE firing R4 (misalignment-prevention, not a stall):**
+- **"WR-bracket filter" in `season_generation_pipeline.py:1816` is a LEGACY MISNOMER, not a residual WR-gradient gate** — line 1772 relays each kit's `season_emit` bool from the gauntlet JSON (`kit_result.get("season_emit", False)`), downstream of `family_certification_pass`. No separate gradient gate in generation. (Disc-#12 label-hygiene item, functionally correct — queue with gamora's docstring fixes.)
+- **OPEN: season_emit yield.** Last empirical data point (step-4 re-run bs2ptidcr, under step-5 bands, PRE-step-6 magic_pack re-band) = `kits_season_emit=0`, 0/18 in-band survivors. R4/Leg-C exists to produce bands for R5; 0-emit ⇒ chain cannot reach R5. Must confirm current HEAD (step-5+step-6 bands) produces >0 emit before/at R4.
+- **OPEN: R6 LLM-spend guardrail.** R4/Leg-C posture (summoner campaign) must be $0 or it HALT-LOUDs per R6. Verifying scope + cost posture before firing.
