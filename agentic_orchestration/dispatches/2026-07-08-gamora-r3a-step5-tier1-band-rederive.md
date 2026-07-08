@@ -68,4 +68,32 @@ After the step-4 re-run, the after-report must **break out residual tier-1 rejec
 - gamora tier-1 binary (`b469351`); gamora step-4 forensics (`b87d394`); gandalf §4 verdict + next-move (`988663e`); gandalf design read (§1 density anchor, §4 gate); run-state `batch2-run-state-2026-07-06.md` (last five deltas). Band def `gauntlet_sim.py:434-435`; lookup `:1237`; REJECT `:1278-1288`; routing `t4_sim_cycling.py:699-766`. ADR-004 (MIGRATION), Principle 6, Disciplines #1/#1.1/#2.1/#11/#13/#23, rider-4.
 
 ## Completion record
-*(gamora appends on completion.)*
+
+**Completed:** gamora, 2026-07-08. Math-note-first (Disc #1) → implementation → smoke (Disc #2.1) → Gate-2 submission → tag → commit → push.
+
+**Derived band values (old → new):**
+| scenario | OLD (Stage-2d) | NEW (density-anchored) | clear-window | in-band |
+|---|---|---|---|---|
+| `open_arena` | (9.90, 15.53) | **(20.87, 53.33)** | [45s, 115s] @ 40 mobs | 81% |
+| `chokepoint_corridor` | (11.65, 15.88) | **(12.52, 60.00)** | [24s, 115s] @ 24 mobs | 90% |
+
+Density model: KPM = mob_count×60/clear_s (exact for the all_mobs_killed + KILLS_ONLY full-clear semantics). Anchored to the room's density/geometry (open = dispersed 40-mob D2-serial field; choke = 24-mob AOE-concentrating funnel), NOT to the observed distribution. `_route_tier_1` predicate UNTOUCHED; other 4 shells byte-identical.
+
+**Density-anchor vs percentile — AGREE (with one surfaced finding):**
+- **open_arena: AGREE cleanly.** density (20.87, 53.33) ≈ percentile (22.31, 53.81), within ~1.5 KPM at both endpoints.
+- **chokepoint_corridor: first-pass DISAGREED (surfaced, rider-4).** My naive first density model gave choke the open 45s ceiling (hi=32.0), which in-banded only 38% (62% above-ceiling). I surfaced the disagreement as a FINDING and diagnosed it: the model under-specified the funnel's AOE-throughput concentration (the room's OWN cert intent). I corrected the DENSITY MODEL (fast funnel sweep ≈24s, grounded in the room's cone/line-AOE design, NOT the observed distribution) → hi=60.00, now 90% in-band and agreeing with percentile. Corrected the model against the room's geometry, not the band against the kits.
+
+**Cohort-invariance — PRESERVED.** Single per-shell tuple replicated identically across all 4 cohort columns; no per-cohort branching. Empirical: per-cohort mean KPM agrees <0.16 mobs/min. Verified structurally + empirically (math note §4).
+
+**Residual-reject breakout — boundary call: WITHIN-SEAM (NO MIGRATION, NO star-lord).** Landed as `tier_1_reject_breakout` top-level aggregate in the gauntlet results JSON — pure re-aggregation of already-serialized `tier_1_outcome` + `tier_1_kpm` vs the band (same D3 winner-tally precedent). Simulated post-re-run split: open **204 entered_tier2 / 36 above / 12 below**; choke **171 entered / 18 above / 0 below** — the re-band admits ~375 of the 441 previously-unrun cells into tier-2. Did NOT flag KR for star-lord.
+
+**Smoke — ALL PASS.** (1) 4 other shells byte-identical; (2) new bands cohort-invariant; (3) `_route_tier_1` byte-identical (empty diff); (4) percentile cross-check ≥80% in-band (open 81% / choke 90%); (5) breakout sums to cell count; (6) predicate in/above/below routing correct; (7) simulated post-re-run breakout populated. Regression: `test_cycle13_wave5_gauntlet_sim` 50 passed + `test_spatial_gauntlet_scenarios` 27 passed.
+
+**Step-4 re-run resource projection (Disc #1.1):** **~25-30 min wall-clock** (up from 879.8s / ~14.7 min — ~375 cells added to tier-2 at ~2.0-2.5 s/cell, open_arena serial fights skew toward the 120s cap). Peak memory <5MB, output <2MB, within 8GB host bound. $0. **KR: budget ~25-30 min for the step-4 re-run.**
+
+**Tag:** `gamora/v-r3a-step5-tier1-band-rederive-1`
+**Commit(s):** engine `<see below>` (band + breakout + math note + Gate-2/dispatch/completion in collab meta-repo).
+**Gate-2:** submitted to `agentic_orchestration/qa/pending/2026-07-08-gamora-r3a-step5-tier1-band-rederive-gate2.md`.
+**HALT / ambiguity:** none. Density-anchoring model unambiguous; the one disagreement resolved cleanly per rider-4.
+
+**Awaiting:** jack-ryan Gate-2. On PASS, KR fires the step-4 $0 re-run and judges §4 on the full surface.
