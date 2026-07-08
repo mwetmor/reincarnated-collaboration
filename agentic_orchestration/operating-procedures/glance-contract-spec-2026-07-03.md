@@ -1,6 +1,6 @@
 # Glance — Contract Spec (parse contract · state model · render rules)
 
-> **STATUS:** SPEC-CURRENT v1.1 (2026-07-07) — **Matt rulings embedded (2026-07-03): GO on the staged build · STANDALONE app · named "Glance" · fork-4 `gates-on:` tokens live on all queue-row writes NOW. v1.1 (2026-07-07, Matt-ruled fork (b)): shape #6 FLOW declaration added (§2.7) — Tier-0 renders each tracker as an abstracted end-to-end process view with drill-in; all four trackers carry `## FLOW` blocks as of this date.**
+> **STATUS:** SPEC-CURRENT v1.2 (2026-07-08) — **Matt rulings embedded (2026-07-03): GO on the staged build · STANDALONE app · named "Glance" · fork-4 `gates-on:` tokens live on all queue-row writes NOW. v1.1 (2026-07-07, Matt-ruled fork (b)): shape #6 FLOW declaration added (§2.7) — Tier-0 renders each tracker as an abstracted end-to-end process view with drill-in; all four trackers carry `## FLOW` blocks as of this date. v1.2 (2026-07-08): §7.1 RUN-STATE pane data path spec'd — run-state docs enter parse scope + registry-snapshot export; entry criterion for the pane is MET (emission_runs registry live with 14 rows as of this date).**
 > **§2 (the format law) is PROPOSED, not canon** — per `canonical-doc-format.md` §6.7, gandalf proposes + executes, **jack-ryan RATIFIES** doc-lifecycle/format governance. ⚠ SWITCH: CANON-STEWARD (proposer) → jack-ryan (ratifier) — §2 routes to jack-ryan's next governance touch; on ratification he folds it into `canonical-doc-format.md` (+ skill twin, same commit, §6.8).
 > **Author:** gandalf (SPEC-AUTHOR) · run-window authoring per demo-readiness-run-spec §9 — not a wave dependency of the live run.
 > **Builder:** drax (parser + app + CI — his web seam; never touches the engine tree; interleaves after the current KR run closes).
@@ -149,7 +149,16 @@ Done right, Glance is *more* truthful at a glance than reading the raw file top-
 | Stage | What | Entry criterion (empirical, not time) |
 |---|---|---|
 | **Tier 3 — dependency graph** | `gates-on:` tokens rendered as a live graph: what's blocked on what; what unblocks when the in-flight thing lands. The living mini-roadmap nobody maintains. | Token adoption density: one full board cycle where new/edited open rows carry tokens (they're law now, §2.4) + dangling rate < ~10% |
-| **RUN-STATE pane** | Second pane of the same cockpit: emission runs, registry entries, cert status — the ruled "database → website tracker" direction converges here | The W1 #8 run registry exists with ≥1 registered run (the live KR run should produce exactly that) |
+| **RUN-STATE pane** | Second pane of the same cockpit: emission runs, registry entries, cert status — the ruled "database → website tracker" direction converges here | ~~The W1 #8 run registry exists with ≥1 registered run~~ **✓ MET 2026-07-08** — `data/emission_registry.db :: emission_runs` live with 14 registered runs (schema: run_id/season_id/config_hash/kit_count/gauntlet_summary/cert_status/stage/notes; carries supersession + defect-audit records). Pane now gates only on drax's build reaching it (post-v1). |
+
+### 7.1 v1.2 — RUN-STATE pane data path + run-state parse scope (2026-07-08)
+
+The pane's two feeds, both preserving the founding principle (derived-never-authored, no LLM, no server):
+
+1. **Run-state chain docs** (`agentic_orchestration/*run-state*.md` — e.g. `batch2-run-state-2026-07-06.md`) **enter the parse scope** as a named-pattern EXCEPTION to §8's `canonical/**`-only charter. They already write §2-shaped surfaces (status-prefixed queue rows, dated deltas); a chain doc that adds a `## FLOW` block (§2.7 grammar — e.g. `1. **R1 design read** ← R1` …) gets the same Tier-0 segmented flow-bar the trackers get: **the autonomous chain rendered as an end-to-end process view, each leg colored by dominant status, drill-in to the leg's rows.** Maintenance obligation identical to §2.7: whoever appends a chain delta keeps the FLOW refs true.
+2. **Registry snapshot export:** the parser NEVER reads the engine tree (§8 holds). Instead, the emission driver's registry-write step (star-lord seam) also exports a snapshot JSON to `agentic_orchestration/run-registry/emission-runs-snapshot.json` in this repo (append-on-register, committed by the run — the same cross-repo pattern star-lord's completion records already use). The pane renders registry rows from the snapshot with the same path+line provenance discipline; staleness is self-declaring (snapshot carries its own `exported_at` + source mtime).
+
+Sequencing: feed 1 is pure parser scope (drax, v1 if trivial — it's the same six shapes on two more globs); feed 2 needs star-lord's export hook (small; fires with the next registered run). Neither requires new Matt rulings — the pane itself was ruled staged 2026-07-03; this section only specs its data.
 
 ## 8. Out of scope — permanently or by charter
 
