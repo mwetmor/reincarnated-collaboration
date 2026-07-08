@@ -610,3 +610,17 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 4. **Run-auth two-tier (ADR-006):** **TIER-1 AUTHORIZED** = $0 dry-run (`dry_run_flavor=True`, ≤200 cand, seed 56M, 0 LLM). Report to Matt: §8-A1 bands + C2 peak-concurrent-proxy + C3 A1-coverage. **TIER-2 NOT YET** — ≤$10 flavor is a SEPARATE ruling Matt takes AFTER the Tier-1 band report; NO LLM spend on this lane until then.
 
 **Fire order:** blob-fix DONE+pushed → jack-ryan decisions-log (Q7+450MB) FIRING → STEP-2A co-dispatch GO (rocket+star-lord, clean HEAD) → Tier-1 $0 dry-run → band report to Matt. drax runs parallel (godot/demo, no engine conflict).
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — leg-3 STEP-2A: rocket STOP-FLAG (composer un-gate INERT); §8-A1 heavy-band coverage routed to Matt
+
+**rocket STEP-2A TP4 → STOP-and-FLAG (correct; NO inert edit made).** Verifying vs source (Disc #11) before editing, rocket found the composer un-gate @ `bc_target_composer.py:97/:318` is **INERT for the leg-3 pilot path** — the pilot runs `w3_emission_driver → w5r1_generate_kit_candidates → ENDGAME_ENCOUNTER_CATALOG`, which never imports `bc_target_composer`. Lifting `_DEFERRED_PROXY_BINS` = 0 proxy cells added (n_proxy_cells 1→1) + silent change to an orphan path = duct-tape faking an un-gate signal. **rocket did NOT tag** (`rocket/v-batch2-leg3-composer-ungate-1` NOT applied — inert), NO MIGRATION. **Self-corrected its own STEP-1 §3.1 causal claim** (composer-gate→0-proxy-kits was WRONG; trusted sim-side spec prose vs tracing the driver path — Disc #19.1). C1 doc line-ref folded (`:451`→`:67-68`, verified). Commits: `db1bbe1` (engine math-note C1 + AGENT_STATE), `f9ec4e6` (collab STOP-flag note `rocket/notes/2026-07-07-leg3-composer-ungate-inert-STOP-flag.md`), `14ed369` (dispatch completion). Pushed. Smoke `test_w02_bc_target_composer` 45 pass (untouched).
+
+**REAL pilot proxy gate = `ENDGAME_ENCOUNTER_CATALOG` curation: 17 none / 1 light / 0 heavy.** The 1 proxy-LIGHT cell composes with a real proxy decl (n_skills=13, n_proxies=1) via live leg-1 summon path ⇒ Tier-1 dry-run CAN prove wire+emit end-to-end at $0 + measure the LIGHT band. **Zero proxy-HEAVY coverage ⇒ §8-A1 heavy-share band NOT measurable this pilot.**
+
+**Sequencing correction:** star-lord TP1-3 + Tier-1 run do NOT wait on any composer un-gate (there is none). BUT the heavy-band gap is a scope-of-run decision on the §8-A1 acceptance line ⇒ **routed to Matt (KR held star-lord's wire+run pending ruling; Option 3 would change star-lord's driver work).**
+
+**DECISION ROUTED TO MATT — §8-A1 band coverage:** (1) run pilot as-is = wire-proof + LIGHT band + C2 + C3, report HEAVY NOT-EXERCISED [$0, no new scope — rocket + KR rec]; (2) author deferred proxy-heavy cells [content wave, own math-note+Gate-1]; (3) re-point driver at `bc_target_cell_sampler.CELL_DEFINITIONS` [star-lord driver-source swap, cross-seam]. **KR rec: Option 1 now + Option 2 as named follow-up** (alongside the held Tier-2 flavor decision). On Matt Option-1 nod → fire star-lord TP1-3 + Tier-1 $0 dry-run → band report.
+
+**Process note:** staged-dispatch discipline caught the inert-edit + STEP-1 causal error at STEP-2A execution BEFORE any run fired (STEP-1-first + Disc #11 inspect-source). Gate-1 verified routing/touch-points vs source but did not re-derive the composer→0-proxy causal claim (it lived in rocket §3.1, trusted by both). No harm — caught pre-run.
