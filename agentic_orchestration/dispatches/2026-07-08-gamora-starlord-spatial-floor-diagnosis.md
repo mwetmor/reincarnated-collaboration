@@ -174,3 +174,35 @@ passed the WR-bracket, TP3 halted before any measurement could be persisted.
 
 **Not in scope (confirmed):** no constant moved, no Tier-1 re-fire, no recovery-mode batch-1-fossil work,
   no simulation touches. Leg-C re-fire gated on gamora G1/G2/G3 + Matt ADR-006 run-auth.
+
+### R2 fire (star-lord, KR-orchestrated) — 2026-07-08 — COMPLETE
+
+**Kill-verify:** `ps aux | grep w3_emission_driver` — clean, no driver alive before commit.
+
+**Fire params:**
+- `dry_run_flavor=True`, seed 56000000, n_samples=1
+- Detached PID 12819, 25,530 fights, wall-clock 1507.6s
+- $0 spent (dry-run mode held throughout)
+
+**Measure-then-filter proof:** §8-A1 band report persisted at STEP 4 (`_SECTION8A1_BAND_REPORT_PATH`)
+BEFORE TP3 HALT-LOUD fired on the empty survivor set. This is the exact scenario the dispatch's rider 1
+was designed to handle — the instrument now produces diagnostic yield even when 0/18 pass.
+
+**Gate outcome:** 0/18 passing (`emission_certified=false`). Expected — instrument is known
+floor-saturated. This is the before-side snapshot for R3a's before/after diff (gandalf §5.1).
+
+**G3 convergence guard:** did NOT fire — gauntlet ran to clean completion (1507.6s), confirming
+G3's guard is inert on nominal runs (regression-neutral, as gamora's smoke verified).
+
+**Measured bands:** 17 none / 1 light / 0 heavy (NOT-EXERCISED). All 18 per-candidate records
+present with `wr_bracket_pass=false`. Registry-honesty riders all present in artifact.
+
+**Artifact committed + pushed (engine repo):**
+- Path: `src/reincarnated/output/leg3_pilot_section8a1_band_measurement.json`
+- Engine commit: `75637f5` (pushed to `main`)
+- No companion file committed — the band report is self-contained (generated_at 2026-07-08T05:55:13Z).
+  The `cycle-13-gauntlet-sim-results-*` filename KR referenced does not exist on disk; the band
+  measurement JSON IS the durable record of this fire.
+
+**Status:** Before-side snapshot secured. R3a (recalibration + after-side diff) gated on gamora
+G1/G2/G3 design-finding disposition by Matt/gandalf + fresh Matt ADR-006 run-auth.
