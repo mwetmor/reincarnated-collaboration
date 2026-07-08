@@ -1,5 +1,7 @@
 # Decisions-log entry PROPOSAL — §6 spatial-difficulty fork ruling (A / YES / YES)
 
+> **✅ FOLDED / AUTHORED 2026-07-08 (jack-ryan).** This proposal was authored into the decisions-log as the entry **"2026-07-08 — Endgame-BC gauntlet un-stacks MOB_HP_DIFFICULTY_MULTIPLIER (Option A); serial-engagement pass authorized"**, batched + cross-linked with the F4 registration + R4 cert-contract + §4-reframe Lane-3 entries. The two parked-workstream Status edits (log 4240 + 5223 → SCOPE-RETIRED) were applied per format skill §5. Finding: `qa/findings/2026-07-08-jackryan-f4-registration-gate2-lane3.md`. This file is retained as the KR draft-of-record; no longer pending.
+
 **Proposer:** knight-rider (capture obligation per batch2-run-state line 837)
 **For authoring by:** jack-ryan (sole decisions-log authoring authority per decision-log-format skill §1)
 **Routing:** KR-drafted → jack-ryan reviews + authors into `~/Games/reincarnated-engine/design/decisions/decisions-log.md` → Matt already approved the underlying ruling (2026-07-08, verbatim "I agree with the 1-2 asks (A/yes/yes)")
