@@ -1087,3 +1087,21 @@ Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT t
 **decisions-log advice (jack-ryan, authoring authority):** the reframe warrants a SEPARATE entry (difficulty-instrument ruling), NOT folded into the pending §6 un-stack proposal (distinct architectural rulings). Both authorable same batch, cross-linked, residual falsifier captured. jack-ryan to draft both next pass. No re-litigation of Matt's A-ruling.
 
 **→ Step 2 FIRING: gamora certification re-point per note §6.2** (Pattern A, autonomous chain). Scope: (a) tier-2 WR → validity bit + non-viability flags (small overlay — arch already points this way per code-verify); (b) magic_pack band density-anchored audit per step-5 method (math-note-first, Discipline #1) — CONDITION 1; (c) boss-shell KPM-primacy NOT applied (CONDITION 2 — boss stays on survival-viability bit); (d) Gate-2. Then step-4-bis verdict on EXISTING data.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — gamora step-6 cert re-point Gate-2 PASS-WITH-FOLLOWUP; step-4-bis CLEARED; firing gandalf verdict (step 3)
+
+**gamora step-6 executed** (tag `gamora/v-r3a-step6-cert-repoint-magicpack-audit-1`, pushed). Report:
+- **Part (a) code delta = ZERO** — the §4 "WR gradient" was NEVER coded; it was only ever an overlay acceptance criterion in gandalf's note. The gating spine already gates clear-shells on KPM band + boss-shells on `survival_rate >= SURVIVAL_FLOOR`, no gradient/mid_mass demand anywhere. The reframe aligns the CRITERION to what the code already does. Non-viability flags already served by the step-5 breakout.
+- **magic_pack band re-derived `(18.61,100.00) → (12.52,102.86)`** (CONDITION 1). Density-anchored, same method as step-5. Anti-curve-fit PASS: geometry ceiling 102.86 lands ~1.4 KPM ABOVE observed p90 (101.5) = honest anchor (stale 100.0 sat on/below p90). Re-band admits +18 fast-clears (in-band 36→54).
+- **NEW content finding: magic_pack genuinely TRIMODAL** — LOW 117/MID 54/HIGH 18 (jack-ryan confirmed exact counts). The 117 = timeout non-clears = genuine below-floor CONTENT finding (parallel to boss_with_adds non-viability; floor-insensitive — reject below whether floor is 18.61 or 12.52). Correctly left FLAGGED, not curve-fit down to admit them.
+- **Boss shells UNTOUCHED** (CONDITION 2) — smoke proves boss fails on survival<floor even with KPM=999.
+- **No MIGRATION** (internal to simulation/). Smoke PASS + 77 regression green.
+
+**jack-ryan Gate-2: PASS-WITH-FOLLOWUP** (`qa/findings/2026-07-08-jackryan-r3a-step6-gate2.md`). All 5 points verified AT SOURCE (grep confirms no gradient gate; re-ran p90≈101.5; re-ran boss smoke = KPM ignored; confirmed 117/54/18; re-ran smoke+77 green). **step-4-bis CLEARED to fire.**
+- **Follow-up (non-blocking):** thin ceiling margin (~1.4 KPM) = coarse brisk-sweep estimate; revisit ONLY if magic_pack rails at 102.86. Not a blocker — floor (not ceiling) governs the load-bearing 117 rejects, floor-insensitive.
+- **Content-lane action:** magic_pack 117 trimodal-LOW carried into R4 content lane PARALLEL to boss_with_adds.
+- Cosmetic note: stray `.claude/worktrees/` test copy causes conftest glob collision; ran clean from `tests/`.
+
+**→ Step 3 FIRING: gandalf step-4-bis verdict** on EXISTING run data under the AMENDED criterion (Pattern A). Expected PASS. Then step 4 = chain proceeds to R4/Leg-C.
