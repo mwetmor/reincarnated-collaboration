@@ -660,3 +660,23 @@ Co-dispatch AMENDED (`2026-07-07-rocket-starlord-leg-2-3-...`): added gamora con
 **Cost posture: CLEAN.** $0 LLM (dry_run_flavor + never reached flavor). Only cost = ~33 min wasted local compute. No ADR-006 spend harm. Engine HEAD `2779b62` unchanged by the failed run (1 unpushed = star-lord's pre-run in-progress commit; no new commits).
 
 **ROUTED TO MATT — re-fire disposition.** KR will NOT reschedule (process dead) and will NOT re-fire blind (ADR-006; it'll hang again). Recommended: **star-lord + gamora diagnosis dispatch** before any Tier-1 re-fire — (a) star-lord: does STEP 3/4 need a live gauntlet at all for a $0 band-measurement dry-run, or can the driver gate/skip the gauntlet (or generalize recovery-mode) for the leg-3 pilot config? (b) gamora: the `medium_variable` spatial-calibration non-convergence (bimodal floor/ceiling) — is it a calibration bug or a genuine geometry-partition problem, and does it need a convergence-timeout guard? **Held for Matt's routing nod.**
+
+---
+
+## ⭐ KR DELTA (2026-07-07, cont.) — Tier-1 RE-FIRE (v3): gauntlet COMPLETED but 0/18 survivors → TP3 HALT-LOUD; spatial-calibration floor-saturation is the locus; still no bands, $0
+
+**v3 (`/tmp/leg3_n1_v3.log`, launched 23:17, driver params identical: `seed=56000000 dry_run_flavor=True n_samples=1`) COMPLETED the gauntlet** — no hang this time (25,530 fights, 1588.3s ≈ 26.5 min). Different, more informative failure than the earlier hang.
+
+**Outcome: 0 in-band survivors → HALT-LOUD, no bundle, nothing to extract, $0 spent.**
+- `[W5R.2] WR-bracket filter (Q10 substrate-led season_emit gate): **0 passing / 18 failing / 18 total**`.
+- `[W5G.2] GAUNTLET_SIM_PASS=False | kits_season_emit=0 | round_trip_smoke_pass=True | 25530 fights | 1588.3s`. (Round-trip smoke PASSED — telemetry path intact.)
+- `[STEP 4] In-band survivors: 0 / 18 (0.0% yield)`; identity_glyph split BRUISER=0 GLASS_CANNON=0 SUMMONER=0 other=0.
+- **`HALT-LOUD (leg-3 TP3): identity_glyph assertion — survivor_kit_records is EMPTY.`** ← star-lord's population-aware TP3 guard (option b) **fired correctly** — refused to emit a degenerate empty bundle. **The leg-3 wire behaved exactly as designed; it simply had zero kits to carry.**
+
+**LOCUS (strong-inference, causal link is the diagnosis question): spatial-gauntlet calibration floor-saturation.** ~11 of 12 endgame BC classes floor-saturate (WR=0.000, ≤0.05 floor) in ≥1 scenario (323 floor events vs 278 ceiling). The log's own R2-calibration warning names the trigger + remedy verbatim: *"If ≥80% of classes floor-saturate: reduce MOB_HP 1.5→1.25 per L1 authority"* (`MOB_HP_DIFFICULTY_MULTIPLIER=1.5`, `LEASH_DISTANCE_OVERRIDE_M_SWARM=35.0`). With nearly every class pinned at WR=0.000, the Q10 WR-bracket season_emit gate rejects all 18 candidates ⇒ 0 survivors ⇒ leg-3 emit path never exercised.
+
+**Honest framing (registry-honesty rider):** PROVEN — v3 completed; 0/18 WR-bracket passes; ≥11/12 classes floor-saturate; TP3 guard fired correctly; no bundle; $0. INFERRED (not proven by KR) — that the 0-yield is *caused* by the spatial floor-saturation vs some other WR-bracket rejection; the causal link is the gamora diagnosis question (strongly supported by the log's own ≥80%-floor remedy note).
+
+**No Gate-2 submission written** — there is no passing artifact; a Tier-1 "measurements" Gate-2 for an empty HALT-LOUD run would be dishonest. This is a FAILURE/forensics record.
+
+**ROUTED TO MATT — same diagnosis dispatch, sharper signal.** Not the earlier hang; a 0-yield calibration floor. Recommended **gamora + star-lord co-diagnosis before any Tier-1 re-fire:** (a) **gamora (sim, primary):** the R2 spatial-gauntlet is broadly floor-saturated at `MOB_HP=1.5` for endgame BC classes — is the L1-authority `MOB_HP 1.5→1.25` reduction the right move, and is this a KNOWN uncalibrated state (gamora Step-3 / R2 work) that leg-3's pilot inherited, orthogonal to the wire? (b) **star-lord (driver):** should an 18×1 $0 band-measurement dry-run even gate season_emit on the full spatial gauntlet, or is the WR-bracket threshold wrong at n_samples=1? **Held for Matt's routing nod.** Engine HEAD `2779b62` unchanged (0 survivors ⇒ no new artifacts committed).
