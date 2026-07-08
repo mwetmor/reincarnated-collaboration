@@ -1,7 +1,8 @@
 # Batch-2 Build Spec — economy axes · economy pilot · the full fresh 18-cell fire (staged, pilot-gated)
 
-> **STATUS:** SPEC-CURRENT v1.1 (2026-07-06) — **Matt rulings embedded (2026-07-06, same session as the faction stack): Q1 = (a) resource-economy as VARIATION AXES · Q2 = (a) full FRESH 18-cell emission · staged pilot-gated sequence (Matt: *"test it on a small, yet representative pool of variably designed kits along the curves before jumping to the full fresh 18 cell emission"*). v1.1 same-day: ADR-002 `resource_economy` generation→sim contract SIGNED (Leg B cleared) · Axis-5 cost-TYPE structural bins = reserved, empty-by-ruling (§8 R1).**
+> **STATUS:** SPEC-CURRENT v1.2 (2026-07-07) — **Matt rulings embedded (2026-07-06, same session as the faction stack): Q1 = (a) resource-economy as VARIATION AXES · Q2 = (a) full FRESH 18-cell emission · staged pilot-gated sequence (Matt: *"test it on a small, yet representative pool of variably designed kits along the curves before jumping to the full fresh 18 cell emission"*). v1.1 same-day: ADR-002 `resource_economy` generation→sim contract SIGNED (Leg B cleared) · Axis-5 cost-TYPE structural bins = reserved, empty-by-ruling (§8 R1).**
 > **Author:** gandalf (SPEC-AUTHOR). **Gates:** ARCHITECT pass (gandalf, run-boundary) → jack-ryan Gate-1 → **Matt run authorization** (fires Leg A). This operationalizes `faction-derivation-stack-spec-2026-07-06.md` §10 step 2.
+> **v1.2 (2026-07-07, ARCHITECT reconciliation — gandalf):** the staged sequence EXECUTED through its designed §3 HALT branch. Run authorization fired 2026-07-06 (same session as authoring; serial-content tracker, third same-day entry) · Legs A/B RAN (star-lord fire `bfb6097`→`3a09a4d`, gamora read `6c5303b`, all engine) · **Leg B = pre-registered HALT (0/50 clear)** · the escalation root-caused the failure to the INSTRUMENT, not the casters (dead mob-damage channel + fossilized 2.3384× weapon ratio; casters vindicated, +0.40 F3 margin) · the four-family gauntlet was redesigned + re-certified → **Matt ruled ARC NUMBERS RATIFIED, LEG C UN-HELD** (decisions-log 2026-07-07). **That ruling supersedes §4/§7 "gates-on: Leg B GO"** — Leg C's remaining mechanical gate is the gen-path-pilot-leg3 emission-wire close (Tier-1). §4's per-band criteria are superseded by the ratified four-family cert (mob_damage_scale 0.03 / boss_damage_scale 48.0 / boss HP 9000 / Rider-3 semantics: over-ceiling = FLAG_PASS_OVERPOWERED certify+review, floor = hard fail) wherever they conflict. **Leg-C scope additions (Matt §8-A1 ruling 2026-07-07):** (a) proxy-heavy band coverage read + C2 worst-case peak-entity measurement = REQUIRED Leg-C report items (re-homed from the leg-3 pilot); (b) rocket verifies at Leg-C dispatch whether the fire path consumes `bc_target_composer` (composer un-gate re-homed here; if unconsumed → dead-code flag, not carry).
 > **Companions:** derivation-stack spec (the consumer — steps 3–5 fire on this spec's close) · `agentic_orchestration/variation-pilot-run-state-2026-07-06.md` (the closed precedent pilot, Legs 0→4) · gamora Leg-4 report + calibration note (the C2 floor's provenance) · `qa/pending/2026-07-06-leg4-light-read-jackryan.md` (byte-verification `db2df69`).
 
 ---
@@ -14,12 +15,12 @@ The staged build-and-fire plan that produces **the population the faction librar
 
 | Input | State | Source |
 |---|---|---|
-| Summon gen-path + INT-cell composition fix | LANDED Leg-1, Gate-2 PASS `a49ccd4` | Option-1 ruling scope |
+| Summon gen-path + INT-cell composition fix | LANDED Leg-1, Gate-2 PASS `a49ccd4` *(collab SHA; engine artifact = tag `rocket/v-pilot-leg1-summon-int-variation-1`)* | Option-1 ruling scope |
 | Variation axes (mechanism) | pilot-CONFIRMED — 40/81 emit, chain-variants 15/15, G4 knob z≈−1.0 | Leg-4 report |
 | **C2 two chassis bands** keyed on proxy-share 0.25 knob | RULED 2026-07-06 | AV2 relay §1 |
 | **Plain-caster floor: 9.90 KPM open_arena / 11.65 chokepoint** | measured, byte-verified (`gauntlet_sim.py:393-394`, read `db2df69`) | gamora calibration note |
 | magic_pack 600.0 = tick-quantization ≥-ceiling; elite_pack 426.9 = pack signal of record | diagnosed + verified | Leg-4 |
-| Tiered-shells lever | preserved for batch-2 (`4cacf12`) | KR triage record |
+| Tiered-shells lever | preserved for batch-2 (`4cacf12`, collab SHA) | KR triage record |
 | Per-cohort bucket keys | spec line handed forward (gamora) | Leg-4 §6 |
 | Scale: ≥100 gauntlet-passed kits/cell × 18 BC cells | ruled (derivation-stack §3; F2 cost-veto survives at consult) | faction stack |
 | No LLM anywhere in batch-2 | naming/flavor fires at derivation step 6, post-ratification | derivation-stack §9.5 |
@@ -44,7 +45,7 @@ The staged build-and-fire plan that produces **the population the faction librar
   - **HALT** = zero economy configs clear → **escalates to Matt with the measured landscape** (the finding: caster viability is blocked below the economy layer; deeper structural work precedes any 18-cell fire).
 - **Outputs consumed by Leg C:** viable-region bounds → per-cell **candidate budgets** for the INT cells (data-driven yield planning; martial cells anchor on batch-1's known 38.9%); validated summoner-band pass criteria; economy-identity read (where the viable region sits: cheap-sustained vs builder/spender vs flat-cost — the caster-feel finding, reported to Matt in the Leg-B report either way).
 
-## 4. LEG C — the batch-2 fire (star-lord; detached) — gates-on: Leg B GO
+## 4. LEG C — the batch-2 fire (star-lord; detached) — gates-on: ~~Leg B GO~~ **ARC-NUMBERS ruling (Leg C UN-HELD) + gen-path-pilot-leg3 close** *(v1.2)*
 
 **RULING Q2(a): full FRESH 18-cell emission, all axes live** (variation + economy). One fire, once.
 
@@ -69,7 +70,7 @@ Naming/flavor (step 6) · clustering + two-cut derivation (steps 3–5) · Matt 
 | A | economy-axes build (math-first) | rocket (+ gamora sim-binding) | Matt run authorization (this spec) |
 | A-gate | Gate-1 on the axis math | jack-ryan | A |
 | B | economy pilot: 2–3 cells × ~25, coverage-sampled; bucket keys live; pre-registered GO/HALT | star-lord (fire) · gamora (read/report) | A-gate |
-| C | full fresh 18-cell emission + gauntlet, per-band criteria, detached ~12–15h | star-lord (gamora shells) | B-GO *(HALT → Matt)* |
+| C | full fresh 18-cell emission + gauntlet, per-band criteria (four-family cert per v1.2), detached ~12–15h | star-lord (gamora shells) | ~~B-GO~~ **UN-HELD (ARC NUMBERS, 2026-07-07)** + leg-3 wire close *(the HALT → Matt branch FIRED and closed as instrument artifact)* |
 | close | batch-2 run report → elrond consult fires | star-lord → elrond | C |
 
 ## 8. Defaults + open register (override points at review, not blockers)
