@@ -19,7 +19,9 @@
   the *Classification* cell is the disposition lean (FLIP / FLAG / KEEP per gandalf OP §3.7).
 - **Row lifecycle (the Matt gate, per row):** `⚖` surfaced (classification = steward lean) →
   Matt rules → **KEEP** = `✓` agreed as-is · **FLIP** = `IN-FLIGHT` while the gap closes → `✓`
-  when landed + Matt-seen · **FLAG** = stays `⚖` with the fork named until ruled.
+  when landed + Matt-seen · **FLAG** = stays `⚖` with the fork named until ruled. *(Ruled-FLIP
+  rows sit `OPEN` until their axis dispatch actually fires — status tracks EXECUTION, ruling
+  lives in the classification cell; Glance counters must never claim queued work as executing.)*
 - **THE GATE:** demo assembly + emission of any size fire only when **every row reads ✓**
   (GATE1 below). This is Matt's gate sentence made structural.
 - **NOT a fifth tracker.** The four `current-to-end-state/` trackers hold the full build queues
@@ -44,6 +46,24 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-08 (2) — E-ROWS RULED (Matt: "E1–E8 as leaned; E5 = C; E9 = C") — zero ⚖ remaining on seeded rows
+
+Matt ruled the full seeded slate same-session. Flips: **E1** FLIP ruled → IN-FLIGHT (first axis,
+rocket; **movement-verb rider ruled OUT of the axis** — dash/blink/teleport ride the parked
+F4-martial fork post-Leg-ii) · **E2/E3/E4** FLIP ruled → OPEN queued axes (sequencing lean
+E1→E2→E4→E3; KR sequences) · **E5 = Option C** → ✓ (declared-baseline cert + stripped-arm
+scaling-delta diagnostic; full envelope re-enters when the loot operator surface lands) ·
+**E6** confirmed IN-FLIGHT · **E7/E8** KEEP agreed → ✓ (E8 tooth: naming/flavor pass MUST fire
+for the curated-20 pre-demo) · **E9 = Option C** → ✓ (population = stat-blocks + affix layer;
+**affix-layer existence unverified → first audit item**; kit-built RIVAL class from
+certified-non-rostered kits = named launch-scope re-entry, PoE rogue-exile precedent).
+**GATE1 residue after this ruling:** execution closures (E1–E4, E6, C2, C3), audit accrual
+(S1 + new rows), and C4's gate — no seeded surface awaits a Matt ruling.
+
+**Signed:** gandalf, 2026-07-08 (2).
+
+---
+
 ### 2026-07-08 — Ledger born; seeded with the session's source-verified engine rows + the four ruled pivot surfaces
 
 Born under the Matt-ratified full-run pivot (four rulings: seed scrapped · demo re-sourced
@@ -66,15 +86,15 @@ dangling-open by design (§2.4 named gate; closes in a future delta when the las
 
 | # | Surface | Current state (what-IS, cited) | Classification (lean) | Matt gate |
 |---|---|---|---|---|
-| **E1** | Skill geometry palette (emitter) | `_BC_AMPLITUDE_TO_GEOMETRY` maps 3 amplitude values → single_target / small_aoe / large_aoe; ONE geometry per kit (`per_skill_emitter.py:215-219, :585`). Sim already resolves a 24-type rich vocabulary → 6 spatial classes (`spatial_gauntlet/spatial_engine.py:404-429`) + B11 per-geometry mechanics — chain 0.7, fork 0.6, multiproj 0.65, ring 1.2×, leap 1.3× (`damage_resolver.py:85-139`). Bottleneck = the one rocket-side table. | **FLIP** — first axis of the main line (rocket). Movement-verb geometries (dash/blink → spatial "none") = named design fork riding the axis (kit-side mobility is the PoE-true F4 answer). | ⚖ awaiting Matt |
-| **E2** | Skill damage / economy scalars | `BASE_SPELL_DAMAGE_L50` uniform 20,532.2 across ALL tiers/kits (`per_skill_emitter.py:106-115`); fixed energy/cooldown/cast tables per (tier, role) (`:49-54` + tables) — no per-kit economy texture. | **FLIP** — per-kit economy variation (doc-48 five kernel economies exist as *labels*; make them mechanical). | ⚖ awaiting Matt |
-| **E3** | Hybrid scaling patterns | `hybrid_pattern=None` population-wide (Q-W05-R4 deferral); hybrids get chain_B secondary *element* only — content-distinct, mechanics-identical. | **FLIP** — Amendment 7a intends hybrids as builds, not palette swaps. | ⚖ awaiting Matt |
-| **E4** | Skill timing variety | Instant-cast everything except T4-channeled (`per_skill_emitter.py` timing emission) — no cast-time / wind-up / charge texture. | **FLIP** — timing is a core ARPG feel axis (D2 FCR breakpoints, PoE cast-speed builds). | ⚖ awaiting Matt |
-| **E5** | Investment expression in certification | Certification fights a fixed L50 instrument state; player investment (levels/gear/traits) has no expression in what certifies. | **FLAG** — design fork: what investment state(s) must a kit certify at? (Single-point vs envelope; envelope = D3 GR-ladder shape.) | ⚖ awaiting Matt |
-| **E6** | Summon / proxy T4 suite | Five ratified PROXY-family members, two-phase activation per `reap-die-rise-engine/proxy-t4-suite-spec-2026-07-02.md` v3; B1-rebase in flight; proxy-dominant cells append the 13th summon skill (`season_generation_pipeline.py:1140+`). | **FLIP — already in-flight** (ruled 2026-07-02; execution rides the main line). | IN-FLIGHT |
-| **E7** | Soul-bound weapon mechanics | Substrate weapon = identity-YES / mechanics-NO: cultural lineage/period/register bind (`season_generation_pipeline.py:356-441`), zero-contribution weapon shell in cert gear (`combatant.py:491-545`). | **KEEP — sequenced**, not trivialized: loot campaign inherits the certified instrument; `express_gear` succession = function swap + band re-fit (planned). | ⚖ awaiting Matt |
-| **E8** | Skill naming / flavor | Placeholder names (`skill_a1`-style) at emission; Phase-5 LLM naming layer fills downstream (`per_skill_emitter.py:616-620`). | **KEEP — layer-handoff** (the legitimate deferred class, OP §3.7a; D7 AI-tell line governs the fill). | ⚖ awaiting Matt |
-| **E9** | Mob build depth | Mobs are stat-blocks + threat-tier skills via `emit_skills_for_threat_tier`, not kit-built units; no mob gear. | **FLAG** — fork: how deep do mob builds go? (Gearing mobs vs player gear violates the §7 sawtooth guard [DECISION/CRITICAL]; depth must come from another axis if wanted.) | ⚖ awaiting Matt |
+| **E1** | Skill geometry palette (emitter) | `_BC_AMPLITUDE_TO_GEOMETRY` maps 3 amplitude values → single_target / small_aoe / large_aoe; ONE geometry per kit (`per_skill_emitter.py:215-219, :585`). Sim already resolves a 24-type rich vocabulary → 6 spatial classes (`spatial_gauntlet/spatial_engine.py:404-429`) + B11 per-geometry mechanics — chain 0.7, fork 0.6, multiproj 0.65, ring 1.2×, leap 1.3× (`damage_resolver.py:85-139`). Bottleneck = the one rocket-side table. | **FLIP — ✓ RULED (Matt 2026-07-08):** first axis of the main line (rocket; fires with the KR re-transmission). **Movement-verb rider RULED:** dash/blink/teleport EXCLUDED from this axis — they ride the parked F4-martial fork (post-Leg-ii, evidence-shaped; kit-side mobility is the PoE-true F4 answer). | IN-FLIGHT |
+| **E2** | Skill damage / economy scalars | `BASE_SPELL_DAMAGE_L50` uniform 20,532.2 across ALL tiers/kits (`per_skill_emitter.py:106-115`); fixed energy/cooldown/cast tables per (tier, role) (`:49-54` + tables) — no per-kit economy texture. | **FLIP — ✓ RULED (Matt 2026-07-08):** queued axis — kernel economies become mechanically distinct (regen shapes, cost curves, cooldown texture per kernel); the tier curve stays the balance spine. | OPEN queued |
+| **E3** | Hybrid scaling patterns | `hybrid_pattern=None` population-wide (Q-W05-R4 deferral); hybrids get chain_B secondary *element* only — content-distinct, mechanics-identical. | **FLIP — ✓ RULED (Matt 2026-07-08):** queued axis — a small design pass precedes code (the dual-scaling pattern vocabulary was stubbed, never designed). Amendment 7a intends hybrids as builds, not palette swaps. | OPEN queued |
+| **E4** | Skill timing variety | Instant-cast everything except T4-channeled (`per_skill_emitter.py` timing emission) — no cast-time / wind-up / charge texture. | **FLIP — ✓ RULED (Matt 2026-07-08):** queued axis — cheapest of the four (sim already consumes `cast_time` fields; they're just uniformly instant). Timing is a core ARPG feel axis (D2 FCR breakpoints, PoE cast-speed builds). | OPEN queued |
+| **E5** | Investment expression in certification | Certification fights a fixed L50 instrument state; player investment (levels/gear/traits) has no expression in what certifies. | **✓ RULED Option C (Matt 2026-07-08):** certification = declared baseline (arm G); the stripped arm = **scaling-delta DIAGNOSTIC** (the arm pair is a two-point envelope by construction — free); anomalous scalers flagged FLAG_PASS-style. Full envelope (D3 GR-ladder shape) re-enters **when the loot campaign's operator surface lands** — named empirical re-entry, not time-passage. | ✓ ruled |
+| **E6** | Summon / proxy T4 suite | Five ratified PROXY-family members, two-phase activation per `reap-die-rise-engine/proxy-t4-suite-spec-2026-07-02.md` v3; B1-rebase in flight; proxy-dominant cells append the 13th summon skill (`season_generation_pipeline.py:1140+`). | **FLIP — already in-flight** (ruled 2026-07-02; execution rides the main line). Row confirmed true (Matt 2026-07-08). | IN-FLIGHT |
+| **E7** | Soul-bound weapon mechanics | Substrate weapon = identity-YES / mechanics-NO: cultural lineage/period/register bind (`season_generation_pipeline.py:356-441`), zero-contribution weapon shell in cert gear (`combatant.py:491-545`). | **KEEP — sequenced — ✓ AGREED (Matt 2026-07-08):** identity-yes/mechanics-no is correct *for certification now*; mechanics arrive via the loot campaign; `express_gear` succession = function swap + band re-fit (planned). | ✓ agreed |
+| **E8** | Skill naming / flavor | Placeholder names (`skill_a1`-style) at emission; Phase-5 LLM naming layer fills downstream (`per_skill_emitter.py:616-620`). | **KEEP — layer-handoff — ✓ AGREED (Matt 2026-07-08)** (the legitimate deferred class, OP §3.7a; D7 AI-tell line governs the fill). **Tooth recorded:** the naming/flavor pass MUST fire for the curated-20 roster pre-demo (35/35 flavor beat proved the machinery) — layer-handoff ≠ never. | ✓ agreed |
+| **E9** | Mob build depth | Mobs are stat-blocks + threat-tier skills via `emit_skills_for_threat_tier`, not kit-built units; no mob gear. | **✓ RULED Option C (Matt 2026-07-08):** population stays **stat-blocks + rare/champion AFFIX layer** (genre-standard: D2 champion mods, PoE rare mods — **affix-layer existence UNVERIFIED → first commissioned audit item**; if absent, it accrues as its own axis row); plus a named **RIVAL-class kit-built encounter type** sourced from certified-non-rostered kits of the full-spec population = **launch-scope re-entry** (PoE rogue-exile precedent; thematically: other reaped souls on the same descent; NOT demo-critical). Mob gear stays barred (§7 sawtooth guard [DECISION/CRITICAL]). | ✓ ruled |
 
 ## CONTENT-EMISSION surfaces
 
