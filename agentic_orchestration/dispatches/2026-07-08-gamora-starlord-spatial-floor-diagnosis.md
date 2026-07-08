@@ -86,4 +86,50 @@ v2 sat wedged-alive 23:17→23:44 while v3 ran the SAME seed — a **parallel-sa
 - ADR-004 (MIGRATION), ADR-006 (re-fire = Matt-gated external action), Principle 6, Disc #1, #1.1, #2.1, #23, #24.
 
 ## Completion record
-*(appended by gamora + star-lord on completion)*
+
+### gamora (PRIMARY) — 2026-07-08 — COMPLETE
+
+**G1 — difficulty-state disposition. VERDICT: NO CONSTANT MOVES (design-finding path).**
+`MOB_HP_DIFFICULTY_MULTIPLIER=1.5` is a **KNOWN-PARKED-UNCALIBRATED state relative to the endgame-BC
+regime**, and its re-calibration is an **explicitly Matt-scheduling-pending workstream**. Four verified
+source citations (Discipline #11 — the log's remedy was NOT trusted as truth):
+1. `arena.py:49` git-blame — the `1.5` line has had **exactly ONE commit ever** (`24cdc7e`,
+   2026-05-19 R2 recalibration); never re-touched.
+2. `R2-recalibration-math-2026-05-19.md §2.2` — the 1.5× was calibrated against **~2019 HP swarm**
+   (old generic regime, 51-class heuristic cohort, convergence instrument).
+3. `endgame_mob_stat_profile.py:8-16` — the endgame regime (26,500-HP swarm, W-α7+ Phase 3c
+   2026-05-28, ~13× heavier) **explicitly declares itself "distinct from MOB_HP_DIFFICULTY_MULTIPLIER
+   = 1.5 … DOES NOT modify arena.py."** The 1.5× stacks un-re-ruled on top of it.
+4. `decisions-log.md` lines **4240 + 5223** — the multiplier is a **"separate, Matt-scheduling-pending"**
+   workstream.
+The log's `1.5→1.25` remedy is **WRONG + mis-scoped**: the 1.5× does NOT apply to `magic_pack`
+(`MOB_HP_DIFFICULTY_SCENARIOS={open_arena, chokepoint}` — verified live) yet magic_pack = 111/323 floor
+events. Applying it to green the pilot = Goodhart drift (rider 5). **Routed as DESIGN FINDING to
+Matt/gandalf.** No MIGRATION (no boundary field moves on the gamora half).
+
+**G2 — bimodality (rider 4, live hypothesis CONFIRMED).** Of the 12 endgame-BC classes reaching the
+gauntlet surface: **10 bimodal-by-design (positional identity — BOTH a WR=1.000 ceiling AND a WR=0.000
+floor), 2 ceiling-only (clear everything), 0 uniformly-floored.** ALL 12 wall `chokepoint_corridor` at
+WR=1.000; the floor is **scenario-specific (open_arena + magic_pack), not class-specific.** The
+instrument's difficulty state is the suspect, not 10-11 broken kits (Leg-B caster-vindication shape).
+The dispatch exemplar `melee_medium_variable_str` is the population pattern, not an outlier. Content NOT
+touched.
+
+**G3 — fail-loud convergence guard (rider 2, unconditional; SHIPPED).** Math-note-first
+(`simulation/math/r2-calibration-fail-loud-convergence-guard-2026-07-08.md`). Three fail-loud layers in
+`SpatialFightEngine.run()`, all naming class+scenario: Layer A tick-budget, Layer B continuous-spawn
+catch-up cap (small constant for the degenerate `interval_s≤0` direct-infinite-loop cause), Layer C
+wall-clock watchdog (env-overridable). New `SpatialFightConvergenceError` (exported) + fail-loud
+propagation in `run_spatial_fight` (log ERROR + re-raise, never swallow). **Smoke:** Layer B fires 0.001s,
+Layer C 0.002s (both name class+scenario), regression-neutral inert. **Regression: 312 spatial tests pass,
+0 failures** — guard byte-neutral on nominal fights. No boundary field → NO MIGRATION.
+
+**Artifacts / tag / Gate-2:**
+- Math note: `simulation/math/r2-calibration-fail-loud-convergence-guard-2026-07-08.md`
+- Design finding (Matt/gandalf): `agentic_orchestration/gamora/notes/2026-07-08-spatial-floor-saturation-g1-g2-design-finding.md`
+- Gate-2 submission: `agentic_orchestration/qa/pending/2026-07-08-gamora-g3-fail-loud-convergence-guard-gate2.md`
+- Code: `spatial_gauntlet/spatial_engine.py` (guard) + `__init__.py` (export) + `_g3_convergence_guard_fire_smoke.py` (smoke)
+- Tag: `gamora/v-spatial-fail-loud-convergence-guard-1`
+- **No constant moved. No MIGRATION.** Auto-committed (not pushed — Matt-gated per ADR-006).
+
+*(star-lord appends the driver/measure-then-filter half on completion.)*
