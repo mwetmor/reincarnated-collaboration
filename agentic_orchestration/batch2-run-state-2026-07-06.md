@@ -1188,3 +1188,25 @@ Matt touchpoints live: **R5 VALUES** (+ the post-R5 season-emission run). No run
 - **Decisions-log (4 entries, batched/cross-linked, Status:Active):** F4 registration [PROVISIONAL] · R4 cert-contract shift + open_arena re-base + mobs_killed range · §4 acceptance-layer reframe [falsifier captured] · §6 MOB_HP un-stack Option A [pending §6 proposal folded]. + 2 SCOPE-RETIRED status edits.
 
 **→ R4 STEP FIRING (KR autonomous, $0 pure-sim four-family cert sweep):** gamora launches the four-family metrology driver DETACHED (kill-verify first: no prior driver PID; never two same-seed emissions). Run MUST capture: (a) `season_emit` count — expected >0 now F4 can pass; (b) the **first-ever escape_lane distribution** (feeds jack-ryan's mandatory re-check condition); (c) per-family pass breakdown. $0 dry_run_flavor, no LLM (R6). KR monitors output, judges yield, then routes: >0 emit → bands land → R5 VALUES touchpoint (+ jack-ryan F4 band re-check on the fresh escape_lane distribution). 0 emit → HALT-LOUD diagnosis.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — R4 cert sweep EXITED: 0 season_emit (REAL this time, F4 live) + anomaly → HALT-LOUD, diagnosing before routing to Matt
+
+**R4 four-family metrology sweep** (PID 42455, seed 64M, 17.0s, $0 confirmed, report `output/gauntlet_four_family_metrology/metrology_report_20260708_125938.json`). Per-family medians:
+| Family | martial | caster |
+|---|---|---|
+| F1 dense_cell | kpm 13.64 / wr 0.0 / **pass 0/40** | kpm 100.0 / wr 0.0 / **pass 0/2** |
+| F2 open_arena | kpm 21.51 / wr 0.0 / **pass 0/40** | kpm 87.69 / wr 0.0 / **pass 0/2** |
+| F3 boss_with_adds | kpm 31.23 / wr 0.6 / **pass 0/40** | kpm 100.0 / **wr 1.0** / **pass 0/2** |
+| F4 escape_lane | kpm 22.31 / wr 0.0 / **pass 0/40** | kpm 88.66 / wr 0.0 / **pass 0/2** |
+
+**season_emit = 0 AGAIN — but NOT the prior dead-code blocker.** F4 is now LIVE (real kpm/wr numbers, not comment-only). This is a genuine certification result: 0/40 martial + 0/2 caster pass, all four families.
+
+**Two signals I will NOT interpret raw (firing gamora $0 read-only diagnosis first):**
+1. **Pattern INVERTS R3a.** Four-family instrument shows WR med=0.0 (kits DYING) across F1/F2/F4 — OPPOSITE of the T1 pilot's 765/769 CEILING (WR≈1.0). BUT different populations (sweep = econ-pilot casters + martial-template cells @ seed 64M, NOT the 18 endgame-BC candidates) AND a harder genre-density instrument (F1 ~24, F2 ~40). Need: is this a real floor-saturation, wrong-kits-for-cert, or band-mismatch?
+2. **ANOMALY: F3 caster wr med=1.0 but pass=0/2** — a 100%-survival kit failing the boss family. Possible gate-logic issue OR a metric I'm misreading. Must resolve before trusting ANY of the pass counts.
+
+**Open questions for gamora diagnosis ($0, read-only):** (a) is 0/40+0/2 EXPECTED for metrology PROBE cells (untuned templates) vs a real cert failure? (b) does THIS run even answer "does season_emit go >0" — or is season_emit measured via the GENERATION pipeline's real candidates (a different run)? (c) the F3 caster wr=1.0/pass=0 anomaly. (d) confirm escape_lane distribution captured for jack-ryan's mandatory re-check. (e) bottom line: chain-proceeds-to-R5 or HALT-LOUD-to-Matt, and the crisp finding either way.
+
+**CHAIN POSTURE: HALTED at R4 pending diagnosis.** No auto-resume. escape_lane distribution IS captured (jack-ryan re-check has data regardless). Matt touchpoints live: this R4 result (routing after diagnosis) + R5 VALUES.
