@@ -133,3 +133,44 @@ Layer C 0.002s (both name class+scenario), regression-neutral inert. **Regressio
 - **No constant moved. No MIGRATION.** Auto-committed (not pushed — Matt-gated per ADR-006).
 
 *(star-lord appends the driver/measure-then-filter half on completion.)*
+
+### star-lord (secondary) — 2026-07-08 — COMPLETE
+
+**Tag:** `star-lord/v-batch2-measure-then-filter-1`
+**Gate-2:** `agentic_orchestration/qa/pending/2026-07-08-star-lord-measure-then-filter-gate2.md`
+**MIGRATION.md:** `src/reincarnated/export/MIGRATION.md` § MEASURE-THEN-FILTER (prepended)
+
+**Deliverable: MEASURE-THEN-FILTER (rider 1) — SHIPPED.**
+
+Root cause of v3 zeroing out its own yield: `_build_section8a1_band_report()` did not exist; the
+driver conflated the §8-A1 measurement instrument with the TP3 emission gate. When 0/18 candidates
+passed the WR-bracket, TP3 halted before any measurement could be persisted.
+
+**What shipped:**
+
+1. **`_build_section8a1_band_report(all_kits, passing_kits, ...)` @ `w3_emission_driver.py`** — pure
+   measurement function. Reads `kit.bc_proxy_density` + `kit.character_id` from ALL candidates;
+   records per-candidate `wr_bracket_pass`. Produces `gate_outcome` / `band_summary` / `per_candidate` /
+   `registry_honesty` sub-dicts. Registry-honesty riders embedded: NOT-EXERCISED (heavy), UNPROVEN (≤7),
+   light-band-only (C2), 17 none / 1 light / 0 heavy (catalog distribution).
+
+2. **`_SECTION8A1_BAND_REPORT_PATH`** — `src/reincarnated/output/leg3_pilot_section8a1_band_measurement.json`
+
+3. **Write site in `run_w3_emission()` — BEFORE TP3.** Inserted after `in_band_count` log, before
+   kit-record build loop. A 0/18-pass run writes the report then hits TP3 HALT-LOUD; the file is on
+   disk, independently readable.
+
+4. **TP3 unchanged** — `assert len(survivor_kit_records) > 0` still refuses an empty emitted bundle
+   (correct). Only the chronological relationship changed: measurement precedes the gate.
+
+5. **Result dict extended** — `section8a1_band_report_path`, `section8a1_band_summary`,
+   `section8a1_gate_outcome` added on normal-completion path.
+
+**Round-trip smoke (Principle 6 / dispatch required):** 8 tests, Group F, ALL PASS (32/32 total,
+  0 regressions). Key test: `test_zero_passing_round_trip_read_back` — 0/18 → file persisted →
+  read-back → gate=0/18 truthful, bands intact, NOT-EXERCISED/UNPROVEN/17-1-0 riders present.
+
+**MIGRATION.md:** additive — no bundle or registry schema change, no drax or gamora consumer action.
+
+**Not in scope (confirmed):** no constant moved, no Tier-1 re-fire, no recovery-mode batch-1-fossil work,
+  no simulation touches. Leg-C re-fire gated on gamora G1/G2/G3 + Matt ADR-006 run-auth.
