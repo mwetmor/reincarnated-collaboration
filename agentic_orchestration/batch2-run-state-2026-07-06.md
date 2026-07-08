@@ -1235,3 +1235,25 @@ Matt touchpoints live: **R5 VALUES** (+ the post-R5 season-emission run). No run
 **Sequence (locked):** (B) run → **jack-ryan F4-band re-check** against the *engaging* distribution (PROVISIONAL retires OR re-derivation fires) → **R5 band-sheet draft** from VALIDATED bands → **Matt VALUES touchpoint**. The flavored (LLM) emission run stays post-R5, Matt-touchpoint, per standing ruling.
 
 **→ (B) FIRING (KR autonomous, $0):** commissioning gamora — verify `dry_run_flavor` threads through `season_generation_pipeline → run_gauntlet_sim` for a true $0 real-candidate run (confirm no LLM call fires); kill-verify no prior driver PID (never two same-seed emissions); launch DETACHED (`subprocess.Popen(start_new_session=True, close_fds=True)` — survives sub-agent return); capture (a) `season_emit` count via `family_certification_pass` on REAL generated candidates, (b) the F4 escape_lane distribution from an engaging population (jack-ryan re-check data), (c) certified-set composition (identity_glyph / element split). KR monitors, then routes per the pre-stated criterion.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — Matt KILLS (B) run: MIS-INSTRUMENTED (legacy 18-encounter gauntlet, not four-family cert). Emission-refire GATED behind 4 preconditions. star-lord driver re-point investigation opened; stratified pilot mandated.
+
+**Matt ruling (verbatim):** *"Kill authorized on PID 43779 (mis-instrumented: legacy 18-encounter gauntlet, not four-family cert; ~50h pace). No emission re-fire until F2 ruling + F3 STOP + F4 disposition + §4 ratification close. Sequence star-lord driver re-point investigation; stratified pilot (18×~6) is the mandatory precursor to any full run."*
+
+**KILL EXECUTED + VERIFIED:** `kill -TERM -43779` (process group; session leader) → CONFIRMED DEAD; no lingering `w3_emission_driver | season_generation_pipeline | gauntlet` drivers. Ran 01:27:32 (~87 min) — the ~50h projected pace is the mis-instrumentation signature. No same-seed emission risk (nothing certified; killed mid-gauntlet). Monitor bg-job fired EXITED on the kill (expected, not a real completion).
+
+**THE MIS-INSTRUMENTATION (my error, and gamora's launch inherited it):** `w3_emission_driver --dry-run-flavor` ran the **LEGACY 18-encounter gauntlet path**, NOT the four-family certification instrument. The tell I saw live but under-weighted: T1-pilot ceiling warnings on `open_arena` / `chokepoint_corridor` — those are **T1 6-shell pilot scenarios**, not the four-family F1/F2/F3/F4 shells. My (B) framing ("real-candidate season_emit via the F4-registered four-family gate") was WRONG AT THE DRIVER LEVEL — the invocation never reached the four-family cert. I confirmed the dry-run $0 posture correctly but did NOT confirm the driver routes through `family_certification_pass`. That verification gap is the lesson.
+
+**EMISSION RE-FIRE IS GATED — all four must close first (no exceptions, Matt-locked):**
+1. **F2 ruling** — open_arena family disposition (ceiling-saturation signature must be ruled, not inherited).
+2. **F3 STOP** — boss_with_adds STOP standing (non-viability finding: 117 kits kill zero mobs; boss rooms possibly mis-instrumented under KPM — TTK+deaths is the genre observable, not KPM).
+3. **F4 disposition** — escape_lane band PROVISIONAL + "does an engaging F4 population exist" — still unanswered (this run was meant to answer it and could not, being mis-instrumented).
+4. **§4 ratification close** — the acceptance-layer reframe formally closed (jack-ryan CLEAR-WITH-CONDITIONS + gandalf step-4-bis PASS landed; final ratification close still owed).
+
+**IMMEDIATE NEXT (Matt-sequenced):**
+- **★ star-lord driver re-point INVESTIGATION** (opening now): why does `w3_emission_driver` run the legacy 18-encounter gauntlet instead of the four-family cert? Where is the season-emit path supposed to invoke `family_certification_pass`? Is the four-family gate wired into the emission driver at all, or only into the standalone metrology driver? Read-only forensic; no code change without Gate-1.
+- **STRATIFIED PILOT (18 cells × ~6 encounters) = MANDATORY PRECURSOR** to ANY full run. No more blind full-population launches. The pilot validates the instrument (correct driver, correct shells, sane pace) before committing compute.
+
+**KR CHAIN POSTURE: (B) VOIDED (mis-instrumented, killed). Emission re-fire BLOCKED behind 4 preconditions + driver re-point + stratified-pilot gate.** No autonomous re-fire. star-lord forensic is the next action.
