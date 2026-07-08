@@ -1069,3 +1069,21 @@ Acceptance = gandalf §4 anti-Goodhart gradient gate (validated at step 4, NOT t
 4. **chain proceeds to R4 / Leg-C** (summoner campaign), boss_with_adds carried as a FLAGGED scenario (KR sequences whether content fix lands pre/post-R4 on gamora's data pull).
 
 **Matt touchpoints outstanding: R5 VALUES** (+ any that surface from jack-ryan review / the boss_with_adds content lane). Sole live KR shell; no run in flight.
+
+---
+
+## ⭐ KR DELTA (2026-07-08) — jack-ryan CLEARS §4 reframe WITH-CONDITIONS; firing gamora certification re-point (step 2)
+
+**jack-ryan verdict: CLEAR-WITH-CONDITIONS** (`qa/findings/2026-07-08-jackryan-s4-reframe-review.md`). No load-bearing defect; the reframe is sound engineering, not moving goalposts. All four scrutiny points cleared:
+- **Goodhart self-test passes genuinely** — relocates spread-not-rails to the KPM axis where it's empirically live (~2.4×) AND carries the falsifier forward (if KPM spread ever collapses to point-mass, amended criterion FAILS). A quiet deletion removes the falsifier; this one keeps it.
+- **Architectural claim VERIFIED IN CODE** — `gauntlet_sim.py`: `season_emit`(:966)→`gauntlet_pass`(:963)→`family_certification_pass`(:864)→`_shell_result_passed`(:810). Clear shells gate on `ENCOUNTER_COHORT_KPM_BAND`(:778,:815); boss shells gate on `tier_2_survival_rate >= SURVIVAL_FLOOR` — survive-and-kill viability bit, KPM band never consulted (:783,:824-829). Win-condition split codified :192-204. **Certification already keys off KPM bands + a survival-viability bit → the reframe is a small overlay-correction, materially lower risk; "step-4-bis re-verdicts on existing data, no re-run" is credible.**
+- **Genre claims defensible** (D3 farm-tier/rifts-hr, PoE maps-hr, single-rung WR near-binary — standard ARPG endgame grammar).
+- **No silent deletion** — boss_with_adds flagged, lethality-floor routed, 4-mid on record, magic_pack queued, G2 bimodality honestly partial-retracted (amplitude=artifact, direction survives).
+
+**CONDITIONS (carry into gamora re-point):**
+1. **magic_pack stale-band audit must LAND before step-4-bis is scored clean on that shell** (band (18.61,100.00) never got step-5 density re-derivation).
+2. **boss observable-fork stays OPEN** — KPM-primacy applies to CLEAR shells only; boss shells already gate on the survival-viability bit, not KPM.
+
+**decisions-log advice (jack-ryan, authoring authority):** the reframe warrants a SEPARATE entry (difficulty-instrument ruling), NOT folded into the pending §6 un-stack proposal (distinct architectural rulings). Both authorable same batch, cross-linked, residual falsifier captured. jack-ryan to draft both next pass. No re-litigation of Matt's A-ruling.
+
+**→ Step 2 FIRING: gamora certification re-point per note §6.2** (Pattern A, autonomous chain). Scope: (a) tier-2 WR → validity bit + non-viability flags (small overlay — arch already points this way per code-verify); (b) magic_pack band density-anchored audit per step-5 method (math-note-first, Discipline #1) — CONDITION 1; (c) boss-shell KPM-primacy NOT applied (CONDITION 2 — boss stays on survival-viability bit); (d) Gate-2. Then step-4-bis verdict on EXISTING data.
