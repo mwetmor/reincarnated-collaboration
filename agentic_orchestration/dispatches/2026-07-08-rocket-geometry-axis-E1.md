@@ -4,7 +4,7 @@
 **Date:** 2026-07-08
 **Pattern:** B (multi-hour build; math-before-code) — **Gate-1 (jack-ryan) REQUIRED before fire**
 **Authority:** Matt-ratified full-run pivot 2026-07-08. E1 ruled **FLIP → IN-FLIGHT** (surface-ledger, first axis). Transmission: `agentic_orchestration/gandalf/notes/2026-07-08-kr-retransmission-full-run-pivot.md` § 4 action 2.
-**Status:** DRAFT — awaiting jack-ryan Gate-1. Do NOT execute until Gate-1 PASS is recorded.
+**Status:** FIRE-READY — jack-ryan Gate-1 **PASS-WITH-AMENDMENTS** (2026-07-08); both amendments folded (§2 excluded-key enumeration + §5 tightened distribution floor/shape check). Cleared to execute.
 
 ---
 
@@ -49,6 +49,11 @@ design question this axis opens:
 - **Vocabulary-subset proof:** every geometry value you emit MUST be a key the sim's `_RICH_TO_SPATIAL`
   recognizes (else it falls to the degraded Path-3 fallback — see `f1-geometry-fieldname-reconciliation-
   2026-06-17.md`). Enumerate your emitted set ⊆ the 24 sim keys.
+- **[Gate-1 amendment 2, jack-ryan WARN] Enumerate the EXCLUDED movement-verb key set explicitly.** From
+  the 24 `_RICH_TO_SPATIAL` keys, name the CLOSED set of keys you exclude as movement verbs (§3). The
+  round-trip smoke's "zero movement verbs" check must test emitted-geometry against this named list, NOT
+  a runtime judgment call. Deliver both: emitted-set ⊆ 24 keys AND the explicit excluded-movement-verb
+  key enumeration.
 
 ## 3. HARD EXCLUSION — movement verbs (Matt-ruled OUT of this axis)
 
@@ -70,9 +75,14 @@ damage geometry only, with no movement/exit-window semantics. When in doubt, exc
 
 ## 5. #2-FF fields (MANDATORY — eat our own cooking, per transmission § 4.2)
 
-- **Verdict-rendering instrument named:** the round-trip smoke (§4) + a **distribution check** — a
-  generated kit's 12 slots now express **>3 distinct geometries** (the pre-change state was ≤3, one per
-  kit), every emitted value ∈ `_RICH_TO_SPATIAL` keys, zero movement verbs.
+- **Verdict-rendering instrument named:** the round-trip smoke (§4) + a **distribution check**.
+  **[Gate-1 amendment 1, jack-ryan INFO — tightened floor]** ">3 distinct geometries" is too weak (a kit
+  emitting exactly 4 distinct shapes across 12 slots passes but barely widens the collapse). Instead:
+  declare in the math note a **justified floor N (materially > 3)** AND verify a **distribution-SHAPE**
+  property — geometry assignment tracks each skill's kernel/role (per §2's assignment basis), not a bare
+  distinct-count satisfiable by a near-degenerate emission. The check verifies both: distinct-count ≥ N
+  AND assignment-tracks-kernel. Every emitted value ∈ `_RICH_TO_SPATIAL` keys; zero movement verbs (tested
+  against the §2 excluded-key enumeration).
 - **One-command pre-fire verification:** a single command proving the pre-change baseline, e.g.
   `python -c "from reincarnated.generation.per_skill_emitter import _BC_AMPLITUDE_TO_GEOMETRY; print(len(set(_BC_AMPLITUDE_TO_GEOMETRY.values())))"` → `3` (the collapse you are widening). State the
   expected post-change first-log line (e.g. "kit <id>: N distinct geometries across 12 slots, all ∈ RICH").
