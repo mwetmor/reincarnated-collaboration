@@ -241,3 +241,37 @@ NO run artifacts (nothing fired). Committed: this halt record + AGENT_STATE SESS
 Leg-i driver, math-note-first, Gate-covered) → then I re-present FIRE-READY and fire; OR re-scope.
 
 **Sign-off (halt):** gamora, 2026-07-08 SESSION 59.
+
+---
+
+## Completion record — DISPOSITION (A) COMPLETION-BUILD — BUILT + smoke GREEN (NO content run) — 2026-07-08 (SESSION 60)
+
+**Disposition: BUILT.** Matt authorized halt disposition (A) — the completion-build — and ratified the full-run pivot (gandalf `agentic_orchestration/gandalf/notes/2026-07-08-full-run-pivot-four-rulings.md` §4) that absorbs this instrument into the MAIN LINE: the pilot converts to the **standing per-axis certification instrument** (pivot §5.c), not salvage. Math-before-code satisfied: the math note `simulation/math/certification-gear-v0-composition-2026-07-08.md` §6 step 2 IS the build spec (the un-done half). Build only; **NO content-bearing run fired** — the pilot fire is downgraded to an optional instrument smoke with zero content authority (pivot §4). Gate-2 reviews this commit before any content-bearing fire.
+
+### Gap 1 CLOSED — `measured_gear_stats` threaded end-to-end (files + line ranges)
+The SESSION-58 beat-d wire threaded gear ONLY at the leaf; the intermediaries + driver dropped it → both arms ran byte-identical stripped (the SESSION-59 root-cause). Now:
+- `w4g1_tier_1_sweep` — `t4_sim_cycling.py:1304` (param `measured_gear_stats: dict | None = None`), forwarded into its `_run_spatial_w4g_batch` call at `:1373`.
+- `w4g2_tier_2_full_sim` — `t4_sim_cycling.py:1402` (param), forwarded at `:1454`.
+- `w5g1_gauntlet_execution` — `gauntlet_sim.py:1260` (new `arm: str = "S"`); per-cohort gear composed ONCE per cohort inside the cohort loop at `:1371-1376` (arm G → `certification_gear(cohort, _build_cohort_combatant_stats(cohort))`; arm S → None); threaded into BOTH the w4g1 call (`:1452`) and the w4g2 call (`:1495`).
+- **Byte-identical legacy guarantee:** every default is stripped (arm="S", gear=None). No existing caller changes behavior.
+
+### Gap 2 CLOSED — the Leg-i cell-grain two-arm driver now EXISTS + RUNS
+`src/reincarnated/simulation/leg_i_cell_grain_two_arm_driver.py` (new). **POPULATION-AGNOSTIC** per the discipline note — takes a population dict OR a `regen:<seed>` spec; NOT hard-wired to seed-57000000 (the standing-instrument seam: a per-axis caller passes its post-axis population, no code change). Draws ONE representative kit per cell (regenerate-at-emission-n_samples-then-slice-s0 discipline, mirrors the leg_ii harness — NOT fresh rolls). Runs **arm S then arm G at the SAME per-cell seed** (Discipline #3, sequential — no parallel same-seed). Reuses the **UNAMENDED** four-family judge (DERIVED_BARS + `_bar_disposition`). Emits **PIPE** (four-family conjunction reachable per cell, both arms) + **YIELD** (per-cell × per-family pass map, both arms) + **DELTA** (per-family, optionally per-cohort, WR/KPM stripped-vs-geared). #2-FF start-banner names BOTH arms + the operative band set. Machine HALT-LOUD: exit 2 if arm G == arm S everywhere.
+
+### The minimal smoke — INSTRUMENT-VALIDITY (arm G ≠ arm S?) — GREEN
+- **Cell-grain driver `--smoke` (2 cells × 2 fights, regen:57000000):** exit 0. **arm G ≠ arm S — max_abs_kpm_delta = 12.941.** Per-family KPM deltas non-zero (F1 +7.72/+12.94, F2 −1.21/−9.21, F4 −1.68/−4.94; F3 = 0.0, success-judged WR=1.0 both arms). PIPE reachable both arms both cells; YIELD map emitted. Report: `src/reincarnated/output/leg_i_cell_grain/leg_i_cell_grain_report.json`.
+- **Gap-1 emission-path unit smoke (w4g1/w4g2 direct, open_arena, same seed, Balanced):** arm G ≠ arm S — w4g1 Δ=+4.040, w4g2 Δ=+4.250 KPM. The intermediaries forward the gear.
+- Imports clean (no cycle), AST parses, legacy defaults verified stripped.
+
+### New gap found (framed, Disc #12; NOT a blocker to this build)
+At n_fights=2 with WR=0 (kits time out / die in the smoke slice), **F2/F4 KPM deltas run NEGATIVE under gear** — a KPM-instrument property at tiny-n partial clears, NOT a content verdict and NOT a plumbing defect (the thread-validity check — arm G ≠ arm S — is what this smoke tests, and it passes). This IS the REFRAME-VALIDITY signal the dispatch flagged (does gear shift/compress the KPM spread?); it must be read at the content-bearing per-axis run (full n_fights, bands re-fit to the declared baseline), NOT here. F4 honesty holds (all d_exit_within_window_frac = 0.0 — no mobility stat on the gear surface).
+
+### Deliverables status
+- **PIPE / YIELD / DELTA:** all three emit (instrument shapes proven on the smoke slice). Content authority: NONE (pivot §4).
+- **REFRAME-VALIDITY:** the falsifier input is now MEASURABLE (arm G ≠ arm S); its content read is the per-axis run's, not this smoke's.
+- **Geometry-only bands (dense_cell, escape_lane):** untouched (no re-fit; bands re-fit per declared baseline, pivot §5.1).
+
+### Commit
+See commit hash(es) below. Committed: the two-arm plumbing (`gauntlet_sim.py`, `t4_sim_cycling.py`), the new driver, AGENT_STATE SESSION-60 entry, this completion record. NOT pushed (KR batches).
+
+**Sign-off (build):** gamora, 2026-07-08 SESSION 60. Awaiting jack-ryan Gate-2 → then the content-bearing per-axis pilot fires on the main line (first at the geometry-widened population, bands re-fit to that baseline).
