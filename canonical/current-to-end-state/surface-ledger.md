@@ -46,6 +46,30 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-09 (3) — S1 WALK DONE: story-side audit complete — S2/S3/S4 born ⚖, tally 9✓/20
+
+The S1 story-side audit walk completed in-session (spec-declares vs engine-consumes, both halves
+source-verified; findings note:
+`agentic_orchestration/gandalf/notes/2026-07-09-s1-story-side-audit-walk.md`). **Headline: the
+necromancer-pair acceptance test fails 2 of 3 identity dimensions today** — build + weapon-substrate
+identity (culture/period/register/lineage) differentiate LIVE end-to-end; **race is DEAD engine-wide**
+(no field, no stub) and **faction consumption is ZERO** (derivation LIVE via Phase-5 PM-1 clustering +
+PM-2 labels, but v1 `faction_visibility=invisible` nulls labels at export). Three rows born ⚖:
+**S2** race well — lean: *vessel-race = bestiary provenance* (the reaped vessel carries the race;
+same wells as E10 Leg 3 — S2 and Leg 3 become ONE build, two consumers) · **S3** faction-visibility
+FLIP per OP § 3.7(a) (spec needs visible factions on four surfaces — per-floor, lieutenants,
+bestiary sets, §12 spawn-steering; timing lean: land with E10 Leg 3) · **S4** "order"-noun ruling
+(THE order = player's crusade vs plural kit-side orders; lean: faction-label noun vocabulary, not a
+new mechanical well). KEEPs: naming machinery is D7-compliant; "kits vote BARE" provenance law holds
+in substance (clustering IS bottom-up bare-kit derivation — flagged, no flip); register filters clean.
+FLAG: kit flavor covers 35/~700 (finalists only) — a C4 curation constraint, not a gap. **S1 flips
+⚖** (walk done; findings await Matt agreement). **Tally: 9✓/20** — rows S2/S3/S4 join the ledger;
+Q12 refreshed (4 ⚖ outstanding: S1–S4).
+
+**Signed:** gandalf, 2026-07-09 (3).
+
+---
+
 ### 2026-07-09 (2) — E10 Leg 2 DONE: mob-affix design session complete, spec LANDED Matt-ratified
 
 The gandalf+Matt Pattern-B design session (E10 Leg 2) ran in-session against the legolas canon
@@ -200,7 +224,10 @@ dangling-open by design (§2.4 named gate; closes in a future delta when the las
 
 | # | Surface | Current state (what-IS, cited) | Classification (lean) | Matt gate |
 |---|---|---|---|---|
-| **S1** | Story-side trivialization audit | Not yet walked — candidate surfaces: flavor/naming pass shapes vs D7, faction-derivation depth at consumption, register filters. No finding yet; rows accrue from the audit, never invented. | Audit PENDING (commissioned 2026-07-08, pivot d). | OPEN |
+| **S1** | Story-side trivialization audit | **WALK ✓ DONE 2026-07-09** — findings note: `agentic_orchestration/gandalf/notes/2026-07-09-s1-story-side-audit-walk.md`. **Acceptance test (necromancer pair) fails 2/3 identity dimensions:** build + weapon-substrate identity LIVE end-to-end (`substrate_weapon_binding.py:339-343` → `export/schemas.py:239-241`); race DEAD engine-wide; faction derivation LIVE (Phase-5 PM-1/PM-2) but consumption ZERO (v1 `faction_visibility=invisible`). Commissioned candidates answered: naming vs D7 = KEEP (narrow-blank fill, compliant); faction depth at consumption = the FLIP (→ S3); register filters = KEEP (substrate register ≠ visual style-register, both clean). FLAGs: "kits vote BARE" holds in substance (clustering = bottom-up bare-kit derivation); kit flavor 35/~700 finalists-only (C4 curation constraint). Spawned S2/S3/S4. | Audit COMPLETE; findings + spawned rows await Matt. | **⚖** |
+| **S2** | Kit-side RACE well (net-new-BUILD) | Spec declares race a substrate input (loop-doc §19 — *"not cosmetic wrappers"*); Matt's pair requires human vs space orc; engine carries ZERO fields (Explore sweep, exhaustive). No substrate feeds race today — weapons give culture/period/register, nothing gives race. | **Lean: vessel-race = bestiary provenance.** The VESSEL carries race, not the player (`story-expansion.md` §14 corpse-vessel; line 144 lieutenants becomable); race becomes a bestiary well consumed by mobs (E10 affinity profiles) AND kits (vessel provenance) — **S2 and E10 Leg 3 are ONE build** (Fork 2(c) architecture). Rejected: authored race list (parallel well the fiction doesn't need); LLM-derived race (violates substrate-grounded provenance). | **⚖** |
+| **S3** | Faction visibility FLIP (v1-invisible → visible) | Derivation machinery LIVE + running (PM-1 multimodal clustering `phase5_pm1_multimodal_clustering.py:1005-1043` + PM-2 LLM labels `phase5_orchestrator.py:69-97`); consumption ZERO — `faction_visibility=invisible` nulls `faction_label_canonical` at export (`export/schemas.py:588-731`). Spec needs visible factions on FOUR surfaces: per-floor identity (line 158), lieutenant floor-bosses (line 144), bestiary faction sets (§11a), spawn-influence steering (§12 — cannot PURSUE the unseen). | **FLIP per OP § 3.7(a)** — deferral now conflicts with spec = gap-to-close. Flip is consumption-side: un-gate flag → Wave A labels fire → D7 review pass. **Timing lean: land with E10 Leg 3** (factions become real when mobs wear them; earlier = labels nothing consumes). | **⚖** |
+| **S4** | "Order" noun — vocabulary ruling | Story canon: **THE order** = the player's crusade, singular, definite-article (`story-expansion.md` §2 [DECISION] "one of thousands in a large order/cult"; §10 hidden inner order). Matt's pair uses PLURAL orders as kit identity ("necronomical order" / "necromonger order"). Bare collision: player's institution vs enemy factions blur. | **Lean: no new mechanical well — "order" is faction-label NOUN VOCABULARY.** Labels draw institutional nouns from the faction's own register (order/dynasty/court/warband/covenant…); "the Necromonger Order" = a faction wearing the noun; THE order keeps uniqueness. Genre: D2's Sisterhood / Zakarum priesthood / Horadrim order — distinct nouns did the identity work. Cost ≈ one noun-register instruction in the PM-2 prompt (D7-compliant). | **⚖** |
 
 ## THE GATE
 
