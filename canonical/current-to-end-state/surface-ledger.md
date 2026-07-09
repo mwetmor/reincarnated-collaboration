@@ -46,6 +46,35 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-09 (6) — AUTONOMOUS RUN CLOSED: E2 emitter SHIPPED, conservation audit HALT (substrate truth) — three ⚖ parked
+
+KR's five-lane run closed end-to-end (handoff `agentic_orchestration/skill_handoff_2026-07-09.md`).
+**E2 emitter LANDED + PUSHED** (`d99635a`, tag `rocket/v2.0-economy-axis-2`, Gate-2 PASS, zero
+sacred-table diffs; k lands on `damage_multiplier` — no per_hit field exists; control k scoped to
+cooldown+cost v1, no MIGRATION). **The post-E2 conservation audit HALTed as designed** — 5/7 bands
+lurched; gamora's diagnosis, evidence-verified: **(b) SUBSTRATE TRUTH, not a k-bug.** Mean-preserving
+fan-out (spread 1.26–1.40×; six means conserved — falsifies global k-mis-application); dense_cell
+alone +35.77 UP, offensive cohorts only (Defensive +0.00 — AoE-overlap × offense fingerprint). The
+law is TRUE at its defined scope (per-skill throughput) and does NOT extend to encounter-KPM:
+overkill censoring + AoE-overlap depend on per-hit SIZE, which k moves BY DESIGN. **Bands STAND at
+C3; no re-fit; no curve-fit** (rider-4 held). Three ⚖ park for Matt: **(1) KPM-instrument
+disposition** (`matt_decision_needed/2026-07-09-post-e2-conservation-audit-halt.md`; Lane-3
+elite_pack floor-guard remedy COUPLED — same censoring family); **(2) Walls DEFER ratification**
+(gamora spike `5d3bb55`: DEEP-ARCHITECTURE-CHANGE — sim space is obstacle-free: straight-line nav,
+occluder-blind hit kernels, scalar targeting; pull+immobilize ride v1 plumbing); **(3) succession
+entry approval** (`5b20df0`). **Lane-4 race-well verification CLEAN** (rocket `d8b249c` + elrond
+`ef87545`: R=5 holds exactly at binding M≈35 — 700/140 = 5.0; P/M proxy until batch-2,
+floor-conservative; ~13-conformant bench stays OUTSIDE the closed well) — S2 design + verification
+halves DONE; remaining Leg-3 gates = drax bone-dump probes (DarkElf/Dwarf/±Big_Ork, next-session
+write-scope) + the walls ruling. **E4 correction (ledger-lean corrected):** NOT emitter-only —
+cast_time is emitted but never sim-read → rocket+gamora MIGRATION pair; fork draft `937e853` parked,
+gandalf reviews + routes. Tally holds **11✓/20**
+(E1·E5·E7·E8·E9·C1·C2·C3·G1·G2·S1 ✓ | E6·E10 IN-FLIGHT | **E2 IN-FLIGHT HALT-parked** | E3·E4·S2·S3·S4 OPEN | C4 ⛔ GATE1-bound).
+
+**Signed:** gandalf, 2026-07-09 (6).
+
+---
+
 ### 2026-07-09 (5) — RACE WELL DESIGNED + CURATED (Pattern-B session, Matt-ratified): S2 design half DONE
 
 While the autonomous run executes, the gandalf+Matt well-design session closed all four forks
@@ -242,7 +271,7 @@ dangling-open by design (§2.4 named gate; closes in a future delta when the las
 |---|---|---|---|---|
 | **E1** | Skill geometry palette (emitter) | ~~3-shape once-per-kit collapse~~ **WIDENED (bfc94eb):** per-skill kernel assignment `assign_skill_geometry(role, tier, delivery)` over the rich vocabulary; distinct geometries/kit 3 → 11–12; emitted set = 20 keys ⊆ 24; zero movement verbs (closed excluded set); B11 mechanics fire. Math note first (Disc #1). | **FLIP — ✓ RULED (Matt 2026-07-08):** first axis of the main line. Movement-verb rider RULED: dash/blink/teleport EXCLUDED — ride the parked F4-martial fork. **LANDED + batched Gate-2 PASS (`7956484`) + Matt-approved (Q13, 2026-07-08).** | ✓ |
 
-| **E2** | Skill damage / economy scalars | `BASE_SPELL_DAMAGE_L50` uniform 20,532.2 across ALL tiers/kits (`per_skill_emitter.py:106-115`); fixed energy/cooldown/cast tables per (tier, role) (`:49-54` + tables) — no per-kit economy texture; `bc_amplitude` v1-INERT post-E1 (tie-shaper only). | **FLIP — ✓ RULED (Matt 2026-07-08):** queued axis — the tier curve stays the balance spine. **Design note LANDED, Matt-ratified 3 rulings (2026-07-09):** `agentic_orchestration/gandalf/notes/2026-07-09-e2-economy-axis-design-note.md` — vocab pinned **spiky/flat/variable** (variable = mixed portfolio: primary chain spiky, rest flat); **cycle-throughput + cost-rate conservation** via single per-skill scalar `k` on (per_hit, cooldown, cost) — bands should NOT lurch, and a lurch = leaked law; scope = attack-full / control-cadence-only-uptime-invariant / support+T4 exempt; E4 cast-time boundary held. **Rocket-dispatch precondition CLEARED — KR fires post-C3.** | OPEN queued |
+| **E2** | Skill damage / economy scalars | `BASE_SPELL_DAMAGE_L50` uniform 20,532.2 across ALL tiers/kits (`per_skill_emitter.py:106-115`); fixed energy/cooldown/cast tables per (tier, role) (`:49-54` + tables) — no per-kit economy texture; `bc_amplitude` v1-INERT post-E1 (tie-shaper only). | **FLIP — ✓ RULED (Matt 2026-07-08):** queued axis — the tier curve stays the balance spine. **Design note LANDED, Matt-ratified 3 rulings (2026-07-09):** `agentic_orchestration/gandalf/notes/2026-07-09-e2-economy-axis-design-note.md` — vocab pinned **spiky/flat/variable** (variable = mixed portfolio: primary chain spiky, rest flat); **cycle-throughput + cost-rate conservation** via single per-skill scalar `k` on (per_hit, cooldown, cost) — bands should NOT lurch, and a lurch = leaked law; scope = attack-full / control-cadence-only-uptime-invariant / support+T4 exempt; E4 cast-time boundary held. **Rocket-dispatch precondition CLEARED — KR fires post-C3.** **EMITTER LANDED 2026-07-09** (`d99635a`, tag `rocket/v2.0-economy-axis-2`, Gate-2 PASS, zero sacred-table diffs, PUSHED). **Post-E2 conservation audit HALTed** (gamora readout `agentic_orchestration/gamora/notes/2026-07-09-post-e2-conservation-audit-HALT-readout.md`): 5/7 bands lurch — **diagnosis (b) SUBSTRATE TRUTH** (mean-preserving fan-out; per-skill invariance HELD and does not extend to encounter-KPM — overkill censoring + AoE-overlap ride per-hit SIZE). Bands STAND at C3, no re-fit. **Axis closes on Matt's KPM-instrument disposition** (parked; Lane-3 elite_pack floor-guard COUPLED). | **IN-FLIGHT — HALT-parked (Matt)** |
 | **E3** | Hybrid scaling patterns | `hybrid_pattern=None` population-wide (Q-W05-R4 deferral); hybrids get chain_B secondary *element* only — content-distinct, mechanics-identical. | **FLIP — ✓ RULED (Matt 2026-07-08):** queued axis — a small design pass precedes code (the dual-scaling pattern vocabulary was stubbed, never designed). Amendment 7a intends hybrids as builds, not palette swaps. | OPEN queued |
 | **E4** | Skill timing variety | Instant-cast everything except T4-channeled (`per_skill_emitter.py` timing emission) — no cast-time / wind-up / charge texture. | **FLIP — ✓ RULED (Matt 2026-07-08):** queued axis — cheapest of the four (sim already consumes `cast_time` fields; they're just uniformly instant). Timing is a core ARPG feel axis (D2 FCR breakpoints, PoE cast-speed builds). | OPEN queued |
 | **E5** | Investment expression in certification | Certification fights a fixed L50 instrument state; player investment (levels/gear/traits) has no expression in what certifies. | **✓ RULED Option C (Matt 2026-07-08):** certification = declared baseline (arm G); the stripped arm = **scaling-delta DIAGNOSTIC** (the arm pair is a two-point envelope by construction — free); anomalous scalers flagged FLAG_PASS-style. Full envelope (D3 GR-ladder shape) re-enters **when the loot campaign's operator surface lands** — named empirical re-entry, not time-passage. | ✓ ruled |
