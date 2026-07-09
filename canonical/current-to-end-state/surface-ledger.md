@@ -46,6 +46,24 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-08 (3) — Run LANDED (E1 built + C2 completion-built, batched Gate-2 both PASS) — ✓-flips await Matt approval; E10 accrued ⚖
+
+KR executed the re-transmission end-to-end same-session. **E1 LANDED** (rocket `bfc94eb`:
+per-skill kernel geometry `assign_skill_geometry(role, tier, delivery)` over the rich vocabulary;
+distinct geometries/kit 3 → 11–12; emitted set = 20 keys ⊆ 24; zero movement verbs via closed
+excluded set; B11 mechanics fire; math note first, Disc #1). **C2 completion-build LANDED**
+(gamora `a63aae2`: `measured_gear_stats` threaded w5g1→w4g1/w4g2→leaf, cell-grain two-arm driver
+built, HALT-LOUD instrument live-verified). **Batched Gate-2 BOTH PASS** (jack-ryan `7956484`,
+smokes reproduced live). **E1 + C2 flip ✓ on Matt approval of decisions-log `a50db87`**
+(landed + Matt-seen per lifecycle); until then E1/C2 hold IN-FLIGHT. C3 gains the two Gate-2
+riders (INFO-1 Path-3-blind baseline · INFO-2 four-cohort arm-G config). First audit item
+returned: **mob-affix layer ABSENT** (legolas) → **E10 accrued ⚖** (net-new BUILD row, not a
+trivialization FLIP — fork: demo-critical minimal set vs launch-scope re-entry; Matt rules).
+
+**Signed:** gandalf, 2026-07-08 (3).
+
+---
+
 ### 2026-07-08 (2) — E-ROWS RULED (Matt: "E1–E8 as leaned; E5 = C; E9 = C") — zero ⚖ remaining on seeded rows
 
 Matt ruled the full seeded slate same-session. Flips: **E1** FLIP ruled → IN-FLIGHT (first axis,
@@ -94,7 +112,8 @@ dangling-open by design (§2.4 named gate; closes in a future delta when the las
 | **E6** | Summon / proxy T4 suite | Five ratified PROXY-family members, two-phase activation per `reap-die-rise-engine/proxy-t4-suite-spec-2026-07-02.md` v3; B1-rebase in flight; proxy-dominant cells append the 13th summon skill (`season_generation_pipeline.py:1140+`). | **FLIP — already in-flight** (ruled 2026-07-02; execution rides the main line). Row confirmed true (Matt 2026-07-08). | IN-FLIGHT |
 | **E7** | Soul-bound weapon mechanics | Substrate weapon = identity-YES / mechanics-NO: cultural lineage/period/register bind (`season_generation_pipeline.py:356-441`), zero-contribution weapon shell in cert gear (`combatant.py:491-545`). | **KEEP — sequenced — ✓ AGREED (Matt 2026-07-08):** identity-yes/mechanics-no is correct *for certification now*; mechanics arrive via the loot campaign; `express_gear` succession = function swap + band re-fit (planned). | ✓ agreed |
 | **E8** | Skill naming / flavor | Placeholder names (`skill_a1`-style) at emission; Phase-5 LLM naming layer fills downstream (`per_skill_emitter.py:616-620`). | **KEEP — layer-handoff — ✓ AGREED (Matt 2026-07-08)** (the legitimate deferred class, OP §3.7a; D7 AI-tell line governs the fill). **Tooth recorded:** the naming/flavor pass MUST fire for the curated-20 roster pre-demo (35/35 flavor beat proved the machinery) — layer-handoff ≠ never. | ✓ agreed |
-| **E9** | Mob build depth | Mobs are stat-blocks + threat-tier skills via `emit_skills_for_threat_tier`, not kit-built units; no mob gear. | **✓ RULED Option C (Matt 2026-07-08):** population stays **stat-blocks + rare/champion AFFIX layer** (genre-standard: D2 champion mods, PoE rare mods — **affix-layer existence UNVERIFIED → first commissioned audit item**; if absent, it accrues as its own axis row); plus a named **RIVAL-class kit-built encounter type** sourced from certified-non-rostered kits of the full-spec population = **launch-scope re-entry** (PoE rogue-exile precedent; thematically: other reaped souls on the same descent; NOT demo-critical). Mob gear stays barred (§7 sawtooth guard [DECISION/CRITICAL]). | ✓ ruled |
+| **E9** | Mob build depth | Mobs are stat-blocks + threat-tier skills via `emit_skills_for_threat_tier`, not kit-built units; no mob gear. | **✓ RULED Option C (Matt 2026-07-08):** population stays **stat-blocks + rare/champion AFFIX layer** (genre-standard: D2 champion mods, PoE rare mods — **affix-layer existence UNVERIFIED → first commissioned audit item**; if absent, it accrues as its own axis row); plus a named **RIVAL-class kit-built encounter type** sourced from certified-non-rostered kits of the full-spec population = **launch-scope re-entry** (PoE rogue-exile precedent; thematically: other reaped souls on the same descent; NOT demo-critical). Mob gear stays barred (§7 sawtooth guard [DECISION/CRITICAL]). *(Existence audit RESOLVED same-day: ABSENT → row E10.)* | ✓ ruled |
+| **E10** | Mob rare/champion affix layer (accrued from E9-C first audit item) | **ABSENT — never built, no stub** (legolas audit 2026-07-08): mobs are flat stat-blocks (`monster_generator.py:389-475`); codebase "rare"/"champion" are **pack-composition labels**, not per-mob modifier rolls (`arena.py:468-502`, `:960-1006`); "champion elevation" is a player-side scalar (`spatial_engine.py:3470-3478`); affix infra is 100% player-side. Finding: `agentic_orchestration/research/2026-07-08-mob-affix-layer-existence-audit.md`. | **BUILD (net-new axis) — NOT a trivialization FLIP** (nothing was narrowed; the affix half of E9-C's ruled end-state is unbuilt). **Fork for Matt:** **(i)** demo-critical **minimal affix set** — genre floor is D2 champion/rare mods (~6–10 rolled mods; steward lean: flat stat-blocks read as HP-piñatas within minutes of play) · **(ii)** launch-scope re-entry — demo ships pack-composition texture only. Sequencing lean either way: **after player-side axes (E2/E4/E3)** — does not block per-axis kit certification. | ⚖ |
 
 ## CONTENT-EMISSION surfaces
 
@@ -102,7 +121,7 @@ dangling-open by design (§2.4 named gate; closes in a future delta when the las
 |---|---|---|---|---|
 | **C1** | Certification population sourcing | Was: seed-57000000, 18 BC cells × 100 = 1,800 template-lattice kits (`season_generation_pipeline.py:1108`). | **✓ RULED 2026-07-08 (pivot a):** population SCRAPPED — never becomes content; F1 pilot findings survive as *instrument* evidence; regeneration is per-axis on the main line. | ✓ ruled |
 | **C2** | Pilot instrument (two-leg, arms S/G) | Halt-verified gaps: `measured_gear_stats` plumbed leaf-only (absent w4g1/w4g2/w5g1); Leg-i cell-grain two-arm driver never written (only the Leg-ii harness exists). | **KEEP as instrument — completion-build AUTHORIZED (disposition A)**, population-agnostic; converts to the standing per-axis certification instrument. Fire on the old seed = optional machine smoke-test, zero content authority. | IN-FLIGHT |
-| **C3** | KPM band tables | All live bands fit to STRIPPED distributions on the scrapped population (2026-07-08 ratified set = current-instrument only). | **FLIP** — re-fit at every declared baseline (arm-G gear × each per-axis population). `gates-on: E1` (first re-fit lands with the geometry axis). | OPEN |
+| **C3** | KPM band tables | All live bands fit to STRIPPED distributions on the scrapped population (2026-07-08 ratified set = current-instrument only). | **FLIP** — re-fit at every declared baseline (arm-G gear × each per-axis population). `gates-on: E1` (first re-fit lands with the geometry axis). **Gate-2 riders:** the re-fit delta reads off a largely **Path-3 geometry-blind** pre-E1 baseline, not a clean 3-shape one (INFO-1, independently verified); the content fire must exercise the **four-cohort arm-G path** (`--all-cohorts-arm-g` or `w5g1 arm="G"`) so the per-cohort delta map exists (INFO-2). | OPEN |
 | **C4** | Emission fire (any size) | Blocked by construction pre-pivot (F4 catalog hole, closed) — now gated on the ledger itself. | **Gate-bound:** `gates-on: GATE1` — no emission until all surfaces agreed + re-pilot on the widened population at re-fit bands. | ⛔ gated |
 
 ## DEMO-GAME surfaces
