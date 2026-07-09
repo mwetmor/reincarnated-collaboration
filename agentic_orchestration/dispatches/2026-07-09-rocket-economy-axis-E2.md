@@ -4,7 +4,7 @@
 **Date:** 2026-07-09
 **Pattern:** B (multi-hour build; math-before-code) — **Gate-1 (critique pair: jack-ryan + gandalf) REQUIRED before fire**
 **Authority:** Matt-ratified E2 rulings 2026-07-09 (Q-E2-1 mixed portfolio · Q-E2-2 cycle-throughput invariance · Q-E2-3 modulation scope). Design note (BINDING §3): `agentic_orchestration/gandalf/notes/2026-07-09-e2-economy-axis-design-note.md`. Surface-ledger **E2** (OPEN queued → IN-FLIGHT on fire). Second axis of the full-spec main line (E1→**E2**→E4→E3).
-**Status:** DRAFT — fires on Gate-1 PASS (both critique-pair members).
+**Status:** FIRE-READY — Gate-1 critique pair PASS (gandalf **CONCUR** no-amendments; jack-ryan **PASS-WITH-AMENDMENTS**, both folded: §3 amendment A control-duration field-location source note + §6 amendment B per-chain provenance grain). Cleared to execute.
 
 ---
 
@@ -31,6 +31,8 @@ Author `generation/math/economy-axis-e2-<date>.md` FIRST. It MUST derive `k_spik
 
 Also state in the note: the **conservation-law proof** (throughput = per_hit/period and cost_rate = cost/period are invariant under joint `k` by construction — §1.2); the **control cadence-only** treatment (duration scales WITH cooldown so lock-uptime duration/period is invariant; per-hit unscaled — §1.3); and resolve acceptance §8 (**duration-field location** — if control lock duration is not on the emitted skill, locate its real home; uptime-invariance applies wherever it lives — flag, don't fake).
 
+**[Gate-1 amendment A, jack-ryan WARN — control-duration field-location source note]** Control lock duration is emitted today as an **ailment param** (`per_skill_emitter.py:562/:571/:574/:580-585` — `duration_seconds`, `slow_percent`+`duration_seconds`, `zone_duration_seconds`), each sourced from a **registry default** (`ranges[...]["default"]`), NOT as a free per-skill economy scalar alongside `cooldown_seconds`/`energy_cost` (:749-750). The math note MUST resolve two sub-questions BEFORE coding: **(a)** does the sim CONSUME the emitted ailment `duration_seconds`, or does it re-default duration sim-side from the same registry (in which case a `k`-scaled emitted value is silently ignored — a "fake" per §8)? **(b)** if the sim re-defaults, applying uptime-invariant `k` requires either an emitted override the sim honors (cross-seam → MIGRATION.md + gamora + Matt per §9) OR the control-cadence `k` is scoped to cooldown+cost only for v1 with duration-scaling flagged as a gamora-side follow-on. **Flag, don't fake.**
+
 ## 4. Modulation scope (design note §1.3) — apply EXACTLY
 
 | Role / tier | Modulation |
@@ -54,6 +56,8 @@ Canonical amplitude vocabulary is **spiky / flat / variable** (the catalog coord
 ## 6. Provenance (design note acceptance §5) — certification honesty
 
 The applied `k` MUST be **recoverable from the emitted skill record** (visible downstream, not folded invisibly into the numbers). Certification must be able to read which `k` shaped a skill.
+
+**[Gate-1 amendment B, jack-ryan WARN — provenance grain]** Provenance must record the applied `k` **per modulated chain**, NOT one kit-level scalar — the **variable** cell emits TWO values in one kit (primary_attack at `k_spiky`, secondary/control at `k_flat`). A single kit-level `k` field cannot represent the mixed portfolio and would misattribute the variable case at certification. The round-trip smoke (§7) already prints per-skill before/after; the persisted provenance must match that grain.
 
 ## 7. Round-trip smoke (design note acceptance §3; E1 #2-FF pattern) — MANDATORY
 
