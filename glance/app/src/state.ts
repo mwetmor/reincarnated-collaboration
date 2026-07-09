@@ -55,7 +55,17 @@ export interface Counters {
   closed: number;
 }
 
-export type TrackerId = 'engine' | 'story' | 'game' | 'serial-content-emission';
+export type TrackerId =
+  | 'engine'
+  | 'story'
+  | 'game'
+  | 'serial-content-emission'
+  | 'surface-ledger';
+
+export interface SurfacesAgreed {
+  agreed: number;
+  total: number;
+}
 
 export interface Tracker {
   id: TrackerId;
@@ -64,6 +74,8 @@ export interface Tracker {
   deltas: Delta[];
   queues: Queue[];
   counters: Counters;
+  // §7.2 — present ONLY on the surface-ledger card: surfaces agreed vs. total.
+  surfaces_agreed?: SurfacesAgreed;
 }
 
 export interface MattItem {
@@ -96,6 +108,9 @@ export interface State {
     date_is_build_time_proxy?: boolean;
   };
   trackers: Tracker[];
+  // §5 header strip — the demo-gate counter, derived from the surface-ledger card.
+  // null when the ledger doesn't parse (absence-legal).
+  surfaces_agreed: SurfacesAgreed | null;
   matt_decision_needed: MattItem[];
   matt_to_do: MattItem[];
   dangling_gates: DanglingGate[];
@@ -108,6 +123,7 @@ export const TRACKER_LABEL: Record<TrackerId, string> = {
   story: 'Story',
   game: 'Game',
   'serial-content-emission': 'Serial Content Emission',
+  'surface-ledger': 'Surface Ledger',
 };
 
 export const STATUS_LABEL: Record<StatusToken, string> = {

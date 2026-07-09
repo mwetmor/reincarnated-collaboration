@@ -139,11 +139,14 @@ function Glance({
 }) {
   const openDecisions = state.matt_decision_needed.filter((x) => !x.resolved);
   const openTodos = state.matt_to_do.filter((x) => !x.resolved);
+  const sa = state.surfaces_agreed;
+  // GATE1 closes when agreed === total; that's the demo-gate. Tone reflects it.
+  const gateClosed = sa != null && sa.total > 0 && sa.agreed === sa.total;
 
   return (
     <div className="space-y-6">
-      {/* header strip */}
-      <section className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+      {/* header strip (§5) */}
+      <section className="grid grid-cols-2 gap-2 sm:grid-cols-5">
         <PixelCard
           big
           value={openDecisions.length}
@@ -159,6 +162,15 @@ function Glance({
           tone="neutral"
           href={githubLink(state.gh_blob_base, 'canonical/matt_to_do/README.md', 1)}
         />
+        {sa != null && (
+          <PixelCard
+            value={`✓${sa.agreed} / ${sa.total}`}
+            label="Surfaces agreed"
+            sub={gateClosed ? 'GATE1 closes — demo in full view' : 'demo gate (GATE1)'}
+            tone={gateClosed ? 'calm' : 'warn'}
+            href={githubLink(state.gh_blob_base, 'canonical/current-to-end-state/surface-ledger.md', 1)}
+          />
+        )}
         <PixelCard
           value={commitAge(state.last_commit.date)}
           label={state.last_commit.date_is_build_time_proxy ? 'Last build' : 'Last commit'}
@@ -174,7 +186,7 @@ function Glance({
         />
       </section>
 
-      {/* four tracker cards */}
+      {/* tracker cards — four trackers + the surface-ledger fifth card (§7.2) */}
       <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {state.trackers.map((t) => (
           <TrackerCard key={t.id} tracker={t} onOpen={() => onOpenTracker(t.id)} />

@@ -11,6 +11,7 @@
  *
  * The parser reads ONLY:
  *   canonical/current-to-end-state/current-to-end-state-{engine,story,game,serial-content-emission}.md  (the 4 trackers)
+ *   canonical/current-to-end-state/surface-ledger.md  (the 5th Tier-0 card — Glance contract v1.3 §7.2)
  *   canonical/matt_decision_needed/README.md
  *   canonical/matt_to_do/README.md
  * It NEVER touches the engine tree.
@@ -471,6 +472,10 @@ const TRACKERS = [
   { id: 'story', file: 'current-to-end-state-story.md' },
   { id: 'game', file: 'current-to-end-state-game.md' },
   { id: 'serial-content-emission', file: 'current-to-end-state-serial-content-emission.md' },
+  // v1.3 §7.2 — the surface-ledger joins the modeled set as the FIFTH Tier-0 card.
+  // "Not a fifth tracker" editorially, but structurally it IS one more entry in the
+  // tracker glob (the parser doesn't care about the editorial distinction).
+  { id: 'surface-ledger', file: 'surface-ledger.md', ledger: true },
 ];
 
 function parseTracker(t) {
@@ -483,9 +488,12 @@ function parseTracker(t) {
   const lines = readFileSync(abs, 'utf8').split('\n');
   const status_banner = parseStatusBanner(lines, relPath);
   const deltas = parseDeltaLog(lines, relPath);
-  const queues = parseQueues(lines, relPath);
+  // §7.2: the ledger reuses the STATUS + SESSION-DELTA shapes identically, but its
+  // queue tables carry two ledger-specific properties that the generic §2.3 parser
+  // would mis-read (see parseLedgerQueues). Everything else is shared.
+  const queues = t.ledger ? parseLedgerQueues(lines, relPath) : parseQueues(lines, relPath);
   const counters = tallyCounters(queues);
-  return {
+  const tracker = {
     id: t.id,
     path: relPath,
     status_banner,
@@ -493,6 +501,114 @@ function parseTracker(t) {
     queues,
     counters,
   };
+  if (t.ledger) tracker.surfaces_agreed = surfacesAgreed(queues);
+  return tracker;
+}
+
+// ---------------------------------------------------------------------------
+// §7.2 — surface-ledger queue parse.
+//
+// The ledger writes the SAME legislated shapes (§2.1 STATUS, §2.2 SESSION-DELTA,
+// §2.3 status-prefixed rows, §2.4 gates-on, §2.7 FLOW), but its queue tables have
+// two properties the generic §2.3 table parser does NOT handle correctly:
+//
+//  (1) THE STATUS LIVES IN THE LAST CELL (the "Matt gate" column), NOT the first
+//      matching cell. §7.2 row-semantics: the prefix encodes Matt-agreement state
+//      (✓ agreed · IN-FLIGHT executing · OPEN · ⚖ · ⛔ gate-bound). The ledger's
+//      lifecycle rule is explicit: a ruled-FLIP row's Classification cell reads
+//      "✓ RULED …" while its Matt-gate cell still reads IN-FLIGHT/OPEN — "status
+//      tracks EXECUTION, ruling lives in the classification cell; Glance counters
+//      must never claim queued work as executing." The generic left-to-right scan
+//      would wrongly count row E10 (Classification "✓ RULED path (iii)", Matt gate
+//      IN-FLIGHT) as closed. So: status = the LAST cell (Matt gate) only.
+//
+//  (2) A stray blank line inside the ENGINE table (after E1) splits it into two
+//      markdown tables; the second has no header row of its own, so the generic
+//      parser drops E2–E10 entirely. The ledger is a flat surface list under
+//      section headings, so we collect EVERY row-ID-bearing table data row under
+//      each section heading, tolerant of blank-line table splits — the ledger's
+//      row IDs are its board grain, not its markdown table boundaries.
+//
+// This is ledger-scoped: the four trackers keep parseQueues() unchanged.
+// ---------------------------------------------------------------------------
+function statusFromGateCell(cellRaw) {
+  const t = stripInlineMd(cellRaw);
+  for (const { token, match } of STATUS_PREFIXES) {
+    if (t.startsWith(match)) return { token, prose: t.slice(match.length).trim() };
+  }
+  if (t.startsWith('OPEN')) return { token: 'open', prose: t.slice(4).trim() };
+  return { token: 'open', prose: '' }; // §2.3: no prefix = OPEN
+}
+
+function parseLedgerQueues(lines, relPath) {
+  const queues = [];
+  let current = null; // { title, line, rows, seenIds }
+
+  const flushIf = () => {
+    if (current && current.rows.length > 0) {
+      queues.push({ title: current.title, line: current.line, kind: 'table', rows: current.rows });
+    }
+    current = null;
+  };
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    // A section heading opens a new board (## ENGINE surfaces, ## THE GATE, …).
+    const h = line.match(/^#{2,4}\s+(.*)$/);
+    if (h) {
+      flushIf();
+      // Only sections that will contain surface rows become boards; empty ones
+      // are dropped by flushIf (rows.length === 0). Prime a candidate board.
+      current = { title: h[1].trim(), line: i + 1, rows: [], seenIds: new Map() };
+      continue;
+    }
+    if (!current) continue;
+
+    const cells = splitTableRow(line);
+    if (!cells || isSeparatorRow(cells)) continue; // header / separator / prose
+    const id = extractRowId(cells[0]);
+    if (id === null) continue; // header row or free-prose table row (absence-legal)
+
+    // MALFORMED (c): duplicate row ID within one board (§2.6 rule 3).
+    if (current.seenIds.has(id)) {
+      malformed('duplicate-id', relPath, i + 1,
+        `Duplicate row ID "${id}" within one ledger board (first seen at line ${current.seenIds.get(id)}): ${current.title}`);
+      continue;
+    }
+    current.seenIds.set(id, i + 1);
+
+    const rowText = cells.join(' | ');
+    // §7.2 property (1): status = the Matt-gate column = the LAST cell.
+    const status = statusFromGateCell(cells[cells.length - 1]);
+    current.rows.push({
+      id,
+      cells_md: cells,
+      owner: extractOwner(cells),
+      status,
+      gates_on: extractGatesOn(rowText),
+      line: i + 1,
+    });
+  }
+  flushIf();
+  return queues;
+}
+
+// §5 header strip counter: "surfaces agreed ✓N / M" (the demo-gate number;
+// GATE1 closes at N === M). Derived from the ledger's parsed rows — never
+// hard-coded. The GATE1 row is the gate SINK, not a surface, so it is excluded
+// from BOTH the numerator and the denominator (§7.2: GATE1 "closes when every
+// row above reads ✓").
+function surfacesAgreed(queues) {
+  let agreed = 0;
+  let total = 0;
+  for (const q of queues) {
+    for (const r of q.rows) {
+      if (r.id === 'GATE1') continue;
+      total += 1;
+      if (r.status.token === 'closed') agreed += 1;
+    }
+  }
+  return { agreed, total };
 }
 
 // ---------------------------------------------------------------------------
@@ -710,12 +826,17 @@ function main() {
   const matt_to_do = parseMattQueue('matt_to_do');
 
   const generatedAt = new Date().toISOString();
+  // §5 header strip: surfaces-agreed counter (the demo-gate number) is derived
+  // from the surface-ledger card. Absent if the ledger doesn't parse (absence-legal).
+  const ledgerTracker = trackers.find((t) => t.id === 'surface-ledger');
+  const surfaces_agreed = ledgerTracker?.surfaces_agreed ?? null;
   const state = {
     generated_at: generatedAt,
     repo_sha: repoSha(),
     gh_blob_base: GH_BLOB_BASE,
     last_commit: lastCommit(generatedAt),
     trackers,
+    surfaces_agreed,
     matt_decision_needed,
     matt_to_do,
     dangling_gates: dangling,
@@ -739,6 +860,7 @@ function main() {
   console.log(`  queue rows       : ${rowCount}`);
   console.log(`  matt_decision    : ${matt_decision_needed.length} (open ${matt_decision_needed.filter((x) => !x.resolved).length})`);
   console.log(`  matt_to_do       : ${matt_to_do.length} (open ${matt_to_do.filter((x) => !x.resolved).length})`);
+  console.log(`  surfaces agreed  : ${surfaces_agreed ? `✓${surfaces_agreed.agreed} / ${surfaces_agreed.total}` : '—'}`);
   console.log(`  dangling gates   : ${dangling.length}  (warnings, not failures)`);
   console.log(`  MALFORMED        : ${malformedFindings.length}`);
   console.log(`  state.json       : ${outPath}`);
