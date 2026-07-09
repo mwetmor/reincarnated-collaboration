@@ -46,6 +46,26 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-09 — KR run 5/6 CLOSED + E2 design note LANDED (Matt-ratified) — C3 compute in flight
+
+KR closed five of six prompt items: release chain fired (a50db87 approved-flipped, engine stack
+pushed) · C3 dispatched + computing (gamora, first content-bearing per-axis run) · legolas
+E10-Leg-1 RETURNED (`research/2026-07-08-mob-affix-genre-canon.md`, 011dfad — 7-game canon,
+5 syntheses, 7 no-substrate-home hard questions, failure appendix; path-iii discipline held:
+no recommended list) · drax Glance v1.3 done · S1 with gandalf. While C3 computes, Matt ruled
+the three E2 forks in-session (**Q-E2-1 = (a) mixed portfolio · Q-E2-2 cycle-throughput
+invariance · Q-E2-3 scope agreed**) → **E2 design note LANDED**
+(`agentic_orchestration/gandalf/notes/2026-07-09-e2-economy-axis-design-note.md`): single
+per-skill scalar `k` on (per_hit, cooldown, cost) preserves throughput + cost-rate exactly by
+construction; control cadence-only with lock-uptime invariance; support/T4 exempt; magnitude
+lean k_spiky≈1.6 / k_flat≈0.7 with four derivation constraints for rocket's math note.
+**E2 rocket-dispatch precondition CLEARED** — fires post-C3 (KR sequences). **E10 Leg 2**
+(gandalf+Matt affix design session) unblocked — findings in hand. Tally holds **9✓/17**.
+
+**Signed:** gandalf, 2026-07-09.
+
+---
+
 ### 2026-07-08 (4) — Q13 APPROVED + E10 RULED path (iii) — ledger stands 9✓/17
 
 Matt approved **Q13** (decisions-log `a50db87`) → **E1 + C2 flip ✓** (landed + Gate-2 PASS +
@@ -127,7 +147,7 @@ dangling-open by design (§2.4 named gate; closes in a future delta when the las
 |---|---|---|---|---|
 | **E1** | Skill geometry palette (emitter) | ~~3-shape once-per-kit collapse~~ **WIDENED (bfc94eb):** per-skill kernel assignment `assign_skill_geometry(role, tier, delivery)` over the rich vocabulary; distinct geometries/kit 3 → 11–12; emitted set = 20 keys ⊆ 24; zero movement verbs (closed excluded set); B11 mechanics fire. Math note first (Disc #1). | **FLIP — ✓ RULED (Matt 2026-07-08):** first axis of the main line. Movement-verb rider RULED: dash/blink/teleport EXCLUDED — ride the parked F4-martial fork. **LANDED + batched Gate-2 PASS (`7956484`) + Matt-approved (Q13, 2026-07-08).** | ✓ |
 
-| **E2** | Skill damage / economy scalars | `BASE_SPELL_DAMAGE_L50` uniform 20,532.2 across ALL tiers/kits (`per_skill_emitter.py:106-115`); fixed energy/cooldown/cast tables per (tier, role) (`:49-54` + tables) — no per-kit economy texture. | **FLIP — ✓ RULED (Matt 2026-07-08):** queued axis — kernel economies become mechanically distinct (regen shapes, cost curves, cooldown texture per kernel); the tier curve stays the balance spine. | OPEN queued |
+| **E2** | Skill damage / economy scalars | `BASE_SPELL_DAMAGE_L50` uniform 20,532.2 across ALL tiers/kits (`per_skill_emitter.py:106-115`); fixed energy/cooldown/cast tables per (tier, role) (`:49-54` + tables) — no per-kit economy texture; `bc_amplitude` v1-INERT post-E1 (tie-shaper only). | **FLIP — ✓ RULED (Matt 2026-07-08):** queued axis — the tier curve stays the balance spine. **Design note LANDED, Matt-ratified 3 rulings (2026-07-09):** `agentic_orchestration/gandalf/notes/2026-07-09-e2-economy-axis-design-note.md` — vocab pinned **spiky/flat/variable** (variable = mixed portfolio: primary chain spiky, rest flat); **cycle-throughput + cost-rate conservation** via single per-skill scalar `k` on (per_hit, cooldown, cost) — bands should NOT lurch, and a lurch = leaked law; scope = attack-full / control-cadence-only-uptime-invariant / support+T4 exempt; E4 cast-time boundary held. **Rocket-dispatch precondition CLEARED — KR fires post-C3.** | OPEN queued |
 | **E3** | Hybrid scaling patterns | `hybrid_pattern=None` population-wide (Q-W05-R4 deferral); hybrids get chain_B secondary *element* only — content-distinct, mechanics-identical. | **FLIP — ✓ RULED (Matt 2026-07-08):** queued axis — a small design pass precedes code (the dual-scaling pattern vocabulary was stubbed, never designed). Amendment 7a intends hybrids as builds, not palette swaps. | OPEN queued |
 | **E4** | Skill timing variety | Instant-cast everything except T4-channeled (`per_skill_emitter.py` timing emission) — no cast-time / wind-up / charge texture. | **FLIP — ✓ RULED (Matt 2026-07-08):** queued axis — cheapest of the four (sim already consumes `cast_time` fields; they're just uniformly instant). Timing is a core ARPG feel axis (D2 FCR breakpoints, PoE cast-speed builds). | OPEN queued |
 | **E5** | Investment expression in certification | Certification fights a fixed L50 instrument state; player investment (levels/gear/traits) has no expression in what certifies. | **✓ RULED Option C (Matt 2026-07-08):** certification = declared baseline (arm G); the stripped arm = **scaling-delta DIAGNOSTIC** (the arm pair is a two-point envelope by construction — free); anomalous scalers flagged FLAG_PASS-style. Full envelope (D3 GR-ladder shape) re-enters **when the loot campaign's operator surface lands** — named empirical re-entry, not time-passage. | ✓ ruled |
