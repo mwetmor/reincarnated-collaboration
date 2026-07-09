@@ -46,6 +46,30 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-09 (5) — RACE WELL DESIGNED + CURATED (Pattern-B session, Matt-ratified): S2 design half DONE
+
+While the autonomous run executes, the gandalf+Matt well-design session closed all four forks
+(*"Agreed on all above"*) + the orc-construction ruling. Canon LANDED:
+`canonical/reap-die-rise-engine/bestiary-race-well-design-2026-07-09.md` (§3.1a companion; engine
+00-index entry added; mob-affix spec §3.1a gate line refreshed). **W1 RATIFIED — race = frame ×
+register = dressing; identity cell = race × register** ("space orc" = orc × military_modern — a
+cell, not a race; the Synty library itself factors this way, surveyed in-session). **Two-tier
+admission cost model born of Matt's orc ruling:** reskin (human frame + material/modular variation,
+rig-conformant BY CONSTRUCTION — orc: green skin + bulk pieces, *"without altering the skeleton's
+dimensions"*) vs reframe (own skeleton + BoneMap — goblin the proof case). **v1 slate CURATED at 5**
+(inside the 4–6 budget): Human + Goblin rig-verified today · Orc verified-by-construction ·
+Elf/Dwarf admitted, frames Matt-confirmed in fantasy character packs, **Lane-4a rig-check = the only
+remaining gate**. **W2:** undeath = vessel-STATE, not race — skeleton/zombie/werewolf frames →
+mob-only kinds. **W3:** NO kit-side race×element coupling (element stays a BC coordinate). **W4:**
+demo realm = elf-native / human common / goblin war-camps / orc-dwarf sparse. **Consequence for the
+autonomous run:** Lane 4's curation memo is now a VERIFICATION pass against the ruled slate (elf/dwarf
+rig-conformance + orc modular-asset enumeration), not a from-scratch proposal — the Leg 3 design
+inputs are otherwise COMPLETE. Tally holds **11✓/20** (S2 stays OPEN until the well BUILD lands).
+
+**Signed:** gandalf, 2026-07-09 (5).
+
+---
+
 ### 2026-07-09 (4) — RULING SLATE FULLY RULED (Matt): C3 ✓ + S1 ✓ + S2/S3/S4 ruled — tally 11✓/20
 
 Matt: *"Agreed on all in the ruling slate above with one caution"* — **C3 ✓** (readout Matt-seen;
