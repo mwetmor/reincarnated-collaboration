@@ -54,3 +54,41 @@
   - Engine analysis: `d8b249c` (rocket budget note) already on engine repo; held.
 
 **Signed:** knight-rider, 2026-07-09 (autonomous continuation run — five lanes closed).
+
+---
+
+# FOLLOW-ON RUN — Matt ruled Q14/Q15/Q16 ("agreed on Q14, 15 and 16"); executed + all pushed
+
+Matt ratified all three parked decisions and authorized batch-push of the entire held stack. gandalf pre-recorded surface-ledger delta (7) in collab `3b6dd06` (E2 row ✓ → **tally 12✓/20**; walls stamped into mob-affix spec §5.1). Three follow-on lanes executed.
+
+## The three rulings (now canon)
+- **Q14 — E2 KPM-instrument disposition (composite, gandalf lean ADOPTED):** (i) encounter-KPM **fan-out ACCEPTED AS TEXTURE** — a NEW disposition-1 analogue at the encounter layer (the mean-preserving spread IS the spiky/flat identity reaching the encounter; the audit found the axis *working*, not leaking). (ii) gamora's **clear-time floor guard SHIPS** (T_floor=1.0s/10 ticks), NOT the cap-raise — also closes the Lane-3 elite_pack KPM-450 item (same censoring family, one fix). (iii) **RIDER:** ONE band re-anchor at END-of-axis-run (post-E3/E4, on the de-censored instrument, Matt-gated) — no per-axis re-anchoring. (iv) **RIDER:** lurch-semantics refinement (mean-TRANSLATION=leak vs mean-preserving FAN-OUT=texture), math-note-first. **E2 axis CLOSED.**
+- **Q15 — Walls DEFER RATIFIED** (Matt + gandalf co-sign): pull+immobilize enter E10 Leg 3 v1 on existing plumbing; Walls = named future spatial-layer workstream (obstacle type + obstacle-aware nav + hit-occlusion; multi-dispatch, math-note-first when it fires).
+- **Q16 — succession/declared-baseline entry APPROVED** (engine `5b20df0` flipped PENDING→APPROVED).
+
+## Follow-on lanes (all shipped + pushed)
+- **Lane 1 (jack-ryan) — records + batch push:** flipped Q16 to APPROVED; authored Q14 entry (4-part composite, riders iii+iv explicit) + Q15 entry (two-entry format) in decisions-log → engine `f532cb7`. **Batch-pushed both repos** (engine `d99635a..f532cb7`; collab `908e858..3b6dd06`) — the entire held stack is now on origin.
+- **Lane 2 (gamora) — floor guard BUILT + Gate-2 PASS + pushed:** `t4_sim_cycling.py` `StratumFightBatch.observed_kpm` floors clear-time at T_floor=1.0s (Disc #12 semantic-shift; floor not clamp). Smoke: censored clears (0.4s→450-pin, 0.3s→600-uncapped, 0.5s E2-tail) all de-censor to 180; normal fights (>1.0s) UNCHANGED. Commit `9154f81`, tag `gamora/v1.4-clear-time-floor-guard-1`. **Gate-2 PASS** (jack-ryan `fdd246c`, severity INFO; clean sim-internal, no MIGRATION) → **pushed** (engine `f532cb7..9154f81` + tag; collab `3b6dd06..fdd246c`). Closes the Lane-3 elite_pack KPM-450 item. Also authored ruling-(iv) lurch-semantics math note `lurch-semantics-refinement-2026-07-09.md` (note only — impl rides the next E3/E4 audit dispatch).
+- **Lane 3 (drax) — bone-dump probes (godot repo, parallel):** in-Godot dumps on all three unknowns. **Elf (DarkElf): verified=true YES** (50-bone, 21/21 sidekick-core, binds `sidekick_bone_map.tres`, reskin-class). **Dwarf: RESKIN** (identical bone set, stature is mesh-baked not skeleton-baked; no own bone map needed — the open tier resolves). **Orc: drax RECOMMENDS native `Big_Ork` body** (21/21 core, identical proportions → satisfies Matt's "without altering skeleton dimensions" as-is; wins on silhouette/build-consistency — ruling parks for gandalf/Matt). NO BLOCKs. Research note `research/2026-07-09-drax-race-well-bone-dump-probes.md` (`fd99886`, pushed); probe script `reincarnated-godot/scripts/probe_race_well_bones.gd` (`1970bcb`). Godot repo commits are drax-seam.
+
+## LEDGER DELTAS (capture for gandalf — surface-ledger stays gandalf-owned)
+- **Already recorded by gandalf** (`3b6dd06`): E2 row ✓, tally **12✓/20**, delta (7), walls → mob-affix §5.1.
+- **NEW since gandalf's write — for gandalf to reconcile at next ledger touch:**
+  - The **clear-time floor guard shipped** (`9154f81`, Gate-2 PASS `fdd246c`) — the Q14(ii) instrument remedy is now live; the elite_pack KPM-450 instrument item is CLOSED (folded into this one fix). If the ledger tracks the elite_pack item as a row, it flips done.
+  - **Race-well rig verification advanced:** elf/dwarf/orc all resolve **reskin-class, rig-conformant** (drax `fd99886`). The three `verified=true` flags in canon §2 are now evidence-backed — gandalf's canon §2 rig-status columns can update from "file-inferred" to bone-dump-verified (elf=verified; dwarf=reskin confirmed; orc construction = drax-recommends-native-body, ruling parks for gandalf/Matt). Canon §2 edit is gandalf's write, not KR's.
+
+## PARKED (empirical re-engagement criteria)
+- **Orc construction choice** — drax recommends native `Big_Ork` body with evidence; **awaits gandalf/Matt ruling** before canon §2 stamps the orc tier. Re-engagement criterion: gandalf/Matt disposition.
+- **E4 axis** — the fork-elicitation draft (`937e853`) **stays PARKED**; awaits gandalf review + Matt routing (NOT KR-autonomous). E3 sequences after E4. Neither axis opened this window.
+- **Band re-anchor** — deferred to END-of-axis-run (post-E3/E4), Matt-gated (ruling iii). NOT this window.
+
+## INFO watch-item (pre-existing, for rocket)
+- 21 errors in `test_cycle13_wave5_season_generation.py` — rocket-seam **cell-grain dedup contract** violation (`season_generation_pipeline.py:1802`, legendary_id cell-level vs per-sample), matches the finding logged in `a5c3848`. Independent of the floor guard (reproduces with gamora's changes stashed) — attributed to rocket by Gate-2, NOT gamora. Queue a rocket cell-grain-contract fix.
+- drax BUILD notes (not blocks) for Leg 3: inject retarget via `apply_hero_retarget.py` with `fix_silhouette:true`; bind fantasy-rivals atlas explicitly (`Image.load()`, Synty broken-embedded-material gotcha).
+
+## Push state (follow-on) — ALL CLEAN, nothing held
+- **Engine:** origin/main = `9154f81` (all held analysis + Q14/Q15/Q16 entries + floor guard + tag pushed).
+- **Collab:** origin/main = `fdd246c` (entire held stack + drax research note + Gate-2 finding pushed).
+- **Godot:** drax probe script + scene work committed to godot repo (drax-seam).
+
+**Signed:** knight-rider, 2026-07-09 (follow-on run — Q14/Q15/Q16 executed; three lanes shipped + all pushed; nothing held).
