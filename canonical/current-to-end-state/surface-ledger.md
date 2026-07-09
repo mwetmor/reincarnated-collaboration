@@ -46,6 +46,29 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-09 (2) — E10 Leg 2 DONE: mob-affix design session complete, spec LANDED Matt-ratified
+
+The gandalf+Matt Pattern-B design session (E10 Leg 2) ran in-session against the legolas canon
+and closed same-session. **All rulings in:** frame RATIFIED (generative affix space — family ×
+element × tier over 8 functional families, sparse-matrix; Matt: *"elegant… I love the
+inversion-based perspective"*) · **Fork 1 = A** (pack-as-unit, leader-carrier + selective
+inheritance by layer class — stat inherits attenuated, spatial/composition/resource/temporal
+leader-only) · **Fork 2 = (c) after dialogue** — Matt surfaced the BC-cell question; resolution:
+eligibility keys off **bestiary-substrate affinity profiles** (race/family/order/faction — the
+SAME wells S1 wires player-side; one identity architecture, two consumers); coarse combat
+archetypes RETIRED from the affix layer; BC cells stay player/RIVAL-side (E9-C boundary) ·
+**Fork 3** pull/immobilize v1 + walls feasibility-spike · **Fork 4** one-way HP thresholds only ·
+**RIVAL two-stage naming grammar adopted** (title-epithet → true name on defeat). Spec:
+`canonical/reap-die-rise-engine/mob-affix-system-spec-2026-07-09.md` (+ engine 00-index entry).
+**Five Laws** = the constitution, each inverting a documented failure (AN, Reflects, Mana Burn,
+Thief). **Leg 3 build queued** — gates on bestiary identity wells (verified ABSENT engine-side,
+`monster_generator.py:393-462`; shared S1 dependency); KR-sequenced post-C3/E2; instrument
+guard stands. E10 row updated; tally holds **9✓/17** (E10 stays IN-FLIGHT until Leg 3 lands).
+
+**Signed:** gandalf, 2026-07-09 (2).
+
+---
+
 ### 2026-07-09 — KR run 5/6 CLOSED + E2 design note LANDED (Matt-ratified) — C3 compute in flight
 
 KR closed five of six prompt items: release chain fired (a50db87 approved-flipped, engine stack
@@ -155,7 +178,7 @@ dangling-open by design (§2.4 named gate; closes in a future delta when the las
 | **E7** | Soul-bound weapon mechanics | Substrate weapon = identity-YES / mechanics-NO: cultural lineage/period/register bind (`season_generation_pipeline.py:356-441`), zero-contribution weapon shell in cert gear (`combatant.py:491-545`). | **KEEP — sequenced — ✓ AGREED (Matt 2026-07-08):** identity-yes/mechanics-no is correct *for certification now*; mechanics arrive via the loot campaign; `express_gear` succession = function swap + band re-fit (planned). | ✓ agreed |
 | **E8** | Skill naming / flavor | Placeholder names (`skill_a1`-style) at emission; Phase-5 LLM naming layer fills downstream (`per_skill_emitter.py:616-620`). | **KEEP — layer-handoff — ✓ AGREED (Matt 2026-07-08)** (the legitimate deferred class, OP §3.7a; D7 AI-tell line governs the fill). **Tooth recorded:** the naming/flavor pass MUST fire for the curated-20 roster pre-demo (35/35 flavor beat proved the machinery) — layer-handoff ≠ never. | ✓ agreed |
 | **E9** | Mob build depth | Mobs are stat-blocks + threat-tier skills via `emit_skills_for_threat_tier`, not kit-built units; no mob gear. | **✓ RULED Option C (Matt 2026-07-08):** population stays **stat-blocks + rare/champion AFFIX layer** (genre-standard: D2 champion mods, PoE rare mods — **affix-layer existence UNVERIFIED → first commissioned audit item**; if absent, it accrues as its own axis row); plus a named **RIVAL-class kit-built encounter type** sourced from certified-non-rostered kits of the full-spec population = **launch-scope re-entry** (PoE rogue-exile precedent; thematically: other reaped souls on the same descent; NOT demo-critical). Mob gear stays barred (§7 sawtooth guard [DECISION/CRITICAL]). *(Existence audit RESOLVED same-day: ABSENT → row E10.)* | ✓ ruled |
-| **E10** | Mob rare/champion affix layer (accrued from E9-C first audit item) | **ABSENT — never built, no stub** (legolas audit 2026-07-08): mobs are flat stat-blocks (`monster_generator.py:389-475`); codebase "rare"/"champion" are **pack-composition labels**, not per-mob modifier rolls (`arena.py:468-502`, `:960-1006`); "champion elevation" is a player-side scalar (`spatial_engine.py:3470-3478`); affix infra is 100% player-side. Finding: `agentic_orchestration/research/2026-07-08-mob-affix-layer-existence-audit.md`. | **✓ RULED path (iii) — FULL-SPEC FIRST PASS (Matt 2026-07-08):** neither minimal set nor launch-deferral (Matt: *"If we have the knowledge and systems built to scaffold, why not bring it to life at first pass?"*). **Leg 1:** legolas Mode-A genre-canon research (brief: `agentic_orchestration/gandalf/notes/2026-07-08-legolas-brief-mob-affix-genre-canon.md`) → **Leg 2:** gandalf Pattern-B design session with Matt — affix system designed **within OUR substrate axes / coordinate space** (element vocab, threat tiers, archetype pools, glyph substrate), not a hand-authored flat list → **Leg 3:** build slots into KR sequence post-design. **Instrument guard stands:** affixed mobs populate content encounters, NOT the certification gauntlet rooms. Not demo-blocking today; must not preempt C3/E2. | IN-FLIGHT |
+| **E10** | Mob rare/champion affix layer (accrued from E9-C first audit item) | **ABSENT — never built, no stub** (legolas audit 2026-07-08): mobs are flat stat-blocks (`monster_generator.py:389-475`); codebase "rare"/"champion" are **pack-composition labels**, not per-mob modifier rolls (`arena.py:468-502`, `:960-1006`); "champion elevation" is a player-side scalar (`spatial_engine.py:3470-3478`); affix infra is 100% player-side. Finding: `agentic_orchestration/research/2026-07-08-mob-affix-layer-existence-audit.md`. | **✓ RULED path (iii) — FULL-SPEC FIRST PASS (Matt 2026-07-08):** neither minimal set nor launch-deferral (Matt: *"If we have the knowledge and systems built to scaffold, why not bring it to life at first pass?"*). **Leg 1 ✓ DONE** — legolas genre canon (`research/2026-07-08-mob-affix-genre-canon.md`, 011dfad). **Leg 2 ✓ DONE — DESIGN SPEC LANDED, Matt-ratified in-session (2026-07-09):** `canonical/reap-die-rise-engine/mob-affix-system-spec-2026-07-09.md` — generative frame (family × element × tier, sparse-matrix) + Five Laws (failure-inversions) + Fork 1-A pack-leader selective inheritance + **Fork 2(c) bestiary-substrate eligibility** (same identity wells as S1 player-side; combat archetypes retired from affix layer; BC cells stay player/RIVAL-side) + Fork 3 (pull/immobilize v1, walls feasibility-spike) + Fork 4 (one-way thresholds) + RIVAL two-stage naming grammar adopted. **Leg 3 — BUILD queued:** gates on bestiary identity wells (shared S1 dependency; verified ABSENT engine-side `monster_generator.py:393-462`); KR-sequenced post-C3/E2. **Instrument guard stands:** affixed mobs populate content encounters, NOT the certification gauntlet rooms. Not demo-blocking. | IN-FLIGHT |
 
 ## CONTENT-EMISSION surfaces
 
