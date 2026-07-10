@@ -13,7 +13,8 @@
 > agents: gandalf N0–N2 · star-lord N3 · drax N5 delivery). A build landed without its stamp update
 > is an incomplete commit. Glance `/story` page renders this doc (contract v1.6).
 
-**Siblings:** `pipeline-serial-content-emission.md` · `pipeline-battle-sim.md` · `pipeline-game.md`.
+**Siblings:** `pipeline-serial-content-emission.md` · `pipeline-battle-sim.md` · `pipeline-game.md` ·
+`pipeline-arcade.md` (POST-LAUNCH mode factory).
 **Boundary law (who makes which words):** KIT-GRAIN text — kit names, gear flavor, order nouns,
 faction labels — is made by the EMISSION pipeline at its **E3** stage (content-attached text rides
 the content). THIS pipeline makes the **RUN/HUB-GRAIN narrative product**: the Binding Rite, the

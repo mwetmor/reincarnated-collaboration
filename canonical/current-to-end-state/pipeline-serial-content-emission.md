@@ -15,8 +15,9 @@
 > landed without its stamp update is an incomplete commit. State derives from the queues
 > (tracker PARTs B–F), not from prose. Glance `/content-emission` page renders this doc (contract v1.6).
 
-**Sibling:** `pipeline-battle-sim.md` — stages E4→E5 below hand off INTO and pick up FROM that
-machine. **Roster:** the per-kit state this pipeline advances lives in
+**Siblings:** `pipeline-battle-sim.md` (stages E4→E5 below hand off INTO and pick up FROM that
+machine) · `pipeline-game.md` · `pipeline-story.md` · `pipeline-arcade.md` (POST-LAUNCH mode
+factory). **Roster:** the per-kit state this pipeline advances lives in
 `current-to-end-state-serial-content-emission.md` PART F (K1–K25 · H1–H6 · bench B-series), rendered
 at Glance `/kits`.
 

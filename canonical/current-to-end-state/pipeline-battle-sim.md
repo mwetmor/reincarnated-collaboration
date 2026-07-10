@@ -18,8 +18,9 @@
 > desired end state is the SPINE; the current state is the STAMP; the gap column links tracker rows —
 > state derives from the queues, not from prose. Glance `/engine` page renders this doc (contract v1.6).
 
-**Sibling:** `pipeline-serial-content-emission.md` (the factory that FEEDS this machine and consumes
-its verdicts). This doc is the certification machine itself.
+**Siblings:** `pipeline-serial-content-emission.md` (the factory that FEEDS this machine and consumes
+its verdicts) · `pipeline-game.md` · `pipeline-story.md` · `pipeline-arcade.md` (POST-LAUNCH mode
+factory). This doc is the certification machine itself.
 
 ---
 

@@ -15,7 +15,8 @@
 
 **Siblings:** `pipeline-serial-content-emission.md` (makes the KITS this product dresses and spawns —
 its E8 is this doc's G6 input) · `pipeline-battle-sim.md` (certifies what E-pipeline makes) ·
-`pipeline-story.md` (makes the TEXT this product speaks). **This doc is the pipeline that turns
+`pipeline-story.md` (makes the TEXT this product speaks) · `pipeline-arcade.md` (POST-LAUNCH mode
+factory that composes all four). **This doc is the pipeline that turns
 certified content + owned/generated assets into the thing a player runs:** the One-Realm MVP demo
 (`../reap-die-rise-game/one-realm-mvp-scope.md` — THE DENOMINATOR), then launch builds.
 
