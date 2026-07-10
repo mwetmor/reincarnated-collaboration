@@ -363,3 +363,11 @@ light; active consumer w/ interrupt/whiff model = heavy).
 
 **Status flip: PARTIALLY RULED → FULLY RULED (all six forks closed).** The E4 design note is UNGATED —
 it fires next, then the rocket+gamora dispatch pair (cross-seam, MIGRATION.md) goes to KR.
+
+---
+
+> **STATUS APPEND 2026-07-10 — DESIGN NOTE LANDED.** `2026-07-10-e4-commitment-axis-design-note.md`
+> (same folder) compiles all six rulings above into buildable intent + twelve acceptance criteria.
+> This elicitation record is now the RULING SOURCE; the design note is the build authority.
+> Next actor: KR — rocket+gamora dispatch pair (MIGRATION.md). Ledger E4 + serial-tracker H6 updated
+> same-commit.
