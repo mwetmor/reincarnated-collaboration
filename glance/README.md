@@ -23,7 +23,8 @@ push to canonical/**  →  GitHub Action  →  parser (parser/parse.mjs, determi
 
 - **`parser/parse.mjs`** — the deterministic canon → `state.json` parser. NO LLM,
   NO network, NO judgment. Reads ONLY the four `canonical/current-to-end-state/`
-  trackers + `canonical/matt_decision_needed/README.md` + `canonical/matt_to_do/README.md`.
+  trackers + `surface-ledger.md` (the fifth Tier-0 card, v1.3 §7.2) +
+  `canonical/matt_decision_needed/README.md` + `canonical/matt_to_do/README.md`.
   **Never touches the engine tree.**
   - `node parser/parse.mjs` — write state.json; exit 1 on any MALFORMED.
   - `node parser/parse.mjs --report` — list ALL malformed findings in one pass
@@ -46,16 +47,36 @@ push to canonical/**  →  GitHub Action  →  parser (parser/parse.mjs, determi
 - **UNRESOLVED** (dangling `gates-on:` token) → **warning badge** + global counter. Visible debt, not a broken build.
 - **ABSENCE** is never an error — a doc with no delta log, a table that isn't a queue: fine, rendered as prose.
 
-## Tiers (v1 = Tiers 0–2, Matt ruling)
+## v1.4 — the FOUR-PAGE SPLIT (§7.3)
 
-- **Tier 0 — the glance** (`Glance` in App.tsx): header strip (your-move pixel =
-  open matt_decision_needed count · matt_to_do · last-commit age · dangling count),
-  four tracker cards, "Since you last looked" (localStorage watermark = max delta-date seen).
-- **Tier 1 — the drill** (`Drill`): queues as sortable/filterable tables (status/owner/sort),
-  delta timeline (latest full, older collapsed), rendered under the § 4 supersession law
-  (STATUS banner → latest delta → older → body). Parser enforces ORDER + BANNERS only.
-- **Tier 2 — the source** (`Source`): modeled render + every claim deep-links to
-  file+line on GitHub + client-side search.
+The app is a hash-routed SPA (zero router dependency — the vercel.json SPA rewrite
+funnels every path to index.html, so hash routes work identically in preview + prod):
+
+- **Landing `/`** (`Landing`): the slim five-card index — the ORIGINAL one-screen glance,
+  preserved. Each card taps through to its domain page (the surface-ledger card opens
+  the header drawer). Plus "Since you last looked".
+- **Four domain pages** `#/engine · #/story · #/game · #/content-emission` (`DomainPage`):
+  one per tracker, its Tier-0 card EXPANDED IN PLACE — flow-bar lead (§2.7) → STATUS →
+  latest delta full + older collapsed → counters → queue tables (in-page Tier-1). All under
+  the § 4 supersession law. Tier-2 source deep-links unchanged (every claim → file+line).
+- **Global header strip on EVERY page** (`HeaderStrip`): the your-move pixel
+  (open matt_decision_needed — the most important pixel; never dropped) · matt_to_do ·
+  surfaces-agreed ✓N/M · last-commit age · dangling (gates + flow-refs) · four-tab nav ·
+  the **surface-ledger drawer** (`SurfaceLedgerDrawer`) — compact, expandable, on every page.
+- **Content-emission page lead** (`KitRoster`): the **KIT ROSTER OF RECORD** table (PART F,
+  K1–K25 + H1–H6) as the TOP card, ABOVE the flow-bar. Promoted by SECTION-NAME PIN (the
+  serial tracker's `F.1…`/`F.2…` sub-tables) — zero new parse grammar. Columns as authored:
+  ID · ARPG Genre Canon kit · BC cell/hypothesis · status · blockers/held rules. Roster
+  count + status tallies (25 K + 6 H) render in the card header; cross-doc `gates-on:` tokens
+  (proxy-P0/P1/P2, totem-probe) dangle as § 2.6 warning badges (E6 resolves — it's a modeled
+  ledger row).
+
+## The six legislated shapes (Tiers 0–2 substrate)
+
+Shapes 1–5 (STATUS · SESSION-DELTA · queue rows · gates-on · Matt queues) + shape 6
+(§2.7 FLOW — the ordered end-to-end process view; derived stage-state, most-specific-first
+ref resolution, dangling-ref warning badges). Every modeled claim deep-links to file+line
+on GitHub (Tier 2). Parser enforces ORDER + BANNERS only — never semantic conflict detection.
 
 ## Staged — NOT built in v1 (§ 7 of the spec; clean seams left, no implementation)
 

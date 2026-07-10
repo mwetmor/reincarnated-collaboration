@@ -55,6 +55,33 @@ export interface Counters {
   closed: number;
 }
 
+// §2.7 FLOW — a stage's derived state. `dominant` is a StatusToken OR 'quiet'
+// (a stage whose mapped sections carry no modeled rows).
+export type FlowDominant = StatusToken | 'quiet';
+
+export interface FlowStage {
+  n: number;
+  name: string;
+  refs: string[];
+  resolved: boolean;
+  counters: Counters;
+  dominant: FlowDominant;
+  line: number;
+}
+
+export interface Flow {
+  line: number;
+  stages: FlowStage[];
+}
+
+export interface DanglingFlowRef {
+  ref: string;
+  tracker: TrackerId;
+  stage: number;
+  path: string;
+  line: number;
+}
+
 export type TrackerId =
   | 'engine'
   | 'story'
@@ -74,6 +101,8 @@ export interface Tracker {
   deltas: Delta[];
   queues: Queue[];
   counters: Counters;
+  // §2.7 — present ONLY when the tracker declares a `## FLOW` section.
+  flow?: Flow;
   // §7.2 — present ONLY on the surface-ledger card: surfaces agreed vs. total.
   surfaces_agreed?: SurfacesAgreed;
 }
@@ -114,6 +143,8 @@ export interface State {
   matt_decision_needed: MattItem[];
   matt_to_do: MattItem[];
   dangling_gates: DanglingGate[];
+  // §2.7 — FLOW section-refs that resolve to no `##` heading (visible debt, not a failure).
+  dangling_flow_refs: DanglingFlowRef[];
 }
 
 // ---- shared display helpers ----
@@ -154,8 +185,64 @@ export const STATUS_COLOR: Record<StatusToken, { chip: string; dot: string }> = 
   closed: { chip: 'bg-emerald-900/40 text-emerald-300 border-emerald-700', dot: 'bg-emerald-500' },
 };
 
+// §2.7 flow-bar segment color per dominant token (+ the row-less `quiet` neutral).
+// The bg-* classes are safelisted in tailwind.config.js.
+export const FLOW_SEGMENT_COLOR: Record<FlowDominant, string> = {
+  blocked: 'bg-rose-500/80',
+  awaiting_ruling: 'bg-amber-500/80',
+  in_flight: 'bg-sky-500/80',
+  open: 'bg-slate-500/70',
+  parked: 'bg-violet-500/70',
+  closed: 'bg-emerald-500/80',
+  quiet: 'bg-slate-700/50',
+};
+
+export const FLOW_DOMINANT_LABEL: Record<FlowDominant, string> = {
+  blocked: 'blocked',
+  awaiting_ruling: 'awaiting ruling',
+  in_flight: 'in-flight',
+  open: 'open',
+  parked: 'parked',
+  closed: 'closed',
+  quiet: 'quiet (no rows)',
+};
+
+// ---- the four domain pages (§7.3) ----
+// A "page" maps 1:1 to a tracker. The surface-ledger is NOT a page (it renders as a
+// drawer on every page + full on whichever page expands it); it is deliberately absent
+// from PAGE_ORDER so the four-tab nav shows exactly four tabs (§7.3.2).
+export type PageId = 'engine' | 'story' | 'game' | 'content-emission';
+
+export const PAGE_ORDER: PageId[] = ['engine', 'story', 'game', 'content-emission'];
+
+export const PAGE_LABEL: Record<PageId, string> = {
+  engine: 'Engine',
+  story: 'Story',
+  game: 'Game',
+  'content-emission': 'Content Emission',
+};
+
+// the tracker id backing each page (the content-emission page is backed by the
+// serial-content-emission tracker).
+export const PAGE_TRACKER: Record<PageId, TrackerId> = {
+  engine: 'engine',
+  story: 'story',
+  game: 'game',
+  'content-emission': 'serial-content-emission',
+};
+
+export function pageForTracker(id: TrackerId): PageId | null {
+  const found = (Object.keys(PAGE_TRACKER) as PageId[]).find((p) => PAGE_TRACKER[p] === id);
+  return found ?? null;
+}
+
 export function githubLink(base: string, path: string, line: number): string {
   return `${base}/${path}#L${line}`;
+}
+
+// Sum of the six status counts (excludes nothing — the modeled-row total).
+export function counterTotal(c: Counters): number {
+  return c.open + c.in_flight + c.blocked + c.awaiting_ruling + c.parked + c.closed;
 }
 
 // "Since you last looked" watermark = max delta-date seen (§5, localStorage).

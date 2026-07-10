@@ -465,6 +465,179 @@ function tallyCounters(queues) {
 }
 
 // ---------------------------------------------------------------------------
+// Shape 6 — FLOW declaration (§ 2.7). The ordered end-to-end process view.
+//
+// Grammar (verbatim §2.7):
+//   ## FLOW …                              (section marker; substring match on the ## heading)
+//   N. **<stage name>** ← <ref> [· <ref>]* (ordered-list items, one stage each)
+//   ref = substring of a `##`/`###` heading in the SAME doc.
+//
+// Rules implemented verbatim from §2.7:
+//   - Resolution is MOST-SPECIFIC-FIRST: longer refs claim their headings before
+//     shorter refs bind. One heading maps to at most one stage. (Live case: the game
+//     tracker's `PART A′` must bind before `PART A`.)
+//   - Stage state is DERIVED, never hand-stamped: aggregate the modeled queue rows
+//     (§2.3) whose line falls inside a section claimed by this stage into the standard
+//     counter object, plus a dominant token, precedence:
+//       ⛔ blocked > ⚖ awaiting_ruling > IN-FLIGHT > OPEN > PARKED > ✓ closed.
+//     A stage whose claimed sections carry NO modeled rows is `quiet` (rendered neutral).
+//   - Severity (extends §2.6): a ref resolving to no heading → WARNING badge +
+//     `dangling_flow_refs` counter (never a build failure — FLOW maps may lag a commit).
+//     A MALFORMED list item (missing `←`, missing bold stage name, unparseable ordinal)
+//     inside a declared FLOW → CI FAILURE (malformed instance of a legislated shape).
+//   - No `## FLOW` at all → tracker.flow ABSENT (its Tier-0 card renders without a flow-bar).
+//
+// Returns { flow, danglingFlowRefs } where flow is null when no FLOW section exists.
+// ---------------------------------------------------------------------------
+const FLOW_DOMINANCE = ['blocked', 'awaiting_ruling', 'in_flight', 'open', 'parked', 'closed'];
+
+function collectHeadings(lines) {
+  // Every `##`/`###`/`####` heading with its 1-based line and the span it owns
+  // (until the next heading of the same-or-shallower depth). For stage aggregation
+  // we only need each heading's start line + its title; row→section membership is
+  // resolved by "the nearest preceding heading claimed by a stage."
+  const heads = [];
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(/^(#{2,4})\s+(.*)$/);
+    if (m) heads.push({ depth: m[1].length, title: m[2].trim(), line: i + 1 });
+  }
+  return heads;
+}
+
+function findFlowSection(lines) {
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(/^##\s+FLOW(\b.*)?$/);
+    if (m) return i; // 0-based line index of the `## FLOW` heading
+  }
+  return -1;
+}
+
+function parseFlow(lines, relPath, queues) {
+  const flowIdx = findFlowSection(lines);
+  if (flowIdx === -1) return { flow: null, danglingFlowRefs: [] };
+
+  const flowLine = flowIdx + 1;
+  const headings = collectHeadings(lines);
+
+  // Collect the ordered-list items in the FLOW section (until the next ## heading).
+  const items = []; // { n, name, refs:[{raw}], line }
+  for (let i = flowIdx + 1; i < lines.length; i++) {
+    if (/^##\s+/.test(lines[i])) break; // FLOW section ends at the next ## heading
+    const raw = lines[i];
+    // an ordered-list item: `N. …`
+    const ord = raw.match(/^\s*(\d+)\.\s+(.*)$/);
+    if (!ord) continue;
+    const line = i + 1;
+    const rest = ord[2];
+    // must be `**<stage>** ← <refs>`
+    const bold = rest.match(/^\*\*(.+?)\*\*\s*(?:←|<-)\s*(.+)$/);
+    if (!bold) {
+      // MALFORMED instance of a legislated shape (§2.6 rule 1): an ordered item inside
+      // a declared FLOW that lacks the bold stage name or the `←` separator.
+      malformed(
+        'flow-item',
+        relPath,
+        line,
+        `FLOW list item ${ord[1]} is malformed (expected \`N. **stage** ← <section-ref>\`): ${raw.trim().slice(0, 120)}`
+      );
+      continue;
+    }
+    const name = bold[1].trim();
+    // refs are `·`-separated; strip trailing italic annotations like *(…)*.
+    const refsRaw = bold[2].replace(/\*\([^)]*\)\*\s*$/, '').trim();
+    const refs = refsRaw
+      .split('·')
+      .map((s) => s.replace(/\*\*/g, '').replace(/`/g, '').trim())
+      .filter(Boolean);
+    items.push({ n: Number(ord[1]), name, refs, line });
+  }
+
+  // Resolve refs to headings, MOST-SPECIFIC-FIRST. Build (ref, item-index) pairs,
+  // sort by ref length descending, claim headings greedily (one heading per stage).
+  const claimedByHeadingLine = new Map(); // heading.line -> stageIndex
+  const pairs = [];
+  items.forEach((it, si) => it.refs.forEach((ref) => pairs.push({ ref, si })));
+  pairs.sort((a, b) => b.ref.length - a.ref.length);
+
+  const danglingFlowRefs = [];
+  const resolvedRefLines = new Map(); // "si|ref" -> heading.line (or null when dangling)
+  for (const { ref, si } of pairs) {
+    // candidate headings: a `##` (depth-2) STRUCTURAL heading whose title contains the
+    // ref substring, not already claimed, and not the FLOW heading itself. §2.7 scopes
+    // section-refs to `##` headings — this excludes `###` SESSION-DELTA entries, whose
+    // headlines can legitimately mention a PART name in prose (e.g. "… (PART F) …")
+    // without being that structural section.
+    let claimed = null;
+    for (const h of headings) {
+      if (h.depth !== 2) continue;
+      if (h.line === flowLine) continue;
+      if (claimedByHeadingLine.has(h.line)) continue;
+      if (h.title.includes(ref)) { claimed = h; break; }
+    }
+    if (claimed) {
+      claimedByHeadingLine.set(claimed.line, si);
+      resolvedRefLines.set(`${si}|${ref}`, claimed.line);
+    } else {
+      resolvedRefLines.set(`${si}|${ref}`, null);
+      danglingFlowRefs.push({
+        ref,
+        tracker: null, // filled by caller (it knows the tracker id)
+        stage: items[si].n,
+        path: relPath,
+        line: items[si].line,
+      });
+    }
+  }
+
+  // For each stage, aggregate the queue rows whose line falls within any heading-span
+  // it claimed. A heading-span runs from its own line to the next heading of
+  // same-or-shallower depth (so `## PART F` owns its `### F.1`/`### F.2` sub-tables).
+  const headingSpan = (h) => {
+    let end = Infinity;
+    for (const other of headings) {
+      if (other.line > h.line && other.depth <= h.depth) { end = other.line; break; }
+    }
+    return { start: h.line, end };
+  };
+  const claimedSpans = new Map(); // stageIndex -> [{start,end}]
+  for (const [hLine, si] of claimedByHeadingLine) {
+    const h = headings.find((x) => x.line === hLine);
+    if (!claimedSpans.has(si)) claimedSpans.set(si, []);
+    claimedSpans.get(si).push(headingSpan(h));
+  }
+
+  const allRows = [];
+  for (const q of queues) for (const r of q.rows) allRows.push(r);
+
+  const stages = items.map((it, si) => {
+    const spans = claimedSpans.get(si) || [];
+    const counters = { open: 0, in_flight: 0, blocked: 0, awaiting_ruling: 0, parked: 0, closed: 0 };
+    let rowCount = 0;
+    for (const r of allRows) {
+      if (spans.some((s) => r.line >= s.start && r.line < s.end)) {
+        if (r.status.token in counters) counters[r.status.token] += 1;
+        rowCount += 1;
+      }
+    }
+    let dominant = 'quiet';
+    if (rowCount > 0) {
+      dominant = FLOW_DOMINANCE.find((tok) => counters[tok] > 0) || 'quiet';
+    }
+    return {
+      n: it.n,
+      name: it.name,
+      refs: it.refs,
+      resolved: it.refs.every((ref) => resolvedRefLines.get(`${si}|${ref}`) != null),
+      counters,
+      dominant,
+      line: it.line,
+    };
+  });
+
+  return { flow: { line: flowLine, stages }, danglingFlowRefs };
+}
+
+// ---------------------------------------------------------------------------
 // Tracker parse
 // ---------------------------------------------------------------------------
 const TRACKERS = [
@@ -493,6 +666,10 @@ function parseTracker(t) {
   // would mis-read (see parseLedgerQueues). Everything else is shared.
   const queues = t.ledger ? parseLedgerQueues(lines, relPath) : parseQueues(lines, relPath);
   const counters = tallyCounters(queues);
+  // §2.7 shape #6 — FLOW. Derived stage-state aggregated from the queue rows under
+  // each stage's mapped sections. Absent when the doc declares no `## FLOW`.
+  const { flow, danglingFlowRefs } = parseFlow(lines, relPath, queues);
+  for (const d of danglingFlowRefs) d.tracker = t.id;
   const tracker = {
     id: t.id,
     path: relPath,
@@ -501,7 +678,9 @@ function parseTracker(t) {
     queues,
     counters,
   };
+  if (flow) tracker.flow = flow;
   if (t.ledger) tracker.surfaces_agreed = surfacesAgreed(queues);
+  tracker._dangling_flow_refs = danglingFlowRefs; // internal — hoisted to top-level in main
   return tracker;
 }
 
@@ -830,6 +1009,13 @@ function main() {
   // from the surface-ledger card. Absent if the ledger doesn't parse (absence-legal).
   const ledgerTracker = trackers.find((t) => t.id === 'surface-ledger');
   const surfaces_agreed = ledgerTracker?.surfaces_agreed ?? null;
+  // §2.7 — hoist per-tracker dangling FLOW section-refs to a top-level array (mirror
+  // of dangling_gates), then strip the internal carry field off each tracker.
+  const dangling_flow_refs = [];
+  for (const t of trackers) {
+    if (t._dangling_flow_refs) dangling_flow_refs.push(...t._dangling_flow_refs);
+    delete t._dangling_flow_refs;
+  }
   const state = {
     generated_at: generatedAt,
     repo_sha: repoSha(),
@@ -840,6 +1026,7 @@ function main() {
     matt_decision_needed,
     matt_to_do,
     dangling_gates: dangling,
+    dangling_flow_refs,
   };
 
   // write state.json into the app's public dir so vite bundles it.
@@ -862,6 +1049,7 @@ function main() {
   console.log(`  matt_to_do       : ${matt_to_do.length} (open ${matt_to_do.filter((x) => !x.resolved).length})`);
   console.log(`  surfaces agreed  : ${surfaces_agreed ? `✓${surfaces_agreed.agreed} / ${surfaces_agreed.total}` : '—'}`);
   console.log(`  dangling gates   : ${dangling.length}  (warnings, not failures)`);
+  console.log(`  dangling flow-refs: ${dangling_flow_refs.length}  (warnings, not failures)`);
   console.log(`  MALFORMED        : ${malformedFindings.length}`);
   console.log(`  state.json       : ${outPath}`);
   console.log('──────────────────────────────────────────────────────');
@@ -870,6 +1058,13 @@ function main() {
     console.log('\nDANGLING gates-on tokens (WARNING badges — not build failures):');
     for (const d of dangling) {
       console.log(`  ⚠  ${d.path}:${d.line}  row ${d.row}  gates-on: ${d.token}`);
+    }
+  }
+
+  if (dangling_flow_refs.length > 0) {
+    console.log('\nDANGLING FLOW section-refs (WARNING badges — not build failures):');
+    for (const d of dangling_flow_refs) {
+      console.log(`  ⚠  ${d.path}:${d.line}  [${d.tracker}] stage ${d.stage}  ref "${d.ref}" → no heading`);
     }
   }
 
