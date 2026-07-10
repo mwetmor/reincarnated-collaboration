@@ -95,18 +95,21 @@ Matt ratified all three parked decisions and authorized batch-push of the entire
 
 ---
 
-## GLANCE v1.4 — SHIPPED + VERIFIED (later this session; commit held for push-auth)
+## GLANCE v1.4 → v1.5 — SHIPPED + VERIFIED + PUSHED LIVE (later this session)
 
-Matt commissioned Glance v1.4 (four-page split + PART F roster lead) into KR. Found: **not greenfield** — drax had already shipped v1→v1.3 (parser + Tiers 0-2 + CI + standalone Vercel project + surface-ledger card). True delta = v1.4 render layer only. Routed to drax (contract-named builder §6/§9); single-seam web, rides standing §2 ratification (§7.3 rider) → no Gate-1, no MIGRATION.
+Matt commissioned Glance into KR; ratified **two rulings same session** (v1.4 then v1.5). Found: **not greenfield** — drax had already shipped v1→v1.3. Routed both to drax (contract-named builder §6/§9); single-seam web, rides standing §2 ratification (§7.3/§7.4 riders) → no Gate-1, no MIGRATION. Both = render layer only, **zero new parse shapes.**
 
-**Shipped:** `81edcad`, tag `glance/v1.4-four-page-split-1`. Hash-routed `/engine · /story · /game · /content-emission`; global header strip + four-tab nav + surface-ledger drawer on every page; one-screen five-card glance preserved at `/`; content-emission leads with KIT ROSTER OF RECORD (PART F, 31 rows K1–K25 + H1–H6) above the flow-bar by section-name pin; roster tallies in page header (30 OPEN + 1 IN-FLIGHT — fills in as batch-2 flips). **KR-verified empirically:** parser GREEN (0 malformed, 0 dangling flow-refs, 11 by-design gate badges), build passes (30 modules, 468ms), PART F confirmed as lead in code, one-screen glance survives.
+**v1.4 §7.3** (`81edcad`, tag `glance/v1.4-four-page-split-1`): hash-routed four pages + PART F roster leading content-emission.
+**v1.5 §7.4** (`9a4429a`, tag `glance/v1.5-kits-page-1` — SUPERSEDES v1.4 lead-element law): fifth page **`/kits`** homes the KIT ROSTER OF RECORD (PART F, 31 rows K1–K25 + H1–H6) as its lead; `/content-emission` reverts flow-bar-first (roster removed); `/engine` flow-bar-first; `/` index gains a sixth Kits card. Matt's fix of a v1.4 conflation: roster (NOUN — what kits exist) vs pipeline (PROCESS — how made) get separate leads. Relay: `gandalf/notes/2026-07-09-glance-v1.5-amendment-relay.md`; contract now SPEC-CURRENT v1.5.
+
+**KR-verified empirically (Disc #11):** parser GREEN (0 malformed, 0 dangling flow-refs, 11 by-design gate badges), build passes, `/kits` leads with roster + `/content-emission` roster removed (both confirmed in App.tsx, not just report), one-screen glance preserved. **PUSHED LIVE** (Matt-authorized): local HEAD = `origin/main` = `9a4429a`; both v1.4+v1.5 commits + tags on origin; standalone `reincarnated-glance` Vercel project auto-deploys on push (root returns 200; v1.5 rebuild propagates ~1-2 min). **Live URL: https://reincarnated-glance.vercel.app**
 
 **drax honest flag (accepted):** KR's pre-fire brief wrongly assumed the parser already had §2.7 FLOW — it had only a comment. drax implemented `parseFlow` verbatim-to-§2.7-spec (parser is drax's seam). Not new grammar; render-enabling infra completing a specified shape.
 
-### AWAITING-MATT BLOCKERS (Glance)
-1. **PUSH authorization** — THE blocker for the live phone-first URL. The standalone `reincarnated-glance` Vercel project deploys on push to its connected remote. Per ADR-006, push held for Matt-explicit-authorization. Build + commit are done; one `git push` (Matt-authorized) makes the URL live.
+### Feed-2 seam (named future consumer — not blocking)
+`/kits` is the named consumer of the §7.1 registry-snapshot feed (`agentic_orchestration/run-registry/emission-runs-snapshot.json`, **star-lord's export hook**, small — fires with the next registered run). When it lands, per-kit cert truth auto-joins roster rows (machine truth; no hand-edit in the loop). Slot wired (`TODO(drax)`), v1 renders doc truth only. **Queue for star-lord: the emission-driver registry-write step also exports the snapshot JSON to this repo.**
 
-### PENDING (Glance governance — standing, not blocking the build)
+### PENDING (Glance governance — standing, not blocking the live build)
 - **§2 ratification (jack-ryan)** — the six-shape format law (incl. §2.7 FLOW, now rendered live) is still PROPOSED. Owed: jack-ryan ratifies → folds into `canonical-doc-format.md` §7 (+ skill twin, same commit §6.8) + adds CI-fail-loud entry to disciplines. This was already "his next governance touch" (§9) pre-v1.4; v1.4 raised the stakes (FLOW is live). KR can fire jack-ryan Gate-1 on this on Matt's word.
 
 **Re-signed:** knight-rider, 2026-07-09 (Glance v1.4 commission — verified-shipped, held for push-auth).

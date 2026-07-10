@@ -4,11 +4,15 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
-## 2026-07-09 — Glance v1.4 shipped (four-page split + PART F kit-roster lead)
+## 2026-07-09 — Glance v1.4 → v1.5 shipped + pushed live (five-page split + `/kits` roster home)
 
-drax extended the standalone Glance app (`glance/`) to contract v1.4 §7.3: hash-routed four-page split (`/engine · /story · /game · /content-emission`), global header strip + four-tab nav + surface-ledger drawer on every page, one-screen five-card glance preserved at `/`, and the content-emission page now leads with the KIT ROSTER OF RECORD (serial tracker PART F, K1–K25 + H1–H6) promoted by section-name pin above the flow-bar. Commit `81edcad`, tag `glance/v1.4-four-page-split-1`. KR-verified empirically (Discipline #11): parser GREEN (0 malformed, 0 dangling flow-refs; 11 by-design dangling gate badges), build passes, PART F leads content-emission, one-screen glance survives. Single-seam (drax web) — no MIGRATION.md. **Not pushed** (live URL update awaits Matt push-authorization). Route/fire: KR (commission from Matt via gandalf's paste-ready builder prompt).
+drax extended the standalone Glance app (`glance/`) across two same-session Matt rulings:
+- **v1.4 §7.3** (`81edcad`, tag `glance/v1.4-four-page-split-1`): hash-routed four-page split + PART F kit-roster leading the content-emission page.
+- **v1.5 §7.4** (`9a4429a`, tag `glance/v1.5-kits-page-1` — SUPERSEDES v1.4's lead-element law): **fifth page `/kits`** now homes the KIT ROSTER OF RECORD (serial tracker PART F, 31 rows K1–K25 + H1–H6) as its lead; `/content-emission` reverts to flow-bar-first (roster removed); `/engine` also flow-bar-first; `/` index gains a sixth (Kits) card. Matt's fix of a v1.4 conflation: roster = NOUN-list (what kits exist) vs pipeline = PROCESS-flow (how they're made) — separate page leads. Mid-build relay authored by gandalf (`gandalf/notes/2026-07-09-glance-v1.5-amendment-relay.md`); contract now SPEC-CURRENT v1.5.
 
-**Governance note (standing, not v1.4-introduced):** §2 of the contract (the six-shape format law, incl. §2.7 FLOW) remains PROPOSED, awaiting jack-ryan ratification (§9 "his next governance touch"). Glance now renders FLOW live; drax implemented §2.7 parse verbatim-to-spec (parser is drax's seam per §6/§9) — render-enabling infra, not new grammar. jack-ryan ratification of §2 → fold into `canonical-doc-format.md` still owed.
+Both rulings: **zero new parse shapes** (render layer only; `/kits` renders an already-§2.3-parseable PART F table by section-name pin). Single-seam (drax web) — no MIGRATION.md. KR-verified empirically (Discipline #11): parser GREEN (0 malformed, 0 dangling flow-refs; 11 by-design dangling gate badges), build passes, `/kits` leads with roster + `/content-emission` roster removed (confirmed in code), one-screen glance preserved. **PUSHED live** (Matt-authorized): `origin/main` = `9a4429a`; standalone `reincarnated-glance` Vercel project auto-deploys on push (root 200). Route/fire: KR (commission from Matt via gandalf's paste-ready builder prompt).
+
+**Governance note (standing, not v1.x-introduced):** §2 of the contract (the six-shape format law, incl. §2.7 FLOW) remains PROPOSED, awaiting jack-ryan ratification (§9 "his next governance touch"). Glance now renders FLOW live; drax implemented §2.7 parse verbatim-to-spec (parser is drax's seam per §6/§9) — render-enabling infra, not new grammar. jack-ryan ratification of §2 → fold into `canonical-doc-format.md` still owed.
 
 ---
 
