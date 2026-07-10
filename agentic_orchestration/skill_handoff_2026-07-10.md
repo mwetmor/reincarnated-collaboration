@@ -27,13 +27,13 @@ v1.6 fire → drax **correctly STOPPED**: both pipeline docs' `## FLOW` blocks w
 2. **star-lord feed-2 export** — `/kits` is wired as the named consumer of the emission-run registry snapshot (`agentic_orchestration/run-registry/emission-runs-snapshot.json`, §7.1). Per-kit cert truth auto-joins roster rows when it lands. **Re-engagement criterion:** dispatch star-lord for the emission-driver registry-write→snapshot-export hook (small; fires with the next registered run), or let it ride the next run naturally. **Awaiting Matt:** want KR to dispatch star-lord now, or hold?
 3. ~~**§2 ratification (jack-ryan)**~~ **✓ DONE (PASS-WITH-NOTES).** jack-ryan Gate-1 correction: §2 was **already** ratified 2026-07-06 as FIVE shapes (Discipline #60); shape #6 (FLOW, §2.7) was added the next day, so this was correctly a **delta ratification of shape #6 only**. Folded: `canonical-doc-format.md` §7 → six shapes + §7.8 (FLOW) + §7.9 (delta-amendments); skill twin §6.8 same-commit (`5c0ca8e`); engine Discipline #60 MALFORMED enum 3→6 + decisions-log ratification entry (`06748df`). MALFORMED set re-closed at six enumerated conditions (kept CI from false-positiving on legal free-prose). Both pushed.
 
-## NEW queued item — arcade NOW-obligations (jack-ryan flagged, needs gandalf touch)
-gandalf's `pipeline-arcade.md` carries four present-tense "genuinely-free NOW-obligation" laws flagged for jack-ryan's gate. jack-ryan disposition (recorded in decisions-log, did NOT enter disciplines):
-- **#1 versioned/documented packet contract** — ratifiable forward habit ✓
-- **#2 registry-ID indirection everywhere** — **cannot rubber-stamp**: "everywhere / across engine+Godot" reads as a *retrofit* mandate; needs a new-vs-retrofit scope clause before entering disciplines
-- **#3 certification callable as a service** — ratifiable forward constraint (thin) ✓
-- **#4 no hardcoding IDs** — **substantially overlaps Discipline #40**; better as citation/extension of #40 than a new discipline
-**Re-engagement criterion:** a short gandalf+jack-ryan touch to (a) add new-vs-retrofit clause to #2, (b) decide #4 folds into #40 or stands alone; then #1/#3 land clean. Not a build blocker. **Awaiting Matt:** fire that touch now, or park?
+## Arcade NOW-obligations — ✓ CLOSED (critique-pair touch, Matt-authorized)
+gandalf reworded `pipeline-arcade.md` obligations #2/#4 to jack-ryan's constraints (`462fd13`); jack-ryan folded (`b00efde`, engine). Final disposition:
+- **#1 packet contract** — RATIFIED-IN-PLACE (already governed by Disciplines #8 + #9; no new law; decisions-log note)
+- **#2 registry-ID indirection** — **LANDED as Discipline #61** (NEW-references-only forward habit; retrofit reading eliminated — gandalf scoped both the table row AND the A2 prose; composes with #40)
+- **#3 cert-as-service** — RATIFIED-IN-PLACE (POST-LAUNCH interface obligation on future gamora arcade-cert; enters disciplines at arcade-build time per Discipline #18 timing; decisions-log note)
+- **#4 no hardcoded IDs** — **FOLDED UNDER Discipline #40** (arcade-ID-surface scope-extension paragraph + reciprocal #40↔#61↔doc cross-refs; not a freestanding law)
+QUEUED flag in the parse-contract entry closed. Glance parse-surface verified intact post-reword (8 `## A#` headings, arcade 8 stages, 5 pipelines, 0 malformed). Both pushed.
 
 ## Working-tree note (NOT KR's to commit)
 Other agents' in-flight edits are uncommitted in the tree: `current-to-end-state-game.md`, `reap-die-rise-game/00-index.md`, pipeline-doc header/maintenance-law additions, untracked `pipeline-game.md` / `pipeline-story.md` / `ensemble-asset-pipeline-spec.md` / `matt_notes_handoff_docs/*`. drax and KR left all of it for its owning agents. The pipeline-doc header mods do NOT affect the deployed parse (verified — they don't touch FLOW items or `##` headings).
