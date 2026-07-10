@@ -335,3 +335,18 @@ consumer shape math-note-first at design-note time; Matt's Q-E4-2 ruling sizes i
 light; active consumer w/ interrupt/whiff model = heavy).
 
 **Signed:** gandalf, 2026-07-09 (DRAFT — forks await Matt ruling).
+
+---
+
+## RULINGS RECEIVED (Matt, 2026-07-09 — partial; appended same-day)
+
+| Fork | Ruling | Consequence |
+|---|---|---|
+| **Q-E4-2** | **(b) THROUGHPUT-ACTIVE** — against the registered lean, ruled with the costs on the table | Cast-time is a REAL risk/reward lever. Bands WILL move; the post-E4 re-fit is an **expected re-fit**, not a conservation audit. gamora must build a risk-model sim consumer (heavy). gandalf risk-channel proposal for the design note: **v1 = motion-whiff** (damage applies at cast COMPLETION against positions at that time — the sim has real positions, so wind-ups genuinely whiff vs mobile targets) **+ fight-truncation** (already real) **+ channel-lock exposure** (channel bin); **damage-interrupt = named v1.1 re-entry** (needs a stagger design pass of its own). Premium PRICED from measured completion/whiff rates, math-note-first — mispricing in either direction is the failure (D3-Inferno unpriced wind-ups = dead skills; priced PoE slams = real archetype). |
+| **Q-E4-4** | **(b) NEW BC coordinate** — against the kernel-derivation lean | A commitment coordinate joins the catalog. Design note must pin: coordinate name (gandalf lean: `bc_commitment`; D7-clean common vocabulary), bin vocabulary (ruled via Q-E4-6: **snap / wind-up / channel**), CellDef assignments for the 25 named cells (identity-pinned where the name demands it — K1 Heavy Barbarian=wind-up, K7 Archer=snap, K19 Channeling Cleric=channel; rest default/rolled), sampler integration, space-size bookkeeping (68,040 × 3 = 204,120 — the space of record grows), and whether batch-2 samples the coordinate or pins defaults (sequencing with KR). |
+| **Q-E4-6** | **Agreed** — snap / wind-up / channel | Vocabulary now REQUIRED (not emergent) since Q-E4-4 landed (b). Consistency law: "channel" is ONE mechanic everywhere it appears — this bin, the rotational family's `while_channeling` persistence mode, the spin-channel re-cert. |
+| **Q-E4-1** | NOT RULED — Matt: "unsure of the meaning of the question" | Re-explained in-session (which skill SLOTS of a kit carry cast-time). Reconciled lean under his other rulings: attacks full + control cast-only + **T4 per-capstone bins** (per Q-E4-3 direction) + support exempt. |
+| **Q-E4-3** | IN DIALOGUE — Matt reframe: *"the goal of the channeled T4 is inversion from spiky… then it should fall under the same rules"* | gandalf synthesis offered: T4 enters the SAME coordinate rules; the blanket inert `channeled` label DIES; each T4 capstone DECLARES its bin honestly (mode-shift/toggle=snap · conjure-summon=wind-up, the 1.0s deliberate act · sustained-output=channel with real channel-lock). E6 consumes the same vocabulary. Awaiting Matt confirm. |
+| **Q-E4-5** | IN DIALOGUE — Matt inclined to agree, asks: *"Could we end up with a scenario where spiky casters are rewarded as their band differs substantially from the rest?"* | Answered in-session: under (b)-ACTIVE yes-by-design UNLESS guarded — the guards are (1) risk-PRICED premium (expected throughput in-band, variance carries the fantasy), (2) regime-mix certification (gauntlet must sample mobile regimes where wind-ups genuinely whiff, else pricing is dishonest), (3) fairness-band gate at cert. Coherent Q-E4-5 form under (b): ONE shared period model, k-aware, with a priced premium term (not full conservation). |
+
+**Status flip: DRAFT → PARTIALLY RULED.** Design note authoring gates on: Q-E4-1 ruling + Q-E4-3 confirm + Q-E4-5 close.

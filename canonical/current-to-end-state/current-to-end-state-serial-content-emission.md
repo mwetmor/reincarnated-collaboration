@@ -21,7 +21,7 @@
 3. **End state (staged)** ← PART C
 4. **Gap queue** ← PART D
 5. **Open Matt rulings** ← PART E
-6. **Kit roster of record (first-glance table)** ← PART F *(the Glance content-emission page renders this as its top card — contract §7.3)*
+6. **Kit roster of record (first-glance table)** ← PART F *(renders as the Glance `/kits` page lead — contract §7.4 v1.5; the content-emission page leads with this FLOW bar instead. This FLOW block gets re-authored pipeline-shaped per §7.4 rule 4 — gandalf owed)*
 
 ---
 
