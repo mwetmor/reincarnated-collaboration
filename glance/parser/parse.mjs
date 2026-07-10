@@ -709,6 +709,11 @@ function parseTracker(t) {
 const PIPELINES = [
   { id: 'battle-sim', file: 'pipeline-battle-sim.md' },
   { id: 'serial-emission', file: 'pipeline-serial-content-emission.md' },
+  // §7.5 v1.7 — the story+game product pipeline docs landed (gandalf 3838387),
+  // §2.7-conformant (FLOW N0–N5 / G0–G8 + `## <stage>` headings + fenced ASCII).
+  // `/story` and `/game` repoint to THESE via PAGE_FLOW_SOURCE (app-side).
+  { id: 'game', file: 'pipeline-game.md' },
+  { id: 'story', file: 'pipeline-story.md' },
 ];
 
 // Extract the FIRST fenced code block (``` … ```) in the doc, verbatim (no lang

@@ -90,7 +90,7 @@ export interface DanglingFlowRef {
 // §7.5 v1.6 — the MATT-FACING product pipeline docs. NOT trackers (no page/card of
 // their own): they are FLOW-source + verbatim-ASCII drill docs. The /engine and
 // /content-emission pages render THESE FLOW bars as their lead (see PAGE_FLOW_SOURCE).
-export type PipelineId = 'battle-sim' | 'serial-emission';
+export type PipelineId = 'battle-sim' | 'serial-emission' | 'game' | 'story';
 
 export interface Pipeline {
   id: PipelineId;
@@ -271,8 +271,8 @@ export type FlowSource =
 
 export const PAGE_FLOW_SOURCE: Record<PageId, FlowSource> = {
   engine: { kind: 'pipeline', id: 'battle-sim' },        // S0–S8 product pipeline
-  story: { kind: 'tracker' },                             // (pipeline doc TBD)
-  game: { kind: 'tracker' },                              // (pipeline doc TBD)
+  story: { kind: 'pipeline', id: 'story' },               // N0–N5 product pipeline (v1.7)
+  game: { kind: 'pipeline', id: 'game' },                 // G0–G8 product pipeline (v1.7)
   'content-emission': { kind: 'pipeline', id: 'serial-emission' }, // E0–E8 product pipeline
   kits: { kind: 'tracker' },                              // /kits has no lead FLOW bar
 };
