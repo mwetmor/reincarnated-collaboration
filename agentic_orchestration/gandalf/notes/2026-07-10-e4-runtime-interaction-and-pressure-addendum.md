@@ -239,3 +239,20 @@ Packet-contract version bump (B.7 fields) rides criterion 10 (provenance) — on
 **Signed:** gandalf, 2026-07-10. A commitment the instrument can't hurt is a commitment the game can't
 price. Build the pressure where the pricing lives — the player only ever feels what the sim already
 paid for.
+
+---
+
+## RULINGS RECEIVED (Matt, 2026-07-10 — same-day)
+
+> *"I Ratify all except space bookkeeping as I need more information on this topic."*
+
+| Fork | Ruling |
+|---|---|
+| **F-0** | **RATIFIED** — interruption RULE v1 (sim-side forced break) / PRESENTATION v1.1 (stagger UX). The split is LAW for the pair. |
+| **F-1** | **RATIFIED (b)** — cumulative ≥Y% max-HP within window W forces channel break; Y/W math-note-derived, Disc #17 calibrated. |
+| **F-2** | **RATIFIED (b)** — ramp + break-reset is the v1 channel reward structure; staged-release (c) stays the named spiky×channel unlock, not v1. |
+| **F-3** | **HELD** — Matt needs the two-space distinction re-explained (8-axis QD archive vs `endgame_encounter_catalog.py`) before ruling. Explainer delivered same-turn; also answered: the archive-vs-catalog gap is the blocker for exactly the Axis-5 bench trio (B1/B2/B3), not the whole bench. |
+| **F-4** | **RATIFIED** — summon-act fifth scope row: summon-acts carry commitment; conjure defaults wind-up; channel-summon tether-only (`while_channeling`). |
+| **F-5** | **RATIFIED (a)** — control-pure kits' commitment expressed via attack-complement. |
+
+**Same-message riders (Matt):** (1) **B12 admission-in-principle** — *"D2 Barb spin-to-win is moved to unblocked"*: the E4 pair's channel machinery + `full_move` policy is the re-cert TARGET; promote-path = pair lands → G3 zero-behavioral-diff migration audit → re-cert at channel bin. (2) **Bench-promotion intent declared** — *"bring all kits into the pilot if we can, so that we only have experimental/research left open"*: a bench-promotion elicitation pass over the remaining 12 is queued post-E3-design (see serial tracker fourth entry 2026-07-10).
