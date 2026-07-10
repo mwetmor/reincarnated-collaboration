@@ -108,6 +108,18 @@ The breadth premium (Q-E3-2b) is measurable only if the cert matrix contains res
 
 **Lean (a).** An instrument that can't see breadth can't price breadth — verbatim the E4 law with "risk" swapped for "coverage." Without the mono-resist regime, hybrids sim as strictly-dominated (their peak is lower, their breadth invisible) and get mis-banded — the channel-kit failure mode, re-worn. The mob-affix/bestiary resist textures are the substrate; regime presence = acceptance criterion, verified not assumed.
 
+## §2-bis — Matt's element-layer challenge (mid-elicitation exchange, 2026-07-10)
+
+Matt (verbatim core): *"why not house it within the elemental randomization piece of the pipeline? Simply list a low probability for two elements to appear, and decide the logic with which they appear (maybe one element per chain, or depending on T4, or hybrid kits can have multiple T4s?)… I don't think element is within BC coordinates, is it?"*
+
+**Verified:** element is NOT a BC coordinate (BcTargetCell = range/tempo/amplitude/attribute/proxy_density + commitment) — Matt correct. **But the elemental hybridity slot ALREADY EXISTS and is the empty thing:** `secondary_element: str | None` = "chain_2 element for hybrid kits; None for mono kits" (`class_schema.py:45-56`, `season_generation_pipeline.py:410-416`; consumers: Phase-5 A/B, Phase-7 cohesion judge, LLM prompt) + `dual_element_factor = 1.0  # TODO: read from T4 DUAL_ELEMENT_ADDITION context` (`damage_resolver.py:877`). Element picks WHICH RESIST + the look; it does not pick armor-vs-resist layer, sheet stat, or gear feed — "content-distinct, mechanics-identical," the §1 emptiness verbatim. Housing E3 there re-ships the flagged failure. **The two hybridities are orthogonal layers that compose:** element = coat + resist matchup (D2 Meteorb — coverage story, one path); path = build identity (FoH/Zeal Paladin, GD Battlemage — two paths). A path-hybrid may be mono- or dual-element on top.
+
+**Matt's MECHANISM adopted at the path layer — three lean amendments:**
+
+1. **Q-E3-0 lean AMENDED:** carrier = `hybrid_path_probability` **sampler field** (Matt's "low probability" shape), v1 pinned **1.0 on K15/K20/K23 + H5, 0.0 elsewhere** — degenerate values, end-state shape; the wild-roll dial exists from birth, turnable later without schema change. Still NO new coordinate; 972 stands.
+2. **Q-E3-1(c) independently re-derived by Matt:** "one element per chain" IS the portfolio logic with attribute in the element slot — chain_A weapon-hand / chain_B caster-hand. Convergent derivation from the element side; lean strengthened.
+3. **Q-E3-5 lean AMENDED — per-HAND T4 crowns:** kits already emit tiers 1–4 PER CHAIN (`per_skill_emitter.py:513-563`), so "hybrid kits have multiple T4s" is already structurally true; the amendment is that each chain's T4 crown be **path-native** (STR-hand physical crown / caster-hand magical crown), and `path_delta` (5b) + the elemental `DUAL_ELEMENT_ADDITION` T4 stub are siblings in one T4-transform vocabulary.
+
 ## §3 — Composition constraints (inherited, not forks)
 
 1. **E2 k-conservation:** k scales `(per_hit, cooldown, cost)` per-skill. Under the portfolio spine each skill is single-path — k composes UNCHANGED. For `sum_paths` signatures: whether k applies per-path-pre-blend or post-blend is a **math-note item** (conservation must hold either way; flag, not fork).
