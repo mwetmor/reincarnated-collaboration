@@ -120,6 +120,20 @@ Matt (verbatim core): *"why not house it within the elemental randomization piec
 2. **Q-E3-1(c) independently re-derived by Matt:** "one element per chain" IS the portfolio logic with attribute in the element slot — chain_A weapon-hand / chain_B caster-hand. Convergent derivation from the element side; lean strengthened.
 3. **Q-E3-5 lean AMENDED — per-HAND T4 crowns:** kits already emit tiers 1–4 PER CHAIN (`per_skill_emitter.py:513-563`), so "hybrid kits have multiple T4s" is already structurally true; the amendment is that each chain's T4 crown be **path-native** (STR-hand physical crown / caster-hand magical crown), and `path_delta` (5b) + the elemental `DUAL_ELEMENT_ADDITION` T4 stub are siblings in one T4-transform vocabulary.
 
+## §2-ter — Eligibility challenge (Matt, same session): "Why would we not want a given kit to be eligible for hybridity?"
+
+**Outcome: eligibility is UNIVERSAL at end-state; the v1 pins are a calibration on-ramp, not a design position.** Matt's original "low probability" instinct was the end-state; the pinning is introduction-sequencing only. Q-E3-0 lean re-stated with **three-tier value semantics** on the per-CellDef `hybrid_path_probability`:
+
+| Value class | Cells | Why |
+|---|---|---|
+| **1.0 — structural** | K15/K20/K23 + H5 (melee × INT/WIS coordinate contradictions) | Mono roll re-ships the §1 palette-swap failure — these coordinates DEMAND two paths; they never roll mono |
+| **low-p — discovery** (end-state default) | every coherent mono cell | Jackpot variant roll — hybrids as FINDS, not furniture; seasonal-emission / form-library collection DNA |
+| **0.0 — scaffolding** (v1 only) | all non-pinned cells, temporarily | Calibration sequencing ONLY: breadth premium (Q-E3-2b) prices on a bounded population first; each mid-p cell = a variant cert row (bimodal bands); opening ~14 caster cells in the introducing build = cert-surface explosion. Standing evidence for bounded introduction: E2 band-refit HALT (`0b7bbc2`, 5/7 bands lurched) |
+
+**CROSS-FAMILY LAW — the only permanent exclusion:** a hybrid pair must cross the martial/caster family line ({STR,DEX} × {INT,WIS}). Within-family pairs (STR×DEX, INT×WIS) run the SAME resolver path — attribute_coupling stat-flavor (existing machinery), not path-hybrids; no p applies to them. Consequence: **REVERSE hybrids are legal at end-state** — a STR cell rolling an INT/WIS caster-hand (chain_A = native weapon, chain_B = rolled caster chain): D2 Singer barb / melee-mancer / GD Warder shape. Existence proof for universal path-hybridity: **Grim Dawn's entire mastery system** — every character a two-class hybrid, priced exactly as Q-E3-2(b) prices ours (split budget, lower peak, breadth compensates). Proxy×hybrid composes (melee-mancer shape); Q-E3-6 regime honesty covers cert; sampler coupling rows only if empirically needed.
+
+**Dial-open = a NAMED follow-on milestone**, empirically gated: breadth price validated on the v1 population + the ONE Q14 re-anchor + variant-row cert handling demonstrated. The E3 design note MUST carry the end-state semantics from birth so the v1 zeros read as scaffolding, not policy.
+
 ## §3 — Composition constraints (inherited, not forks)
 
 1. **E2 k-conservation:** k scales `(per_hit, cooldown, cost)` per-skill. Under the portfolio spine each skill is single-path — k composes UNCHANGED. For `sum_paths` signatures: whether k applies per-path-pre-blend or post-blend is a **math-note item** (conservation must hold either way; flag, not fork).
