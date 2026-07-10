@@ -47,29 +47,35 @@ push to canonical/**  →  GitHub Action  →  parser (parser/parse.mjs, determi
 - **UNRESOLVED** (dangling `gates-on:` token) → **warning badge** + global counter. Visible debt, not a broken build.
 - **ABSENCE** is never an error — a doc with no delta log, a table that isn't a queue: fine, rendered as prose.
 
-## v1.4 — the FOUR-PAGE SPLIT (§7.3)
+## v1.5 — the FIVE-PAGE SPLIT + the KITS page (§7.4, CURRENT)
 
 The app is a hash-routed SPA (zero router dependency — the vercel.json SPA rewrite
 funnels every path to index.html, so hash routes work identically in preview + prod):
 
-- **Landing `/`** (`Landing`): the slim five-card index — the ORIGINAL one-screen glance,
-  preserved. Each card taps through to its domain page (the surface-ledger card opens
-  the header drawer). Plus "Since you last looked".
-- **Four domain pages** `#/engine · #/story · #/game · #/content-emission` (`DomainPage`):
-  one per tracker, its Tier-0 card EXPANDED IN PLACE — flow-bar lead (§2.7) → STATUS →
-  latest delta full + older collapsed → counters → queue tables (in-page Tier-1). All under
-  the § 4 supersession law. Tier-2 source deep-links unchanged (every claim → file+line).
+- **Landing `/`** (`Landing`): the slim index — the ORIGINAL one-screen glance, preserved.
+  The tracker cards + a SIXTH card, **Kits** (`KitsIndexCard`), whose face is the PART F
+  roster tallies (25 K + 6 H, per-status counts, DERIVED from the pinned rows). Each card
+  taps through (surface-ledger opens the header drawer; Kits → `/kits`). Plus "Since you
+  last looked".
+- **Five domain pages** `#/engine · #/story · #/game · #/content-emission · #/kits`
+  (`DomainPage`): the four tracker pages render their Tier-0 card EXPANDED IN PLACE —
+  flow-bar lead (§2.7) → STATUS → latest delta full + older collapsed → counters → queue
+  tables (in-page Tier-1). All under the § 4 supersession law. Tier-2 deep-links unchanged.
+- **BOTH process pages lead flow-bar-first:** `/engine` and `/content-emission` lead with
+  their `## FLOW` pipeline view. (v1.4's rule that content-emission leads with the roster
+  is DEAD — the roster moved to `/kits`.)
+- **`/kits` page** (`KitsPage`): LEADS with the **KIT ROSTER OF RECORD** table (`KitRoster`,
+  PART F, K1–K25 + H1–H6). Promoted by SECTION-NAME PIN (the serial tracker's `F.1…`/`F.2…`
+  sub-tables) — zero new parse grammar. Columns as authored: ID · ARPG Genre Canon kit ·
+  BC cell/hypothesis · status · blockers/held rules. Roster count + status tallies (25 K +
+  6 H = 31) in the page header; cross-doc `gates-on:` tokens (proxy-P0/P1/P2, totem-probe)
+  dangle as § 2.6 warning badges. **Feed-2 seam wired (not blocked):** when star-lord's
+  registry-snapshot export lands (`agentic_orchestration/run-registry/emission-runs-snapshot.json`),
+  per-kit cert truth auto-joins the roster rows; v1 renders doc truth only.
 - **Global header strip on EVERY page** (`HeaderStrip`): the your-move pixel
   (open matt_decision_needed — the most important pixel; never dropped) · matt_to_do ·
-  surfaces-agreed ✓N/M · last-commit age · dangling (gates + flow-refs) · four-tab nav ·
+  surfaces-agreed ✓N/M · last-commit age · dangling (gates + flow-refs) · five-tab nav ·
   the **surface-ledger drawer** (`SurfaceLedgerDrawer`) — compact, expandable, on every page.
-- **Content-emission page lead** (`KitRoster`): the **KIT ROSTER OF RECORD** table (PART F,
-  K1–K25 + H1–H6) as the TOP card, ABOVE the flow-bar. Promoted by SECTION-NAME PIN (the
-  serial tracker's `F.1…`/`F.2…` sub-tables) — zero new parse grammar. Columns as authored:
-  ID · ARPG Genre Canon kit · BC cell/hypothesis · status · blockers/held rules. Roster
-  count + status tallies (25 K + 6 H) render in the card header; cross-doc `gates-on:` tokens
-  (proxy-P0/P1/P2, totem-probe) dangle as § 2.6 warning badges (E6 resolves — it's a modeled
-  ledger row).
 
 ## The six legislated shapes (Tiers 0–2 substrate)
 

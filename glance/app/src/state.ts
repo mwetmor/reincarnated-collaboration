@@ -207,30 +207,40 @@ export const FLOW_DOMINANT_LABEL: Record<FlowDominant, string> = {
   quiet: 'quiet (no rows)',
 };
 
-// ---- the four domain pages (§7.3) ----
-// A "page" maps 1:1 to a tracker. The surface-ledger is NOT a page (it renders as a
+// ---- the five domain pages (§7.4 — v1.5) ----
+// A "page" maps to a tracker. The surface-ledger is NOT a page (it renders as a
 // drawer on every page + full on whichever page expands it); it is deliberately absent
-// from PAGE_ORDER so the four-tab nav shows exactly four tabs (§7.3.2).
-export type PageId = 'engine' | 'story' | 'game' | 'content-emission';
+// from PAGE_ORDER so the five-tab nav shows exactly five tabs (§7.4.1).
+//
+// `kits` and `content-emission` BOTH back the serial-content-emission tracker (§7.4):
+//   - `/kits`             leads with (and shows only) the PART F roster — the NOUN-list.
+//   - `/content-emission` leads flow-bar-first, roster GONE — the PROCESS-flow.
+// The roster moved OUT of content-emission (v1.4's lead-element law is DEAD).
+export type PageId = 'engine' | 'story' | 'game' | 'content-emission' | 'kits';
 
-export const PAGE_ORDER: PageId[] = ['engine', 'story', 'game', 'content-emission'];
+export const PAGE_ORDER: PageId[] = ['engine', 'story', 'game', 'content-emission', 'kits'];
 
 export const PAGE_LABEL: Record<PageId, string> = {
   engine: 'Engine',
   story: 'Story',
   game: 'Game',
   'content-emission': 'Content Emission',
+  kits: 'Kits',
 };
 
-// the tracker id backing each page (the content-emission page is backed by the
-// serial-content-emission tracker).
+// the tracker id backing each page. Both content-emission and kits are backed by the
+// serial-content-emission tracker (they render different leads off the same doc).
 export const PAGE_TRACKER: Record<PageId, TrackerId> = {
   engine: 'engine',
   story: 'story',
   game: 'game',
   'content-emission': 'serial-content-emission',
+  kits: 'serial-content-emission',
 };
 
+// The canonical "home page" for a tracker's card/deltas. For the serial tracker this
+// is content-emission (the PROCESS page); /kits is a second view of the same tracker but
+// is NOT the tracker's delta/card home. First-match in PAGE_ORDER yields content-emission.
 export function pageForTracker(id: TrackerId): PageId | null {
   const found = (Object.keys(PAGE_TRACKER) as PageId[]).find((p) => PAGE_TRACKER[p] === id);
   return found ?? null;

@@ -11,11 +11,11 @@ import { InlineMd, BlockMd } from './md';
 import { RowLine } from './components';
 
 // ---------------------------------------------------------------------------
-// Routing — hash-based, zero dependency (§7.3). The SPA rewrite in vercel.json
+// Routing — hash-based, zero dependency (§7.4). The SPA rewrite in vercel.json
 // already funnels every path to index.html, so hash routes work identically in
-// preview + prod with no 404 risk (the May-12 lesson). Routes:
-//   #/                     → the slim five-card landing index (the original glance)
-//   #/engine #/story #/game #/content-emission  → the four domain pages
+// preview + prod with no 404 risk (the May-12 lesson). Routes (v1.5 — five pages):
+//   #/                     → the slim six-card landing index (the original glance)
+//   #/engine #/story #/game #/content-emission #/kits  → the five domain pages
 // ---------------------------------------------------------------------------
 type Route = { kind: 'landing' } | { kind: 'page'; page: PageId };
 
@@ -93,7 +93,7 @@ export default function App() {
 
   return (
     <div className="min-h-full">
-      {/* the global header strip + four-tab nav ride on EVERY page (§7.3.2 — the
+      {/* the global header strip + five-tab nav ride on EVERY page (§7.4.1 — the
           one-screen glance survives the split). */}
       <HeaderStrip state={state} route={route} />
       <main className="mx-auto max-w-5xl px-3 pb-24 pt-4 sm:px-4">
@@ -109,8 +109,8 @@ export default function App() {
 }
 
 // ---------------------------------------------------------------------------
-// Global header strip — the your-move number + counters + four-tab nav + the
-// surface-ledger drawer. Present on landing AND every domain page (§7.3.2).
+// Global header strip — the your-move number + counters + five-tab nav + the
+// surface-ledger drawer. Present on landing AND every domain page (§7.4.1).
 // ---------------------------------------------------------------------------
 function HeaderStrip({ state, route }: { state: State; route: Route }) {
   const [ledgerOpen, setLedgerOpen] = useState(false);
@@ -178,7 +178,7 @@ function HeaderStrip({ state, route }: { state: State; route: Route }) {
           />
         </div>
 
-        {/* four-tab nav */}
+        {/* five-tab nav */}
         <nav className="mt-2 flex flex-wrap items-center gap-1 text-xs">
           <TabButton label="Overview" active={activePage === null} onClick={() => go(null)} />
           {PAGE_ORDER.map((p) => (
@@ -294,20 +294,61 @@ function SurfaceLedgerDrawer({ ledger, ghBase }: { ledger: Tracker; ghBase: stri
 }
 
 // ---------------------------------------------------------------------------
-// LANDING (`/`) — the slim five-card index in current Tier-0 form. The ORIGINAL
-// one-screen glance, preserved (§7.3.3): five cards, each tapping through to its
-// page (the fifth — surface ledger — opens the drawer). Plus "since you last looked".
+// LANDING (`/`) — the slim index in current Tier-0 form. The ORIGINAL one-screen
+// glance, preserved (§7.4.1): the tracker cards, each tapping through to its page
+// (surface ledger opens the drawer), PLUS the SIXTH card — Kits — whose face is the
+// PART F roster tallies (25 K + 6 H, per-status counts). Plus "since you last looked".
 // ---------------------------------------------------------------------------
 function Landing({ state, watermark }: { state: State; watermark: string | null }) {
+  const serial = state.trackers.find((t) => t.id === 'serial-content-emission');
   return (
     <div className="space-y-6">
       <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {state.trackers.map((t) => (
           <IndexCard key={t.id} tracker={t} />
         ))}
+        {/* sixth card slot — Kits (§7.4.1). Card face = PART F roster tallies. */}
+        {serial && <KitsIndexCard tracker={serial} />}
       </section>
       <SinceYouLastLooked state={state} watermark={watermark} />
     </div>
+  );
+}
+
+// The sixth landing card (§7.4.1) — the Kits roster tallies as the card face, tapping
+// through to /kits. Reuses the PART-F pin (partFTally) so the face is DERIVED from the
+// serial tracker's PART F rows, never hand-authored.
+function KitsIndexCard({ tracker }: { tracker: Tracker }) {
+  const t = partFTally(tracker);
+  if (!t) return null;
+  return (
+    <button
+      onClick={() => go('kits')}
+      className="flex flex-col rounded-lg border border-sky-800/50 bg-sky-950/20 p-3 text-left transition hover:border-sky-600 hover:bg-sky-950/40">
+      <div className="flex items-center justify-between">
+        <h2 className="font-semibold text-slate-100">Kits</h2>
+        <span className="rounded bg-slate-800 px-1.5 py-0.5 text-[0.65rem] font-medium text-slate-400">
+          ROSTER OF RECORD
+        </span>
+      </div>
+      <div className="mt-2 text-xs text-slate-400">
+        the demo-curation denominator — PART F, {t.kCount} K + {t.hCount} H ={' '}
+        <span className="text-slate-200">{t.total} kits</span>
+      </div>
+      <div className="mt-2 flex flex-wrap gap-1.5">
+        {COUNTER_ORDER.map((k) => {
+          const n = t.tally[k];
+          if (n === 0) return null;
+          const c = STATUS_COLOR[k];
+          return (
+            <span key={k} className={`rounded border px-1.5 py-0.5 text-[0.7rem] ${c.chip}`}>
+              {STATUS_SYMBOL[k]} {n}
+            </span>
+          );
+        })}
+      </div>
+      <span className="mt-2 text-[0.7rem] text-sky-500">open roster →</span>
+    </button>
   );
 }
 
@@ -423,11 +464,14 @@ function FlowBar({
 }
 
 // ---------------------------------------------------------------------------
-// DOMAIN PAGE (§7.3.1) — the tracker's Tier-0 card EXPANDED IN PLACE:
-//   [content-emission only: PART F roster lead card] → flow-bar → STATUS →
-//   latest delta (full) + older (collapsed) → counters → queue tables.
-// All under the §4 supersession law (delta before body). Tier-1 drill is in-page;
-// Tier-2 source deep-links unchanged (every claim → file+line on GitHub).
+// DOMAIN PAGE (§7.4) — the tracker's Tier-0 card EXPANDED IN PLACE:
+//   flow-bar → STATUS → latest delta (full) + older (collapsed) → counters →
+//   queue tables. All under the §4 supersession law (delta before body). Tier-1
+//   drill is in-page; Tier-2 source deep-links unchanged (every claim → file+line).
+//
+// v1.5: BOTH process pages (/engine + /content-emission) now lead flow-bar-first.
+// The KIT ROSTER moved OUT to its own /kits page (KitsPage below) — v1.4's rule that
+// content-emission leads with the roster is DEAD.
 // ---------------------------------------------------------------------------
 function DomainPage({ state, page }: { state: State; page: PageId }) {
   const trackerId = PAGE_TRACKER[page];
@@ -435,8 +479,12 @@ function DomainPage({ state, page }: { state: State; page: PageId }) {
   if (!tracker) {
     return <div className="p-8 text-slate-500">No modeled tracker for “{PAGE_LABEL[page]}”.</div>;
   }
-  const isContentEmission = page === 'content-emission';
   const ghBase = state.gh_blob_base;
+
+  // /kits is the roster home — a distinct page off the same serial tracker (§7.4.2).
+  if (page === 'kits') {
+    return <KitsPage tracker={tracker} ghBase={ghBase} />;
+  }
 
   return (
     <div className="space-y-6">
@@ -449,9 +497,6 @@ function DomainPage({ state, page }: { state: State; page: PageId }) {
           open tracker on GitHub ↗
         </a>
       </div>
-
-      {/* content-emission lead: the KIT ROSTER OF RECORD, ABOVE the flow-bar (§7.3) */}
-      {isContentEmission && <KitRoster tracker={tracker} ghBase={ghBase} />}
 
       {/* flow-bar lead (§2.7) — the abstracted end-to-end process view */}
       {tracker.flow && (
@@ -504,27 +549,83 @@ function DomainPage({ state, page }: { state: State; page: PageId }) {
 }
 
 // ---------------------------------------------------------------------------
-// KIT ROSTER OF RECORD (§7.3) — PART F promoted to the content-emission page
-// lead by SECTION-NAME PIN. The pin: the serial tracker's queues titled `F.1…`
-// / `F.2…` (the PART F sub-tables). Rendered as the authored 5-column table:
+// KIT ROSTER OF RECORD (§7.4) — PART F, promoted to the /kits page lead by
+// SECTION-NAME PIN. The pin: the serial tracker's queues titled `F.1…` / `F.2…`
+// (the PART F sub-tables). Rendered as the authored 5-column table:
 //   ID · ARPG Genre Canon kit · BC cell/hypothesis · status · blockers/held rules.
 // Roster row count + status tallies join the page header block. gates-on tokens
 // dangle as §2.6 warning badges (visible debt) — never a build failure.
+//
+// v1.5: the roster's HOME is now /kits (KitsPage). content-emission no longer
+// renders it (v1.4's lead-element rule is DEAD).
 // ---------------------------------------------------------------------------
 function isPartFQueue(q: Queue): boolean {
   // section-name pin: PART F's authored sub-tables are titled "F.1 …" / "F.2 …".
   return /^F\.\d/.test(q.title.trim());
 }
 
-function KitRoster({ tracker, ghBase }: { tracker: Tracker; ghBase: string }) {
+// PART-F tally, DERIVED from the pinned rows (never hand-authored). Used by both the
+// /kits page header and the landing sixth card's face. null when no PART F is modeled.
+function partFTally(tracker: Tracker): {
+  kCount: number; hCount: number; total: number; tally: Record<StatusToken, number>;
+} | null {
   const partF = tracker.queues.filter(isPartFQueue);
   if (partF.length === 0) return null;
-
   const rows = partF.flatMap((q) => q.rows);
   const kCount = rows.filter((r) => /^K\d/.test(r.id)).length;
   const hCount = rows.filter((r) => /^H\d/.test(r.id)).length;
   const tally = { open: 0, in_flight: 0, blocked: 0, awaiting_ruling: 0, parked: 0, closed: 0 } as Record<StatusToken, number>;
   for (const r of rows) tally[r.status.token] += 1;
+  return { kCount, hCount, total: rows.length, tally };
+}
+
+// ---------------------------------------------------------------------------
+// KITS PAGE (§7.4.2) — the roster's own page. LEADS with the PART F table (the
+// NOUN-list: what kits exist), then a thin footer note. Named future consumer of
+// the §7.1 feed-2 registry snapshot: per-kit cert truth auto-joins these rows when
+// star-lord's export lands (SEAM WIRED below — v1 renders doc truth only).
+// ---------------------------------------------------------------------------
+function KitsPage({ tracker, ghBase }: { tracker: Tracker; ghBase: string }) {
+  const hasRoster = tracker.queues.some(isPartFQueue);
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <h1 className="text-xl font-bold text-slate-100">{PAGE_LABEL.kits}</h1>
+        <a
+          href={githubLink(ghBase, tracker.path, 1)}
+          target="_blank" rel="noreferrer"
+          className="text-xs text-sky-400 hover:text-sky-300">
+          open serial tracker on GitHub ↗
+        </a>
+      </div>
+
+      {hasRoster ? (
+        <KitRoster tracker={tracker} ghBase={ghBase} />
+      ) : (
+        <div className="rounded-lg border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-500">
+          No PART F roster is modeled in the serial tracker yet. The roster renders here
+          once the <span className="font-mono">## PART F</span> sub-tables (F.1 / F.2) parse.
+        </div>
+      )}
+
+      {/* §7.1 feed-2 SEAM (wired, not blocked): when star-lord's registry-snapshot export
+          lands at agentic_orchestration/run-registry/emission-runs-snapshot.json, per-kit
+          cert truth (emission runs, gauntlet results) auto-joins the roster rows as machine
+          truth. v1 renders doc truth only. TODO(drax): join snapshot rows when feed-2 ships. */}
+      <p className="text-[0.7rem] text-slate-600">
+        Per-kit cert status will auto-fill from emission runs when the run-registry snapshot
+        feed lands (§7.1 feed-2). Today this roster reflects doc truth only.
+      </p>
+    </div>
+  );
+}
+
+function KitRoster({ tracker, ghBase }: { tracker: Tracker; ghBase: string }) {
+  const partF = tracker.queues.filter(isPartFQueue);
+  if (partF.length === 0) return null;
+
+  const t = partFTally(tracker)!;
+  const { kCount, hCount, tally } = t;
 
   return (
     <section className="rounded-lg border border-sky-800/50 bg-sky-950/20 p-3">
@@ -533,10 +634,10 @@ function KitRoster({ tracker, ghBase }: { tracker: Tracker; ghBase: string }) {
           KIT ROSTER OF RECORD
           <span className="ml-2 font-normal text-slate-500">first glance — PART F</span>
         </h2>
-        {/* roster tallies in the page header block (§7.3): 25 K + 6 H, per-status counts */}
+        {/* roster tallies in the page header block (§7.4): 25 K + 6 H, per-status counts */}
         <div className="flex flex-wrap items-center gap-1.5 text-[0.7rem]">
           <span className="rounded bg-slate-800 px-1.5 py-0.5 text-slate-300">
-            {kCount} K + {hCount} H = {rows.length}
+            {kCount} K + {hCount} H = {t.total}
           </span>
           {COUNTER_ORDER.map((k) => {
             if (tally[k] === 0) return null;
