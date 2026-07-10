@@ -350,3 +350,16 @@ light; active consumer w/ interrupt/whiff model = heavy).
 | **Q-E4-5** | IN DIALOGUE — Matt inclined to agree, asks: *"Could we end up with a scenario where spiky casters are rewarded as their band differs substantially from the rest?"* | Answered in-session: under (b)-ACTIVE yes-by-design UNLESS guarded — the guards are (1) risk-PRICED premium (expected throughput in-band, variance carries the fantasy), (2) regime-mix certification (gauntlet must sample mobile regimes where wind-ups genuinely whiff, else pricing is dishonest), (3) fairness-band gate at cert. Coherent Q-E4-5 form under (b): ONE shared period model, k-aware, with a priced premium term (not full conservation). |
 
 **Status flip: DRAFT → PARTIALLY RULED.** Design note authoring gates on: Q-E4-1 ruling + Q-E4-3 confirm + Q-E4-5 close.
+
+---
+
+## RULINGS RECEIVED — round 2 (Matt, 2026-07-09 — same-day; closes the set)
+
+| Fork | Ruling | Consequence |
+|---|---|---|
+| **Q-E4-1** | **(b)** — attacks full + control cast-only + support exempt (+ T4 per-capstone per Q-E4-3) | Attack slots carry the kit's bin identity; control skills take a REAL cast time (locking someone down costs a commitment window — the anti-free-Teleport guard) but do not define the kit's coordinate; support/utility fires instantly (no fantasy in a delayed banner); T4 declares per-capstone. |
+| **Q-E4-5** | **CLOSED — "agreed with the 3 guards"** | The guards enter the design note as LAW: (1) risk-PRICED premium from measured completion/whiff rates — expected band center stays in tolerance, VARIANCE carries the fantasy; (2) regime-mix certification — the gauntlet MUST sample mobile regimes where wind-ups genuinely whiff (the guard that actually prevents spiky-caster over-reward); (3) fairness-band gate at cert stays the arbiter regardless of bin. One shared period model, k-aware, priced premium term. |
+| **Q-E4-3** | **CLOSED — "agreed"** + Matt extension RULED: *"if channeled inverts all main skills … the kit should flip its BC axis coordinates from spiky to flat as well, right?"* → YES | **Capstone coordinate-transform law:** every T4 capstone declares `(commitment_bin, amplitude_delta ∈ {none, flatten, invert})`. A whole-kit rhythm-inverting channel capstone (the mode-shift-into-channel-stance form — all main skills fire through the channel) declares `invert` → the kit's EXPRESSED post-T4 coordinate flips spiky→flat, and certification fires at the expressed coordinate (the measured band must CONFIRM the declaration; mismatch = cert fail — substrate votes). A single sustained-output skill woven among burst skills declares `flatten` or `none` — legal, but it is NOT an "inversion" capstone. Bookkeeping: the kit's GENERATION cell (sampler address, roster K-number) stays stable; the cert record carries native + post-T4 expressed coordinates. Precedent: the K13→K12 artillery fold already works this way (T4 carries a kit across expressed coordinate space without a new cell). E6 consumes this grammar. |
+
+**Status flip: PARTIALLY RULED → FULLY RULED (all six forks closed).** The E4 design note is UNGATED —
+it fires next, then the rocket+gamora dispatch pair (cross-seam, MIGRATION.md) goes to KR.
