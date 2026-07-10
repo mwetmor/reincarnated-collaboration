@@ -4,6 +4,14 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-07-10 — Glance v1.6 shipped + pushed live (product-pipeline FLOW leads + `/kits` F.3 bench)
+
+drax shipped contract v1.6 §7.5 (`94da9d1`, tag `glance/v1.6-pipeline-flow-1`, pushed to `origin/main`): `/engine` + `/content-emission` lead FLOW bars **repoint** from tracker doc-nav to the dedicated MATT-FACING product-pipeline docs (`pipeline-battle-sim.md` S0–S8 / `pipeline-serial-content-emission.md` E0–E8, added to parser source-set as a new `pipelines` set — not Tier-0 cards); tracker FLOW blocks demoted to below-fold doc-nav; each pipeline's fenced ASCII flow rendered verbatim (not parsed); `/kits` gains the PART F.3 blocked/held bench (B1–B13) below F.2 under a "NOT in the 31 denominator" divider. Repoint is one-config-line-per-page (`PAGE_FLOW_SOURCE`) so the story/game repoint is a trivial follow-up when those pipeline docs land. Relay: `gandalf/notes/2026-07-10-glance-v1.6-amendment-relay.md`; contract now SPEC-CURRENT v1.6.
+
+**Critique-pair gate fired mid-build (worked as designed):** KR fired drax on v1.6; drax **correctly STOPPED** (refused to improvise grammar) on discovering both pipeline docs' `## FLOW` blocks were malformed against ratified §2.7 — em-dash separators instead of `←` section-refs, and `###` stage headings the depth-2 resolver can't bind. KR routed the fix to gandalf (canon-authoring seam); gandalf re-authored both docs to §2.7 (Option A: `←` refs + `###`→`##` promotion, `f991056`); KR verified conformance empirically; re-fired drax → clean completion. KR-verified deployed state: `f991056` ancestor of `origin/main`, parser GREEN (5 trackers + 2 pipelines, 0 dangling flow-refs, 0 malformed), uncommitted in-flight pipeline-doc header edits by other agents don't affect the parse. Single-seam (drax web) — no MIGRATION.md. **Lesson logged:** pre-fire source-dependency checks must verify grammar *conformance*, not just doc *existence* (KR's v1.4 FLOW-assumption miss + this v1.6 conformance miss — both caught by the gate).
+
+---
+
 ## 2026-07-09 — Glance v1.4 → v1.5 shipped + pushed live (five-page split + `/kits` roster home)
 
 drax extended the standalone Glance app (`glance/`) across two same-session Matt rulings:
