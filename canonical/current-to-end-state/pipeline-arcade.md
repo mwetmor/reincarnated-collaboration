@@ -18,8 +18,9 @@
 > gandalf owns the doc; the commit that lands stage-changing work UPDATES that stage's stamp
 > (**LIVE / PARTIAL / GAP / GATED**) in the SAME commit — the §2.7 FLOW-maintenance rule extended
 > (owning agents: gandalf A0 · star-lord A1–A2 · gamora A3 · drax A4/A6 · elrond A5 · Matt A7).
-> A build landed without its stamp update is an incomplete commit. Glance rendering: page
-> assignment is a Matt/drax call (6th page vs. a section under `/game`) — same FLOW parse either way.
+> A build landed without its stamp update is an incomplete commit. Glance **`/minigames`** page
+> (6th tab, Matt-ruled 2026-07-10: *"let's make it a 6th tab called minigames"*) renders this doc —
+> contract v1.8 §7.6; same §2.7 FLOW parse, zero new parse shapes.
 
 **Siblings:** `pipeline-serial-content-emission.md` · `pipeline-battle-sim.md` · `pipeline-game.md` ·
 `pipeline-story.md`. **Composition law (why this is the FIFTH member, not a fork of one):** the
@@ -112,7 +113,7 @@ modes are sentences** (content-visibility LAW, `../reap-die-rise-game/business-p
 
 ## Stage detail (Consumes / Does / Emits / State)
 
-### A0 · Template lattice — **PARTIAL (spec canonized; zero templates implemented; build PARKED)**
+## A0 · Template lattice — **PARTIAL (spec canonized; zero templates implemented; build PARKED)**
 - **Is:** `../reap-die-rise-game/arcade-minigame-taxonomy-spec.md` — 11 templates (5.1–5.11), 6
   design laws, rung ladder (in-run activities → arcade surface), two-tier certification. Lineage
   evidence: `wc3-sc-custom-game-compendium.md` §6 — every template's BW/WC3/SC2 ancestor named
@@ -124,7 +125,7 @@ modes are sentences** (content-visibility LAW, `../reap-die-rise-game/business-p
 - **State:** **PARTIAL** — the lattice is SPEC'D; zero templates implemented; build PARKED behind
   taxonomy §9.1 endgame fork (game-tracker B6).
 
-### A1 · Packet authoring — **GAP (Rule of Three governs)**
+## A1 · Packet authoring — **GAP (Rule of Three governs)**
 - **Does:** produces mode-packets against the versioned contract through three doors: (1)
   **internal tooling** — build-as-you-go thin layers (packet-validation CLI → crude local form →
   preview-with-bots → cert-submit), each layer pulled forward only when the manual version has hurt
@@ -135,7 +136,7 @@ modes are sentences** (content-visibility LAW, `../reap-die-rise-game/business-p
 - **State:** **GAP** — no packet contract drafted yet, deliberately: the Mac team + packet schemas
   already IS the editor wearing a conversational UI; no tool until the manual version hurts ×3.
 
-### A2 · Schema validation — **GAP (its seeds are NOW-obligations #1–#2)**
+## A2 · Schema validation — **GAP (its seeds are NOW-obligations #1–#2)**
 - **Does:** instant structural validation against the **versioned + documented packet contract**;
   **registry-ID indirection** everywhere — packets reference nouns, never carry raw assets (the
   licensing question dissolves permanently); lattice-edge asks fail gracefully ("not in the
@@ -143,7 +144,7 @@ modes are sentences** (content-visibility LAW, `../reap-die-rise-game/business-p
   engine work).
 - **State:** **GAP** — the validation surface is unbuilt; its two seeds are free present-tense laws.
 
-### A3 · Range certification — **GAP (architecture named; gamora seam when it fires)**
+## A3 · Range certification — **GAP (architecture named; gamora seam when it fires)**
 - **Does:** the sim pre-validates each template's PARAMETER SPACE offline ("wave scaling X–Y
   in-band for composition class Z"); runtime packets clamped to certified ranges are **certified by
   construction** — instant AND Law-6-compliant. Same architecture as gear fairness bands, one level
@@ -153,7 +154,7 @@ modes are sentences** (content-visibility LAW, `../reap-die-rise-game/business-p
   parameter-space generalization is a gamora design note owed at arcade-build time, NOT before
   (Discipline #18 timing: extension methodology after baseline empirics, not in the dark).
 
-### A4 · Runtime assembly + bots — **GAP**
+## A4 · Runtime assembly + bots — **GAP**
 - **Consumes:** certified packet (A3) + registry nouns: kits (emission E8) · scenes / actors /
   band-dressed bodies (game G-chain) · certified text register (story N-chain).
 - **Does:** template load (~5–15 s) + bot seats from the shared player/AI pool — every mode
@@ -163,7 +164,7 @@ modes are sentences** (content-visibility LAW, `../reap-die-rise-game/business-p
   substrate; a marketing beat, not a feature war.
 - **State:** **GAP** — POST-LAUNCH.
 
-### A5 · Registry & rotation curation — **GAP (its seed is NOW-obligation #2)**
+## A5 · Registry & rotation curation — **GAP (its seed is NOW-obligation #2)**
 - **Does:** every packet — internal, agent-made, community — lives in **our registry, in our
   game**; assets travel as registry references, never raw files; the best community modes curate
   into the official rotation. The DotA lesson from the platform-owner's side: Blizzard shipped the
@@ -171,7 +172,7 @@ modes are sentences** (content-visibility LAW, `../reap-die-rise-game/business-p
 - **State:** **GAP** — the indirection habit starts NOW at zero cost; the registry product is
   POST-LAUNCH. elrond seam (feed-2 registry snapshot is the machine-truth precedent).
 
-### A6 · Player arcade surface — **GAP**
+## A6 · Player arcade surface — **GAP**
 - **Does:** browsable in-game arcade catalog under the **content-visibility LAW**: prompts arrange
   content into modes, they never unlock content; kits are nouns, modes are sentences, every noun
   visible in the catalog. Each tranche feeds both surfaces from ONE emission — new kits for
@@ -180,7 +181,7 @@ modes are sentences** (content-visibility LAW, `../reap-die-rise-game/business-p
   tranches are nearly free to produce; that is the structural edge; never paywall your own
   advantage).
 
-### A7 · Creator exposure gates — **GATED (Matt; nothing auto-advances)**
+## A7 · Creator exposure gates — **GATED (Matt; nothing auto-advances)**
 - **Is:** business-strategy §9 — **Stage 4** creator editor exposed (arcade retention healthy AND
   players ASKING to make modes) · **Stage 4.5** prompt front-end public (editor proven internally;
   used as a marketing beat) · **Stage 5** tier-2 content modding (active creator scene AND mature
