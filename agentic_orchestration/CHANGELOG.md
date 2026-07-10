@@ -4,6 +4,14 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-07-09 — Glance v1.4 shipped (four-page split + PART F kit-roster lead)
+
+drax extended the standalone Glance app (`glance/`) to contract v1.4 §7.3: hash-routed four-page split (`/engine · /story · /game · /content-emission`), global header strip + four-tab nav + surface-ledger drawer on every page, one-screen five-card glance preserved at `/`, and the content-emission page now leads with the KIT ROSTER OF RECORD (serial tracker PART F, K1–K25 + H1–H6) promoted by section-name pin above the flow-bar. Commit `81edcad`, tag `glance/v1.4-four-page-split-1`. KR-verified empirically (Discipline #11): parser GREEN (0 malformed, 0 dangling flow-refs; 11 by-design dangling gate badges), build passes, PART F leads content-emission, one-screen glance survives. Single-seam (drax web) — no MIGRATION.md. **Not pushed** (live URL update awaits Matt push-authorization). Route/fire: KR (commission from Matt via gandalf's paste-ready builder prompt).
+
+**Governance note (standing, not v1.4-introduced):** §2 of the contract (the six-shape format law, incl. §2.7 FLOW) remains PROPOSED, awaiting jack-ryan ratification (§9 "his next governance touch"). Glance now renders FLOW live; drax implemented §2.7 parse verbatim-to-spec (parser is drax's seam per §6/§9) — render-enabling infra, not new grammar. jack-ryan ratification of §2 → fold into `canonical-doc-format.md` still owed.
+
+---
+
 ## 2026-06-21 — drax scope amendment: formally owns `reincarnated-godot/` (Godot/Mac 3D-scene prototype)
 
 **Event:** Matt-approved scope amendment. **drax formally owns `reincarnated-godot/`** — the Godot 4.x / GDScript 3D-scene presentation prototype on the Mac (Synty POLYGON assets, Forward+/Metal renderer, baked `.tscn` scenes, MP4 walkthrough harness; the enchanted-forest ravine combat level) — alongside its existing `reincarnated-demo/` + `reincarnated-loadout/` repos. This is housekeeping that formalizes de-facto ownership: all ravine commits this session were already `drax:`-authored (`af35e76`, `68f21da`, `2de4c4d`, `eb51bba`). Did NOT block in-flight work — drax was executing ravine work under Matt's standing direction; a fresh drax spawn balked because its written scope didn't list the repo, which this amendment closes.
