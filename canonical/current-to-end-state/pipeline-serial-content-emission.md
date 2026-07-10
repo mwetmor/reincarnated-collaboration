@@ -21,15 +21,15 @@ at Glance `/kits`.
 
 ## FLOW (end-to-end at a glance — Glance shape, contract § 2.7)
 
-1. **E0 Design substrate** — coordinate space + the wells (races, affixes, motion frames)
-2. **E1 Emission driver** — per-axis serial full-run (the pivot architecture)
-3. **E2 Kit generation** — sampler → composer → per-skill emitters
-4. **E3 LLM flavor pass** — narrow-blank naming/flavor via API (the D7 line)
-5. **E4 Handoff → battle sim** — the gauntlet certification leg
-6. **E5 Pickup ← cert verdicts** — dispositions land on the roster
-7. **E6 Bundle + registry** — export artifacts + run-registry snapshot
-8. **E7 Curation gate** — Matt picks the demo set (GATE1)
-9. **E8 Godot consumption** — retarget, dressing, scenes, captures
+1. **E0 Design substrate** ← E0
+2. **E1 Emission driver** ← E1
+3. **E2 Kit generation** ← E2
+4. **E3 LLM flavor pass** ← E3
+5. **E4 Handoff → battle sim** ← E4
+6. **E5 Pickup ← cert verdicts** ← E5
+7. **E6 Bundle + registry** ← E6
+8. **E7 Curation gate** ← E7
+9. **E8 Godot consumption** ← E8
 
 ## The visual flow
 
@@ -105,7 +105,7 @@ at Glance `/kits`.
 
 ## Stage detail (consumes / does / emits / state)
 
-### E0 · Design substrate — **LIVE, growing by ruling**
+## E0 · Design substrate — **LIVE, growing by ruling**
 
 The canon the factory draws from. The BC coordinate space (25 named CellDefs — PART F's K-numbers —
 inside the wider space of record: 68,040 mechanic cells × 3 commitment bins = **204,120** after
@@ -118,7 +118,7 @@ derives races; Leg-3-ready as of the Q17 ruling); **mob-affix families** (8 func
 `../reap-die-rise-engine/motion-frame-substrate-amendment-2026-07-09.md` ·
 `../reap-die-rise-engine/agnostic-loot-engine-spec.md`.
 
-### E1 · Emission driver — **PIVOT-RULED; per-axis runs firing**
+## E1 · Emission driver — **PIVOT-RULED; per-axis runs firing**
 
 **Where the pipeline starts.** The full-run pivot (2026-07-08) made emission SERIAL and PER-AXIS: the
 main line regenerates one texture axis at a time (E1 geometry ✓ landed · E2 economy ✓ closed · E3
@@ -131,7 +131,7 @@ content authority).
 **Gate law:** GATE1 — no emission ships to the demo until the surface ledger is all-✓ (Matt's rolling
 Q12 row).
 
-### E2 · Kit generation — **LIVE (player-side); mob-side Leg 3 ready to fire**
+## E2 · Kit generation — **LIVE (player-side); mob-side Leg 3 ready to fire**
 
 `bc_target_cell_sampler.py` (25 CELL_DEFINITIONS; K9 coordinate-drift reconcile owed at batch-2) →
 composer assembles the 5 skill slots under the **slot law** (Q-E4-1b: attack slots carry the kit's
@@ -142,7 +142,7 @@ T4 capstones carry `(commitment_bin, amplitude_delta)` transform declarations.
 **Mob-side twin:** E10 Leg 3 kit-gen consumes ONLY admitted races with `verified=true` rig bindings +
 adjectival/culture-seed fields; mob-only kinds never enter the vessel well.
 
-### E3 · LLM flavor pass — **LIVE precedent; the API boundary**
+## E3 · LLM flavor pass — **LIVE precedent; the API boundary**
 
 **Where the LLM is called.** star-lord's `llm/` seam calls the API at emission time under the **D7
 AI-tell law**: templated structure with the LLM filling NARROW BLANKS ONLY — names and flavor lines,
@@ -152,7 +152,7 @@ goblin short guttural chatter · human register-driven); faction labels ride the
 grammar. **Cost precedent:** glyph-flavor Beat B — 35/35 fills, $0.13, in-session key.
 **State:** LIVE (Beat B proved the loop) · kit-name + faction-label passes fire with batch-2.
 
-### E4 · Handoff → battle sim — **the seam**
+## E4 · Handoff → battle sim — **the seam**
 
 **Where emission hands off.** The bundle enters the sibling pipeline at its S0 and runs S1–S7:
 gauntlet R1–R5 regimes → band fit → **kit-grain certification at the EXPRESSED coordinate** (post-T4
@@ -160,14 +160,14 @@ transform honored; declaration verified by measurement). Emission does not certi
 is the court.
 **Drill-through:** `pipeline-battle-sim.md` (this handoff is that doc's entire scope).
 
-### E5 · Pickup ← cert verdicts — **the return seam**
+## E5 · Pickup ← cert verdicts — **the return seam**
 
 **Where emission picks back up.** Verdicts land on PART F roster rows: PASS → certified (status
 flips; Glance `/kits` auto-updates) · FAIL → re-fire under the axis run · `__null__` → Stage-3.5
 gap-fill routing (K14's path) · bench rows (B-series) PROMOTE to K/H numbering when their named
 blocker falls. Roster statuses are the pipeline's public state — no verdict lives only in a log.
 
-### E6 · Bundle + registry — **export owed (feed-2)**
+## E6 · Bundle + registry — **export owed (feed-2)**
 
 star-lord exports run artifacts + the **emission-run registry**; the registry snapshot
 (`agentic_orchestration/run-registry/emission-runs-snapshot.json`, contract §7.1 feed-2) is the
@@ -175,7 +175,7 @@ machine-truth feed for Glance `/kits` — per-kit cert state auto-updates from a
 hand-edited docs.
 **State:** registry feed NAMED · snapshot export owed.
 
-### E7 · Curation gate — **Matt's hands, by design**
+## E7 · Curation gate — **Matt's hands, by design**
 
 The only human-in-the-loop stage. Matt curates the demo set from the **full roster** (25 K + 6 H = 31,
 bench visible alongside); **curation ≠ authorship** — every shipped kit is one the pipeline made and
@@ -184,7 +184,7 @@ distribution constrains mob-side picks for the demo realm (elf-native realm; hum
 common; goblin war-camps in the ravine; orc/dwarf sparse).
 **Drill-through:** `surface-ledger.md` (C4/G1 rows) · `../reap-die-rise-game/one-realm-mvp-scope.md`.
 
-### E8 · Godot consumption — **contract live; consumption fires per curated kit**
+## E8 · Godot consumption — **contract live; consumption fires per curated kit**
 
 drax consumes curated kits into the playable surface: Q7 retarget contract (authored BoneMaps →
 GeneralSkeleton; `sidekick_bone_map` / `goblin_bone_map` proven), race-well rig bindings
