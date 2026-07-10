@@ -1,6 +1,6 @@
 # reincarnated-canonical-doc-format — Canonical Doc Format + Lifecycle (Cross-cutting Reference)
 
-> **STATUS:** CURRENT (load-bearing). First authored 2026-05-23 (Stream 3 cross-cutting reference skill). **Amended 2026-06-30 — doc-lifecycle governance added (§ 6): propagation + pruning system, ratified by Matt 2026-06-30 after a 14-scenario stress-test.** The pre-amendment "demote to `canonical/historical/` subfolder" model is RETIRED (the reorg went git-is-archive); reconciled in § 1 + § 3. **Amended 2026-07-06 — the parse contract (§ 7) ratified by jack-ryan from gandalf's Glance contract-spec § 2 proposal (proposer→ratifier per § 6.7); old §§ 7–8 shifted to §§ 8–9. Mirrored as Discipline #60 (CI-fail-loud).**
+> **STATUS:** CURRENT (load-bearing). First authored 2026-05-23 (Stream 3 cross-cutting reference skill). **Amended 2026-06-30 — doc-lifecycle governance added (§ 6): propagation + pruning system, ratified by Matt 2026-06-30 after a 14-scenario stress-test.** The pre-amendment "demote to `canonical/historical/` subfolder" model is RETIRED (the reorg went git-is-archive); reconciled in § 1 + § 3. **Amended 2026-07-06 — the parse contract (§ 7) ratified by jack-ryan from gandalf's Glance contract-spec § 2 proposal (proposer→ratifier per § 6.7); old §§ 7–8 shifted to §§ 8–9. Mirrored as Discipline #60 (CI-fail-loud). Amended 2026-07-10 — shape #6 FLOW declaration (§ 7.8) folded via delta-ratification (§ 7.9); shape count 5 → 6; MALFORMED enumeration re-closed at six conditions; Discipline #60 amended in the same commit (twin-sync).**
 
 **Authored:** 2026-05-23 · **Amended:** 2026-06-30 (lifecycle governance)
 **Author:** gandalf (cross-cutting reference owner + primary canonical-doc author)
@@ -223,11 +223,11 @@ Sibling of § 6.2: the Tracker-delta rule keeps canon↔tracker in sync; this ru
 
 ---
 
-## 7. The parse contract — the five legislated shapes (RATIFIED jack-ryan 2026-07-06)
+## 7. The parse contract — the six legislated shapes (RATIFIED jack-ryan 2026-07-06 · shape #6 FLOW folded 2026-07-10)
 
-**Ratification lineage:** gandalf PROPOSED this as Glance contract-spec § 2 (`agentic_orchestration/operating-procedures/glance-contract-spec-2026-07-03.md`, 2026-07-03); routed to jack-ryan via the § 6.7 `⚠ SWITCH: CANON-STEWARD (proposer) → jack-ryan (ratifier)` beat. RATIFIED here 2026-07-06 with the amendments named in § 7.7. This section is the **canonical, authoritative** statement of the parse contract; the Glance parser (drax) builds against THIS, not the proposal text. Matt rulings embedded: Glance GO / STANDALONE / fork-4 `gates-on:` tokens LIVE on all queue-row writes NOW (Matt 2026-07-03).
+**Ratification lineage:** gandalf PROPOSED this as Glance contract-spec § 2 (`agentic_orchestration/operating-procedures/glance-contract-spec-2026-07-03.md`, 2026-07-03); routed to jack-ryan via the § 6.7 `⚠ SWITCH: CANON-STEWARD (proposer) → jack-ryan (ratifier)` beat. RATIFIED here 2026-07-06 (shapes 1–5) with the amendments named in § 7.7. **Shape #6 (FLOW declaration, § 7.8) was added to the Glance contract as v1.1 on 2026-07-07 — AFTER the 2026-07-06 five-shape ratification — and folded into canon here 2026-07-10 (delta ratification, § 7.9).** This section is the **canonical, authoritative** statement of the parse contract; the Glance parser (drax) builds against THIS, not the proposal text. Matt rulings embedded: Glance GO / STANDALONE / fork-4 `gates-on:` tokens LIVE on all queue-row writes NOW (Matt 2026-07-03); FLOW as the Tier-0 end-to-end abstraction (Matt 2026-07-07, fork (b)).
 
-**What this legislates:** canonical docs are already semi-structured data wearing markdown clothes. This section codifies the **MINIMUM parseable set — exactly five shapes.** Everything else stays free markdown, rendered as prose, never modeled. The team's only new obligation: **keep writing what you already write, parseably.** This is minimum-legislation by design — do not expand the shape count without a fresh proposer→ratifier round.
+**What this legislates:** canonical docs are already semi-structured data wearing markdown clothes. This section codifies the **MINIMUM parseable set — exactly six shapes** (five at v1.0; shape #6 FLOW added v1.1, Matt-ruled 2026-07-07). Everything else stays free markdown, rendered as prose, never modeled. The team's only new obligation: **keep writing what you already write, parseably.** This is minimum-legislation by design — do not expand the shape count without a fresh proposer→ratifier round.
 
 ### 7.1 Shape 1 — STATUS banner
 The first blockquote in the doc containing the literal `**STATUS:**` marker. Parser captures: the stamp word(s) (`CURRENT`, `SPEC-CURRENT`, `LIVING`, `ROUTER`, ` HISTORICAL`, `DEAD`, `SUPERSEDED`, `PARTIALLY SUPERSEDED`), the first date found, and the raw line. This is the § 2 header structure surfaced as data — no new authoring obligation.
@@ -266,9 +266,15 @@ qualifier := free prose, captured not interpreted   — e.g. W2 (soft — §7 de
 ### 7.6 Severity split — the discipline that makes CI livable
 This is the load-bearing enforcement contract. It is mirrored as **Discipline #60** in `engineering-disciplines.md` (CI-fail-loud); the two are ONE rule in two homes (the format-governance statement here; the engineering-enforcement statement there).
 
-- **MALFORMED instance of a legislated shape** (a row with an ID cell but broken table structure; a delta heading with an unparseable date; a duplicate row ID within one board) → **CI BUILD FAILURE, reported with file + line** — the same discipline as a broken test.
-- **UNRESOLVED reference** (a dangling `gates-on:` token) → **Glance warning badge** on the row + a global "dangling dependencies" counter. Visible debt, **not** a broken build.
-- **ABSENCE is never an error.** A doc with no delta log, a table that isn't a queue — fine. The parser models what matches the five shapes and renders the rest as prose.
+- **MALFORMED instance of a legislated shape → CI BUILD FAILURE, reported with file + line** — the same discipline as a broken test. The failure set is a **closed, enumerated, structurally-decidable set of exactly six conditions** (three for shapes 1–5; three for shape #6 FLOW, folded 2026-07-10 — § 7.9 amendment):
+  - a queue row (§ 7.3) whose first cell begins with a row ID but whose table structure is broken (unparseable row);
+  - a SESSION-DELTA heading (§ 7.2, `### YYYY-MM-DD — …`) whose date is unparseable;
+  - a duplicate row ID within one board;
+  - a FLOW list item (§ 7.8) missing its `←` separator;
+  - a FLOW list item (§ 7.8) missing its bold `**<stage name>**`;
+  - a FLOW list item (§ 7.8) with an unparseable ordinal.
+- **UNRESOLVED reference** (a dangling `gates-on:` token, § 7.4; OR a FLOW section-ref resolving to no `##` heading, § 7.8) → **Glance warning badge** on the row/stage + a global "dangling dependencies" / `dangling_flow_refs` counter. Visible debt, **not** a broken build.
+- **ABSENCE is never an error.** A doc with no delta log, a table that isn't a queue, a tracker with no `## FLOW` block — all fine. The parser models what matches the six shapes and renders the rest as prose.
 
 ### 7.7 Ratification amendments to gandalf's § 2 proposal (jack-ryan 2026-07-06)
 Three tightening amendments; **zero scope expansion** (shape count held at five, per the minimum-legislation discipline):
@@ -278,6 +284,28 @@ Three tightening amendments; **zero scope expansion** (shape count held at five,
 3. **The severity split is bound to Discipline #60 by name.** The proposal described CI behavior; ratification makes the format-doc statement and the engineering-discipline statement an explicit ONE-rule-two-homes pair (like § 6.2 canon↔tracker and § 6.8 OP↔skill), so neither can drift from the other. Twin-sync obligation applies.
 
 **Held from the proposal unchanged:** the five shapes themselves, the status enum, the `gates-on:` grammar + AND-semantics + dangling-is-a-badge rule, the Matt-queue modeled surface, and the "keep writing parseably" minimum-obligation framing. The § 3 `state.json` output contract (Glance-internal) is NOT folded into canon — it is drax's build artifact, out of this doc's format-governance scope; it consumes § 7 but does not define it.
+
+### 7.8 Shape 6 — FLOW declaration (added Glance-contract v1.1 2026-07-07, Matt-ruled fork (b); folded to canon 2026-07-10)
+
+A `## FLOW` section near the top of a tracker declaring the doc's ordered end-to-end process view — the Tier-0 abstraction Matt asked for ("see the entire process for each system end to end, then drill in"). Grammar — an ordered list where each item is:
+
+```
+N. **<stage name>** ← <section-ref> [· <section-ref>]*
+```
+
+- **section-ref** = a substring of a `##` heading in the same doc (e.g. `PART III`). Resolution is **most-specific-first**: longer refs claim their headings before shorter refs bind (live case: the game tracker's `PART A′` must bind before `PART A`). **One heading maps to at most one stage.**
+- **Stage state is DERIVED, never hand-stamped** — the founding derived-never-authored principle applied to stages. The parser aggregates the modeled queue rows (§ 7.3) under each stage's mapped sections into the standard counter object, plus a **dominant token** for rendering, precedence: `⛔ blocked > ⚖ awaiting_ruling > IN-FLIGHT > OPEN > PARKED > ✓`. A stage whose sections carry **no modeled rows** is `quiet` (rendered neutral — frame/lineage PARTs are legitimately row-less).
+- **Severity (extends § 7.6):** section-ref resolving to no heading → **warning badge** + global `dangling_flow_refs` counter (visible debt, like a dangling `gates-on:` token) — never a build failure, because PARTs restructure and the FLOW map may lag a commit. Tracker with no `## FLOW` at all → fine (absence); its Tier-0 card renders without a flow-bar. **Malformed list item** inside a declared FLOW (missing `←`, missing bold stage name, unparseable ordinal) → **CI failure** — malformed instance of a legislated shape, per § 7.6 (the enumeration is closed at six conditions).
+- **Maintenance obligation:** the FLOW map is **authored** (it is a declaration, not a derivation) — whoever restructures a tracker's PARTs updates its FLOW refs in the **same commit**. The dangling-ref badge is the drift alarm. Sibling obligation to the § 6.2 `Tracker-delta:` rule and the § 6.8 OP↔skill twin rule: a same-commit sync that keeps two coupled surfaces from drifting.
+
+### 7.9 Delta-ratification amendments — folding shape #6 FLOW into the five-shape contract (jack-ryan 2026-07-10)
+
+Shape #6 was added to the Glance contract (v1.1, § 2.7) on 2026-07-07, *after* the 2026-07-06 five-shape ratification. Per § 9 ("a parse-shape is added or amended → proposer→ratifier round required"), the sixth shape required its own ratification touch. Reviewed at Gate-1 for internal consistency, ambiguity, and enforceability. **PASS-WITH-NOTES.** Two tightening amendments; the shape itself is held as proposed:
+
+1. **The MALFORMED enumeration is re-closed at exactly SIX conditions** (§ 7.6). The § 7.7 amendment #2 pinned MALFORMED to a *closed enumerated set* precisely so a parser cannot fail loud on an open-ended predicate (which would false-positive on legal free-prose docs and erode the "ABSENCE is never an error" floor). Shape #6 adds a fourth condition-*class* (malformed FLOW list item), which itself decomposes to three structurally-decidable conditions (missing `←` · missing bold stage name · unparseable ordinal). The fold widens the closed set from three to six conditions — **still closed, still structurally-decidable, floor preserved.** An open-ended "malformed FLOW" predicate would have been a BLOCK; the enumerated form is not.
+2. **FLOW's two dangling classes are bound to the § 7.6 warning tier explicitly.** A section-ref resolving to no heading is a warning badge + `dangling_flow_refs` counter — parallel to the dangling `gates-on:` token, and for the same reason (PARTs restructure; the map may lag one commit; forward-declared structure is legal-in-flight, not malformed). This keeps FLOW on the right side of the truthful-vs-livable line the three-tier split defends.
+
+**Held from the § 2.7 proposal unchanged:** the FLOW grammar, most-specific-first section-ref resolution, one-heading-↔-at-most-one-stage, the derived-never-authored stage-state rule + dominant-token precedence, the `quiet` neutral state, and the same-commit authored-map maintenance obligation. Discipline #60 is amended in the same commit to carry the six-condition enumeration (twin-sync, § 6.8). **Enforceability confirmed empirically:** all five live product-pipeline docs (`pipeline-battle-sim` S0–S8 · `pipeline-serial-content-emission` E0–E8 · `pipeline-story` N0–N5 · `pipeline-game` G0–G8 · `pipeline-arcade` A0–A7) carry grammar-conformant `## FLOW` blocks as of 2026-07-10 — the shape is real, rendering live, and the ratification governs actual authored surface.
 
 ---
 
@@ -301,5 +329,5 @@ Authored / maintained by **gandalf** (cross-cutting reference owner + primary ca
 
 ---
 
-**Signed:** gandalf (§ 1–6, 8–9); jack-ryan (§ 7 parse-contract ratification, 2026-07-06)
-**For:** the universal **format + lifecycle** spec for canonical docs. Header + STATUS + cross-reference rules (§ 1–5); the authoring → propagation → pruning system (§ 6): the `Tracker-delta:` convention, the four-predicate prune-safe rule, three note-classes, total-vs-partial supersession, and the hygiene Routine; and (§ 7) the parse contract — the five legislated shapes + `gates-on:` grammar + the CI severity split (mirrored as Discipline #60). Canon-home truth remains `canonical/00-ground-state.md`.
+**Signed:** gandalf (§ 1–6, 8–9); jack-ryan (§ 7 parse-contract ratification, 2026-07-06; § 7.8/§ 7.9 shape #6 FLOW delta-ratification, 2026-07-10)
+**For:** the universal **format + lifecycle** spec for canonical docs. Header + STATUS + cross-reference rules (§ 1–5); the authoring → propagation → pruning system (§ 6): the `Tracker-delta:` convention, the four-predicate prune-safe rule, three note-classes, total-vs-partial supersession, and the hygiene Routine; and (§ 7) the parse contract — the six legislated shapes (STATUS · SESSION-DELTA · queue rows · `gates-on:` · Matt queues · FLOW) + the CI severity split (mirrored as Discipline #60). Canon-home truth remains `canonical/00-ground-state.md`.
