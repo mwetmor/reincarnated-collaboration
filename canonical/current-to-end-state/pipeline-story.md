@@ -83,27 +83,27 @@ conductor/spirit-guide voice, hub-ensemble dialogue, run narration beats, reveal
 
 ## Stage detail (Consumes / Does / Emits / State)
 
-### N0 · Canon substrate — **LIVE**
+## N0 · Canon substrate — **LIVE**
 - **Is:** `../reap-die-rise-story/` — `story-keystone.md` · `story-expansion.md` (§11 grimoire LISTING-FIRST · §13a Binding Rite) · `gameplay-loop-design.md` (§19 run model, §23 escape/harvest/peace-illusion) · `agnostic-loot-story-spec.md` (soul-as-lens, gleaning ≠ cementing) · `style-register.md`. Locked by tracker PART A + rulings: **ONE-PEOPLE realm** (no intra-realm war — protects the reveal's precondition), **body-persistence fork (b)** ("you are your latest body"; crosses home CLEANSED), DoF-A summoner `focus` economy (the tether fiction has mechanical grounds).
 - **State:** **LIVE** — the frame is settled; story sessions work above it.
 
-### N1 · Run-beat derivation — **PARTIAL**
+## N1 · Run-beat derivation — **PARTIAL**
 - **Does:** turns the ruled run structure into a beat sheet: Binding-Rite assignment → three-beat descent (each temple's must-beat champion = a cast dramatic role, faction-role rotation per run) → escape horde/eruption → hand-in → grimoire memorialization. The casting director (game pipeline G6) is the DRAMATIC antagonist-slate mechanism — beats consume its casts.
 - **State:** **PARTIAL** — run spine + demo beats DEFINED (demo's narrative surface = rite-LITE + one reaction line + end-card, one-realm §1/§4); **keystone reveal arc OPEN** (Q2/Q3/Q4 cluster — manufactured-rebellion reveal sequence) but **LAUNCH-scope: NO open story decision blocks the demo** (MVP-tag pass 2026-07-02).
 
-### N2 · Surface templates — **GAP (law set, templates unauthored)**
+## N2 · Surface templates — **GAP (law set, templates unauthored)**
 - **Does:** human-authors the templated structure per surface with NARROW BLANKS only (**D7 law: no raw LLM dialogue at major story/onboarding moments**): rite elicitation cascade (conductor-voiced, §13a; LITE variant for demo) · hand-in reaction · end-card · hub-ensemble dialogue frames · run-narration stingers. S4 order-noun grammar is spec'd and consumed at the EMISSION side (E3) — this stage's grammar twin for narrative voice.
 - **State:** **GAP** — surface list + law exist; the templates themselves are mostly unauthored (demo needs three small surfaces: rite-LITE, reaction line, end-card).
 
-### N3 · LLM narrow-blank fill — **PARTIAL (mechanism proven, coverage narrow)**
+## N3 · LLM narrow-blank fill — **PARTIAL (mechanism proven, coverage narrow)**
 - **Does:** star-lord `llm/` batch calls fill template blanks under frozen constraint discipline; **culture seeds** (race well §4: human register-driven · orc guttural · elf liquid long-vowel · dwarf stone-kennings · goblin chatter) steer morphology.
 - **State:** **PARTIAL** — the mechanism is **PROVEN** (Beat B: 35/35 kit-flavor fills, $0.13, zero attribution flips) but at kit grain on the emission side; no narrative-surface fill has fired yet (nothing to fill until N2 authors templates).
 
-### N4 · AI-tell & register certification → curation — **PARTIAL**
+## N4 · AI-tell & register certification → curation — **PARTIAL**
 - **Does:** D7 AI-tell audit on every player-facing string · style-register conformance · canon-consistency vs N0 (a line that breaks the peace-illusion or the death-faith frame fails here) · **Matt curation gate** (story twin of the zero-hand-authored law: engine/LLM makes, Matt curates, nobody hand-authors shipped content).
 - **State:** **PARTIAL** — laws binding and applied in practice (Beat B fills were audited); no standing audit harness. Named-latent: formal AI-tell checklist when N2 templates land.
 
-### N5 · Player-text delivery — **GAP**
+## N5 · Player-text delivery — **GAP**
 - **Does:** delivers certified text to surfaces: Godot demo (rite-LITE beat at run start · reaction line at hand-in · end-card at close — the demo's ENTIRE narrative surface per one-realm §1/§4 STUBBED) · loadout app panes · grimoire pages (LISTING-FIRST §11). **Named-latent:** voice pass — ElevenLabs precedent exists (the titled opening trailer, `matt_notes_handoff_docs/`); text product is voice-ready by construction (conductor lines are performable copy).
 - **State:** **GAP** — no narrative surface assembled in Godot yet; sequences with game pipeline G6/G8.
 
