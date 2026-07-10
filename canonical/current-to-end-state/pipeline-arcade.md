@@ -138,7 +138,8 @@ modes are sentences** (content-visibility LAW, `../reap-die-rise-game/business-p
 
 ## A2 · Schema validation — **GAP (its seeds are NOW-obligations #1–#2)**
 - **Does:** instant structural validation against the **versioned + documented packet contract**;
-  **registry-ID indirection** everywhere — packets reference nouns, never carry raw assets (the
+  **registry-ID indirection** for every NEW reference authored from here forward (a forward habit,
+  not a retrofit on existing references) — packets reference nouns, never carry raw assets (the
   licensing question dissolves permanently); lattice-edge asks fail gracefully ("not in the
   vocabulary yet; closest I can do is X" — parameter fills succeed in seconds, new primitives are
   engine work).
@@ -195,9 +196,9 @@ modes are sentences** (content-visibility LAW, `../reap-die-rise-game/business-p
 | # | Free architecture law (business-strategy §7) | Where it bites | Status |
 |---|---|---|---|
 | 1 | **Versioned + documented packet contract** | any mode/packet schema star-lord or drax authors from here on | flagged → jack-ryan "genuinely free" sanity pass |
-| 2 | **Registry-ID indirection everywhere** | asset/kit references across engine + Godot code | flagged → jack-ryan sanity pass |
+| 2 | **Registry-ID indirection for NEW references** (forward habit, NOT a retrofit) | every NEW template/kit/scene/packet reference authored from here forward, engine + Godot — existing references are NOT in scope; this law binds only what is written next, which is where it costs zero | flagged → jack-ryan sanity pass |
 | 3 | **Certification callable as a service** | gamora's cert entry points (no CLI-only burial) | flagged → jack-ryan sanity pass |
-| 4 | **No hardcoding** (template/kit/scene IDs) | all seams | flagged → jack-ryan sanity pass |
+| 4 | **No hardcoded arcade template/kit/scene IDs** — engine **Discipline #40** (no hardcoded defaults in production-output paths) applied to the arcade ID surface; a citation/extension of #40, not a freestanding law | all seams (as #40 already governs) | flagged → jack-ryan sanity pass (folds under #40) |
 
 Precedent: Rimworld and Factorio matured mod ecosystems AFTER earning audiences; the World Editor
 shipped inside a finished RTS. These four habits preserve every future option at zero present
