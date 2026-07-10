@@ -21,10 +21,15 @@
 3. **End state (staged)** ← PART C
 4. **Gap queue** ← PART D
 5. **Open Matt rulings** ← PART E
+6. **Kit roster of record (first-glance table)** ← PART F *(the Glance content-emission page renders this as its top card — contract §7.3)*
 
 ---
 
 ## SESSION-DELTA LOG (latest governs all below)
+
+### 2026-07-09 — MOTION-FRAME + PROXY-BEHAVIOR AMENDMENT RATIFIED (Matt, three acts) · KIT ROSTER OF RECORD born (PART F) · roster count re-pinned: 25 cells + H-series
+
+Matt ratified in-session: **(1) F1–F6** — the rotational motion-frame family (seven axes + named-bundle primitives + ONE ai_strategies kernel + audit-gated nova/spin migration + defining-vs-flavor cell classification + three staged consumers); **(2) the proxy-behavior family + P0/P1/P2 staging** — `proxy_density` was a count bin with no mechanical substrate and NO sim proxy entity (verified: `spatial_engine.py` zero proxy handling; `ProxySpawn` generation-only); the eight proxy cells gain defining axes (archetype/lifecycle/scaling/command/attribution); P0 parametric emitters ride the motion-frame build (shared totem sim-liveness probe with orbiter_bombardier), P1 adds HP+aggro-choice, P2 adds nav+command; **(3) roster-of-record count re-pinned** — demo roster = **ALL 25 numbered BC cells + hypothesis-based kits (H-series), incl. proxy/summon + totem** (totem contingent on the P0 probe; probe-fail → Matt discussion). Supersedes the pivot entry's "~20" on the COUNT axis; curation act + zero-hand-authored law unchanged. Governing canon: **`../reap-die-rise-engine/motion-frame-substrate-amendment-2026-07-09.md`**. Both new dialects (orbital + proxy) emit **inside the current axis run, post-E3/E4, BEFORE the ONE Q14 band re-anchor** — the re-anchor fires once, on the full-texture population. **PART F born** (the parseable kit-roster table; survey provenance: Sketch A ~37 forms + `bc_target_cell_sampler.py` 25 CellDefs + `w3_batch1_bundle.json` byte-read). Glance 4-page split commissioned same-session (contract §7.3 v1.4; drax builds).
 
 ### 2026-07-08 — FULL-RUN PIVOT (Matt): certification population SCRAPPED (seed-57000000) · emission gate = SURFACE-LEDGER GATE1 (strictly stronger) · pilot = standing per-axis instrument, completion-build authorized · bands re-fit CERTAIN at every declared baseline
 
@@ -262,6 +267,55 @@ The core is *already* non-agentic (callable scripts, programmatic LLM calls, pur
 | Web tracker placement (loadout-embedded vs standalone) | Open; drax proposes post-demo |
 | Whether DirectDamageAmplification propagates to proxy damage | Calibration-adjacent question — D3 notes it; likely NO today (decl `damage_multiplier` is a separate surface) |
 | **Ranged-proxy navigation gap** (D3 finding: `demo_gravecaller`'s archer proxy parks at 38.9 m, never closes — nav gap, not magnitude; defer-and-log at D3) | Blocks RANGED summoners from certifying in the v2 demo emission run. Matt rules: fix nav in the bundle-v2 engine wave, or **exclude ranged summoners from v2 curation** (melee summoners certify clean — D3 build-floor PASS ×2) |
+
+## PART F — KIT ROSTER OF RECORD (first glance)
+
+> **Born 2026-07-09 (Matt ruling):** *"change the count of kits I need to select for the demo to the full 25 BC cell numbered kits + the hypothesis based kits, including the proxy/summon and totem (assuming totem probe passes, if not let's discuss)."* This table IS the roster the demo curation selects from — supersedes all prior counts (18 / ~20 / ~22). Columns per Matt's ruling: number · ARPG Genre Canon kit name · BC cell/hypothesis · status · blockers/held rules. The Glance **content-emission page** renders this table as its top first-glance card (contract §7.3). Canon pin: `reap-die-rise-engine/motion-frame-substrate-amendment-2026-07-09.md` §8.
+>
+> **Count reconciliation (pinned):** code carries 25 CellDefs (`bc_target_cell_sampler.py`) · Sketch A sketched ~22 cells/~37 forms · a prior ruling said 18 (never byte-pinned anywhere) · batch-1 fired 7 coordinates as the fixture bank. **The 2026-07-09 ruling resolves the drift: roster of record = all 25 numbered cells + the H-series.** Statuses below flip as batch-2 (the derivation population) emits.
+
+### F.1 The 25 BC-cell kits (K1–K25)
+
+| ID | ARPG Genre Canon kit | BC cell (range/tempo/amp/attr/proxy) | Status | Blockers / held rules |
+|---|---|---|---|---|
+| K1 | Heavy Barbarian (D2 WW Barb lineage) | melee/low/spiky/STR/none | OPEN | batch-1 fixture ×100 fired; derivation pop awaits batch-2 |
+| K2 | Light Fighter | melee/high/flat/STR/none | OPEN | batch-1 fixture ×100; cell locked `accept_0.45` |
+| K3 | Polearm Soldier | melee/med/var/STR/none | OPEN | batch-1 fixture ×100 |
+| K4 | Thrown-Heavy / Atlatl | ranged/low/spiky/STR/none | OPEN | batch-1 fixture ×100 |
+| K5 | Ancestor-Warrior (D3 Call of the Ancients) | STR / proxy-**light** (shares pool w/ K1) | OPEN | gates-on: proxy-P2 · E6; melee proxies → nav gap does NOT block |
+| K6 | Dagger Assassin | melee/high/flat/DEX/none | OPEN | **never fired in batch-1** (coordinate fired at STR only); awaits batch-2 |
+| K7 | Archer | ranged/high/flat/DEX/none | OPEN | batch-1 fixture ×100 |
+| K8 | Crossbow Sniper | ranged/low/spiky/DEX/none | OPEN | batch-1 fixture ×100 |
+| K9 | Twin-Blade Fencer | code: melee/high/var/DEX · Sketch A: mid/high/flat | OPEN | **coordinate drift recorded** — batch-1 fired the Sketch-A coordinate (mid/high/flat/DEX), not CellDef 9's; reconcile at batch-2 |
+| K10 | Falconer (LE Falconer) | DEX / proxy-**light** (shares w/ K7) | OPEN | gates-on: proxy-P2 · E6; **ranged-proxy nav gap** (PART E: D3 archer proxy parks at 38.9 m) blocks ranged-proxy variant cert |
+| K11 | Trap Assassin (D2 Trapsin / PoE2 grenade Merc) | mid/low/spiky/DEX/**heavy** | OPEN | gates-on: proxy-P0/P1 · E6 (traps = stationary emitters) |
+| K12 | Standard Wizard | INT caster core | OPEN | batch-2 Leg B pilot cell (plain caster) |
+| K13 | Artillery Mage | FOLDED → K12 via T4 alteration | OPEN | no separate emission owed; materializes as T4-altered K12 output |
+| K14 | Pyromantic Caster | INT `__null__` routing (Stage 3.5 gap-fill) | OPEN | rides Stage-3.5 gap-fill path |
+| K15 | Red Mage / Spellsword | INT / Option C STR substrate | OPEN | Option-C cross-attribute; true dual-scaling version = H5 (E3) |
+| K16 | Arcane-Familiar Mage | INT / proxy-**light** (shares w/ K12) | OPEN | gates-on: proxy-P0 · E6 (familiar = parametric emitter, `parent_entity` + `radial_spawn`) |
+| K17 | Necromancer Summoner (D2 Skelemancer) | INT `__null__` sidecar-B / proxy-**heavy** | IN-FLIGHT | gates-on: proxy-P2 · E6; summoner mandate RULED 2026-07-02; gen-path Leg-1 LANDED (`a49ccd4`); skeleton-archer variants → nav gap |
+| K18 | Totem Hierophant (PoE Hierophant) | proxy-**heavy** (stationary) | OPEN | gates-on: **totem-probe (G1)** · proxy-P0/P1 · E6; probe-fail → Matt discussion (ruled contingency) |
+| K19 | Channeling Cleric | WIS channel core | OPEN | awaits batch-2 |
+| K20 | Holy Knight / Hammerdin (D2 Blessed Hammer) | WIS / Option C | OPEN | motion identity = `orbiter_spiral` CORE primitive (`cast_point` frame); gates-on: G2 kernel note |
+| K21 | Ritual Mage / Oracle | WIS caster | OPEN | awaits batch-2 |
+| K22 | Storm Caller / Druid | WIS caster | OPEN | awaits batch-2 |
+| K23 | Monk (quarterstaff) | WIS / Option C | OPEN | awaits batch-2 |
+| K24 | Druid Beastmaster (D2 Spirit Wolves) | WIS / proxy-**heavy** | OPEN | gates-on: proxy-P2 · E6; melee pets certify clean (D3 build-floor PASS ×2 precedent) |
+| K25 | Witch Doctor Petmaster (D3 Carnevil) | WIS / proxy-**heavy** (shares w/ K19) | OPEN | gates-on: proxy-P2 · E6; ranged-fetish (dart) variants → nav gap |
+
+### F.2 The hypothesis-based kits (H-series — no BC cell; new-dialect emission)
+
+| ID | ARPG Genre Canon kit | Hypothesis source | Status | Blockers / held rules |
+|---|---|---|---|---|
+| H1 | Orbital Guard (VS King Bible / PoE Ring of Shields-lite) | motion-frame family — `orbiter_guard` CORE | OPEN | gates-on: G2 kernel math note; emits post-E3/E4, pre-re-anchor |
+| H2 | Blade Vortex / Gravitational Ball Lightning | motion-frame family — `orbiter_vortex` CORE-MARGINAL | OPEN | gates-on: G2 + G5 swept-annulus attribution pre-registration |
+| H3 | Storm Brand caster (PoE Brands) | motion-frame family — `orbiter_brand` CORE-MARGINAL | OPEN | gates-on: G2; `target_entity` frame extension |
+| H4 | Orbital Bombardier (PoE Winter Orb) | motion-frame family — `orbiter_bombardier` GATED | OPEN | gates-on: **totem-probe (G1, shared gate w/ K18)** — the emitter IS the P0 proxy |
+| H5 | True Battlemage (dual-scaling hybrid) | E3 ledger row — hybrid dual-scaling | OPEN | gates-on: E3 design pass (currently stubbed single-scale) |
+| H6 | Charge-up Caster (D2 FCR identity) | E4 ledger row — cast-time axis | OPEN | gates-on: E4 ruling (fork-elicitation drafted `937e853`, awaiting Matt); currently everything instant-cast |
+
+**Demo-curation denominator:** 25 K + 6 H = **31 kits** (H4/K18 totem-contingent; K10/K17/K25 ranged-proxy variants nav-gap-contingent per PART E). Proxy octet within the K-set: K5, K10, K16 (light) · K11, K17, K18, K24, K25 (heavy).
 
 ---
 

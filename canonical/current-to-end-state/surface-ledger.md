@@ -46,6 +46,14 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-09 (8) — MOTION-FRAME + PROXY AMENDMENT RATIFIED · G1 COUNT RE-RULED: 25 BC cells + H-series · Glance goes 4-page
+
+Matt ruled three acts in one message. **(a) F1–F6 motion-frame substrate amendment RATIFIED + proxy_behavior_axes family + P0/P1/P2 staging RATIFIED** — canon: `reap-die-rise-engine/motion-frame-substrate-amendment-2026-07-09.md` (seven rotational axes; named bundles `orbiter_spiral`/`orbiter_guard`/`orbiter_vortex`/`orbiter_brand`/`orbiter_bombardier`; ONE ai_strategies kernel; compile-layer migration audit-gated; proxy family: archetype/lifecycle/scaling/command/attribution; P0 emitters → P1 stationary-targetable → P2 mobile minions). Both new dialects emit inside the current axis run, **post-E3/E4, BEFORE the ONE Q14 re-anchor**. Gates G1–G6 in canon §9 (totem sim-liveness probe is the first P0 cert, shared with `orbiter_bombardier`). **(b) G1 COUNT RE-RULED:** demo curation selects from **the full 25 BC-cell numbered kits + the hypothesis-based kits (H-series), including proxy/summon and totem (totem-contingent: probe-fail → Matt discussion)** — supersedes "~20 hand-picked" on the COUNT axis only; kit-grain certification + curation-≠-authorship survive intact. Roster of record = serial tracker **PART F** (K1–K25 + H1–H6, 31 rows; count-reconciliation 25/22/18/7 pinned there). **(c) Glance splits into 4 pages** (engine / story / game / **content-emission**); the content-emission page = everything current for content emission + PART F as the top first-glance table. Contract §7.3 (v1.4) carries the spec; drax build prompt commissioned. Tally unchanged **12✓/20** (G1 stays ✓ — re-ruled, not re-opened).
+
+**Signed:** gandalf, 2026-07-09 (8).
+
+---
+
 ### 2026-07-09 (7) — Q14/Q15/Q16 RULED (Matt): E2 axis CLOSES → ✓ — tally 12✓/20
 
 Matt ruled all three parked decisions (*"agreed on Q14, 15 and 16"* — gandalf leans adopted).
@@ -317,7 +325,7 @@ dangling-open by design (§2.4 named gate; closes in a future delta when the las
 
 | # | Surface | Current state (what-IS, cited) | Classification (lean) | Matt gate |
 |---|---|---|---|---|
-| **G1** | Demo roster sourcing | Was: 18 kits = 18 BC cells 1:1 from the certified emission population (2026-07-06 ruling). | **✓ RULED 2026-07-08 (pivot b):** Matt-curated **~20 hand-picked** from the full-spec population, each **kit-grain certified** (Leg-ii GRAIN mode). Count supersedes 18; cell-coverage-at-pick = Matt's choice at curation (steward lean: preserve breadth). "Zero hand-authored shipped content" SURVIVES — curation ≠ authorship. | ✓ ruled |
+| **G1** | Demo roster sourcing | Was: 18 kits = 18 BC cells 1:1 (2026-07-06) → ~20 hand-picked (2026-07-08 pivot b). | **✓ RE-RULED 2026-07-09 (delta 8):** Matt curates from **the FULL 25 BC-cell numbered kits + the H-series hypothesis kits (31 rows), including proxy/summon + totem** (totem-contingent: probe-fail → Matt discussion). Roster of record = serial tracker **PART F** (K1–K25 + H1–H6). Each pick **kit-grain certified** (Leg-ii GRAIN mode) — unchanged. "Zero hand-authored shipped content" SURVIVES — curation ≠ authorship. | ✓ ruled |
 | **G2** | "Sprint-to-demo" as scope license | The framing that licensed E1–E4-class narrowing; inverted the orientation anchor (Engine first. Game second. Phase third.). | **✓ RETIRED 2026-07-08 (pivot b):** demo stays THE DENOMINATOR (scope anchor, `one-realm-mvp-scope.md` unchanged); never again a build-shortcut license. | ✓ ruled |
 
 ## STORY surfaces
