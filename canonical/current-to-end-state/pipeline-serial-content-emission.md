@@ -40,7 +40,7 @@ at Glance `/kits`.
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │ E0 · DESIGN SUBSTRATE (canon — gandalf + Matt rulings)                  │
-│  BC coordinate space (25 named CellDefs inside the 204,120-cell space   │
+│  BC coordinate space (25 named CellDefs in the catalog 324→972 space    │
 │  of record) · race well (5 races × 4 registers, CLOSED/CURATED) ·       │
 │  mob-affix families (8) · motion-frame axes (7) · proxy axes (P0/1/2)   │
 │  · Axis-5 cost-TYPE bins (reserved-empty)                               │
@@ -112,8 +112,9 @@ at Glance `/kits`.
 ## E0 · Design substrate — **LIVE, growing by ruling**
 
 The canon the factory draws from. The BC coordinate space (25 named CellDefs — PART F's K-numbers —
-inside the wider space of record: 68,040 mechanic cells × 3 commitment bins = **204,120** after
-Q-E4-4b); the **race well** (5 races × 4 registers = up to 20 identity cells; CLOSED — LLM never
+in the operational catalog: 324 → **972 lattice** with `bc_commitment` after Q-E4-4b; the 8-axis QD
+archive stays **68,040 full / 12,960 live** — commitment as a ninth ARCHIVE axis is pending its
+arity stress-test, E4 addendum §D.1/fork F-3); the **race well** (5 races × 4 registers = up to 20 identity cells; CLOSED — LLM never
 derives races; Leg-3-ready as of the Q17 ruling); **mob-affix families** (8 functional); the
 **motion-frame seven-axis family** (F1–F6 ratified); **proxy-behavior axes** (P0/P1/P2 staging);
 **Axis-5 cost-TYPE bins** (reserved-empty — the bench B1–B3 blockers).

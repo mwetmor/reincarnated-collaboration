@@ -7,6 +7,12 @@ The held-dispatch precondition is CLEARED by this note landing. Ledger row **E4*
 (`canonical/current-to-end-state/surface-ledger.md`); roster row **H6** (serial tracker PART F).
 **Discipline:** design-spec-as-math (Disc #18 — gandalf authors intent + acceptance; rocket/gamora
 derive exact values math-note-FIRST, Disc #1).
+**ADDENDUM (same-day, Matt directive):** `2026-07-10-e4-runtime-interaction-and-pressure-addendum.md`
+— runtime-interaction systems enter the pair's scope (ONE versioned packet contract, sim + Godot
+consume identical fields); interruption-pressure v1 forced-break rule; acceptance criteria 13–19;
+**space-math CORRECTION** (this note's ×3-on-68,040 cites are superseded by addendum §D.1: the
+coordinate joins the 5-coordinate catalog — 324 → 972 lattice). The pair builds against note +
+addendum as one authority.
 
 ---
 
@@ -41,8 +47,11 @@ choice, don't fake continuity).
 ### 1.1 The coordinate (Q-E4-4 (b) + Q-E4-6)
 
 **`bc_commitment` joins the catalog as the sixth BC coordinate.** Bins: **snap / wind-up /
-channel** — D7-clean, genre-precedented, no coinages. Space of record grows: 68,040 × 3 =
-**204,120** cells (bookkeeping updates wherever the space-size is cited).
+channel** — D7-clean, genre-precedented, no coinages. Space of record grows: **catalog 324 → 972
+lattice** (`endgame_encounter_catalog.py:130-134`; live = the 25–31 roster CellDefs). *(CORRECTED
+2026-07-10 — the original "68,040 × 3 = 204,120" here conflated the 8-axis QD archive with the
+5-coordinate catalog the ruling names; addendum §D.1 is the correction of record. QD ninth-axis
+admission = addendum fork F-3, pending arity stress-test.)*
 
 - **CellDef identity pins** where the kit's name demands it: **K1 Heavy Barbarian = wind-up · K7
   Archer = snap · K19 Channeling Cleric = channel.** All other named cells: rocket proposes
@@ -141,7 +150,8 @@ cast_time_seconds=1.0`, :744/:848) **DIES**. Every T4 capstone **declares**:
    `k`-aware period model, premium pricing) + gamora's consumer note (whiff-resolution semantics,
    channel-lock, telemetry). **MIGRATION.md** (ADR-004) for the cross-seam contract.
 2. **Coordinate lands:** `bc_commitment` (snap/wind-up/channel) in
-   `endgame_encounter_catalog.py`; space-of-record 204,120 bookkeeping; sampler integration;
+   `endgame_encounter_catalog.py`; space-of-record bookkeeping (catalog 324 → 972 — addendum
+   §D.1); sampler integration;
    CellDef pins K1/K7/K19; D7-clean docstrings.
 3. **Sim consumer real:** `cast_time_seconds` is READ; the three v1 risk components mechanically
    present; completion/whiff telemetry instrumented per (bin, regime).

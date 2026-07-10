@@ -371,3 +371,10 @@ it fires next, then the rocket+gamora dispatch pair (cross-seam, MIGRATION.md) g
 > This elicitation record is now the RULING SOURCE; the design note is the build authority.
 > Next actor: KR — rocket+gamora dispatch pair (MIGRATION.md). Ledger E4 + serial-tracker H6 updated
 > same-commit.
+>
+> **CORRECTION 2026-07-10 (bookkeeping only; ruling substance unchanged):** the Q-E4-4 row's
+> "68,040 × 3 = 204,120" conflated the 8-axis QD archive with the 5-coordinate catalog the ruling
+> names. Corrected form of record: **catalog 324 → 972 lattice / 25–31 live**; QD ninth-axis
+> admission = addendum fork F-3. Authority:
+> `2026-07-10-e4-runtime-interaction-and-pressure-addendum.md` §D.1 (Matt-triggered same-day —
+> runtime interaction systems + interruption pressure + scope-exemption audit; forks F-0…F-5).
