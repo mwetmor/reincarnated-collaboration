@@ -73,3 +73,31 @@ Two FIRE-READY dispatches, Gate-1 critique-pair PASS, all 10 amendments folded:
 CHANGELOG updated (E4-pair entry, top). This addendum authored. Auto-committed per team discipline; push awaits Matt authorization.
 
 **Signed:** knight-rider, 2026-07-10 (E4 pair authored + Gate-1 cleared; FIRE-READY; serialization law recorded).
+
+---
+
+# Addendum 2 — E4 pair EXECUTION run COMPLETE (same date; sub-agent orchestration)
+
+**Session theme:** KR executed the FIRE-READY E4 pair as sub-agents per transmission `gandalf/notes/2026-07-10-e4-pair-subagent-run-kr-transmission.md` (Matt-fired; autonomous; KR owns push this run). Math-note-first held; note closed on first co-sign; emitter landed + Gate-2; sim half QUEUED. Engine commits `de6a35f` · `56e1eb4` · `e4d682e` · `eb4be4c`.
+
+## Report-back (the six required fields)
+1. **Math-note state:** **CLOSED** — `generation/math/commitment-axis-e4-2026-07.md` (rocket lead `de6a35f` + gamora PHASE-1 co-sign `56e1eb4`). Zero objection cycles (closed on first co-sign). Derived: `period(k,commitment)=k·cooldown+cast_time`; premium `p≈1.40`; Y=20% max-HP / W=1.0s / lockout=0.4s; ramp floor 0.5 / N_ramp=6 / tick 0.35s; `_CAST_TIME` superseded-for-modulated (exempt-slot fallback survives).
+2. **rocket build + Gate-2:** **EMITTER LANDED** `e4d682e` (tag `rocket/v2.4-commitment-axis-4`); **Gate-2 PASS-WITH-CONDITIONS** — one BLOCK (missing smoke artifact, jack-ryan re-ran → genuine pass, missing-artifact defect not false-pass) → discharged `eb4be4c` (6/6 PASS reproducible). Spine SHA-256 zero-diff; E2 anti-leak confirmed; 536 tests, no new fails.
+3. **gamora PHASE-1 co-sign:** **CO-SIGNED** (`56e1eb4`, consumer half — whiff semantics, channel-lock, cast-state params, forced-break threshold form, telemetry field list, fight-completion-ceiling check form).
+4. **gamora PHASE-2 fired-or-queued:** **QUEUED (not fired).** Unblock signal checked via git (not by asking the pilot session): transmission author gandalf declared PHASE-2 BLOCKED in BOTH 2026-07-10 transmissions with full git visibility of `a63aae2`/`e1fe99e`; no commit supersedes that (no Gate-2 PASS for `a63aae2` — AGENT_STATE "Gate-2 pending before content fire" undischarged; no pilot-session-closed / feed-2 signal). Multi-hour build on an author-declared-blocked precondition would violate serialization law → QUEUE.
+5. **Ledger flip:** surface-ledger E4 → **IN-FLIGHT** (emitter LANDED+Gate-2; sim PHASE-2 QUEUED). Committed this run.
+6. **Escalations:** none forced. Two Matt-decision flags carried forward (below).
+
+## BLOCKED / QUEUED — gamora PHASE-2 (empirical re-engagement)
+- **Named unblock criterion (empirical, NOT time):** the open-pilot completion-build CLOSES — specifically a **Gate-2 PASS on the two-arm driver (`a63aae2`)** + a **post-2026-07-10 git signal** that the pilot session's completion-build has landed (currently the most-recent gamora commit is a HALT, `0b7bbc2`; AGENT_STATE reaches only 2026-07-08). When that lands: fire gamora sub-agent #2 per `dispatches/2026-07-10-gamora-commitment-axis-E4.md` (cast-state machine · per-tick resolution · forced-break RULE v1 · pilot-competence floor + criterion-18 blind-vs-competent delta · telemetry per (kit,bin,regime) · three-honesty-axes composition). Gate-2: jack-ryan on addendum §E 13–19 incl. criterion 18 + perf ≥30 fights/s (regression >17% blocks).
+- **Fire command (when unblocked):** `cd ~/Games/reincarnated-engine && claude --agent gamora` (or KR sub-agent from an orchestration session).
+
+## FLAGGED — needs Matt (carried, NOT resolved by this run)
+- **batch-2 sample-vs-pin `bc_commitment` fork** — carried in both dispatches + shared MIGRATION.md; composes with the standing K9 coordinate-drift reconcile. Needs a Matt ruling before batch-2 emits.
+- **F-3 (QD ninth-axis)** — ADOPT+DEFER; catalog 972 operational; pair NOT gated on it; one-word Matt confirm outstanding.
+- **Downstream (not drafted):** B12 spin-channel re-cert (fires at pair-landing → G3 zero-diff audit); star-lord telemetry-schema addition (addendum §C.5).
+
+## Push
+Engine commits `de6a35f`/`56e1eb4`/`e4d682e`/`eb4be4c` pushed under Matt's autonomous-push grant for this run. Meta-repo run-close records (ledger flip + CHANGELOG + this addendum) committed and pushed same grant.
+
+**Signed:** knight-rider, 2026-07-10 (E4 EXECUTION run — math note CLOSED, emitter LANDED + Gate-2 PASS-WITH-CONDITIONS, gamora co-signed PHASE-1, PHASE-2 QUEUED on named empirical criterion; two Matt-flags carried).
