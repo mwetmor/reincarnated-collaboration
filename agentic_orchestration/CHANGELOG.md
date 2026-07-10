@@ -4,6 +4,19 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-07-10 — E4 Commitment-Axis rocket+gamora dispatch PAIR authored + Gate-1 cleared (cross-seam; FIRE-READY)
+
+KR (new session, gandalf-drafted transmission `gandalf/notes/2026-07-10-e4-pair-kr-transmission.md`, Matt-fired) authored the **E4 Commitment-Axis dispatch pair** operationalizing the ruled design authority (design note + runtime-interaction addendum, both 2026-07-10; all six 2026-07-09 forks + addendum forks F-0/F-1b/F-2b/F-4/F-5a Matt-RATIFIED; F-3 ADOPT+DEFER, non-gating). Fourth axis of the full-spec main line (E1→E2→**E4**→E3); redeems roster row H6 (Charge-up Caster).
+
+- **`dispatches/2026-07-10-rocket-commitment-axis-E4.md`** — emitter + **math-note lead**: `bc_commitment` sixth catalog coordinate (snap/wind-up/channel; catalog **324→972 lattice**); the ONE versioned packet contract (cast-state params, tick_interval, drain/pay-on-commit, move_policy enum, break rules, weapon-manifestation-class closed animation enum); coupling-table enforcement at the sampler; T4 capstone `(commitment_bin, amplitude_delta)` transform emission (cert at EXPRESSED coordinate).
+- **`dispatches/2026-07-10-gamora-commitment-axis-E4.md`** — sim consumer: cast-state machine, per-tick position resolution, **v1 forced-break RULE** (F-1b; stagger UX is v1.1, NOT this pair), pilot-competence floor (criterion 18 blind-vs-competent delta), three-honesty-axes regime matrix, pricing telemetry.
+- **Sequencing LAW:** math-note-FIRST (Disc #1 — no pair code before the shared note `generation/math/commitment-axis-e4-2026-07.md` closes; rocket leads, gamora co-signs — ONE conversation). **The gamora seam is the serialization point:** PHASE-1 math-note co-sign overlaps the open pilot session safely; **PHASE-2 gamora sim BUILD queues BEHIND the pilot completion-build landing** (arm plumbing w4g1/w4g2/w5g1 + Leg-i two-arm driver). The open pilot KR session is NOT interrupted.
+- **Cross-seam:** ADR-004 MIGRATION.md required at the packet-contract seam (rocket-authored; gamora co-authors sim-consumer + telemetry sections); B12 spin-channel re-cert + star-lord telemetry noted as downstream consumers (not drafted). Round-trip smoke MANDATORY (Principle 6).
+- **Gate-1 critique pair PASS:** jack-ryan **PASS-WITH-AMENDMENTS** (6) + gandalf **CONCUR-WITH-AMENDMENTS** (4) — all 10 folded (fight-completion sim-measured guard, round-trip FAIL condition, `tick_tracking` field slot, flatten/none cert non-flip, drain honor-as-emitted, §E.14 criterion, MIGRATION ownership, Disc #17 citation, line-verify note, shared-flag ownership). Both dispatches FIRE-READY.
+- **FLAGGED pending (NOT resolved):** the batch-2 sample-vs-pin `bc_commitment` fork (named KR+Matt decision; carried in both dispatches + the shared MIGRATION.md). **Explicitly out-of-scope:** E3 design, bench-promotion elicitation (post-E3), the ONE post-E3/E4 Q14 band re-anchor.
+
+---
+
 ## 2026-07-10 — Glance v1.6 shipped + pushed live (product-pipeline FLOW leads + `/kits` F.3 bench)
 
 drax shipped contract v1.6 §7.5 (`94da9d1`, tag `glance/v1.6-pipeline-flow-1`, pushed to `origin/main`): `/engine` + `/content-emission` lead FLOW bars **repoint** from tracker doc-nav to the dedicated MATT-FACING product-pipeline docs (`pipeline-battle-sim.md` S0–S8 / `pipeline-serial-content-emission.md` E0–E8, added to parser source-set as a new `pipelines` set — not Tier-0 cards); tracker FLOW blocks demoted to below-fold doc-nav; each pipeline's fenced ASCII flow rendered verbatim (not parsed); `/kits` gains the PART F.3 blocked/held bench (B1–B13) below F.2 under a "NOT in the 31 denominator" divider. Repoint is one-config-line-per-page (`PAGE_FLOW_SOURCE`) so the story/game repoint is a trivial follow-up when those pipeline docs land. Relay: `gandalf/notes/2026-07-10-glance-v1.6-amendment-relay.md`; contract now SPEC-CURRENT v1.6.

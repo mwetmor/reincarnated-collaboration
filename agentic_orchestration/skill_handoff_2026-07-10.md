@@ -42,3 +42,34 @@ Other agents' in-flight edits are uncommitted in the tree: `current-to-end-state
 CHANGELOG updated (v1.4/1.5 entry amended + new v1.6 entry). This handoff authored. KR record commits are local unless/until batched into a push per standing call.
 
 **Signed:** knight-rider, 2026-07-10 (Glance v1.4→v1.6 commission — three versions shipped + pushed live; one gate fired + resolved; three follow-ups queued with named criteria).
+
+---
+
+# Addendum — E4 Commitment-Axis dispatch PAIR authored (separate workstream, same date)
+
+**Session theme:** gandalf-drafted transmission (`gandalf/notes/2026-07-10-e4-pair-kr-transmission.md`), Matt-fired to a fresh KR session — one job: draft the E4 rocket+gamora dispatch pair. Zero design elicitation (all design Matt-ruled).
+
+## What shipped (drafts + Gate-1)
+Two FIRE-READY dispatches, Gate-1 critique-pair PASS, all 10 amendments folded:
+- **`dispatches/2026-07-10-rocket-commitment-axis-E4.md`** — emitter + math-note LEAD (`bc_commitment` 6th coordinate, 324→972 catalog lattice; ONE versioned packet contract; sampler coupling enforcement; T4 capstone transform emission). Tag intent `rocket/v<X.Y>-commitment-axis-4`.
+- **`dispatches/2026-07-10-gamora-commitment-axis-E4.md`** — sim consumer (cast-state machine, per-tick resolution, v1 forced-break RULE F-1b, pilot-competence floor, three-honesty-axes regime matrix, pricing telemetry). Tag intent `gamora/v<X.Y>-commitment-axis-4`.
+- **Gate-1:** jack-ryan PASS-WITH-AMENDMENTS (6) + gandalf CONCUR-WITH-AMENDMENTS (4); all folded (see CHANGELOG 2026-07-10 E4 entry).
+
+## Serialization LAW (KR-critical for whoever sequences next)
+- **Math-note FIRST** (Disc #1): NO pair code — rocket's OR gamora's — before the shared note `generation/math/commitment-axis-e4-2026-07.md` closes. Rocket leads; gamora co-signs the consumer half. ONE conversation.
+- **The gamora seam is the serialization point, NOT the sessions.** gamora PHASE-1 (math-note co-sign) overlaps the open pilot session SAFELY. gamora PHASE-2 (sim BUILD) queues **BEHIND the pilot completion-build landing** (arm plumbing w4g1/w4g2/w5g1 + Leg-i two-arm driver). **Do NOT interrupt / re-task / close the open pilot KR session** — it finishes completion-build + feed-2 hook + jack-ryan §2 ratification independently.
+- **How to fire the pair (Matt friction = one terminal command each):**
+  - rocket (PHASE-1-eligible now): `cd ~/Games/reincarnated-engine && claude --agent rocket`
+  - gamora (PHASE-1 co-sign now; PHASE-2 on pilot landing): `cd ~/Games/reincarnated-engine && claude --agent gamora`
+
+## Blocked / queued / flagged
+- **PHASE-2 gamora BUILD** — BLOCKED on the open pilot completion-build landing (empirical unblock signal, not time). Re-engage when arm plumbing w4g1/w4g2/w5g1 + Leg-i two-arm driver land.
+- **FLAGGED pending KR+Matt decision (NOT resolved by this pair):** batch-2 sample-vs-pin `bc_commitment` fork — carried in both dispatches + the shared MIGRATION.md; composes with the standing K9 coordinate-drift reconcile. **Needs a Matt ruling before batch-2 emits.**
+- **F-3 (QD ninth-axis admission)** — ADOPT+DEFER; catalog 324→972 is the operational space now; pair is NOT gated on it. Flagged for one-word Matt confirm.
+- **Downstream consumers noted (NOT drafted):** B12 spin-channel re-cert (fires at pair-landing → G3 zero-diff audit); star-lord telemetry-schema addition (addendum §C.5).
+- **Explicitly out-of-scope this workstream:** E3 design (gandalf's next pass), bench-promotion elicitation (post-E3; scope = all bench rows except B13 RIVAL), the ONE post-E3/E4 Q14 band re-anchor.
+
+## KR records
+CHANGELOG updated (E4-pair entry, top). This addendum authored. Auto-committed per team discipline; push awaits Matt authorization.
+
+**Signed:** knight-rider, 2026-07-10 (E4 pair authored + Gate-1 cleared; FIRE-READY; serialization law recorded).
