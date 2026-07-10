@@ -256,3 +256,11 @@ paid for.
 | **F-5** | **RATIFIED (a)** — control-pure kits' commitment expressed via attack-complement. |
 
 **Same-message riders (Matt):** (1) **B12 admission-in-principle** — *"D2 Barb spin-to-win is moved to unblocked"*: the E4 pair's channel machinery + `full_move` policy is the re-cert TARGET; promote-path = pair lands → G3 zero-behavioral-diff migration audit → re-cert at channel bin. (2) **Bench-promotion intent declared** — *"bring all kits into the pilot if we can, so that we only have experimental/research left open"*: a bench-promotion elicitation pass over the remaining 12 is queued post-E3-design (see serial tracker fourth entry 2026-07-10).
+
+## PROCEED RULING (Matt, 2026-07-10 — follow-on message)
+
+> *"Ok, let's proceed. And while I agree on Rival, I would like to investigate all others for potential pilot inclusion."*
+
+1. **Proceed RATIFIED** — the recommended topology fires: a **NEW KR session** drafts the E4 rocket+gamora pair against the design note + this addendum as ONE build authority; the open pilot session stays untouched to finish its in-flight work; the **gamora seam is the serialization point** (math-note phase overlaps the pilot safely; gamora E4 BUILD queues behind pilot completion-build landing). Transmission prompt drafted: `2026-07-10-e4-pair-kr-transmission.md` (authoritative on Matt's transmission, 2026-07-07 precedent).
+2. **Bench-promotion scope AMENDED** — the post-E3 elicitation investigates **ALL bench rows except B13 RIVAL** for pilot inclusion. This pulls **B4 walls INTO the investigation** (genuine promote-path analysis — the spike `5d3bb55` deep-architecture verdict gets re-examined against current substrate, not merely re-presented as a standing ruling) and upgrades B7–B11 from evidence-gated-deferral-by-default to genuine investigation. B13 RIVAL stays launch-scope by explicit agreement (*"I agree on Rival"*).
+3. **F-3 disposition** — "let's proceed" is READ as closing F-3 in the **ADOPT+DEFER** form all corrected docs already state: catalog **324 → 972 lattice** is the operational space NOW; QD ninth-axis admission deferred to its arity stress-test. Flagged for one-word Matt confirm; the pair build is NOT gated on it (the pair builds against the catalog space under either resolution).
