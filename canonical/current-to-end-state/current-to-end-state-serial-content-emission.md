@@ -21,11 +21,19 @@
 3. **End state (staged)** ← PART C
 4. **Gap queue** ← PART D
 5. **Open Matt rulings** ← PART E
-6. **Kit roster of record (first-glance table)** ← PART F *(renders as the Glance `/kits` page lead — contract §7.4 v1.5; the content-emission page leads with this FLOW bar instead. This FLOW block gets re-authored pipeline-shaped per §7.4 rule 4 — gandalf owed)*
+6. **Kit roster of record (first-glance table)** ← PART F *(renders as the Glance `/kits` page lead — contract §7.4 v1.5/§7.5 v1.6)*
+
+> **§7.4-rule-4 reshape obligation DISCHARGED-BY-SUPERSESSION (Matt, 2026-07-10):** this FLOW block stays what it honestly is — **doc-nav** (which PART to read). The *product data-flow* Matt asked for lives in the dedicated MATT-FACING pipeline docs: **`pipeline-serial-content-emission.md`** (E0–E8: where the pipeline starts, where the LLM is called, where it hands to the sim, where it picks up) + **`pipeline-battle-sim.md`** (S0–S8). The Glance `/content-emission` and `/engine` pages render THOSE FLOW bars (contract §7.5 v1.6); tracker FLOW blocks are demoted to doc-nav everywhere.
 
 ---
 
 ## SESSION-DELTA LOG (latest governs all below)
+
+### 2026-07-10 — PRODUCT-PIPELINE DOCS BORN (Matt Glance feedback #2) · PART F.3 bench born (feedback #1) · Glance contract → v1.6 · E4 FULLY RULED / Q17 RULED (prior-turn fold)
+
+Matt's two Glance-build issues, both resolved this session. **(1) Bench visibility:** the `/kits` page showed only the 31-kit denominator; the survey's **Bucket C** (~13 purposefully blocked/held genre-canon forms) was invisible. **PART F.3 born** — B1–B13 with status enum (BLOCKED / HELD / PENDING RE-CERT / LAUNCH-SCOPE) + named re-entry per row; bench NOT in the denominator; rows PROMOTE on unblock + Matt admission. **(2) State-progression ≠ product data-flow:** the tracker FLOW bars are doc-nav, not the *"desired-state end-to-end pipelines of the actual products"* Matt asked for. Two **MATT-FACING · LIVING · PURGE-EXEMPT** pipeline docs born in this folder (doc-39 ASCII form, per-stage Consumes/Does/Emits/State + drill-through links): **`pipeline-serial-content-emission.md`** (E0–E8 — starts at the emission driver E1; LLM called at E3; hands to sim at E4; picks up verdicts at E5; bundles E6; Matt curation gate E7; Godot consumption E8) + **`pipeline-battle-sim.md`** (S0–S8). Purge-exemption is the structural fix for *"they keep getting hidden"* — these never fold/retire without Matt ruling. **Glance contract → v1.6 (§7.5):** `/engine` + `/content-emission` FLOW sources REPOINT to the two pipeline docs; `/kits` gains the F.3 bench table (same table grammar, zero new parse shapes); tracker FLOW blocks demoted to doc-nav; the §7.4-rule-4 reshape obligation DISCHARGED-BY-SUPERSESSION. Story/game pipeline docs named next (definitions proposed to Matt). Prior-turn rulings folded: **E4 FULLY RULED** (all six forks — `bc_commitment` coordinate; attacks-full/control-cast-only/support-exempt; throughput-active bands; 3 pricing guards as LAW; capstone coordinate-transform law with expressed-coordinate cert) → H6 row updated, E4 design note UNGATED; **Q17 RULED** (native `Big_Ork`; race well Leg-3-ready). Push fired (Matt: *"Feel free to push now"*).
+
+**Signed:** gandalf, 2026-07-10.
 
 ### 2026-07-09 — MOTION-FRAME + PROXY-BEHAVIOR AMENDMENT RATIFIED (Matt, three acts) · KIT ROSTER OF RECORD born (PART F) · roster count re-pinned: 25 cells + H-series
 
@@ -270,7 +278,7 @@ The core is *already* non-agentic (callable scripts, programmatic LLM calls, pur
 
 ## PART F — KIT ROSTER OF RECORD (first glance)
 
-> **Born 2026-07-09 (Matt ruling):** *"change the count of kits I need to select for the demo to the full 25 BC cell numbered kits + the hypothesis based kits, including the proxy/summon and totem (assuming totem probe passes, if not let's discuss)."* This table IS the roster the demo curation selects from — supersedes all prior counts (18 / ~20 / ~22). Columns per Matt's ruling: number · ARPG Genre Canon kit name · BC cell/hypothesis · status · blockers/held rules. The Glance **content-emission page** renders this table as its top first-glance card (contract §7.3). Canon pin: `reap-die-rise-engine/motion-frame-substrate-amendment-2026-07-09.md` §8.
+> **Born 2026-07-09 (Matt ruling):** *"change the count of kits I need to select for the demo to the full 25 BC cell numbered kits + the hypothesis based kits, including the proxy/summon and totem (assuming totem probe passes, if not let's discuss)."* This table IS the roster the demo curation selects from — supersedes all prior counts (18 / ~20 / ~22). Columns per Matt's ruling: number · ARPG Genre Canon kit name · BC cell/hypothesis · status · blockers/held rules. The Glance **`/kits` page** renders F.1 + F.2 as its lead tables and **F.3 (the bench)** below them (contract §7.4 v1.5 / §7.5 v1.6). Canon pin: `reap-die-rise-engine/motion-frame-substrate-amendment-2026-07-09.md` §8.
 >
 > **Count reconciliation (pinned):** code carries 25 CellDefs (`bc_target_cell_sampler.py`) · Sketch A sketched ~22 cells/~37 forms · a prior ruling said 18 (never byte-pinned anywhere) · batch-1 fired 7 coordinates as the fixture bank. **The 2026-07-09 ruling resolves the drift: roster of record = all 25 numbered cells + the H-series.** Statuses below flip as batch-2 (the derivation population) emits.
 
@@ -313,10 +321,30 @@ The core is *already* non-agentic (callable scripts, programmatic LLM calls, pur
 | H3 | Storm Brand caster (PoE Brands) | motion-frame family — `orbiter_brand` CORE-MARGINAL | OPEN | gates-on: G2; `target_entity` frame extension |
 | H4 | Orbital Bombardier (PoE Winter Orb) | motion-frame family — `orbiter_bombardier` GATED | OPEN | gates-on: **totem-probe (G1, shared gate w/ K18)** — the emitter IS the P0 proxy |
 | H5 | True Battlemage (dual-scaling hybrid) | E3 ledger row — hybrid dual-scaling | OPEN | gates-on: E3 design pass (currently stubbed single-scale) |
-| H6 | Charge-up Caster (D2 FCR identity) | E4 ledger row — cast-time axis | OPEN | gates-on: E4 ruling (fork-elicitation drafted `937e853`, awaiting Matt); currently everything instant-cast |
+| H6 | Charge-up Caster (D2 FCR identity) | E4 ledger row — cast-time axis | OPEN | **E4 FULLY RULED 2026-07-09** (all six forks; `bc_commitment` coordinate, 3 pricing guards, capstone transform law); gates-on: E4 design note → rocket+gamora build |
 
-**Demo-curation denominator:** 25 K + 6 H = **31 kits** (H4/K18 totem-contingent; K10/K17/K25 ranged-proxy variants nav-gap-contingent per PART E). Proxy octet within the K-set: K5, K10, K16 (light) · K11, K17, K18, K24, K25 (heavy).
+**Demo-curation denominator:** 25 K + 6 H = **31 kits** (H4/K18 totem-contingent; K10/K17/K25 ranged-proxy variants nav-gap-contingent per PART E). Proxy octet within the K-set: K5, K10, K16 (light) · K11, K17, K18, K24, K25 (heavy). **The F.3 bench is NOT in this denominator** — bench rows PROMOTE into F.1/F.2 (and the denominator grows) only when their named blocker falls AND Matt admits them.
+
+### F.3 The blocked/held bench (B-series — named, NOT in the 31)
+
+> **Born 2026-07-10 (Matt Glance feedback #1):** *"Didn't you list 10 or so more (maybe more) that are currently blocked/gated?"* — yes: the 2026-07-09 ARPG-canon survey's **Bucket C** (purposefully held/blocked forms, each with a holds-today verdict). This table makes the bench VISIBLE beside the roster so held genre-canon is never invisible-by-omission. Renders on the Glance `/kits` page below F.2 (contract §7.5 v1.6). Status enum: **BLOCKED** (engine substrate missing) · **HELD** (Matt/design ruling parks it) · **PENDING RE-CERT** (exists, awaiting migration re-certification) · **LAUNCH-SCOPE** (real, explicitly post-demo).
+
+| ID | ARPG Genre Canon kit | What blocks/holds it | Status | Named re-entry |
+|---|---|---|---|---|
+| B1 | Blood Mage / Low-Life caster (PoE blood magic, D2 Blood lineage) | **Axis-5 cost-TYPE bins** — HP-as-cast-cost needs resolver plumbing (HP-spend path) that doesn't exist | BLOCKED | F5 re-entry (cost-type axis design pass) |
+| B2 | Thorns / Vengeance Knight (D3 Invoker, D4 thorns) | Axis-5 — damage-taken-converts-to-output resolver path missing | BLOCKED | F5 re-entry |
+| B3 | Builder-Spender Warrior (D3 fury/spirit economy) | Axis-5 — charge-state resource model missing (all kits flat-resource today) | BLOCKED | F5 re-entry |
+| B4 | Bone-Wall Necromancer (D2 Bone Wall/Prison) | **Walls** — terrain-occlusion entities; spike `5d3bb55` verdict: DEEP-ARCHITECTURE-CHANGE | HELD (Q15 DEFER, Matt-ruled) | Q15 re-open; un-blocks Waller mobs + a PLAYER wall family together |
+| B5 | Teleport Sorceress (D2 Teleport, PoE Flame Dash) | **Movement verbs** — E1 rider exclusion (self-displacement skills); rides the parked F4-martial fork | HELD | F4 re-entry |
+| B6 | Dash-Weaver Martial (D3 Dashing Strike, LE Shift) | Same movement-verb exclusion as B5 | HELD | F4 re-entry |
+| B7 | Ring of Shields / Interceptor (full PoE version) | `block_incoming` orbital purpose — needs projectile-intercept resolution + walls-adjacent occlusion | BLOCKED (v2) | F6 reserve (H1 ships the -lite guard WITHOUT interception) |
+| B8 | Nested-Orbit Epicycle caster | Recursion cap — orbital-frame nesting unbuilt; F6 named reserve | HELD | F6 re-entry post-G2 kernel |
+| B9 | Collapse-Bomb Caster (spiral-in detonation) | `orbiter_spiral` inward variant BC-unattested; F2 reserve | HELD | F2 re-entry on batch-2 BC evidence |
+| B10 | Vaal Blade Vortex (detach-and-seek) | `detach_and_seek` is OPERATOR territory (ORBITIZE post-frame mutation), not a frame primitive | HELD | operator design pass (post-motion-frame consumers) |
+| B11 | Inversion Summoner (proxy tank, master hides) | PROXY_INVERSION T4 — INVERSION-v2 family | HELD (trivially — v2 family) | INVERSION-v2 pass |
+| B12 | Spin-to-Win (D2 WW / PoE Cyclone / Warpath) | **PENDING RE-CERT** — exists pre-migration; audit-gated nova/spin migration to the ONE kernel requires zero-behavioral-diff harness before re-cert | PENDING RE-CERT | G3 migration audit; expression of K1/K23-class cells (cross-ref, not a new cell) |
+| B13 | RIVAL Exile (PoE-exile-style enemy champion) | E9-C — enemy-side consumer of this same roster; explicitly launch-scope, not demo | LAUNCH-SCOPE | E9-C build (post-demo) |
 
 ---
 
-**Signed:** gandalf, 2026-07-02 (founding). The factory is the product: every shipped soul is one the pipeline made and the sim passed.
+**Signed:** gandalf, 2026-07-02 (founding); F.3 bench appended 2026-07-10. The factory is the product: every shipped soul is one the pipeline made and the sim passed — and every held soul is named, not hidden.
