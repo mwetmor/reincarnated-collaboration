@@ -714,6 +714,11 @@ const PIPELINES = [
   // `/story` and `/game` repoint to THESE via PAGE_FLOW_SOURCE (app-side).
   { id: 'game', file: 'pipeline-game.md' },
   { id: 'story', file: 'pipeline-story.md' },
+  // §7.6 v1.8 — the arcade (machine-run mode factory) product pipeline doc landed
+  // (gandalf, FIFTH pipeline family member), §2.7-conformant (FLOW A0–A7 + `## A#`
+  // headings + fenced ASCII + POST-LAUNCH scope rider). `/minigames` (6th tab) leads
+  // with THIS via PAGE_FLOW_SOURCE. Same parse path — zero new shapes.
+  { id: 'arcade', file: 'pipeline-arcade.md' },
 ];
 
 // Extract the FIRST fenced code block (``` … ```) in the doc, verbatim (no lang
@@ -735,6 +740,30 @@ function extractFirstFence(lines) {
   return null; // unterminated fence — treat as absent (absence-legal)
 }
 
+// §7.6 rule 3 — extract the `SCOPE RIDER — POST-LAUNCH:` blockquote from a pipeline
+// doc's STATUS block so the consuming page can render it visibly near the FLOW bar
+// ("nothing here gates the demo/launch"). This is NOT a legislated parse shape — it
+// is a targeted verbatim string grab (same class as extractFirstFence for the ASCII):
+// find the `> **SCOPE RIDER …**` line and gather the contiguous blockquote lines it
+// leads (until the next blank/non-`>` line), stripping the leading `> ` markers but
+// keeping the inline markdown for faithful render. Returns null if absent (legal).
+function extractScopeRider(lines) {
+  let start = -1;
+  for (let i = 0; i < lines.length; i++) {
+    if (/^>\s*\*\*SCOPE RIDER\b/i.test(lines[i])) { start = i; break; }
+  }
+  if (start === -1) return null;
+  const body = [];
+  for (let i = start; i < lines.length; i++) {
+    const m = lines[i].match(/^>\s?(.*)$/);
+    if (!m) break;              // blockquote ended
+    if (m[1].trim() === '') break; // blank blockquote line separates riders
+    body.push(m[1]);
+  }
+  if (body.length === 0) return null;
+  return { text: body.join('\n').trim(), line: start + 1 };
+}
+
 function parsePipeline(p) {
   const relPath = `canonical/current-to-end-state/${p.file}`;
   const abs = join(CANON, 'current-to-end-state', p.file);
@@ -752,7 +781,9 @@ function parsePipeline(p) {
   const { flow, danglingFlowRefs } = parseFlow(lines, relPath, queues);
   for (const d of danglingFlowRefs) d.tracker = p.id;
   const ascii = extractFirstFence(lines);
-  return { id: p.id, path: relPath, flow: flow || null, ascii, _dangling_flow_refs: danglingFlowRefs };
+  // §7.6 rule 3 — optional POST-LAUNCH scope rider (arcade pipeline carries one).
+  const scope_rider = extractScopeRider(lines);
+  return { id: p.id, path: relPath, flow: flow || null, ascii, scope_rider, _dangling_flow_refs: danglingFlowRefs };
 }
 
 // ---------------------------------------------------------------------------
@@ -1072,9 +1103,10 @@ function main() {
     if (parsed) trackers.push(parsed);
   }
   const dangling = resolveGates(trackers);
-  // §7.5 v1.6 — the MATT-FACING product pipeline docs (battle-sim + serial-emission).
-  // Not trackers: FLOW-source + verbatim-ASCII drill docs. Parsed here; their FLOW
-  // stages feed the /engine and /content-emission page leads (repoint config in app).
+  // §7.5 v1.6 / §7.6 v1.8 — the MATT-FACING product pipeline docs (battle-sim +
+  // serial-emission + game + story + arcade). Not trackers: FLOW-source + verbatim-
+  // ASCII drill docs. Parsed here; their FLOW stages feed the process page leads
+  // (/engine, /content-emission, /story, /game, /minigames — repoint config in app).
   const pipelines = [];
   for (const p of PIPELINES) {
     const parsed = parsePipeline(p);

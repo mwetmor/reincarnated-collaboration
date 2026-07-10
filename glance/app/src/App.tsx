@@ -13,9 +13,9 @@ import { RowLine } from './components';
 // ---------------------------------------------------------------------------
 // Routing — hash-based, zero dependency (§7.4). The SPA rewrite in vercel.json
 // already funnels every path to index.html, so hash routes work identically in
-// preview + prod with no 404 risk (the May-12 lesson). Routes (v1.5 — five pages):
-//   #/                     → the slim six-card landing index (the original glance)
-//   #/engine #/story #/game #/content-emission #/kits  → the five domain pages
+// preview + prod with no 404 risk (the May-12 lesson). Routes (v1.8 — six pages):
+//   #/                     → the slim seven-card landing index (the original glance)
+//   #/engine #/story #/game #/content-emission #/kits #/minigames  → six domain pages
 // ---------------------------------------------------------------------------
 type Route = { kind: 'landing' } | { kind: 'page'; page: PageId };
 
@@ -301,6 +301,7 @@ function SurfaceLedgerDrawer({ ledger, ghBase }: { ledger: Tracker; ghBase: stri
 // ---------------------------------------------------------------------------
 function Landing({ state, watermark }: { state: State; watermark: string | null }) {
   const serial = state.trackers.find((t) => t.id === 'serial-content-emission');
+  const arcade = state.pipelines.find((p) => p.id === 'arcade') ?? null;
   return (
     <div className="space-y-6">
       <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -309,9 +310,38 @@ function Landing({ state, watermark }: { state: State; watermark: string | null 
         ))}
         {/* sixth card slot — Kits (§7.4.1). Card face = PART F roster tallies. */}
         {serial && <KitsIndexCard tracker={serial} />}
+        {/* seventh card slot — Minigames (§7.6 v1.8). Card face = arcade A0–A7 FLOW
+            preview; reads PARTIAL·GAP·GATED honestly until the arcade build fires. */}
+        {arcade && <MinigamesIndexCard pipeline={arcade} />}
       </section>
       <SinceYouLastLooked state={state} watermark={watermark} />
     </div>
+  );
+}
+
+// The seventh landing card (§7.6 v1.8) — the arcade pipeline's A0–A7 FLOW preview as
+// the card face, tapping through to /minigames. Card face reads the honest PARTIAL·GAP·
+// GATED stamp (POST-LAUNCH mode factory) — that honest read is the point; nothing masks
+// it. The FLOW segments derive `quiet` neutral (no modeled rows) — faithful to the doc.
+function MinigamesIndexCard({ pipeline }: { pipeline: Pipeline }) {
+  return (
+    <button
+      onClick={() => go('minigames')}
+      className="flex flex-col rounded-lg border border-violet-800/50 bg-violet-950/20 p-3 text-left transition hover:border-violet-600 hover:bg-violet-950/40">
+      <div className="flex items-center justify-between">
+        <h2 className="font-semibold text-slate-100">Minigames</h2>
+        <span className="rounded bg-violet-900/50 px-1.5 py-0.5 text-[0.65rem] font-medium text-violet-300">
+          POST-LAUNCH
+        </span>
+      </div>
+      {/* the arcade A0–A7 FLOW as the card lead (§2.7); segments quiet until build fires */}
+      {pipeline.flow && <FlowBar flow={pipeline.flow} compact />}
+      <div className="mt-2 text-xs text-slate-400">
+        the machine-run mode factory — A0–A7,{' '}
+        <span className="text-slate-200">PARTIAL · GAP · GATED</span> until the arcade build fires
+      </div>
+      <span className="mt-2 text-[0.7rem] text-violet-400">open pipeline →</span>
+    </button>
   );
 }
 
@@ -496,6 +526,15 @@ function DomainPage({ state, page }: { state: State; page: PageId }) {
   // /kits is the roster home — a distinct page off the same serial tracker (§7.4.2).
   if (page === 'kits') {
     return <KitsPage tracker={tracker} ghBase={ghBase} />;
+  }
+
+  // §7.6 v1.8 — /minigames is the arcade-pipeline home. It has NO tracker of its own
+  // (the arcade doc is a pipeline); it leads flow-bar-first off the arcade PIPELINE and
+  // renders pipeline-lead-only. It deliberately does NOT surface the (backing) game
+  // tracker's queues/deltas — the page is a MATT-FACING product-flow view + scope rider.
+  if (page === 'minigames') {
+    const arcade = state.pipelines.find((p) => p.id === 'arcade') ?? null;
+    return <MinigamesPage pipeline={arcade} ghBase={ghBase} />;
   }
 
   // §7.5 v1.6 — the lead FLOW source is ONE config line per page (PAGE_FLOW_SOURCE):
@@ -700,6 +739,66 @@ function PipelineFlowLead({ pipeline, ghBase }: { pipeline: Pipeline; ghBase: st
         </div>
       )}
     </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// MINIGAMES PAGE (§7.6 v1.8) — the arcade-pipeline home. Pipeline-lead-only: the
+// arcade product FLOW (A0–A7) + per-stage drill + verbatim ASCII, PLUS the doc's
+// POST-LAUNCH scope rider rendered PROMINENTLY near the FLOW bar (§7.6 rule 3) so the
+// page never reads as a current build obligation. No tracker queues/deltas — the
+// arcade is a pipeline, not a tracker. The A0–A7 stage stamps read PARTIAL·GAP·GATED
+// honestly (the stages carry no modeled rows → derive `quiet` neutral); that honest
+// read is the point (§7.6 rule 1) — nothing masks it.
+// ---------------------------------------------------------------------------
+function MinigamesPage({ pipeline, ghBase }: { pipeline: Pipeline | null; ghBase: string }) {
+  if (!pipeline) {
+    return (
+      <div className="space-y-6">
+        <h1 className="text-xl font-bold text-slate-100">{PAGE_LABEL.minigames}</h1>
+        <div className="rounded-lg border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-500">
+          The arcade product-pipeline doc (<span className="font-mono">pipeline-arcade.md</span>) is
+          not modeled yet. The A0–A7 FLOW renders here once the doc parses.
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <h1 className="text-xl font-bold text-slate-100">{PAGE_LABEL.minigames}</h1>
+        <a
+          href={githubLink(ghBase, pipeline.path, 1)}
+          target="_blank" rel="noreferrer"
+          className="text-xs text-sky-400 hover:text-sky-300">
+          open arcade pipeline on GitHub ↗
+        </a>
+      </div>
+
+      {/* §7.6 rule 3 — the POST-LAUNCH scope rider, rendered PROMINENTLY near the FLOW
+          bar (immediately above it) so the page never reads as a current build obligation. */}
+      {pipeline.scope_rider && (
+        <a
+          href={githubLink(ghBase, pipeline.path, pipeline.scope_rider.line)}
+          target="_blank" rel="noreferrer"
+          className="block rounded-lg border-2 border-violet-700/60 bg-violet-950/25 px-4 py-3 transition hover:border-violet-500">
+          <div className="mb-1 flex items-center gap-2">
+            <span className="rounded bg-violet-800/60 px-1.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wide text-violet-200">
+              POST-LAUNCH
+            </span>
+            <span className="text-xs font-semibold text-violet-300">
+              scope rider — nothing on this page gates the demo or launch
+            </span>
+          </div>
+          <div className="text-sm text-slate-300">
+            <BlockMd src={pipeline.scope_rider.text} />
+          </div>
+        </a>
+      )}
+
+      {/* the arcade product FLOW (A0–A7) + per-stage drill + verbatim ASCII (reused). */}
+      <PipelineFlowLead pipeline={pipeline} ghBase={ghBase} />
+    </div>
   );
 }
 

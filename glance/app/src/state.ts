@@ -90,7 +90,7 @@ export interface DanglingFlowRef {
 // §7.5 v1.6 — the MATT-FACING product pipeline docs. NOT trackers (no page/card of
 // their own): they are FLOW-source + verbatim-ASCII drill docs. The /engine and
 // /content-emission pages render THESE FLOW bars as their lead (see PAGE_FLOW_SOURCE).
-export type PipelineId = 'battle-sim' | 'serial-emission' | 'game' | 'story';
+export type PipelineId = 'battle-sim' | 'serial-emission' | 'game' | 'story' | 'arcade';
 
 export interface Pipeline {
   id: PipelineId;
@@ -100,6 +100,9 @@ export interface Pipeline {
   flow: Flow | null;
   // the fenced ASCII flow diagram, rendered VERBATIM as a <pre> (never parsed).
   ascii: { text: string; line: number } | null;
+  // §7.6 rule 3 — the `SCOPE RIDER — POST-LAUNCH:` blockquote (arcade pipeline). A
+  // targeted verbatim string grab, NOT a legislated parse shape. null when absent.
+  scope_rider?: { text: string; line: number } | null;
 }
 
 export type TrackerId =
@@ -238,9 +241,9 @@ export const FLOW_DOMINANT_LABEL: Record<FlowDominant, string> = {
 //   - `/kits`             leads with (and shows only) the PART F roster — the NOUN-list.
 //   - `/content-emission` leads flow-bar-first, roster GONE — the PROCESS-flow.
 // The roster moved OUT of content-emission (v1.4's lead-element law is DEAD).
-export type PageId = 'engine' | 'story' | 'game' | 'content-emission' | 'kits';
+export type PageId = 'engine' | 'story' | 'game' | 'content-emission' | 'kits' | 'minigames';
 
-export const PAGE_ORDER: PageId[] = ['engine', 'story', 'game', 'content-emission', 'kits'];
+export const PAGE_ORDER: PageId[] = ['engine', 'story', 'game', 'content-emission', 'kits', 'minigames'];
 
 export const PAGE_LABEL: Record<PageId, string> = {
   engine: 'Engine',
@@ -248,6 +251,7 @@ export const PAGE_LABEL: Record<PageId, string> = {
   game: 'Game',
   'content-emission': 'Content Emission',
   kits: 'Kits',
+  minigames: 'Minigames',
 };
 
 // the tracker id backing each page. Both content-emission and kits are backed by the
@@ -258,6 +262,12 @@ export const PAGE_TRACKER: Record<PageId, TrackerId> = {
   game: 'game',
   'content-emission': 'serial-content-emission',
   kits: 'serial-content-emission',
+  // §7.6 v1.8 — /minigames has NO tracker of its own; the arcade doc is a pipeline,
+  // not a tracker. Its build-gate lives in the game tracker (B6 / taxonomy §9.1
+  // endgame fork), so /minigames backs the game tracker for card/delta home purposes
+  // but leads flow-bar-first off the arcade PIPELINE (see PAGE_FLOW_SOURCE). The page
+  // renders pipeline-lead-only — it does NOT surface the game tracker's queues/deltas.
+  minigames: 'game',
 };
 
 // §7.5 v1.6 — the lead FLOW-bar source for each page, ONE config line per page.
@@ -275,6 +285,7 @@ export const PAGE_FLOW_SOURCE: Record<PageId, FlowSource> = {
   game: { kind: 'pipeline', id: 'game' },                 // G0–G8 product pipeline (v1.7)
   'content-emission': { kind: 'pipeline', id: 'serial-emission' }, // E0–E8 product pipeline
   kits: { kind: 'tracker' },                              // /kits has no lead FLOW bar
+  minigames: { kind: 'pipeline', id: 'arcade' },          // A0–A7 product pipeline (v1.8)
 };
 
 // The canonical "home page" for a tracker's card/deltas. For the serial tracker this
