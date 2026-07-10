@@ -8,8 +8,11 @@
 > use to me but not the rest of the team"*) — NEVER folded, retired, or purged without Matt's explicit
 > ruling. Form-precedent: doc 39 §1 (2026-05-24).
 >
-> **Maintenance law:** gandalf owns the doc; stage stamps update when owning agents land work
-> (rocket: E2 · star-lord: E3/E6 · gamora: E4/E5 boundary · drax: E8). State derives from the queues
+> **Maintenance law — SAME-COMMIT (Matt condition 2026-07-10: docs hit the mark "as long as they
+> will be updated immediately and always"):** gandalf owns the doc; the commit that lands
+> stage-changing work UPDATES that stage's stamp in the SAME commit — the §2.7 FLOW-maintenance rule
+> extended (owning agents: rocket E2 · star-lord E3/E6 · gamora E4/E5 boundary · drax E8). A build
+> landed without its stamp update is an incomplete commit. State derives from the queues
 > (tracker PARTs B–F), not from prose. Glance `/content-emission` page renders this doc (contract v1.6).
 
 **Sibling:** `pipeline-battle-sim.md` — stages E4→E5 below hand off INTO and pick up FROM that

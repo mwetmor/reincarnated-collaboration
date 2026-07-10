@@ -10,8 +10,11 @@
 > `../reap-die-rise-engine/39-qd-engine-end-to-end-workflow-2026-05-24.md` §1 (right form, stale
 > content — that doc predates the full-run pivot, E1/E2/E4, and the Godot seam).
 >
-> **Maintenance law:** gandalf owns the doc. Stage-state stamps (**LIVE / PARTIAL / GAP**) update when
-> owning agents land work (gamora: S1–S7 · rocket: S0 inputs · star-lord: S5 telemetry + S8). The
+> **Maintenance law — SAME-COMMIT (Matt condition 2026-07-10: docs hit the mark "as long as they
+> will be updated immediately and always"):** gandalf owns the doc. The commit that lands
+> stage-changing work UPDATES that stage's stamp (**LIVE / PARTIAL / GAP**) in the SAME commit —
+> the §2.7 FLOW-maintenance rule extended (owning agents: gamora S1–S7 · rocket S0 inputs ·
+> star-lord S5 telemetry + S8). A build landed without its stamp update is an incomplete commit. The
 > desired end state is the SPINE; the current state is the STAMP; the gap column links tracker rows —
 > state derives from the queues, not from prose. Glance `/engine` page renders this doc (contract v1.6).
 
