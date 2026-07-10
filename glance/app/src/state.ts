@@ -67,6 +67,9 @@ export interface FlowStage {
   counters: Counters;
   dominant: FlowDominant;
   line: number;
+  // §2.7 drill-through — line of the first resolved `##` heading this stage claims
+  // (its stage sub-heading, e.g. `## S0` / `## E5`). null when the ref dangles.
+  heading_line?: number | null;
 }
 
 export interface Flow {
@@ -76,10 +79,27 @@ export interface Flow {
 
 export interface DanglingFlowRef {
   ref: string;
-  tracker: TrackerId;
+  // the source id — a TrackerId for tracker FLOW blocks, a PipelineId for the
+  // MATT-FACING pipeline docs (§7.5 v1.6). Kept loose (string) since both feed it.
+  tracker: string;
   stage: number;
   path: string;
   line: number;
+}
+
+// §7.5 v1.6 — the MATT-FACING product pipeline docs. NOT trackers (no page/card of
+// their own): they are FLOW-source + verbatim-ASCII drill docs. The /engine and
+// /content-emission pages render THESE FLOW bars as their lead (see PAGE_FLOW_SOURCE).
+export type PipelineId = 'battle-sim' | 'serial-emission';
+
+export interface Pipeline {
+  id: PipelineId;
+  path: string;
+  // §2.7 FLOW — always present for a well-formed pipeline doc; null if the doc
+  // declares no `## FLOW`.
+  flow: Flow | null;
+  // the fenced ASCII flow diagram, rendered VERBATIM as a <pre> (never parsed).
+  ascii: { text: string; line: number } | null;
 }
 
 export type TrackerId =
@@ -137,6 +157,8 @@ export interface State {
     date_is_build_time_proxy?: boolean;
   };
   trackers: Tracker[];
+  // §7.5 v1.6 — the MATT-FACING product pipeline docs (battle-sim + serial-emission).
+  pipelines: Pipeline[];
   // §5 header strip — the demo-gate counter, derived from the surface-ledger card.
   // null when the ledger doesn't parse (absence-legal).
   surfaces_agreed: SurfacesAgreed | null;
@@ -236,6 +258,23 @@ export const PAGE_TRACKER: Record<PageId, TrackerId> = {
   game: 'game',
   'content-emission': 'serial-content-emission',
   kits: 'serial-content-emission',
+};
+
+// §7.5 v1.6 — the lead FLOW-bar source for each page, ONE config line per page.
+//   { kind: 'tracker' }              → render the backing tracker's own `## FLOW`.
+//   { kind: 'pipeline', id }         → render the MATT-FACING pipeline doc's FLOW.
+// The two PROCESS pages repoint to the product pipelines; the rest keep their
+// tracker FLOW. When the story/game pipeline docs land, flip those two lines here.
+export type FlowSource =
+  | { kind: 'tracker' }
+  | { kind: 'pipeline'; id: PipelineId };
+
+export const PAGE_FLOW_SOURCE: Record<PageId, FlowSource> = {
+  engine: { kind: 'pipeline', id: 'battle-sim' },        // S0–S8 product pipeline
+  story: { kind: 'tracker' },                             // (pipeline doc TBD)
+  game: { kind: 'tracker' },                              // (pipeline doc TBD)
+  'content-emission': { kind: 'pipeline', id: 'serial-emission' }, // E0–E8 product pipeline
+  kits: { kind: 'tracker' },                              // /kits has no lead FLOW bar
 };
 
 // The canonical "home page" for a tracker's card/deltas. For the serial tracker this

@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import {
   type State, type Tracker, type TrackerId, type StatusToken, type QueueRow,
-  type Queue, type FlowStage, type PageId,
+  type Queue, type Flow, type FlowStage, type Pipeline, type PageId,
   TRACKER_LABEL, STATUS_LABEL, STATUS_SYMBOL, STATUS_COLOR,
   FLOW_SEGMENT_COLOR, FLOW_DOMINANT_LABEL,
-  PAGE_ORDER, PAGE_LABEL, PAGE_TRACKER,
+  PAGE_ORDER, PAGE_LABEL, PAGE_TRACKER, PAGE_FLOW_SOURCE,
   WATERMARK_KEY, maxDeltaDate, commitAge, githubLink, counterTotal,
 } from './state';
 import { InlineMd, BlockMd } from './md';
@@ -305,7 +305,7 @@ function Landing({ state, watermark }: { state: State; watermark: string | null 
     <div className="space-y-6">
       <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {state.trackers.map((t) => (
-          <IndexCard key={t.id} tracker={t} />
+          <IndexCard key={t.id} tracker={t} pipelines={state.pipelines} />
         ))}
         {/* sixth card slot — Kits (§7.4.1). Card face = PART F roster tallies. */}
         {serial && <KitsIndexCard tracker={serial} />}
@@ -354,9 +354,20 @@ function KitsIndexCard({ tracker }: { tracker: Tracker }) {
 
 // A slim tracker card on the landing index. Taps through to its page (or, for the
 // surface-ledger, its own compact card that jumps to the drawer via the header).
-function IndexCard({ tracker }: { tracker: Tracker }) {
+function IndexCard({ tracker, pipelines }: { tracker: Tracker; pipelines: Pipeline[] }) {
   const isLedger = tracker.id === 'surface-ledger';
   const page = PAGE_ORDER.find((p) => PAGE_TRACKER[p] === tracker.id) ?? null;
+  // §7.5 v1.6 — the card face's FLOW preview follows the SAME repoint as the page
+  // lead: if the tracker's page repoints to a product pipeline, preview THAT flow;
+  // else preview the tracker's own (demoted) FLOW. Keeps card ↔ page consistent.
+  const cardFlow: Flow | null = (() => {
+    if (!page) return tracker.flow ?? null;
+    const src = PAGE_FLOW_SOURCE[page];
+    if (src.kind === 'pipeline') {
+      return pipelines.find((p) => p.id === src.id)?.flow ?? null;
+    }
+    return tracker.flow ?? null;
+  })();
   const latest = tracker.deltas[0];
   const onOpen = () => {
     if (page) go(page);
@@ -375,8 +386,9 @@ function IndexCard({ tracker }: { tracker: Tracker }) {
         )}
       </div>
 
-      {/* flow-bar as the card lead (§2.7) when the tracker declares FLOW */}
-      {tracker.flow && <FlowBar flow={tracker.flow} compact />}
+      {/* flow-bar as the card lead (§2.7) — the pipeline flow when the page repoints
+          to a product pipeline (§7.5 v1.6), else the tracker's own FLOW */}
+      {cardFlow && <FlowBar flow={cardFlow} compact />}
 
       {latest && (
         <div className="mt-2 text-xs text-slate-400">
@@ -486,6 +498,14 @@ function DomainPage({ state, page }: { state: State; page: PageId }) {
     return <KitsPage tracker={tracker} ghBase={ghBase} />;
   }
 
+  // §7.5 v1.6 — the lead FLOW source is ONE config line per page (PAGE_FLOW_SOURCE):
+  // the two PROCESS pages (/engine + /content-emission) lead with a MATT-FACING
+  // product pipeline doc (S0–S8 / E0–E8); /story + /game keep their tracker FLOW.
+  const flowSource = PAGE_FLOW_SOURCE[page];
+  const leadPipeline = flowSource.kind === 'pipeline'
+    ? state.pipelines.find((p) => p.id === flowSource.id) ?? null
+    : null;
+
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -498,21 +518,25 @@ function DomainPage({ state, page }: { state: State; page: PageId }) {
         </a>
       </div>
 
-      {/* flow-bar lead (§2.7) — the abstracted end-to-end process view */}
-      {tracker.flow && (
-        <section>
-          <h2 className="mb-2 text-sm font-semibold text-slate-300">
-            Process flow <span className="font-normal text-slate-500">(end-to-end, derived)</span>
-          </h2>
-          <FlowBar
-            flow={tracker.flow}
-            onStage={(s) => {
-              const el = document.getElementById(`stage-${s.n}`);
-              el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
-          />
-        </section>
-      )}
+      {/* LEAD FLOW (§2.7 / §7.5 v1.6). When this page repoints to a product pipeline
+          doc, that pipeline's FLOW (S0–S8 / E0–E8) + verbatim ASCII is the lead. Else
+          the tracker's own FLOW leads (story/game, until their pipeline docs land). */}
+      {leadPipeline
+        ? <PipelineFlowLead pipeline={leadPipeline} ghBase={ghBase} />
+        : tracker.flow && (
+            <section>
+              <h2 className="mb-2 text-sm font-semibold text-slate-300">
+                Process flow <span className="font-normal text-slate-500">(end-to-end, derived)</span>
+              </h2>
+              <FlowBar
+                flow={tracker.flow}
+                onStage={(s) => {
+                  const el = document.getElementById(`stage-${s.n}`);
+                  el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+              />
+            </section>
+          )}
 
       {/* §4 supersession law: STATUS banner → latest delta (full) → older (collapsed) */}
       {tracker.status_banner && (
@@ -544,7 +568,138 @@ function DomainPage({ state, page }: { state: State; page: PageId }) {
 
       {/* queues as in-page Tier-1 tables (sortable/filterable) */}
       <QueueTables tracker={tracker} ghBase={ghBase} />
+
+      {/* §7.5 v1.6 change #3 — the tracker's own `## FLOW` is DEMOTED to doc-nav:
+          still parsed, still derived, but rendered below-the-fold (Tier-1) because
+          it answers "which PART to read," not product flow. Only shown when a
+          product pipeline leads the page (else the tracker FLOW IS the lead above). */}
+      {leadPipeline && tracker.flow && (
+        <TrackerFlowDocNav flow={tracker.flow} tracker={tracker} ghBase={ghBase} />
+      )}
     </div>
+  );
+}
+
+// §7.5 v1.6 change #3 — the demoted tracker FLOW as below-the-fold doc navigation.
+// Collapsed by default; expands to the non-compact FLOW bar whose segments scroll to
+// the in-page queue tables (the existing stage-N anchors). It's PART-navigation.
+function TrackerFlowDocNav({
+  flow, tracker, ghBase,
+}: { flow: Flow; tracker: Tracker; ghBase: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <section className="rounded-lg border border-slate-800 bg-slate-900/30 p-3">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-center justify-between text-left">
+        <span className="text-sm font-semibold text-slate-300">
+          {open ? '▾' : '▸'} Doc navigation{' '}
+          <span className="font-normal text-slate-500">
+            (which PART to read — the tracker's own flow, not product flow)
+          </span>
+        </span>
+        <a
+          href={githubLink(ghBase, tracker.path, flow.line)}
+          target="_blank" rel="noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          className="text-xs text-sky-400 hover:text-sky-300">
+          source ↗
+        </a>
+      </button>
+      {open && (
+        <div className="mt-3">
+          <FlowBar
+            flow={flow}
+            onStage={(s) => {
+              const el = document.getElementById(`stage-${s.n}`);
+              el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+          />
+        </div>
+      )}
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// PIPELINE FLOW LEAD (§7.5 v1.6) — the MATT-FACING product data-flow doc as the
+// lead of a PROCESS page. Three parts, top to bottom:
+//   1. the §2.7 FLOW bar (S0–S8 / E0–E8), each segment clicking to its stage strip;
+//   2. per-stage `##` drill strip — the FLOW-segment → stage sub-heading targets,
+//      each deep-linking to the `## S#`/`## E#` heading on GitHub (drill-through);
+//   3. the fenced ASCII flow diagram, rendered VERBATIM in a <pre> (NEVER parsed).
+// Stage state derives `quiet` for these process docs (they carry no modeled rows),
+// which the FLOW bar renders neutral — faithful to the substrate.
+// ---------------------------------------------------------------------------
+function PipelineFlowLead({ pipeline, ghBase }: { pipeline: Pipeline; ghBase: string }) {
+  if (!pipeline.flow) {
+    return (
+      <section className="rounded-lg border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-500">
+        The product pipeline doc declares no <span className="font-mono">## FLOW</span> yet.
+      </section>
+    );
+  }
+  const flow = pipeline.flow;
+  return (
+    <section>
+      <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
+        <h2 className="text-sm font-semibold text-slate-300">
+          Product pipeline <span className="font-normal text-slate-500">(end-to-end — the actual data-flow)</span>
+        </h2>
+        <a
+          href={githubLink(ghBase, pipeline.path, 1)}
+          target="_blank" rel="noreferrer"
+          className="text-xs text-sky-400 hover:text-sky-300">
+          open pipeline doc ↗
+        </a>
+      </div>
+
+      {/* 1 — the FLOW bar; segments scroll to the per-stage drill strip below */}
+      <FlowBar
+        flow={flow}
+        onStage={(s) => {
+          const el = document.getElementById(`pipe-stage-${s.n}`);
+          el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }}
+      />
+
+      {/* 2 — per-stage `##` drill targets (FLOW segment → stage sub-heading) */}
+      <ol className="mt-3 grid grid-cols-1 gap-1.5 sm:grid-cols-2">
+        {flow.stages.map((s) => (
+          <li key={s.n} id={`pipe-stage-${s.n}`} className="scroll-mt-40">
+            <a
+              href={s.heading_line != null ? githubLink(ghBase, pipeline.path, s.heading_line) : githubLink(ghBase, pipeline.path, s.line)}
+              target="_blank" rel="noreferrer"
+              className="flex items-start gap-2 rounded border border-slate-800 bg-slate-900/40 px-2 py-1.5 text-xs hover:border-slate-600">
+              <span className={`mt-0.5 h-2.5 w-2.5 shrink-0 rounded-sm ${FLOW_SEGMENT_COLOR[s.dominant]}`} />
+              <span className="min-w-0">
+                <span className="block font-medium text-slate-200">
+                  {s.n}. {s.name}
+                </span>
+                <span className="text-[0.65rem] text-slate-500">
+                  {s.resolved ? 'stage detail ↗' : <span className="text-amber-400">⚠ ref — no `##` heading</span>}
+                </span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ol>
+
+      {/* 3 — the fenced ASCII flow diagram, VERBATIM (§7.5: render, do NOT parse) */}
+      {pipeline.ascii && (
+        <div className="mt-3">
+          <a
+            href={githubLink(ghBase, pipeline.path, pipeline.ascii.line)}
+            target="_blank" rel="noreferrer"
+            className="mb-1 block text-[0.7rem] text-slate-500 hover:text-sky-300">
+            the visual flow (verbatim) ↗
+          </a>
+          <pre className="overflow-x-auto rounded-lg border border-slate-800 bg-slate-950/70 p-3 text-[0.6rem] leading-tight text-slate-300 sm:text-[0.7rem]">
+            {pipeline.ascii.text}
+          </pre>
+        </div>
+      )}
+    </section>
   );
 }
 
@@ -559,9 +714,14 @@ function DomainPage({ state, page }: { state: State; page: PageId }) {
 // v1.5: the roster's HOME is now /kits (KitsPage). content-emission no longer
 // renders it (v1.4's lead-element rule is DEAD).
 // ---------------------------------------------------------------------------
+// section-name pin: the 31-DENOMINATOR roster is PART F's F.1 + F.2 sub-tables only.
+// F.3 (the bench, B-series) is EXPLICITLY NOT in the 31 — it renders separately below.
 function isPartFQueue(q: Queue): boolean {
-  // section-name pin: PART F's authored sub-tables are titled "F.1 …" / "F.2 …".
-  return /^F\.\d/.test(q.title.trim());
+  return /^F\.[12]\b/.test(q.title.trim());
+}
+// §7.5 v1.6 change #4 — the blocked/held bench: PART F's F.3 sub-table (rows B1–B13).
+function isBenchQueue(q: Queue): boolean {
+  return /^F\.3\b/.test(q.title.trim());
 }
 
 // PART-F tally, DERIVED from the pinned rows (never hand-authored). Used by both the
@@ -587,6 +747,7 @@ function partFTally(tracker: Tracker): {
 // ---------------------------------------------------------------------------
 function KitsPage({ tracker, ghBase }: { tracker: Tracker; ghBase: string }) {
   const hasRoster = tracker.queues.some(isPartFQueue);
+  const benchQueues = tracker.queues.filter(isBenchQueue);
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -606,6 +767,12 @@ function KitsPage({ tracker, ghBase }: { tracker: Tracker; ghBase: string }) {
           No PART F roster is modeled in the serial tracker yet. The roster renders here
           once the <span className="font-mono">## PART F</span> sub-tables (F.1 / F.2) parse.
         </div>
+      )}
+
+      {/* §7.5 v1.6 change #4 — the F.3 blocked/held bench, BELOW F.2, under a visible
+          divider making the "not in the 31" law loud. Absent-legal: no bench, no section. */}
+      {benchQueues.length > 0 && (
+        <KitBench queues={benchQueues} tracker={tracker} ghBase={ghBase} />
       )}
 
       {/* §7.1 feed-2 SEAM (wired, not blocked): when star-lord's registry-snapshot export
@@ -673,6 +840,81 @@ function KitRoster({ tracker, ghBase }: { tracker: Tracker; ghBase: string }) {
   );
 }
 
+// §7.5 v1.6 change #4 — the F.3 blocked/held bench, rendered BELOW F.2 under a loud
+// "NOT in the 31 denominator — promotes on unblock" divider. The bench uses the F.3
+// authored columns: ID · kit · what-blocks · status · named re-entry. Its status is
+// AUTHORED TEXT (BLOCKED / HELD / PENDING RE-CERT / LAUNCH-SCOPE) — those literals are
+// not §2.3 status prefixes, so we render the authored status cell verbatim (faithful),
+// not a parsed token. Row count is the bench size (13), explicitly NOT the 31.
+function KitBench({ queues, tracker, ghBase }: { queues: Queue[]; tracker: Tracker; ghBase: string }) {
+  const rows = queues.flatMap((q) => q.rows);
+  return (
+    <section className="rounded-lg border border-amber-800/40 bg-amber-950/10 p-3">
+      {/* the divider — makes the "not in the 31" law loud (change #4 acceptance) */}
+      <div className="mb-2 border-t-2 border-dashed border-amber-700/50 pt-2">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="text-sm font-bold text-amber-200">
+            The bench <span className="font-normal text-amber-500/80">— blocked / held forms (PART F.3)</span>
+          </h2>
+          <span className="rounded bg-amber-900/40 px-1.5 py-0.5 text-[0.7rem] font-semibold text-amber-200">
+            {rows.length} benched
+          </span>
+        </div>
+        <p className="mt-1 text-[0.72rem] font-medium text-amber-300/90">
+          NOT in the 31 denominator — promotes on unblock.
+        </p>
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse text-left text-xs">
+          <thead>
+            <tr className="border-b border-amber-800/40 text-[0.7rem] uppercase tracking-wide text-amber-500/70">
+              <th className="py-1 pr-2">ID</th>
+              <th className="py-1 pr-2">ARPG Genre Canon kit</th>
+              <th className="py-1 pr-2">What blocks / holds it</th>
+              <th className="py-1 pr-2">Status</th>
+              <th className="py-1 pr-2">Named re-entry</th>
+            </tr>
+          </thead>
+          <tbody>
+            {queues.map((q) =>
+              q.rows.map((r) => <KitBenchRow key={r.id + r.line} row={r} tracker={tracker} ghBase={ghBase} />)
+            )}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
+function KitBenchRow({ row, tracker, ghBase }: { row: QueueRow; tracker: Tracker; ghBase: string }) {
+  // F.3 authored columns: [ID, kit, what-blocks, status, named re-entry].
+  const kit = row.cells_md[1] ?? '';
+  const blocks = row.cells_md[2] ?? '';
+  const statusText = row.cells_md[3] ?? '';
+  const reentry = row.cells_md[4] ?? '';
+  return (
+    <tr className="border-b border-amber-900/30 align-top">
+      <td className="py-1.5 pr-2">
+        <a
+          href={githubLink(ghBase, tracker.path, row.line)}
+          target="_blank" rel="noreferrer"
+          className="rounded bg-amber-900/40 px-1.5 py-0.5 font-mono text-amber-200 hover:bg-amber-800/60 hover:text-amber-100">
+          {row.id}
+        </a>
+      </td>
+      <td className="py-1.5 pr-2 text-slate-200"><InlineMd src={kit} /></td>
+      <td className="py-1.5 pr-2 text-slate-400"><InlineMd src={blocks} /></td>
+      <td className="py-1.5 pr-2">
+        <span className="inline-flex items-center whitespace-nowrap rounded border border-amber-700 bg-amber-900/30 px-1.5 py-0.5 text-[0.68rem] text-amber-200">
+          <InlineMd src={statusText} />
+        </span>
+      </td>
+      <td className="py-1.5 pr-2 text-slate-400"><InlineMd src={reentry} /></td>
+    </tr>
+  );
+}
+
 function KitRosterRow({ row, tracker, ghBase }: { row: QueueRow; tracker: Tracker; ghBase: string }) {
   const c = STATUS_COLOR[row.status.token];
   // authored columns: [ID, kit, BC cell, status, blockers]. Prefer the real cells;
@@ -732,9 +974,10 @@ function QueueTables({ tracker, ghBase }: { tracker: Tracker; ghBase: string }) 
     return Array.from(set).sort();
   }, [tracker]);
 
-  // exclude the PART F sub-tables on the content-emission page — they lead the page.
+  // exclude ALL PART F sub-tables (roster F.1/F.2 + bench F.3) on the serial tracker —
+  // they render on the /kits page, not as content-emission queues.
   const queues = tracker.id === 'serial-content-emission'
-    ? tracker.queues.filter((q) => !isPartFQueue(q))
+    ? tracker.queues.filter((q) => !isPartFQueue(q) && !isBenchQueue(q))
     : tracker.queues;
 
   if (queues.length === 0) return null;

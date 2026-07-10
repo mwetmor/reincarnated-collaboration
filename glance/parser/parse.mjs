@@ -623,6 +623,14 @@ function parseFlow(lines, relPath, queues) {
     if (rowCount > 0) {
       dominant = FLOW_DOMINANCE.find((tok) => counters[tok] > 0) || 'quiet';
     }
+    // §2.7 drill-through: the line of the FIRST resolved `##` heading this stage
+    // claims (its stage sub-heading, e.g. `## S0` / `## E5`). Null when dangling.
+    // Enables the FLOW-segment → `##`-stage deep-link (contract §7.5 v1.6).
+    let heading_line = null;
+    for (const ref of it.refs) {
+      const hl = resolvedRefLines.get(`${si}|${ref}`);
+      if (hl != null) { heading_line = hl; break; }
+    }
     return {
       n: it.n,
       name: it.name,
@@ -631,6 +639,7 @@ function parseFlow(lines, relPath, queues) {
       counters,
       dominant,
       line: it.line,
+      heading_line,
     };
   });
 
@@ -682,6 +691,63 @@ function parseTracker(t) {
   if (t.ledger) tracker.surfaces_agreed = surfacesAgreed(queues);
   tracker._dangling_flow_refs = danglingFlowRefs; // internal — hoisted to top-level in main
   return tracker;
+}
+
+// ---------------------------------------------------------------------------
+// PIPELINE docs (contract §7.5 v1.6) — the MATT-FACING product data-flow docs.
+//
+// These are NOT trackers: no page of their own, no landing card, no delta log
+// surfaced. They are FLOW-SOURCE + drill docs. The `/engine` page renders
+// pipeline-battle-sim's FLOW (S0–S8) as its lead; `/content-emission` renders
+// pipeline-serial-content-emission's FLOW (E0–E8). This is the SAME §2.7 FLOW
+// parse (parseFlow) on two more files — no new shape.
+//
+// Each pipeline also carries ONE fenced ASCII flow diagram (under "## The visual
+// flow") that renders VERBATIM as a Tier-1 drill target (a <pre> block) — it is
+// NEVER parsed. We extract its raw text here and pass it through untouched.
+// ---------------------------------------------------------------------------
+const PIPELINES = [
+  { id: 'battle-sim', file: 'pipeline-battle-sim.md' },
+  { id: 'serial-emission', file: 'pipeline-serial-content-emission.md' },
+];
+
+// Extract the FIRST fenced code block (``` … ```) in the doc, verbatim (no lang
+// hint kept, no trimming of interior lines). Returns null if none. §7.5: render
+// verbatim, do NOT parse — so we hand back the raw interior text only.
+function extractFirstFence(lines) {
+  let start = -1;
+  for (let i = 0; i < lines.length; i++) {
+    if (/^```/.test(lines[i])) { start = i; break; }
+  }
+  if (start === -1) return null;
+  const body = [];
+  for (let i = start + 1; i < lines.length; i++) {
+    if (/^```/.test(lines[i])) {
+      return { text: body.join('\n'), line: start + 1 };
+    }
+    body.push(lines[i]);
+  }
+  return null; // unterminated fence — treat as absent (absence-legal)
+}
+
+function parsePipeline(p) {
+  const relPath = `canonical/current-to-end-state/${p.file}`;
+  const abs = join(CANON, 'current-to-end-state', p.file);
+  if (!existsSync(abs)) {
+    // ABSENCE is never an error (§ header). A missing pipeline doc simply yields
+    // no pipeline entry — the consuming page falls back to its tracker FLOW.
+    return null;
+  }
+  const lines = readFileSync(abs, 'utf8').split('\n');
+  // The pipeline docs carry queue-shaped "Gaps at a glance" tables, but their
+  // first cells (e.g. "S0/S3") do not match the row-ID grammar, so they model
+  // zero rows — stages derive as `quiet`. We still run parseQueues so that if a
+  // pipeline ever grows real modeled rows, stage state derives correctly.
+  const queues = parseQueues(lines, relPath);
+  const { flow, danglingFlowRefs } = parseFlow(lines, relPath, queues);
+  for (const d of danglingFlowRefs) d.tracker = p.id;
+  const ascii = extractFirstFence(lines);
+  return { id: p.id, path: relPath, flow: flow || null, ascii, _dangling_flow_refs: danglingFlowRefs };
 }
 
 // ---------------------------------------------------------------------------
@@ -1001,6 +1067,14 @@ function main() {
     if (parsed) trackers.push(parsed);
   }
   const dangling = resolveGates(trackers);
+  // §7.5 v1.6 — the MATT-FACING product pipeline docs (battle-sim + serial-emission).
+  // Not trackers: FLOW-source + verbatim-ASCII drill docs. Parsed here; their FLOW
+  // stages feed the /engine and /content-emission page leads (repoint config in app).
+  const pipelines = [];
+  for (const p of PIPELINES) {
+    const parsed = parsePipeline(p);
+    if (parsed) pipelines.push(parsed);
+  }
   const matt_decision_needed = parseMattQueue('matt_decision_needed');
   const matt_to_do = parseMattQueue('matt_to_do');
 
@@ -1016,12 +1090,19 @@ function main() {
     if (t._dangling_flow_refs) dangling_flow_refs.push(...t._dangling_flow_refs);
     delete t._dangling_flow_refs;
   }
+  // §7.5 v1.6 — pipeline docs contribute their own FLOW-ref dangles to the same
+  // top-level counter (parity with trackers), then strip the carry field.
+  for (const p of pipelines) {
+    if (p._dangling_flow_refs) dangling_flow_refs.push(...p._dangling_flow_refs);
+    delete p._dangling_flow_refs;
+  }
   const state = {
     generated_at: generatedAt,
     repo_sha: repoSha(),
     gh_blob_base: GH_BLOB_BASE,
     last_commit: lastCommit(generatedAt),
     trackers,
+    pipelines,
     surfaces_agreed,
     matt_decision_needed,
     matt_to_do,
@@ -1042,6 +1123,7 @@ function main() {
   // Report banner
   console.log('── Glance parse ──────────────────────────────────────');
   console.log(`  trackers modeled : ${trackers.length}`);
+  console.log(`  pipelines modeled: ${pipelines.length}  (${pipelines.map((p) => `${p.id}:${p.flow ? p.flow.stages.length + ' stages' : 'no-flow'}`).join(', ')})`);
   const rowCount = trackers.reduce(
     (n, tr) => n + tr.queues.reduce((m, q) => m + q.rows.length, 0), 0);
   console.log(`  queue rows       : ${rowCount}`);
