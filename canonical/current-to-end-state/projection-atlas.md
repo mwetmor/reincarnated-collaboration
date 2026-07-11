@@ -169,8 +169,16 @@ Codex, carries **no address** here, and is exempt from the §3 alarm.
    · archive axis vocabulary), never freehand. **Seam split:** star-lord emits `atlas.json` + owns
    the Python→SVG renderer engine-side; drax owns the interactive HTML skin; Glance `/atlas`
    embed = a **v1.10-class contract amendment, HARNESS-GATED** (§7.7 rule 7 was holding the door
-   for exactly this artifact). **ONE Matt ruling reserved for renderer-spec time:** FREEZE the
-   canonical plane (iconic-by-never-rearranging). Renderer spec = named gandalf follow-on.
+   for exactly this artifact). **Renderer spec AUTHORED**
+   (`agentic_orchestration/gandalf/notes/2026-07-11-atlas-chart-renderer-spec.md` — repairs bound
+   as renderer laws; atlas.json contract; deterministic Python→SVG, two skins one layout engine;
+   seam table; 8 acceptance checks; harness-gated build order). **The reserved plane-FREEZE ruling
+   is now AT MATT** against his pre-stated criteria (*"purposeful and sensible for the
+   search/exploration of the space"*): spec §2 makes the case — 15-cell frame, both arities
+   already ratified (geometry 5 = axes-lock W-C.5 · commitment 3 = Q-E4-4b); rows
+   `commitment-weight-v1` (instant→wind-up→channel) · columns `dispersion-v1`
+   (single→chain→small-AOE→large-AOE→multi-spawn) · sub-dots `isotope-seq-v1`; lock covers the
+   RULES + address scheme, never badges/occupancy (lock the rule, not the raster).
 
 ---
 
