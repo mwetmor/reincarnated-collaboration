@@ -105,6 +105,31 @@ export interface Pipeline {
   scope_rider?: { text: string; line: number } | null;
 }
 
+// §7.7 v1.9 — the kit-design reference TRIO. MATT-FACING FLOW-led verbatim-payload
+// docs (same doc class as the pipelines); NOT trackers, NOT pipelines. Each backs one
+// page (/coordinates · /mechanics · /atlas). Their FLOW bars are quiet-by-design
+// (reference registers — no modeled queue rows); the bar is navigation, not state.
+export type ReferenceId = 'coordinates' | 'mechanics' | 'atlas';
+
+// One `## §N` payload section, carried VERBATIM (rendered, never parsed). `ref` is the
+// leading section token (`§0`, `§1`, …) — the FLOW-stage drill-through target.
+export interface ReferenceSection {
+  ref: string;
+  title: string;
+  body: string; // raw markdown — the payload (lattice/resolver/projection tables); NOT parsed
+  heading_line: number;
+}
+
+export interface Reference {
+  id: ReferenceId;
+  path: string;
+  status_banner: StatusBanner | null;
+  // §2.7 FLOW — quiet-by-design (all stages derive `quiet`); null if no `## FLOW`.
+  flow: Flow | null;
+  // the verbatim `## §N` payload sections, in document order.
+  sections: ReferenceSection[];
+}
+
 export type TrackerId =
   | 'engine'
   | 'story'
@@ -162,6 +187,8 @@ export interface State {
   trackers: Tracker[];
   // §7.5 v1.6 — the MATT-FACING product pipeline docs (battle-sim + serial-emission).
   pipelines: Pipeline[];
+  // §7.7 v1.9 — the kit-design reference TRIO (coordinates + mechanics + atlas).
+  references: Reference[];
   // §5 header strip — the demo-gate counter, derived from the surface-ledger card.
   // null when the ledger doesn't parse (absence-legal).
   surfaces_agreed: SurfacesAgreed | null;
@@ -241,9 +268,24 @@ export const FLOW_DOMINANT_LABEL: Record<FlowDominant, string> = {
 //   - `/kits`             leads with (and shows only) the PART F roster — the NOUN-list.
 //   - `/content-emission` leads flow-bar-first, roster GONE — the PROCESS-flow.
 // The roster moved OUT of content-emission (v1.4's lead-element law is DEAD).
-export type PageId = 'engine' | 'story' | 'game' | 'content-emission' | 'kits' | 'minigames';
+export type PageId =
+  | 'engine' | 'story' | 'game' | 'content-emission' | 'kits' | 'minigames'
+  // §7.7 v1.9 — the reference TRIO. Seated ADJACENT in the read-as-one-instrument
+  // order: sample the coordinate (/coordinates) → project the fields (/atlas) →
+  // verify the surfaces (/mechanics) — the dispatch's recommended nav adjacency.
+  | 'coordinates' | 'atlas' | 'mechanics';
 
-export const PAGE_ORDER: PageId[] = ['engine', 'story', 'game', 'content-emission', 'kits', 'minigames'];
+export const PAGE_ORDER: PageId[] = [
+  'engine', 'story', 'game', 'content-emission', 'kits', 'minigames',
+  'coordinates', 'atlas', 'mechanics',
+];
+
+// §7.7 v1.9 — the three reference pages (a distinct kind from the tracker pages). Kept
+// as a set so the nav can group them visually and the landing tiles iterate just these.
+export const REFERENCE_PAGES: PageId[] = ['coordinates', 'atlas', 'mechanics'];
+export function isReferencePage(p: PageId): boolean {
+  return REFERENCE_PAGES.includes(p);
+}
 
 export const PAGE_LABEL: Record<PageId, string> = {
   engine: 'Engine',
@@ -252,11 +294,44 @@ export const PAGE_LABEL: Record<PageId, string> = {
   'content-emission': 'Content Emission',
   kits: 'Kits',
   minigames: 'Minigames',
+  coordinates: 'Coordinates',
+  atlas: 'Atlas',
+  mechanics: 'Mechanics',
+};
+
+// §7.7 v1.9 — the page ↔ reference-doc binding, and the TRIPLE-LAW cross-link
+// metadata. Each reference page links the OTHER TWO, labeled by layer.
+export const PAGE_REFERENCE: Partial<Record<PageId, ReferenceId>> = {
+  coordinates: 'coordinates',
+  atlas: 'atlas',
+  mechanics: 'mechanics',
+};
+
+// The three-layer identity for the TRIPLE-LAW cross-links (§7.7 rule 4).
+export interface TripleLaw {
+  page: PageId;
+  ref: ReferenceId;
+  layer: string;   // LATTICE / PROJECTION / CODEX
+  role: string;    // the load-bearing one-liner
+}
+export const TRIPLE_LAW: Record<ReferenceId, TripleLaw> = {
+  coordinates: { page: 'coordinates', ref: 'coordinates', layer: 'LATTICE', role: 'WHERE a kit can sit' },
+  atlas:       { page: 'atlas',       ref: 'atlas',       layer: 'PROJECTION', role: 'how the two map' },
+  mechanics:   { page: 'mechanics',   ref: 'mechanics',   layer: 'CODEX', role: 'WHAT the engine expresses' },
+};
+// The two siblings each reference page cross-links to (the other two layers).
+export const TRIPLE_LAW_SIBLINGS: Record<ReferenceId, ReferenceId[]> = {
+  // /atlas is the connective page; its two links are the most load-bearing.
+  coordinates: ['atlas', 'mechanics'],
+  atlas: ['coordinates', 'mechanics'],
+  mechanics: ['coordinates', 'atlas'],
 };
 
 // the tracker id backing each page. Both content-emission and kits are backed by the
-// serial-content-emission tracker (they render different leads off the same doc).
-export const PAGE_TRACKER: Record<PageId, TrackerId> = {
+// serial-content-emission tracker (they render different leads off the same doc). The
+// reference-trio pages (§7.7 v1.9) have NO backing tracker — they are NOT in this map;
+// consumers gate on isReferencePage() before any PAGE_TRACKER lookup.
+export const PAGE_TRACKER: Partial<Record<PageId, TrackerId>> = {
   engine: 'engine',
   story: 'story',
   game: 'game',
@@ -279,7 +354,10 @@ export type FlowSource =
   | { kind: 'tracker' }
   | { kind: 'pipeline'; id: PipelineId };
 
-export const PAGE_FLOW_SOURCE: Record<PageId, FlowSource> = {
+// The reference-trio pages (§7.7 v1.9) lead off their reference doc's OWN `## FLOW`
+// (quiet-by-design), handled directly in the ReferencePage component — they are NOT
+// in this map (consumers gate on isReferencePage first).
+export const PAGE_FLOW_SOURCE: Partial<Record<PageId, FlowSource>> = {
   engine: { kind: 'pipeline', id: 'battle-sim' },        // S0–S8 product pipeline
   story: { kind: 'pipeline', id: 'story' },               // N0–N5 product pipeline (v1.7)
   game: { kind: 'pipeline', id: 'game' },                 // G0–G8 product pipeline (v1.7)

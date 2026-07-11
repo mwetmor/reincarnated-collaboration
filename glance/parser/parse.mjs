@@ -787,6 +787,99 @@ function parsePipeline(p) {
 }
 
 // ---------------------------------------------------------------------------
+// REFERENCE docs (contract §7.7 v1.9) — the kit-design reference TRIO. Same
+// MATT-FACING doc class as the pipelines (§7.5/§7.6): purge-exempt, FLOW-led,
+// verbatim-payload drill docs. NOT trackers, NOT pipelines:
+//   - substrate-coordinates.md  → /coordinates (the LATTICE — 9 stages §0–§8)
+//   - mechanical-reality.md      → /mechanics    (the CODEX   — 9 stages §1–§9)
+//   - projection-atlas.md        → /atlas        (the PROJECTION — 6 stages §0–§5)
+//
+// These are REFERENCE REGISTERS — they carry NO §2.3 modeled queue rows, so their
+// FLOW stages ALL derive `quiet` (§2.7 quiet rule). That is CORRECT, not a defect:
+// the bar is phone-first navigation (tap → section deep-link), never state.
+//
+// PARSE-SCOPE ONLY (dispatch scope): the ONLY parser change is adding these three
+// files to the read set. We run the SAME §2.7 parseFlow (zero new grammar), and we
+// carry each `## §N` section's RAW BODY TEXT VERBATIM so the page renders the
+// payload tables/fences UNPARSED. We do NOT parse the lattice tables, the resolver
+// walkers, or the projection table — they are payload, handed through untouched.
+// ---------------------------------------------------------------------------
+const REFERENCES = [
+  { id: 'coordinates', file: 'substrate-coordinates.md' },
+  { id: 'mechanics', file: 'mechanical-reality.md' },
+  { id: 'atlas', file: 'projection-atlas.md' },
+];
+
+// Extract every `## §N — …` section VERBATIM. Returns an ordered array of
+// { ref, title, body, heading_line } where:
+//   ref          = the leading section token (`§0`, `§1`, …) — the FLOW ref target,
+//   title        = the full heading text after `## ` (rendered as the section head),
+//   body         = the raw markdown from just below the heading to the line before
+//                  the next `##` heading — VERBATIM, never parsed,
+//   heading_line = 1-based line of the `## §N` heading (Tier-2 deep-link target).
+// The `## FLOW` section and any non-`§` `##` sections are skipped (not payload).
+function extractSections(lines) {
+  const sections = [];
+  let cur = null;
+  const flush = (endIdx) => {
+    if (!cur) return;
+    const body = lines.slice(cur.startIdx + 1, endIdx).join('\n');
+    sections.push({
+      ref: cur.ref,
+      title: cur.title,
+      body, // VERBATIM — the payload; never parsed
+      heading_line: cur.startIdx + 1,
+    });
+    cur = null;
+  };
+  for (let i = 0; i < lines.length; i++) {
+    const h = lines[i].match(/^##\s+(.*)$/);
+    if (h) {
+      flush(i);
+      const title = h[1].trim();
+      // a §-section: the heading begins with a `§N` token (the FLOW ref target).
+      const m = title.match(/^(§\d+)\b/);
+      if (m) cur = { ref: m[1], title, startIdx: i };
+      // else: not a payload section (## FLOW, prose ##) — cur stays null.
+    }
+  }
+  flush(lines.length);
+  return sections;
+}
+
+function parseReference(rdoc) {
+  const relPath = `canonical/current-to-end-state/${rdoc.file}`;
+  const abs = join(CANON, 'current-to-end-state', rdoc.file);
+  if (!existsSync(abs)) {
+    // ABSENCE is never an error — a missing reference doc yields no entry; its page
+    // renders the "not modeled yet" fallback (same discipline as the pipelines).
+    return null;
+  }
+  const lines = readFileSync(abs, 'utf8').split('\n');
+  // QUIET-BAR HONESTY (§7.7 rule 3 / dispatch): these are REFERENCE REGISTERS. Their
+  // payload tables (the lattice LADDER, the resolver walkers, the projection table)
+  // are NOT §2.3 queue boards — but some of their first cells (`L0`, numbered rows)
+  // happen to match the row-ID grammar, so running parseQueues over them would
+  // wrongly model payload rows and color the FLOW bar. That is exactly the
+  // "do NOT parse the payload / do NOT invent bar coloring" violation. So we feed
+  // parseFlow an EMPTY queue set: EVERY stage derives `quiet` by design (navigation,
+  // not state). The `## §N` payload is carried verbatim by extractSections instead.
+  const { flow, danglingFlowRefs } = parseFlow(lines, relPath, []);
+  for (const d of danglingFlowRefs) d.tracker = rdoc.id;
+  const status_banner = parseStatusBanner(lines, relPath);
+  // the verbatim `## §N` payload sections (rendered, never parsed).
+  const sections = extractSections(lines);
+  return {
+    id: rdoc.id,
+    path: relPath,
+    status_banner,
+    flow: flow || null,
+    sections,
+    _dangling_flow_refs: danglingFlowRefs,
+  };
+}
+
+// ---------------------------------------------------------------------------
 // §7.2 — surface-ledger queue parse.
 //
 // The ledger writes the SAME legislated shapes (§2.1 STATUS, §2.2 SESSION-DELTA,
@@ -1112,6 +1205,15 @@ function main() {
     const parsed = parsePipeline(p);
     if (parsed) pipelines.push(parsed);
   }
+  // §7.7 v1.9 — the kit-design reference TRIO (coordinates / mechanics / atlas).
+  // MATT-FACING FLOW-led verbatim-payload docs; NOT trackers, NOT pipelines. Their
+  // FLOW bars are quiet-by-design (reference registers, no modeled rows). Same parse
+  // path (parseFlow) + verbatim `## §N` section carry — zero new parse shapes.
+  const references = [];
+  for (const r of REFERENCES) {
+    const parsed = parseReference(r);
+    if (parsed) references.push(parsed);
+  }
   const matt_decision_needed = parseMattQueue('matt_decision_needed');
   const matt_to_do = parseMattQueue('matt_to_do');
 
@@ -1133,6 +1235,11 @@ function main() {
     if (p._dangling_flow_refs) dangling_flow_refs.push(...p._dangling_flow_refs);
     delete p._dangling_flow_refs;
   }
+  // §7.7 v1.9 — reference-trio docs contribute FLOW-ref dangles to the same counter.
+  for (const r of references) {
+    if (r._dangling_flow_refs) dangling_flow_refs.push(...r._dangling_flow_refs);
+    delete r._dangling_flow_refs;
+  }
   const state = {
     generated_at: generatedAt,
     repo_sha: repoSha(),
@@ -1140,6 +1247,7 @@ function main() {
     last_commit: lastCommit(generatedAt),
     trackers,
     pipelines,
+    references,
     surfaces_agreed,
     matt_decision_needed,
     matt_to_do,
@@ -1161,6 +1269,7 @@ function main() {
   console.log('── Glance parse ──────────────────────────────────────');
   console.log(`  trackers modeled : ${trackers.length}`);
   console.log(`  pipelines modeled: ${pipelines.length}  (${pipelines.map((p) => `${p.id}:${p.flow ? p.flow.stages.length + ' stages' : 'no-flow'}`).join(', ')})`);
+  console.log(`  references modeled: ${references.length}  (${references.map((r) => `${r.id}:${r.flow ? r.flow.stages.length + ' stages' : 'no-flow'}/${r.sections.length} §`).join(', ')})`);
   const rowCount = trackers.reduce(
     (n, tr) => n + tr.queues.reduce((m, q) => m + q.rows.length, 0), 0);
   console.log(`  queue rows       : ${rowCount}`);

@@ -23,9 +23,11 @@ push to canonical/**  →  GitHub Action  →  parser (parser/parse.mjs, determi
 
 - **`parser/parse.mjs`** — the deterministic canon → `state.json` parser. NO LLM,
   NO network, NO judgment. Reads ONLY the four `canonical/current-to-end-state/`
-  trackers + `surface-ledger.md` (the fifth Tier-0 card, v1.3 §7.2) +
-  `canonical/matt_decision_needed/README.md` + `canonical/matt_to_do/README.md`.
-  **Never touches the engine tree.**
+  trackers + `surface-ledger.md` (the fifth Tier-0 card, v1.3 §7.2) + the five
+  MATT-FACING product-pipeline docs (`pipeline-*.md`, §7.5/§7.6) + the three
+  kit-design reference docs (`substrate-coordinates.md` · `mechanical-reality.md` ·
+  `projection-atlas.md`, §7.7 v1.9) + `canonical/matt_decision_needed/README.md` +
+  `canonical/matt_to_do/README.md`. **Never touches the engine tree.**
   - `node parser/parse.mjs` — write state.json; exit 1 on any MALFORMED.
   - `node parser/parse.mjs --report` — list ALL malformed findings in one pass
     (the reconciliation surface), then exit non-zero.
@@ -46,6 +48,39 @@ push to canonical/**  →  GitHub Action  →  parser (parser/parse.mjs, determi
   unparseable delta date; duplicate row ID within one board) → **CI BUILD FAILURE**, file+line.
 - **UNRESOLVED** (dangling `gates-on:` token) → **warning badge** + global counter. Visible debt, not a broken build.
 - **ABSENCE** is never an error — a doc with no delta log, a table that isn't a queue: fine, rendered as prose.
+
+## v1.9 — the kit-design reference TRIO (§7.7, CURRENT)
+
+Three pages added (NINE total): **`#/coordinates`** (the LATTICE — `substrate-coordinates.md`,
+9 stages §0–§8), **`#/atlas`** (the PROJECTION — `projection-atlas.md`, 6 stages §0–§5),
+**`#/mechanics`** (the CODEX — `mechanical-reality.md`, 9 stages §1–§9). Seated adjacent in the
+nav in the read-as-one-instrument order (coordinates → atlas → mechanics), behind a subtle divider
+(they are a distinct kind: kit-design reference registers, not domain/process pages).
+
+- **Render-only, ZERO new parse shapes.** The only parser change is a parse-scope line: the three
+  docs join the read set as a new doc class (`REFERENCES`, parallel to `PIPELINES`). Same §2.7
+  `parseFlow` — no new grammar.
+- **Quiet bars BY DESIGN (§7.7 rule 3).** These are REFERENCE REGISTERS, not process pipelines —
+  no §2.3 modeled queue rows. `parseReference` feeds `parseFlow` an EMPTY queue set so every stage
+  derives `quiet` (navigation, not state). Their payload tables happen to carry first cells that
+  match the row-ID grammar (`L0`, numbered rows) — feeding empty queues is what keeps the bar quiet
+  and honors "do NOT parse the payload / do NOT invent coloring."
+- **Verbatim payload (`extractSections` + `SectionMd`).** Each `## §N` section's raw markdown body
+  is carried byte-verbatim in `state.json` and rendered faithfully by `SectionMd` (tables → HTML
+  tables, fences → `<pre>`, prose → paragraphs) — DISPLAY FIDELITY, never a semantic parse. The
+  lattice LADDER tables, the BINDING RESOLVER walkers, and the projection table are payload.
+- **TRIPLE-LAW cross-links (§7.7 rule 4).** Each page links the other two, labeled by layer:
+  Coordinates "WHERE a kit can sit" (LATTICE) ↔ Atlas "how the two map" (PROJECTION) ↔ Mechanics
+  "WHAT the engine expresses" (CODEX). `/atlas` is the connective page (teal accent); its two links
+  are the most load-bearing.
+- **Per-stage drill-through.** FLOW segment / drill-strip tap → in-page scroll to the `## §N`
+  section + a GitHub deep-link to the heading line (Tier-2 provenance).
+- **`/atlas` renders NO occupancy numbers (§7.7 rule 7).** The §2 projection table renders exactly
+  as authored (byte-verbatim); the REALIZED ATLAS emission harness is not built — that honesty is
+  the point, never hand-patched.
+- **`/` landing:** a lean grouped "kit-design reference" tile row (`ReferenceTileRow`) — compact
+  LINK TILES, NOT full state cards (an all-quiet flow-bar card spends Tier-0 pixels on no info;
+  drax layout call per §7.7 rule 5). Header-strip counters unchanged.
 
 ## v1.5 — the FIVE-PAGE SPLIT + the KITS page (§7.4, CURRENT)
 

@@ -2,12 +2,14 @@ import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import {
   type State, type Tracker, type TrackerId, type StatusToken, type QueueRow,
   type Queue, type Flow, type FlowStage, type Pipeline, type PageId,
+  type Reference, type ReferenceId,
   TRACKER_LABEL, STATUS_LABEL, STATUS_SYMBOL, STATUS_COLOR,
   FLOW_SEGMENT_COLOR, FLOW_DOMINANT_LABEL,
   PAGE_ORDER, PAGE_LABEL, PAGE_TRACKER, PAGE_FLOW_SOURCE,
+  REFERENCE_PAGES, isReferencePage, PAGE_REFERENCE, TRIPLE_LAW, TRIPLE_LAW_SIBLINGS,
   WATERMARK_KEY, maxDeltaDate, commitAge, githubLink, counterTotal,
 } from './state';
-import { InlineMd, BlockMd } from './md';
+import { InlineMd, BlockMd, SectionMd } from './md';
 import { RowLine } from './components';
 
 // ---------------------------------------------------------------------------
@@ -178,17 +180,30 @@ function HeaderStrip({ state, route }: { state: State; route: Route }) {
           />
         </div>
 
-        {/* five-tab nav */}
+        {/* nav — nine tabs (§7.7 v1.9). The reference TRIO is seated adjacent at the
+            end (coordinates → atlas → mechanics) behind a subtle divider: they are a
+            distinct kind (kit-design reference registers), not domain/process pages. */}
         <nav className="mt-2 flex flex-wrap items-center gap-1 text-xs">
           <TabButton label="Overview" active={activePage === null} onClick={() => go(null)} />
-          {PAGE_ORDER.map((p) => (
-            <TabButton
-              key={p}
-              label={PAGE_LABEL[p]}
-              active={activePage === p}
-              onClick={() => go(p)}
-            />
-          ))}
+          {PAGE_ORDER.map((p, i) => {
+            const isFirstRef = REFERENCE_PAGES[0] === p;
+            return (
+              <span key={p} className="flex items-center gap-1">
+                {isFirstRef && i > 0 && (
+                  <span
+                    aria-hidden
+                    title="kit-design reference"
+                    className="mx-1 hidden h-4 w-px bg-slate-700 sm:inline-block"
+                  />
+                )}
+                <TabButton
+                  label={PAGE_LABEL[p]}
+                  active={activePage === p}
+                  onClick={() => go(p)}
+                />
+              </span>
+            );
+          })}
           {ledger && (
             <button
               onClick={() => setLedgerOpen((v) => !v)}
@@ -314,8 +329,71 @@ function Landing({ state, watermark }: { state: State; watermark: string | null 
             preview; reads PARTIAL·GAP·GATED honestly until the arcade build fires. */}
         {arcade && <MinigamesIndexCard pipeline={arcade} />}
       </section>
+
+      {/* §7.7 v1.9 rule 5 — the kit-design reference TRIO as a LEAN grouped tile row
+          (drax layout call). An all-quiet FLOW-bar state card would spend Tier-0 pixels
+          on no information; compact LINK TILES read better. Full state cards deliberately
+          NOT used here. */}
+      {state.references.length > 0 && (
+        <ReferenceTileRow references={state.references} />
+      )}
+
       <SinceYouLastLooked state={state} watermark={watermark} />
     </div>
+  );
+}
+
+// §7.7 v1.9 rule 5 — the grouped "kit-design reference" tile row. Lean by design: one
+// tile per reference page, each carrying its TRIPLE-LAW layer label + one-line role +
+// stage count — navigation, not state (the bars would be all-quiet, so we don't spend
+// pixels rendering them here). /atlas (the connective PROJECTION layer) is centered.
+function ReferenceTileRow({ references }: { references: Reference[] }) {
+  // render in the read-as-one-instrument order: coordinates → atlas → mechanics.
+  const order: ReferenceId[] = ['coordinates', 'atlas', 'mechanics'];
+  const byId = new Map(references.map((r) => [r.id, r]));
+  return (
+    <section>
+      <h2 className="mb-2 text-sm font-semibold text-slate-300">
+        Kit-design reference{' '}
+        <span className="font-normal text-slate-500">
+          (the TRIPLE LAW — sample the coordinate → project the fields → verify the surfaces)
+        </span>
+      </h2>
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+        {order.map((id) => {
+          const ref = byId.get(id);
+          if (!ref) return null;
+          const law = TRIPLE_LAW[id];
+          const stages = ref.flow?.stages.length ?? 0;
+          const connective = id === 'atlas';
+          return (
+            <button
+              key={id}
+              onClick={() => go(law.page)}
+              className={`flex flex-col rounded-lg border p-3 text-left transition ${
+                connective
+                  ? 'border-teal-700/60 bg-teal-950/20 hover:border-teal-500 hover:bg-teal-950/40'
+                  : 'border-slate-700/60 bg-slate-900/40 hover:border-slate-500 hover:bg-slate-900'
+              }`}>
+              <div className="flex items-center justify-between">
+                <span className="font-semibold text-slate-100">{PAGE_LABEL[law.page]}</span>
+                <span className={`rounded px-1.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide ${
+                  connective ? 'bg-teal-800/60 text-teal-200' : 'bg-slate-800 text-slate-400'
+                }`}>
+                  {law.layer}
+                </span>
+              </div>
+              <div className="mt-1 text-xs text-slate-400">{law.role}</div>
+              <div className="mt-2 text-[0.65rem] text-slate-500">
+                {stages} stages · reference register (quiet bars)
+                {connective && <span className="ml-1 text-teal-400">· the map</span>}
+              </div>
+              <span className="mt-2 text-[0.7rem] text-sky-500">open reference →</span>
+            </button>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 
@@ -393,7 +471,7 @@ function IndexCard({ tracker, pipelines }: { tracker: Tracker; pipelines: Pipeli
   const cardFlow: Flow | null = (() => {
     if (!page) return tracker.flow ?? null;
     const src = PAGE_FLOW_SOURCE[page];
-    if (src.kind === 'pipeline') {
+    if (src && src.kind === 'pipeline') {
       return pipelines.find((p) => p.id === src.id)?.flow ?? null;
     }
     return tracker.flow ?? null;
@@ -516,12 +594,24 @@ function FlowBar({
 // content-emission leads with the roster is DEAD.
 // ---------------------------------------------------------------------------
 function DomainPage({ state, page }: { state: State; page: PageId }) {
-  const trackerId = PAGE_TRACKER[page];
+  const ghBase = state.gh_blob_base;
+
+  // §7.7 v1.9 — the reference TRIO (/coordinates · /atlas · /mechanics). These have NO
+  // backing tracker (they're FLOW-led verbatim-payload reference docs, like the
+  // pipelines). Short-circuit BEFORE the tracker lookup — they render pipeline-class,
+  // not tracker-class (FLOW bar quiet-by-design → TRIPLE-LAW cross-links → per-stage
+  // `## §N` drill → verbatim payload sections). No queues, no deltas.
+  if (isReferencePage(page)) {
+    const refId = PAGE_REFERENCE[page]!;
+    const reference = state.references.find((r) => r.id === refId) ?? null;
+    return <ReferencePage reference={reference} page={page} ghBase={ghBase} />;
+  }
+
+  const trackerId = PAGE_TRACKER[page]!;
   const tracker = state.trackers.find((t) => t.id === trackerId);
   if (!tracker) {
     return <div className="p-8 text-slate-500">No modeled tracker for “{PAGE_LABEL[page]}”.</div>;
   }
-  const ghBase = state.gh_blob_base;
 
   // /kits is the roster home — a distinct page off the same serial tracker (§7.4.2).
   if (page === 'kits') {
@@ -540,7 +630,7 @@ function DomainPage({ state, page }: { state: State; page: PageId }) {
   // §7.5 v1.6 — the lead FLOW source is ONE config line per page (PAGE_FLOW_SOURCE):
   // the two PROCESS pages (/engine + /content-emission) lead with a MATT-FACING
   // product pipeline doc (S0–S8 / E0–E8); /story + /game keep their tracker FLOW.
-  const flowSource = PAGE_FLOW_SOURCE[page];
+  const flowSource = PAGE_FLOW_SOURCE[page] ?? { kind: 'tracker' as const };
   const leadPipeline = flowSource.kind === 'pipeline'
     ? state.pipelines.find((p) => p.id === flowSource.id) ?? null
     : null;
@@ -799,6 +889,243 @@ function MinigamesPage({ pipeline, ghBase }: { pipeline: Pipeline | null; ghBase
       {/* the arcade product FLOW (A0–A7) + per-stage drill + verbatim ASCII (reused). */}
       <PipelineFlowLead pipeline={pipeline} ghBase={ghBase} />
     </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// REFERENCE PAGE (§7.7 v1.9) — one of the kit-design reference TRIO (/coordinates ·
+// /atlas · /mechanics). A MATT-FACING FLOW-led verbatim-payload doc (pipeline doc
+// class), NOT a tracker. Render order, top to bottom:
+//   1. TRIPLE-LAW cross-link banner — links the OTHER TWO layers (§7.7 rule 4). On
+//      /atlas (the connective PROJECTION page) the two links are the most load-bearing.
+//   2. the lead FLOW bar (§2.7) — QUIET-BY-DESIGN (reference register, no modeled rows).
+//      A tap scrolls to that stage's `## §N` drill target. Navigation, not state — we
+//      do NOT invent coloring (§7.7 rule 3).
+//   3. per-stage `## §N` drill strip — the FLOW-segment → section targets, each also
+//      deep-linking to the `## §N` heading on GitHub (Tier-2 provenance).
+//   4. the verbatim `## §N` payload sections — the lattice tables / resolver walkers /
+//      projection table rendered UNPARSED via SectionMd (display fidelity, no semantic
+//      parse). On /atlas: NO occupancy numbers — the §2 projection table is rendered
+//      verbatim exactly as authored; the REALIZED ATLAS harness is not built (§7.7 rule 7).
+// ---------------------------------------------------------------------------
+function ReferencePage({
+  reference, page, ghBase,
+}: { reference: Reference | null; page: PageId; ghBase: string }) {
+  if (!reference) {
+    return (
+      <div className="space-y-6">
+        <h1 className="text-xl font-bold text-slate-100">{PAGE_LABEL[page]}</h1>
+        <div className="rounded-lg border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-500">
+          The reference doc for this page is not modeled yet. Its FLOW bar + verbatim
+          sections render once the source doc parses.
+        </div>
+      </div>
+    );
+  }
+  const law = TRIPLE_LAW[reference.id];
+  const connective = reference.id === 'atlas';
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <h1 className="flex items-baseline gap-2 text-xl font-bold text-slate-100">
+          {PAGE_LABEL[page]}
+          <span className={`rounded px-1.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide ${
+            connective ? 'bg-teal-800/60 text-teal-200' : 'bg-slate-800 text-slate-400'
+          }`}>
+            {law.layer}
+          </span>
+          <span className="text-xs font-normal text-slate-500">{law.role}</span>
+        </h1>
+        <a
+          href={githubLink(ghBase, reference.path, 1)}
+          target="_blank" rel="noreferrer"
+          className="text-xs text-sky-400 hover:text-sky-300">
+          open reference doc on GitHub ↗
+        </a>
+      </div>
+
+      {/* 1 — the TRIPLE-LAW cross-link banner (§7.7 rule 4). Links the OTHER TWO layers. */}
+      <TripleLawLinks refId={reference.id} />
+
+      {/* STATUS banner (MATT-FACING purge-exempt stamp) — deep-linked. */}
+      {reference.status_banner && (
+        <a
+          href={githubLink(ghBase, reference.path, reference.status_banner.line)}
+          target="_blank" rel="noreferrer"
+          className="block rounded border border-slate-800 bg-slate-900/40 px-3 py-2 text-xs text-slate-400 hover:border-slate-600">
+          <span className="font-semibold text-slate-300">{reference.status_banner.stamp}</span>
+          {reference.status_banner.date && <span className="ml-2 font-mono">{reference.status_banner.date}</span>}
+          <div className="mt-1"><InlineMd src={reference.status_banner.raw.replace(/^>\s*/, '')} /></div>
+        </a>
+      )}
+
+      {/* 2 + 3 — the QUIET-BY-DESIGN FLOW bar + per-stage `## §N` drill strip. */}
+      <ReferenceFlowLead reference={reference} ghBase={ghBase} />
+
+      {/* 4 — the verbatim `## §N` payload sections (rendered, NEVER parsed). */}
+      <ReferenceSections reference={reference} ghBase={ghBase} />
+    </div>
+  );
+}
+
+// §7.7 rule 4 — the TRIPLE-LAW cross-link banner. Each reference page links the OTHER
+// TWO, labeled by layer. /atlas is the connective page (its two links are the most
+// load-bearing) — rendered with the teal accent + a "the map" framing.
+function TripleLawLinks({ refId }: { refId: ReferenceId }) {
+  const siblings = TRIPLE_LAW_SIBLINGS[refId];
+  const connective = refId === 'atlas';
+  return (
+    <section className={`rounded-lg border-2 p-3 ${
+      connective ? 'border-teal-700/60 bg-teal-950/20' : 'border-slate-700/60 bg-slate-900/40'
+    }`}>
+      <div className="mb-2 flex items-center gap-2 text-xs font-semibold">
+        <span className={connective ? 'text-teal-300' : 'text-slate-300'}>THE TRIPLE LAW</span>
+        <span className="font-normal text-slate-500">
+          {connective
+            ? 'the connective PROJECTION — how the LATTICE and the CODEX map across each other'
+            : 'read as one instrument — this layer links the other two'}
+        </span>
+      </div>
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+        {siblings.map((sid) => {
+          const law = TRIPLE_LAW[sid];
+          const sibConnective = sid === 'atlas';
+          return (
+            <button
+              key={sid}
+              onClick={() => go(law.page)}
+              className={`flex items-center justify-between rounded-lg border px-3 py-2 text-left transition ${
+                sibConnective
+                  ? 'border-teal-700/50 bg-teal-950/20 hover:border-teal-500'
+                  : 'border-slate-700 bg-slate-900/60 hover:border-slate-500'
+              }`}>
+              <span className="min-w-0">
+                <span className="block font-semibold text-slate-100">{PAGE_LABEL[law.page]}</span>
+                <span className="text-[0.7rem] text-slate-400">{law.role}</span>
+              </span>
+              <span className={`ml-2 shrink-0 rounded px-1.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide ${
+                sibConnective ? 'bg-teal-800/60 text-teal-200' : 'bg-slate-800 text-slate-400'
+              }`}>
+                {law.layer}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+// §7.7 rule 3 — the QUIET-BY-DESIGN FLOW bar lead + per-stage `## §N` drill strip.
+// The bar is phone-first navigation (tap → section scroll), NOT state: these are
+// reference registers with no modeled rows, so every stage derives `quiet` neutral.
+// That is correct; nothing invents coloring.
+function ReferenceFlowLead({ reference, ghBase }: { reference: Reference; ghBase: string }) {
+  const flow = reference.flow;
+  if (!flow) {
+    return (
+      <section className="rounded-lg border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-500">
+        This reference doc declares no <span className="font-mono">## FLOW</span> yet.
+      </section>
+    );
+  }
+  // map each FLOW stage's leading `§N` ref to its verbatim section (for in-page scroll).
+  const secByRef = new Map(reference.sections.map((s) => [s.ref, s]));
+  return (
+    <section>
+      <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
+        <h2 className="text-sm font-semibold text-slate-300">
+          Reference map{' '}
+          <span className="font-normal text-slate-500">(navigation — quiet bars by design, not state)</span>
+        </h2>
+        <a
+          href={githubLink(ghBase, reference.path, flow.line)}
+          target="_blank" rel="noreferrer"
+          className="text-xs text-sky-400 hover:text-sky-300">
+          FLOW source ↗
+        </a>
+      </div>
+
+      {/* the FLOW bar — segments scroll to the per-stage `## §N` sections below */}
+      <FlowBar
+        flow={flow}
+        onStage={(s) => {
+          const el = document.getElementById(`ref-stage-${s.n}`);
+          el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }}
+      />
+
+      {/* per-stage `## §N` drill targets — scroll in-page + deep-link to GitHub */}
+      <ol className="mt-3 grid grid-cols-1 gap-1.5 sm:grid-cols-2">
+        {flow.stages.map((s) => {
+          const leadRef = s.refs[0];
+          const sec = leadRef ? secByRef.get(leadRef) : undefined;
+          const ghLine = s.heading_line ?? s.line;
+          return (
+            <li key={s.n}>
+              <div className="flex items-stretch gap-1">
+                <button
+                  onClick={() => {
+                    const el = document.getElementById(`ref-stage-${s.n}`);
+                    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                  className="flex min-w-0 flex-1 items-start gap-2 rounded border border-slate-800 bg-slate-900/40 px-2 py-1.5 text-left text-xs hover:border-slate-600">
+                  <span className={`mt-0.5 h-2.5 w-2.5 shrink-0 rounded-sm ${FLOW_SEGMENT_COLOR[s.dominant]}`} />
+                  <span className="min-w-0">
+                    <span className="block font-medium text-slate-200">{s.n}. {s.name}</span>
+                    <span className="text-[0.65rem] text-slate-500">
+                      {sec ? `${sec.ref} · jump to section` : (s.resolved ? 'section' : <span className="text-amber-400">⚠ ref — no `##` heading</span>)}
+                    </span>
+                  </span>
+                </button>
+                <a
+                  href={githubLink(ghBase, reference.path, ghLine)}
+                  target="_blank" rel="noreferrer"
+                  title="open this section on GitHub"
+                  className="flex shrink-0 items-center rounded border border-slate-800 bg-slate-900/40 px-1.5 text-[0.65rem] text-slate-500 hover:border-slate-600 hover:text-sky-300">
+                  ↗
+                </a>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </section>
+  );
+}
+
+// §7.7 — the verbatim `## §N` payload sections. Each section's raw markdown body is
+// rendered via SectionMd (display fidelity: tables → HTML tables, fences → <pre>,
+// prose → paragraphs) — NEVER parsed into the state model. The section HEADING is the
+// FLOW-stage drill target (id `ref-stage-N` matches by `§N` ref) + a GitHub deep-link.
+function ReferenceSections({ reference, ghBase }: { reference: Reference; ghBase: string }) {
+  // build ref → stage number so a section heading can carry the scroll anchor.
+  const refToStageN = new Map<string, number>();
+  for (const s of reference.flow?.stages ?? []) {
+    if (s.refs[0]) refToStageN.set(s.refs[0], s.n);
+  }
+  return (
+    <section className="space-y-4">
+      {reference.sections.map((sec) => {
+        const stageN = refToStageN.get(sec.ref);
+        return (
+          <div
+            key={sec.heading_line}
+            id={stageN != null ? `ref-stage-${stageN}` : undefined}
+            className="scroll-mt-40 rounded-lg border border-slate-800 bg-slate-900/30 p-3">
+            <a
+              href={githubLink(ghBase, reference.path, sec.heading_line)}
+              target="_blank" rel="noreferrer"
+              className="mb-2 block text-sm font-semibold text-slate-200 hover:text-sky-300">
+              {sec.title}
+            </a>
+            <div className="text-sm">
+              <SectionMd src={sec.body} />
+            </div>
+          </div>
+        );
+      })}
+    </section>
   );
 }
 
