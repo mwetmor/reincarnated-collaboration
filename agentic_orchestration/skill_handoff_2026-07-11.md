@@ -4,6 +4,26 @@ Continuity doc for the next knight-rider session. What shipped, what's queued, w
 
 ---
 
+## ⭐ TOP-OF-STACK — E3 CLOSED, v1 whole PUSHED (read first)
+
+Matt ruled the escalated scope+serialization conflict and E3 went end-to-end. **The E3 element-application axis is CLOSED; v1 is on remote.**
+
+- **Matt's ruling (verbatim):** *"Authorize the bounded gamora attribution pass with gandalf's byte-identity rider; star-lord owns columns/schema/MIGRATION; purity-proven lands now, purity-failed folds into PHASE-2; push v1 whole when it certifies."*
+- **Outcome: attribution spine landed FULLY PURE — NOTHING folded to E4 PHASE-2.**
+  - gamora `98db07f` (`gamora/v-attribution-spine-1`) — accumulator + DoT stamp/bucket, observation-only, byte-identity PROVEN; DoT ∩ E4 cast-state disjoint (no collision).
+  - star-lord `acb3397` (`star-lord/v-e3-attribution-spine-1`) — schema v2.21 + C-5 fingerprint join + MIGRATION (both seams); smoke 10/10.
+  - star-lord `d702616` (`star-lord/v-e3-attribution-spine-phase4-1`) — full cross-seam round-trip through the REAL pipeline (`run_spatial_fight()`); fire 65.7%/wind 34.3% persisted nonzero; drift 0.00e+00 (6/6).
+  - jack-ryan `853818d` — **Gate-2 PASS, CLEAN.** Purity independently re-proved via genuine pre-change-tree A/B; C-5 bands refuted-tested; DoT coverage proven in real loop. **Escalation condition 1 DISCHARGED; rocket generation-half condition (2) met.**
+- **PUSHED:** `75b9957..853818d` on `main` + tags `gamora/v-attribution-spine-1`, `star-lord/v-e3-attribution-spine-1`, `star-lord/v-e3-attribution-spine-phase4-1`, `rocket/v2.5-element-application-3`.
+- **Open (carry forward, NOT blocking E3):**
+  1. **Production telemetry DB migration (schema v2.21) is Matt-gated (ADR-006).** Schema is defined + MIGRATION-documented but NOT applied. Apply command is in `telemetry/MIGRATION.md §v2.21` — awaits Matt authorization.
+  2. **K20/K23 anchor pins** ride the parked batch-2 sample-vs-pin fork (unruled STR-vs-WIS primary-stat implication).
+  3. **C-5 rate-band cert wave** — the realized-share instrument now exists and is proven; the actual per-kit band certification against measured output share is the downstream wave that consumes it. jack-ryan's forward-note: DoT attributes to casting-skill `canonical_element` (correct per doctrine — do not misread as a gap).
+  4. **Ninth-axis arity half (i)** rocket archive plumbing can still ride alongside E-line work; half (ii) gamora arity measurement remains gated behind E4 PHASE-2 → open-pilot completion-build.
+  5. Cosmetic: gamora tag `gamora/v-attribution-spine-1` omits a version number (not worth a re-tag).
+
+---
+
 ## This session — Matt two-job transmission (E3 dispatch + ninth-axis slot)
 
 Matt: *"KR — two jobs, one transmission: (A) draft + fire the E3 element-application dispatch (rocket + star-lord) and (B) slot the ninth-axis arity stress-test into your sequencing board. All design is RULED; zero design elicitation needed."*
