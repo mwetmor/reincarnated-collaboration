@@ -79,3 +79,39 @@ Not applicable — render-only web build, no algorithm/balance math.
 - Relay: `agentic_orchestration/gandalf/notes/2026-07-11-lane2-glance-v1.9-amendment-relay.md`
 - Prior tags: `glance/v1.8-minigames-page-1`, `glance/v1.7-story-game-pipeline-repoint`, `glance/v1.6-pipeline-flow-1`, `glance/v1.5-kits-page-1`, `glance/v1.4-four-page-split-1`
 - App home: `glance/app` (Vite; `App.tsx` / `state.ts` / `md.tsx` / `components.tsx`); parser at `glance/parser`
+
+---
+
+## Completion record
+**Completed:** 2026-07-11
+**Tags shipped:** `glance/v1.9-reference-trio-1` (commit `f8efeb7`)
+**Smoke results:**
+- `npm run build` (parse fail-loud → tsc → vite) GREEN — `references modeled: 3 (coordinates:9 stages/9 §, mechanics:9 stages/9 §, atlas:6 stages/6 §)`, MALFORMED 0, vite built clean.
+- CI report-mode parse (`node glance/parser/parse.mjs --report`) exit 0; MALFORMED 0; 0 dangling flow-refs; 12 dangling gates-on = pre-existing visible debt, none from the trio.
+- `npm run preview` served root + `state.json` (all three references present) + SPA routes.
+- Payload verbatim verified: atlas §2 body === source byte-slice; atlas §4 carries "HARNESS NOT BUILT"/"NO occupancy" verbatim (no hand-derived occupancy).
+- Quiet-bar honesty verified: all 24 FLOW stages across the trio render `quiet`.
+
+**MIGRATION.md written:** no — web seam only; no cross-seam contract change (parse-scope line only, the parser's internal read set). Round-trip N/A per dispatch §"Cross-seam contract change?".
+
+**Scope delivered (all acceptance criteria met):**
+- Three pages `/coordinates` + `/atlas` + `/mechanics` (nine total), routable.
+- Each leads with a FLOW bar parsing its source doc's `## FLOW`; all bars all-`quiet` BY DESIGN.
+- Verbatim payload sections (`## §N`) rendered unparsed via new `SectionMd` (tables → HTML tables, fences → `<pre>`) — DISPLAY FIDELITY, no semantic parse; the lattice tables / resolver walkers / projection table are payload, handed through untouched.
+- Per-stage tap drill-through reaches the correct `## §N` heading (in-page scroll + GitHub deep-link to the heading line) on all three.
+- TRIPLE-LAW cross-links on all three, labeled by layer; `/atlas` links both siblings (connective page, teal accent).
+- `/` index carries a lean grouped "kit-design reference" tile row.
+- `/atlas` shows the §2 projection table verbatim with NO occupancy numbers.
+
+**Open-question calls (per §"Open questions for drax to resolve"):**
+1. Index tile treatment → LEAN grouped "kit-design reference" tile row (`ReferenceTileRow`), compact link tiles NOT full state cards (an all-quiet flow-bar card spends Tier-0 pixels on no info); `/atlas` centered with a teal accent as the connective PROJECTION page.
+2. Nav ordering → trio seated ADJACENT at the end of the nav in read-as-one-instrument order (coordinates → atlas → mechanics), behind a subtle `sm:`-only divider marking them a distinct kind (reference registers). `PAGE_ORDER` reflects this.
+
+**Notes for jack-ryan review:**
+- Zero new §2 grammar. The only parser change is the parse-scope line (a new `REFERENCES` doc class parallel to `PIPELINES`, same §2.7 `parseFlow`). No format-law amendment; no parse ambiguity hit (nothing to escalate).
+- Quiet-bar implementation note: `parseReference` deliberately feeds `parseFlow` an EMPTY queue set. The reference docs' payload tables carry first cells that match the row-ID grammar (`L0`..`L4` in the LADDER; numbered resolver-walker/projection rows), so running `parseQueues` over them would model payload rows and color the bar — exactly the "do NOT parse payload / do NOT invent bar coloring" violation. Empty queues is the faithful fix; all 24 stages verified `quiet`.
+- `PAGE_TRACKER` + `PAGE_FLOW_SOURCE` loosened to `Partial<Record<PageId,…>>` (reference pages have no backing tracker/flow-source); consumers gate on `isReferencePage()` first.
+- NOT deployed — production Vercel deploy is Matt-gated (ADR-006). No `vercel.json`/framework config touched, so no routing re-smoke beyond the local preview.
+- AGENT_STATE for the glance seam created at `glance/AGENT_STATE.md` (glance lives in the meta-repo; no prior glance-specific state file existed).
+
+**Signed:** drax, 2026-07-11.
