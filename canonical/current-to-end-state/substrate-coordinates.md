@@ -57,9 +57,13 @@ that is the F-3 confusion dissolved permanently.
 | **L3** | + element identity — attribute×primary-element, pool-constrained (16 valid pairs) | **3,265,920** = 204,120 × 16 | DEFINITIONAL — element has NEVER been a coordinate anywhere (rug item R-1) |
 | **L4** | + hybridity — mono ∪ (structures ×1..2 of 7) × rate_band (2) × secondary (7) = **393**/pair | **≈ 1.284 × 10⁹** = 204,120 × 16 × 393 = 1,283,506,560 | DEFINITIONAL — operationally lives at block/masks/dial per placement test |
 
-**Bounding box** (all-independent upper bound, ignoring element-pool constraint): 204,120 × 32 × 393
-≈ 2.57 × 10⁹. **The number of record for search analysis is L4 ≈ 1.28B**; the number of record for
-behavior-space is **L2 = 204,120** (Matt's "200K+" — exact).
+**Bounding box — NOT a lattice level** (all-independent upper bound: `STAT_ELEMENT_POOLS` ignored,
+so the naive 32 attribute×primary pairs instead of the 16 the engine permits): 204,120 × 32 × 393
+≈ 2.57 × 10⁹ — **exactly ×2 of L4, and the extra half counts kits the engine can never generate.**
+(The SECONDARY element is not pool-constrained — the Spellsword door — and is already inside the
+393/pair factor; the pool cut bites only at the primary.) **The number of record for search
+analysis is L4 ≈ 1.28B**; the number of record for behavior-space is **L2 = 204,120** (Matt's
+"200K+" — exact).
 
 ## §1 — Full axis inventory (every dimension ever referenced)
 

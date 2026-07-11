@@ -48,9 +48,12 @@
 
 **Grain discipline (the numbers must not smear):** the ~1,000 kind cells = **L0 = 972**, the
 operational SAMPLING grain and the right Glance display grain. Coverage is MEASURED at archive
-grain (L1 live = 12,960 · L2 = 204,120 ⚑). Search-space accounting = **L4 ≈ 1.284×10⁹** (the
-number of record; 2.57×10⁹ is the unconstrained bounding box, nothing more). A coverage claim
-that doesn't name its level is malformed.
+grain (L1 live = 12,960 · L2 = 204,120 ⚑). Search-space accounting = **L4 ≈ 1.284×10⁹ — the
+number of record** (= 204,120 × 16 pool-constrained attribute×primary pairs × 393). **2.57×10⁹ is
+NOT a lattice level:** the same product with the naive 32 pairs (`STAT_ELEMENT_POOLS` ignored) —
+kept visible only as the ceiling on search-area expansion; exactly ×2 of record, and the extra
+half counts kits the engine can never generate. A coverage claim that doesn't name its level is
+malformed.
 
 ## §1 — Placement classes (the placement test made operational)
 
