@@ -24,7 +24,9 @@ The addendum's §0 bars magnitudes from BC space (kinds only). The per-CellDef `
 
 The seven-structure enum answers this session's own critique ("elemental hybrids are content-distinct, mechanics-identical") **with mechanics**: partitions relocate rule-packages across chain roles (the §7 perma-slow degenerate is real design foresight), carriers spawn element-dressed entities, realized-share cert measures instead of trusting slot counts. The binder law + one-emission-primitive rule are genuine anti-collision architecture. Partitions-first build order (§9 — "the Meteorb ships before the dust devil") is correct and cheap. **Retirement of `secondary_element` + `dual_element_factor` TODO (`class_schema.py:45-56`, `damage_resolver.py:877`) in favor of the element_application block: clean.**
 
-### 1.3 The ONE disambiguation required — the "placeholder" referent
+### 1.3 The ONE disambiguation required — the "placeholder" referent — ✓ RESOLVED same day (Matt, Message-Q ruling)
+
+> **RESOLUTION 2026-07-10:** Matt ruled BOTH-AND, differently than either candidate alone: **(b) the Option C tuple RETIRES** (element-partition-with-physical replaces path hybridity — the Spellsword survives as one physical chain + magical chains, verified against the live engine; see elicitation note §2-quinquies), and **(a) `secondary_element` is KEPT** as the LLM flavor-naming home ("I do not want to retire secondary element") — but SPLIT: the mechanical chain_2 role migrates to `element_application.secondary` (Amendment 7a machinery repoints), the flavor directive renames (lean: `naming_flavor_element`) with a Do-Not-Regress naming-only contract. §1.4 below is **WITHDRAWN** — superseded by physical-as-element under the same `element_application` block; one mechanism, no sibling block. The pushback-standing paragraph below is DISCHARGED: the severance argument was answered not by keeping path hybridity separate but by making path hybridity AN element pairing (physical is an element).
 
 Addendum header: *"Retires the unpopulated hybrid placeholder cell currently tupled with the attribute system."* Two candidates in the live engine:
 
