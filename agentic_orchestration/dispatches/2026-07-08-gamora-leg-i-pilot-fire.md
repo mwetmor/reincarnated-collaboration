@@ -275,3 +275,16 @@ At n_fights=2 with WR=0 (kits time out / die in the smoke slice), **F2/F4 KPM de
 See commit hash(es) below. Committed: the two-arm plumbing (`gauntlet_sim.py`, `t4_sim_cycling.py`), the new driver, AGENT_STATE SESSION-60 entry, this completion record. NOT pushed (KR batches).
 
 **Sign-off (build):** gamora, 2026-07-08 SESSION 60. Awaiting jack-ryan Gate-2 → then the content-bearing per-axis pilot fires on the main line (first at the geometry-widened population, bands re-fit to that baseline).
+
+---
+
+## SESSION-CLOSE (knight-rider, 2026-07-11 — Matt-authorized close protocol)
+
+**The Leg-i pilot session is CLOSED.** Matt authorized the close. Nothing this session stewarded remains unexternalized.
+
+- **Why now:** the completion-build (`a63aae2`) + Gate-2 PASS (released via Q13) landed 2026-07-08. The per-axis certification ladder it gated is now **four deep on the main line** — E1 (`bfc94eb`) · C3 (`e1fe99e`) · E2 (`d99635a`, axis CLOSED per Q14) · E3 chain (2026-07-11) — with **E4 PHASE-1 co-signed**.
+- **Signal emitted (verbatim, into `canonical/current-to-end-state/current-to-end-state-engine.md` SESSION-DELTA):** *pilot session CLOSED → E4 PHASE-2 unblocked*. gamora's E4 dispatch §0 gate resolves on this exact signal.
+- **Closing the session ≠ retiring the instrument.** The two-arm cell-grain driver (`leg_i_cell_grain_two_arm_driver.py`, population-agnostic), the per-axis certification model, and the pilot_policy rider **PERSIST in code + policy**. Every future axis run fires on the standing instrument from a fresh session.
+- **Close hygiene executed:** (1) RESTORED the §8-A1 measurement of record (`leg3_pilot_section8a1_band_measurement.json` → committed `dfbea76`, seed 56000000 / n=18 / 0/18 / 2026-07-08) after an E3-window smoke run (seed 55000000 / n=5 / 5/5 / 2026-07-11) overwrote its on-disk path. (2) CLEARED closed-chain residue (`variation_pilot_generation_checkpoint.json` + `simulation/output/pilot/`, both untracked); KEPT the tracked `variation_pilot_measurement_report.json` (record of record). **Hygiene flag (non-blocking, star-lord/gamora next touch):** smoke/test runs must not write to measurement-of-record output paths.
+
+**Sign-off:** knight-rider, 2026-07-11. Session stewardship ends. No content runs, no new work after this record.
