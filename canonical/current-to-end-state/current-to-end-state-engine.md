@@ -33,6 +33,22 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-11 (star-lord, Matt-authorized ADR-006 write) — v2.21 telemetry migration APPLIED to production DB (zero data loss)
+
+**Migration:** v2.21 E3 attribution spine — two additive NULL-able columns on `spatial_fight_results`: `output_by_element_json TEXT NULL` (cid=26) + `killing_element TEXT NULL` (cid=27). ALTER TABLE only; no row rewrite.
+
+**Backup:** `/Users/admin/Games/reincarnated-engine/src/reincarnated/telemetry/telemetry.db.pre-v2.21-backup-20260711T000000Z` — 472,199,168 bytes.
+
+**Pre-apply:** 26 columns (cid 0–25), row count = 7,841. No `output_by_element_json` or `killing_element`.
+
+**Apply command (verbatim per MIGRATION.md §v2.21):** `python3 -c "from reincarnated.telemetry.db import initialize_telemetry_db; initialize_telemetry_db('src/reincarnated/telemetry/telemetry.db')"` — completed without error.
+
+**Post-apply:** 28 columns (cid 0–27), row count = 7,841 (unchanged). Both new columns present. Pre-existing rows ids 1/2/3 read NULL for both new columns — zero semantic shift confirmed. Drift = 0.
+
+**Authority:** Matt explicit ADR-006 authorization 2026-07-11. Single authorized production write; no other production writes under this authorization.
+
+---
+
 ### 2026-07-11 (knight-rider close protocol, Matt-authorized) — **pilot session CLOSED → E4 PHASE-2 unblocked**
 The Leg-i pilot session's stewardship ENDS. Rationale: the completion-build (`a63aae2`) + its Gate-2 PASS (released via Q13) landed 2026-07-08; the per-axis ladder that gate opened is now **four deep on the main line** — E1 (`bfc94eb`) · C3 (`e1fe99e`) · E2 (`d99635a`, axis CLOSED per Q14 ruling) · E3 chain (2026-07-11) — with **E4 PHASE-1 co-signed**. Nothing the session stewarded remains unexternalized.
 - **Signal (verbatim, gamora E4 dispatch §0 gate resolves on this exact string):** *pilot session CLOSED → E4 PHASE-2 unblocked*.
