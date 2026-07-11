@@ -8,8 +8,12 @@
 >
 > **Consumers:** gamora (LEAD — math note + sim build) · rocket (co-sign — doc-48 assigner,
 > packet/enum emission) · star-lord (co-sign — economy columns, MIGRATION.md per ADR-004) ·
-> jack-ryan (Gate-2) · KR (sequencing). **Three open forks for Matt** in §9 — the build fires
-> after those rulings; nothing else in this note is gated.
+> jack-ryan (Gate-2) · KR (sequencing). **FORKS RULED same-day** (Matt 2026-07-11 — §9 carries
+> the rulings): F5-Q1 **(a)** floor-guarded · F5-Q2 **BOTH seats** (K26 WIS Martyr at the base
+> seat **+ K29** INT Necromantic Blood Mage via the T4 door) · F5-Q3 **(a)**. Roster §7 is
+> K26–K29; denominator 31 → **35**. **The build is CLEAR** — gamora math note first; the
+> star-lord sequencing constraint (§8) is already satisfied: the attribution purity pass landed
+> and E3 CLOSED (`853818d`) before this build fires.
 >
 > **Name lineage:** "F5" = the **pre-registered re-derivation trigger** at batch-2
 > derivation-stack §11 (R-4 companion ruling, tracker 2026-07-06 entry): *structural-cost arrival
@@ -139,17 +143,21 @@ active conversion trigger the P-1a law demands. No third mechanism exists.
   §4.2): AFTER the build's baseline gauntlet output exists — the trigger was pre-registered
   exactly so this isn't a consultation-in-the-dark.
 
-## §7 — Roster: K26–K28 (promotion emission; denominator 31 → 34 on acceptance)
+## §7 — Roster: K26–K29 (promotion emission; denominator 31 → 35 — RULED 2026-07-11)
 
 | ID | ARPG Genre Canon kit | Seat | cost_model texture | Lineage |
 |---|---|---|---|---|
-| **K26** | Blood Mage / Martyr | per fork **F5-Q2** (doc-48 prior: WIS) | `resource_target: hp` | PoE Blood Magic; D2 Sacrifice (a PALADIN skill — the martyr lineage is genuine) |
+| **K26** | Blood Mage / Martyr | **WIS** (base seat — the doc-48 un-defer, per F5-Q2 ruling) | `resource_target: hp` | PoE Blood Magic; D2 Sacrifice (a PALADIN skill — the martyr lineage is genuine) |
 | **K27** | Thorns / Vengeance Knight | STR melee | `builder_source: on_damage_taken` + spender law | D3 Invoker (the anti-pattern), D4 Flay-thorns (the fix) |
 | **K28** | Builder-Spender Warrior | STR melee | `builder_source: on_hit`, commitment-composed spender | D3 fury economy; D2 FCR charge-up adjacency (H6-adjacent, not duplicate) |
+| **K29** | Necromantic Blood Mage | **INT** — via the **T4 RESOURCE_CONVERSION door** (existing overlay; K13→K12 folded-kit precedent — no doc-48 INT-row amendment) | `t4_cost_resource: HP` (T4-expressed) | D2 Necromancer blood lineage; PoE low-life occult; **death-faith pair with K26** |
 
 Cells assigned at emission against the catalog (F.1 column pattern); B1/B2/B3 bench rows retire
-on promotion per fork **F5-Q3**. **Emission lands BEFORE the ONE Q14 re-anchor** — P-4(a)'s
-operational reading: the re-anchor waits for exactly this trio.
+on promotion per fork **F5-Q3(a)**. **Emission lands BEFORE the ONE Q14 re-anchor** — P-4(a)'s
+operational reading: the re-anchor waits for exactly this group. **K26/K29 acceptance bonus:**
+the pair proves base-native and T4-expressed HP-economy land in the SAME Axis-5 bin (the
+transform moves the expressed coordinate; cert at expressed — projection-table
+CONSTRAINT/TRANSFORM law exercised on day one).
 
 ## §8 — Sequencing, seams, acceptance
 
@@ -170,22 +178,25 @@ operational reading: the re-anchor waits for exactly this trio.
   kits' gauntlet output · (3) smoke suite green · (4) same-commit TRIPLE-LAW rows (§5.3) ·
   (5) §11 F5 re-derivation artifacts filed (§6).
 
-## §9 — Open forks (Matt rules; the build fires on these)
+## §9 — Forks — ALL RULED (Matt 2026-07-11, same-day)
 
-- **F5-Q1 — HP floor:** **(a) floor-guarded** — the cast is refused when HP can't cover the cost
-  (mirrors the `:409` mana gate exactly; PoE Blood Magic precedent; keeps self-KO tails out of
-  gauntlet KPIs, which certify against opponent-caused outcomes) · **(b) suicide-legal** — cost
-  always paid, self-KO possible (the sharper D2 Sacrifice self-harm fantasy; degenerate-tail risk
-  in certification). **Lean (a) for v1**; (b) revisitable as T4 texture once gauntlet evidence
-  exists.
-- **F5-Q2 — K26 seat:** **(a) WIS Crusader/Martyr** — honors the LOCKED doc-48 G1 seat; D2
-  Sacrifice is a Paladin skill; gives WIS (the 3-element pool) a distinctive economy identity;
-  holy blood-offering is the fresher fantasy · **(b) INT necromantic blood mage** — D2 Necro
-  lineage, shadow-pool affinity; requires a doc-48 re-seat amendment (wider blast radius).
-  **Lean (a).**
-- **F5-Q3 — roster IDs:** **(a) K26–K28 sequential; bench rows retire on promotion** (one roster,
-  one numbering — a persistent B-series would give promoted kits dual identities) · (b) keep
-  B-series IDs. **Lean (a).**
+- **F5-Q1 — HP floor: ⟶ RULED (a) floor-guarded** — the cast is refused when HP can't cover the
+  cost (mirrors the `:409` mana gate exactly; PoE Blood Magic precedent; keeps self-KO tails out
+  of gauntlet KPIs, which certify against opponent-caused outcomes). Option (b) suicide-legal
+  (D2 Sacrifice self-harm sharpness) stays revisitable as T4 texture once gauntlet evidence
+  exists. The floor gate lives at the SHARED deduction branch — both K26 (base-native) and K29
+  (T4-expressed) inherit it.
+- **F5-Q2 — blood-mage seat: ⟶ RULED BOTH** (Matt: *"Can (a) and (b) not both sit there? They
+  seem to be distinct genre canon and the necromancer fits the reap-die-rise story, right?"* —
+  confirmed on both counts). **K26 = WIS Crusader/Martyr at the base seat** (the doc-48
+  un-defer, unchanged). **K29 = INT Necromantic Blood Mage via the T4 RESOURCE_CONVERSION
+  door** — the existing overlay, K13→K12 folded-kit precedent; NO doc-48 INT-row amendment, no
+  new mechanism, near-zero marginal build cost. **Story ruling honored:** the pair is the
+  death-faith frame's two halves — the Martyr *offers* life in faith (rise), the Blood Mage
+  *spends* life as power (reap/die). Distinct from K17 Skelemancer (corpse-proxy necromancy vs
+  blood-cost casting — no identity collision).
+- **F5-Q3 — roster IDs: ⟶ RULED (a)** — K-sequential; bench rows retire on promotion (one
+  roster, one numbering).
 
 ---
 

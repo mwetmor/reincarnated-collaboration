@@ -135,8 +135,15 @@ Codex, carries **no address** here, and is exempt from the §3 alarm.
   not. Until it lands, this page carries NO occupancy numbers (that is the honesty, not a gap to
   hand-patch). Harness = a named build-ladder candidate AFTER the emission primitive (ladder #5);
   KR sequences.
+- **Named face — THE PERIODIC TABLE OF KITS (registered 2026-07-11, GO):** the harness's first
+  display consumer — Matt's mobile-track chart concept (mock:
+  `matt_notes_handoff_docs/reap-die-rise-atlas-chart-mock.svg`). Plane = geometry family
+  (BC-MEASURED Axis-2 class) × commitment (ninth axis); all remaining axes fold into per-cell
+  isotope sub-dots; cells badge FUN-ladder state + claim level. Same law as everything on this
+  page: `chart = render(atlas.json)` — **emitted, never hand-drawn**; two skins (instrument +
+  "The God's Archive" devlog) off ONE renderer. Repairs + seam split at §5 arrival #3.
 
-## §5 — Fold obligations (the two mobile-track arrivals)
+## §5 — Fold obligations (mobile-track arrivals)
 
 1. **Matt's Codex doc (in progress, mobile):** reconciles into `mechanical-reality.md` — ONE
    living Codex, received-lineage pattern (D-④ precedent). If its grain is finer (exhaustive
@@ -148,6 +155,22 @@ Codex, carries **no address** here, and is exempt from the §3 alarm.
    HERE (rows merge; conflicts surface as §3 alarms, which is the system working); the doctrine
    patch amends `../reap-die-rise-engine/engine-doctrine-and-element-application-2026-07-11.md`
    as R-11+ (jack-ryan re-ratifies the delta — Lane-3 follow-on, cheap).
+3. **Atlas-chart concept + SVG mock (ARRIVED 2026-07-11 — DISPOSED: GO with four repairs):** the
+   mobile periodic-table-of-kits concept reconciles as the §4 harness's first display consumer
+   (the "Named face" bullet), NOT a new layer. Repairs bind into the renderer spec: **(i) grain
+   labels** — the chart plane (geometry family × commitment) is ARCHIVE-grain; geometry family is
+   BC-MEASURED (R-3, catalog-blind), not an L0 coordinate; the ~972 live inside the isotope
+   sub-dots; every frame badges its ladder level per §0 grain discipline · **(ii)** the mock's
+   "2.57B arrangements" is the naive box — the number of record is **1.284×10⁹** (§0; the exact
+   smear this page exists to prevent, reintroduced by the mock) · **(iii)** season-N framing
+   ("S2 CHANGELOG") → **Atlas-version framing** (diff/scrubber/time-lapse key to the §4 version
+   triple; the seasonal release model is retired canon) · **(iv)** cell-state + column enums pin
+   to canon vocabularies (FUN ladder `substrate-coordinates.md` §7 · §3 alarm/blacklist registers
+   · archive axis vocabulary), never freehand. **Seam split:** star-lord emits `atlas.json` + owns
+   the Python→SVG renderer engine-side; drax owns the interactive HTML skin; Glance `/atlas`
+   embed = a **v1.10-class contract amendment, HARNESS-GATED** (§7.7 rule 7 was holding the door
+   for exactly this artifact). **ONE Matt ruling reserved for renderer-spec time:** FREEZE the
+   canonical plane (iconic-by-never-rearranging). Renderer spec = named gandalf follow-on.
 
 ---
 
