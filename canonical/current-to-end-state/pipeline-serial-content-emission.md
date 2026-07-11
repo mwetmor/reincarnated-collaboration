@@ -117,7 +117,10 @@ The canon the factory draws from. The BC coordinate space (25 named CellDefs —
 in the operational catalog: 324 → **972 lattice** with `bc_commitment` after Q-E4-4b; the 8-axis QD
 archive stays **68,040 full / 12,960 live** — commitment as a ninth ARCHIVE axis is **⚑ PRIORITIZED
 toward content emission** (Matt 2026-07-11; arity stress-test = the admission gate, moved up — the
-addendum §D.1/fork F-3 defer-sequencing superseded)); the **race well** (5 races × 4 registers = up to 20 identity cells; CLOSED — LLM never
+addendum §D.1/fork F-3 defer-sequencing superseded); the FULL definitional kit-design lattice —
+catalog and archive are both projections of it — is the L0–L4 ladder: 972 → 68,040 → **204,120**
+(9-axis) → ×16 element-identity pairs → ×393 hybridity = **≈1.284×10⁹**, pinned in
+`substrate-coordinates.md` §0 per Matt's search-area law 2026-07-11); the **race well** (5 races × 4 registers = up to 20 identity cells; CLOSED — LLM never
 derives races; Leg-3-ready as of the Q17 ruling); **mob-affix families** (8 functional); the
 **motion-frame seven-axis family** (F1–F6 ratified); **proxy-behavior axes** (P0/P1/P2 staging);
 **Axis-5 cost-TYPE bins** (reserved-empty — the bench B1–B3 blockers).
