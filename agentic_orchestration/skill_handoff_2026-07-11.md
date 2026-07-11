@@ -4,6 +4,22 @@ Continuity doc for the next knight-rider session. What shipped, what's queued, w
 
 ---
 
+## ⭐⭐ FRESHEST — E4 PHASE-2 sim build FIRED (read first)
+
+Fresh KR session (relay Prompt 2), single job: fire gamora on E4 PHASE-2 (commitment-axis sim build). **FIRED.** All §0-gate preconditions verified this session:
+
+- **Close record present** — `current-to-end-state-engine.md` 2026-07-11 delta carries the verbatim signal *"pilot session CLOSED → E4 PHASE-2 unblocked"*. §0 serialization law RESOLVED.
+- **Completion-build landed** — `a63aae2` + Gate-2 PASS (via Q13), 2026-07-08.
+- **PHASE-1 co-sign landed** — `56e1eb4` (E4 math note consumer half) on engine `main`.
+- **Gamora slot FREE (KR slot call)** — pilot session closed; the F5 cost-TYPE math-note unit (relay Prompt 3) is NOT fired → E4 PHASE-2 goes first; F5 serializes behind its landing.
+- **GO recorded** on `dispatches/2026-07-10-gamora-commitment-axis-E4.md` (KR PHASE-2 GO RECORD appended).
+- **FIRE COMMAND relayed to Matt:** `cd ~/Games/reincarnated-engine && claude --agent gamora` — reads `dispatches/` at session start, picks up the newest matching. Pattern B (multi-hour build; own session memory).
+- **On return:** jack-ryan **Gate-2** (BLOCK authority); shared MIGRATION.md required before tag (ADR-004); tag `gamora/v<X.Y>-commitment-axis-4`.
+- **Downstream unblock:** ninth-axis (F-3/QD) measurement half **(ii)** unblocks when PHASE-2 lands (was gated behind exactly this — handoff line 103/50 criterion now satisfied).
+- **Holds:** F5 math-note unit (behind PHASE-2), band re-fit/re-anchor (Q14, post-E3/E4 Matt-gated), B12 spin-channel re-cert (fires at pair-landing).
+
+---
+
 ## ⭐ TOP-OF-STACK — E3 CLOSED, v1 whole PUSHED (read first)
 
 Matt ruled the escalated scope+serialization conflict and E3 went end-to-end. **The E3 element-application axis is CLOSED; v1 is on remote.**

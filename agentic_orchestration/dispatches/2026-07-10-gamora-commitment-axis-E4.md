@@ -143,3 +143,20 @@ Instrument throughput **≥30 fights/s** with the cast-state machine + ticks liv
 6. `canonical/current-to-end-state/surface-ledger.md` — E4 row.
 
 **Sign-off:** knight-rider, 2026-07-10 (FIRE-READY — Gate-1 critique pair PASS, all 10 amendments folded). PHASE 1 cleared NOW; PHASE 2 fires on the pilot completion-build landing. The player only ever feels what the sim already paid for.
+
+---
+
+## KR PHASE-2 GO RECORD — 2026-07-11 (knight-rider, fresh session)
+
+**PHASE 2 (the E4 sim BUILD) is FIRED.** §0 serialization law RESOLVED and slot call made. Gate verification this session:
+
+1. **Pilot completion-build landed** — `a63aae2` + Gate-2 PASS (released via Q13), 2026-07-08 (confirmed in the pilot close record).
+2. **§0 unblock signal present (verbatim)** — `canonical/current-to-end-state/current-to-end-state-engine.md` 2026-07-11 delta: *"pilot session CLOSED → E4 PHASE-2 unblocked"*. The pilot session stewardship ended; the two-arm driver + per-axis model + `pilot_policy` rider persist as the standing instrument.
+3. **PHASE-1 co-sign landed** — `56e1eb4` (E4 commitment-axis math note, consumer half) in engine `main`.
+4. **Gamora slot FREE (KR slot call)** — no gamora unit in flight: pilot session closed; the F5 cost-TYPE math-note unit (relay Prompt 3) is NOT fired. Per the fire-order rule (Prompt 2 vs Prompt 3 both gamora-seam, one unit at a time), **E4 PHASE-2 goes first.** F5 math-note serializes behind PHASE-2's landing.
+
+**On return:** jack-ryan **Gate-2** on the build (BLOCK authority). Shared MIGRATION.md (rocket-authored emitter half; gamora co-authors sim-consumer + telemetry sections) required before tag per ADR-004. Tag: `gamora/v<X.Y>-commitment-axis-4`.
+
+**Downstream note (dispatch record):** the **ninth-axis (QD/F-3) measurement half (ii) unblocks when PHASE-2 lands.** Deferred until then; build against the 324→972 catalog space (§11 out-of-scope holds until the unblock).
+
+**Fired by:** knight-rider, 2026-07-11.
