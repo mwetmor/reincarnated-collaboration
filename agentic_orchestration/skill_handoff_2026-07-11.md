@@ -33,6 +33,21 @@ Reference: serial-emission `projection-atlas.md` (bc_commitment→ninth-axis is 
 
 ---
 
+## This session (later) — Glance v1.9 reference TRIO: DISPATCHED + BUILT + VERIFIED → **SHIPPED**
+
+Matt: *"dispatch drax to build Glance v1.9 (contract §7.7, trio form)"* → then *"Orchestration of sub agents is your seam. Please run autonomously until completed."* KR drove drax as a subagent to completion in-session (not a separate terminal).
+
+- **Dispatch:** `agentic_orchestration/dispatches/2026-07-11-drax-glance-v1.9-reference-trio.md` (Pattern B; render-only, zero new parse shapes). Committed `3fd1bd6`. No Gate 1 — locked-decision execution, no format-law/grammar change.
+- **Build (drax):** three new pages `/coordinates` (LATTICE) + `/atlas` (PROJECTION, connective) + `/mechanics` (CODEX) → nine-page Glance. Commit `f8efeb7` (6 files, +779/−23); completion record `5731857`. Tag **`glance/v1.9-reference-trio-1`** on `f8efeb7`.
+- **Parser delta:** new `REFERENCES` doc class (parallel to `PIPELINES`); `parseReference` feeds `parseFlow` an **empty queue set** so all 24 stages derive `quiet` by design — the fix that prevents payload row-ID grammar (`L0`..`L4`, numbered resolver rows) from coloring the bars.
+- **KR independent verification (trust-but-verify):** tag on correct commit ✓ · tree clean ✓ · `state.json` shows coordinates 9 / mechanics 9 / atlas 6 stages, all statuses null→`quiet` (no leaked open/blocked coloring) ✓ · render maps zero-rows→`quiet` (App.tsx:572) ✓ · `/atlas` "occupancy" mentions are all **verbatim source-doc text** (doc uses term 9×), zero hand-derived numbers ✓.
+- **drax open-question calls:** (1) lean grouped "kit-design reference" tile row, `/atlas` accented teal as connective; (2) trio seated adjacent at nav end in read-as-one-instrument order coordinates → atlas → mechanics.
+- **NOT pushed / NOT deployed** — both Matt-gated (ADR-006). Vercel prod deploy untouched (no `vercel.json`/framework config changed).
+- **Not gated on** projection-atlas.md's two pending fold obligations (mobile Codex doc + mobile Projection-skeleton) — FLOW block + § structure stable; folds arrive as in-section content and re-render automatically.
+- **v1.9 was the only outstanding Glance delta.** Glance backlog now clear.
+
+---
+
 ## In-flight / carried from prior sessions
 
 - **E4 build (from 2026-07-10 run):** emitter LANDED (`e4d682e`, Gate-2 PASS-WITH-CONDITIONS, BLOCK discharged `eb4be4c`); **gamora PHASE-2 sim build QUEUED** (not fired). **Named empirical unblock criterion:** open-pilot completion-build CLOSES with Gate-2 PASS on the two-arm driver + a post-2026-07-10 git signal the pilot completion-build has landed. NOT time-passage. Ledger E4 row status = IN-FLIGHT.
