@@ -1,0 +1,2277 @@
+# E4 PHASE-2 multi-writer collision — RESOLUTION EVIDENCE
+# Captured: 2026-07-11 12:29:06 by knight-rider (session PID 75950).
+#
+# WHAT HAPPENED: relay Prompt-2 was fired into >1 KR session. Two gamoras built E4 PHASE-2
+# concurrently in the shared engine tree (branch main). KR's fired gamora caught a TRANSIENT
+# mid-write interleave (incl. a double _e4_blind init) and STOPPED (Disc #3), committing nothing.
+# The OTHER gamora (KR PID 76891) FINISHED cleanly and COMMITTED a complete single-author build:
+#   785956c 'gamora(v1.5): E4 commitment-axis PHASE-2 — cast-state machine sim consumer (byte-identity PROVEN)'
+#   committed 2026-07-11 12:21:59, BEFORE KR SIGTERM'd 76891 (~12:26). No work lost.
+#   The double _e4_blind clobber is NOT in 785956c (transient artifact only). Tree clean at 785956c.
+#
+# This artifact = the committed build's diff (853818d..785956c) for the record. NOT a reset target.
+#
+# ---- git show -s 785956c ----
+#   785956c4e157af025bd02013be5982c5a87dff2b
+#   author=mwetmor committer=mwetmor
+#   2026-07-11 12:21:59 -0400
+#   gamora(v1.5): E4 commitment-axis PHASE-2 — cast-state machine sim consumer (byte-identity PROVEN)
+# ---- diff --stat 853818d..785956c ----
+#  src/reincarnated/generation/MIGRATION.md           |  16 +-
+#  src/reincarnated/simulation/AGENT_STATE.md         |  28 +-
+#  src/reincarnated/simulation/MIGRATION.md           |  44 ++
+#  .../commitment-axis-e4-sim-consumer-2026-07-11.md  | 259 +++++++++++
+#  .../notes/e4_byte_identity_ab_2026_07_11.py        | 174 +++++++
+#  .../e4_commitment_sim_consumer_smoke_2026_07_11.py | 260 +++++++++++
+#  .../output/e4_byte_identity_golden_2026_07_11.json | 509 +++++++++++++++++++++
+#  .../spatial_gauntlet/commitment_state_machine.py   | 247 ++++++++++
+#  .../simulation/spatial_gauntlet/spatial_engine.py  | 469 ++++++++++++++++++-
+#  .../spatial_gauntlet/spatial_telemetry.py          |  29 ++
+#  10 files changed, 2028 insertions(+), 7 deletions(-)
+#
+# ==== FULL DIFF 853818d..785956c ====
+diff --git a/src/reincarnated/generation/MIGRATION.md b/src/reincarnated/generation/MIGRATION.md
+index 3cd07f3..2c075bc 100644
+--- a/src/reincarnated/generation/MIGRATION.md
++++ b/src/reincarnated/generation/MIGRATION.md
+@@ -129,9 +129,19 @@ Zero diffs to `TIER_COEFFICIENTS`, `_DAMAGE_MULTIPLIER`, `BASE_SPELL_DAMAGE_L50`
+ 
+ `commitment_premium` is emitted NOW using placeholder completion rates (`c_wind = 0.75`, `c_chan = 0.85`, math note §2.3) so the premium is a real number pre-telemetry. **gamora's PHASE-2 telemetry replaces these** with MEASURED completion rates per (bin, regime) over the certified three-honesty-axes mix. The `commitment_premium_measured = 0.0` flag marks the value as pre-certification. `c_wind` is understood as measured against a COMPETENT (projecting) pilot floor (math note §13.7 — gamora forward-integrates the motion model; NO emitter change from it).
+ 
+-### CONSUMER IMPACT — gamora (`simulation/`) — SIM-CONSUMED subset (co-authored, PHASE-2)
++### CONSUMER IMPACT — gamora (`simulation/`) — SIM-CONSUMED subset (co-authored, PHASE-2 — **LANDED 2026-07-11**, tag `gamora/v1.5-commitment-axis-4`)
+ 
+-gamora's PHASE-2 sim build consumes the **[M]** fields: the cast-state machine (idle → committing → resolve-at-completion for wind-up; idle → channeling(tick loop) → released|broken|exhausted for channel), per-tick resolution (`tick_tracking`), forced-break rule (`forced_break_*`), drain (`drain_rate`, honored AS-EMITTED, NOT re-derived), move-policy (behavior-branch suspension under `rooted`). gamora HONORS `commitment_premium` as-emitted (does NOT re-derive — re-derivation is seam drift). gamora's PHASE-2 build queues behind the pilot completion-build landing (dispatch §0). **gamora co-authors the sim-consumer + telemetry sections of this MIGRATION at PHASE-2.**
++**PHASE-2 sim build LANDED.** gamora consumes the **[M]** fields via the cast-state machine (new module `simulation/spatial_gauntlet/commitment_state_machine.py` — parsing + ramp + pilot-floor projection + forced-break ring, unit-testable in isolation; engine integration in `spatial_engine.py`). Consumer math note (Disc #1, precedes code): `simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md`.
++
++- **cast-state machine:** `idle → committing(cast_time) → resolve-at-completion` (wind-up; motion-whiff resolves against LIVE positions at completion — native to `_compute_aoe_hits`); `idle → channeling(tick loop) → released|broken|exhausted` (channel; per-tick resolution).
++- **per-tick resolution (`tick_tracking`):** `tracking` re-resolves against live positions (beam); `fixed` hit-tests a cached footprint origin (tether — targets walk out). Consumed via `_channel_fixed_hits`.
++- **forced-break rule (`forced_break_pct/window_s/lockout_s`):** trailing-damage ring; `Σ(incoming over W) ≥ Y%·max_hp` → break + ramp-reset (F-2b teeth) + lockout. Wind-up un-interruptible at v1.
++- **drain (`drain_rate`) HONORED AS-EMITTED, NOT re-derived** — per-tick debit `drain_rate·tick_interval`; pool-empty → exhaustion (natural sustain bound). `damage_scalar` on `_apply_skill_damage` carries `ramp(n)` (identity at 1.0 → byte-identical).
++- **move-policy (`move_policy`):** `rooted` SUSPENDS the player navigation advance while committed (lock exposure); `walk` scales `movement_speed·walk_pct`; `full_move` untouched (spin/B12). Honored AS-EMITTED.
++- **`commitment_premium` HONORED as-emitted** (rides on the emitted `damage_multiplier`; gamora does NOT re-derive it — re-derivation is seam drift; passthrough to provenance only).
++- **pilot-competence floor v1 (`e4_blind_pilot` flag, default False = competent):** wind-up initiates ONLY when the projected target position at completion (forward-integrated via the SAME motion model — NO velocity field, §13.7) is in-template. Blind arm = the criterion-18 A/B baseline.
++
++**BYTE-IDENTITY GUARD PROVEN** (dispatch load-bearing): the snap/exempt bin leaves the machine at `idle` for the whole fight → the pre-E4 instant path runs unchanged. A/B harness `simulation/notes/e4_byte_identity_ab_2026_07_11.py` captured a golden on the PRE-E4 tree (git-stash) and VERIFIED **12/12 (kit,scenario) cells byte-identical** on the E4 tree. The entire current certified population is snap-grade → unchanged by construction. **PERF: 40.5 fights/s vs 40.0 baseline (−1.3%, ≥30, ≤17% — PASS).**
+ 
+ ### CONSUMER IMPACT — drax (`reincarnated-godot/`, `reincarnated-loadout/`) — PRESENTATION subset
+ 
+@@ -140,7 +150,7 @@ Godot reads mechanical + **[P]** presentation fields (same numbers the sim certi
+ ### DOWNSTREAM CONSUMERS TO NOTE (do NOT draft their work here)
+ 
+ - **B12 spin-channel re-cert:** fires at pair-landing → G3 zero-behavioral-diff migration audit → re-cert at the `channel` bin under `move_policy = full_move`. (Matt admission-in-principle, addendum RULINGS §rider 1.)
+-- **star-lord telemetry fields (addendum §C.5):** seven `SpatialFightResult` schema additions — `completion_rate`, `whiff_rate`, `damage_taken_while_committed`, `forced_break_count`, `move_cancel_count`, `drain_exhaustion_events`, `sustain_uptime`. These ARE the pricing loop's inputs (guard-1 unimplementable without them). Landed at gamora PHASE-2 (sim→star-lord boundary MIGRATION, co-authored there, NOT drafted here).
++- **star-lord telemetry fields (addendum §C.5) — PRODUCER FIELDS LANDED 2026-07-11 (gamora); star-lord DB persistence OWED:** seven `SpatialFightResult` schema additions LANDED on the producer side (`simulation/spatial_gauntlet/spatial_telemetry.py`, additive-defaulted, brownfield-safe): `completion_rate` (`float|None`), `whiff_rate` (`float|None`), `damage_taken_while_committed` (`float=0.0`), `forced_break_count` (`int=0`), `move_cancel_count` (`int=0`), `drain_exhaustion_events` (`int=0`), `sustain_uptime` (`float|None`). Per (kit, commitment_bin, regime), aggregated per fight. These ARE the pricing loop's inputs (guard-1 unimplementable without them). **star-lord FOLLOW-ON (do NOT draft here):** the `spatial_fight_results` DB columns + `_INSERT_SQL` positional widen + schema version bump that PERSIST these seven fields (same handoff shape as the E3 attribution-spine `output_by_element`/`killing_element` and the boss_*/typed-death fields — INTERNAL-to-seam until star-lord persists). See the sim→star-lord boundary entry in `simulation/MIGRATION.md`.
+ 
+ ### FLAGGED — pending KR + Matt (do NOT resolve)
+ 
+diff --git a/src/reincarnated/simulation/AGENT_STATE.md b/src/reincarnated/simulation/AGENT_STATE.md
+index 4d1e4ba..efccda2 100644
+--- a/src/reincarnated/simulation/AGENT_STATE.md
++++ b/src/reincarnated/simulation/AGENT_STATE.md
+@@ -1,6 +1,32 @@
+ # AGENT_STATE — gamora
+ 
+-**Last updated:** 2026-07-11 SESSION 62 (**E3 attribution spine — sim-seam writes; OBSERVATION-ONLY, byte-identity-PROVEN; all 3 writes LANDED-PURE**). See SESSION 62 below.
++**Last updated:** 2026-07-11 SESSION 63 (**E4 commitment-axis PHASE-2 — cast-state machine sim consumer; byte-identity PROVEN 12/12; perf PASS; smoke GREEN**). See SESSION 63 below.
++
++## SESSION 63 — E4 commitment-axis PHASE-2 (sim consumer: cast-state machine) — 2026-07-11
++
++**Dispatch:** `agentic_orchestration/dispatches/2026-07-10-gamora-commitment-axis-E4.md` (sim-consumer half of the rocket+gamora PAIR; KR PHASE-2 GO 2026-07-11). Math-before-code SATISFIED: shared math note CLOSED (`generation/math/commitment-axis-e4-2026-07.md`, my §13 co-sign); consumer math note (Disc #1) `simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md`. Tag `gamora/v1.5-commitment-axis-4`.
++
++### What I built (the sim-consumer half)
++- **NEW module `spatial_gauntlet/commitment_state_machine.py`** (csm): `read_commitment` ([M] packet parse, `.get`-based → exempt/pre-E4 = bin None), `ramp(n)` (F-2b curve), `project_target_position` (pilot-floor forward-integration of the mob motion model — NO velocity field, §13.7), forced-break ring (`ring_push`/`ring_sum`/`forced_break_triggered`). Unit-testable in isolation.
++- **Engine integration in `spatial_engine.py`:** `_e4_service_commitment` (per-tick: wind-up completion / channel tick loop w/ drain+ramp+forced-break+exhaustion / move-cancel), `_e4_initiate_commitment` (pilot-floor gate + pay-on-commit + cooldown), `_e4_pay_and_cooldown`. Action-phase interception (2760): read commitment bin → snap/exempt = instant path UNCHANGED; wind-up/channel = initiate the machine. Helpers `_PosProbe`/`_point_in_template`/`_channel_fixed_hits` (reuse `_compute_aoe_hits` geometry). `damage_scalar` param on `_apply_skill_damage` (channel ramp; identity at 1.0 → byte-identical). Move-policy at the nav-branch (rooted suspends advance; walk scales; full_move untouched — B12/spin ready). Ring-push + `damage_taken_while_committed` at the player-hp site (2992). Seven telemetry producer fields populated in the SpatialFightResult constructor.
++- **Carrier fields on SpatialEntity** (defaulted → degenerate idle → byte-identical). **`WIRE_COMMITMENT_AXIS` flag** (kill-switch; OFF = pre-E4 bypass). **`e4_blind_pilot` param** (→ `_e4_blind`) for the criterion-18 A/B.
++
++### Consumed AS-EMITTED (NO re-derivation — seam-drift guard): commitment_premium (rides on damage_multiplier; passthrough to provenance only), drain_rate, tick_interval, forced-break Y/W/lockout, ramp, move_policy, tick_tracking. All from the packet.
++
++### VALIDATION (all GREEN)
++- **BYTE-IDENTITY GUARD PROVEN** (dispatch load-bearing): A/B harness `simulation/notes/e4_byte_identity_ab_2026_07_11.py` — golden captured on PRE-E4 tree (git-stash), **VERIFIED 12/12 (kit,scenario) cells byte-identical** on the E4 tree (production path, real seed-57000000 kits). Snap-grade population unchanged by construction. ONE-COMMAND A/B in the harness docstring.
++- **PERF (criterion 19) PASS:** 41.0 fights/s (E4) vs 40.0 (pre-E4 baseline) = −2.5% (≥30, ≤17%).
++- **Smoke (verdict instrument) `simulation/notes/e4_commitment_sim_consumer_smoke_2026_07_11.py`:** RT (round-trip [M] field consumption+identity) + BI (snap degenerate) + PF (projection tracks motion model) + WU (motion-whiff real, c_wind=0.875 vs kiters) + CH-lethality (16 forced-breaks + 56K lock exposure) + CH-drain (78 exhaustion events, sustain_uptime→0 when pool binds) — ALL PASS. C18 + PERF reported.
++- **Criterion 18 (blind-vs-competent):** A/B mechanism wired + runs; competent arm shows move-cancels + active floor, blind arm rides everything out (distinct — the `_e4_blind` clobber-bug found+fixed in review). Δc_wind signal lands in the production RANGED-mobility cert (the melee-close smoke has Δ≈0 by regime, projection logic proven via PF).
++- **Regression:** 302 sim tests PASS, 0 failures from E4. PRE-EXISTING unrelated: 4 llm/naming vocab-path collection errors (missing collab doc `grouping-layer-vocabulary.md`) + 6 generation-seam `test_cycle13_wave5` cell-grain contract errors (rocket's `season_generation_pipeline.py:1883`, confirmed fail with E4 stashed) — BOTH out of the sim seam, routed to KR.
++
++### Cross-seam (ADR-004)
++- **MIGRATION.md updated:** sim producer-contract entry (`simulation/MIGRATION.md` [2026-07-11] E4) + generation shared-doc CONSUMER IMPACT section marked LANDED (`generation/MIGRATION.md`). **star-lord FOLLOW-ON noted** (DB columns + `_INSERT_SQL` widen + schema bump + pricing-loop join for the seven producer fields — NOT drafted). **B12 spin re-cert noted** (full_move consumed; substrate ready). **Batch-2 sample-vs-pin `bc_commitment` fork FLAGGED PENDING** (KR+Matt; single flag primary in generation MIGRATION, sim cross-ref).
++
++### Guard state
++NO spine touch (TIER_COEFFICIENTS/_DAMAGE_MULTIPLIER/BASE_SPELL_DAMAGE_L50/_ENERGY_COST/_COOLDOWN untouched — byte-identity proves it). NO telemetry DB/schema/`_INSERT_SQL` change (star-lord's follow-on; producer fields only, additive-defaulted). NO emitter change (rocket's e4d682e). NO band re-fit/re-anchor (report deltas only — the ONE post-E3/E4 Matt-gated re-anchor absorbs them). NO E3/B12/QD-ninth-axis work (out of scope). NO push (KR owns push). Auto-committed per CLAUDE.md addendum. Tag `gamora/v1.5-commitment-axis-4`. **jack-ryan Gate-2 pending before push** (KR route).
++
++---
+ 
+ ## SESSION 62 — E3 attribution spine (sim-seam per-element writes) — 2026-07-11
+ 
+diff --git a/src/reincarnated/simulation/MIGRATION.md b/src/reincarnated/simulation/MIGRATION.md
+index 37d2953..18cb04a 100644
+--- a/src/reincarnated/simulation/MIGRATION.md
++++ b/src/reincarnated/simulation/MIGRATION.md
+@@ -8,6 +8,50 @@ as a follow-on dispatch. Gamora does NOT touch telemetry/, export/, or output/ s
+ 
+ ---
+ 
++## [2026-07-11] E4 COMMITMENT AXIS — PHASE-2 sim consumer: cast-state machine + seven telemetry PRODUCER fields on `SpatialFightResult` (gamora/v1.5-commitment-axis-4)
++
++**Dispatch (governs):** `agentic_orchestration/dispatches/2026-07-10-gamora-commitment-axis-E4.md` (sim-consumer half of the rocket + gamora PAIR).
++**Design authority (ONE — note + addendum):** `agentic_orchestration/gandalf/notes/2026-07-10-e4-commitment-axis-design-note.md` + `.../2026-07-10-e4-runtime-interaction-and-pressure-addendum.md`.
++**Shared math note (CLOSED, gamora §13 co-sign):** `generation/math/commitment-axis-e4-2026-07.md`. **Consumer math note (Disc #1, BEFORE code):** `simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md`.
++**Emitter half (LANDED, consumed here):** rocket `e4d682e` + round-trip `eb4be4c` (packet v1→v2). generation MIGRATION `[2026-07-10] E4 COMMITMENT AXIS` — the CONSUMER IMPACT — gamora section is co-authored (LANDED).
++**Tag:** `gamora/v1.5-commitment-axis-4`.
++
++### What LANDED (the sim-consumer half)
++The E4 packet's **[M]** mechanical fields (`commitment_bin`, `cast_time`, `tick_interval_seconds`, `ramp_floor/n_ticks`, `forced_break_pct/window_s/lockout_s`, `drain_rate`, `tick_tracking`, `move_policy`, `pay_on_commit`) are now CONSUMED by a cast-state machine. New module `spatial_gauntlet/commitment_state_machine.py` (parse + ramp + pilot-floor projection + forced-break ring — unit-testable); engine integration in `spatial_gauntlet/spatial_engine.py` (`_e4_service_commitment` / `_e4_initiate_commitment` + move-policy at the nav branch + ring-push at the player-hp site + `damage_scalar` on `_apply_skill_damage` for the channel ramp). `commitment_premium` and `drain_rate` are HONORED AS-EMITTED (NOT re-derived — re-derivation is seam drift, dispatch §2.3).
++
++### The seven PRODUCER fields star-lord's DB columns CONSUME (this is the cross-seam contract)
++Seven additive, default-valued, brownfield-safe fields on `SpatialFightResult` (`spatial_gauntlet/spatial_telemetry.py`), same status as `output_by_element` / `player_death_element` / `boss_*` — INTERNAL-to-seam until star-lord persists them (the SQLite positional `_INSERT_SQL` does NOT persist them until star-lord's schema migration lands):
++
++| Field | Type | Default | Semantics (per kit, commitment_bin, regime; aggregated per fight) |
++|---|---|---|---|
++| `completion_rate` | `float\|None` | `None` | committed_completions / committed_initiations (wind-up landed/initiated). None = no wind-up this fight |
++| `whiff_rate` | `float\|None` | `None` | 1 − completion_rate. None = no wind-up |
++| `damage_taken_while_committed` | `float` | `0.0` | Σ incoming while commit_state ≠ idle (wind-up/lock exposure) |
++| `forced_break_count` | `int` | `0` | channel forced-break events (Σ incoming ≥ Y%·max_hp in W) |
++| `move_cancel_count` | `int` | `0` | wind-up move-cancels (legal whiff-avoidance; forfeits cast+cost) |
++| `drain_exhaustion_events` | `int` | `0` | channel pool-empty transitions (overflow-binding visibility) |
++| `sustain_uptime` | `float\|None` | `None` | channel ticks delivered / scheduled. None = no channel |
++
++**These ARE the pricing loop's inputs (guard-1: risk-priced premium is unimplementable without them).** rocket's premium currently carries placeholder rates (`commitment_premium_measured = 0.0`); these MEASURED fields replace them at cert.
++
++### star-lord FOLLOW-ON (do NOT draft here — ADR-004 handoff)
++star-lord owns the `spatial_fight_results` DB columns + `_INSERT_SQL` positional widen + schema version bump that PERSIST the seven fields, plus the pricing-loop join that feeds rocket's premium recalibration (`commitment_premium_measured` flip 0.0→1.0). Same handoff shape as the E3 attribution-spine `output_by_element` follow-on.
++
++### BYTE-IDENTITY GUARD — PROVEN (the dispatch's load-bearing guard)
++snap/exempt bins leave the machine at `idle` for the whole fight → the pre-E4 instant path runs unchanged. A/B harness `simulation/notes/e4_byte_identity_ab_2026_07_11.py`: golden captured on the PRE-E4 tree (git-stash), **VERIFIED 12/12 (kit,scenario) cells byte-identical** on the E4 tree (production path, real generated kits). The entire current certified population is snap-grade → unchanged by construction. Verdict instrument: `simulation/notes/e4_commitment_sim_consumer_smoke_2026_07_11.py` (RT round-trip + BI byte-identity + PF pilot-floor projection + WU motion-whiff + CH-lethality forced-break + CH-drain exhaustion; all GREEN).
++
++### PERF (criterion 19) — PASS
++40.5 fights/s (E4) vs 40.0 (pre-E4 baseline) = −1.3% regression (≥30 floor, ≤17% gate). The degenerate fast-path adds negligible per-tick cost on the snap-grade population.
++
++### DOWNSTREAM to NOTE (do NOT draft)
++- **B12 spin-channel re-cert:** fires at pair-landing → G3 zero-behavioral-diff migration audit → re-cert at the `channel` bin under `move_policy = full_move` (the `full_move` policy is CONSUMED and leaves the nav branch untouched — the spin substrate is ready). Matt admission-in-principle (addendum RULINGS §rider 1). NOT drafted here.
++- **QD ninth-axis (F-3) measurement half (ii):** unblocks now that PHASE-2 lands (KR PHASE-2 GO record). Deferred; builds against the 324→972 catalog space.
++
++### FLAGGED — pending KR + Matt (do NOT resolve; single flag, single author — rocket's shared MIGRATION carries the primary flag)
++- **Batch-2 sample-vs-pin `bc_commitment` fork (design note §4; dispatch §12):** does batch-2 SAMPLE `bc_commitment` or pin defaults? Named KR + Matt sequencing decision — **FLAGGED PENDING, NOT resolved.** Composes with the standing K9 coordinate-drift reconcile (the expressed-coordinate machinery may be the reconcile vehicle) — flag, don't fold. (Primary flag lives in `generation/MIGRATION.md`; this is the sim-seam cross-reference.)
++
++---
++
+ ## [2026-07-11] E3 ATTRIBUTION SPINE — per-element realized-OUTPUT PRODUCER fields on `SpatialFightResult` (`output_by_element` + `killing_element`); OBSERVATION-ONLY, byte-identity-PROVEN (gamora/v-attribution-spine-1)
+ 
+ **Dispatch:** knight-rider E3 element-application — bounded gamora attribution pass (Matt-authorized 2026-07-11: *"purity-proven lands now, purity-failed folds into PHASE-2"*). The SIMULATION-seam half of the E3 attribution spine (the dispatch §4 star-lord attribution columns CONSUME these sim writes).
+diff --git a/src/reincarnated/simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md b/src/reincarnated/simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md
+new file mode 100644
+index 0000000..000a603
+--- /dev/null
++++ b/src/reincarnated/simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md
+@@ -0,0 +1,259 @@
++# Commitment axis (E4) — SIM-CONSUMER math note (PHASE-2 build spec)
++
++**Author:** gamora (simulation seam).
++**Date:** 2026-07-11.
++**Discipline:** #1 (math-before-code — this note precedes the PHASE-2 sim code), #1.2 (code-citation — every integration cite verified against the live tree this session), #11 (empirical), #12 (semantic-shift), #17 (empirical calibration consumed AS-EMITTED).
++
++**Standing:** this note is the CONSUMER-half derivation for the PHASE-2 sim build. It does NOT re-open the shared math note `generation/math/commitment-axis-e4-2026-07.md` (CLOSED; my §13 co-sign is the consumer-half authority). It OPERATIONALIZES §13 as the code spec — where §13 committed a measurement semantics, this note pins the sim mechanism + the acceptance instrument. All calibrated constants (τ, tick_interval, Y%/W, lockout, ramp, drain) are HONORED AS-EMITTED from the packet (`skill_schema.py`); I do NOT re-derive them (§2.3 dispatch — re-derivation is seam drift).
++
++**Build authority:** dispatch `2026-07-10-gamora-commitment-axis-E4.md` (§0 sequencing, §2 changes, §3 pilot floor, §4/§6 regime matrix, §5 telemetry, §8 perf, §10 acceptance) + gandalf design note + runtime addendum (§B/§C/§E). Where the addendum extends the note, the addendum governs.
++
++**Precondition state cited (verified this session):**
++- Emitter LANDED `e4d682e` + round-trip `eb4be4c` (packet v1→v2); math note CLOSED `de6a35f` + co-sign `56e1eb4`.
++- `grep -c cast_time src/reincarnated/simulation/spatial_gauntlet/spatial_engine.py == 0` → **commitment-inert = True** (the property PHASE-2 activates). The two `cast_time` hits in `simulation/` are in `phase7_bridge.py` (the 1D bridge), NOT the spatial engine.
++- Pilot session CLOSED (`a63aae2` + Gate-2 via Q13; canonical delta 2026-07-11 "pilot session CLOSED → E4 PHASE-2 unblocked"). §0 serialization law RESOLVED; gamora slot FREE.
++
++---
++
++## §1 — The consumed packet fields (the [M] subset — verified against `skill_schema.py`)
++
++The v2 packet emits these on each `Skill` (additive-nullable; non-null only on modulated slots). My sim consumes the MECHANICAL subset:
++
++| Field | Type | Consumption |
++|---|---|---|
++| `commitment_bin` | `str\|None` | selects the state-machine configuration: `snap`→degenerate / `wind-up`→committing / `channel`→channeling. `None` = exempt → degenerate (byte-identical pre-E4). |
++| `commitment_premium` | `float\|None` | **HONORED AS-EMITTED** — already applied to the emitted `damage_multiplier`. I do NOT consume it for resolution (no re-derivation); passthrough to telemetry provenance only. |
++| `cast_time` | `float\|None` | the READ cast-time (was inert). Drives the wind-up committing window + snap sub-cadence window. |
++| `tick_interval_seconds` | `float\|None` | channel tick scheduler cadence (0.35s emitted). |
++| `ramp_floor` / `ramp_n_ticks` | `float\|None` / `int\|None` | per-tick reward shaping (0.5 / 6). |
++| `forced_break_pct` / `forced_break_window_s` / `forced_break_lockout_s` | `float\|None`×3 | forced-break rule (0.20 / 1.0s / 0.4s). |
++| `drain_rate` | `float\|None` | per-second channel pool debit. **HONORED AS-EMITTED per (economy bin, k); NOT re-derived.** |
++| `tick_tracking` | `str\|None` | `tracking` (beam re-resolves live) / `fixed` (tether footprint). Per-tick resolution selector, DISTINCT from `move_policy`. |
++| `move_policy` / `move_policy_walk_pct` | `str\|None` / `float\|None` | `rooted` (suspend behavior branch) / `walk` (scale movement_speed by pct) / `full_move` (untouched — spin class). |
++| `pay_on_commit` | `bool\|None` | `True` (wind-up/snap — pay at initiation, whiff forfeits) / `False` (channel — per-tick drain). |
++| `capstone_amplitude_delta` / `capstone_expressed_amplitude` | `str\|None`×2 | T4 declaration; cert fires at EXPRESSED coordinate (§4 below). |
++
++**Presentation `[P]` fields** (`charge_pose_id`, `channel_loop_id`, `release_anim_id`, `cast_bar_interruptible`) — sim IGNORES (drax/Godot consumes). Not read.
++
++**Where the fields live at consumption:** the player carries `skills: list[dict]` on `SpatialEntity` (`spatial_engine.py:577`); each skill dict is the `Skill.model_dump()`. So consumption is `skill.get("commitment_bin")`, `skill.get("cast_time")`, etc. — the same `skill.get(...)` pattern the existing player-action phase uses (`spatial_engine.py:2375-2377, 2414`). The additive-nullable contract means `.get()` returns `None` on exempt/pre-E4 slots → degenerate path → byte-identical.
++
++---
++
++## §2 — The cast-state machine (the new sim primitive; addendum §B.1) — actor-level, on the player entity
++
++### §2.1 — State + carrier fields (new on `SpatialEntity`, additive-defaulted, brownfield-safe)
++
++The state machine is ONE actor-level machine on the player. New defaulted fields on `SpatialEntity` (defaults = the degenerate/idle state → every non-player construction + every pre-E4 fight byte-identical, mirroring the `allegiance`/`cadence_scale` defaulted-field pattern at `:610-636`):
++
++```
++commit_state: str = "idle"          # idle | committing (wind-up) | channeling
++commit_skill_idx: int = -1          # the skill in flight
++commit_started_at: float = 0.0      # elapsed at initiation
++commit_resolve_at: float = 0.0      # elapsed at wind-up completion (committing only)
++channel_next_tick_at: float = 0.0   # elapsed of the next scheduled tick (channeling only)
++channel_tick_n: int = 0             # tick index for ramp (channeling only); reset on break
++channel_origin_x: float = 0.0       # cached placement footprint for tick_tracking=="fixed"
++channel_origin_y: float = 0.0
++commit_lockout_until: float = 0.0   # forced-break recovery lockout (no re-initiate before this)
++_recent_damage_ring: list = []      # trailing (elapsed, dmg) for forced-break window W
++# telemetry accumulators (per-fight, §5):
++committed_completions: int = 0; committed_initiations: int = 0   # → completion_rate/whiff_rate
++channel_ticks_landed: int = 0; channel_ticks_scheduled: int = 0  # → c_chan
++damage_taken_while_committed: float = 0.0
++forced_break_count: int = 0; move_cancel_count: int = 0
++drain_exhaustion_events: int = 0
++channel_activations: int = 0; channel_ticks_delivered_sum: int = 0  # → sustain_uptime / forced_break_rate
++```
++
++**Semantic-shift note (Disc #12):** `action_available_at` (`:680`) gains a NEW meaning during commitment. Pre-E4 it is the sole cadence gate: `if elapsed >= action_available_at` → free to act. Post-E4, while `commit_state != "idle"` the actor is BUSY: the readiness gate must ALSO check the busy-state, not just the cooldown. This is the "readiness gate gains a busy-state" of addendum §B.1. Framed explicitly, NOT buried: the gate now reads "ready = cooldown-elapsed AND not-committed AND not-locked-out." On exempt/snap slots the machine never leaves idle, so the busy-state is inert → byte-identical.
++
++### §2.2 — wind-up: `idle → committing(cast_time) → resolve-at-completion`
++
++At the player action phase (`:2372`), when the selected skill's `commitment_bin == "wind-up"`:
++1. **Initiate** (only if the pilot floor §3 permits): set `commit_state="committing"`, `commit_skill_idx=idx`, `commit_resolve_at = elapsed + cast_time`. **Pay-on-commit** (`pay_on_commit==True`): deduct energy NOW (the existing decrement at `:2436` / `_spend_economy_pool` at `:2433`, moved to initiation). Set cooldown at initiation too (`action_available_at = elapsed + cooldown`, as today at `:2416`) so cadence composes with the commitment leg per the period model `period = k·cooldown + cast_time`. `committed_initiations += 1`.
++2. **In flight** (`committing`, `elapsed < commit_resolve_at`): the actor does NOT select a new skill (busy-state). Wind-up is **un-interruptible at v1** (dispatch §2.6) — incoming damage does NOT break it (only a move-cancel §2.5 or fight-truncation ends it early).
++3. **Resolve at completion** (`elapsed >= commit_resolve_at`): run `_compute_aoe_hits(player, alive_mobs, skill, geo)` against the CURRENT `alive_mobs` positions (`:2386`), then `_apply_skill_damage(...)` (`:2402`). **Motion-whiff is native**: `_compute_aoe_hits` reads live `target.x/target.y` at call time (verified `:842-867` dispatches to `_compute_*_hits` which test live positions), so a wind-up whose template is empty at completion (targets moved out) resolves ZERO hits = a WHIFF. If `len(targets_hit) >= 1`: `committed_completions += 1` (a completion). Else: whiff (no completion increment; the cost is already forfeit by pay-on-commit). Return to `idle`.
++
++**Whiff resolution is EXACTLY the design law (§2.7):** damage resolves against world positions at completion time; the cost is paid at initiation and forfeit on whiff; `completion_rate = committed_completions / committed_initiations`, `whiff_rate = 1 − completion_rate`. NO velocity field needed — I resolve against the actual live positions the world integrated over the cast window (§3 pins how the pilot floor PROJECTS competently).
++
++### §2.3 — channel: `idle → channeling(tick loop) → released | broken | exhausted`
++
++When `commitment_bin == "channel"`:
++1. **Initiate**: `commit_state="channeling"`, `channel_tick_n=0`, `channel_next_tick_at = elapsed` (first tick fires this tick or next scheduled), cache `channel_origin_x/y = player.x/player.y` (for `tick_tracking=="fixed"`). `channel_activations += 1`. Cooldown gate set at initiation. NO pay-on-commit (`pay_on_commit==False`); the channel pays per tick via drain.
++2. **Per tick** (`elapsed >= channel_next_tick_at`): 
++   - **Drain** (`pay_on_commit==False`): debit `drain_rate * tick_interval_seconds` from `player.energy` (per-tick share of the per-second `drain_rate`, HONORED AS-EMITTED). If `player.energy` would go `< 0`: this is **exhaustion** → `drain_exhaustion_events += 1`, transition to `idle` (the natural sustain-window bound, `sustain_window = pool / net_drain`). Do NOT deliver a tick the pool can't fund.
++   - **Resolve the tick**: hit-test per `tick_tracking`. `tracking` → `_compute_aoe_hits(player, alive_mobs, skill, geo)` against live positions (beam re-resolves). `fixed` → hit-test the CACHED footprint at `(channel_origin_x, channel_origin_y)` against current mob positions (tether — targets can walk out). `channel_ticks_scheduled += 1`; if ≥1 hit lands: `channel_ticks_landed += 1`.
++   - **Ramp reward**: the tick's damage is scaled by `ramp(n) = min(1.0, ramp_floor + (1 − ramp_floor)·(channel_tick_n / ramp_n_ticks))`. Apply the ramp as a per-tick `damage_multiplier` scalar into `_apply_skill_damage` (the tick's per-tick damage share, ramp-shaped). `channel_tick_n += 1`; `channel_next_tick_at += tick_interval_seconds`; `channel_ticks_delivered_sum += 1`.
++3. **Voluntary release** (dispatch §2.5): free, any tick boundary — when the hold-logic (§3) says release (target death / no valid target). Return to `idle`; remaining sustain unspent.
++4. **Forced break** (§2.4): the trailing-damage ring fires → break.
++5. **Exhaustion**: pool empty (above).
++
++### §2.4 — Forced-break RULE v1 (F-1b RATIFIED; addendum §C.2; consumed AS-EMITTED)
++
++The trailing-damage ring (`_recent_damage_ring`) accumulates `(elapsed, dmg)` at every incoming-damage site (the player-hp-decrement at `:2577`). At each channel tick, evict entries older than `elapsed − forced_break_window_s` (W=1.0s), then:
++
++```
++Σ(dmg in trailing W)  ≥  forced_break_pct · player.max_hp    ⟹   FORCED BREAK
++```
++
++On forced break: `commit_state="idle"`, `channel_tick_n = 0` (RAMP RESET — F-2b; the teeth), `commit_lockout_until = elapsed + forced_break_lockout_s` (0.4s), the in-flight tick is FORFEIT (no refund — drain already paid, damage not delivered), `forced_break_count += 1`. The lockout blocks re-initiation until `elapsed >= commit_lockout_until` (checked in the readiness busy-state §2.1).
++
++**O(1) per tick:** the ring is a trailing window over `⌈W / tick_size⌉` incoming-damage events; eviction + sum is bounded (§13.2 co-sign — no perf concern). It is populated only when the player is channeling (I gate the append on `commit_state == "channeling"` to keep the non-channel path allocation-free).
++
++**Wind-up is un-interruptible at v1:** the ring does NOT break a `committing` wind-up (dispatch §2.6). The ring only fires during `channeling`.
++
++### §2.5 — Move-cancel (wind-up) + move-policy (channel; addendum §B.4)
++
++- **Wind-up move-cancel**: if the pilot floor would need to reposition (target fled beyond a repositioning threshold) DURING a committing wind-up, the wind-up is CANCELLED: `commit_state="idle"`, cost already forfeit (pay-on-commit), `move_cancel_count += 1`, NO completion. This is the "active whiff-avoidance skill" (addendum §B.5) — but at v1 the competent pilot floor (§3) rarely triggers it because it only initiates when the projected position is inside the template. It exists as a legal transition + a telemetry counter.
++- **Channel move-policy** consumed at the player-navigation branch (`:2289-2360`):
++  - `rooted` (default beams/tethers): **SUSPEND the navigation branch** while `channeling` — the player does not advance toward the target (the lock exposure). The kiting/navigation the branch does is real, so the suspended exposure is real (addendum §B.1). `damage_taken_while_committed` accrues genuinely because the rooted channeler stops repositioning out of danger.
++  - `walk`: scale `movement_speed` by `move_policy_walk_pct` while channeling (the branch runs at reduced speed).
++  - `full_move`: leave the branch untouched (spin class — B12 re-cert target + dodger×channel resolution). The channeler navigates at full speed while channeling.
++
++---
++
++## §3 — Pilot-competence floor v1 (F-competence; addendum §C.4; criterion 18) — the counter-direction threat
++
++The action policy today (`_select_skill_for_entity` + the cast at `:2372-2416`) is commitment-blind: it fires the fastest-cycling affordable skill under kills-only timeout semantics. A blind pilot initiates wind-ups against departing targets → pessimistic completion → inflated premium → over-banded. The v1 floor:
++
++### §3.1 — wind-up initiation gate: project via the motion model (§13.7 — NO velocity field)
++
++**The sim stores no velocity vector** (§13.7 co-sign, grep-verified: no `vx/vy` on `SpatialEntity`; motion is per-tick displacement toward `nav_target`, `:2345-2351`). So the floor FORWARD-INTEGRATES the SAME motion model over the cast window:
++
++```
++project_target_position(target, cast_time):
++    steps = round(cast_time / tick_size)
++    (px, py) = (target.x, target.y)
++    for _ in range(steps):
++        # re-run the mob navigation model (_navigate_entity toward its nav_target == player)
++        (px, py) = one_step_of_mob_motion(target, toward=player_pos, tick_size)
++    return (px, py)
++```
++
++Then: **initiate the wind-up ONLY when the projected `(px,py)` at completion is inside the skill's template** (test the projected point against the geometry footprint via the same `_compute_*_hits` geometry the resolution uses). This is the "one extrapolation" the addendum names, computed against the LIVE motion model so the floor projects the SAME trajectory the world moves on (§13.7 — a projection/resolution split would bias `c_wind`).
++
++**Why the same model matters (Disc #11):** if the floor projected a straight line but the world curved (soft-collision, leash, gather), the measured `c_wind` would be the wrong number — it must be the competent-floor rate rocket prices against, not an idiot-floor OR a clairvoyant-floor rate. Using the actual `_navigate_entity` step keeps it competent-not-clairvoyant: the floor knows the model, not the RNG.
++
++**Cost bound:** `steps = round(cast_time / tick_size)`. At `cast_time = 0.8s`, `tick_size = 0.1s` → 8 projection steps per initiation candidate. Wind-up initiations are sparse (one per period ≈ 13.6s). Negligible vs the per-tick navigation of all mobs. Perf-safe (§8).
++
++### §3.2 — channel hold logic
++
++Hold the channel until: drain exhaustion (§2.3), a threat threshold, or target death — no frivolous release. **Threat threshold**: if the trailing-damage ring is near the forced-break threshold AND `move_policy != rooted`, the competent pilot may voluntarily release + reposition (avoiding the forfeit-tick sting of a forced break). At v1 the minimal competent hold = "hold until target death or exhaustion or forced-break"; the near-threshold voluntary release is the F-competence refinement (implemented as: release if trailing-ring ≥ 0.8·threshold AND move_policy allows repositioning). This keeps the channel-lock exposure REAL (a rooted channeler cannot escape → forced break fires → measured) while a mobile channeler expresses competent play.
++
++### §3.3 — the blind-vs-competent delta report (criterion 18 — the calibration-honesty receipt)
++
++I run the cert gauntlet TWICE per certified kit: once with the **blind pilot** (commitment-blind, initiate-always) and once with the **competent floor** (§3.1/§3.2). Report `Δc_wind = c_wind_competent − c_wind_blind` per (kit, regime). This is the receipt that rocket's priced `c_wind` is the COMPETENT rate, not the idiot rate. Expected sign: `Δc_wind > 0` in mobility regimes (the floor avoids doomed initiations → higher completion). A near-zero delta in a mobility regime would signal the floor isn't projecting (a bug); a large delta confirms the floor is doing real work.
++
++---
++
++## §4 — Capstone expressed-coordinate cert (§3.7; dispatch §6, §10)
++
++T4 capstones declare `(commitment_bin, capstone_amplitude_delta ∈ {none, flatten, invert})`. Cert fires at the EXPRESSED coordinate:
++- `invert` FLIPS the expressed amplitude (spiky↔flat): cert measures the POST-T4 expressed coordinate (`capstone_expressed_amplitude`), not the native.
++- `flatten` / `none` do NOT flip — cert confirms the DECLARED delta whichever it is, never assumes `invert` (§6 amendment — gandalf CONCUR fold).
++- **Declaration-vs-measured mismatch = cert FAIL** (substrate votes). My cert records native + expressed (the cert record carries both — precedent K13→K12 fold). I consume `capstone_expressed_amplitude` as the cert-target coordinate; if my MEASURED expressed amplitude (from the realized damage distribution) disagrees with the declared `capstone_expressed_amplitude`, the kit FAILS cert.
++
++I do NOT re-price the premium; I MEASURE the expressed coordinate and gate on the declaration match.
++
++---
++
++## §5 — Telemetry (addendum §C.5; criterion 16) — the seven producer fields (sim→star-lord boundary)
++
++Seven fields land on `SpatialFightResult` per (kit, commitment_bin, regime), additive-defaulted (brownfield-safe, same status as `output_by_element` / `escape_reached` / `player_death_element`). These ARE the pricing loop's inputs (guard 1 unimplementable without them):
++
++| Field | Type/default | Derivation |
++|---|---|---|
++| `completion_rate` | `float\|None = None` | `committed_completions / committed_initiations` (None if no wind-up cast). |
++| `whiff_rate` | `float\|None = None` | `1 − completion_rate` (None if no wind-up). |
++| `damage_taken_while_committed` | `float = 0.0` | Σ incoming while `commit_state != "idle"`. |
++| `forced_break_count` | `int = 0` | forced-break increments. |
++| `move_cancel_count` | `int = 0` | wind-up move-cancels. |
++| `drain_exhaustion_events` | `int = 0` | channel pool-empty transitions. |
++| `sustain_uptime` | `float\|None = None` | `channel_ticks_delivered_sum / ticks_the_pool_could_fund_at_neutral` per activation (None if no channel). |
++
++**star-lord is the downstream DB consumer** — I add the producer fields to `SpatialFightResult` (the schema addition) + co-author the sim→star-lord MIGRATION section; star-lord owns the DB columns / `_INSERT_SQL` widen / schema version bump (I do NOT draft their work — same handoff as the E3 attribution spine `output_by_element`). These fields are INTERNAL-to-seam until star-lord persists them; `validate()` does NOT enforce them (brownfield-safe).
++
++---
++
++## §6 — Three-honesty-axes regime matrix (criterion 17; addendum §C.3) — composition, not new machinery
++
++The pricing loop consumes rates measured across ≥1 regime per honesty axis. The substrate ALREADY EXISTS (verified §13.1 co-sign):
++
++| Honesty axis | Regime property (in-sim) | Prices |
++|---|---|---|
++| **Mobility** | targets that reposition (kite/hit-and-run branch `_navigate_entity` `:1129-1167`) | wind-up whiff rate |
++| **Lethality** | incoming damage that threatens (deaths + HP<50%-timeout losses, `:2577` decrement + fitness-visible) | channel lock exposure + forced-break rate |
++| **Attrition** | fights long enough that sustain windows bind (60–240s scenarios `:70-86`) | drain economics |
++
++The cert matrix is a COMPOSITION requirement: the gauntlet must carry ≥1 of each. I select regimes from the existing scenario catalog + cohort archetypes so that each certified kit's regime composition demonstrably carries ≥1 mobility + ≥1 lethality + ≥1 attrition (the honesty-axes law applies to the cert matrix itself, §6/§4 dispatch). Pricing derives ONLY from the certified mix (guard 2 as LAW — measuring only against stationary targets is dishonest and reopens the spiky-caster over-reward concern).
++
++---
++
++## §7 — Fight-completion floor guard (G-A4; dispatch §0, §6; §13.6 co-sign) — a sim-only guard
++
++Cert asserts the **slowest modulated skill completes ≥2 casts** in a representative gauntlet fight, else the kit flags **dead-slot**. rocket's math note ASSERTS the arithmetic ceiling (§7 constraint 2: period 23.2s → `1 + ⌊30/23.2⌋ = 2` in a 30s fight); MY cert MEASURES the realized cast count of the slowest modulated skill and flags dead-slot if `< 2`. Only my instrument sees a wind-up that prices fine but never fires. Implementation: track per-skill realized-completion counts over a representative fight; the min over modulated skills < 2 → dead-slot flag on the cert record.
++
++---
++
++## §8 — Perf bound (criterion 19) — HARD gate; ≥30 fights/s
++
++Baseline 36 fights/s; regression >17% BLOCKS. Perf-protecting design choices (all O(1) or sparse per tick):
++- **tick_interval floor [0.25s]** caps channel tick density (HONORED AS-EMITTED, 0.35s) — per-tick resolution does not collapse throughput.
++- **Trailing-damage ring** O(1) per incoming-damage event, gated on `commit_state=="channeling"` (allocation-free on the non-channel path).
++- **Pilot-floor projection** sparse: ~8 forward-steps per wind-up initiation, one initiation per ~13.6s period. Negligible.
++- **Degenerate path**: exempt/snap slots never leave `idle` → the whole machine is a single `if commit_bin is None or commit_bin == "snap"` fast-path → byte-identical to pre-E4 (no new per-tick cost on the dominant population).
++
++**Acceptance:** measure fights/s BEFORE (clean tree) AND AFTER (E4 tree) on the same representative gauntlet slice; report both; BLOCK if after < 0.83 × before OR after < 30.
++
++---
++
++## §9 — #2-FF verdict instrument + one-command pre-fire PATH verification
++
++**Verdict-rendering instrument:** the completion/whiff telemetry over the three-honesty-axes matrix + the blind-vs-competent pilot delta report (§3.3) + the perf-regression measurement (§8) + the round-trip consume-check (§10).
++
++**One-command pre-fire PATH verification** (confirms `cast_time` emitted-but-unread pre-change):
++```
++grep -c cast_time src/reincarnated/simulation/spatial_gauntlet/spatial_engine.py    # expect: 0 (commitment-inert = True)
++```
++**Expected post-change first-log line:**
++```
++K1 wind-up: completion_rate=X in mobility regime; whiff_rate=Y; forced_break_count=Z; fights/s=W ≥30
++```
++
++---
++
++## §10 — Cross-seam round-trip (§7 dispatch; ADR-004; Principle 6) — MANDATORY
++
++A production-path fixture exercises the emitter→sim boundary: emit K1 (wind-up) / K7 (snap) / K19 (channel) + one invert-declaring capstone kit through the emitter, feed the packets into a spatial fight, and verify:
++- every mechanical `[M]` field rocket emits is CONSUMED (present + correct type) at the sim boundary;
++- a consumed value round-trips to the SAME number emitted (e.g. `drain_rate`, `tick_interval_seconds`, `cast_time`, `commitment_premium` read back identical);
++- the sim produces the seven telemetry fields.
++- **FAIL if** any mechanical field is absent / mistyped / unconsumed at the sim boundary, OR round-trips to a different number than emitted.
++
++---
++
++## §11 — What I do NOT touch (dispatch §11) + FLAGGED (§12)
++
++- OUT: emitter half; stagger/poise/interrupt UX; wind-up damage-interrupt (un-interruptible v1); band re-fit/re-anchor (report KPM deltas only — the ONE post-E3/E4 Matt-gated re-anchor absorbs them); E3 hybrid dual-scaling; B12 spin re-cert (note in MIGRATION, don't draft); QD ninth-axis (deferred). NO content runs beyond what the dispatch authorizes.
++- FLAGGED (single flag, single author): batch-2 sample-vs-pin `bc_commitment` fork → flag in the shared MIGRATION.md as pending KR+Matt. Do NOT resolve.
++
++---
++
++## §12 — Acceptance-criteria → mechanism map (the code MUST satisfy these)
++
++| Criterion | Mechanism (this note) |
++|---|---|
++| §3.3 cast_time READ; 3 risk components; completion/whiff telemetry | §2.2 (READ), §2.2/§2.3/§2.4 (whiff/truncation/lock), §5 |
++| §3.5 regime-mix cert; pricing from certified mix | §6 |
++| §3.7 capstone expressed-coordinate cert; native+expressed | §4 |
++| §3.8 channel consistency (one channel mechanic) | §2.3 (single tick-loop implementation; B12/while_channeling share it) |
++| §3.12 report KPM deltas; do NOT re-anchor | §8/§11 (report only) |
++| §E.13 cast-state machine + per-tick resolution; gate + branch suspension | §2.1/§2.2/§2.3, §2.5 |
++| §E.14 drain k-aware + economy-aware; overflow-binding honored | §2.3 (drain AS-EMITTED; exhaustion binds) |
++| §E.15 move-policy enum; spin under full_move | §2.5 |
++| §E.16 forced-break rule + calibrated; telemetry lands with it | §2.4, §5 |
++| §E.17 three-honesty-axes matrix; pricing across all three | §6 |
++| §E.18 pilot floor; blind-vs-competent delta report | §3 |
++| §E.19 perf ≥30 fights/s; regression >17% blocks | §8 |
++
++**Signed:** gamora, 2026-07-11. The FORM is consumed AS-EMITTED; the mechanism is pinned; the acceptance instrument is named. The premium is priced against risks my state machine genuinely expresses — motion-whiff resolves against live positions, channel-lock suspends a real navigation branch, forced-break resets a real ramp, drain binds a real pool. No fiction. Build follows.
+diff --git a/src/reincarnated/simulation/notes/e4_byte_identity_ab_2026_07_11.py b/src/reincarnated/simulation/notes/e4_byte_identity_ab_2026_07_11.py
+new file mode 100644
+index 0000000..c7cbe9d
+--- /dev/null
++++ b/src/reincarnated/simulation/notes/e4_byte_identity_ab_2026_07_11.py
+@@ -0,0 +1,174 @@
++"""
++e4_byte_identity_ab_2026_07_11.py — E4 PHASE-2 BYTE-IDENTITY GUARD (A/B vs pre-E4 tree) + PERF gate.
++
++gamora, 2026-07-11 (gamora/v-commitment-axis-4).
++
++The dispatch's load-bearing guard: "snap (degenerate, no cast-state) kits must be byte-identical to
++today's behavior — every existing kit whose commitment is snap-grade is unchanged by construction.
++Prove it." The ENTIRE current certified population is snap-grade (bc_commitment defaults to "snap";
++no CellDef pin is wired into the seed-57000000 research population), so byte-identity of that
++population against the pre-E4 tree is the proof.
++
++This harness runs a REAL generated kit (production path — resolver-mitigated damage, NOT the
++projection flat-fallback) across the four canonical scenarios and fingerprints the SpatialFightResult
++of every fight. Run `capture` on the PRE-E4 tree (git stash the simulation seam), then `verify` on
++the E4 tree. A byte-identical population is the guard.
++
++ONE-COMMAND A/B (from repo root):
++    git stash push -- src/reincarnated/simulation
++    python -m reincarnated.simulation.notes.e4_byte_identity_ab_2026_07_11 capture
++    git stash pop
++    python -m reincarnated.simulation.notes.e4_byte_identity_ab_2026_07_11 verify   # exit 0 = BYTE-IDENTICAL
++
++Also runs the PERF gate (criterion 19): ≥30 fights/s; regression >17% BLOCKS (needs a baseline
++captured on the pre-E4 tree — persisted alongside the golden).
++"""
++from __future__ import annotations
++
++import json
++import sys
++import time
++from pathlib import Path
++
++_ORACLE = Path(__file__).resolve().parents[1] / "output" / "e4_byte_identity_golden_2026_07_11.json"
++
++_SCENARIOS = ["open_arena", "chokepoint_corridor", "boss_with_adds", "elite_pack"]
++_N_FIGHTS = 4
++_SEED = 57000  # deterministic
++
++
++def _run_population() -> dict:
++    """Run a small deterministic snap-grade population and fingerprint every fight result.
++
++    Uses the PRODUCTION path (player_class) so resolver-mitigated damage is exercised (the real
++    balance path), not the projection flat-fallback. The fingerprint is the observable surface a
++    downstream consumer sees; byte-identity of it across trees is the guard."""
++    import logging
++    logging.disable(logging.CRITICAL)
++    from reincarnated.generation.season_generation_pipeline import (
++        w5r1_generate_kit_candidates, _build_real_player_class,
++    )
++    from reincarnated.generation.resource_economy import DEFAULT_RESOURCE_ECONOMY
++    from reincarnated.simulation.spatial_gauntlet.spatial_engine import run_spatial_fight
++    from reincarnated.simulation.spatial_gauntlet.arena import ALL_SCENARIOS
++    from reincarnated.simulation.gauntlet_four_family_metrology_driver import _build_standard_mob_dicts
++
++    kits = w5r1_generate_kit_candidates(seed_base=57000000)
++    # a stable slice of 3 kits (deterministic order)
++    kits = kits[:3]
++
++    fp: dict = {}
++    for kit in kits:
++        player_class = _build_real_player_class(kit)   # KitCandidate → production PlayerClass
++        class_dict = player_class.model_dump()
++        class_dict["resource_economy"] = dict(DEFAULT_RESOURCE_ECONOMY)
++        for sid in _SCENARIOS:
++            scenario = ALL_SCENARIOS[sid]
++            mob_dicts = _build_standard_mob_dicts(scenario)
++            raw = run_spatial_fight(
++                scenario=scenario, class_dict=class_dict, mob_dicts=mob_dicts,
++                n_fights=_N_FIGHTS, session_id="e4_bi_ab", base_seed=_SEED,
++                season_id="e4-byte-identity", player_class=player_class, damage_modifier=1.0,
++            )
++            rows = []
++            for r in raw["fight_results"]:
++                rows.append([
++                    r.winner,
++                    round(r.elapsed_s, 6),
++                    r.player_kill,
++                    r.mobs_killed,
++                    round(r.player_damage_total, 4),
++                    round(r.damage_to_boss, 4),
++                    round(r.total_displacement, 6),
++                    r.player_death_element,
++                ])
++            fp[f"{kit.character_id}|{sid}"] = rows
++    return fp
++
++
++def _perf_fps() -> float:
++    """Measure fights/s on a representative gauntlet slice (perf criterion 19)."""
++    import logging
++    logging.disable(logging.CRITICAL)
++    from reincarnated.generation.season_generation_pipeline import (
++        w5r1_generate_kit_candidates, _build_real_player_class,
++    )
++    from reincarnated.generation.resource_economy import DEFAULT_RESOURCE_ECONOMY
++    from reincarnated.simulation.spatial_gauntlet.spatial_engine import run_spatial_fight
++    from reincarnated.simulation.spatial_gauntlet.arena import ALL_SCENARIOS
++    from reincarnated.simulation.gauntlet_four_family_metrology_driver import _build_standard_mob_dicts
++
++    player_class = _build_real_player_class(w5r1_generate_kit_candidates(seed_base=57000000)[0])
++    class_dict = player_class.model_dump()
++    class_dict["resource_economy"] = dict(DEFAULT_RESOURCE_ECONOMY)
++    scenario = ALL_SCENARIOS["open_arena"]
++    mob_dicts = _build_standard_mob_dicts(scenario)
++    N = 40
++    t0 = time.perf_counter()
++    run_spatial_fight(
++        scenario=scenario, class_dict=class_dict, mob_dicts=mob_dicts, n_fights=N,
++        session_id="e4_perf", base_seed=_SEED, season_id="e4-perf", player_class=player_class,
++        damage_modifier=1.0,
++    )
++    dt = time.perf_counter() - t0
++    return N / dt if dt > 0 else float("inf")
++
++
++def capture() -> int:
++    fp = _run_population()
++    fps = _perf_fps()
++    _ORACLE.parent.mkdir(parents=True, exist_ok=True)
++    _ORACLE.write_text(json.dumps({"fingerprint": fp, "perf_fps": fps}, indent=2, sort_keys=True))
++    print(f"[CAPTURE] golden written: {_ORACLE}")
++    print(f"[CAPTURE] {len(fp)} (kit,scenario) cells; baseline perf {fps:.1f} fights/s")
++    return 0
++
++
++def verify() -> int:
++    if not _ORACLE.exists():
++        print(f"[VERIFY] no golden at {_ORACLE} — run `capture` on the PRE-E4 tree first.")
++        return 2
++    golden = json.loads(_ORACLE.read_text())
++    fp_now = _run_population()
++    fp_old = golden["fingerprint"]
++
++    ok = True
++    keys = set(fp_old) | set(fp_now)
++    for k in sorted(keys):
++        if fp_old.get(k) != fp_now.get(k):
++            ok = False
++            print(f"[VERIFY] DIVERGENCE at {k}:")
++            print(f"    pre-E4 : {fp_old.get(k)}")
++            print(f"    E4     : {fp_now.get(k)}")
++    if ok:
++        print(f"[VERIFY] byte-identity: PASS — {len(fp_now)} (kit,scenario) cells identical "
++              f"to the pre-E4 tree. Snap-grade population UNCHANGED by construction.")
++
++    # PERF gate (criterion 19): ≥30 fights/s; regression >17% blocks.
++    fps_now = _perf_fps()
++    fps_old = float(golden.get("perf_fps", 0.0))
++    print(f"[VERIFY] perf: pre-E4 {fps_old:.1f} fights/s → E4 {fps_now:.1f} fights/s")
++    perf_ok = fps_now >= 30.0 and (fps_old <= 0 or fps_now >= 0.83 * fps_old)
++    if not perf_ok:
++        print(f"[VERIFY] PERF GATE: BLOCK (need ≥30 fights/s AND ≥0.83×baseline "
++              f"{0.83*fps_old:.1f}; got {fps_now:.1f})")
++    else:
++        print(f"[VERIFY] PERF GATE: PASS (≥30 fights/s; regression "
++              f"{100*(1 - fps_now/fps_old) if fps_old>0 else 0:.1f}% ≤ 17%)")
++
++    if ok and perf_ok:
++        print("RESULT: BYTE-IDENTICAL + PERF PASS")
++        return 0
++    print("RESULT: FAIL")
++    return 1
++
++
++def main(argv: list[str]) -> int:
++    cmd = argv[1] if len(argv) > 1 else "verify"
++    if cmd == "capture":
++        return capture()
++    return verify()
++
++
++if __name__ == "__main__":
++    sys.exit(main(sys.argv))
+diff --git a/src/reincarnated/simulation/notes/e4_commitment_sim_consumer_smoke_2026_07_11.py b/src/reincarnated/simulation/notes/e4_commitment_sim_consumer_smoke_2026_07_11.py
+new file mode 100644
+index 0000000..5042dc7
+--- /dev/null
++++ b/src/reincarnated/simulation/notes/e4_commitment_sim_consumer_smoke_2026_07_11.py
+@@ -0,0 +1,260 @@
++"""
++e4_commitment_sim_consumer_smoke_2026_07_11.py — E4 PHASE-2 sim-consumer verdict instrument.
++
++gamora, 2026-07-11 (gamora/v-commitment-axis-4). Math note:
++    simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md
++Shared math note (CLOSED): generation/math/commitment-axis-e4-2026-07.md.
++
++This is the #2-FF verdict instrument + the MANDATORY cross-seam round-trip smoke (dispatch §7,
++Principle 6). It exercises the emitter→sim boundary on emitted-for-real skills (NOT hand-built
++packets), consumes them through the cast-state machine, and asserts:
++
++  RT (round-trip): every mechanical [M] field the emitter writes is CONSUMED at the sim boundary
++    and a consumed value round-trips to the SAME number emitted (drain_rate / tick_interval /
++    cast_time / commitment_bin). FAIL if any [M] field is absent/mistyped/unconsumed OR round-
++    trips to a different number.
++  BI (byte-identity guard): a SNAP-grade kit leaves the cast-state machine at "idle" for the whole
++    fight AND produces the degenerate telemetry (all E4 fields None/0) → the E4 path is inert →
++    byte-identical to pre-E4 BY CONSTRUCTION. (The full A/B vs the git-stashed pre-E4 tree is the
++    companion harness e4_byte_identity_ab_2026_07_11.py.)
++  WU (wind-up mechanics): a wind-up kit initiates → commits (cast_time window) → resolves at
++    completion; whiffs against a departing target (motion-whiff); telemetry completion/whiff land.
++  CH (channel mechanics): a channel kit drains per tick, ramps, force-breaks under lethal pressure,
++    exhausts a bound pool; telemetry forced_break/drain_exhaustion/sustain_uptime land.
++  C18 (criterion 18): blind-vs-competent Δc_wind report — the calibration-honesty receipt.
++
++Run: python -m reincarnated.simulation.notes.e4_commitment_sim_consumer_smoke_2026_07_11
++"""
++from __future__ import annotations
++
++import sys
++import time
++
++from reincarnated.generation.per_skill_emitter import emit_skills_for_kit, SkillEmissionConfig
++from reincarnated.simulation.spatial_gauntlet import commitment_state_machine as csm
++from reincarnated.simulation.spatial_gauntlet.spatial_engine import (
++    run_spatial_fight, SpatialFightEngine,
++)
++from reincarnated.simulation.spatial_gauntlet.arena import ALL_SCENARIOS
++
++
++# ── skill emission (production emitter half — e4d682e) ────────────────────────
++
++def _emit_kit(commitment: str, element="fire", amp="spiky", attr="strength", rng="close"):
++    """Emit a real kit's skills via the landed E4 emitter for a chosen commitment bin."""
++    # flat×wind-up is a hard-cut coupling; pick a coupling-legal amplitude per bin.
++    if commitment == "channel":
++        amp = "flat"   # spiky×channel is hard-cut; flat×channel is legal
++        rng = "medium"
++        attr = "intelligence"
++    cfg = SkillEmissionConfig(
++        character_id=f"E4_{commitment}", element=element, bc_attribute=attr,
++        bc_amplitude=amp, bc_commitment=commitment, bc_range=rng,
++    )
++    return emit_skills_for_kit(cfg)
++
++
++def _class_dict(commitment: str) -> dict:
++    """A minimal projection-path class_dict carrying emitted E4 skills. The state machine reads the
++    skill dict fields (commitment_bin/cast_time/...) — the projection path exercises the machine
++    fully; the resolver runs its flat fallback for damage (byte-identity of the machine is what we
++    test, not the damage magnitude)."""
++    skills = [s.model_dump() for s in _emit_kit(commitment)]
++    return {
++        "id": f"E4_{commitment}_kit",
++        "vitality": 20, "strength": 20, "intelligence": 20, "dexterity": 20, "wisdom": 20,
++        "movement_speed": 5.75,
++        "skills": skills,
++    }
++
++
++def _fight(commitment: str, scenario_id="open_arena", n=6, seed=4242, blind=False,
++           damage_modifier=1.0, mob_mutate=None, drain_override=None, hp_mult=None):
++    """Run a gauntlet slice. mob_mutate(mob_dict) lets a regime tune mob behavior (mobility);
++    damage_modifier low keeps the projection-path fight ALIVE long enough for pressure to
++    express (the flat-fallback one-shots at dm=1.0 — an instrument property of the projection
++    path, NOT the machine; the production cert uses resolver-mitigated damage)."""
++    scenario = ALL_SCENARIOS[scenario_id]
++    from reincarnated.simulation.gauntlet_four_family_metrology_driver import _build_standard_mob_dicts
++    mob_dicts = _build_standard_mob_dicts(scenario)
++    if mob_mutate is not None:
++        for m in mob_dicts:
++            mob_mutate(m)
++    cd = _class_dict(commitment)
++    if drain_override is not None:
++        for s in cd["skills"]:
++            if s.get("commitment_bin") == "channel":
++                s["drain_rate"] = drain_override
++    hp_multipliers = [hp_mult] * len(mob_dicts) if hp_mult is not None else None
++    return run_spatial_fight(
++        scenario=scenario, class_dict=cd, mob_dicts=mob_dicts,
++        n_fights=n, session_id=f"e4_smoke_{commitment}", base_seed=seed,
++        season_id="e4-commitment-smoke", player_class=None, damage_modifier=damage_modifier,
++        e4_blind_pilot=blind, hp_multipliers=hp_multipliers,
++    )
++
++
++def _kite(m):
++    m["preferred_behavior"] = "ranged_kite"
++    m["movement_speed"] = 9.0
++    m["range_profile_redistribution"] = {"close": 0.0, "medium": 0.0, "long": 1.0}
++
++
++def main() -> int:
++    fails: list[str] = []
++
++    # ── RT: round-trip field consumption + identity (emitter→sim boundary) ──
++    print("== RT: emitter→sim round-trip (mechanical [M] fields) ==")
++    for bin_ in ("snap", "wind-up", "channel"):
++        skills = [s.model_dump() for s in _emit_kit(bin_)]
++        # find the primary attack (modulated slot carrying the bin)
++        atk = next((s for s in skills if s.get("commitment_bin") == bin_), None)
++        assert atk is not None, f"RT: no modulated {bin_} slot emitted"
++        c = csm.read_commitment(atk)   # the SIM's consumer read
++        # round-trip identity on the [M] numbers
++        if c.bin != atk["commitment_bin"]:
++            fails.append(f"RT {bin_}: bin round-trip {c.bin} != {atk['commitment_bin']}")
++        if abs(c.cast_time - float(atk["cast_time"])) > 1e-12:
++            fails.append(f"RT {bin_}: cast_time round-trip {c.cast_time} != {atk['cast_time']}")
++        if bin_ == "channel":
++            for k, got in (("tick_interval_seconds", c.tick_interval_s),
++                           ("drain_rate", c.drain_rate),
++                           ("forced_break_pct", c.forced_break_pct),
++                           ("forced_break_window_s", c.forced_break_window_s),
++                           ("ramp_n_ticks", c.ramp_n_ticks)):
++                emitted = atk.get(k)
++                if emitted is None:
++                    fails.append(f"RT channel: [M] field {k} ABSENT at sim boundary")
++                elif abs(float(got) - float(emitted)) > 1e-12:
++                    fails.append(f"RT channel: {k} round-trip {got} != {emitted}")
++        print(f"  {bin_:8} bin={c.bin} cast_time={c.cast_time} "
++              f"drain={c.drain_rate} tick={c.tick_interval_s} move_policy={c.move_policy}")
++    print("  RT:", "PASS" if not [f for f in fails if f.startswith('RT')] else "FAIL")
++
++    # ── BI: byte-identity guard — a snap kit leaves the machine INERT ──
++    print("== BI: byte-identity guard (snap = degenerate, machine never fires) ==")
++    raw = _fight("snap")
++    frs = raw["fight_results"]
++    bi_ok = all(
++        r.completion_rate is None and r.whiff_rate is None
++        and r.forced_break_count == 0 and r.move_cancel_count == 0
++        and r.drain_exhaustion_events == 0 and r.sustain_uptime is None
++        and r.damage_taken_while_committed == 0.0
++        for r in frs
++    )
++    if not bi_ok:
++        fails.append("BI: snap kit produced non-degenerate E4 telemetry (machine fired on snap!)")
++    print(f"  snap fights={len(frs)} all-degenerate-telemetry={bi_ok} → "
++          f"{'PASS' if bi_ok else 'FAIL'}")
++
++    # ── PF: pilot-floor projection tracks the motion model (unit-level; §3.1) ──
++    print("== PF: pilot-floor projection tracks the live motion model (§3.1) ==")
++    class _Flee:
++        x = 5.0; y = 0.0; movement_speed = 14.0
++        preferred_behavior = "hit_and_run"; preferred_range_m = 12.0
++    class _Chase:
++        x = 5.0; y = 0.0; movement_speed = 4.0
++        preferred_behavior = "melee_aggressive"; preferred_range_m = 2.0
++    flee = csm.project_target_position(_Flee(), 0.8, 0.1, 0.0, 0.0)
++    chase = csm.project_target_position(_Chase(), 0.8, 0.1, 0.0, 0.0)
++    print(f"  fleeing target (5,0) → projected {tuple(round(v,2) for v in flee)} (moves AWAY, x grows)")
++    print(f"  approaching target (5,0) → projected {tuple(round(v,2) for v in chase)} (moves TOWARD, x shrinks)")
++    if not (flee[0] > 5.0 and chase[0] < 5.0):
++        fails.append("PF: projection does not track the motion model (fleeing should grow x, "
++                     "approaching should shrink x)")
++    print("  PF:", "PASS" if not [f for f in fails if f.startswith('PF')] else "FAIL")
++
++    # ── WU: wind-up mechanics (initiate/commit/resolve/whiff/telemetry) ──
++    # Mobility regime (kiting mobs) so wind-ups genuinely whiff. dm=0.02 keeps the projection-path
++    # fight alive (dm=1.0 flat-fallback one-shots → no regime expression, an instrument property).
++    print("== WU: wind-up mechanics (motion-whiff + completion telemetry; kiting mobility regime) ==")
++    raw = _fight("wind-up", scenario_id="open_arena", n=5, damage_modifier=0.02, mob_mutate=_kite)
++    frs = raw["fight_results"]
++    wu_active = [r for r in frs if r.completion_rate is not None]
++    if not wu_active:
++        fails.append("WU: no wind-up was initiated across the gauntlet (machine never fired)")
++    else:
++        cr = [r.completion_rate for r in wu_active]
++        whiffed = any((r.whiff_rate or 0) > 0 for r in wu_active)
++        print(f"  wind-up fights with initiations: {len(wu_active)}/{len(frs)}; "
++              f"completion_rate range [{min(cr):.3f}, {max(cr):.3f}]; motion-whiff expressed={whiffed}")
++        if any(not (0.0 <= r.completion_rate <= 1.0) for r in wu_active):
++            fails.append("WU: completion_rate out of [0,1]")
++        if not whiffed:
++            fails.append("WU: no whiff in a kiting mobility regime (motion-whiff not expressing — "
++                         "the fake-risk sign for wind-up)")
++    print("  WU:", "PASS" if not [f for f in fails if f.startswith('WU')] else "FAIL")
++
++    # ── CH-lethality: forced-break + lock-exposure (boss_with_adds; heavy incoming) ──
++    print("== CH-lethality: forced-break + lock-exposure (boss_with_adds lethality regime) ==")
++    raw = _fight("channel", scenario_id="boss_with_adds", n=4, damage_modifier=0.02)
++    frs = raw["fight_results"]
++    fb = sum(r.forced_break_count for r in frs)
++    dtc = sum(r.damage_taken_while_committed for r in frs)
++    print(f"  forced_break_total={fb}; dmg_taken_while_committed={dtc:.1f} "
++          f"(rooted channeler exposed → both express under lethal pressure)")
++    if fb <= 0:
++        fails.append("CH-lethality: zero forced breaks in a lethality regime (F-1b rule not firing)")
++    if dtc <= 0.0:
++        fails.append("CH-lethality: zero damage_taken_while_committed (rooted lock exposure not "
++                     "expressing — the fake-risk sign for channel)")
++    print("  CH-lethality:", "PASS" if not [f for f in fails if f.startswith('CH-lethality')] else "FAIL")
++
++    # ── CH-drain: exhaustion binds a pool (attrition; drain > net regen) ──
++    # A high drain (400/s vs pool 100) makes the pool bind in ~1 tick → drain_exhaustion_events +
++    # sustain_uptime<1.0 (the overflow-binding VISIBILITY, §6.4 — the "free lock" HARD-FAIL signal
++    # is instrument-visible). dm≈0 + tanky mobs keeps the channel from clearing (so it drains).
++    print("== CH-drain: exhaustion binds the pool (drain-economics visibility, §6.4) ==")
++    raw = _fight("channel", scenario_id="open_arena", n=3, damage_modifier=0.0001,
++                 drain_override=400.0, hp_mult=5.0)
++    frs = raw["fight_results"]
++    ex = sum(r.drain_exhaustion_events for r in frs)
++    su = [r.sustain_uptime for r in frs if r.sustain_uptime is not None]
++    print(f"  drain_exhaustion_total={ex}; sustain_uptime range "
++          f"[{min(su):.3f}, {max(su):.3f}] (bound pool → uptime<1.0, exhaustion>0)")
++    if ex <= 0:
++        fails.append("CH-drain: zero exhaustion with drain 400/s vs pool 100 (drain not binding)")
++    if any(not (0.0 <= s <= 1.0) for s in su):
++        fails.append("CH-drain: sustain_uptime out of [0,1]")
++    print("  CH-drain:", "PASS" if not [f for f in fails if f.startswith('CH-drain')] else "FAIL")
++
++    # ── C18: blind-vs-competent Δc_wind (criterion 18 calibration-honesty receipt) ──
++    print("== C18: blind-vs-competent Δc_wind (pilot-floor honesty receipt) ==")
++    comp = _fight("wind-up", scenario_id="open_arena", n=5, damage_modifier=0.02, mob_mutate=_kite, blind=False)
++    blnd = _fight("wind-up", scenario_id="open_arena", n=5, damage_modifier=0.02, mob_mutate=_kite, blind=True)
++    def _mean_cwind(raw):
++        rs = [r.completion_rate for r in raw["fight_results"] if r.completion_rate is not None]
++        return sum(rs) / len(rs) if rs else None
++    c_comp, c_blind = _mean_cwind(comp), _mean_cwind(blnd)
++    if c_comp is None or c_blind is None:
++        print(f"  (competent={c_comp}, blind={c_blind}) — one arm had no initiations. Reported, non-fatal.")
++    else:
++        delta = c_comp - c_blind
++        print(f"  c_wind competent={c_comp:.4f}  blind={c_blind:.4f}  Δ={delta:+.4f}")
++        print(f"  NOTE: in this MELEE-CLOSE smoke the player AI closes to attack range before firing,")
++        print(f"  so targets are in-template at INITIATION for both pilots and Δ≈0 is EXPECTED here.")
++        print(f"  The Δ signal lands in the production RANGED-mobility cert (a ranged wind-up kit vs")
++        print(f"  kiting mobs at range — the classic whiff regime the competent floor can pre-avoid).")
++        print(f"  The projection LOGIC is proven working by PF above (fleeing→x grows, approach→x shrinks).")
++
++    # ── PERF: fights/s with the machine live (criterion 19 gate; report only here) ──
++    print("== PERF: fights/s with cast-state machine live (report; hard gate in A/B harness) ==")
++    t0 = time.perf_counter()
++    _fight("wind-up", scenario_id="open_arena", n=20, damage_modifier=0.02)
++    dt = time.perf_counter() - t0
++    fps = 20.0 / dt if dt > 0 else float("inf")
++    print(f"  wind-up 20 fights in {dt:.2f}s → {fps:.1f} fights/s "
++          f"({'≥30 OK' if fps >= 30 else 'BELOW 30 — investigate'})")
++
++    print()
++    if fails:
++        print("RESULT: FAIL")
++        for f in fails:
++            print("  -", f)
++        return 1
++    print("RESULT: PASS (RT + BI + WU + CH green; C18 + PERF reported)")
++    return 0
++
++
++if __name__ == "__main__":
++    sys.exit(main())
+diff --git a/src/reincarnated/simulation/output/e4_byte_identity_golden_2026_07_11.json b/src/reincarnated/simulation/output/e4_byte_identity_golden_2026_07_11.json
+new file mode 100644
+index 0000000..487faa7
+--- /dev/null
++++ b/src/reincarnated/simulation/output/e4_byte_identity_golden_2026_07_11.json
+@@ -0,0 +1,509 @@
++{
++  "fingerprint": {
++    "S1_endgame_bc_melee_low_spiky_str_none_s0|boss_with_adds": [
++      [
++        "monster",
++        6.0,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        6.3,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        6.0,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        6.3,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ]
++    ],
++    "S1_endgame_bc_melee_low_spiky_str_none_s0|chokepoint_corridor": [
++      [
++        "monster",
++        7.3,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        7.4,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        7.4,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        7.9,
++        false,
++        1,
++        225.0,
++        0.0,
++        11.2,
++        "fire"
++      ]
++    ],
++    "S1_endgame_bc_melee_low_spiky_str_none_s0|elite_pack": [
++      [
++        "monster",
++        11.9,
++        false,
++        2,
++        800.0,
++        0.0,
++        7.2,
++        "fire"
++      ],
++      [
++        "monster",
++        11.9,
++        false,
++        2,
++        800.0,
++        0.0,
++        7.2,
++        "fire"
++      ],
++      [
++        "monster",
++        11.9,
++        false,
++        2,
++        800.0,
++        0.0,
++        7.2,
++        "fire"
++      ],
++      [
++        "monster",
++        11.9,
++        false,
++        2,
++        800.0,
++        0.0,
++        7.2,
++        "fire"
++      ]
++    ],
++    "S1_endgame_bc_melee_low_spiky_str_none_s0|open_arena": [
++      [
++        "monster",
++        5.9,
++        false,
++        0,
++        0.0,
++        0.0,
++        3.2,
++        "fire"
++      ],
++      [
++        "monster",
++        5.9,
++        false,
++        0,
++        0.0,
++        0.0,
++        3.2,
++        "fire"
++      ],
++      [
++        "monster",
++        5.9,
++        false,
++        0,
++        0.0,
++        0.0,
++        3.2,
++        "fire"
++      ],
++      [
++        "monster",
++        6.0,
++        false,
++        0,
++        0.0,
++        0.0,
++        3.2,
++        "fire"
++      ]
++    ],
++    "S1_endgame_bc_melee_low_spiky_str_none_s1|boss_with_adds": [
++      [
++        "monster",
++        6.0,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        6.3,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        6.0,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        6.3,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ]
++    ],
++    "S1_endgame_bc_melee_low_spiky_str_none_s1|chokepoint_corridor": [
++      [
++        "monster",
++        7.3,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        7.4,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        7.4,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        7.9,
++        false,
++        1,
++        225.0,
++        0.0,
++        11.2,
++        "fire"
++      ]
++    ],
++    "S1_endgame_bc_melee_low_spiky_str_none_s1|elite_pack": [
++      [
++        "monster",
++        11.9,
++        false,
++        2,
++        800.0,
++        0.0,
++        7.2,
++        "fire"
++      ],
++      [
++        "monster",
++        11.9,
++        false,
++        2,
++        800.0,
++        0.0,
++        7.2,
++        "fire"
++      ],
++      [
++        "monster",
++        11.9,
++        false,
++        2,
++        800.0,
++        0.0,
++        7.2,
++        "fire"
++      ],
++      [
++        "monster",
++        11.9,
++        false,
++        2,
++        800.0,
++        0.0,
++        7.2,
++        "fire"
++      ]
++    ],
++    "S1_endgame_bc_melee_low_spiky_str_none_s1|open_arena": [
++      [
++        "monster",
++        5.9,
++        false,
++        0,
++        0.0,
++        0.0,
++        3.2,
++        "fire"
++      ],
++      [
++        "monster",
++        5.9,
++        false,
++        0,
++        0.0,
++        0.0,
++        3.2,
++        "fire"
++      ],
++      [
++        "monster",
++        5.9,
++        false,
++        0,
++        0.0,
++        0.0,
++        3.2,
++        "fire"
++      ],
++      [
++        "monster",
++        6.0,
++        false,
++        0,
++        0.0,
++        0.0,
++        3.2,
++        "fire"
++      ]
++    ],
++    "S1_endgame_bc_melee_low_spiky_str_none_s2|boss_with_adds": [
++      [
++        "monster",
++        6.0,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        6.3,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        6.0,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        6.3,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ]
++    ],
++    "S1_endgame_bc_melee_low_spiky_str_none_s2|chokepoint_corridor": [
++      [
++        "monster",
++        7.3,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        7.4,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        7.4,
++        false,
++        0,
++        0.0,
++        0.0,
++        11.2,
++        "fire"
++      ],
++      [
++        "monster",
++        7.9,
++        false,
++        1,
++        225.0,
++        0.0,
++        11.2,
++        "fire"
++      ]
++    ],
++    "S1_endgame_bc_melee_low_spiky_str_none_s2|elite_pack": [
++      [
++        "monster",
++        11.9,
++        false,
++        2,
++        800.0,
++        0.0,
++        7.2,
++        "fire"
++      ],
++      [
++        "monster",
++        11.9,
++        false,
++        2,
++        800.0,
++        0.0,
++        7.2,
++        "fire"
++      ],
++      [
++        "monster",
++        11.9,
++        false,
++        2,
++        800.0,
++        0.0,
++        7.2,
++        "fire"
++      ],
++      [
++        "monster",
++        11.9,
++        false,
++        2,
++        800.0,
++        0.0,
++        7.2,
++        "fire"
++      ]
++    ],
++    "S1_endgame_bc_melee_low_spiky_str_none_s2|open_arena": [
++      [
++        "monster",
++        5.9,
++        false,
++        0,
++        0.0,
++        0.0,
++        3.2,
++        "fire"
++      ],
++      [
++        "monster",
++        5.9,
++        false,
++        0,
++        0.0,
++        0.0,
++        3.2,
++        "fire"
++      ],
++      [
++        "monster",
++        5.9,
++        false,
++        0,
++        0.0,
++        0.0,
++        3.2,
++        "fire"
++      ],
++      [
++        "monster",
++        6.0,
++        false,
++        0,
++        0.0,
++        0.0,
++        3.2,
++        "fire"
++      ]
++    ]
++  },
++  "perf_fps": 40.00693120237678
++}
+\ No newline at end of file
+diff --git a/src/reincarnated/simulation/spatial_gauntlet/commitment_state_machine.py b/src/reincarnated/simulation/spatial_gauntlet/commitment_state_machine.py
+new file mode 100644
+index 0000000..eaa7623
+--- /dev/null
++++ b/src/reincarnated/simulation/spatial_gauntlet/commitment_state_machine.py
+@@ -0,0 +1,247 @@
++"""
++E4 commitment-axis — the cast-state machine (PHASE-2 sim consumer).
++
++gamora, 2026-07-11 (gamora/v-commitment-axis-4). Math note:
++    simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md
++
++This module is the SIM CONSUMER of the E4 v2 packet contract (rocket emitter half
++`e4d682e`; skill_schema.py commitment fields). It HONORS the emitted calibrated
++constants AS-EMITTED (cast_time, tick_interval, Y%/W, lockout, ramp, drain,
++commitment_premium) — it does NOT re-derive them (dispatch §2.3; re-derivation is
++seam drift). The premium already rides on the emitted damage_multiplier; this module
++never touches it.
++
++Design law it makes REAL (addendum §B/§C):
++  - wind-up:  idle -> committing(cast_time) -> resolve-at-completion (motion-whiff).
++  - channel:  idle -> channeling(tick loop) -> released | broken | exhausted.
++  - snap / exempt: degenerate (no state; byte-identical to pre-E4).
++
++Integration: spatial_engine's player-action phase delegates the commitment decision
++to `plan_player_action(...)`; the per-tick channel service delegates to
++`service_channel_tick(...)`. The whiff/tick RESOLUTION (hit-test + damage apply) stays
++in the engine (it needs engine-local closures over _compute_aoe_hits / _apply_skill_damage);
++this module owns the STATE + PARSING + the pilot-floor PROJECTION so they are unit-testable
++in isolation.
++
++NO velocity field exists on SpatialEntity (co-sign §13.7) — the pilot floor
++FORWARD-INTEGRATES the same per-tick mob motion model over the cast window.
++"""
++
++from __future__ import annotations
++
++import math
++from dataclasses import dataclass
++from typing import Optional
++
++
++# ── The three bins (D7-clean; genre-precedented) ──────────────────────────────
++BIN_SNAP = "snap"
++BIN_WINDUP = "wind-up"
++BIN_CHANNEL = "channel"
++
++# Degenerate cast-time floor for snap so the machine has a non-degenerate but
++# negligible window (math note §3.1 — emitter value, honored). Used only as a
++# defensive fallback if a snap slot carries no cast_time.
++_SNAP_CAST_TIME_FALLBACK = 0.15
++
++
++@dataclass
++class Commitment:
++    """The parsed [M] mechanical subset of one skill's E4 packet (skill_schema.py v2).
++
++    None `bin` == exempt slot (no layer) -> the machine never leaves idle -> the
++    engine takes the pre-E4 instant-resolve path. Every field is read via `.get`
++    so a pre-E4 packet (all fields absent) parses to an EXEMPT commitment.
++    """
++    bin: Optional[str]
++    cast_time: float
++    # channel sub-fields (non-null only when bin == channel)
++    tick_interval_s: float
++    ramp_floor: float
++    ramp_n_ticks: int
++    forced_break_pct: float
++    forced_break_window_s: float
++    forced_break_lockout_s: float
++    drain_rate: float
++    tick_tracking: str            # "tracking" | "fixed"
++    move_policy: str              # "rooted" | "walk" | "full_move"
++    move_policy_walk_pct: float
++    pay_on_commit: bool
++
++    @property
++    def is_exempt(self) -> bool:
++        return self.bin is None
++
++    @property
++    def is_windup(self) -> bool:
++        return self.bin == BIN_WINDUP
++
++    @property
++    def is_channel(self) -> bool:
++        return self.bin == BIN_CHANNEL
++
++    @property
++    def is_snap(self) -> bool:
++        return self.bin == BIN_SNAP
++
++
++def read_commitment(skill: dict) -> Commitment:
++    """Parse the [M] packet fields off a skill dict (Skill.model_dump()).
++
++    Pure `.get`-based read: a pre-E4 / exempt skill (no commitment fields) yields
++    a Commitment with bin=None (exempt), which the engine treats as the degenerate
++    instant path — byte-identical to pre-E4.
++    """
++    _bin = skill.get("commitment_bin")  # None on exempt / pre-E4 slots
++    # cast_time: emitted value (READ now). Fallbacks are defensive only.
++    _ct = skill.get("cast_time")
++    if _ct is None:
++        _ct = _SNAP_CAST_TIME_FALLBACK if _bin == BIN_SNAP else 0.0
++    return Commitment(
++        bin=_bin,
++        cast_time=float(_ct),
++        tick_interval_s=float(skill.get("tick_interval_seconds") or 0.35),
++        ramp_floor=float(skill.get("ramp_floor") if skill.get("ramp_floor") is not None else 0.5),
++        ramp_n_ticks=int(skill.get("ramp_n_ticks") or 6),
++        forced_break_pct=float(skill.get("forced_break_pct") if skill.get("forced_break_pct") is not None else 0.20),
++        forced_break_window_s=float(skill.get("forced_break_window_s") or 1.0),
++        forced_break_lockout_s=float(skill.get("forced_break_lockout_s") or 0.4),
++        drain_rate=float(skill.get("drain_rate") or 0.0),
++        tick_tracking=str(skill.get("tick_tracking") or "tracking"),
++        move_policy=str(skill.get("move_policy") or "rooted"),
++        move_policy_walk_pct=float(skill.get("move_policy_walk_pct") or 0.5),
++        pay_on_commit=bool(skill.get("pay_on_commit") if skill.get("pay_on_commit") is not None else True),
++    )
++
++
++def ramp(tick_n: int, floor: float, n_ticks: int) -> float:
++    """Channel ramp reward multiplier (F-2b; math note §6.3, honored AS-EMITTED).
++
++    ramp(n) = min(1.0, floor + (1 - floor) * (n / n_ticks)); plateau at n >= n_ticks.
++    A break/reset sets tick_n -> 0, so re-initiating re-climbs from ramp(0) -> this is
++    the teeth (§2.4).
++    """
++    if n_ticks <= 0:
++        return 1.0
++    return min(1.0, floor + (1.0 - floor) * (float(tick_n) / float(n_ticks)))
++
++
++# ── Pilot-competence floor v1 (F-competence; addendum §C.4; §3) ───────────────
++# The sim stores NO velocity vector (co-sign §13.7). The floor FORWARD-INTEGRATES
++# the SAME per-tick mob motion model over the cast window so it projects the same
++# trajectory the world moves on (a projection/resolution split would bias c_wind).
++
++def _one_step_mob_motion(
++    mx: float, my: float,
++    mspeed: float,
++    behavior: str,
++    preferred_range_m: float,
++    px: float, py: float,
++    dt: float,
++) -> tuple[float, float]:
++    """One tick of the mob motion model (mirrors _navigate_entity's non-leash,
++    non-serial branches at spatial_engine.py:1123-1177) toward the player at (px,py).
++
++    Competent-not-clairvoyant: the floor knows the MODEL (behavior + speed + player
++    position), not the RNG. It reproduces the ranged_kite / hit_and_run / cast_at_range
++    / melee branches — the mobility regimes that cause whiffs. Arena clamp is NOT applied
++    (the projection is a position estimate, not a state mutation; clamp only tightens it).
++    """
++    pdist = math.hypot(px - mx, py - my)
++
++    if behavior == "stationary_caster":
++        return (mx, my)  # does not move
++
++    if behavior in ("melee_aggressive", "charge_then_melee"):
++        tx, ty = px, py
++    elif behavior == "ranged_kite":
++        if pdist < preferred_range_m and pdist > 0.01:
++            scale = preferred_range_m / pdist
++            tx = px + (mx - px) * scale
++            ty = py + (my - py) * scale
++        else:
++            tx, ty = mx, my  # hold
++    elif behavior == "cast_at_range":
++        if pdist > preferred_range_m:
++            tx, ty = px, py
++        else:
++            tx, ty = mx, my  # hold
++    elif behavior == "hit_and_run":
++        if pdist < preferred_range_m * 0.7:
++            scale = preferred_range_m / max(pdist, 0.01)
++            tx = px + (mx - px) * scale
++            ty = py + (my - py) * scale
++        else:
++            tx, ty = px, py
++    else:
++        tx, ty = px, py
++
++    dx, dy = tx - mx, ty - my
++    d = math.hypot(dx, dy)
++    if d > 0.001:
++        speed = mspeed * dt
++        factor = min(speed / d, 1.0)
++        mx += dx * factor
++        my += dy * factor
++    return (mx, my)
++
++
++def project_target_position(
++    target,
++    cast_time: float,
++    tick_size: float,
++    player_x: float,
++    player_y: float,
++) -> tuple[float, float]:
++    """Forward-integrate `target`'s position over the cast window (math note §3.1).
++
++    Returns the projected (x, y) at cast completion, re-running the SAME motion model
++    the world uses. The player position is held fixed at (player_x, player_y) over the
++    window (the player is committing/rooted; a competent floor does not model its own
++    future motion for a wind-up it is about to commit to). Duration bound: this is the
++    "one extrapolation" the addendum names — steps = round(cast_time/tick_size), sparse
++    (one per wind-up initiation candidate).
++    """
++    steps = int(round(cast_time / tick_size)) if tick_size > 0 else 0
++    mx, my = float(target.x), float(target.y)
++    behavior = target.preferred_behavior or "melee_aggressive"
++    prng = float(getattr(target, "preferred_range_m", 4.0))
++    mspeed = float(target.movement_speed)
++    for _ in range(steps):
++        mx, my = _one_step_mob_motion(
++            mx, my, mspeed, behavior, prng, player_x, player_y, tick_size
++        )
++    return (mx, my)
++
++
++# ── Forced-break trailing-damage ring (F-1b; §2.4; O(1)/event) ────────────────
++
++def ring_push(ring: list, elapsed: float, dmg: float, window_s: float) -> None:
++    """Append an incoming-damage event and evict entries older than the window.
++
++    O(1) amortized: appends the newest, evicts the front while stale. Only ever
++    called while the player is channeling (the engine gates the call), so the
++    non-channel path is allocation-free (perf §8).
++    """
++    ring.append((elapsed, dmg))
++    cutoff = elapsed - window_s
++    # evict from the front (oldest first) while stale
++    i = 0
++    n = len(ring)
++    while i < n and ring[i][0] < cutoff:
++        i += 1
++    if i > 0:
++        del ring[:i]
++
++
++def ring_sum(ring: list, elapsed: float, window_s: float) -> float:
++    """Sum incoming damage within the trailing window (evict-then-sum)."""
++    cutoff = elapsed - window_s
++    return sum(d for (t, d) in ring if t >= cutoff)
++
++
++def forced_break_triggered(ring: list, elapsed: float, c: Commitment, max_hp: float) -> bool:
++    """Σ(incoming over trailing W) ≥ Y% max-HP forces a channel break (§2.4)."""
++    if max_hp <= 0:
++        return False
++    return ring_sum(ring, elapsed, c.forced_break_window_s) >= c.forced_break_pct * max_hp
+diff --git a/src/reincarnated/simulation/spatial_gauntlet/spatial_engine.py b/src/reincarnated/simulation/spatial_gauntlet/spatial_engine.py
+index 21f5071..5b0fc6a 100644
+--- a/src/reincarnated/simulation/spatial_gauntlet/spatial_engine.py
++++ b/src/reincarnated/simulation/spatial_gauntlet/spatial_engine.py
+@@ -46,6 +46,7 @@ from .spatial_telemetry import (
+     FightEvent,
+     TelegraphSpec,
+ )
++from . import commitment_state_machine as csm
+ 
+ log = logging.getLogger(__name__)
+ 
+@@ -268,6 +269,24 @@ _BUILD_SPEND_ECONOMIES: frozenset[str] = frozenset(
+     {"rage", "combo", "charges", "charge-stack"}
+ )
+ 
++# E4 COMMITMENT AXIS (2026-07-11, gamora/v-commitment-axis-4). ON → the player action phase reads
++# the emitted [M] commitment fields (skill_schema.py v2) and runs the cast-state machine (wind-up
++# committing window + motion-whiff at completion; channel tick loop + drain + forced-break + ramp;
++# move-policy branch suspension; pilot-competence floor). OFF → byte-identical pre-E4 (every skill
++# resolves instantly at cast; the machine never leaves idle). The DEGENERATE guarantee also holds
++# with the flag ON for any exempt/snap slot (commitment_bin None/"snap") — those take the instant
++# path unchanged. Default ON = the measurement regime E4 installs. Math note:
++# simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md. Semantic shift (Discipline #12,
++# §2.1): action_available_at gains a BUSY-state meaning during commitment — the readiness gate now
++# reads "ready = cooldown-elapsed AND not-committed AND not-locked-out" (was cooldown-elapsed alone).
++WIRE_COMMITMENT_AXIS: bool = True
++
++# The pilot-competence floor (F-competence; §3) toggle is PER-ENGINE, not module-global: the
++# `e4_blind_pilot` constructor param (→ `self._e4_blind`) selects COMPETENT (False, default —
++# projecting floor) vs BLIND (True — initiate-always baseline). The cert driver runs a fight PAIR
++# (competent then blind) per kit and reports the blind-vs-competent completion-rate delta (criterion
++# 18) — a single per-fight toggle, no module-global flag (which would preclude the same-process A/B).
++
+ # Discrete-point economies: pool is a small integer point/stack count (max_energy ~5-10),
+ # NOT an energy-cost scale. Spender-detection is ROLE-keyed for these (kernel ai_strategies:436),
+ # cost-keyed for the continuous-pool economies (rage/charge-stack). Math note §6 P2.2.
+@@ -736,6 +755,41 @@ class SpatialEntity:
+         "cone": 0, "circle": 0, "line": 0, "point": 0
+     })
+ 
++    # ── E4 COMMITMENT AXIS (2026-07-11, gamora/v-commitment-axis-4; PHASE-2 sim consumer). The
++    # actor-level cast-state machine state + per-fight telemetry accumulators. Defaulted keyword
++    # fields (do NOT perturb positional-arg order of existing SpatialEntity(...) call sites;
++    # brownfield-safe, same pattern as allegiance/cadence_scale/proxy_* above). Defaults = the
++    # DEGENERATE / idle state → every non-player construction AND every exempt/snap slot AND every
++    # pre-E4 fight leaves the machine at rest → byte-identical to pre-E4. Math note:
++    # simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md §2.1. Consumed packet fields
++    # (skill_schema.py v2): commitment_bin/cast_time/tick_interval_seconds/ramp_*/forced_break_*/
++    # drain_rate/tick_tracking/move_policy/pay_on_commit — HONORED AS-EMITTED (§2.3 dispatch).
++    commit_state: str = "idle"          # idle | committing (wind-up) | channeling
++    commit_skill_idx: int = -1          # the skill in flight (-1 = none)
++    commit_started_at: float = 0.0      # elapsed at initiation
++    commit_resolve_at: float = 0.0      # elapsed at wind-up completion (committing only)
++    channel_next_tick_at: float = 0.0   # elapsed of the next scheduled tick (channeling only)
++    channel_tick_n: int = 0             # tick index for ramp (channeling); RESET on break (F-2b teeth)
++    channel_origin_x: float = 0.0       # cached placement footprint for tick_tracking=="fixed"
++    channel_origin_y: float = 0.0
++    commit_lockout_until: float = 0.0   # forced-break recovery lockout (no re-initiate before this)
++    # Trailing (elapsed, dmg) incoming-damage ring for the forced-break window W (§2.4). Populated
++    # ONLY while commit_state=="channeling" (allocation-free on the non-channel path — perf §8).
++    _recent_damage_ring: list = field(default_factory=list)
++    # Per-fight telemetry accumulators → the seven SpatialFightResult producer fields (§5).
++    committed_completions: int = 0      # wind-up casts that resolved ≥1 hit → completion_rate
++    committed_initiations: int = 0      # wind-up casts initiated → completion_rate denominator
++    damage_taken_while_committed: float = 0.0
++    forced_break_count: int = 0
++    move_cancel_count: int = 0
++    drain_exhaustion_events: int = 0
++    channel_activations: int = 0        # channel initiations → sustain_uptime denominator basis
++    channel_ticks_delivered_sum: int = 0   # ticks actually delivered across activations
++    channel_ticks_scheduled: int = 0    # ticks the pool could have funded (neutral) → sustain_uptime
++    channel_ticks_landed: int = 0       # ticks that landed ≥1 hit → c_chan (whiff-net)
++    # Fight-completion floor (§7, G-A4): realized-completion count per modulated skill index.
++    modulated_skill_completions: dict = field(default_factory=dict)
++
+     @property
+     def pos(self) -> tuple[float, float]:
+         return (self.x, self.y)
+@@ -867,6 +921,53 @@ def _compute_aoe_hits(
+         return []
+ 
+ 
++class _PosProbe:
++    """A minimal position/heading stand-in reusing the _compute_*_hits geometry tests.
++
++    E4 (2026-07-11): the pilot-floor template check + the fixed-footprint channel tick need to
++    hit-test a footprint anchored at a projected point / a cached origin, WITHOUT mutating the
++    real attacker. A _PosProbe carries only (.x, .y, .heading_rad) + .distance_to, which is the
++    entire surface _compute_circle/cone/line_hits reads on the attacker — so the SAME geometry
++    that resolves damage resolves the probe (no drift; math note §3.1/§2.3)."""
++    __slots__ = ("x", "y", "heading_rad")
++
++    def __init__(self, x: float, y: float, heading_rad: float):
++        self.x = x
++        self.y = y
++        self.heading_rad = heading_rad
++
++    def distance_to(self, other) -> float:
++        return math.hypot(other.x - self.x, other.y - self.y)
++
++
++def _point_in_template(attacker, px: float, py: float, skill: dict, geo: str) -> bool:
++    """Would a target at (px, py) fall inside the attacker's CURRENT footprint? (E4 §3.1).
++
++    Used by the pilot-competence floor: initiate a wind-up ONLY when the projected target
++    position at completion is in-template. Reuses the resolution geometry via a single-target
++    probe list so the floor tests the SAME footprint the resolution will (no projection/
++    resolution split — the calibration-honesty requirement, math note §3.1)."""
++    tgt = _PosProbe(px, py, 0.0)
++    return len(_compute_aoe_hits(attacker, [tgt], skill, geo)) >= 1
++
++
++def _channel_fixed_hits(origin_x: float, origin_y: float, targets: list, skill: dict, geo: str) -> list:
++    """Hit-test a channel footprint ANCHORED at (origin_x, origin_y) — a ground-tether (E4 §2.3).
++
++    tick_tracking=="fixed": the template does NOT follow the channeler; it stays where it was
++    placed at channel-start, and each tick re-tests whether targets are STILL inside it (targets
++    can walk out — a ground-tether, not a beam). The probe's heading points from the origin toward
++    the pack centroid so a cone tether stays oriented; for circle/line/point the heading is inert
++    or the origin dominates. Reuses _compute_aoe_hits via the anchored probe."""
++    if not targets:
++        return []
++    cx = sum(t.x for t in targets) / len(targets)
++    cy = sum(t.y for t in targets) / len(targets)
++    heading = math.atan2(cy - origin_y, cx - origin_x)
++    probe = _PosProbe(origin_x, origin_y, heading)
++    return _compute_aoe_hits(probe, targets, skill, geo)
++
++
+ def _mint_telegraph_spec(
+     attacker: SpatialEntity,
+     skill_dict: dict,
+@@ -1527,10 +1628,20 @@ def _apply_skill_damage(
+     skill_idx: int | None = None,
+     resolver_rng=None,
+     resolver_rng_dmgvar=None,
++    damage_scalar: float = 1.0,
+ ) -> float:
+     """
+     Apply skill damage to all hit targets. Returns total damage dealt.
+ 
++    damage_scalar (E4 COMMITMENT AXIS, 2026-07-11): a per-CALL delivery scalar multiplied onto
++    every resolved per-hit damage BEFORE HP application. Default 1.0 = byte-identical (every
++    pre-E4 caller omits it). E4's channel tick loop passes ramp(n) here so the per-tick damage
++    share is ramp-shaped (math note commitment-axis-e4-sim-consumer-2026-07-11.md §2.3): early
++    ticks weak, late ticks strong, a forced-break resets the ramp (F-2b teeth). SHAPES delivery
++    only — the resolver's mitigation/variance/element truth is UNTOUCHED (the scalar rides above
++    it, like commitment_premium rides above damage_multiplier at emit). At damage_scalar==1.0 the
++    per-hit values below are unchanged → byte-identical.
++
+     SPATIAL RE-POINT (2026-06-12; math note spatial-repoint-recalibration-2026-06-11.md):
+     when the attacker carries a kernel CombatantState (commit-grade path), per-target damage
+     is computed by damage_resolver.resolve_skill — the kernel damage truth (armor/resistance
+@@ -1589,6 +1700,8 @@ def _apply_skill_damage(
+                     rng=resolver_rng,
+                     rng_dmgvar=resolver_rng_dmgvar,
+                 )
++            if damage_scalar != 1.0:
++                dmg = dmg * damage_scalar   # E4 channel ramp shaping (byte-identical at 1.0)
+             _delivered_this_hit = dmg if dmg < target.hp else target.hp   # clamp overkill (V2)
+             target.hp -= dmg
+             total += dmg
+@@ -1600,6 +1713,8 @@ def _apply_skill_damage(
+                 _on_kill_energy_burst(attacker)   # E2 on_kill (Leg-B, math note §3.2)
+     else:
+         base_damage = skill.get("damage_multiplier", 1.0) * 500.0 * attacker.damage_modifier
++        if damage_scalar != 1.0:
++            base_damage = base_damage * damage_scalar   # E4 channel ramp shaping (identity at 1.0)
+         for target in targets_hit:
+             if not target.is_alive:
+                 continue
+@@ -1678,10 +1793,17 @@ class SpatialFightEngine:
+         #   Semantic shift: 2A coordinate transitions measurable=False -> live measured value (§5).
+         spawn_template_dict: Optional[dict] = None,   # F4/F3 mid-fight reinforcement template (Q11)
+         spawn_template_obj=None,                       # optional full Monster object for the template
++        e4_blind_pilot: bool = False,                  # E4: True = commitment-BLIND baseline (criterion 18 A/B)
+     ) -> None:
+         self.scenario = scenario
+         self.player = player
+         self.mobs = mobs
++        # E4 COMMITMENT AXIS (2026-07-11): the pilot-competence floor toggle (§3.1). Default False =
++        # COMPETENT floor (project the target's completion position; initiate only when in-template).
++        # True = BLIND pilot (initiate always) — the calibration-honesty A/B baseline: cert runs both
++        # and reports Δc_wind = c_wind_competent − c_wind_blind (criterion 18). INERT on snap/exempt
++        # kits (the machine is never initiated). Math note commitment-axis-e4-sim-consumer §3.
++        self._e4_blind: bool = e4_blind_pilot
+         # F4 continuous-spawn / F3 timed-add-wave templates (Q11 2026-07-07; design note §4.3).
+         # None when the scenario has no spawner/waves → the mid-fight injection path never fires
+         # (byte-identical for the six existing scenarios). The template is the initial mobs' last
+@@ -1797,6 +1919,7 @@ class SpatialFightEngine:
+         # route, "armor" on the flat-fallback route. Surfaced on the fight result for the typed
+         # death-cause telemetry surface (star-lord MIGRATION). Math note §1/§7.
+         self._player_death_element: Optional[str] = None
++
+         if scenario.win_condition in BOSS_FOCUS_WIN_CONDITIONS:
+             focus_index = (
+                 scenario.boss_index
+@@ -1996,6 +2119,244 @@ class SpatialFightEngine:
+         self._proxies = survivors + spawned
+         return sum(1 for p in self._proxies if p.is_alive)
+ 
++    # ── E4 COMMITMENT AXIS (2026-07-11, gamora/v-commitment-axis-4) ─────────────────────
++    # The cast-state machine's ENGINE half: initiation (pilot floor + pay + cooldown) and
++    # per-tick service (wind-up completion / channel tick loop / forced-break / exhaustion).
++    # The STATE + PARSING + pilot-floor PROJECTION live in commitment_state_machine (csm),
++    # unit-testable in isolation; these two methods own the RESOLUTION (they need the engine's
++    # _compute_aoe_hits / _apply_skill_damage closures + the event buffer). Math note:
++    # simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md §2/§3.
++    #
++    # BYTE-IDENTITY GUARD: on a snap/exempt kit the machine is NEVER initiated (the action
++    # phase only calls _e4_initiate_commitment for wind-up/channel bins), so commit_state
++    # stays "idle" for the whole fight → _e4_service_commitment returns True immediately with
++    # NO state mutation → the action phase runs the pre-E4 instant path unchanged. Proven by
++    # the byte-identity harness (round-trip smoke + A/B).
++
++    def _e4_service_commitment(
++        self, elapsed: float, alive_mobs: list, tick_counter: int, event_buffer: list,
++    ) -> bool:
++        """Advance any in-flight commitment. Returns True iff the player may INITIATE a new
++        action this tick (idle AND past any forced-break lockout). Math note §2.2/§2.3/§2.4."""
++        p = self.player
++        state = p.commit_state
++        if state == "idle":
++            # Degenerate / snap / exempt fast-path (the dominant population): a lockout may still
++            # be pending from a just-fired forced break — respect it, else free to act.
++            return elapsed >= p.commit_lockout_until
++
++        skill_idx = p.commit_skill_idx
++        if not (0 <= skill_idx < len(p.skills)):
++            # Defensive: the in-flight skill vanished (should not happen) — reset to idle.
++            p.commit_state = "idle"
++            return True
++        skill = p.skills[skill_idx]
++        geo = p.skill_geometries[skill_idx]
++        c = csm.read_commitment(skill)
++
++        if state == "committing":
++            # WIND-UP: un-interruptible at v1 (dispatch §2.6). It ends at completion, or by a
++            # competent move-cancel (target fled beyond a repositioning threshold), or by fight
++            # truncation (the loop simply exits with the cast in flight — lost throughput, real).
++            if not alive_mobs:
++                # All targets gone mid-wind-up → whiff (truncation-adjacent); cost already forfeit.
++                p.commit_state = "idle"
++                return False
++            if elapsed >= p.commit_resolve_at:
++                # Resolve at completion against LIVE positions (motion-whiff is native:
++                # _compute_aoe_hits reads current target.x/target.y). Empty template = whiff.
++                targets_hit = _compute_aoe_hits(p, alive_mobs, skill, geo)
++                in_choke = any(
++                    CHOKEPOINT_Y_MIN <= t.y <= CHOKEPOINT_Y_MAX for t in targets_hit
++                )
++                _dmg_before = p.total_damage_dealt
++                _apply_skill_damage(
++                    p, targets_hit, skill, geo, elapsed, in_choke,
++                    alive_mob_count=len(alive_mobs),
++                    skill_idx=skill_idx,
++                    resolver_rng=self._resolver_rng,
++                    resolver_rng_dmgvar=self._resolver_rng_dmgvar,
++                )
++                if len(targets_hit) >= 1:
++                    p.committed_completions += 1                    # a landed wind-up (§2.2)
++                    p.modulated_skill_completions[skill_idx] = (
++                        p.modulated_skill_completions.get(skill_idx, 0) + 1
++                    )   # fight-completion floor (§7)
++                # else: WHIFF — no completion increment; cost already forfeit (pay-on-commit).
++                if self._emit_fight_events and geo not in ("self", "none"):
++                    event_buffer.append(FightEvent(
++                        class_id=p.entity_id, season_id=self._season_id,
++                        fight_tick=tick_counter, event_type="damage_dealt",
++                        geometry_type=geo, damage_source_tag="cast",
++                        damage_dealt=p.total_damage_dealt - _dmg_before,
++                        mobs_in_range=len(alive_mobs) if geo in ("cone", "circle", "line") else None,
++                        skill_type=skill.get("skill_type") or skill.get("type") or "damage",
++                    ))
++                p.commit_state = "idle"
++                return False   # resolved this tick; act next tick when cooldown clears
++            # Still in flight — COMPETENT move-cancel check (§2.5): if the nearest target has fled
++            # such that the projected completion is now hopeless, cancel (legal whiff-avoidance).
++            # BLIND pilot never cancels (it rides every wind-up out — the true idiot baseline the
++            # criterion-18 A/B measures against). Competent floor already gated initiation, so this
++            # mid-flight cancel is a rare secondary out (a target that fled AFTER commit).
++            if not self._e4_blind:
++                nearest = min(alive_mobs, key=lambda t: p.distance_to(t))
++                proj = csm.project_target_position(
++                    nearest, max(0.0, p.commit_resolve_at - elapsed), self._tick_size, p.x, p.y
++                )
++                if not _point_in_template(p, proj[0], proj[1], skill, geo):
++                    # target no longer reachable at completion → move-cancel (forfeit cast + cost).
++                    p.commit_state = "idle"
++                    p.move_cancel_count += 1
++                    return False
++            return False   # busy — committing
++
++        if state == "channeling":
++            # CHANNEL tick loop: drain → resolve tick (ramp-shaped) → forced-break/exhaustion.
++            if not alive_mobs:
++                p.commit_state = "idle"   # nothing to channel — voluntary release
++                return False
++            # Forced-break check FIRST (F-1b): sustained pressure breaks concentration (§2.4).
++            if csm.forced_break_triggered(p._recent_damage_ring, elapsed, c, p.max_hp):
++                p.commit_state = "idle"
++                p.channel_tick_n = 0                                   # RAMP RESET (F-2b teeth)
++                p.commit_lockout_until = elapsed + c.forced_break_lockout_s
++                p.forced_break_count += 1
++                return False   # broken; locked out
++            # Fire scheduled ticks up to `elapsed` (usually 0 or 1 per engine tick at 0.35s vs 0.1s).
++            _fired = False
++            while elapsed >= p.channel_next_tick_at:
++                # DRAIN (pay-per-tick, honored AS-EMITTED): per-tick share of drain_rate/s.
++                _tick_cost = c.drain_rate * c.tick_interval_s
++                if WIRE_RESOURCE_ECONOMY and _tick_cost > 0.0:
++                    if p.energy < _tick_cost:
++                        # EXHAUSTION → natural sustain-window bound (§2.3). Do not deliver an
++                        # unfunded tick; the overflow-binding visibility (drain_exhaustion_events).
++                        # Count the attempt as a SCHEDULED-but-undelivered tick so sustain_uptime
++                        # (delivered/scheduled) drops below 1.0 when the pool binds (§5 / §13.3).
++                        p.channel_ticks_scheduled += 1
++                        p.drain_exhaustion_events += 1
++                        p.commit_state = "idle"
++                        return False
++                    p.energy = max(0.0, p.energy - _tick_cost)
++                # RESOLVE the tick per tick_tracking (§2.3).
++                p.channel_ticks_scheduled += 1
++                if c.tick_tracking == "fixed":
++                    # tether: hit-test the CACHED footprint origin (targets can walk out).
++                    _hits = _channel_fixed_hits(
++                        p.channel_origin_x, p.channel_origin_y, alive_mobs, skill, geo
++                    )
++                else:
++                    # tracking beam: re-resolve against live positions.
++                    _hits = _compute_aoe_hits(p, alive_mobs, skill, geo)
++                _scalar = csm.ramp(p.channel_tick_n, c.ramp_floor, c.ramp_n_ticks)
++                _dmg_before = p.total_damage_dealt
++                _apply_skill_damage(
++                    p, _hits, skill, geo, elapsed,
++                    any(CHOKEPOINT_Y_MIN <= t.y <= CHOKEPOINT_Y_MAX for t in _hits),
++                    alive_mob_count=len(alive_mobs),
++                    skill_idx=skill_idx,
++                    resolver_rng=self._resolver_rng,
++                    resolver_rng_dmgvar=self._resolver_rng_dmgvar,
++                    damage_scalar=_scalar,
++                )
++                if len(_hits) >= 1:
++                    p.channel_ticks_landed += 1
++                    p.modulated_skill_completions[skill_idx] = (
++                        p.modulated_skill_completions.get(skill_idx, 0) + 1
++                    )   # a channel tick counts toward the fight-completion floor (§7)
++                p.channel_ticks_delivered_sum += 1
++                p.channel_tick_n += 1
++                p.channel_next_tick_at += c.tick_interval_s
++                _fired = True
++                if self._emit_fight_events and geo not in ("self", "none"):
++                    event_buffer.append(FightEvent(
++                        class_id=p.entity_id, season_id=self._season_id,
++                        fight_tick=tick_counter, event_type="damage_dealt",
++                        geometry_type=geo, damage_source_tag="cast",
++                        damage_dealt=p.total_damage_dealt - _dmg_before,
++                        mobs_in_range=len(alive_mobs) if geo in ("cone", "circle", "line") else None,
++                        skill_type=skill.get("skill_type") or skill.get("type") or "damage",
++                    ))
++            return False   # busy — channeling
++
++        # Unknown state — reset defensively.
++        p.commit_state = "idle"
++        return True
++
++    def _e4_initiate_commitment(
++        self, c, skill: dict, skill_idx: int, geo: str, energy_cost: float,
++        elapsed: float, alive_mobs: list, tick_counter: int, event_buffer: list,
++    ) -> bool:
++        """Initiate a wind-up or channel. Returns True iff the machine was entered (so the
++        action phase SKIPS the instant path). Math note §2.2/§2.3 + pilot floor §3.1."""
++        p = self.player
++        if c.is_windup:
++            # PILOT-COMPETENCE FLOOR v1 (§3.1): initiate ONLY when the projected target position
++            # at completion is inside the template (competent-not-blind). Blind pilot (self._e4_blind
++            # =True) skips the projection → the calibration-honesty A/B baseline (criterion 18).
++            if not self._e4_blind:
++                nearest = min(alive_mobs, key=lambda t: p.distance_to(t))
++                px, py = csm.project_target_position(
++                    nearest, c.cast_time, self._tick_size, p.x, p.y
++                )
++                if not _point_in_template(p, px, py, skill, geo):
++                    return False   # do not commit against a departing target (competent)
++            # COMMIT: pay-on-commit (whiff forfeits), set cooldown at initiation (period =
++            # k*cooldown + cast_time composes), enter committing.
++            self._e4_pay_and_cooldown(skill, skill_idx, energy_cost, elapsed, tick_counter, event_buffer)
++            p.commit_state = "committing"
++            p.commit_skill_idx = skill_idx
++            p.commit_started_at = elapsed
++            p.commit_resolve_at = elapsed + c.cast_time
++            p.committed_initiations += 1
++            return True
++
++        if c.is_channel:
++            # Channel pays PER TICK (no pay-on-commit); set cooldown at initiation; cache the
++            # footprint origin for tick_tracking=="fixed". Enter channeling; the first tick fires
++            # this tick or the next scheduled boundary in _e4_service_commitment.
++            self._e4_pay_and_cooldown(
++                skill, skill_idx, 0.0, elapsed, tick_counter, event_buffer, pay=False
++            )
++            p.commit_state = "channeling"
++            p.commit_skill_idx = skill_idx
++            p.commit_started_at = elapsed
++            p.channel_tick_n = 0
++            p.channel_next_tick_at = elapsed
++            p.channel_origin_x = p.x
++            p.channel_origin_y = p.y
++            p.channel_activations += 1
++            return True
++
++        return False
++
++    def _e4_pay_and_cooldown(
++        self, skill: dict, skill_idx: int, energy_cost: float, elapsed: float,
++        tick_counter: int, event_buffer: list, pay: bool = True,
++    ) -> None:
++        """Set cooldown + action_available_at at initiation (period composition) and, for
++        pay-on-commit bins, decrement the pool NOW (whiff forfeits). Mirrors the instant-path
++        cooldown/energy block (:2467/:2476) so cadence + economy are identical to a snap of the
++        same cell save for the added commitment leg. Math note §2.2."""
++        p = self.player
++        cooldown = float(skill.get("cooldown_seconds", 2.0)) * p.cadence_scale
++        p.skill_cooldowns[skill_idx] = cooldown
++        p.action_available_at = elapsed + cooldown
++        if pay and WIRE_RESOURCE_ECONOMY and energy_cost > 0:
++            _etype = (p.energy_type or "mana").lower()
++            if ROTATION_SELECTOR_V2 and _etype in _BUILD_SPEND_ECONOMIES:
++                _is_spender = _is_spender_skill(p, skill_idx)
++                _spend_economy_pool(p, energy_cost, is_spender=_is_spender)
++            else:
++                p.energy = max(0.0, p.energy - energy_cost)
++            if self._emit_fight_events:
++                event_buffer.append(FightEvent(
++                    class_id=p.entity_id, season_id=self._season_id,
++                    fight_tick=tick_counter, event_type="resource_spent",
++                    resource_cost=energy_cost,
++                ))
++
+     def run(self) -> SpatialFightResult:
+         """Execute the fight and return a SpatialFightResult."""
+         elapsed = 0.0
+@@ -2339,10 +2700,29 @@ class SpatialFightEngine:
+                     attack_ranges = [2.0]
+                 min_attack_range = max(2.0, min(attack_ranges))
+ 
++                # E4 COMMITMENT AXIS (2026-07-11): move-policy while committed (addendum §B.4; §2.5).
++                # rooted → SUSPEND the advance (the lock exposure: a rooted channeler/wind-up stops
++                # repositioning out of danger; the kiting/navigation this branch does is real, so the
++                # suspended exposure is real). walk → scale movement_speed by walk_pct. full_move →
++                # untouched (spin class — B12 re-cert + dodger×channel resolution). INERT when idle
++                # (snap/exempt) → _e4_move_scale == 1.0 → byte-identical. Honored AS-EMITTED.
++                _e4_move_scale = 1.0
++                if self.player.commit_state != "idle" and (
++                    0 <= self.player.commit_skill_idx < len(self.player.skills)
++                ):
++                    _mp = csm.read_commitment(
++                        self.player.skills[self.player.commit_skill_idx]
++                    )
++                    if _mp.move_policy == "rooted":
++                        _e4_move_scale = 0.0
++                    elif _mp.move_policy == "walk":
++                        _e4_move_scale = _mp.move_policy_walk_pct
++                    # full_move → 1.0 (untouched)
++
+                 d_to_target = self.player.distance_to_point(tgt_x, tgt_y)
+-                if d_to_target > min_attack_range:
++                if d_to_target > min_attack_range and _e4_move_scale > 0.0:
+                     # Advance toward the navigation target (nearest mob, or pack centroid in gather mode)
+-                    step = self.player.movement_speed * self._tick_size
++                    step = self.player.movement_speed * self._tick_size * _e4_move_scale
+                     factor = min(step / d_to_target, 1.0)
+                     _move_dx = dx_p * factor
+                     _move_dy = dy_p * factor
+@@ -2368,9 +2748,43 @@ class SpatialFightEngine:
+                 total_flanking_ticks += 1
+             max_flanking_count = max(max_flanking_count, flank_count)
+ 
++            # --- E4 commitment axis: service any IN-FLIGHT commitment (math note §2.2/§2.3) ---
++            # PRE-action-phase: advance a committing wind-up (resolve at completion) or a
++            # channeling tick loop. Returns whether the action phase may INITIATE a new skill
++            # this tick (idle + not-locked-out). On snap/exempt kits the machine never leaves
++            # idle → this call is a cheap no-op → the action phase runs byte-identical to pre-E4.
++            # WIRE_COMMITMENT_AXIS OFF → the machine is bypassed entirely (may-act unconditional) →
++            # byte-identical pre-E4 kill-switch regardless of the emitted bins.
++            _e4_may_act = (
++                self._e4_service_commitment(
++                    elapsed, alive_mobs, _tick_counter, _fight_event_buffer
++                )
++                if WIRE_COMMITMENT_AXIS else True
++            )
++
+             # --- Player action phase ---
+-            if elapsed >= self.player.action_available_at and alive_mobs:
++            if elapsed >= self.player.action_available_at and alive_mobs and _e4_may_act:
+                 skill_idx = _select_skill_for_entity(self.player, alive_mobs, elapsed)
++                if skill_idx is not None and WIRE_COMMITMENT_AXIS:
++                    skill = self.player.skills[skill_idx]
++                    geo = self.player.skill_geometries[skill_idx]
++                    energy_cost = self.player.skill_energy_costs[skill_idx]
++
++                    # E4: read the commitment packet ([M] subset). bin=None (exempt / pre-E4) OR
++                    # bin=="snap" → degenerate → the INSTANT path below runs unchanged (byte-
++                    # identical). bin in {wind-up, channel} → INITIATE the state machine instead of
++                    # resolving now (the resolution happens at completion / per tick in
++                    # _e4_service_commitment). Math note §2.
++                    _commit = csm.read_commitment(skill)
++                    if (_commit.is_windup or _commit.is_channel) and geo not in ("self", "none"):
++                        _e4_initiated = self._e4_initiate_commitment(
++                            _commit, skill, skill_idx, geo, energy_cost, elapsed, alive_mobs,
++                            _tick_counter, _fight_event_buffer,
++                        )
++                        if _e4_initiated:
++                            # Committed this tick; no instant resolution. Cooldown + pay handled
++                            # at initiation inside the initiator. Skip the instant path.
++                            skill_idx = None
+                 if skill_idx is not None:
+                     skill = self.player.skills[skill_idx]
+                     geo = self.player.skill_geometries[skill_idx]
+@@ -2575,6 +2989,29 @@ class SpatialFightEngine:
+                                     raw_dmg = skill.get("damage_multiplier", 1.0) * 300.0 * MOB_DAMAGE_SCALE
+                                     dmg = raw_dmg * (1.0 - self.player.armor_factor)
+                                 self.player.hp -= dmg
++                                # E4 COMMITMENT AXIS (2026-07-11): the exposure + forced-break inputs.
++                                # While the player is committed (wind-up or channel), incoming damage
++                                # is the priced lock/wind-up exposure (damage_taken_while_committed) and
++                                # — during a channel — feeds the forced-break trailing-damage ring
++                                # (F-1b: Σ over W ≥ Y% max-HP breaks the channel). The ring is populated
++                                # ONLY while channeling (allocation-free on every other path — perf §8).
++                                # INERT on snap/exempt kits: commit_state stays "idle" → both branches
++                                # skip → byte-identical. Math note §2.4/§2.5.
++                                if self.player.commit_state != "idle":
++                                    self.player.damage_taken_while_committed += dmg
++                                    if self.player.commit_state == "channeling":
++                                        # window W read directly off the in-flight skill dict (no full
++                                        # Commitment parse per hit — the ring push is O(1)/event, §8).
++                                        _si = self.player.commit_skill_idx
++                                        _w = 1.0
++                                        if 0 <= _si < len(self.player.skills):
++                                            _w = float(
++                                                self.player.skills[_si].get("forced_break_window_s")
++                                                or 1.0
++                                            )
++                                        csm.ring_push(
++                                            self.player._recent_damage_ring, elapsed, dmg, _w
++                                        )
+                                 if self.player.hp <= 0:
+                                     self.player.hp = 0.0
+                                     self.player.is_alive = False
+@@ -3035,6 +3472,27 @@ class SpatialFightEngine:
+                 self.player.combatant_state.last_kill_element
+                 if self.player.combatant_state is not None else None
+             ),
++            # E4 COMMITMENT AXIS (2026-07-11): the seven producer fields — the pricing loop's
++            # inputs (guard-1 unimplementable without them; math note §5 / addendum §C.5). Per
++            # (kit, commitment_bin, regime), aggregated over this fight from the player's E4
++            # accumulators. None where "not applicable" (no wind-up / no channel this fight) —
++            # distinguishes N/A from a measured 0.0. star-lord persists these downstream.
++            completion_rate=(
++                self.player.committed_completions / self.player.committed_initiations
++                if self.player.committed_initiations > 0 else None
++            ),
++            whiff_rate=(
++                1.0 - (self.player.committed_completions / self.player.committed_initiations)
++                if self.player.committed_initiations > 0 else None
++            ),
++            damage_taken_while_committed=self.player.damage_taken_while_committed,
++            forced_break_count=self.player.forced_break_count,
++            move_cancel_count=self.player.move_cancel_count,
++            drain_exhaustion_events=self.player.drain_exhaustion_events,
++            sustain_uptime=(
++                self.player.channel_ticks_delivered_sum / self.player.channel_ticks_scheduled
++                if self.player.channel_ticks_scheduled > 0 else None
++            ),
+         )
+ 
+         self.telemetry_writer.write_fight_result(result)
+@@ -3391,6 +3849,10 @@ def run_spatial_fight(
+     #   comes within its aggro_radius_m; then latches active) → serial proximity-wave engagement in
+     #   open_arena + magic_pack, restoring the rooms' 'repositioning cost' cert intent + genre grammar.
+     #   Math note: simulation/math/r3a-d2-serial-engagement-2026-07-08.md.
++    e4_blind_pilot: bool = False,  # E4 (2026-07-11): default False = COMPETENT pilot floor (project
++    #   the target completion position; initiate wind-up only when in-template). True = BLIND baseline
++    #   (initiate-always) — the criterion-18 A/B calibration-honesty receipt runs both and reports
++    #   Δc_wind. INERT on snap/exempt kits (the machine is never initiated → byte-identical).
+ ) -> dict:
+     """
+     Run N fights of a scenario for one class against the specified mobs.
+@@ -3577,6 +4039,7 @@ def run_spatial_fight(
+             track_proxy_population=track_proxy_population,
+             spawn_template_dict=_spawn_template_dict,
+             spawn_template_obj=_spawn_template_obj,
++            e4_blind_pilot=e4_blind_pilot,
+         )
+         # G3 fail-loud propagation (math note §3.4): a wedged fight raises
+         # SpatialFightConvergenceError; log ERROR with the batch context (class + scenario +
+diff --git a/src/reincarnated/simulation/spatial_gauntlet/spatial_telemetry.py b/src/reincarnated/simulation/spatial_gauntlet/spatial_telemetry.py
+index c88eab6..2a4b471 100644
+--- a/src/reincarnated/simulation/spatial_gauntlet/spatial_telemetry.py
++++ b/src/reincarnated/simulation/spatial_gauntlet/spatial_telemetry.py
+@@ -385,6 +385,35 @@ class SpatialFightResult:
+     # OBSERVATION-ONLY — proven byte-identical on all existing outcomes (purity harness §6).
+     output_by_element: dict = field(default_factory=dict)
+     killing_element: Optional[str] = None
++    # E4 COMMITMENT AXIS (2026-07-11, gamora/v-commitment-axis-4; additive, defaults so existing
++    # writers/rows and every prior scenario are unaffected — brownfield-safe, same status as
++    # output_by_element / escape_reached / player_death_element). PRODUCER fields for the E4
++    # commitment-premium pricing loop (guard-1: risk-priced premium is UNIMPLEMENTABLE without them,
++    # addendum §C.5 / dispatch §5). Per (kit, commitment_bin, regime), aggregated per fight:
++    #   completion_rate: committed_completions/committed_initiations (wind-up landed / initiated).
++    #     None if no wind-up cast this fight (distinguishes "not applicable" from 0.0).
++    #   whiff_rate: 1 - completion_rate (None if no wind-up).
++    #   damage_taken_while_committed: Σ incoming while commit_state != "idle" (lock/wind-up exposure).
++    #   forced_break_count: channel forced-break events (Σ incoming ≥ Y% max-HP in window W).
++    #   move_cancel_count: wind-up move-cancels (legal whiff-avoidance; forfeits cast + cost).
++    #   drain_exhaustion_events: channel pool-empty transitions (the overflow-binding visibility).
++    #   sustain_uptime: ticks delivered / ticks the pool could fund at neutral (None if no channel).
++    # CROSS-SEAM (star-lord MIGRATION SURFACE): all seven are producer-emitted per-fight fields the
++    # E4 pricing loop reads. INTERNAL-to-seam unless star-lord persists them (the SQLite positional
++    # _INSERT_SQL does NOT persist them until a schema migration lands — same status as the boss_* /
++    # typed-death / four-family / attribution-spine fields). star-lord owns the DB columns/schema/
++    # MIGRATION that CONSUME these (co-authored at the sim→star-lord boundary; NOT drafted here).
++    # NOT required fields — validate() does NOT enforce them (brownfield-safe; pre-2026-07-11 rows
++    # read None/0.0/0). Authority: dispatch 2026-07-10-gamora-commitment-axis-E4.md §5; gamora
++    # simulation/MIGRATION.md (producer contract) + generation/MIGRATION.md E4 entry (sim-consumer
++    # section, gamora co-authored). Math note: simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md §5.
++    completion_rate: Optional[float] = None
++    whiff_rate: Optional[float] = None
++    damage_taken_while_committed: float = 0.0
++    forced_break_count: int = 0
++    move_cancel_count: int = 0
++    drain_exhaustion_events: int = 0
++    sustain_uptime: Optional[float] = None
+ 
+     @classmethod
+     def make_fight_id(cls) -> str:

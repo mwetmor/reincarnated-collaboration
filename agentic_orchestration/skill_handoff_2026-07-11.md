@@ -4,7 +4,19 @@ Continuity doc for the next knight-rider session. What shipped, what's queued, w
 
 ---
 
-## 🛑🛑 CRITICAL — E4 PHASE-2 MULTI-WRITER COLLISION (read FIRST, blocks Gate-2)
+## 🛑→✅ E4 PHASE-2 MULTI-WRITER COLLISION — RESOLVED INTO A COMMITTED DELIVERABLE (read FIRST)
+
+**UPDATE (KR, Option-2 execution):** the collision resolved *itself* into a clean committed build. Matt ruled Option 2 (this session owns the slot; stop the other gamora; rebuild fresh). On executing Step 1 I discovered the **premise changed**: the competing gamora had already **COMMITTED a complete, single-author, self-verified build before I stopped it.**
+
+- **Step 1 DONE — competing gamora stopped.** Identified my own session as PID **75950** (must not kill); PID **77801** already exited; SIGTERM'd **76891** (the live competing gamora host) — terminated cleanly. Only 75950 + gandalf remain.
+- **PREMISE CHANGE:** HEAD advanced `853818d → 785956c` — *"gamora(v1.5): E4 commitment-axis PHASE-2 — cast-state machine sim consumer (byte-identity PROVEN)"*, committed **12:21:59, BEFORE my 12:26 SIGTERM** (no work lost). It's a **complete 2028-insertion / 10-file deliverable**: csm module + spatial_engine (+469) + telemetry (+29) + sim-consumer math note + byte-identity A/B harness + 509-line golden JSON + 260-line smoke + both MIGRATION.md + AGENT_STATE. Self-verified: **byte-identity 12/12** on production path, **perf 41.0 fights/s (−2.5%)**, 7 telemetry fields, tag `gamora/v1.5-commitment-axis-4` (NOT pushed). Full completion record is appended to the E4 dispatch.
+- **The double `_e4_blind` clobber is GONE in 785956c** — it was a *transient mid-write artifact*; the committing gamora's own simplify review found + fixed it (per its completion record). Working tree clean at 785956c.
+- **Evidence harvested (Step 2):** `dispatches/2026-07-11-e4-phase2-collision-harvest.diff` = the committed diff `853818d..785956c` (record; NOT a reset target).
+- **⚑ RE-ESCALATED to Matt (Steps 4–6 HELD):** Matt's rebuild-fresh protocol assumed an *uncommitted corrupt* tree. Reality is a *committed clean self-verified* build. Proceeding to reset/rebuild would require `git reset --hard` (destructive, not explicitly authorized on this premise) AND discard a complete deliverable. **KR recommendation: DO NOT rebuild — run jack-ryan Gate-2 on `785956c` (independent verification is exactly the instrument to catch any concurrency contamination). Gate-2 PASS → deliverable stands, collision cost nothing. Gate-2 finds real taint → THEN reset+rebuild.** Verify-before-discard, not discard-before-verify. Awaiting Matt's confirm on the changed path before any destructive git op.
+
+---
+
+### (Original escalation — superseded by the RESOLVED update above; kept for record)
 
 **A second gamora is building E4 PHASE-2 concurrently in the SAME shared engine tree (branch `main`, NOT an isolated worktree).** Discipline #3 serialization-law violation. My fired gamora STOPPED and committed NOTHING (correct). **Do NOT commit / Gate-2 the current tree — it is an undefined two-author interleaved state.**
 
