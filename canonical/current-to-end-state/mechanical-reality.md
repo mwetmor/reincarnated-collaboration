@@ -75,7 +75,7 @@ for gaps:**
 | **Per-chain elements** (Amendment 7a): `chain_elements = {A: primary, B: secondary, C: primary}`; per-skill `canonical_element = chain_elem` | LIVE since 2026-05-29 | `per_skill_emitter.py:864/:1136/:1279` |
 | Per-chain ailments: `ELEMENT_AILMENT[chain_elem]` on chain-A primary attacks (hardwired, pre-hook-layer) | LIVE | `per_skill_emitter.py:772` |
 | Mitigation branch: physical → dodge gate + block + armor; magical → flat resist + 7×7 substrate matrix (physical deliberately non-substrate) | LIVE | `damage_resolver.py:439+` · `resistance_matrix.py:137-139` |
-| Layer-2 hybrid roll `_roll_hybrid`, secondary from `_ALL_8_ELEMENTS − {primary}`, `HYBRID_RATE = 0.175` | LIVE; promotion to governed dial owed (E3 dispatch) | `season_generation_pipeline.py:654-664` |
+| Layer-2 hybrid roll `_roll_hybrid`, secondary from `_ALL_8_ELEMENTS − {primary}`, `HYBRID_RATE = 0.175` | LIVE; promotion to governed dial owed (E3 dispatch) | `season_generation_pipeline.py:654-662` (roll-site source-verified `:662`, E3 2026-07-11) |
 
 ## §4 — THE BINDING RESOLVER (element-application machinery, in full)
 
@@ -116,7 +116,7 @@ Emberfrost pattern handle names.
 
 | # | Surface | Engine state | Owed |
 |---|---|---|---|
-| 1 | Chain slots | ✓ LIVE (Amendment 7a) | per-chain `damage_scaling_type` + `scaling_attribute` derivation via `scales_with` (E3 dispatch — replaces kit-level stamping `per_skill_emitter.py:1115/:1589`) |
+| 1 | Chain slots | ✓ LIVE (Amendment 7a) | per-chain `damage_scaling_type` + `scaling_attribute` derivation via `scales_with` (E3 dispatch — replaces kit-level stamping `per_skill_emitter.py:1115/:1591`) |
 | 2 | Kernel geometry classes | ✓ vocabulary rich; elements per-chain only | pipeline assignment rule + mask `hard_constraint` (kit spans ≥2 geometry classes) |
 | 3 | Damage-output split | ~ HALF-BUILT (per-ability elements exist; flattens at emission) | sim-side component-vector resolution; crit/block per-component math (gamora note) |
 | 4 | On-hit hooks | ~ DECLARED-NOT-RESOLVED (resolver emits **8 event types** — on_chaos_immune/on_dodge/on_block/on_hit/on_kill/on_lifesteal/on_crit/on_vortex_pull, returned `:584`; the ONLY live caller drops them by math-note ruling `spatial_resolver_adapter.py:304`/`:19`; Phase-0 stub ancestor `trigger_handler.py` — `handle_trigger()`=pass, `MAX_TRIGGER_DEPTH=3`, zero imports) | **THE HOOK LAYER** — hook points inline at emission sites (NOT event replay — preserves RNG draw order); first hook = ailment application (`:562`) refactored on, per-seed non-regression proof. **Design note LANDED 2026-07-11:** `agentic_orchestration/gandalf/notes/2026-07-11-hook-layer-design-note.md` |
@@ -129,7 +129,7 @@ Emberfrost pattern handle names.
 
 | Surface | State | Anchor |
 |---|---|---|
-| `damage_scaling_type` + `scaling_attribute` — today stamped KIT-LEVEL on all skills (`_BC_ATTRIBUTE_TO_SCALING_ATTR`) | LIVE; per-chain derivation owed (E3 dispatch, ONE site flips both fields) | `per_skill_emitter.py:1115/:1303/:1589` · `damage_resolver.py:318-320/:354-382` |
+| `damage_scaling_type` + `scaling_attribute` — today stamped KIT-LEVEL on all skills (`_BC_ATTRIBUTE_TO_SCALING_ATTR`) | LIVE; per-chain derivation owed (E3 dispatch, ONE site flips both fields) | `per_skill_emitter.py:1115/:1303/:1591` · `damage_resolver.py:318-320/:354-382` |
 | Cost: mana live; **Axis-5 cost-TYPE bins reserved-empty** (the bench B1–B3 blockers) | RESERVED | tracker PART F.3 |
 | Cooldowns + `cast_time_seconds` tier map | LIVE emitter-side; sim consumer = E4 pair build | `per_skill_emitter.py` · E4 design note §0 |
 | E4 commitment machinery: cast-state machine · tick resolution · drain + pay-on-commit · move-while-channel enum (rooted/walk/full_move) · cumulative break threshold (F-1b) · ramp + break-reset (F-2b) · interrupt RULE v1 sim-side | RULED; pair landed emitter-side (`e4d682e`), gamora PHASE-2 queued | E4 design note + runtime addendum |
