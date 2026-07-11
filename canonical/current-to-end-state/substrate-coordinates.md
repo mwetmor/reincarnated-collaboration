@@ -122,7 +122,7 @@ lattice EXPANSION, not counted in L4).
 | "Channeled is a structural tag, NOT a bin" (axes-lock §3.6) | CONSCIOUSLY SUPERSEDED by the ninth axis (E4) — lineage, not drift |
 | Sketch-A "~22" / fire-ruling "18" roster counts | STRUCK by the roster pin — 25 cells + H-series |
 
-## §7 — THE SEARCH PROCESS (Matt, 2026-07-11 — what this lattice is FOR)
+## §7 — THE SEARCH PROCESS (Matt, 2026-07-11; FUN-instrument doctrine refined same-session — what this lattice is FOR)
 
 1. **Canon representation.** Map ARPG genre-canonical kits into the FULL lattice (L4 addresses:
    9-axis behavior + attribute/element + hybridity). The axes-lock doc's per-bin canonical exemplars
@@ -131,12 +131,29 @@ lattice EXPANSION, not counted in L4).
 2. **Single-axis alteration + FUN tests.** From canon anchors, step ONE axis at a time; test whether
    FUN kits result across incremental alterations. Requires (a) this page's defined axis set — "one
    axis" is only well-defined against the total inventory; (b) neighborhood structure per axis (bin
-   adjacency); (c) **a FUN instrument — NAMED OPEN ITEM:** the gauntlet certifies viable/balanced,
-   not fun; candidates = Matt/Hale playtest protocol · cohesion-BC judge · the F6 fun-signal
-   calibration precedent (low-APM orbital fantasy). Elicitation owed before step-2 fires.
+   adjacency); (c) the FUN instrument — **DERIVED, not designed** (ladder below).
 3. **Multi-axis alteration with learned rules.** After single-axis exhaustion, compose moves under
    rules learned along the way — the E4 coupling laws (§4) are the first entries in that rulebook;
    step-2 produces more (which axis-steps preserve fun from which anchors).
+
+### The FUN-instrument derivation ladder (Matt doctrine, 2026-07-11 — supersedes the "candidates" framing)
+
+**The battle sim is a PREREQUISITE for a kit to be played — it does not certify fun.** Step 2 is
+NOT for now. When the exploration opens, the instrument is built in stages, each gating the next:
+
+| Stage | What | Certifies |
+|---|---|---|
+| i | **Viability gate** (battle sim / gauntlet) | kit is *playable* — prerequisite only |
+| ii | **Genre-correctness certification** — each replicated kit certified **ARPG Genre correct** | kit is *canon-faithful* |
+| iii | **Pattern recognition across the certified canon population** | candidate structure of **ARPG Canonical FUN** |
+| iv | **Working KPIs validated HISTORICALLY** — they must retrodict the canon (classify known-fun canon kits as fun) | the FUN instrument exists |
+| v | **Systematic, iterative search of undiscovered space** using the KPIs | **emergent ARPG Potential FUN** kits |
+
+Two-register vocabulary (Matt's): **ARPG Canonical FUN** = historically defined from the replicated
+canon; **ARPG Potential FUN** = emergent, found in undiscovered lattice space by KPI-guided search.
+The instrument is substrate-led discipline applied to fun itself — the canon votes; nobody
+pre-imposes a fun rubric. Stage-ii's certification instrument (what checks "genre correct"?) is the
+first concrete question WHEN step 2 opens — parked until then, by ruling.
 
 Genre precedent for the method: LE node-transforms and D3 skill-runes are single-axis alterations of
 canon anchors; PoE support gems are rule-governed multi-axis composition. The lattice makes ours

@@ -94,8 +94,8 @@ Emberfrost pattern handle names.
 | 1 | Chain slots | ✓ LIVE (Amendment 7a) | per-chain `damage_scaling_type` + `scaling_attribute` derivation via `scales_with` (E3 dispatch — replaces kit-level stamping `per_skill_emitter.py:1115/:1589`) |
 | 2 | Kernel geometry classes | ✓ vocabulary rich; elements per-chain only | pipeline assignment rule + mask `hard_constraint` (kit spans ≥2 geometry classes) |
 | 3 | Damage-output split | ~ HALF-BUILT (per-ability elements exist; flattens at emission) | sim-side component-vector resolution; crit/block per-component math (gamora note) |
-| 4 | On-hit hooks | ~ DECLARED-NOT-RESOLVED (resolver emits on_hit/on_kill/on_crit `damage_resolver.py:476/:519/:522/:668`; nothing consumes) | **THE HOOK LAYER** — event-consumer registry; first hook = existing ailment application refactored on (non-regression proof) |
-| 5 | Trigger table | ~ DECLARED-NOT-RESOLVED (`layer2_trigger` enum `skill_schema.py:139-141`; only charge-stack consumed `damage_resolver.py:329-332`) | SAME hook layer — one architecture serves 4+5 |
+| 4 | On-hit hooks | ~ DECLARED-NOT-RESOLVED (resolver emits **8 event types** — on_chaos_immune/on_dodge/on_block/on_hit/on_kill/on_lifesteal/on_crit/on_vortex_pull, returned `:584`; the ONLY live caller drops them by math-note ruling `spatial_resolver_adapter.py:304`/`:19`; Phase-0 stub ancestor `trigger_handler.py` — `handle_trigger()`=pass, `MAX_TRIGGER_DEPTH=3`, zero imports) | **THE HOOK LAYER** — hook points inline at emission sites (NOT event replay — preserves RNG draw order); first hook = ailment application (`:562`) refactored on, per-seed non-regression proof. **Design note LANDED 2026-07-11:** `agentic_orchestration/gandalf/notes/2026-07-11-hook-layer-design-note.md` |
+| 5 | Trigger table | ~ DECLARED-NOT-RESOLVED (`layer2_trigger` enum `skill_schema.py:139-141`; only charge-stack consumed `damage_resolver.py:327-334`; emitted∩declared = {on_hit, on_kill} only) | SAME hook layer — one architecture serves 4+5; vocabulary reconciled by emission-point class (design note §2.3: hit-resolution+cast v1 · tick/threshold v1.1 · `sequence` OUT→phase axis · charge-stack stays live as-is) |
 | 6 | Combo phases | ✗ ABSENT cross-skill (`sequence` + `prerequisite_skill` declared-not-consumed) | mark/consume state design from scratch + placement hearing (gandalf) |
 | 7 | Emission slots | ~ SPECCED-NOT-BUILT | build per rotational addendum §3; pairs with B12 re-cert; emitted-vs-proxy boundary ruling at integration |
 | S | **Attribution spine** | damage events exist; NO per-element attribution columns | **v1-BLOCKING** — kill-attribution-by-element + realized-share columns (star-lord); covers DoT ticks, later components/emissions/proxy attacks |
@@ -117,7 +117,7 @@ Emberfrost pattern handle names.
 | `layer2_trigger` enum: `{on_use, on_hit, on_kill, on_take_damage, periodic, threshold_stack, threshold_hp, sequence}` + stackability vocab | DECLARED (`skill_schema.py:120-165`) |
 | Charge stacks: `per_stack_passive_bonus` → resolver + combatant | LIVE (the one consumed path; E4/Q9 lineage) |
 | `prerequisite_skill` (Layer 1.5 coupling) | DECLARED-NOT-CONSUMED |
-| **Hook layer** (event-consumer registry over §5 row-4 emissions; serves rider_on_hit + proc_trigger) | DESIGN NOTE IN FLIGHT — (b) RULED 2026-07-11, parallel with E3 dispatch |
+| **Hook layer** (registry executing at inline hook points; serves rider_on_hit + proc_trigger; HookEntry binder-stamped — generation-time law) | **DESIGN NOTE LANDED 2026-07-11** (`gandalf/notes/2026-07-11-hook-layer-design-note.md`): customer ladder ailment_core→burn-on-physical→proc_trigger · 7 acceptance criteria · depth guard 3 · build fires post-E3-dispatch (gamora-led, math note first) |
 
 ## §8 — Proxies + summons
 
@@ -131,7 +131,7 @@ Emberfrost pattern handle names.
 ## §9 — Build ladder (order of mechanical work)
 
 1. **E3 dispatch (NOW):** per-chain scaling derivation · geometry-partition rule + mask constraint · `element_application` block + masks + pins + `HYBRID_RATE` → governed dial · Option C tuple DELETION · `naming_flavor_element` split · scaling-unification T4 · **attribution spine** (star-lord) · `element_application_binder.py` born. Ships `chain_partition` + `geometry_partition`, honestly certified.
-2. **HOOK LAYER** (design note in flight — (b) RULED): one event-consumer registry; ailment application refactored on as first hook; rider_on_hit + proc_trigger become element-bound entries.
+2. **HOOK LAYER** (design note LANDED 2026-07-11 — build authority: `gandalf/notes/2026-07-11-hook-layer-design-note.md`): registry at inline hook points; ailment application refactored on as first hook (per-seed proof); rider_on_hit + proc_trigger become element-bound HookEntries; attribution spine = its measurement surface.
 3. **COMPONENT ACCOUNTING** (pre-`flat_split`): sim-side component vectors; gamora crit/block math note.
 4. **PHASE/STATE AXIS** (pre-`phase_partition`): mark-and-consume design note + placement hearing.
 5. **EMISSION PRIMITIVE** (carrier): per rotational addendum §3; pairs with B12 re-cert; boundary ruling at integration.
