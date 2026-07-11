@@ -4,6 +4,24 @@ Continuity doc for the next knight-rider session. What shipped, what's queued, w
 
 ---
 
+## 🛑🛑 CRITICAL — E4 PHASE-2 MULTI-WRITER COLLISION (read FIRST, blocks Gate-2)
+
+**A second gamora is building E4 PHASE-2 concurrently in the SAME shared engine tree (branch `main`, NOT an isolated worktree).** Discipline #3 serialization-law violation. My fired gamora STOPPED and committed NOTHING (correct). **Do NOT commit / Gate-2 the current tree — it is an undefined two-author interleaved state.**
+
+**Verified empirically (trust-but-verify, KR this session):**
+- **3 live `knight-rider` processes** — PIDs 75950 (11:38), 76891 (11:47), 77801 (11:54) + 1 gandalf. Root cause: relay **Prompt 2 (E4 PHASE-2 fire) was almost certainly pasted into >1 fresh KR session.** Each independently verified the gate open + "slot free" (neither KR session can see the other's in-flight subagent) → both fired gamora. **The "one gamora unit in flight / KR slot call" guard cannot be enforced across KR sessions that don't share state.**
+- **Tree state:** HEAD unchanged `853818d`; `spatial_engine.py` (+468) & `spatial_telemetry.py` (+29) MODIFIED, uncommitted. `spatial_engine.py` imports the `csm` module my gamora authored AND carries a fuller `_e4_service_commitment`/`_e4_initiate_commitment` than my draft = two authors.
+- **Live bug in the hybrid:** `_e4_blind` initialized twice — `spatial_engine.py:1806 = e4_blind_pilot` (constructor param, authoritative) then `:1929 = False` (runs later, CLOBBERS the blind-pilot arm → defeats criterion-18 blind-vs-competent A/B). Must be fixed before any Gate-2.
+- **Active writer:** `spatial_engine.py` mtime 12:05:55 — ~75s before my check, AFTER my gamora stopped → the other gamora was still writing.
+
+**Uncontended additive artifacts on disk (coherent, mergeable):** `simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md` (my gamora's PHASE-2 build spec) + `simulation/spatial_gauntlet/commitment_state_machine.py` (already in use by the other writer).
+
+**ESCALATED to Matt — single decision:** which KR session owns E4 PHASE-2; stop the other; single gamora finishes in a single tree (or isolated worktree per CLAUDE.md spawn-mode-2). KR will NOT unilaterally kill another session's process or reset/stash the shared tree (destructive; would destroy the other session's in-flight ~494-line build; exceeds seam authority / ADR-006). My gamora is parked awaiting slot re-serialization (agentId `a58773159edd4a735`).
+
+**Guard for whoever continues:** delete `spatial_engine.py:1929 self._e4_blind = False`; single-writer only; consider an isolated git worktree to prevent recurrence.
+
+---
+
 ## ⭐⭐ FRESHEST — E4 PHASE-2 sim build FIRED (read first)
 
 Fresh KR session (relay Prompt 2), single job: fire gamora on E4 PHASE-2 (commitment-axis sim build). **FIRED.** All §0-gate preconditions verified this session:
