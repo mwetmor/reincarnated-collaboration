@@ -134,6 +134,10 @@ Matt (verbatim core): *"why not house it within the elemental randomization piec
 
 **Dial-open = a NAMED follow-on milestone**, empirically gated: breadth price validated on the v1 population + the ONE Q14 re-anchor + variant-row cert handling demonstrated. The E3 design note MUST carry the end-state semantics from birth so the v1 zeros read as scaffolding, not policy.
 
+## §2-quater — SUPERSESSION (Matt element-application addendum, 2026-07-10 mobile track)
+
+> Matt's `matt_notes_handoff_docs/reap-die-rise-element-application-addendum.md` (+ engine-doctrine placement test) **OVERRULES the §2-bis/§2-ter per-CellDef `%` carrier** — a rate is a magnitude; magnitudes are barred from BC space. All §2-ter semantics survive at re-factored addresses (pins / affinity masks / global prevalence dial / hard_constraints). E3's portfolio lean = `chain_partition` over the PATH dimension; proposed `path_application` block sibling to `element_application`. Full verdict + fork-impact table: `2026-07-10-element-application-doctrine-review.md` §1.4–1.5. Q-E3-0 is effectively re-ruled by the addendum's addressing; Q-E3-1(c) hardened; Q-E3-2/3/5/6 amended as tabled there.
+
 ## §3 — Composition constraints (inherited, not forks)
 
 1. **E2 k-conservation:** k scales `(per_hit, cooldown, cost)` per-skill. Under the portfolio spine each skill is single-path — k composes UNCHANGED. For `sum_paths` signatures: whether k applies per-path-pre-blend or post-blend is a **math-note item** (conservation must hold either way; flag, not fork).
