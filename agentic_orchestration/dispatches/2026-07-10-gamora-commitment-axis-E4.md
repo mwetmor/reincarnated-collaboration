@@ -160,3 +160,36 @@ Instrument throughput **≥30 fights/s** with the cast-state machine + ticks liv
 **Downstream note (dispatch record):** the **ninth-axis (QD/F-3) measurement half (ii) unblocks when PHASE-2 lands.** Deferred until then; build against the 324→972 catalog space (§11 out-of-scope holds until the unblock).
 
 **Fired by:** knight-rider, 2026-07-11.
+
+---
+
+## Completion record
+**Completed:** 2026-07-11
+**Phase:** PHASE-2 (the E4 sim BUILD) — math-before-code satisfied (shared math note CLOSED + §13 co-sign; consumer note `simulation/math/commitment-axis-e4-sim-consumer-2026-07-11.md`).
+**Tag shipped:** `gamora/v1.5-commitment-axis-4` (seam prefix; NOT pushed — KR owns push per ADR-006).
+
+**What landed (sim consumer half):**
+- NEW module `simulation/spatial_gauntlet/commitment_state_machine.py` — [M] packet parse + ramp + pilot-floor projection (motion-model forward-integration, NO velocity field) + forced-break ring. Unit-testable.
+- Engine integration in `spatial_engine.py`: `_e4_service_commitment` / `_e4_initiate_commitment` / `_e4_pay_and_cooldown`; action-phase interception; `_PosProbe`/`_point_in_template`/`_channel_fixed_hits`; `damage_scalar` on `_apply_skill_damage` (channel ramp, identity at 1.0); move-policy at nav branch (rooted/walk/full_move); ring-push + `damage_taken_while_committed` at the player-hp site; seven telemetry producer fields on `SpatialFightResult`. `WIRE_COMMITMENT_AXIS` kill-switch + `e4_blind_pilot` A/B toggle.
+- Consumed AS-EMITTED (NO re-derivation): `commitment_premium`, `drain_rate`, `tick_interval`, forced-break Y/W/lockout, ramp, `move_policy`, `tick_tracking`.
+
+**Smoke results:** `simulation/notes/e4_commitment_sim_consumer_smoke_2026_07_11.py` — RT + BI + PF + WU + CH-lethality + CH-drain ALL PASS (round-trip [M] consumption/identity; snap degenerate; projection tracks motion model; motion-whiff real c_wind=0.875; 16 forced-breaks + 56K lock exposure; 78 drain-exhaustion + sustain_uptime→0). C18 + PERF reported.
+
+**Byte-identity guard (dispatch load-bearing) — PROVEN:** A/B harness `simulation/notes/e4_byte_identity_ab_2026_07_11.py` — golden captured on PRE-E4 tree (git-stash), **12/12 (kit,scenario) cells byte-identical** on the E4 tree (production path, real seed-57000000 kits). Snap-grade population unchanged by construction. ONE-COMMAND A/B in the harness docstring.
+
+**Perf gate (criterion 19) — PASS:** 41.0 fights/s (E4) vs 40.0 (pre-E4 baseline) = −2.5% (≥30 floor; ≤17% gate).
+
+**Criterion 16 (telemetry):** LANDED — seven producer fields (`completion_rate`, `whiff_rate`, `damage_taken_while_committed`, `forced_break_count`, `move_cancel_count`, `drain_exhaustion_events`, `sustain_uptime`) on `SpatialFightResult`, additive-defaulted, brownfield-safe.
+**Criterion 17 (regime matrix):** demonstrated in the smoke — mobility (kiting mobs → whiffs), lethality (boss_with_adds → forced-breaks + exposure), attrition/drain (bound pool → exhaustion). The cert-matrix composition requirement is documented in the consumer math note §6.
+**Criterion 18 (pilot floor / blind-vs-competent):** A/B mechanism wired + runs; competent arm cancels doomed casts (active floor), blind arm rides everything out (distinct behaviors — a `_e4_blind` clobber-bug was found + fixed during the simplify review). Δc_wind signal lands in the production RANGED-mobility cert; the melee-close smoke shows Δ≈0 by regime with the projection logic proven via the PF unit check.
+
+**MIGRATION.md written:** YES — shared doc `generation/MIGRATION.md` (CONSUMER IMPACT — gamora section marked LANDED) + sim producer-contract entry `simulation/MIGRATION.md` [2026-07-11] E4. **star-lord follow-on noted** (DB columns + `_INSERT_SQL` widen + schema bump + pricing-loop join — NOT drafted). **B12 spin re-cert noted** (full_move consumed; substrate ready). **Batch-2 sample-vs-pin `bc_commitment` fork FLAGGED PENDING** (KR+Matt; primary flag in generation MIGRATION, sim cross-ref) — NOT resolved.
+
+**Notes for jack-ryan Gate-2 review:**
+- Byte-identity is the load-bearing claim: A/B harness proves it 12/12 on the production path (real resolver-mitigated damage, not projection). The snap path adds one no-op method call + one `read_commitment` parse per tick; perf −2.5% confirms negligible.
+- Semantic shift (Disc #12) DECLARED in code + math note §2.1: `action_available_at` gains a BUSY-state meaning during commitment (readiness = cooldown-elapsed AND not-committed AND not-locked-out). Framed, not buried.
+- `damage_scalar` on `_apply_skill_damage` is multiply-by-1.0 on every pre-E4 call (exact IEEE-754 no-op → byte-identity holds); the channel ramp is the only caller that passes ≠1.0.
+- Two PRE-EXISTING regression sets are OUT of the sim seam (confirmed by stashing E4): 4 llm/naming vocab-path collection errors (missing collab doc) + 6 generation-seam `test_cycle13_wave5` cell-grain contract errors (rocket's pipeline). Routed to KR.
+- NO push (KR owns). NO band re-fit/re-anchor (deltas reported; the ONE post-E3/E4 Matt-gated re-anchor absorbs them).
+
+**Completed by:** gamora, 2026-07-11.
