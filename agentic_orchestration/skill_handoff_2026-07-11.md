@@ -55,7 +55,22 @@ Matt: *"dispatch drax to build Glance v1.9 (contract §7.7, trio form)"* → the
 
 ---
 
+## This session (later still) — E3 EXECUTION run via sub-agent orchestration → generation half LANDED + Gate-2; attribution spine ⚑ ESCALATED
+
+Matt: *"Orchestration of sub agents is your seam. Please run autonomously until completed with the documented task."* → KR fired the FIRE-READY E3 dispatch as sub-agents (E4 execution-run pattern). Math-before-code held.
+
+- **Math note CLOSED** (`1dd1ac3` rocket + `e4f6c28` gamora + `2ceaa15` star-lord co-signs) — `generation/math/element-application-binder-2026-07.md`.
+- **rocket GENERATION half LANDED** `db8e47f`, tag **`rocket/v2.5-element-application-3`**: binder + both walkers + per-chain flip + Option-C tuple deleted (grep-clean exit 1) + `naming_flavor_element` split + scaling-T4 (7→8) + HYBRID_RATE dial + `:1591` relaxation. SPINE zero-diff CONFIRMED; smoke 8/8; zero E3-introduced pytest failures. **rocket self-caught the DEX byte-identity landmine** (mono guard, proven zero-diff all four attributes).
+- **Gate-2 (jack-ryan): PASS-WITH-CONDITIONS**, no BLOCK. Re-ran smoke 8/8 himself; verified grep-clean + gen-time-law + SPINE + mono guard + `:1591`. Fixed canonical cite drift (`:664`→`:662`, `:1589`→`:1591`; collab `c61c8d7`) + decisions-log `d4c15c3`.
+- **⚑ ESCALATED to Matt (attribution spine — CONDITION 1):** the v1-BLOCKING attribution spine requires SIMULATION-seam writes (`damage_resolver.py:470/513` accumulator + DoT fix `:1021`/`effect_resolver.py:70`) the dispatch scoped out ("no gamora build"); star-lord+gamora disagree on ownership; E4-PHASE-2 tick-system forward-collision on `effect_resolver.py`. Needs a scope + serialization ruling — see the Matt-decision section below.
+- **K20/K23 anchor pins (CONDITION 2):** deferred, rides the parked batch-2 fork.
+- **Push HELD** on the engine build commits + tag (`db8e47f`, `d4c15c3`, collab `c61c8d7`) so v1 lands whole after the attribution ruling. Meta-repo run-close pushed per established pattern.
+
+---
+
 ## Flagged for Matt (⚖ confirm / decide)
+
+- **⚑ E3 ATTRIBUTION SPINE — scope + serialization ruling (NEW, gates E3 v1 completion).** Three coupled sub-questions: **(a) scope-amendment** — authorize a bounded gamora/sim-seam build (the dispatch said "no gamora build")? **(b) seam-ownership** — the two sim-seam writes: are they gamora's (sim logic) or star-lord's (cross-boundary telemetry instrumentation)? star-lord and gamora disagree. **(c) serialization** — the DoT fix lands in `effect_resolver.py:tick_effects`, exactly where E4 PHASE-2's tick-system work will land; sequence E3-attribution-first, or hold it behind E4 PHASE-2? **KR recommendation:** authorize a bounded sim-seam pass (both sites are small, both agents converged on the exact lines) owned by **gamora** (sim-seam writes belong to the sim seam; star-lord owns the DB columns/schema + MIGRATION section), sequenced by KR against the E4-PHASE-2 tick-system so they don't collide — but this is a genuine scope+serialization call that is yours. Alternative: demote DoT-tick attribution to v1.1 (re-opens JR-3, who made it v1-BLOCKING to prevent a smoke-goes-GREEN-with-DoT-untested Gate-2 gap).
 
 - **F-3 confirm-flag** — read closed-by-proceed as ADOPT+DEFER (catalog 972 operational · QD ninth-axis deferred to the arity stress-test). Awaiting one-word Matt confirm. Pair NOT gated on it.
 - **Batch-2 sample-vs-pin fork** — PARKED, unresolved; stays a named KR+Matt decision (E3 dispatch §10.4 out-of-scope).
