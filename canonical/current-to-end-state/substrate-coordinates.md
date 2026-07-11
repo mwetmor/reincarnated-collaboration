@@ -9,11 +9,15 @@
 > explicit ruling.
 >
 > **Maintenance law — SAME-COMMIT:** any work that adds/removes an axis, changes an arity, promotes
-> a reserved bin, or lands a new constraint updates this page in the SAME commit.
+> a reserved bin, or lands a new constraint updates this page in the SAME commit — and additionally
+> adds/amends the affected `projection-atlas.md` §2 row in that same commit (TRIPLE LAW).
 >
-> **PAIR LAW:** this page = **WHERE a kit can sit** (the total design lattice + its operational
-> projections). Twin `mechanical-reality.md` = **WHAT the engine can express** (build-out surfaces).
-> **Glance:** candidate page (contract amendment — KR sequences; drax builds).
+> **TRIPLE LAW (supersedes the PAIR LAW):** this page = **the LATTICE — WHERE a kit can sit** (the
+> defined design space; semantic layer — coverage claims attach here at a NAMED ladder level).
+> `mechanical-reality.md` = **the CODEX — WHAT the engine can express** (raw/source layer).
+> `projection-atlas.md` = **the PROJECTION** (every kit-varying Codex field → exactly one placement
+> class); the **REALIZED ATLAS** = the emitted join — never hand-written. **Glance:** `/coordinates`
+> page (contract §7.7, v1.9 — drax builds).
 
 **THE GOVERNING DISTINCTION — definitional vs operational.** The full lattice below is
 **DEFINITIONAL**: it exists so that every search move ("alter one axis") is well-defined and so

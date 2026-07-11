@@ -10,14 +10,20 @@
 > **Maintenance law — SAME-COMMIT:** the commit that lands mechanics-changing work updates the
 > touched surface row here in the SAME commit (rocket: generation/emitters/binder · gamora:
 > sim/resolver/hooks · star-lord: attribution/telemetry · gandalf: doc owner + design-state stamps).
+> A NEW kit-varying field/surface additionally adds its `projection-atlas.md` §2 row in that same
+> commit (TRIPLE LAW) — an unprojected new field is a live alarm, not pending paperwork.
 >
-> **PAIR LAW:** this page = **WHAT the engine can express** (mechanical truth, per surface, with
-> state). Its twin `substrate-coordinates.md` = **WHERE a kit sits in design space** (search).
-> Exploring a new kit reads BOTH: sample the coordinate there → verify every mechanical surface the
-> kit touches here. **Glance:** candidate page (contract amendment — KR sequences; drax builds).
+> **TRIPLE LAW (supersedes the PAIR LAW):** this page = **the CODEX — WHAT the engine can express**
+> (raw/source layer: mechanical truth, per surface, with state). `substrate-coordinates.md` = **the
+> LATTICE — WHERE a kit sits in design space** (semantic layer). `projection-atlas.md` = **the
+> PROJECTION** (every kit-varying field here carries exactly one placement class); the **REALIZED
+> ATLAS** = the emitted join. Exploring a new kit reads all three: sample the coordinate → project
+> the fields → verify every mechanical surface the kit touches here. **Glance:** `/mechanics` page
+> (contract §7.7, v1.9 — drax builds).
 
 **Siblings:** `pipeline-serial-content-emission.md` (E0–E8) · `pipeline-battle-sim.md` (S0–S8) ·
-`substrate-coordinates.md` (the pair twin). **Register of record for gaps:**
+`substrate-coordinates.md` + `projection-atlas.md` (the TRIPLE-LAW siblings). **Register of record
+for gaps:**
 `agentic_orchestration/gandalf/notes/2026-07-11-hybridity-mechanical-scaffolding-audit.md`.
 
 ---
