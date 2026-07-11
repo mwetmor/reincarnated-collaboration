@@ -25,6 +25,24 @@ that is the F-3 confusion dissolved permanently.
 
 ---
 
+## FLOW
+
+> Glance `/coordinates` lead bar (contract §7.7, v1.9). **Navigation semantics, NOT
+> state-progression** — this is a reference register; stages carry no modeled queue rows and render
+> quiet by design. Owner (gandalf) updates refs same-commit on any §-restructure.
+
+1. **THE LADDER — L0→L4 totals** ← §0
+2. **Axis inventory** ← §1
+3. **9-axis lattice (204,120)** ← §2
+4. **Identity ×16 · hybridity ×393** ← §3
+5. **Constraint cuts** ← §4
+6. **Expression grain** ← §5
+7. **Errata guard** ← §6
+8. **THE SEARCH PROCESS** ← §7
+9. **Adjacent spaces** ← §8
+
+---
+
 ## §0 — THE LADDER (nested spaces, smallest → total)
 
 | Level | Space | Size | Status |

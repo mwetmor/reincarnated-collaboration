@@ -22,6 +22,25 @@
 
 ---
 
+## FLOW
+
+> Glance `/mechanics` lead bar (contract §7.7, v1.9). **Navigation semantics, NOT
+> state-progression** — mechanical-composition order (what a kit IS → how it resolves → what's owed
+> → build order); stages carry no modeled queue rows and render quiet by design. Owner (gandalf)
+> updates refs same-commit on any §-restructure.
+
+1. **Kit anatomy (packet)** ← §1
+2. **Geometry + motion** ← §2
+3. **Elements + mitigation** ← §3
+4. **THE BINDING RESOLVER** ← §4
+5. **Surfaces register (truth vs owed)** ← §5
+6. **Scaling + economy** ← §6
+7. **Layer-2 + hooks** ← §7
+8. **Proxies + summons** ← §8
+9. **BUILD LADDER** ← §9
+
+---
+
 ## §1 — Kit anatomy (the packet)
 
 | Surface | State | Anchor |
