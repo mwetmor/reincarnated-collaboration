@@ -17,7 +17,9 @@
 
 **Siblings:** `pipeline-battle-sim.md` (stages E4→E5 below hand off INTO and pick up FROM that
 machine) · `pipeline-game.md` · `pipeline-story.md` · `pipeline-arcade.md` (POST-LAUNCH mode
-factory). **Roster:** the per-kit state this pipeline advances lives in
+factory) · **the E0 reference pair (born 2026-07-11):** `substrate-coordinates.md` (kit-design
+SEARCH space in full) + `mechanical-reality.md` (the engine's mechanical surface register for
+build-out, incl. THE BINDING RESOLVER in full). **Roster:** the per-kit state this pipeline advances lives in
 `current-to-end-state-serial-content-emission.md` PART F (K1–K25 · H1–H6 · bench B-series), rendered
 at Glance `/kits`.
 
@@ -113,12 +115,15 @@ at Glance `/kits`.
 
 The canon the factory draws from. The BC coordinate space (25 named CellDefs — PART F's K-numbers —
 in the operational catalog: 324 → **972 lattice** with `bc_commitment` after Q-E4-4b; the 8-axis QD
-archive stays **68,040 full / 12,960 live** — commitment as a ninth ARCHIVE axis is pending its
-arity stress-test, E4 addendum §D.1/fork F-3); the **race well** (5 races × 4 registers = up to 20 identity cells; CLOSED — LLM never
+archive stays **68,040 full / 12,960 live** — commitment as a ninth ARCHIVE axis is **⚑ PRIORITIZED
+toward content emission** (Matt 2026-07-11; arity stress-test = the admission gate, moved up — the
+addendum §D.1/fork F-3 defer-sequencing superseded)); the **race well** (5 races × 4 registers = up to 20 identity cells; CLOSED — LLM never
 derives races; Leg-3-ready as of the Q17 ruling); **mob-affix families** (8 functional); the
 **motion-frame seven-axis family** (F1–F6 ratified); **proxy-behavior axes** (P0/P1/P2 staging);
 **Axis-5 cost-TYPE bins** (reserved-empty — the bench B1–B3 blockers).
-**Drill-through:** `../reap-die-rise-engine/mob-affix-system-spec-2026-07-09.md` ·
+**Drill-through:** **`substrate-coordinates.md` + `mechanical-reality.md` (the E0 reference pair —
+full search space + full mechanical surface register, born 2026-07-11)** ·
+`../reap-die-rise-engine/mob-affix-system-spec-2026-07-09.md` ·
 `../reap-die-rise-engine/bestiary-race-well-design-2026-07-09.md` ·
 `../reap-die-rise-engine/motion-frame-substrate-amendment-2026-07-09.md` ·
 `../reap-die-rise-engine/agnostic-loot-engine-spec.md`.

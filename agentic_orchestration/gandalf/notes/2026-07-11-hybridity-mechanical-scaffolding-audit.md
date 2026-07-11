@@ -25,6 +25,8 @@ The binder law inverted: element application binds to every surface where damage
 
 ## §1-bis — The binding resolver: where the expression rules load (Matt follow-up, 2026-07-11)
 
+> **CARRIED FORWARD 2026-07-11 (Matt directive):** this section + the §1 register now live in FULL on the Matt-facing **`canonical/current-to-end-state/mechanical-reality.md`** (§4 resolver · §5 register), twin of `substrate-coordinates.md`. That page is the LIVING surface (same-commit maintenance); this audit note stays the founding engine-verified record.
+
 Matt: *"where we will plan to load the machinery needed for the rules which decide how the hybrid element is presented across the kit, and what the rules would be?"* (worked cases: tornado-spawn whirlwind barbarian; burn-on-physical-hits). Answer — the machinery decomposes across four addresses, per the binder law:
 
 1. **Capability slots** (kernels/chain/hooks/emission) — element-BLIND mechanics. "Circular skills spawn roaming damage entities" = the kernel EMISSION SLOT's line (rotational addendum §3), reusable by mono kits (D2 Whirlwind slot-empty vs D4 dust-devil slot-populated — the addendum's own worked example). Putting mechanics text in the element home would create a second spawn mechanism (§10 duplicate-representation violation).
