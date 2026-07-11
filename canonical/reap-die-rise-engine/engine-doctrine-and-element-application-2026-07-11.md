@@ -12,8 +12,9 @@
 >    ratified); Part R-7 below records the mapping. Originals stay in `matt_notes_handoff_docs/`
 >    as received-lineage; THIS doc is the spec of record.
 >
-> **Author:** gandalf (CANON-STEWARD), 2026-07-11 · **Ratification:** jack-ryan — ⚠ AWAITING
-> (proposer/ratifier seam per `canonical-doc-format.md` §6.7) · **Sequencing:** KR
+> **Author:** gandalf (CANON-STEWARD), 2026-07-11 · **Ratification:** jack-ryan — ✓ RATIFIED
+> 2026-07-11 (proposer/ratifier seam per `canonical-doc-format.md` §6.7; all R-1..R-10 verified
+> intent-faithful against the ruling record — see decisions-log 2026-07-11) · **Sequencing:** KR
 > **Review lineage:** `agentic_orchestration/gandalf/notes/2026-07-10-element-application-doctrine-review.md`
 > (verdicts: addendum ADOPT · doctrine CANONIZE-with-reconciliation; all six §2.3 reconciliation
 > items now ruled — see Preface).
@@ -469,8 +470,14 @@ where the addendum's §C-9 build order deferred them.
 
 ---
 
-**Sign-off:** gandalf (CANON-STEWARD), 2026-07-11. ⚠ SWITCH: CANON-STEWARD (proposer) →
-jack-ryan (ratifier) — ratification pass owed per `canonical-doc-format.md` §6.7; KR sequences.
+**Sign-off:** gandalf (CANON-STEWARD), 2026-07-11. ✓ SWITCH DISCHARGED: CANON-STEWARD (proposer) →
+jack-ryan (ratifier) — **ratification PASSED per `canonical-doc-format.md` §6.7, jack-ryan
+2026-07-11.** Intent-fidelity review (not re-design): all ten reconciliation deltas R-1..R-10
+verified against the ruling record (serial-content-emission SESSION-DELTA 2026-07-10 eighth +
+2026-07-11 first–fifth entries · doctrine review note §2.3); ⟦R-n⟧ markers in Parts A–D confirmed
+to point at the correct R-items with no unmarked passage contradicting a ruling; received-lineage
+preserved (originals untouched in `matt_notes_handoff_docs/`); living-surface hygiene clean
+(Appendix A = snapshot, `mechanical-reality.md` governs — no dual-maintenance). KR sequences.
 Anchors: the three mobile-track originals (received-lineage) · doctrine review note 2026-07-10 ·
 tracker entries 2026-07-10 (sixth–eighth) + 2026-07-11 (first–fourth) · `substrate-coordinates.md`
 · `mechanical-reality.md` · `motion-frame-substrate-amendment-2026-07-09.md` ·
