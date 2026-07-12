@@ -1,5 +1,7 @@
 # V4 — Roster Adjacency Map (all 48: K1–K29 + H1–H6 + B1–B13)
 
+> **⚠ SUPERSEDED same-day by `V4r2-roster-adjacency-rebuilt.md` (Matt throw-out ruling 2026-07-12).** The roster-side inputs here came from the mobile-transcribed encoding (`rdr-roster-kits.jsonl`), which Matt ruled corrupted-by-lack-of-knowledge — proven (mobile-K23 ≠ real K23 Monk; "unrecoverable" kits all named in PART F). **§1 method laws SURVIVE and govern V4-r2 verbatim.** §2–§3 roster rows, F1's "MAC-FILL BACKFILL" unit, and F4's K23↔B12 consolidation flag are RETIRED. Corpus-side content remains valid.
+
 **Date:** 2026-07-12 · **Author:** gandalf · **Source:** `rdr-kit-atlas-v3.csv` (506 placed canon rows joined against 35 roster + 13 bench rows) · **Commission:** Matt — "Run V4 to completion, including the bench kits."
 
 ---

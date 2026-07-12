@@ -1,0 +1,46 @@
+kit_id,name,attr,range,tempo,amp,proxy,commit,econ,elem,provenance,lineage_targets,note,class_v4r2
+K1,Heavy Barbarian,S,M,L,S,S,W,__,__ (parametric),CellDef,d2:whirlwind,commit=wind-up CODE-PINNED (CellDef 1),LINEAGE
+K2,Light Fighter,S,M,H,F,S,_,__,__ (parametric),CellDef,,,LINEAGE-5
+K3,Polearm Soldier,S,M,M,V,S,_,__,__ (parametric),CellDef,,,WHITESPACE
+K4,Thrown-Heavy / Atlatl,S,R,L,S,S,_,__,__ (parametric),CellDef,,,VOCAB
+K5,Ancestor-Warrior,S,M,L,S,L,_,__,__ (parametric),CellDef,d3:call of the ancients|ancients,shared pool w/ Cell 1,LINEAGE-5
+K6,Dagger Assassin,D,M,H,F,S,_,__,__ (parametric),CellDef,,,LINEAGE-5
+K7,Archer,D,R,H,F,S,I,__,__ (parametric),CellDef,,commit=snap CODE-PINNED (CellDef 7),LINEAGE
+K8,Crossbow Sniper,D,R,L,S,S,_,__,__ (parametric),CellDef,,,VOCAB
+K9c,Twin-Blade Fencer (code),D,M,H,V,S,_,__,__ (parametric),CellDef,,CellDef 9; drift recorded,LINEAGE-5
+K9f,Twin-Blade Fencer (fired),D,D,H,F,S,_,__,__ (parametric),Sketch-A/batch-1,,batch-1 fired mid/high/flat,LINEAGE-5
+K10,Falconer,D,R,H,F,L,_,__,__ (parametric),CellDef,le:falconer,shared pool w/ Cell 7,LINEAGE-5
+K11,Trap Assassin,D,D,L,S,H,_,__,__ (parametric),CellDef,d2:trap | poe2:grenade|merc,,LINEAGE-5
+K12,Standard Wizard,I,R,M,V,S,_,__,__ (parametric),CellDef,,,LINEAGE-5
+K13,Artillery Mage (folded->K12),I,R,L,S,S,_,__,__ (parametric),CellDef,,T4-expressed via K12,LINEAGE-5
+K14,Pyromantic Caster,I,D,L,S,S,_,__,__ (parametric),CellDef,,__null__ Stage-3.5 gap-fill,LINEAGE-5
+K15,Red Mage / Spellsword,I,M,H,F,S,_,__,__ (parametric),CellDef,,Option C STR substrate,LINEAGE-5
+K16,Arcane-Familiar Mage,I,R,M,V,L,_,__,__ (parametric),CellDef,,shared pool w/ Cell 12,WHITESPACE
+K17,Necromancer Summoner,I,D,L,S,H,_,__,__ (parametric),CellDef,d2:skele,,LINEAGE-5
+K18,Totem Hierophant,I,D,M,V,H,_,__,__ (parametric),CellDef,poe1:hierophant|totem,,WHITESPACE
+K19,Channeling Cleric,W,D,M,V,S,C,__,__ (parametric),CellDef,,commit=channel CODE-PINNED (CellDef 19),WHITESPACE
+K20,Holy Knight / Hammerdin,W,M,M,V,S,_,__,__ (parametric),CellDef,d2:blessed hammer|hammerdin,motion=orbiter_spiral,WHITESPACE
+K21,Ritual Mage / Oracle,W,R,M,V,S,_,__,__ (parametric),CellDef,,,WHITESPACE
+K22,Storm Caller / Druid,W,R,M,V,S,_,__,__ (parametric),CellDef,,same cell as K21; sidecar-B routing differs,WHITESPACE
+K23,Monk (quarterstaff),W,M,H,V,S,_,__,__ (parametric),CellDef,,Option C,LINEAGE-5
+K24,Druid Beastmaster,W,D,M,V,H,_,__,__ (parametric),CellDef,d2:wolf|spirit wol,,WHITESPACE
+K25,Witch Doctor Petmaster,W,D,M,V,H,_,__,__ (parametric),CellDef,d3:carnevil|fetish,same cell as K24; routing differs,WHITESPACE
+K26,Blood Mage / Martyr,W,_,_,_,S,_,SC,__ (parametric),PART F (F5),poe1:blood | d2:sacrific,hp-cost NATIVE,INSUF
+K27,Thorns / Vengeance Knight,S,M,_,_,S,_,MT,__ (parametric),PART F (F5),d3:invoker|thorn | d4:flay|thorn,on_damage_taken builder,INSUF
+K28,Builder-Spender Warrior,S,M,_,_,S,_,MT,__ (parametric),PART F (F5),d3:frenzy|fury|bash,on_hit builder,INSUF
+K29,Necromantic Blood Mage,I,_,_,_,S,_,SC,__ (parametric),PART F (F5),d2:blood | poe1:low.?life,T4 RESOURCE_CONVERSION door,INSUF
+H1,Orbital Guard,_,_,_,_,S,_,__,__ (parametric),PART F (H),vs:king bible|bible | poe1:ring of shields,orbiter_guard,INSUF
+H2,Blade Vortex / Grav Ball Lightning,_,_,_,_,S,_,__,__ (parametric),PART F (H),poe1:blade vortex|ball lightning,orbiter_vortex,INSUF
+H3,Storm Brand caster,_,_,_,_,S,_,__,__ (parametric),PART F (H),poe1:brand,orbiter_brand,INSUF
+H4,Orbital Bombardier,_,_,_,_,_,_,__,__ (parametric),PART F (H),poe1:winter orb,emitter IS the P0 proxy,INSUF
+H5,True Battlemage,_,_,_,_,S,_,__,__ (parametric),PART F (H),,E3 dual-scaling; stubbed,INSUF
+H6,Charge-up Caster,_,_,_,_,S,W,__,__ (parametric),E4 note,d2:sorc|lightning|fireball|blizzard|frozen orb,wind-up = identity (D2 FCR),INSUF
+B4,Bone-Wall Necromancer,I,_,_,_,_,_,__,__ (parametric),PART F (bench),d2:bone wall|bone prison|prison|wall,,INSUF
+B5,Teleport Sorceress,I,_,_,_,_,_,__,__ (parametric),PART F (bench),d2:teleport | poe1:flame dash,,INSUF
+B6,Dash-Weaver Martial,D,_,_,_,_,_,__,__ (parametric),PART F (bench),d3:dashing strike | le:shift,,INSUF
+B7,Ring of Shields (full),_,_,_,_,_,_,__,__ (parametric),PART F (bench),poe1:ring of shields,,INSUF
+B8,Nested-Orbit Epicycle,_,_,_,_,_,_,__,__ (parametric),PART F (bench),,,INSUF
+B9,Collapse-Bomb Caster,_,_,_,_,_,_,__,__ (parametric),PART F (bench),,,INSUF
+B10,Vaal Blade Vortex,_,_,_,_,_,_,__,__ (parametric),PART F (bench),poe1:vaal blade vortex|vaal,,INSUF
+B11,Inversion Summoner,_,_,_,_,H,_,__,__ (parametric),PART F (bench),,"proxy tank, master hides",INSUF
+B12,Spin-to-Win,_,M,_,_,S,C,__,__ (parametric),PART F (bench),d2:whirlwind | poe1:cyclone | le:warpath,commit=channel PINNED (re-cert target),INSUF
