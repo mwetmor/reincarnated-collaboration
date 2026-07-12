@@ -18,7 +18,7 @@ The mobile atlas key is a **hybrid**: its 6-slot sampled prefix (attr / range / 
 |---|---|---|---|
 | attr · range · tempo · amp · proxy · commitment (6-slot prefix) | **KEEP** — typed engine-lattice coordinates | catalog lattice 324 (×commitment = **972**); commitment enum of record **instant / wind-up / channel** (code constant still spells "snap" — rename is a trivial engine hygiene flag, not a design question) | corpus assignments become **claims-with-confidence** ({value, confidence} provenance per slot); low-confidence slots → legolas probe queue |
 | mob | RETIRE as key-slot → raw descriptor column | move-policy / movement-verb vocabulary | **design session #3** (DL-02 adjacency) |
-| geo | RETIRE → raw descriptor | 16-type geometry palette (2026-05-08, Option C) | **design session #1** — mapping table + residue |
+| geo | RETIRE → raw descriptor | 16-type geometry palette (2026-05-08, Option C) | **✓ RULED 2026-07-12 (geo-prep §5):** C→`chain_lightning` ratified (+ engine rename → `chain`, rocket via KR); N→`projectile` conditional on line/beam handling; S/L/M = NO mapping — **full legolas re-probe** (facts finer than vocabulary: delivery + footprint separate fields) |
 | ctrl | RETIRE → raw descriptor | role-orientation taxonomy damage / support / control / hybrid (2026-05-08) | **design session #2** |
 | def | RETIRE → raw descriptor | **NEW defensive-layer vocabulary — a genuine engine design gap** | **design session #4** (greenfield; survey engine mitigation surfaces first) |
 | econ (15 codes) | RETIRE → raw descriptor | engine econ mechanisms: `_ENERGY_CONFIGS` five energy types · doc-48 assigner · Axis-5 cost-TYPE bins (F5: `resource_target {pool, hp}` + `builder_source {on_cast, on_hit, on_damage_taken}`) · T4 doors (RESOURCE_CONVERSION) | **design session #5**; unmappable residue (ammo / reserve / draft / recipe / harvest…) = **free mechanics-gap census → feeds pause-2 / V3** |
@@ -45,7 +45,9 @@ The mobile atlas key is a **hybrid**: its 6-slot sampled prefix (attr / range / 
 
 | # | Unit | Owner · venue | Status |
 |---|---|---|---|
-| 1 | Six re-key design sessions (geo/ctrl/mob/def/econ/elem rulings) | Matt + gandalf (Matt-session) | prep surfaces offloaded (brief Unit B) |
+| 1 | Six re-key design sessions (geo/ctrl/mob/def/econ/elem rulings) | Matt + gandalf (Matt-session) | **IN SESSION 2026-07-12** — geo ✓ RULED (full re-probe); ctrl/mob/def/econ/elem in flight |
+| 1b | Legolas MEGA-PROBE (single batched commission — full re-probe surface per G1 ruling; fields fact-forward, vocabulary-independent) | gandalf authors paste-ready after batch; Matt fires | surface census presented; brief pending batch completion |
+| 1c | Engine renames (hygiene, RULED): `chain_lightning`→`chain` (geo G0) · "snap"→wind-up spelling | rocket via KR | queued |
 | 2 | Expansion census (Matt's ruled weighting) | continuation brief **Unit A** | ✅ EXECUTED 2026-07-12 (`views/expansion-census-v1.csv` + findings) |
 | 3 | Re-key prep surfaces ×6 | continuation brief **Unit B** | ✅ EXECUTED 2026-07-12 (`views/rekey-prep/*-prep.md`) |
 | 4 | Mint-list dossiers + prefix probes | legolas brief (Mode A) | paste-ready |
