@@ -1,9 +1,53 @@
 # MIGRATION — Catalogue Data Layer (Elrond-owned)
 
 **Owner:** elrond
-**Scope:** schema migrations for non-engine data layers under `agentic_orchestration/research/curated/`. Currently: catalogue.db + (NEW v1.8 / v1.9) engine `data/kit_space/` chronicle (cross-seam co-ownership with star-lord per LOCK K).
+**Scope:** schema migrations for non-engine data layers under `agentic_orchestration/research/curated/`. Currently: catalogue.db + synty_catalogue.db + (NEW v1.8 / v1.9) engine `data/kit_space/` chronicle (cross-seam co-ownership with star-lord per LOCK K) + (NEW v1.13 PROPOSED) canon-corpus.db.
 **Pattern:** parallels star-lord's engine-side `MIGRATION.md` files per AGENTS.md Tactic 2 + ADR-004.
 **Append-only.** Most recent entry at the top.
+
+---
+
+## v1.13 — canon-corpus.db INITIAL SCHEMA (engine-frame schema of record) — 2026-07-12 — **PROPOSED / INGEST-GATED**
+
+### What changed (one line)
+
+Proposed the v1.0 schema + staged-ingest plan for a **NEW data store** representing the 563-row mobile ARPG canon corpus **under the engine coordinate frame as schema of record** (Matt inversion ruling 2026-07-12; authority `agentic_orchestration/gandalf/views/corpus-rekey-spec-v1.md` §2 fate table). **This entry is PROPOSED paper-work: schema + MIGRATION doc are ungated, but no DB is created and no rows are ingested until Matt's corpus-housing D-ruling + ADR-006 authorization land.**
+
+### Why (one line)
+
+The mobile atlas key is a hybrid: its 6-slot prefix (attr/range/tempo/amp/proxy/commit) is the engine lattice **1:1**; its suffix (mob/geo/ctrl/def/econ/elem) is mobile-invented vocabulary that never passed a design gate. The harvest authorizes the DATA, not the key — so we KEEP the prefix as typed lattice coordinates and RETIRE the suffix to raw descriptors *awaiting-rekey*, ready for six design sessions to map in later.
+
+### Schema shape (per the §2 fate table)
+
+- **PREFIX KEPT** — `attr/range/tempo/amp/proxy/commit` as `<slot>_val` enum + `<slot>_conf` real, `{value, confidence}` per slot; `lattice_coord` = 6-char prefix code (engine coord 1:1). Commit enum **of record `instant`/`wind-up`/`channel`**.
+- **SUFFIX RETIRED→RAW** — `mob_raw/geo_raw/ctrl_raw/def_raw/econ_raw/elem_raw`, `suffix_rekey_status='awaiting-rekey'`. **No mappings invented.** Six empty `rekey_*` mapping tables + `v_canon_corpus_rekeyed` LEFT-JOIN view let sessions join engine values **without rewriting rows**.
+- **MEASURED-VS-PROJECTED LAW hardened by omission** — `canon_corpus` has **no** measured column. Measured axes = gauntlet fingerprints only (separate engine-side store). Corpus rows can never carry measured values.
+- **ADD engine-native** — `motion_frame/t4_doors/option_c_substrate_flags/commit_provenance`, NULL at ingest, authored at re-key time.
+- **Identity/provenance** — `atlas_key_orig` preserved verbatim; `provenance_tag='mobile-harvest-v3'`; `source_date`; `game` = game-of-record (NOT harvest `corpus_bucket`); HoT is its own game (`game='hot'`, tier lean T3, `tier_confirm_pending=1`).
+
+### Curation findings surfaced (read-only dry-run)
+
+1. **Lossy projection.** v3 CSV drops raw attr/range/tempo/amp + raw ctrl/def; the prefix is decoded from `atlas_key` positional codes. `ctrl_raw`/`def_raw` recoverable only as coarse code-tokens → `ctrl_def_from_code=1` honesty flag.
+2. **Confidence collapse.** Only `avg_conf` (mean of proxy/geo/commit) survives for canon rows; true per-slot `{v,c}` lives only in `rdr-roster-kits.jsonl` (48 roster/bench). Canon ingests `prefix_conf_provenance='avg-collapsed'` unless the `canon-corpus-*.jsonl` sources are recovered (Open Q1).
+3. **`game` ≠ `corpus`.** Harvest bucket `hades`→games `hades1/hades2`; `tl`→`tl1/tl2/tli`. 13 rows would corrupt if `corpus` were used as game. Schema stores `game` as identity, `corpus_bucket` as provenance.
+
+### Dry-run counts (READ-ONLY validator — 0 ERROR, 0 WARN)
+
+`563 rows · 563/563 unique kit_id` → 496 canon substrate · 48 roster/bench (provenance-only) · 18 SYS-annex · 1 UNRESOLVED. 20 games-of-record. HoT = 19.
+
+### Deliverables (this entry)
+
+- `scripts/catalogue_migrations/corpus_v1_0_canon_corpus.sql` — DDL (canon_corpus + corpus_schema_meta + 6 rekey_* + 2 views). NOT executed.
+- `scripts/corpus_ingest_dryrun_2026_07_12.py` — READ-ONLY dry-run + row-level validator (writes nothing).
+- `curated/corpus-db-schema-proposal-2026-07-12.md` — full proposal, staged plan, §4 open questions (Q1 confidence provenance · Q2 housing · Q3 roster in/out · Q4 HoT tier confirm · Q5 SYS/UNRESOLVED handling).
+
+### Cross-seam ADR compliance
+
+ADR-004: this is elrond-seam data-layer schema (external research), no engine-telemetry touch — measured law hardened by *omission*, boundary with star-lord respected (read-only on telemetry, no measured columns here). ADR-006: read-only-by-default honored — no DB writes, no remote push; ingest deferred to explicit Matt authorization. Housing (Q2) is a Matt D-ruling per spec §5.
+
+### Status
+
+**PROPOSED — ingest-gated.** On Matt housing D-ruling + authorization: execute §3c staged order, then this entry flips to LANDED with post-ingest assert results appended.
 
 ---
 
