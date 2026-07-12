@@ -20,8 +20,8 @@ Matt's mobile session (`claude-mobile-session-docs/potential-kit-views/kit-view-
 ## 2. The build order (dependency-staged)
 
 **STAGE 1 — corpus-internal, computable now (CSV/JSONL only):**
-1. **V2 Convergence ledger** *(FIRST — fired 2026-07-12, see V2 doc)* — resolution ladder (full key → elem-masked → bc10 → bc6); cross-game convergence vs within-game multiplicity split; anchor-candidate seeds. **V5 flavor-collapse folds INTO V2** (it is the elem-masked rung, not a separate view). **V6 era-depth decorates V2** (era-persistence column; corpus carries league/version era strings).
-2. **V4 Roster adjacency map** — each of the 48 vs nearest corpus neighbors (wildcard + BC-masked joins; formalizes the 2026-07-12 join runs). Output: lineage-confirmed / vocabulary-artifact / genuine-whitespace classification per kit.
+1. **V2 Convergence ledger** *(✅ FIRED 2026-07-12, see V2 doc)* — resolution ladder (full key → elem-masked → bc10 → bc6); cross-game convergence vs within-game multiplicity split; anchor-candidate seeds. **V5 flavor-collapse folds INTO V2** (it is the elem-masked rung, not a separate view). **V6 era-depth decorates V2** (era-persistence column; corpus carries league/version era strings).
+2. **V4 Roster adjacency map** *(✅ FIRED 2026-07-12 to completion incl. bench, see V4 doc)* — all 48 vs corpus at three evidence-bearing rungs. Result: 8 LINEAGE / 4 VOCAB-RECOVERED / 2 WHITESPACE (K1, K3 — with negative-twin textures) / 34 below evidence threshold. **Governing finding: the join starves on OUR side — MAC-FILL BACKFILL (engine-side transcription of BC cells into the atlas, 31 kits + B13 scope ruling) is the new gating unit before V7/anchor-proposal fire at full strength.**
 3. **V7 Negative-space map** — empty coordinates + negative twins + roster whitespace claims (K1/K3/K4/K8): frontier-vs-warning classification (whitespace bordered by negative twins = warning; bordered by nothing = frontier).
 
 **STAGE 2 — decision surfaces (need Stage 1 + GX ledger):**
