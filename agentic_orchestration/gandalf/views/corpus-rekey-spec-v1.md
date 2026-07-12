@@ -38,18 +38,18 @@ The mobile atlas key is a **hybrid**: its 6-slot sampled prefix (attr / range / 
 - **Selection principle:** *"simple coverage of the count of genre kits, weighted by the longevity/lineage. I may choose all mechanics if I can."* → the expansion census computes exactly this surface; the mechanics read feeds V3 and the pause-2 decision.
 - **Test ladder (post-acceptable-roster emission):** Matt selects kits one-by-one and tests in Godot — **(1) mannequins → (2) exact battle-sim replica → (3) full demo: the four areas + the escapes.**
 - **Emission gating unchanged:** expansion DESIGN fires now; the emission moment stays behind pause-2 (mechanics-add decision) — which "all mechanics if I can" directly informs.
-- **PART F amendment:** §F.4 PROPOSED in the serial-content-emission tracker (thirteenth entry, continuation 3); enters the PART F body on Matt's ratification.
+- **PART F amendment:** §F.4 **LANDED in the PART F body 2026-07-12, ruled-by-correction** (Matt: *"I do not want a 'count' for the demo"*) — demo-curation denominator RETIRED outright; no governing count; one-word veto open. The original PROPOSED draft (thirteenth entry, continuation 3) is superseded lineage.
 
 ## 5. Execution queue
 
 | # | Unit | Owner · venue | Status |
 |---|---|---|---|
 | 1 | Six re-key design sessions (geo/ctrl/mob/def/econ/elem rulings) | Matt + gandalf (Matt-session) | prep surfaces offloaded (brief Unit B) |
-| 2 | Expansion census (Matt's ruled weighting) | continuation brief **Unit A** | paste-ready |
-| 3 | Re-key prep surfaces ×6 | continuation brief **Unit B** | paste-ready |
+| 2 | Expansion census (Matt's ruled weighting) | continuation brief **Unit A** | ✅ EXECUTED 2026-07-12 (`views/expansion-census-v1.csv` + findings) |
+| 3 | Re-key prep surfaces ×6 | continuation brief **Unit B** | ✅ EXECUTED 2026-07-12 (`views/rekey-prep/*-prep.md`) |
 | 4 | Mint-list dossiers + prefix probes | legolas brief (Mode A) | paste-ready |
 | 5 | DB schema + staged ingest | elrond brief (draft now; **execute gated on Matt housing D-ruling**) | paste-ready |
-| 6 | §F.4 ratification | Matt | PROPOSED in tracker |
+| 6 | §F.4 ratification | Matt | ✅ LANDED ruled-by-correction 2026-07-12; veto open |
 | 7 | V7 → V3 → Stage-3 instruments resume | gandalf | after census returns |
 
 **Signed:** gandalf, 2026-07-12.
