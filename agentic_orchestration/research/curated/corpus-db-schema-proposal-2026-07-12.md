@@ -1,8 +1,10 @@
 # Canon-Corpus DB — schema proposal + staged-ingest plan (v1.0 PROPOSED)
 
-**Author:** elrond · **Date:** 2026-07-12 · **Status:** PROPOSED / paper-work.
+**Author:** elrond · **Date:** 2026-07-12 · **Status:** SUPERSEDED by DELTA v2 execution (v1.14 LANDED).
 **Authority:** `agentic_orchestration/gandalf/views/corpus-rekey-spec-v1.md` §1–§3 — the §2 slot-by-slot fate table IS the schema authority.
-**Gate:** schema + MIGRATION proposal are ungated (this doc). **DB ingest fires only after Matt's corpus-housing D-ruling + ADR-006 authorization.**
+**Superseded by:** `corpus_v2_0_three_layer.sql` (DDL v2.0) + `corpus_ingest_2026_07_12.py` (ingest script) + `corpus-ingest-log-2026-07-12.md` (findings). MIGRATION.md v1.14 is the authoritative record.
+
+This v1.0 proposal is retained as the design-history record for the original paper-work phase. The actual executed schema is DDL v2.0 which extends this proposal per gandalf DELTA v2 (three-layer architecture, rekey_* tables retired, roster layer added).
 
 ---
 

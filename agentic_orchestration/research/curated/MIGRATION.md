@@ -1,13 +1,74 @@
 # MIGRATION — Catalogue Data Layer (Elrond-owned)
 
 **Owner:** elrond
-**Scope:** schema migrations for non-engine data layers under `agentic_orchestration/research/curated/`. Currently: catalogue.db + synty_catalogue.db + (NEW v1.8 / v1.9) engine `data/kit_space/` chronicle (cross-seam co-ownership with star-lord per LOCK K) + (NEW v1.13 PROPOSED) canon-corpus.db.
+**Scope:** schema migrations for non-engine data layers under `agentic_orchestration/research/curated/`. Currently: catalogue.db + synty_catalogue.db + (NEW v1.8 / v1.9) engine `data/kit_space/` chronicle (cross-seam co-ownership with star-lord per LOCK K) + (NEW v1.14 LANDED) corpus.db three-layer ingest.
 **Pattern:** parallels star-lord's engine-side `MIGRATION.md` files per AGENTS.md Tactic 2 + ADR-004.
 **Append-only.** Most recent entry at the top.
 
 ---
 
-## v1.13 — canon-corpus.db INITIAL SCHEMA (engine-frame schema of record) — 2026-07-12 — **PROPOSED / INGEST-GATED**
+## v1.14 — corpus.db THREE-LAYER INGEST (DELTA v2 + Q24 rulings) — 2026-07-12 — **LANDED**
+
+### What changed (one line)
+
+Executed the full three-layer corpus ingest per gandalf DELTA v2 brief (2026-07-12) and Matt Q24(a)/(b)/(c) rulings: created `agentic_orchestration/research/curated/corpus.db` (gitignored; DDL+scripts = committed truth) with 524 rows in `canon_corpus`, 4780 rows in `canon_probe_facts`, 478 in `canon_engine_key`, 45 each in `roster_atlas` and `roster_lineage_enrichment`. v1.13 entry (PROPOSED schema) superseded; all schema amendments per DELTA v2 applied in DDL v2.0.
+
+### Why (one line)
+
+Q24 rulings lifted the ingest gate: housing=new DB, roster/bench 48 rows SKIPPED and replaced with rebuilt roster (Q24(b)), HoT tier confirmed T3 (Q24(c)). Three-layer architecture reflects that the re-key is per-kit (probe+judgment), not per-raw-value — the six `rekey_<slot>` tables from v1.0 are retired permanently.
+
+### Schema v2.0 shape (DDL: `scripts/catalogue_migrations/corpus_v2_0_three_layer.sql`)
+
+- **Layer 1 — `canon_corpus`** (524 rows): 515 from CSV (canon source) + 9 mint kits from mint-dossiers (source='mint', mint=1, dossier_owed=1). Q24(c): HoT 19 rows, tier='T3', tier_confirm_pending=0. is_system=18 (SYS key_group). negative=37. suffix_rekey_status: 'keyed-v1' for kits in engine-key (geo/ctrl/def/econ); mob/elem permanently 'descriptor-final' (schema-by-omission, no rekey_mob/elem tables ever).
+- **Layer 2 — `canon_probe_facts`** (4780 rows): 478 positive kits × 10 families each. Negatives ingest Layer-1 only. post_cutoff_cap + dossier_owed per kit.
+- **Layer 3 — `canon_engine_key`** (478 rows): mapping-pass output verbatim (JSONL ingested as-is; zero re-derivation). row_class: combat-kit=463, system-record=15. ctrl.treatment CHECK: 'support' never legal (Q22). def_bin: NULL for 14 FLAGGED rows (engine-key stores None, not literal 'FLAGGED').
+- **Roster — `roster_atlas`** (45 rows) + **`roster_lineage_enrichment`** (45 rows): Q24(b) replacement for 48 retired mobile CSV rows. FK: all 45 lineage enrichment rows resolved against roster_atlas; all lineage target corpus_kit_ids resolved against canon_corpus.
+
+### Laws permanently hardened (schema-by-omission)
+
+- No `rekey_mob` or `rekey_elem` table may EVER exist. element=free axis; mobility=emergent.
+- No measured column on `canon_corpus`. Measured = gauntlet fingerprints (engine-side store only).
+- ctrl.treatment CHECK: damage / control / hybrid. 'support' never legal per Q22 ruling.
+
+### Post-ingest asserts (all passed)
+
+canon_corpus=524 (515+9 mint); source=canon 515; is_system=18; negative=37; HoT=19 (T3,pending=0); mint=9; probe_facts=4780/478 kits; engine_key=478 (combat=463, system=15); roster_atlas=45; roster_lineage_enrichment=45.
+
+### Acceptance harness result (D6)
+
+All Board 2 geometry counts: MATCH. SU demand 48: MATCH. damage-amp 97: MATCH. stun 36: MATCH. poison-dot 36: MATCH. orbit 4: MATCH. def-bin tank 215/mitigate 84/glass 67/evade 66/absorb 28/FLAGGED(NULL) 14/post-cutoff-deferred 4: all MATCH.
+
+**Two harness mismatches (source-data findings, not DB errors):**
+
+1. **Board2 walls = 2 (not 3):** `le-frost-wall-rm` appears in boards-v1.md wall list but has `flags=[]` and `geometry=totem` in the engine-key (no J-GEO:placed-lane flag). DB stores what the engine-key provides. The wall kit classification in the board may have used a different signal than the flags column. Curation finding: le-frost-wall-rm flag gap in engine-key — forward work for gandalf/star-lord.
+2. **Board3 freeze = 42 (not 43):** The engine-key has exactly 42 distinct combat kits with `GAP-AILMENT:freeze`. boards-v1.md says 43. The 1-kit discrepancy is between the board generator's output and the delivered engine-key JSONL. DB ingests faithfully; data was not adjusted to match the board. Curation finding: one freeze-gap kit appears in the board count but is absent from the engine-key — forward work for gandalf.
+
+### D4 Reconciliation (CSV is_system=18 vs EK system-record=15)
+
+Overlap: 12 kits (both CSV-SYS and EK-system-record).
+CSV-sys-only (mapped as combat-kit in EK): chr-crown-proc-engine, d3-lod-archetype, le-low-life-ward, poe2-grim-feast, poe2-temporalis-blink, vs-golden-egg-scaling (6 kits).
+EK-sys-only (system-record in EK, not SYS-flagged in CSV): tli-sage-elixir, ud-multishot-link, vs-big-trouser (3 kits).
+Note: vs-golden-egg-scaling is CSV-SYS but absent from engine-key entirely (not in the 478-row JSONL).
+Layer-3 row_class governs all combat denominators.
+
+### Deliverables (this entry)
+
+- `scripts/catalogue_migrations/corpus_v2_0_three_layer.sql` — DDL v2.0 (three layers + roster tables + views; rekey_* tables retired)
+- `scripts/corpus_ingest_2026_07_12.py` — deterministic ingest script (clean rebuild = identical state)
+- `curated/corpus.db` — the DB (gitignored; rebuilt from DDL + script)
+- `curated/corpus-ingest-log-2026-07-12.md` — full ingest log with findings
+
+### Cross-seam ADR compliance
+
+ADR-004: elrond-seam data layer only. ADR-006: no remote push; DB gitignored. No engine-telemetry touch; no measured columns. Boundary with star-lord respected.
+
+### Status
+
+**LANDED — 2026-07-12.** v1.13 PROPOSED entry is superseded.
+
+---
+
+## v1.13 — canon-corpus.db INITIAL SCHEMA (engine-frame schema of record) — 2026-07-12 — **SUPERSEDED by v1.14**
 
 ### What changed (one line)
 
