@@ -120,6 +120,17 @@ This is a design-direction recognition, registered here; it needs no ruling to p
 - **F-4 Pilot timing:** roster-now (my lean — it's also the Disc-18 baseline gate) vs post-emission.
 - **F-5 Face count:** let clustering vote within 5-8 (my lean) vs fix 6 ex-ante.
 
+**⟶ RULED (Matt 2026-07-13, wind-down): FINAL face count/structure derivation is GATED on a representative population.** Matt verbatim: *"I suspect we won't have a representative sampling across all necessary groups to derive final face count/structure, so please log this as a to-do once we gain a representative population."* Effects:
+
+- **F-4/F-5 resolve to DEFERRED-TO-CRITERION.** The L2 face derivation + Edition-I freeze fires only when the MEASURED (emitted, sim-runnable) population is representative across the plane's occupied structure. Matt's suspicion is statistically correct: the 45-kit founding roster is known-biased (caster/summoner/aura tilt accepted at pause-2; engine-native clustering) — deriving the face taxonomy from it would be **pre-imposed taxonomy wearing empirical clothes**, the exact failure the substrate-led discipline exists to catch.
+- **Draft operational gate-test (vetoable, refine at gate-time):** measured population covers all 7 delivery columns × all 3 movement rows, with every §6 face-hypothesis group populated at small-n or better. Gate expected to OPEN during S6 as emission waves land (corpus kits become measurable on arrival).
+- **The duel HARNESS (L1) remains unblocked engineering** — needed regardless of face timing; KR sequences it whenever gamora seam capacity opens. Any pre-gate matrices are methodology/noise-profile data ONLY — never face-freeze input.
+- **§6 hypotheses stay pre-registered, untested** — that's their designed state; they wait for the gate.
+- **The Disc-#18 methodology consultation rides the gate too** — fires after the first representative matrices, per extension-hotspot timing.
+- F-1/F-2/F-3 remain open leans, consumed when the gate opens (no urgency — nothing downstream blocks on them before then).
+
+**THE TO-DO (logged per Matt directive):** *When the measured population passes the representativeness gate → run the context-battery matrices → derive face count/structure by clustering → adjudicate §6 hypotheses → freeze face taxonomy Edition-I → light L4 dashboard on the S7 selection surface.* Carried in: wind-down doc §3 S-M track + §5 queue; serial tracker CONTINUATION 22.
+
 ---
 
 **Signed:** gandalf, 2026-07-13. The goldilocks loop makes every kit *worthy*; the matchup layer decides what its worth *means against a living opponent*. We measure the war of all against all, name its faces, and then — as with the corpus — let the substrate vote.
