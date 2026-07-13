@@ -44,7 +44,7 @@ The gender roll applies ONLY to **becomable vessel races** — the forms the pla
 | Goblin | ✓ (Goblin + Warrior F/M) | **{M, F}** |
 | **Orc** | **✗ none off-the-shelf** | **one decision (below)** |
 
-**The single gap — Orc — is soft, because Orc is a RESKIN race.** Orc is admitted as green-skin + robust-musculature material/mesh on the human sidekick rig (zero new rig). So a **female orc is a reskin of the female-human frame** (material swap + bulk modular pieces), not a missing-rig build. Options: **(a)** resolve the female-orc reskin → full M/F parity across all 5 [gandalf lean — cheap material/modular work, no new rig]; **(b)** orc male-default v1, backfill later; **(c)** orc genderless (weak thematically — orcs aren't "beyond gender" like a reaped corpse). Route (a) vs (b) to drax as a reskin-cost check.
+**The single gap — Orc — RULED route (a) (Matt 2026-07-13): resolve the female-orc reskin.** Orc is admitted as green-skin + robust-musculature material/mesh on the human sidekick rig (zero new rig), so a **female orc is a reskin of the female-human frame** (material swap + bulk modular pieces), not a missing-rig build. **All 5 becomable races now roll {M, F}, no exceptions.** drax delivers the female-orc reskin as a presentation-side dependency (parallel; does not block rocket's roll logic — rocket rolls the gender attribute, drax renders it).
 
 **Distribution within the gendered branch:** uniform binary (50/50 M/F) for v1.
 
