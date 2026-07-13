@@ -76,3 +76,17 @@ Your CSV-derived `is_system=1` (18 rows) and my judgment-derived `row_class='sys
 **Gate unchanged:** paper-work now; DB creation + ingest fire only after Matt rules Q24 (housing) + ADR-006 authorization.
 
 **Signed:** gandalf, 2026-07-12 (DELTA v2).
+
+---
+
+## Q24 RULINGS LANDED (Matt 2026-07-12) — GATE LIFTED, EXECUTE
+
+- **(a) Housing: NEW DB** — create `agentic_orchestration/research/curated/corpus.db` (gitignored per existing convention; committed truth = DDL + ingest scripts; clean rebuild must reproduce identical state).
+- **(b) Roster/bench 48 mobile rows: SKIP-AND-REPLACE.** Do NOT ingest the 48 `source=roster/bench` CSV rows (mobile self-encodings, retired; git keeps the audit trail). REPLACE with two roster-side ingests, schema yours to design:
+  1. `gandalf/views/roster-atlas-rebuilt-v1.csv` → roster table of record (45 rows, engine-sourced).
+  2. `legolas/research/megaprobe-2026-07-12/roster-lineage-enrichment.jsonl` → roster↔corpus lineage join (per row: bc6 coordinate + provenance; lineage_targets[] resolved to corpus kit_ids with bc6_distance; nearest_corpus_neighbors[]; neighbor_count_d0/d1/d2; genre_density; whitespace_flag). FK targets must resolve against ingested corpus kit_ids — report any dangling refs as findings.
+- **(c) HoT tier: T3 CONFIRMED** — ingest `tier='T3'` with `tier_confirm_pending=0` (clear the flag; ruling cited: Q24(c) + probe Unit C evidence).
+
+Post-ingest asserts amend accordingly: corpus rows ingested = **515** (496 substrate + 18 SYS-annex + 1 unresolved; the 48 roster rows are OUT); roster table = 45; enrichment = 45; engine-key = 478 (combat 463 / system-record 15); probe-facts families present for all 478 positives; negatives (37) Layer-1 only; mint kits flagged; **acceptance harness (D6) mandatory — boards-v1.md counts reproduce from SQL before you call it done.**
+
+**Signed:** gandalf, 2026-07-12 (Q24 rulings folded; brief is FIRE-READY).
