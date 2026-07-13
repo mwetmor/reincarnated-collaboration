@@ -32,6 +32,7 @@ CARRY-OVERS from V1.1 (unchanged):
 Author: gandalf sub-agent, 2026-07-13
 """
 
+import json
 import sqlite3
 from pathlib import Path
 
@@ -111,6 +112,7 @@ def load_data():
     # Movement is the row driver; amp is the stratum driver.
     corpus_kits = con.execute("""
         SELECT c.kit_id, c.folk_name, c.game, c.commit_val, c.amp_val,
+               c.era_year, c.stabilization_patch,
                k.geometry_value, k.mob_policy_while_casting AS movement,
                c.negative, c.mint,
                (SELECT json_extract(pf.facts_json, '$.value')
@@ -190,6 +192,106 @@ def resolve_stratum(kit):
         if amp == amp_val:
             return stratum
     return None  # amp NULL
+
+
+# ── Public-label derivation (naming law §7.1) ───────────────────────────────
+# Contract: atlas-per-dot-json-and-public-label-contract-2026-07-13.md
+# public_label = [game_id]-[era_year] (v[patch]) · [mechanical_desc]
+# NULL-honest; NEVER renders a trademarked class/skill name (dot_id stays internal).
+
+MOVEMENT_WORD = {"FREE-MOVE": "free-move", "WALK": "walk-cast", "ROOTED": "rooted"}
+AMP_WORD = {"FLAT": "flat tempo", "SPIKY": "spiky tempo", "VAR": "variable tempo"}
+
+
+def mechanical_desc(row, col, stratum):
+    """Short human phrase from the cell address + strata. NOT a skill name.
+
+    e.g. "free-move beam, flat tempo" / "rooted summon, variable tempo".
+    Omits any axis that is UNMAPPED/None (null-honest).
+    """
+    delivery = col.lower() if col else None
+    move = MOVEMENT_WORD.get(row) if row else None
+    tempo = AMP_WORD.get(stratum) if stratum else None
+
+    shape_bits = [b for b in (move, delivery) if b]
+    shape = " ".join(shape_bits) if shape_bits else None
+
+    parts = [p for p in (shape, tempo) if p]
+    return ", ".join(parts) if parts else None
+
+
+def build_public_label(game_id, era_year, patch, mech_desc):
+    """Assemble the public register string. NULL-honest at every segment."""
+    if game_id and era_year is not None:
+        head = f"{game_id}-{era_year}"
+        if patch:
+            head += f" (v{patch})"
+        return f"{head} · {mech_desc}" if mech_desc else head
+    # No historical game/era (e.g. abstract roster coordinates) — fall back to
+    # whatever identity exists + the mechanical phrase.
+    if mech_desc:
+        return mech_desc
+    return game_id or None
+
+
+def build_dot_records(corpus_kits, roster_kits, roster_assignments):
+    """Emit one record per rendered dot, per the per-dot JSON contract.
+
+    Covers the plotted dots: corpus (ghost) + mint (★) from corpus_kits, and
+    roster overlay dots. amp-NULL kits carry amp=null; UNMAPPED axes emit null.
+    """
+    records = []
+
+    for kit in corpus_kits:
+        row = resolve_row(kit)
+        col = resolve_column(kit)
+        stratum = resolve_stratum(kit)
+        mech = mechanical_desc(row, col, stratum)
+        game_id = kit["game"]
+        era_year = kit["era_year"]
+        patch = kit["stabilization_patch"]
+        records.append({
+            "dot_id": kit["kit_id"],
+            "source": "mint" if kit["mint"] else "corpus",
+            "cell": {"movement": row, "delivery": col, "amp": stratum},
+            "cell_confident": (row is not None and col is not None),
+            "public_label": build_public_label(game_id, era_year, patch, mech),
+            "label_parts": {
+                "game_id": game_id,
+                "era_year": era_year,
+                "stabilization_patch": patch,
+                "mechanical_desc": mech,
+            },
+            "negative_canon": bool(kit["negative"]),
+        })
+
+    # Roster overlay: no historical game/era in roster_atlas; movement is
+    # S7-emitted so all roster dots are UNMAPPED on the movement axis (cell
+    # position pending S7 — names/labels are emitted regardless).
+    roster_col = {a[1]: a[4] for a in roster_assignments}  # kid -> resolved col
+    for kit in roster_kits:
+        kid = kit["kit_id"]
+        col = roster_col.get(kid)
+        stratum = resolve_stratum({"amp_val": kit["amp"]})
+        mech = mechanical_desc(None, col, stratum)  # movement UNMAPPED
+        name = kit["lineage_name"] or kit["name"] or kid
+        label = mech if mech else name
+        records.append({
+            "dot_id": kid,
+            "source": "roster",
+            "cell": {"movement": None, "delivery": col, "amp": stratum},
+            "cell_confident": False,  # movement pending S7
+            "public_label": label,
+            "label_parts": {
+                "game_id": None,
+                "era_year": None,
+                "stabilization_patch": None,
+                "mechanical_desc": mech,
+            },
+            "negative_canon": False,
+        })
+
+    return records
 
 
 def assign_all(corpus_kits, negative_kits):
@@ -648,6 +750,22 @@ def main():
     print(f"Saved SVG: {svg_path}")
 
     plt.close(fig)
+
+    # ── Per-dot JSON emission (Drax Phase-2 mouseover contract) ──────────────
+    dot_records = build_dot_records(corpus_kits, roster_kits, roster_assignments)
+    dots_path = OUT_DIR / "plane_dots_v1_2.json"
+    with open(dots_path, "w") as f:
+        json.dump({
+            "schema": "atlas-plane-dots/v1.2",
+            "provenance": "derived from corpus.db by render_v1_2_stratified.py; "
+                          "no authored content, no LLM in truth path (D6)",
+            "count": len(dot_records),
+            "dots": dot_records,
+        }, f, indent=2)
+    labeled = sum(1 for d in dot_records if d["public_label"])
+    confident = sum(1 for d in dot_records if d["cell_confident"])
+    print(f"Saved dots JSON: {dots_path} "
+          f"({len(dot_records)} dots · {labeled} labeled · {confident} cell-confident)")
 
     return cells, roster_assignments, audit
 
