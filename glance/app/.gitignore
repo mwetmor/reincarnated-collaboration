@@ -1,2 +1,7 @@
 .vercel
 .env*
+
+# DERIVED staged assets — copied from gandalf's committed render at build time by
+# scripts/stage-assets.mjs. Single source of truth stays upstream; a committed copy here
+# would drift (the exact failure this project fights). Regenerated on every build.
+public/atlas/

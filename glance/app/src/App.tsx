@@ -1086,7 +1086,276 @@ function AtlasPlaneView({ ghBase }: { ghBase: string }) {
           </a>
         </span>
       </div>
+
+      {/* Phase-2 — the interactive cell explorer. Static raster can't hover per-dot and
+          the per-dot JSON is CELL-addressed (no pixel coords), so we do NOT fake hotspots
+          on the SVG. Instead we render an honest data-driven cell grid from the same
+          DB-derived JSON: tap/hover a cell → the kits in it, each by its PUBLIC label. */}
+      <AtlasCellExplorer />
     </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// AtlasCellExplorer — the Phase-2 mouseover, done honestly.
+//
+// The per-dot JSON (plane_dots_v1_2.json, schema atlas-plane-dots/v1.2) is CELL-addressed,
+// not pixel-addressed: each record carries cell {movement, delivery, amp} but NO x/y. So
+// rather than fabricate hover hotspots over the static raster (which would be inventing
+// coordinates the truth model does not contain), we render a faithful cell grid — rows =
+// movement, columns = delivery — straight from the JSON. Selecting a cell surfaces the
+// kits it contains, each by its PUBLIC naming-law label (never the internal dot_id).
+//
+// Honesty affordances baked in (per the data contract, 2026-07-13):
+//   - counts are DERIVED live from the JSON — nothing hardcoded.
+//   - roster overlay dots are movement:UNMAPPED (S7-pending) → their own band, labelled
+//     as pending, cell_confident:false marked. Their NAMES work now; only their movement
+//     POSITION follows S7.
+//   - negative_canon:true → muted "historical exhibit" treatment (none in corpus yet, but
+//     the styling is wired so it lights up the moment the negative catalogue lands).
+// ---------------------------------------------------------------------------
+type PlaneDot = {
+  dot_id: string;
+  source: 'corpus' | 'roster';
+  cell: { movement: string | null; delivery: string | null; amp: string | null };
+  cell_confident: boolean;
+  public_label: string;
+  label_parts: {
+    game_id: string | null;
+    era_year: number | null;
+    stabilization_patch: string | null;
+    mechanical_desc: string;
+  };
+  negative_canon: boolean;
+};
+type PlaneDotsDoc = { schema: string; provenance: string; count: number; dots: PlaneDot[] };
+
+// Axis orders + display labels. UNMAPPED movement (roster, S7-pending) sits last, in its
+// own band. Unmapped delivery (a handful of not-yet-classified corpus kits) sits last too.
+const MOVEMENT_ORDER: (string | null)[] = ['FREE-MOVE', 'WALK', 'ROOTED', null];
+const MOVEMENT_LABEL: Record<string, string> = {
+  'FREE-MOVE': 'free-move',
+  WALK: 'walk-cast',
+  ROOTED: 'rooted',
+  'null': 'unmapped',
+};
+const DELIVERY_ORDER: (string | null)[] = [
+  'PROJECTILE', 'ORBITAL', 'NOVA', 'ZONE', 'BEAM', 'MELEE', 'SUMMON', null,
+];
+const AMP_ORDER: (string | null)[] = ['FLAT', 'SPIKY', 'VAR', null];
+const AMP_LABEL: Record<string, string> = {
+  FLAT: 'flat tempo', SPIKY: 'spiky tempo', VAR: 'variable tempo', 'null': 'tempo n/a',
+};
+const cellKey = (mv: string | null, dl: string | null) => `${mv ?? 'null'}|${dl ?? 'null'}`;
+
+function AtlasCellExplorer() {
+  const [doc, setDoc] = useState<PlaneDotsDoc | null>(null);
+  const [missing, setMissing] = useState(false);
+  const [selected, setSelected] = useState<string | null>(null);
+  const base = import.meta.env.BASE_URL;
+
+  useEffect(() => {
+    fetch(`${base}atlas/plane_dots_v1_2.json`, { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((d: PlaneDotsDoc) => setDoc(d))
+      .catch(() => setMissing(true));
+  }, [base]);
+
+  // Group dots by cell (movement|delivery). Amp strata live inside each cell.
+  const byCell = useMemo(() => {
+    const m = new Map<string, PlaneDot[]>();
+    if (!doc) return m;
+    for (const dot of doc.dots) {
+      const k = cellKey(dot.cell.movement, dot.cell.delivery);
+      const arr = m.get(k);
+      if (arr) arr.push(dot);
+      else m.set(k, [dot]);
+    }
+    return m;
+  }, [doc]);
+
+  const maxCount = useMemo(() => {
+    let mx = 0;
+    for (const arr of byCell.values()) mx = Math.max(mx, arr.length);
+    return mx;
+  }, [byCell]);
+
+  if (missing) {
+    return (
+      <div className="mt-2 rounded border border-slate-800 bg-slate-950/40 p-3 text-[0.7rem] text-slate-500">
+        Interactive cell explorer unavailable — <span className="font-mono">plane_dots_v1_2.json</span>{' '}
+        not staged. (The plane render above is unaffected.)
+      </div>
+    );
+  }
+  if (!doc) {
+    return (
+      <div className="mt-2 rounded border border-slate-800 bg-slate-950/40 p-3 text-[0.7rem] text-slate-500">
+        Loading cell explorer…
+      </div>
+    );
+  }
+
+  const rosterCount = doc.dots.filter((d) => d.source === 'roster').length;
+  const selDots = selected ? byCell.get(selected) ?? [] : [];
+
+  // Grid cell tint: intensity scales with occupancy (DB-derived, never hardcoded).
+  const tint = (n: number) => {
+    if (n === 0) return 'bg-slate-900/40 text-slate-600 border-slate-800';
+    const r = maxCount > 0 ? n / maxCount : 0;
+    if (r > 0.66) return 'bg-teal-700/70 text-teal-50 border-teal-500/60';
+    if (r > 0.33) return 'bg-teal-800/55 text-teal-100 border-teal-600/50';
+    return 'bg-teal-900/40 text-teal-200 border-teal-800/60';
+  };
+
+  return (
+    <div className="mt-3">
+      <p className="mb-2 text-[0.7rem] leading-snug text-slate-400">
+        <span className="font-semibold text-teal-200">Explore the cells.</span> Tap a cell —
+        movement row × delivery column — to see the kits it holds, each by its public label.
+        Occupancy is live from <span className="font-mono">plane_dots_v1_2.json</span> ({doc.count} dots).
+      </p>
+
+      {/* the grid — horizontally scrollable on narrow phones, like the raster above. */}
+      <div className="overflow-x-auto rounded border border-slate-800 bg-slate-950/40 p-2">
+        <table className="w-full min-w-[560px] border-separate border-spacing-1 text-center">
+          <thead>
+            <tr>
+              <th className="w-16 text-left text-[0.55rem] font-normal uppercase tracking-wide text-slate-500">
+                mv ╲ delivery
+              </th>
+              {DELIVERY_ORDER.map((dl) => (
+                <th
+                  key={dl ?? 'null'}
+                  className="px-0.5 text-[0.55rem] font-semibold uppercase tracking-tight text-slate-400">
+                  {dl ? dl.toLowerCase() : 'unmapped'}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {MOVEMENT_ORDER.map((mv) => {
+              const pending = mv === null;
+              return (
+                <tr key={mv ?? 'null'}>
+                  <th className="text-left text-[0.6rem] font-semibold text-slate-300">
+                    {MOVEMENT_LABEL[mv ?? 'null']}
+                    {pending && (
+                      <span className="block text-[0.5rem] font-normal text-amber-500/80">
+                        S7-pending
+                      </span>
+                    )}
+                  </th>
+                  {DELIVERY_ORDER.map((dl) => {
+                    const k = cellKey(mv, dl);
+                    const n = byCell.get(k)?.length ?? 0;
+                    const isSel = selected === k;
+                    return (
+                      <td key={k} className="p-0">
+                        <button
+                          type="button"
+                          disabled={n === 0}
+                          onClick={() => setSelected(isSel ? null : k)}
+                          onMouseEnter={() => n > 0 && setSelected(k)}
+                          className={[
+                            'h-8 w-full rounded border text-[0.7rem] font-mono transition',
+                            tint(n),
+                            n === 0 ? 'cursor-default' : 'cursor-pointer hover:brightness-125',
+                            isSel ? 'ring-2 ring-sky-400' : '',
+                          ].join(' ')}
+                          aria-label={`${MOVEMENT_LABEL[mv ?? 'null']} × ${dl ?? 'unmapped'}: ${n} kits`}>
+                          {n || ''}
+                        </button>
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      {/* the selected-cell panel — the actual "mouseover kit names". */}
+      {selected && selDots.length > 0 && (
+        <CellPanel cellK={selected} dots={selDots} onClose={() => setSelected(null)} />
+      )}
+
+      {/* honesty footnote — roster/S7 caveat, live count, never hardcoded. */}
+      <p className="mt-2 text-[0.6rem] leading-snug text-slate-500">
+        {rosterCount} roster-overlay {rosterCount === 1 ? 'kit sits' : 'kits sit'} in the{' '}
+        <span className="text-amber-500/80">unmapped movement band</span> — their names are
+        final, only their movement-axis position awaits S7. Cells marked{' '}
+        <span className="text-amber-400/80">◇</span> hold kits whose cell address is not yet
+        fully confident.
+      </p>
+    </div>
+  );
+}
+
+// CellPanel — lists the kits in one selected cell, grouped by amp stratum, each by its
+// PUBLIC label. dot_id is NEVER shown (internal register). negative_canon → muted exhibit.
+function CellPanel({
+  cellK, dots, onClose,
+}: { cellK: string; dots: PlaneDot[]; onClose: () => void }) {
+  const [mv, dl] = cellK.split('|');
+  const heading =
+    `${MOVEMENT_LABEL[mv] ?? mv.toLowerCase()} × ${dl === 'null' ? 'unmapped delivery' : dl.toLowerCase()}`;
+
+  // group by amp, in canonical amp order
+  const groups = AMP_ORDER.map((amp) => ({
+    amp,
+    label: AMP_LABEL[amp ?? 'null'],
+    kits: dots.filter((d) => d.cell.amp === amp),
+  })).filter((g) => g.kits.length > 0);
+
+  return (
+    <div className="mt-2 rounded-lg border border-sky-700/50 bg-slate-950/60 p-3">
+      <div className="mb-2 flex items-baseline justify-between gap-2">
+        <span className="text-sm font-semibold text-sky-200">{heading}</span>
+        <button
+          type="button"
+          onClick={onClose}
+          className="text-[0.7rem] text-slate-400 hover:text-slate-200">
+          close ✕
+        </button>
+      </div>
+      <div className="space-y-3">
+        {groups.map((g) => (
+          <div key={g.amp ?? 'null'}>
+            <div className="mb-1 text-[0.6rem] font-semibold uppercase tracking-wide text-teal-400/80">
+              {g.label} · {g.kits.length}
+            </div>
+            <ul className="space-y-1">
+              {g.kits.map((d) => (
+                <li
+                  key={d.dot_id}
+                  className={[
+                    'rounded border px-2 py-1 text-[0.72rem] leading-snug',
+                    d.negative_canon
+                      ? 'border-slate-800 bg-slate-900/30 text-slate-500 italic'
+                      : 'border-slate-800 bg-slate-900/50 text-slate-200',
+                  ].join(' ')}>
+                  <span className="font-mono">{d.public_label}</span>
+                  {d.negative_canon && (
+                    <span className="ml-1 text-[0.55rem] uppercase tracking-wide text-slate-600">
+                      historical exhibit
+                    </span>
+                  )}
+                  {!d.cell_confident && (
+                    <span
+                      className="ml-1 text-amber-400/80"
+                      title="cell address not yet fully confident (roster movement or unclassified delivery)">
+                      ◇
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

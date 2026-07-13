@@ -26,10 +26,17 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 // glance/app/scripts → repo root is three levels up.
 const REPO_ROOT = resolve(__dirname, '..', '..', '..');
 
-const SRC_REL = 'agentic_orchestration/gandalf/views/v1-plane/plane_view_v1_2_stratified.svg';
+const VIEW_DIR_REL = 'agentic_orchestration/gandalf/views/v1-plane';
+const SRC_REL = `${VIEW_DIR_REL}/plane_view_v1_2_stratified.svg`;
 const SRC = join(REPO_ROOT, SRC_REL);
+// The per-dot JSON (Phase-2 mouseover source). CELL-addressed, provenance-clean derived
+// artifact from the same render (render_v1_2_stratified.py); one record per rendered dot.
+// Staged exactly like the SVG — single source of truth stays gandalf's committed render.
+const DOTS_REL = `${VIEW_DIR_REL}/plane_dots_v1_2.json`;
+const DOTS_SRC = join(REPO_ROOT, DOTS_REL);
 const OUT_DIR = join(REPO_ROOT, 'glance', 'app', 'public', 'atlas');
 const OUT_SVG = join(OUT_DIR, 'plane_view_v1_2_stratified.svg');
+const OUT_DOTS = join(OUT_DIR, 'plane_dots_v1_2.json');
 const OUT_META = join(OUT_DIR, 'plane-provenance.json');
 
 if (!existsSync(SRC)) {
@@ -39,6 +46,16 @@ if (!existsSync(SRC)) {
 
 mkdirSync(OUT_DIR, { recursive: true });
 copyFileSync(SRC, OUT_SVG);
+
+// Phase-2: the per-dot JSON. Not fatal-missing on its own — the SVG (Phase-1) still
+// renders without it; the interactive cell explorer degrades to "not staged" if absent.
+// But once emitted upstream it must flow through, so warn loudly rather than silently skip.
+const dotsStaged = existsSync(DOTS_SRC);
+if (dotsStaged) {
+  copyFileSync(DOTS_SRC, OUT_DOTS);
+} else {
+  console.warn(`[stage-assets] WARN — per-dot JSON missing (Phase-2 mouseover disabled): ${DOTS_REL}`);
+}
 
 // Git-derived source commit for the SVG (never hand-typed). Prefer the commit that
 // last touched the file; fall back to deploy HEAD if history is shallow (Vercel).
@@ -76,5 +93,5 @@ const meta = {
 writeFileSync(OUT_META, JSON.stringify(meta, null, 2) + '\n');
 
 console.log(
-  `[stage-assets] staged plane SVG + provenance (source_commit ${sourceCommit.slice(0, 8)})`,
+  `[stage-assets] staged plane SVG${dotsStaged ? ' + dots JSON' : ''} + provenance (source_commit ${sourceCommit.slice(0, 8)})`,
 );

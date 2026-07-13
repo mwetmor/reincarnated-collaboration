@@ -27,12 +27,16 @@
 !canonical
 !canonical/**
 
-# The one derived view asset (see header) — un-ignore the path to just this file.
+# The derived view assets (see header) — un-ignore the paths to just these files.
+# Phase-1: the stratified plane SVG. Phase-2: the per-dot JSON (mouseover source).
+# Both are DB-derived render artifacts from render_v1_2_stratified.py; single source of
+# truth stays gandalf-owned, staged onto /atlas by scripts/stage-assets.mjs at build.
 !agentic_orchestration
 !agentic_orchestration/gandalf
 !agentic_orchestration/gandalf/views
 !agentic_orchestration/gandalf/views/v1-plane
 !agentic_orchestration/gandalf/views/v1-plane/plane_view_v1_2_stratified.svg
+!agentic_orchestration/gandalf/views/v1-plane/plane_dots_v1_2.json
 
 # Within the two kept trees, still drop derived/heavy artifacts:
 glance/app/node_modules

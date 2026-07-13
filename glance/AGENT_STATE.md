@@ -43,14 +43,32 @@ asset on the `/atlas` (PROJECTION) page. ZERO new parse shapes — a render/layo
   config touched (vercel.json unchanged) → no re-smoke beyond preview.
 - **NOT deployed** — production Vercel deploy is Matt-gated (ADR-006). Awaiting Matt go.
 
-### PHASE 2 (interactive mouseover) — SPEC'd, GATED, NOT BUILT
+### PHASE 2 (interactive mouseover) — BUILT 2026-07-13, awaiting deploy go
 
-Per-dot interactive tooltips (customer/analyst-facing naming-law label on hover/tap).
-Requires the plane rendered from DATA, not a flat image. Spec + data contract:
-`agentic_orchestration/drax/notes/2026-07-13-atlas-plane-phase2-mouseover-spec.md`.
-GATES (both upstream, flagged to KR): (a) the plane render emitting a per-dot data JSON
-with `public_label` (gandalf owns the label-derivation rule); (b) elrond S1 `era_year` +
-`stabilization_patch` columns for full-precision labels. Phase 1 has NO gates.
+Both upstream gates cleared: (a) gandalf per-dot JSON + `public_label` derivation (commit
+`6968c793`, `plane_dots_v1_2.json`, schema `atlas-plane-dots/v1.2`, 508 dots); (b) elrond
+S1 P5 `era_year` (524/524). Spec: `agentic_orchestration/drax/notes/2026-07-13-atlas-plane-phase2-mouseover-spec.md`
+(the pixel-hover assumption there is SUPERSEDED — the shipped JSON is CELL-addressed, no x/y).
+
+- **CELL-addressed, not pixel-addressed.** The JSON carries `cell {movement, delivery, amp}`
+  with NO coordinates. So we did NOT fake hover hotspots on the static raster (that would
+  invent coordinates the truth model does not contain). Instead: a faithful data-driven
+  **cell grid** — 4 movement rows (FREE-MOVE / WALK / ROOTED / unmapped) × 8 delivery
+  columns (+ unmapped) — rendered straight from the JSON. Tap/hover a cell → panel lists its
+  kits grouped by amp stratum, each by its **`public_label`** (NEVER `dot_id`).
+- **Staging:** `stage-assets.mjs` now copies `plane_dots_v1_2.json` → `public/atlas/` (WARN,
+  not fatal, if absent — SVG still renders). `.vercelignore` allowlists the JSON source so
+  it uploads on remote builds. `public/atlas/` now git-ignored (derived, single-source-of-truth).
+- **Honesty affordances (per data contract):** occupancy counts DERIVED live from JSON (never
+  hardcoded); roster overlay dots (`movement:null`, 45) sit in a labelled **S7-pending** band —
+  names final, only movement-axis POSITION awaits S7; `cell_confident:false` dots marked `◇`;
+  `negative_canon:true` wired to a muted "historical exhibit" style (0 in corpus yet — lights
+  up when the negative catalogue lands).
+- **Components:** `AtlasCellExplorer` + `CellPanel` in `src/App.tsx`, siblings of `AtlasPlaneView`,
+  rendered below the SVG + provenance stamp on `/atlas` only.
+- **Smoke:** `npm run build` GREEN; staged `dist/atlas/plane_dots_v1_2.json` (508 dots) served
+  200 `application/json`; root route 200.
+- **NOT deployed** — Matt decides preview vs prod + galadriel visual check (ADR-006).
 
 ### v1.9 — kit-design reference TRIO (§7.7) — LANDED 2026-07-11
 
