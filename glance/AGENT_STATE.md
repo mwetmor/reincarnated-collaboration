@@ -98,6 +98,46 @@ read galadriel verified for v2), NOT invented coordinates.
   200; deployment `reincarnated-glance-2bic3csus`). Commits: `d815fd0b` (v3 per-dot) +
   `7edfd5f3` (clamp refix). No routing/vercel.json change (no re-smoke beyond preview needed).
 
+### PHASE 2 v4 (dual axes + interactive full-size) — BUILT + galadriel-verified 2026-07-13
+
+Matt (four-part request): "remove the new legend … instead list each word as a secondary
+axis on the right … change the horizontal axis titles on the left from horizontal to
+vertical, this way we don't reduce atlas space … make the mouse-over work in the
+'open-full-size' view … then move to PRD and then push." All four done IN-LANE (app
+overlay only — the render was NOT touched).
+
+- **(a) StratificationLegend REMOVED** — the right-hand legend box (v-just-prior, preview
+  `reincarnated-glance-dgptuhaq5`, never prod) is gone, along with its `STRATA_BANDS` const.
+- **(b) RIGHT secondary axis (amp strata):** FLAT / SPIKY / VAR drawn as live SVG `<text>`
+  to the right of the grid, one triple PER movement row, each aligned to that cell's three
+  amp-bands (`bandCenterY(ri,si) = CELL_Y0 + ri·PITCH + BOX·(2si+1)/6`). Faint divider line
+  at `GRID_R+4`. Colour `#8AA0BC` (== render per-stratum count colour).
+- **(c) LEFT movement labels HORIZONTAL→VERTICAL (space reclaimed):** the render bakes the
+  movement labels horizontally in a ~110px left margin. Rather than re-render (out of lane +
+  fragile — see NOTE), reclaimed IN-LANE: cropped the baked left margin out of the viewBox
+  (`VB_X = CELL_X0 - LEFT_GUTTER`), masked residual with a `#0B0D10` rect over the row band,
+  redrew `⇢⇢ FREE-MOVE / ⇢ WALK / ✕ ROOTED` VERTICALLY (rotate -90°) in a 30px gutter. Net:
+  plane grid GAINS width. galadriel measured row-center dy = 0.0/0.0/0.0.
+- **(d) Interactive full-size view:** "open full-size ↗" is now a BUTTON (was an `<a>` to the
+  raw static SVG) opening a full-viewport modal that renders the SAME `AtlasInteractivePlane`
+  — hover/tap works there too. Esc + "close ✕" dismiss.
+- **Refactor:** `<img>` + separate overlay `<svg>` UNIFIED into ONE `<svg>` with
+  `<image href=svgUrl>` + all overlays sharing one coordinate system (cannot drift). Wrapper
+  uses `aspect-ratio: VB_W/VB_H`; pointer math + popover anchors rebased onto the cropped
+  viewBox (`vbX = VB_X + …·VB_W`; `xPct = (px-VB_X)/VB_W`).
+- **NOTE (why NOT a render change):** re-running `render_v1_2_stratified.py` is fragile for
+  the binder — dots are deterministic (byte-identical re-render, verified) BUT matplotlib
+  glyph IDs + clip-path IDs are NON-deterministic (`me898b4409d`→different each run), and the
+  binder anchors on those IDs; a render geometry change would also shift every hardcoded app
+  geometry constant + invalidate galadriel's 0.00-offset. So the axis relabel stays app-side.
+  (Render remains gandalf-owned, untouched.)
+- **Smoke:** `npm run build` GREEN (parse green · stage-assets green · tsc green, no unused ·
+  vite built). Preview 200 root + positions + SVG. galadriel PASS all 4 items, desktop 1280 +
+  mobile 375 (mask #0B0D10 exact, 9 strata labels band-aligned gapDelta ≤0.1px, hover + modal
+  both interactive). No routing/vercel.json change → no re-smoke beyond preview.
+- **DEPLOYED TO PRODUCTION + PUSHED 2026-07-13** (Matt authorized: "move to PRD and then
+  push") — see deploy state below.
+
 ### PHASE 2 v2 (per-cell hover/tap POPOVER) — BUILT + galadriel-verified 2026-07-13
 
 Matt's two changes: removed the docked cell-explorer panel ("let the plane breathe"); added

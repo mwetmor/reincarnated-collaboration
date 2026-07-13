@@ -1005,6 +1005,7 @@ type PlaneProvenance = {
 function AtlasPlaneView({ ghBase }: { ghBase: string }) {
   const [meta, setMeta] = useState<PlaneProvenance | null>(null);
   const [missing, setMissing] = useState(false);
+  const [fullscreen, setFullscreen] = useState(false);
   const base = import.meta.env.BASE_URL;
   const svgUrl = `${base}atlas/plane_view_v1_2_stratified.svg`;
 
@@ -1014,6 +1015,14 @@ function AtlasPlaneView({ ghBase }: { ghBase: string }) {
       .then((m: PlaneProvenance) => setMeta(m))
       .catch(() => setMissing(true));
   }, [base]);
+
+  // Esc closes the full-size interactive view.
+  useEffect(() => {
+    if (!fullscreen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setFullscreen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [fullscreen]);
 
   // Fallback stamp values (known constants) if the provenance JSON is unavailable —
   // the asset is still the committed derived render; only the git-derived hash is absent.
@@ -1038,11 +1047,12 @@ function AtlasPlaneView({ ghBase }: { ghBase: string }) {
             {m.ruling}
           </span>
         </div>
-        <a
-          href={svgUrl} target="_blank" rel="noreferrer"
+        <button
+          type="button"
+          onClick={() => setFullscreen(true)}
           className="text-xs text-sky-400 hover:text-sky-300">
           open full-size ↗
-        </a>
+        </button>
       </div>
 
       <p className="mb-2 text-[0.7rem] leading-snug text-slate-400">
@@ -1056,13 +1066,9 @@ function AtlasPlaneView({ ghBase }: { ghBase: string }) {
 
       {/* the vector plane — scales to container width; horizontal scroll guard for
           very narrow phones so nothing clips. Hover/tap surfaces a per-dot popover.
-          A stratification key sits on the RIGHT on wide screens, wraps below on phones. */}
-      <div className="flex flex-col gap-3 lg:flex-row lg:items-start">
-        <div className="min-w-0 flex-1">
-          <AtlasInteractivePlane svgUrl={svgUrl} missing={missing} />
-        </div>
-        <StratificationLegend />
-      </div>
+          Movement rows are labelled VERTICALLY on the left (reclaimed baked-label space);
+          amp strata (FLAT / SPIKY / VAR) are a SECONDARY AXIS on the right, band-aligned. */}
+      <AtlasInteractivePlane svgUrl={svgUrl} missing={missing} />
 
       {/* provenance stamp — the seeing-stone's answer: no true image without provenance. */}
       <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.65rem] text-slate-500">
@@ -1079,68 +1085,33 @@ function AtlasPlaneView({ ghBase }: { ghBase: string }) {
           </a>
         </span>
       </div>
-    </section>
-  );
-}
 
-// StratificationLegend — the amp-tempo key for the projection. Every square in the plane
-// is split top→bottom into three amp-tempo strata (FLAT / SPIKY / VAR); the render tints
-// them very subtly, so this key names the bands and shows their order. Tints, order, and
-// glosses are copied from the render (render_v1_2_stratified.py: cell_bg_flat/spiky/var,
-// AMP_STRATA order, AMP_WORD glosses) so the legend matches the raster exactly.
-const STRATA_BANDS = [
-  { name: 'FLAT', gloss: 'flat tempo', tint: '#1B1F27' },
-  { name: 'SPIKY', gloss: 'spiky tempo', tint: '#20242D' },
-  { name: 'VAR', gloss: 'variable tempo', tint: '#252A34' },
-] as const;
-
-function StratificationLegend() {
-  return (
-    <aside className="shrink-0 rounded-lg border border-slate-800 bg-slate-950/40 p-2.5 lg:w-52">
-      <div className="mb-1 text-[0.65rem] font-semibold uppercase tracking-wide text-teal-300/90">
-        Stratification
-      </div>
-      <p className="mb-2 text-[0.6rem] leading-snug text-slate-500">
-        Each square is split by amp-tempo, top → bottom:
-      </p>
-      <div className="flex gap-2">
-        {/* mini stacked square — mirrors how every cell is banded (FLAT top → VAR bottom) */}
+      {/* Full-size view — the SAME interactive plane at viewport scale, hover/tap live
+          (task: "make the mouse-over work in the open-full-size view"). Not a raw-SVG tab. */}
+      {fullscreen && (
         <div
-          className="flex w-9 shrink-0 flex-col overflow-hidden rounded border"
-          style={{ borderColor: '#2A3746' }}
-          aria-hidden>
-          {STRATA_BANDS.map((b, i) => (
-            <div
-              key={b.name}
-              className="h-6"
-              style={{
-                background: b.tint,
-                borderTop: i > 0 ? '1px solid #2A3746' : undefined,
-              }}
-            />
-          ))}
+          className="fixed inset-0 z-50 flex flex-col bg-slate-950/95 p-3 sm:p-5"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${m.title} — full size`}>
+          <div className="mb-2 flex items-center justify-between gap-2">
+            <div className="flex items-baseline gap-2">
+              <span className="text-sm font-semibold text-teal-200">{m.title}</span>
+              <span className="text-[0.65rem] uppercase tracking-wide text-slate-500">full size · hover a dot</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setFullscreen(false)}
+              className="rounded border border-slate-700 px-2 py-1 text-xs text-slate-300 hover:bg-slate-800">
+              close ✕
+            </button>
+          </div>
+          <div className="min-h-0 flex-1 overflow-auto">
+            <AtlasInteractivePlane svgUrl={svgUrl} missing={missing} />
+          </div>
         </div>
-        <ul className="flex-1 space-y-0">
-          {STRATA_BANDS.map((b) => (
-            <li key={b.name} className="flex h-6 items-center gap-1.5">
-              <span
-                className="inline-block h-3 w-3 shrink-0 rounded-sm border"
-                style={{ background: b.tint, borderColor: '#2A3746' }}
-              />
-              <span className="text-[0.72rem] font-semibold text-slate-200">{b.name}</span>
-              <span className="text-[0.58rem] text-slate-500">{b.gloss}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="mt-2 flex items-start gap-1.5 border-t border-slate-800 pt-1.5 text-[0.55rem] leading-snug text-slate-500">
-        <span
-          className="mt-0.5 inline-block h-2.5 w-2.5 shrink-0 rounded-sm border"
-          style={{ background: '#2B1E28', borderColor: '#7A4A6B' }}
-        />
-        <span>A magenta sliver at a square’s very bottom marks amp-unkeyed kits (only when present).</span>
-      </div>
-    </aside>
+      )}
+    </section>
   );
 }
 
@@ -1218,6 +1189,33 @@ const MOVEMENT_WORD: Record<string, string> = {
 // not a reconstructed affine — so the overlay lands exactly on the drawn cells.
 const PLANE_VB = { w: 873.423631, h: 705.037812 };
 const CELL_X0 = 110.541763, CELL_Y0 = 169.239412, CELL_PITCH = 103.68;
+const CELL_BOX = 99.5328; // inner cell box (== width == height) — for amp-band centers
+
+// Axis overlay geometry. The render bakes the movement labels HORIZONTALLY in a wide
+// (~110px) left margin. We reclaim that: crop the baked left labels out of the viewBox,
+// mask any residual, and redraw the movement names VERTICALLY in a thin gutter — so the
+// plane grid gains width instead of losing it. On the right we add a compact SECONDARY
+// AXIS listing the amp strata (FLAT / SPIKY / VAR), band-aligned per movement row.
+const GRID_R = CELL_X0 + 7 * CELL_PITCH;   // grid right edge (836.30)
+const LEFT_GUTTER = 30;                     // vertical movement-label gutter
+const RIGHT_GUTTER = 10;                    // strata secondary-axis breathing room
+const VB_X = CELL_X0 - LEFT_GUTTER;         // cropped left view edge (80.54)
+const VB_W = PLANE_VB.w + RIGHT_GUTTER - VB_X; // visible width after crop + right pad
+
+// Movement glyphs mirror the render's row hints (render_v1_2_stratified.py row_glyphs).
+const MOVEMENT_ROW_GLYPH: Record<(typeof PLANE_ROWS)[number], string> = {
+  'FREE-MOVE': '⇢⇢', WALK: '⇢', ROOTED: '✕',
+};
+// Amp strata, fixed top→bottom order (== render AMP_STRATA). Secondary axis on the right.
+const AMP_STRATA = ['FLAT', 'SPIKY', 'VAR'] as const;
+// Vertical center (viewBox y) of amp-band `si` (0=FLAT top … 2=VAR bottom) within row `ri`.
+const bandCenterY = (ri: number, si: number) =>
+  CELL_Y0 + ri * CELL_PITCH + (CELL_BOX * (2 * si + 1)) / 6;
+const rowCenterY = (ri: number) => CELL_Y0 + ri * CELL_PITCH + CELL_BOX / 2;
+// Anchor helpers: convert a viewBox point to a % of the (cropped) visible box, for the
+// absolutely-positioned popover which lives in the SVG's own container box.
+const xPct = (px: number) => ((px - VB_X) / VB_W) * 100;
+const yPct = (py: number) => (py / PLANE_VB.h) * 100;
 
 // The UNMAPPED strip: the text band below the 3-row grid (roster + movement-unknown kits
 // are listed by name there, not plotted in cells). One hotspot covering that region.
@@ -1302,7 +1300,7 @@ function AtlasInteractivePlane({ svgUrl, missing }: { svgUrl: string; missing: b
     const rect = svg.getBoundingClientRect();
     if (!rect.width || !rect.height) return;
     if (rect.width !== planeW) setPlaneW(rect.width); // no-op re-render if unchanged
-    const vbX = ((clientX - rect.left) / rect.width) * PLANE_VB.w;
+    const vbX = VB_X + ((clientX - rect.left) / rect.width) * VB_W;
     const vbY = ((clientY - rect.top) / rect.height) * PLANE_VB.h;
     // Below the grid → the strip owns it (kept as a list; not plotted per-dot).
     if (vbY > gridBottom) {
@@ -1327,71 +1325,111 @@ function AtlasInteractivePlane({ svgUrl, missing }: { svgUrl: string; missing: b
     isStrip = true;
     popDots = stripDots;
     anchor = {
-      leftPct: ((STRIP_RECT.x + STRIP_RECT.w / 2) / PLANE_VB.w) * 100,
-      topPct: (STRIP_RECT.y / PLANE_VB.h) * 100,
+      leftPct: xPct(STRIP_RECT.x + STRIP_RECT.w / 2),
+      topPct: yPct(STRIP_RECT.y),
     };
   } else if (hover) {
     popDots = hover.dots;
-    anchor = { leftPct: (hover.px / PLANE_VB.w) * 100, topPct: (hover.py / PLANE_VB.h) * 100 };
+    anchor = { leftPct: xPct(hover.px), topPct: yPct(hover.py) };
   }
+
+  const labelX = VB_X + LEFT_GUTTER / 2;               // vertical movement-label center x
+  const strataX = (GRID_R + PLANE_VB.w + RIGHT_GUTTER) / 2; // secondary-axis label center x
 
   return (
     <div className="overflow-x-auto rounded border border-slate-800 bg-slate-950/40">
-      {/* relative wrapper: the min-width forces the horizontal-scroll on tiny phones and
-          keeps the SVG overlay locked to the raster (both share the same box + aspect). */}
+      {/* relative wrapper: the aspect-ratio (cropped viewBox) fixes the box; the SVG fills
+          it absolutely. min-width forces horizontal-scroll on tiny phones so nothing clips.
+          The raster + all overlays share ONE SVG coordinate system, so they can never drift. */}
       <div
         className="relative mx-auto w-full min-w-[640px] max-w-full"
+        style={{ aspectRatio: `${VB_W} / ${PLANE_VB.h}` }}
         onMouseLeave={() => setHover(null)}>
-        <img
-          src={svgUrl}
-          alt="RULED V1.2 Stratified Plane View — DB-derived occupancy atlas"
-          className="block h-auto w-full"
-          loading="lazy"
-        />
+        <svg
+          ref={svgRef}
+          viewBox={`${VB_X} 0 ${VB_W} ${PLANE_VB.h}`}
+          preserveAspectRatio="xMidYMid meet"
+          className="absolute inset-0 h-full w-full"
+          role="img"
+          aria-label="RULED V1.2 Stratified Plane View — DB-derived occupancy atlas">
+          {/* the committed derived raster, in its own (full) pixel space; the viewBox crops
+              the wide baked left-label margin off the visible left edge. */}
+          <image href={svgUrl} x={0} y={0} width={PLANE_VB.w} height={PLANE_VB.h} />
 
-        {interactive && (
-          <svg
-            ref={svgRef}
-            viewBox={`0 0 ${PLANE_VB.w} ${PLANE_VB.h}`}
-            preserveAspectRatio="xMidYMid meet"
-            className="absolute inset-0 h-full w-full"
-            aria-hidden={false}>
-            {/* One transparent capture surface over the whole plane → nearest-dot on move/tap. */}
-            <rect
-              x={0} y={0} width={PLANE_VB.w} height={PLANE_VB.h}
-              fill="transparent"
-              className="pointer-events-auto cursor-crosshair"
-              onPointerMove={(e) => resolvePointer(e.clientX, e.clientY)}
-              onPointerDown={(e) => resolvePointer(e.clientX, e.clientY)}
-              onPointerLeave={() => setHover(null)}
-            />
-            {/* Highlight ring on the resolved dot so the user sees which one is selected. */}
-            {hover && hover !== 'UNMAPPED' && (
-              <circle
-                cx={hover.px} cy={hover.py} r={6}
-                fill="rgba(56,189,248,0.18)"
-                stroke="rgba(56,189,248,0.95)"
-                strokeWidth={1.6}
-                className="pointer-events-none"
-              />
-            )}
-            {/* Strip hotspot (roster + movement-unknown, rendered as text in-strip). */}
-            {stripDots.length > 0 && (
+          {/* LEFT AXIS — mask the residual baked horizontal labels, redraw them VERTICALLY. */}
+          <rect
+            x={VB_X} y={CELL_Y0 - 6} width={LEFT_GUTTER} height={3 * CELL_PITCH + 12}
+            fill="#0B0D10"
+          />
+          {PLANE_ROWS.map((row, ri) => (
+            <text
+              key={row}
+              x={labelX} y={rowCenterY(ri)}
+              transform={`rotate(-90 ${labelX} ${rowCenterY(ri)})`}
+              textAnchor="middle" dominantBaseline="central"
+              fontSize={13} fontWeight="bold" fill="#B8C0CA"
+              className="pointer-events-none select-none">
+              {`${MOVEMENT_ROW_GLYPH[row]} ${row}`}
+            </text>
+          ))}
+
+          {/* RIGHT AXIS — amp strata (FLAT / SPIKY / VAR) as a secondary axis, band-aligned. */}
+          <line
+            x1={GRID_R + 4} y1={CELL_Y0} x2={GRID_R + 4} y2={CELL_Y0 + 3 * CELL_PITCH}
+            stroke="#2A3746" strokeWidth={1} className="pointer-events-none"
+          />
+          {PLANE_ROWS.map((_, ri) =>
+            AMP_STRATA.map((s, si) => (
+              <text
+                key={`${ri}-${s}`}
+                x={strataX} y={bandCenterY(ri, si)}
+                textAnchor="middle" dominantBaseline="central"
+                fontSize={11} fontWeight={600} fill="#8AA0BC"
+                className="pointer-events-none select-none">
+                {s}
+              </text>
+            )),
+          )}
+
+          {interactive && (
+            <>
+              {/* One transparent capture surface over the whole box → nearest-dot on move/tap. */}
               <rect
-                x={STRIP_RECT.x} y={STRIP_RECT.y} width={STRIP_RECT.w} height={STRIP_RECT.h}
-                className="pointer-events-auto cursor-pointer transition"
-                fill={hover === 'UNMAPPED' ? 'rgba(255,153,102,0.12)' : 'transparent'}
-                stroke={hover === 'UNMAPPED' ? 'rgba(255,153,102,0.8)' : 'transparent'}
-                strokeWidth={hover === 'UNMAPPED' ? 2 : 0}
-                tabIndex={0}
-                role="button"
-                aria-label={`UNMAPPED strip: ${stripDots.length} kits`}
-                onMouseEnter={() => setHover('UNMAPPED')}
-                onFocus={() => setHover('UNMAPPED')}
+                x={VB_X} y={0} width={VB_W} height={PLANE_VB.h}
+                fill="transparent"
+                className="pointer-events-auto cursor-crosshair"
+                onPointerMove={(e) => resolvePointer(e.clientX, e.clientY)}
+                onPointerDown={(e) => resolvePointer(e.clientX, e.clientY)}
+                onPointerLeave={() => setHover(null)}
               />
-            )}
-          </svg>
-        )}
+              {/* Highlight ring on the resolved dot so the user sees which one is selected. */}
+              {hover && hover !== 'UNMAPPED' && (
+                <circle
+                  cx={hover.px} cy={hover.py} r={6}
+                  fill="rgba(56,189,248,0.18)"
+                  stroke="rgba(56,189,248,0.95)"
+                  strokeWidth={1.6}
+                  className="pointer-events-none"
+                />
+              )}
+              {/* Strip hotspot (roster + movement-unknown, rendered as text in-strip). */}
+              {stripDots.length > 0 && (
+                <rect
+                  x={STRIP_RECT.x} y={STRIP_RECT.y} width={STRIP_RECT.w} height={STRIP_RECT.h}
+                  className="pointer-events-auto cursor-pointer transition"
+                  fill={hover === 'UNMAPPED' ? 'rgba(255,153,102,0.12)' : 'transparent'}
+                  stroke={hover === 'UNMAPPED' ? 'rgba(255,153,102,0.8)' : 'transparent'}
+                  strokeWidth={hover === 'UNMAPPED' ? 2 : 0}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`UNMAPPED strip: ${stripDots.length} kits`}
+                  onMouseEnter={() => setHover('UNMAPPED')}
+                  onFocus={() => setHover('UNMAPPED')}
+                />
+              )}
+            </>
+          )}
+        </svg>
 
         {/* the popover — anchored on the hovered dot (or strip), clamped on-screen. */}
         {anchor && popDots.length > 0 && (
