@@ -31,3 +31,48 @@ Design the catalogue-DB representation of the mobile ARPG canon corpus under the
 3. Open-questions list for Matt/KR (housing location, HoT tier confirm, roster-provenance rows in-or-out)
 
 Auto-commit the proposal docs per CLAUDE.md discipline (no push; no production-DB writes). Final message: ≤200-word summary + paths.
+
+---
+
+## DELTA v2 (gandalf 2026-07-12, post-mega-probe + post-mapping-pass) — supersedes the above where it touches
+
+Your v1.0 proposal (`research/curated/corpus-db-schema-proposal-2026-07-12.md`) landed well — identity/prefix layer, measured-by-omission, game≠corpus_bucket, reversibility all stand. But it predates two events that change the schema's middle: the **legolas mega-probe** (full-schema facts, ten families per positive) and the **gandalf mapping pass** (every positive now KEYED into the engine frame — the re-key is DONE, not awaited). Amendments:
+
+### D1. Two new inputs (the layers above the CSV)
+
+- **Probe facts:** `agentic_orchestration/legolas/research/megaprobe-2026-07-12/*-facts.jsonl` — 478 positives × ten fact families (`delivery, footprint, control, defense, economy, element, movement, geo_text, rank1_upgrade, sources_used`), each `{facts, conf, prov}`; post-cutoff rows carry conf-cap ≤0.5 + `dossier_owed`. Negatives were SKIPPED (count-only). Plus `mint-dossiers-reexpressed.jsonl` (9 mint kits, all dossier_owed), `roster-lineage-enrichment.jsonl`, `per-game-meta.jsonl`.
+- **Engine key:** `agentic_orchestration/gandalf/views/engine-key/corpus-engine-key-v1.jsonl` — 478 rows keyed per kit: `engine_geometry{value, rule_fired, conf}` · `ctrl{treatment, ailments_mapped[], ailment_gaps[]}` · `def{bin, riders[], conf}` · `econ{status, gaps[], meter_type}` · `mob` descriptors · `row_class` (**combat 463 / system-record 15**) · `route` · `flags[]` (all `resolved:*` — zero open judgments) · provenance. Mapping provenance: `views/rekey-map-rules-v1.md` (v1.1) + `views/engine-key/judgment-resolutions-v1.md` + reproducibility scripts in the same dir.
+
+### D2. Schema architecture becomes THREE layers; the six `rekey_<slot>` raw-value tables are RETIRED
+
+Your empty `rekey_<slot>(raw, engine_value, …)` join tables assumed the re-key would map raw suffix values → engine values. It didn't and can't: the key derives from **multi-family probe facts per kit** (delivery × footprint × commitment × verbs → geometry, etc.), resolved per-kit where rules flagged. So:
+
+- **Layer 1 — `canon_corpus`** (your v1.0, stands as designed; suffix `*_raw` stays verbatim provenance).
+- **Layer 2 — `canon_probe_facts`** (NEW): one row per kit × family — `{kit_id, family, facts_json, conf, prov, post_cutoff_cap, dossier_owed}`. Facts stay finer than vocabulary — this layer must remain independently queryable (the boards derive from it + Layer 3).
+- **Layer 3 — `canon_engine_key`** (NEW, keyed on `kit_id`): the mapping-pass output verbatim (ingest the JSONL; do not re-derive). Same zero-UPDATE discipline you designed — `v_canon_corpus_rekeyed` LEFT-JOINs Layer 3 by kit_id instead of raw-value tables.
+- `suffix_rekey_status`: geo/ctrl/def/econ → `'keyed-v1'`; **mob/elem → `'descriptor-final'` — PERMANENT, not awaiting.** By ruled law: element = FREE AXIS (no corpus→engine element mapping EVER; `elem_raw` provenance-only; probe `damage_mode` descriptor feeds ailment-layer design) and mobility = EMERGENT (descriptors only; returns post-emission as battle-sim label). **No `rekey_elem` / `rekey_mob` table may exist** — schema-by-omission, same discipline as your measured law.
+
+### D3. Vocabulary enums of record (Layer 3 CHECKs)
+
+- ctrl treatment: `damage / control / hybrid` — **Q22 RULED: `support` retired**; never a legal value here.
+- def bin: `tank / mitigate / evade / absorb / glass` (+ `post-cutoff-deferred`); riders incl. `sustain:leech` — **Q23 RULED 2026-07-12: rider stands, never a sixth bin**; also `trigger:block`, `su-proxy`, `synonym:*`.
+- geometry: engine 24-type rich palette; `null` legal ONLY with `resolved:placed-lane` (Walls demand, 3 kits) or `gx-candidate:orbit` (4 kits) or `post-cutoff-deferred`.
+- row_class: `combat / system-record`; system-records carry `route` ∈ {loot-economy, progression, modifier-grammar, ailment-synergy, commitment-grammar, difficulty-authoring, meta-currency, consumable-economy}.
+
+### D4. Reconciliation check (add to your validators)
+
+Your CSV-derived `is_system=1` (18 rows) and my judgment-derived `row_class='system-record'` (15 rows) are DIFFERENT classifications from different evidence — expect partial overlap, not identity. Both columns survive; **Layer-3 `row_class` governs combat denominators.** Report the overlap/diff table in the ingest log (any CSV-system row that mapped as combat, and vice versa, is a curation finding, not an error).
+
+### D5. Open-question dispositions (your §4)
+
+- **Q1 (per-slot conf):** for the 478 positives, the probe's per-family conf SUPERSEDES as the live confidence surface (fresh, source-verified, formula-conf retired) — the key consumed it (`min(delivery, footprint)` etc.). Prefix avg-collapsed fallback stands as you designed; recovery of the old jsonl demotes to nice-to-have.
+- **Q2 (housing) / Q3 (roster rows) / Q4 (HoT):** escalated to Matt as **Q24** in `canonical/matt_decision_needed/README.md` (your recommendations carried). Note on Q4: probe Unit C empirically CONFIRMED the T3 lean — flag stays until Matt's word, evidence now attached.
+- **Q5:** your recommendation stands.
+
+### D6. Acceptance harness (the ingest-verification criterion)
+
+**Every count in `views/engine-key/boards-v1.md` must reproduce from DB queries exactly** — combat denominator 463; ailment-gap census (damage-amp 97 unique kits, freeze 43, stun 36, poison-dot 36); SU mechanics-demand 48 (totem-keyed + J-SUM-resolved); def tank 215; gap censuses (PC/RS/AM/RC/BT/HV); Walls 3; orbit 4. Boards become DERIVED VIEWS the DB regenerates — if a board count can't be reproduced by SQL, the ingest is unfaithful. Negatives (37) ingest Layer-1 only (`negative=1` = warnings, never candidates). Mint kits (9) ingest flagged `mint=1, dossier_owed=1` — they are §F.5(1) candidate-pool members, not corpus positives.
+
+**Gate unchanged:** paper-work now; DB creation + ingest fire only after Matt rules Q24 (housing) + ADR-006 authorization.
+
+**Signed:** gandalf, 2026-07-12 (DELTA v2).
