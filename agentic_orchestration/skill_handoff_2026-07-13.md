@@ -4,6 +4,25 @@ Continuity doc for the next knight-rider session. What shipped, what's queued, w
 
 ---
 
+## ⭐⭐ WAVE-A BUILT + GATE-2 PASSED — awaiting ONLY Matt's push (4 unpushed commits, engine `main`)
+
+KR orchestrated all 4 slices directly via sub-agents (no launch-commands handed to Matt — Matt directive "sub-agent orchestration is your seam"). Serialized on the shared engine working tree; gate lifted LAST.
+
+**The stack (4 commits, tagged, NONE pushed):**
+1. `4a70547` rocket Slice-1 — economy config A1/A2/A4 + C2a dual-address + CoG emission · `rocket/v2.8-wave-a-summon-economy-config-1`
+2. `7aeb2a6` gamora Slice-1 — B1 re-summon loop + GX-19 clock + proxy-AI + C1a/C1b calibration; emitted CALIBRATION-READY; calibrated CoG floor share → gap 0.86 · `gamora/v1.7-wave-a-summon-simulation-1`
+3. `4fdd314` gamora Slice-2 — ranged-proxy nav fix Q26 (a) boss-focus inheritance ONLY (+ load-bearing ranged HOLD-branch heading re-face, Discipline #12 framed); ranged C1b cert D3/D2 PASS; 38.9m park defect gone · `gamora/v1.7-wave-a-summon-simulation-2`
+4. `43fa149` rocket Slice-2 + FINAL — A3 reservation build-true (`regen_cap -= reservation_per_proxy × active_count`) + CoG re-pin 0.86 + `ranged_proxy→ranged_kite` map + **`_DEFERRED_PROXY_BINS = frozenset()` gate LIFT (Wave A ON)** · `rocket/v2.8-wave-a-summon-economy-config-2`
+
+**Gate-2 (jack-ryan DEV-MODE): PASS-with-notes, NO BLOCK, push-ready.** Both gamora-flagged items independently verified at code/grep/smoke: (1) #12 heading re-face confined to ranged hold-branches, melee/turret/emitter byte-identical (8/8 deterministic re-run); (2) E4 spine un-entangled — exactly ONE `_boss_focus_entity` write (setup :1980), nav addition is pure guarded read. Q26 (a)-only (no b/c leak), Q27 A3 build-true (not collapsed into A2), CoG 0.86 traced to gamora's `0.40·0.70+0.25·1.0+0.20·0.9+0.15·1.0=0.86`, gate lift genuinely last + post-cert, round-trip not-applicable-with-reason (C2a contract byte-unchanged; MIGRATION.md Slice-2 entry present). Tags are correct seam-prefix intermediate — no ADR-003 milestone approval triggered.
+
+**→ AWAITING MATT: authorize the Wave-A push** (ADR-006 Matt-owned). Nothing else gates it.
+
+### 🔭 FORWARD-QUEUE ITEM (Gate-2 raised — KR must not lose): A3 sim-reader
+A3 ships as **emittable config but NOT yet sim-enforced** (`proxy_vocabulary_bridge.py:288` `economy="reserved"` not-emittable; no live A3 kit; `simulation/` does not consume `reservation_per_proxy`). Safe TODAY (doubly inert). **Risk:** if an A3 kit is authored AND enters S6 cert BEFORE gamora's fight-loop reader lands, the reservation tax is silently ignored → a kit that should be regen-cap-leashed passes D2-dominance unpenalized (Discipline #40 scaffold-to-production). **Action owed:** dispatch gamora's fight-loop reader (`regen_cap -= reservation_per_proxy × active_count` enforcement) BEFORE any A3 kit is authored. Tracked here as named forward-queue item, not just a MIGRATION.md line.
+
+---
+
 ## ⭐ TOP — Wave-A (summon/proxy) handoff CLOSED: 3 dispatches authored + Gate-1 cleared + 2 Matt escalations filed
 
 gandalf (SPEC-AUTHOR) handed off the Wave-A engine spec to KR for sequencing + dispatch authoring (`gandalf/design-inputs/wave-a-KR-handoff-2026-07-13.md`; full spec `wave-a-engine-spec-2026-07-13.md`; rulings + evidence alongside). Wave A makes the summon/proxy family shippable in the dev-log catalogue (Matt PAUSE-2 / Q25: **ship all 4 economies**; GX-19 ratified as the Wave-A nucleus; DL-03 streams-never-tax-movement adopted as design law). KR ran the brief to close.
