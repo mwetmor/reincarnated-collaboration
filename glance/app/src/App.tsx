@@ -1085,13 +1085,13 @@ function AtlasPlaneView({ ghBase }: { ghBase: string }) {
 // registers (display_name, public_label) but NO x/y. Within a cell the dots are jittered
 // (anonymous), so we anchor hover/tap to the CELL, not to individual pixels.
 //
-// The cell rectangles are recovered EXACTLY from the committed render's own layout — the
-// renderer (render_v1_2_stratified.py) plots a fixed 7-col × 3-row grid at integer axis
-// positions (xlim -0.05..7.05, ylim -1.15..3.85), and the matplotlib SVG places the first
-// cell-row at pixel x-lefts [112.6, 216.3, …] pitch 103.68, rows at y-tops [268.8, 372.5,
-// 476.1]. Solving that affine gives px = A + data·S below. We overlay a transparent
-// SVG (same viewBox as the render) so hotspots scale pixel-perfect with the responsive
-// image. This is NOT invented geometry — it is the render's own grid, read back.
+// The cell rectangles are read DIRECTLY from the committed render's own cell-background
+// paths (the matplotlib SVG draws each of the 21 movement×delivery cells as a rounded rect
+// with fill #0f1218). Col-0 left x = 110.542, row-0 (FREE-MOVE) top y = 169.239, pitch
+// 103.68, box 99.533 — the render's actual pixel corners. We overlay a transparent SVG
+// (same viewBox as the render) so hotspots scale pixel-perfect with the responsive image.
+// This is NOT invented geometry — it is the render's own grid, read back. (Verified via
+// galadriel visual alignment pass 2026-07-13.)
 //
 // Honesty (per data contract 2026-07-13): occupancy counts derived live; roster +
 // movement-unknown kits live in the render's UNMAPPED strip (a text region), surfaced via
@@ -1134,23 +1134,25 @@ const MOVEMENT_WORD: Record<string, string> = {
   'FREE-MOVE': 'free-move', WALK: 'walk-cast', ROOTED: 'rooted',
 };
 
-// Render viewBox + recovered data→pixel affine (see header). px = A + data·S.
+// Render viewBox + cell geometry read DIRECTLY from the committed render's own cell-
+// background paths (fill #0f1218). Col-0 left x = 110.542, row-0 (FREE-MOVE) top y =
+// 169.239, cell pitch 103.68, inner box 99.533. ri 0=FREE-MOVE (top) increases DOWNWARD;
+// ci 0=PROJECTILE (left) increases rightward. These are the render's actual pixel corners,
+// not a reconstructed affine — so the overlay lands exactly on the drawn cells.
 const PLANE_VB = { w: 873.423631, h: 705.037812 };
-const AX_X0 = 108.468163, AX_SX = 103.68; // pixel_x = AX_X0 + dataX*AX_SX
-const AX_Y0 = 575.665012, AX_SY = 103.68; // pixel_y = AX_Y0 - dataY*AX_SY (y-up data → y-down px)
+const CELL_X0 = 110.541763, CELL_Y0 = 169.239412, CELL_PITCH = 103.68, CELL_BOX = 99.5328;
 
-// Cell (ri,ci) occupies data x∈[ci,ci+1], y∈[2-ri, 3-ri]. Return its viewBox px rect.
+// Cell (ri,ci) → its viewBox px rect (the drawn cell box).
 function cellRectPx(ri: number, ci: number) {
-  const x = AX_X0 + ci * AX_SX;
-  const y = AX_Y0 - (3 - ri) * AX_SY;
-  return { x, y, w: AX_SX, h: AX_SY };
+  return { x: CELL_X0 + ci * CELL_PITCH, y: CELL_Y0 + ri * CELL_PITCH, w: CELL_BOX, h: CELL_BOX };
 }
-// The UNMAPPED strip (render strip_y = -0.55): a text band below the grid. One hotspot.
+// The UNMAPPED strip: the text band below the 3-row grid (roster + movement-unknown kits
+// are listed by name there, not plotted in cells). One hotspot covering that region.
 const STRIP_RECT = {
-  x: AX_X0,
-  y: AX_Y0 - 0.0 * AX_SY, // data y=0 top edge (grid bottom)
-  w: 7 * AX_SX,
-  h: (0.0 - -1.15) * AX_SY, // down to ylim bottom -1.15
+  x: CELL_X0,
+  y: CELL_Y0 + 3 * CELL_PITCH + 2, // just below ROOTED's bottom edge
+  w: 7 * CELL_PITCH,
+  h: PLANE_VB.h - (CELL_Y0 + 3 * CELL_PITCH) - 12, // down to near the viewBox bottom
 };
 
 type PlaneSel = { ri: number; ci: number } | 'UNMAPPED' | null;
