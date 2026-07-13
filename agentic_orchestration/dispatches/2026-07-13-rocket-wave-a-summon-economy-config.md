@@ -88,3 +88,34 @@ The proxy-AI behavior-branch map (spec §7) extends `PROXY_TYPE_TARGETING` / `PR
 
 ## Completion record
 _(append: math-note path; A1/A2/A4 config surfaces; CoG function form; C2a emission + S7-sentinel handling; round-trip smoke result; MIGRATION path; tag; the calibration-readiness go-signal you're waiting on from gamora before the §9 lift; notes for jack-ryan Gate-2)_
+
+---
+
+### Completion record — rocket — 2026-07-13 (Slice 1 COMPLETE; gate HELD)
+
+**Math-note (Discipline #1, authored BEFORE code):** `reincarnated-engine/src/reincarnated/generation/notes/wave-a-summon-economy-config-math-2026-07-13.md`.
+
+**A1/A2/A4 config surfaces:** NEW `generation/summon_economy.py` — `build_summon_economy(economy=...)` emits a per-decl `summon_economy` block. A1 cooldown (`cooldown_s`, defaults to decl `spawn_cadence_s` — backward-compat); A2 spend (`summon_cost` + `summon_cost_resource ∈ {mana,focus,rage,stamina,combo}`); A4 harvest (`summon_token_cost`, `token_per_kill`, `starting_tokens`). Trigger predicates code-cited in math-note §1. **A4 reset semantics EXPLICIT: WITHIN-FIGHT — accumulator resets to `starting_tokens` (default 0) each fight, no cross-fight persistence** (math-note §1.3.1; persistence would be a D2-dominance back-door + break S6-single-fight cert validity; the persistence-needed case is a flagged DESIGN escalation, not a silent flip). A3 `reserved` RAISES (Slice 2 held). Wired onto each decl via `proxy_vocabulary_bridge`.
+
+**CoG function form:** `CoG = clamp(W_RAMP·(1−ramp_floor_norm) + W_LEASH·leash_norm + W_ECON·economy_slack + W_COUNT·count_norm, 0, COG_CEILING)` — convex combination (weights 0.40/0.25/0.20/0.15, sum 1.0), monotone in each lever, capped at `COG_CEILING=0.92` (the permanent C1a asymptote gap — never literal 1.0). `economy_slack` is a per-economy switch (A1 cooldown / A2 cost / A4 token / A3-Slice2 reservation). **gamora re-pins `COG_CEILING = 1 − (calibrated C1a floor share)` + the `*_REF` anchors at calibration.** Full form + monotonicity proof + refutation in math-note §2.
+
+**C2a emission + S7-sentinel handling:** `absorption_plane_address = {proxy_cell, player_cell, center_of_gravity, cell_confident, roster_movement_source}` emitted on BOTH `to_dict()` paths (`bc_target_player_class.py` + `season_generation_pipeline.py`), `None` for non-absorption kits (additive-only). Each cell = `{movement, delivery, amp}` per the atlas contract. **Corpus (self_derived) player-cell carried NOW:** `movement=FREE-MOVE`, `cell_confident=True` (an absorption kit's player action resolves instant → free-moving, spec §4). **Roster (s7_pending) player-cell BLOCKED:** `movement=UNMAPPED` sentinel, `cell_confident=False` — NOT fabricated; the proxy_cell half stays derivable; distinguishable from a real address by the enum member + the flag. Render/mouseover Phase-2 gate flagged, NOT resolved (dispatch fence honored).
+
+**Round-trip smoke:** `generation/notes/wave_a_summon_economy_roundtrip_smoke_2026_07_13.py` — **30/30 PASS**, exercised through the **EXPORT boundary** (`to_dict()`-shape → `json.dumps`/`loads` → read = the shape the atlas `/atlas` render + S6 read). Asserts both cells enum-valid, CoG monotone + capped, corpus vs roster distinguishable, non-absorption=None, A3 rejected, targeting preserved. **The export-boundary round-trip is proven HERE** (not deferred). Existing proxy smokes (demo_summoner 53✓, w2_pairing✓) green.
+
+**MIGRATION:** `reincarnated-engine/src/reincarnated/generation/MIGRATION.md` [2026-07-13] entry — new emitted structure + CoG function + S7 sentinel + the `PROXY_TYPE_BEHAVIOR` §12 semantic-shift (widening) contract.
+
+**Tag:** `rocket/v2.8-wave-a-summon-economy-config-1`. Auto-committed in-scope. **NOT pushed** (KR owns Wave-A push after Gate-2).
+
+**Tests:** 240 passed on touched-module scope. 21 pre-existing errors in `test_cycle13_wave5_season_generation.py` (W5R.2 cell-grain fixture-setup violation) PROVEN identical on pristine HEAD via git-stash (pristine = 46 passed, 21 errors); NOT mine. 4 grouping-vocab doc-path collection errors also pre-existing + unrelated.
+
+**§9 lift — HOLDING.** `_DEFERRED_PROXY_BINS` UNTOUCHED (`bc_target_composer.py:97` intact = `frozenset({"proxy-light","proxy-heavy"})`). The lift is the LAST action of the whole wave. **The go-signal I am waiting on: gamora's exact token `CALIBRATION-READY: _DEFERRED_PROXY_BINS lift authorized`, confirmed live through KR.** I will NOT conflate my Slice-1 done, or a partial gamora completion, with the lift authorization. A3 is untouched (Slice 2).
+
+**`PROXY_TYPE_BEHAVIOR` (gamora consumes) — the §7 contract, seam-ownership RESOLVED (no ambiguity for KR):** the DECLARATION surface (the `PROXY_TYPE_BEHAVIOR` dict in `generation/summon_economy.py` + the `preferred_behavior` field on each decl) is gen-side — I built it. The EXECUTION (`spatial_engine._navigate_entity` branch dispatch + the NEW `proximity_trigger` branch for `volatile_emitter`) is gamora's. Discipline #12: targeting-intent semantics PRESERVED (`PROXY_TYPE_TARGETING` unchanged, `targeting_behavior` still emitted), behavior-branch ADDITIVE. Branch tokens ∈ existing `{stationary_caster, melee_aggressive, ranged_kite, cast_at_range, hit_and_run}` + NEW `proximity_trigger`; `ranged_kite` declared but its boss-focus execution is §8-nav-gated (Slice 2). No seam-ownership ambiguity to escalate.
+
+**Notes for jack-ryan Gate-2:**
+- Math-before-code honored (note authored + read BEFORE code; A4 reset semantics + CoG form stated first).
+- Principle-6 round-trip through the EXPORT boundary proven (not deferred) — the atlas HARD consumer is exercised via the `to_dict()`-shape → JSON path.
+- Additive-only invariant proven (non-absorption kit = `None`; decl targeting_behavior preserved; no existing key shape change).
+- Pre-existing failures proven on HEAD via git-stash (water-to-ice precedent).
+- Gate HELD; A3 untouched; §9 lift awaits gamora's literal token.
