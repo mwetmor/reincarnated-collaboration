@@ -944,6 +944,14 @@ function ReferencePage({
         </a>
       </div>
 
+      {/* RULED V1.2 Stratified Plane View (Q19 LOCKED 2026-07-13) — the REALIZED
+          projection, rendered as a DB-derived static asset. Contract v1.10 §7.7 render-
+          adjacent addition (see AtlasPlaneView). ONLY on /atlas (the connective PROJECTION
+          page); the LATTICE + CODEX layers have no realized plane. LEADS the page — the
+          plane is the payload /atlas exists to surface, so it sits above the TRIPLE-LAW
+          nav and STATUS banner (a scroll should not be required to see it). */}
+      {connective && <AtlasPlaneView ghBase={ghBase} />}
+
       {/* 1 — the TRIPLE-LAW cross-link banner (§7.7 rule 4). Links the OTHER TWO layers. */}
       <TripleLawLinks refId={reference.id} />
 
@@ -958,12 +966,6 @@ function ReferencePage({
           <div className="mt-1"><InlineMd src={reference.status_banner.raw.replace(/^>\s*/, '')} /></div>
         </a>
       )}
-
-      {/* RULED V1.2 Stratified Plane View (Q19 LOCKED 2026-07-13) — the REALIZED
-          projection, rendered as a DB-derived static asset. Contract v1.10 §7.7 render-
-          adjacent addition (see AtlasPlaneView). ONLY on /atlas (the connective PROJECTION
-          page); the LATTICE + CODEX layers have no realized plane. */}
-      {connective && <AtlasPlaneView ghBase={ghBase} />}
 
       {/* 2 + 3 — the QUIET-BY-DESIGN FLOW bar + per-stage `## §N` drill strip. */}
       <ReferenceFlowLead reference={reference} ghBase={ghBase} />
