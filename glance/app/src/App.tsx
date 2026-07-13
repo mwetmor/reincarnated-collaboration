@@ -1055,8 +1055,14 @@ function AtlasPlaneView({ ghBase }: { ghBase: string }) {
       </p>
 
       {/* the vector plane — scales to container width; horizontal scroll guard for
-          very narrow phones so nothing clips. Hover/tap surfaces a per-cell popover. */}
-      <AtlasInteractivePlane svgUrl={svgUrl} missing={missing} />
+          very narrow phones so nothing clips. Hover/tap surfaces a per-dot popover.
+          A stratification key sits on the RIGHT on wide screens, wraps below on phones. */}
+      <div className="flex flex-col gap-3 lg:flex-row lg:items-start">
+        <div className="min-w-0 flex-1">
+          <AtlasInteractivePlane svgUrl={svgUrl} missing={missing} />
+        </div>
+        <StratificationLegend />
+      </div>
 
       {/* provenance stamp — the seeing-stone's answer: no true image without provenance. */}
       <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.65rem] text-slate-500">
@@ -1074,6 +1080,67 @@ function AtlasPlaneView({ ghBase }: { ghBase: string }) {
         </span>
       </div>
     </section>
+  );
+}
+
+// StratificationLegend — the amp-tempo key for the projection. Every square in the plane
+// is split top→bottom into three amp-tempo strata (FLAT / SPIKY / VAR); the render tints
+// them very subtly, so this key names the bands and shows their order. Tints, order, and
+// glosses are copied from the render (render_v1_2_stratified.py: cell_bg_flat/spiky/var,
+// AMP_STRATA order, AMP_WORD glosses) so the legend matches the raster exactly.
+const STRATA_BANDS = [
+  { name: 'FLAT', gloss: 'flat tempo', tint: '#1B1F27' },
+  { name: 'SPIKY', gloss: 'spiky tempo', tint: '#20242D' },
+  { name: 'VAR', gloss: 'variable tempo', tint: '#252A34' },
+] as const;
+
+function StratificationLegend() {
+  return (
+    <aside className="shrink-0 rounded-lg border border-slate-800 bg-slate-950/40 p-2.5 lg:w-52">
+      <div className="mb-1 text-[0.65rem] font-semibold uppercase tracking-wide text-teal-300/90">
+        Stratification
+      </div>
+      <p className="mb-2 text-[0.6rem] leading-snug text-slate-500">
+        Each square is split by amp-tempo, top → bottom:
+      </p>
+      <div className="flex gap-2">
+        {/* mini stacked square — mirrors how every cell is banded (FLAT top → VAR bottom) */}
+        <div
+          className="flex w-9 shrink-0 flex-col overflow-hidden rounded border"
+          style={{ borderColor: '#2A3746' }}
+          aria-hidden>
+          {STRATA_BANDS.map((b, i) => (
+            <div
+              key={b.name}
+              className="h-6"
+              style={{
+                background: b.tint,
+                borderTop: i > 0 ? '1px solid #2A3746' : undefined,
+              }}
+            />
+          ))}
+        </div>
+        <ul className="flex-1 space-y-0">
+          {STRATA_BANDS.map((b) => (
+            <li key={b.name} className="flex h-6 items-center gap-1.5">
+              <span
+                className="inline-block h-3 w-3 shrink-0 rounded-sm border"
+                style={{ background: b.tint, borderColor: '#2A3746' }}
+              />
+              <span className="text-[0.72rem] font-semibold text-slate-200">{b.name}</span>
+              <span className="text-[0.58rem] text-slate-500">{b.gloss}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-2 flex items-start gap-1.5 border-t border-slate-800 pt-1.5 text-[0.55rem] leading-snug text-slate-500">
+        <span
+          className="mt-0.5 inline-block h-2.5 w-2.5 shrink-0 rounded-sm border"
+          style={{ background: '#2B1E28', borderColor: '#7A4A6B' }}
+        />
+        <span>A magenta sliver at a square’s very bottom marks amp-unkeyed kits (only when present).</span>
+      </div>
+    </aside>
   );
 }
 
