@@ -119,3 +119,25 @@ _(append: math-note path; A1/A2/A4 config surfaces; CoG function form; C2a emiss
 - Additive-only invariant proven (non-absorption kit = `None`; decl targeting_behavior preserved; no existing key shape change).
 - Pre-existing failures proven on HEAD via git-stash (water-to-ice precedent).
 - Gate HELD; A3 untouched; §9 lift awaits gamora's literal token.
+
+---
+
+### Completion record — rocket — 2026-07-13 (Slice 2 COMPLETE; §9 GATE LIFTED — Wave A ON)
+
+**Executed in dispatch order; the §9 gate lift was the LAST edit. gamora's exact token `CALIBRATION-READY: _DEFERRED_PROXY_BINS lift authorized` confirmed in her completion record (proxy-light + proxy-heavy certified at C1b within D3/D2 rails); HEAD = her `gamora(v1.7)` ranged-nav-fix commit.**
+
+**Math-note (Discipline #1, authored BEFORE code):** `generation/notes/wave-a-slice2-a3-reservation-math-2026-07-13.md` — A3 formula site (`regen_cap -= reservation_per_proxy × active_count`) + bounds + resource-bounds refutation + the abandonment-tax INVERSION identity claim (why build-true, not approximate) + the CoG slack term (slots into the Slice-1 pre-stated form, zero re-derivation).
+
+**1. CoG re-pin:** `COG_CEILING = 0.92 (illustrative) → 0.86` (gamora-calibrated = 1 − measured C1a floor share) in `generation/summon_economy.py`. Inline comment cites it as gamora-calibrated, not illustrative.
+
+**2. `ranged_proxy → ranged_kite`:** added to `PROXY_TYPE_BEHAVIOR` in `generation/summon_economy.py`. gamora's ranged-nav execution live (Q26 (a) boss-focus inheritance); her validator rejected `ranged_proxy` until this map entry existed. Discipline #12 additive widening (targeting-intent preserved — same note as Slice-1). Block header comment updated: `ranged_kite` un-gated (§8 nav defect fixed).
+
+**3. A3 reservation — build-TRUE (Q27):** `economy="reserved"` ACCEPTED (Slice-1 raised). Two new keys `reservation_per_proxy` (float ≥ 0.0) + `reservation_resource` (∈ SPEND_RESOURCES) on the `summon_economy` block. Mechanic = permanent regen-cap tax (army-size wall), NOT a spend — preserves the 4th distinct economy + its abandonment-tax INVERSION (free re-drop, hardest leash). NOT collapsed into A2. economy-gate widened `SLICE1_ECONOMIES → ALL_ECONOMIES`; `_validate_summon_economy` + builder updated; `_economy_slack` gains the A3 branch (`RESERVE_REF = 20.0`). A1/A2/A4 carry inert A3 defaults (additive; byte-unaffected). rocket emits the lever; gamora enforces `regen_cap -= reservation_per_proxy × active_count` + the `max(0,...)` cap floor in the fight-loop (reader-update flagged in MIGRATION).
+
+**4. §9 GATE LIFT (the wave's FINAL action):** `_DEFERRED_PROXY_BINS` in `generation/bc_target_composer.py:97` lifted `frozenset({"proxy-light","proxy-heavy"}) → frozenset()`. **`_DEFERRED_PROXY_BINS` is now EMPTY — Wave A is ON.** Lifted LAST, after 1–3 built + smoke-clean. Reconciled the 4 stale `test_w02_bc_target_composer.py` deferral tests to the lifted state (proxy bins now FEASIBLE; the two DeferredEvaluation-shape tests re-vehicled onto `charge-stack`, a still-deferred econ bin).
+
+**Round-trip disposition:** the C2a `absorption_plane_address` contract is **UNCHANGED from Slice 1** — **not-applicable-with-reason:** no consumed export column changed shape; the atlas-consumed export round-trip was already proven by the Slice-1 smoke. A3 extends the `summon_economy` sub-block only (round-trips through the same `to_dict()`→JSON path; Slice-2 smoke asserts the two new keys serialize + A3 accepted + inversion CoG monotone). MIGRATION.md [2026-07-13] Slice-2 entry written (A3 keys + CoG re-pin + ranged_proxy map + gate lift + the gamora fight-loop reader-update note).
+
+**Smoke/tests:** round-trip smoke `wave_a_summon_economy_roundtrip_smoke_2026_07_13.py` PASS (A3 build-true assertions added). `test_w02_bc_target_composer.py` 45/45. Summon/proxy/economy/absorption/composer/pairing/demo_summoner scope 195 passed, 0 NEW failures vs HEAD. 4 grouping-vocab doc-path collection errors PRE-EXISTING on pristine HEAD (git-stash proven — canonical-path resolution, unrelated to this seam).
+
+**Tag:** `rocket/v2.8-wave-a-summon-economy-config-2`. Auto-committed in-scope. **NOT pushed** (KR owns the Wave-A push after Gate-2).
