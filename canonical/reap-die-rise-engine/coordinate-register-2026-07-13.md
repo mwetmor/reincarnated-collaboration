@@ -33,7 +33,7 @@ Every candidate coordinate belongs to exactly one class. The class decides wheth
 
 ---
 
-## 2 — The mechanical-identity coordinates (Class A) — the eleven
+## 2 — The mechanical-identity coordinates (Class A) — the thirteen
 Counts are combat-kit snapshots (n = 470) as of 2026-07-13.
 
 | # | Coordinate | Source column | Values (cardinality) | Status |
@@ -49,8 +49,10 @@ Counts are combat-kit snapshots (n = 470) as of 2026-07-13.
 | 9 | **Range** | `range_val` | melee · mid · ranged · dual (4) | keyed |
 | 10 | **Tempo** | `tempo_val` | low · med · high (3) | keyed |
 | 11 | **Commit** | `commit_val` | instant · wind-up · channel (3) | keyed |
+| 12 | **Activation model** | `activation_val` *(new)* | active · triggered (2) | **RESOLVED THIS SESSION** (Wave C; intrinsic-trigger only — §3A.1) |
+| 13 | **Dependency structure** | `dependency_val` *(new)* | one-shot · build→spend · apply→detonate (3) | **RESOLVED THIS SESSION** (Wave C) |
 
-**The LOCKED skeleton = coords 1–3** — the Q19 plane, 3 × 7 × 3 = **63 buckets.** This is permanent. Coordinates 4–11 refine *within* each bucket. Attribute is **absent by ruling** (§1, Class C).
+**The LOCKED skeleton = coords 1–3** — the Q19 plane, 3 × 7 × 3 = **63 buckets.** This is permanent. Coordinates 4–13 refine *within* each bucket. Attribute is **absent by ruling** (§1, Class C).
 
 ---
 
@@ -65,7 +67,7 @@ Counts are combat-kit snapshots (n = 470) as of 2026-07-13.
 **Three layers:**
 - **Layer 1 — CONTROL** (Class A key; element-neutral; element-*names*-it). The mechanical function lives here.
 - **Layer 2 — ELEMENTAL AILMENT** (Class B emission; weak, always-on, flavor-tier; supplies element↔ailment continuity). When a same-family Layer-1 control is present, Layer 2 is *absorbed* into the Layer-1 naming rather than double-counted.
-- **Layer 3 — GEAR AMPLIFICATION** (**DEFERRED** to a gear-axis follow-on): soulbound gear amplifies a latent/signature ailment. Amplifier, never creator — build-crafting + loot relevance + the isekai "gear awakens power" beat. Scoped later; noted here so the seam is reserved.
+- **Layer 3 — GEAR AMPLIFICATION** (**DEFERRED** to a gear-axis follow-on): **soul-bound gear** (`agnostic-loot-engine-spec.md`) — kit-agnostic, mechanic-*adjusting* operators, **never** per-kit stat-rolls — amplifies a latent/signature ailment. **Amplifier, never creator.** The kit-agnostic operator model is the only itemization that scales across ~500 kits from ~15 incompatible source games (a universal amplify operator serves all of them; a legacy per-kit roll serves one). Build-crafting + loot relevance + the isekai "gear awakens power" beat. Scoped later; the seam is reserved. (The same law governs coord #12 — see §3A.1.)
 
 ### 3.1 — The element-naming compatibility rule (the "gacha" resolution)
 **The problem is semantic, not lexical.** Element is a Class-B free roll, but some control functions cannot be coherently *named* by every element — "fire hard-stop" fails because fire does not immobilise, and no clever word fixes that. You cannot name your way out of a semantic gap; you must prevent the incoherent pairing at the roll.
@@ -89,6 +91,33 @@ Counts are combat-kit snapshots (n = 470) as of 2026-07-13.
 
 ---
 
+## 3A — Coordinates #12–#13: activation & dependency (Wave-C resolution)
+The placeholder "trigger / mark-consume axis" was **one label smuggling two orthogonal Class-A axes.** Separating them fixes the schema and closes Wave C.
+
+- **#12 — Activation model** `activation_val` ∈ {**active**, **triggered**}. *Who pulls the trigger* — the player each cast (active), or a game-state condition the kit wired up (triggered: on-crit, on-hit, on-a-timer).
+- **#13 — Dependency structure** `dependency_val` ∈ {**one-shot**, **build→spend**, **apply→detonate**}. *How the kit's payload is staged* — fire-and-resolve, accumulate-then-release, or plant-then-pop.
+
+**Orthogonality proof (both axes vary independently — populated pairings):**
+| | one-shot | build→spend | apply→detonate |
+|---|---|---|---|
+| **active** | Fireball | Blade Flurry (charge-stack) | Detonate Dead |
+| **triggered** | CoC Ice Nova | Poet's Pen (spell-on-attack ramp) | Explosive-Trap Falconer |
+
+Four corners populated ⇒ the two axes are genuinely independent, not one axis mislabelled.
+
+**Two things ruled OUT of these axes (not new coordinates):**
+- **Retaliation** (thorns, reflect, block-counter) is a **defense-rider**, not an activation mode — it keys as a flag on **coord #6 (defense)**, because it is *how the kit survives*, not *how it delivers*.
+- **Deployed-pulse** (totems/traps ticking on a timer) is already fully addressed by **delivery = SUMMON/ZONE (#2) × activation = triggered (#12)**; it needs no separate coordinate.
+
+### 3A.1 — The intrinsic-vs-gear discriminator (the soul-bound-gear law)
+`#12 = triggered` enters the key **only when the trigger is the kit's intrinsic core delivery** — Cast-on-Crit builds, Autobomber, Poet's Pen. These *are* trigger-shaped at their mechanical core; strip the trigger and the kit ceases to exist.
+
+**Source builds whose trigger came from a bespoke unique item key as `active`, not `triggered`.** Andariel's-Visage ignite-proc, a helm that *is* the build — that reactivity was granted by a **kit-specific loot artifact we do not reproduce.** Our **soul-bound gear** (`agnostic-loot-engine-spec.md`) grants **no kit-specific mechanics**: it is kit-agnostic, mechanic-*adjusting* operators over universal axes (value / structural / transform) — the only itemization that scales across ~500 kits from ~15 incompatible source games. Soul-bound gear can add reactivity, but **only as a universal structural operator any kit may equip** — a *build choice*, never a cell-identity coordinate.
+
+**This is the same law that governs ailment Layer-3 (§3): amplifier, never creator.** Gear amplifies or adjusts a mechanic the kit already owns; it never mints the kit's identity. So the discriminator is clean: **intrinsic trigger → keys `triggered`; gear-granted reactivity → keys `active`** (the base kit) **+ an equippable operator** (the build layer). The tell for elrond (§8): a `mech_note` reading "Cast-on-Crit **gem**" is intrinsic → `triggered`; "the **helm** IS the build" is gear → `active`.
+
+---
+
 ## 4 — Explicitly EXCLUDED coordinates (and the reason)
 | Coordinate | Class | Reason excluded |
 |---|---|---|
@@ -105,9 +134,9 @@ Counts are combat-kit snapshots (n = 470) as of 2026-07-13.
 | Coord | Gap | Population | S4 wave | State |
 |---|---|---|---|---|
 | #5 control / ailment | function sub-axis + naming | 205/470 (44%) ailment-gap | (this session) | **CLOSED** |
+| #12 activation + #13 dependency | carved from the old "trigger / mark-consume" placeholder into two orthogonal axes (§3A); intrinsic-vs-gear discriminator ruled (§3A.1) | ~60 intrinsic-trigger; ~70 setup-payoff | Wave C | **CLOSED** |
 | #7 economy | reservation / aura / meter | 161 pure-gap (34%); ~200 (43%) not-fully-native | Wave B | **OPEN** |
 | #8 proxy | summon / companion economy | 143 non-solo | Wave A | **OPEN** |
-| — trigger / mark-consume | a **new axis, currently unschema'd** | TBD | Wave C | **OPEN** |
 
 **Gate rule:** do not force fine granularity or dedup while any OPEN item stands. Merging on an incomplete key forces a re-key later; splitting a cell as the key sharpens is cheap (§6). Split-late beats merge-wrong.
 
@@ -132,7 +161,7 @@ Dedup has two independent parts, and the hard dependency is on **key-completenes
 
 ## 8 — Sequencing hooks
 - **rocket** — implement §3.1: after the Class-A control function is fixed, roll the primary element from `eligibility ∩ function-allow-list`; universal functions roll free; emit the intersection-empty flag.
-- **elrond** — promote the control-function sub-axis (§3) to a keyed column; author the economy (#7) and summon-economy (#8) gap-fill columns as their S4 waves land.
+- **elrond** — promote the control-function sub-axis (§3) to a keyed column; add the `activation_val` (#12) + `dependency_val` (#13) columns and key them per §3A, applying the §3A.1 discriminator (the tell: `mech_note` "Cast-on-Crit **gem**" = intrinsic → `triggered`; "the **helm** IS the build" = gear → `active`); author the economy (#7) and summon-economy (#8) gap-fill columns as their S4 waves land.
 - **gamora** — dedup + matchup consume the key **only after** §5 closes.
 - **S3 harness** — renders the current key now; **S5** migration turns cell addresses into kit identity and fires dedup (§6); **S8** selects demo kits from representatives.
 
