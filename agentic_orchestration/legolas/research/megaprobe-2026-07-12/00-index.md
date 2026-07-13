@@ -67,7 +67,7 @@ mechanics_notes · era_confirmed · post_cutoff · rank1_upgrade · sources_used
 | 12 | undecember | `undecember-facts.jsonl` | 17 (17 pos / 0 neg / 4 post-cutoff ud-s7-2025) | **DONE (full schema)** | — |
 | 13 | hades1 + hades2 | `hades-facts.jsonl` | 13 (13 pos / 0 neg / 4 post-cutoff hades2-1.0+) | **DONE (full schema)** | — |
 | 14 | vs | `vs-facts.jsonl` | 24 (22 pos / 2 neg / 1 post-cutoff vs-1.13-2025+) | **DONE (full schema)** | — |
-| 15 | hot | `hot-facts.jsonl` | 19 | PENDING | — |
+| 15 | hot | `hot-facts.jsonl` | 19 (18 pos / 1 neg / 2 post-cutoff hot-1.1-2026) | **DONE (full schema)** | — |
 
 **Unit B** (founding-roster lineage enrichment, 45 rows): PENDING — `roster-lineage-enrichment.jsonl`
 
