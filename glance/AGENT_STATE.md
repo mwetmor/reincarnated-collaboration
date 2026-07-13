@@ -232,10 +232,12 @@ Three pages added (`/coordinates` + `/atlas` + `/mechanics`), render-only, ZERO 
   routes + `state.json` (all three references present). CI report-mode parse exit 0, MALFORMED 0.
 - 12 dangling gates-on = pre-existing visible debt (proxy-P0/P1/P2, launch-scope-planning, etc.),
   NOT from the trio. 0 dangling flow-refs.
-- **NOT deployed this session** — production Vercel deploy is Matt-gated (ADR-006). Deploy from
-  meta-repo ROOT (`npx vercel deploy --prod --yes`); Root Directory = `glance/app`; SPA rewrite in
-  `vercel.json` (unchanged — no routing config touched, so no re-smoke required beyond the local
-  preview above).
+- **DEPLOYED TO PRODUCTION 2026-07-13** (PHASE 2 v4 — Matt authorized "move to PRD and then push").
+  Deploy `dpl_E9y5gvGqskfnS5JhYF6n7DY5tmpt` (`reincarnated-glance-ib18uqx4j…`), READY, aliased to
+  canonical `https://reincarnated-glance.vercel.app`. Post-deploy smoke: root + positions + svg all
+  200; `plane-provenance.json` source_commit `39c1c988` (== the shipped commit). No routing/
+  `vercel.json` change → no re-smoke beyond preview. Deploy from meta-repo ROOT
+  (`npx vercel deploy --prod --yes`); Root Directory = `glance/app`.
 
 ## Files (this session)
 
