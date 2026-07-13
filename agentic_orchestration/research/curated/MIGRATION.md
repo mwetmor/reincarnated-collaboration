@@ -7,6 +7,66 @@
 
 ---
 
+## v2.2 — corpus.db MINT-DOSSIER FOLD 1+2 (corrections + plane-keying) — 2026-07-13 — **LANDED**
+
+### What changed (one line)
+Two folds from gandalf's returns-adjudication of the S1 pass: **FOLD 1** data corrections (ring-of-shields game-attribution fix, d2-sacrifice negative-canon, 9-dossier era/patch/URL ingest) + **FOLD 2** keys the 9 mint kits into `canon_engine_key` so they PLOT on the atlas plane. Added 2 nullable columns to `canon_corpus`; inserted 9 `canon_engine_key` rows (7 combat-kit + 2 system-record). Corpus row-count UNCHANGED (524); `corpus_schema_meta` bumped `2.1 → 2.2`.
+
+### D6 rebuild sequence (now THREE committed scripts)
+```
+python3 agentic_orchestration/research/scripts/corpus_ingest_2026_07_12.py        # base three-layer ingest
+python3 agentic_orchestration/research/scripts/corpus_completion_s1_2026_07_13.py  # S1 completion (idempotent)
+python3 agentic_orchestration/research/scripts/corpus_fold12_2026_07_13.py         # this fold (idempotent)
+```
+All deterministic. Clean rebuild from scratch verified byte-reproducible (all 12 gates pass). corpus.db stays gitignored; scripts + this entry are the committed truth.
+
+### FOLD 1 — data corrections
+- **1a — `poe1-ring-of-shields` → `le-ring-of-shields`** (kit_id + `game` poe1→le). 2-source-confirmed game-attribution error (Last Epoch Forge Guard summon skill, NOT poe1). Cascaded across canon_corpus / canon_probe_facts / canon_engine_key. **era_year corrected 2013 (stale poe1 game-level) → 2024 (le game-level; also matches dossier).**
+- **1b — `d3-call-of-the-ancients` vs `d3-ik-hota`: RULED DISTINCT — NO dedup.** Both stand (verified present). CotA = summon-3-ancients (proxy economy); IK-HotA = melee slam. Shared Immortal King set is not a dedup trigger.
+- **1c — `d2-sacrifice` `negative=1`** (KEEP). Joins the negative-canon family (now 38); excluded from S6 certification population, NOT deleted. Founding self-cost melee archetype; GX-06 evidential value.
+- **1d — 9-dossier ingest.** Added `canon_corpus.skill_debut_year` + `source_urls` (JSON array). Backfilled: `stabilization_patch` **7/9** (2 honest-NULL: VBV + Sacrifice — patch unconfirmed at source); `skill_debut_year` 9/9; `source_urls` 9/9 (URL-backfill manifest); `dossier_owed` cleared 9/9.
+
+### FOLD 2 — plane-keying (9 canon_engine_key rows; geometry traced to dossier text)
+| kit_id | row_class | geometry_value | mob_policy | plane cell |
+|---|---|---|---|---|
+| poe1-totem-hierophant | combat-kit | `totem` | full-move | FREE-MOVE×SUMMON |
+| d3-call-of-the-ancients | combat-kit | `totem` | full-move | FREE-MOVE×SUMMON |
+| le-ring-of-shields | combat-kit | NULL + `gx-candidate:orbit` | full-move | ORBITAL\* |
+| d3-dashing-strike-monk | combat-kit | `dash_attack` | full-move | FREE-MOVE×MELEE |
+| le-shift-bladedancer | combat-kit | `dash_attack` | full-move | FREE-MOVE×MELEE |
+| poe1-vaal-blade-vortex | combat-kit | NULL + `gx-candidate:orbit` | full-move | ORBITAL\* |
+| d2-sacrifice | combat-kit | `melee_strike` | walk | WALK×MELEE (neg=1) |
+| poe1-blood-magic-kit | system-record | NULL (route=`resource-economy`) | full-move | off-plane (not a delivery skill) |
+| d2-teleport-sorc | system-record | NULL (route=`mobility-grammar`) | full-move | off-plane (movement identity) |
+
+**7 keyed cleanly; 2 off-plane by design.** The 2 system-records are NOT delivery skills (keystone economy / pure-mobility identity) — honest non-combat classification, not a hole. \* The 2 orbit kits key legally (DDL: geometry-NULL legal with `gx-candidate:orbit`) but render **UNMAPPED** until gandalf adds them to the renderer's `UNMAPPED_COL` hardcode (render-spec FLAG below).
+
+### Verification (all 12 gates passed; clean-rebuild-from-scratch confirmed)
+- corpus 524 (unchanged) · engine_key 478→**487** · combat-kit 463→**470** · system-record 15→**17** · negative 37→**38**.
+- **CANON combat denominator preserved: `combat-kit AND mint=0` still = 463.** The 7 new combat rows are `mint=1`/`source='mint'` → board consumers filtering canon get the untouched 463; the renderer plots them as ★ mint dots.
+- **cone Path-2 split UNTOUCHED (5 BEAM / 6 PROJECTILE)** — no new row is a cone.
+- **V1.2 render reproduces from rebuilt DB** (470 combat / 38 negative / 45 roster; 515 dots). The 5 non-orbit combat mint kits place on-plane; 2 orbit UNMAPPED (expected); 2 system-records correctly absent (renderer filters `row_class='combat-kit'`).
+
+### Steward decisions surfaced (flagged to gandalf for ratification)
+1. **era_year semantics — NOT overridden with dossier skill-debut years.** FOLD 1d names "era_year", but P5 already filled it corpus-wide as per-GAME release year. Dossiers carry a per-SKILL debut year (e.g. CotA 2017 vs d3-2012; Sacrifice 2001 vs d2-2000). Mixing both semantics in one column would corrupt it, so the dossier signal is captured in the NEW `skill_debut_year` column and `era_year` stays game-level (consistent). The one exception is a correction, not a semantic shift: le-ring-of-shields era_year moved 2013→2024 to track its post-rename `game=le` level. **Steward call; reversible; flagged.**
+2. **patch tokens stored BARE** (`2.6.1`, not `v2.6.1`) — the renderer's `build_public_label()` prepends `v`; a stored `v` double-renders (`vv2.6.1`). Bare storage matches the render convention.
+
+### Render-spec FLAGS to gandalf (follow-ups; NOT elrond's to change)
+- **Orbital mint kits need `UNMAPPED_COL` entries.** `le-ring-of-shields` + `poe1-vaal-blade-vortex` key legally as `gx-candidate:orbit` but render UNMAPPED until added to the renderer's `UNMAPPED_COL` hardcode (→ `"ORBITAL"`), mirroring `poe1-poison-bv`. Data is correct; the render override is gandalf's.
+- **d2-sacrifice is the first kit that is BOTH `negative=1` AND combat-keyed.** It plots as an on-plane mint ★ dot (WALK×MELEE) AND appears in the negative-overlay annotation. The data is correct (its melee delivery IS determinable AND it is negative-canon); **render precedence** (exclude negatives from the combat JOIN, or accept dual representation) is gandalf's call.
+
+### ADR compliance
+- **ADR-004:** this entry. Additive columns + rows on elrond-owned corpus.db; **no engine-telemetry change** → star-lord-side MIGRATION.md unaffected.
+- **Reversibility:** all changes re-derived from committed inputs (v3 CSV + engine-key/probe/roster/lineage JSONL + per-game-meta + the 9 dossiers + URL manifest, all committed) at fold time; raw columns untouched; re-runnable to byte-identical state.
+- **ADR-006:** auto-commit (in-scope cycle work-product); push deferred to Matt/KR authorization.
+
+### Artifacts
+- `scripts/corpus_fold12_2026_07_13.py` — idempotent FOLD 1+2 pass (the new committed source).
+- `curated/corpus-fold12-log-2026-07-13.md` — full fold log (per-kit trace + render verification + flags).
+- `curated/corpus.db` — rebuilt (gitignored; schema_meta 2.2).
+
+---
+
 ## v2.1 — corpus.db S1 DATA-COMPLETION (five payloads) — 2026-07-13 — **LANDED**
 
 ### What changed (one line)
