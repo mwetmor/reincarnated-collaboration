@@ -54,10 +54,13 @@ The probe **vindicates exact-by-default for the Atlas body** — editorial norm 
 - **`public_display_name`** (per-token transposed, Matt's "Totem Witch not Witch Doctor") — **SURGICAL, not the default.** Applied ONLY to the highest-distinctiveness / most-aggressive-holder tokens (Blizzard-held distinctive class marks first), keeping every generic/mechanical token exact. This is a targeted hedge, not a 215-name wholesale pass.
 - **`public_label`** (fully mechanical) — the max-safety fallback lever, held in reserve.
 
-## What Matt owes (sharpened)
-1. **Ruling on the residual:** (a) risk-accept the prong-3 commercial-adjacent residual for the Atlas body as a documented conscious call, OR (b) commission the narrowly-scoped counsel review above. Player-facing publish HOLDS until one of these.
-2. **Ratify the two mandatory conditions** as standing design constraints (disclaimer + inline-not-headline).
-3. **Ratify the surgical-transposition scope** (transpose only the flagged high-risk tokens; keep the rest exact) — vs the alternatives (all-exact / all-mechanical).
+## What Matt owes (sharpened) — RULINGS 2026-07-13
+1. **Ruling on the residual:** **PARKED (Matt 2026-07-13).** Blocks ONLY the Steam dev-log publish. Matt will rule (risk-accept vs narrow counsel) before that surface ships; no other work waits on it.
+2. **Two mandatory conditions** (disclaimer + inline-not-headline) — **RATIFIED (Matt 2026-07-13)** as standing design constraints on any player-facing Atlas publish.
+3. **Surgical-transposition scope** (transpose only flagged high-risk Blizzard-class tokens; keep the rest exact) — **RATIFIED (Matt 2026-07-13).** gandalf to draft the adjudication (candidate tokens + keep/transpose call each) for Matt ratification.
 4. Hook: no action — confirmed safe, keep.
+
+## Scope boundary (Matt 2026-07-13) — IP surface is Steam-devlog-ONLY
+**In-game kits are named by pipeline emission (element / hybridity / period / culture / race / faction / flavor), NOT by the corpus `folk_name` / real build names.** The naming law §7.1 + this entire gate govern the **public dev-log / Atlas surface only** — the playable product carries no retained trademark names, so it has zero exposure regardless of the residual ruling. Q28 blast radius = one publishable artifact (the Steam dev-log Atlas), not the game.
 
 *(A research probe informs; it is not a substitute for counsel. Items 1(b), jurisdiction, Steamworks store-page policy, and disclaimer wording remain counsel's domain per the dossier's "What still needs a lawyer" list.)*
