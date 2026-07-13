@@ -1174,6 +1174,7 @@ function AtlasInteractivePlane({ svgUrl, missing }: { svgUrl: string; missing: b
   const [dotsDoc, setDotsDoc] = useState<PlaneDotsDoc | null>(null);
   const [posMissing, setPosMissing] = useState(false);
   const [hover, setHover] = useState<PlaneHover>(null);
+  const [planeW, setPlaneW] = useState(0); // rendered plane px width — for popover clamp
   const svgRef = useRef<SVGSVGElement>(null);
   const base = import.meta.env.BASE_URL;
 
@@ -1233,6 +1234,7 @@ function AtlasInteractivePlane({ svgUrl, missing }: { svgUrl: string; missing: b
     if (!svg || !points.length) return;
     const rect = svg.getBoundingClientRect();
     if (!rect.width || !rect.height) return;
+    if (rect.width !== planeW) setPlaneW(rect.width); // no-op re-render if unchanged
     const vbX = ((clientX - rect.left) / rect.width) * PLANE_VB.w;
     const vbY = ((clientY - rect.top) / rect.height) * PLANE_VB.h;
     // Below the grid → the strip owns it (kept as a list; not plotted per-dot).
@@ -1330,6 +1332,7 @@ function AtlasInteractivePlane({ svgUrl, missing }: { svgUrl: string; missing: b
             dots={popDots}
             isStrip={isStrip}
             anchor={anchor}
+            planeW={planeW}
             onClose={() => setHover(null)}
           />
         )}
@@ -1349,12 +1352,18 @@ function AtlasInteractivePlane({ svgUrl, missing }: { svgUrl: string; missing: b
 // detail = public_label + cell tags. Shared marker (amp-null diamond) or the UNMAPPED
 // strip → title = cell address, list the kits.
 // negative_canon → muted "historical exhibit"; cell_confident:false → "position provisional".
+// Card is up to CARD_W_PX wide (17rem cap) and translated -50% about its anchor, so its
+// center must stay ≥ half-width from each edge or it clips. We clamp in the plane's OWN
+// pixel space (planeW measured live) rather than a fixed % — a fixed % can't know the
+// container width, which is the bug that clipped the left edge on 375px mobile.
+const CARD_W_PX = 272; // min(17rem, 80vw) upper bound
 function PlanePopover({
-  dots, isStrip, anchor, onClose,
+  dots, isStrip, anchor, planeW, onClose,
 }: {
   dots: PlaneDot[];
   isStrip: boolean;
   anchor: { leftPct: number; topPct: number };
+  planeW: number;
   onClose: () => void;
 }) {
   const single = dots.length === 1 && !isStrip ? dots[0] : null;
@@ -1366,8 +1375,11 @@ function PlanePopover({
       : [mv, dl].filter(Boolean).join(' · ') || 'shared marker';
   };
   const cellAddr = isStrip ? 'unmapped — movement pending S7' : (dots[0] ? addr(dots[0]) : '');
-  // clamp horizontal anchor so the card doesn't run off narrow screens
-  const leftPct = Math.min(88, Math.max(12, anchor.leftPct));
+  // Clamp the card center so half its width stays inside the plane. On tiny planes where
+  // the card is wider than the plane itself, fall back to centered (50%). Measured in
+  // plane px (planeW), converted to %, so it holds at any container width.
+  const halfPct = planeW > CARD_W_PX ? ((CARD_W_PX / 2 + 6) / planeW) * 100 : 50;
+  const leftPct = Math.min(100 - halfPct, Math.max(halfPct, anchor.leftPct));
 
   const cellTags = (d: PlaneDot) =>
     [d.cell.movement, d.cell.delivery, d.cell.amp].filter(Boolean) as string[];
