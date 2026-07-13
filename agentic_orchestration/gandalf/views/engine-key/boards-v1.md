@@ -116,3 +116,15 @@
 | percent-reduce | 1 | d2-smiter |
 | unresolved | 0 |  |
 
+
+---
+
+## ERRATA (gandalf verification pass, 2026-07-12 — post-ingest; DB governs per D6)
+
+The corpus-DB acceptance harness (`research/scripts/corpus_ingest_2026_07_12.py`) reproduced **30/30 board counts** after the following three corrections. Cause for the first two: the board generator ran BEFORE the J-GEO reclass application stripped system-record rows (incl. `hades1-privileged-status`, the multi-ailment amp record itself) out of the gap censuses; the delivered `corpus-engine-key-v1.jsonl` is post-application truth.
+
+1. **Board 3 damage-amp: 100 → 97** distinct combat kits (~21% of 463 — headline unchanged).
+2. **Board 3 freeze: 43 → 42** distinct combat kits.
+3. **Board 2 walls = 3 encoding:** `le-frost-wall-rm` keeps `geometry=totem` per `judgment-resolutions-v1.md` §5 but was never machine-flagged as walls-demand; the ruling is now encoded (`flags=['resolved:walls-demand']`) so the count reproduces by SQL: `placed-lane` (2) + `walls-demand` (1) = 3.
+
+Boards are DERIVED VIEWS from here forward — the DB regenerates them; these three numbers govern. Also resolved at verification: `vs-golden-egg-scaling` absent from the engine-key is BY LAW (`negative=1` — probe skips negatives), not an anomaly.

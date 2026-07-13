@@ -684,24 +684,21 @@ def main():
           8)
 
     # Board 2: Walls=3 (Q15 workstream), Orbit=4 (gx-candidate:orbit)
-    # NOTE: le-frost-wall-rm is listed in board1 walls row (3 kits) but has flags=[] in engine-key
-    # (geometry=totem, not placed-lane). Only d2-firewall-sorc + di-bone-wall-necro-pvp carry J-GEO:placed-lane.
-    # This is a DATA FINDING: le-frost-wall-rm missing J-GEO:placed-lane flag — walls count = 2 from flags.
+    # Walls demand set = 2 placed-lane re-keys (d2-firewall-sorc, di-bone-wall-necro-pvp) + 1 demand-set
+    # member that KEEPS geometry=totem per judgment-resolutions-v1.md §5 (le-frost-wall-rm).
+    # The §5 ruling was encoded into the JSONL 2026-07-12 (gandalf verification pass) as
+    # flags=['resolved:walls-demand'] — the demand count is now fully machine-reproducible.
     walls_val = conn.execute(
-        "SELECT COUNT(*) FROM canon_engine_key WHERE row_class='combat-kit' AND flags LIKE '%placed-lane%'"
+        "SELECT COUNT(*) FROM canon_engine_key WHERE row_class='combat-kit' "
+        "AND (flags LIKE '%placed-lane%' OR flags LIKE '%walls-demand%')"
     ).fetchone()[0]
     orbit_val = conn.execute(
         "SELECT COUNT(*) FROM canon_engine_key WHERE row_class='combat-kit' AND flags LIKE '%gx-candidate:orbit%'"
     ).fetchone()[0]
-    print(f"  Board2: walls (J-GEO:placed-lane flag): {walls_val} (board says 3 — FINDING: le-frost-wall-rm missing flag)")
+    print(f"  Board2: walls (placed-lane + walls-demand flags): {walls_val} (expected 3)")
     print(f"  Board2: orbit (gx-candidate:orbit flags): {orbit_val} (expected 4)")
     if walls_val != 3:
-        findings.append(
-            f"HARNESS FINDING Board2-walls: engine-key has {walls_val} kits with J-GEO:placed-lane flag (d2-firewall-sorc, di-bone-wall-necro-pvp), "
-            f"but boards-v1.md lists 3 (also le-frost-wall-rm). le-frost-wall-rm has flags=[] and geometry=totem in engine-key. "
-            f"DB faithfully stores what engine-key provides. Board count 3 vs engine-key count 2."
-        )
-        harness_mismatches.append(f"Board2: walls (placed-lane flag): got {walls_val}, board says 3 — le-frost-wall-rm missing J-GEO:placed-lane flag in engine-key")
+        harness_mismatches.append(f"Board2: walls (placed-lane + walls-demand flags): got {walls_val}, expected 3")
     if orbit_val != 4:
         harness_mismatches.append(f"Board2: orbit gx-candidate: got {orbit_val}, expected 4")
 
@@ -722,16 +719,10 @@ def main():
         return val
 
     count_ailment_gap("GAP-AILMENT:damage-amp", 97)
-    # freeze=43 is the board target. Engine-key has 42 distinct kits with GAP-AILMENT:freeze.
-    # The 1-kit discrepancy: board was generated from apply-resolutions-v1.py output;
-    # the engine-key as-delivered to elrond has 42. DB stores faithfully.
+    # freeze=42 per boards-v1.md ERRATA 2026-07-12 (gandalf verification pass): the board's
+    # generation-time 43 (and damage-amp 100) pre-dated the J-GEO reclass stripping system-record
+    # rows (incl. hades1-privileged-status) out of the gap censuses. Delivered JSONL = truth; DB governs.
     count_ailment_gap("GAP-AILMENT:freeze", 42)
-    # Report the board vs data discrepancy
-    freeze_actual = conn.execute(
-        "SELECT COUNT(DISTINCT kit_id) FROM canon_engine_key WHERE row_class='combat-kit' AND ctrl_ailment_gaps LIKE '%GAP-AILMENT:freeze%'"
-    ).fetchone()[0]
-    print(f"  Board3: freeze NOTE — board says 43, engine-key has {freeze_actual} distinct kits. Reporting 1-kit discrepancy as harness finding.")
-    harness_mismatches.append(f"Board3: GAP-AILMENT:freeze: engine-key has {freeze_actual} distinct kits, boards-v1.md says 43. 1-kit discrepancy in source data — faithfully ingested, not adjusted.")
     count_ailment_gap("GAP-AILMENT:stun", 36)
     count_ailment_gap("GAP-AILMENT:poison-dot", 36)
 

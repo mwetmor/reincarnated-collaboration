@@ -33,8 +33,8 @@ Board 3 makes the ailment backlog empirical. This is a **design-session track th
 
 | Ailment class | Corpus demand | Note |
 |---|---|---|
-| **damage-amp** | **100 kits (~21% of corpus)** | The genre's single most-used missing mechanic (PoE shock, D4 vulnerable, curses). GX-15 multi-element cap collisions (18 games — widest precedent of ANY unoccupied mechanic) lands here too |
-| freeze | 43 | escalation design already queued at ailment layer |
+| **damage-amp** | **97 kits (~21% of corpus)** *(errata: was 100 — see boards-v1.md ERRATA)* | The genre's single most-used missing mechanic (PoE shock, D4 vulnerable, curses). GX-15 multi-element cap collisions (18 games — widest precedent of ANY unoccupied mechanic) lands here too |
+| freeze | 42 *(errata: was 43)* | escalation design already queued at ailment layer |
 | stun | 36 | distinct from freeze (hit-reaction vs state-lock) |
 | poison-dot | 36 | vs existing burn/bleed/drain — stacking identity needed |
 | taunt | 11 | proxy-adjacent (pairs with wave #1 — pets taunt) |
@@ -67,3 +67,25 @@ Per-kit cell-duplication tiebreaks (§F.5(3), later, finest-resolution law) · d
 ---
 
 **Signed:** gandalf 2026-07-12. The board describes; Matt selects. Every row traces to certified counts — no leverage claim here floats free of the mapping pass.
+
+---
+
+## PAUSE-2 RULINGS LANDED (Matt, convening 2026-07-12) — THE BOARD IS RULED
+
+1. **Add-list: ALL-IN as stated** — §1 rows 1–11 ratified into the engine buildout; #12 draft/pool-steering OUT as mechanics-add (loot half rides agnostic-loot spec).
+2. **Wave order RULED = §3 lean verbatim:** Wave A summoner/proxy → Wave B reservation/aura → Wave C trigger+mark-consume; small adds ride open seams; ailments parallel.
+3. **Growth-direction: tilt ACCEPTED** — expansion follows the genre's caster/summoner/aura demand; roster holds the martial texture.
+4. **Ailment-layer design session: COMMISSIONED, fires in parallel** — first tranche damage-amp + freeze + stun + poison-dot (gandalf lean adopted); taunt rides Wave A; GX-15 folds in (see 5).
+5. **GX hearings batch:**
+   - **GX-02 form-shift: RATIFIED** — routes to the keystone (reap/possession) workstream, not an expansion wave.
+   - **GX-12 stochastic element: PARKED + hypothesis registered as descriptor** — Matt verbatim: *"could this be produced naturally via element pipeline?"* Test when element-layer design next opens: stochastic assignment may fall out of cast-time element selection rather than needing schema surgery.
+   - **GX-15 multi-element cap collisions: FOLDED into the ailment-layer damage-amp design** (item 4) — ailment-synergy question, not a standalone mechanic.
+   - **GX-18 barrier-terrain: RATIFIED** (3-kit walls demand; Q15 workstream).
+   - **GX-19 proxy cost-transfer: RATIFIED** — Wave A's spec nucleus; proxies that ABSORB commitment/cost specced distinctly from proxies that deliver damage.
+   - **GX-20 default-attack-as-build: RATIFIED, routed to econ/commitment design** (not a wave).
+   - **GX-21 sustained-stream-channel: RATIFIED + DL-03's lesson ADOPTED AS DESIGN LAW** — streams must not tax movement; the rooted-channel stillness killed the genre's stream archetype, never the stream itself (HoT = the controlled experiment). Binds all stream/beam kit authoring; lands in the commitment-grammar design surface.
+6. **Emission-gate law restated, no decision:** pause-2 lifting authorizes MECHANICS BUILDOUT only; emission stays Matt-judged genre-canon coverage per §F.4.
+
+**Execution fan-out from these rulings:** Wave-A summoner/proxy engine spec (gandalf SPEC-AUTHOR → KR sequences gamora/rocket dispatches) · ailment-layer design session (parallel, GX-15 folded) · GX-12 hypothesis note → element-layer design queue · DL-03 law → commitment-grammar surface · V1 plane view render on the verified corpus DB → Q19 plane-lock (the next pause).
+
+**Signed:** gandalf, 2026-07-12 (rulings recorded verbatim-anchored; veto open on the record itself).
