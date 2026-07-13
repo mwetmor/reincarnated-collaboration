@@ -64,7 +64,7 @@ mechanics_notes · era_confirmed · post_cutoff · rank1_upgrade · sources_used
 | 9 | tq + tq2 | `tq-facts.jsonl` | 26 (19 pos / 2 neg / 5 post-cutoff TQ2-EA) | **DONE (full schema)** | — |
 | 10 | tl1 + tl2 + tli | `tl-facts.jsonl` | 22 (16 pos / 1 neg / 5 post-cutoff TLI-2026) | **DONE (full schema)** | — |
 | 11 | chronicon | `chronicon-facts.jsonl` | 17 (17 pos / 0 neg / 0 post-cutoff) | **DONE (full schema)** | — |
-| 12 | undecember | `undecember-facts.jsonl` | 17 | PENDING | — |
+| 12 | undecember | `undecember-facts.jsonl` | 17 (17 pos / 0 neg / 4 post-cutoff ud-s7-2025) | **DONE (full schema)** | — |
 | 13 | hades1 + hades2 | `hades-facts.jsonl` | 13 | PENDING | — |
 | 14 | vs | `vs-facts.jsonl` | 24 | PENDING | — |
 | 15 | hot | `hot-facts.jsonl` | 19 | PENDING | — |
