@@ -1051,25 +1051,12 @@ function AtlasPlaneView({ ghBase }: { ghBase: string }) {
           DB-derived occupancy (<span className="font-mono">{m.derivation}</span>), not
           hand-drawn — honors the provenance law (§7.7 r7 forbids only hand-derived counts).
         </span>
+        <span className="ml-1 text-slate-500">Hover or tap a cell for its kits.</span>
       </p>
 
       {/* the vector plane — scales to container width; horizontal scroll guard for
-          very narrow phones so nothing clips. */}
-      <div className="overflow-x-auto rounded border border-slate-800 bg-slate-950/40">
-        {missing ? (
-          <div className="p-6 text-center text-xs text-slate-500">
-            Plane asset not staged. Run <span className="font-mono">npm run stage-assets</span>{' '}
-            (fires automatically in <span className="font-mono">npm run build</span>).
-          </div>
-        ) : (
-          <img
-            src={svgUrl}
-            alt="RULED V1.2 Stratified Plane View — DB-derived occupancy atlas"
-            className="mx-auto block h-auto w-full min-w-[640px] max-w-full"
-            loading="lazy"
-          />
-        )}
-      </div>
+          very narrow phones so nothing clips. Hover/tap surfaces a per-cell popover. */}
+      <AtlasInteractivePlane svgUrl={svgUrl} missing={missing} />
 
       {/* provenance stamp — the seeing-stone's answer: no true image without provenance. */}
       <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.65rem] text-slate-500">
@@ -1086,41 +1073,40 @@ function AtlasPlaneView({ ghBase }: { ghBase: string }) {
           </a>
         </span>
       </div>
-
-      {/* Phase-2 — the interactive cell explorer. Static raster can't hover per-dot and
-          the per-dot JSON is CELL-addressed (no pixel coords), so we do NOT fake hotspots
-          on the SVG. Instead we render an honest data-driven cell grid from the same
-          DB-derived JSON: tap/hover a cell → the kits in it, each by its PUBLIC label. */}
-      <AtlasCellExplorer />
     </section>
   );
 }
 
 // ---------------------------------------------------------------------------
-// AtlasCellExplorer — the Phase-2 mouseover, done honestly.
+// AtlasInteractivePlane — the Phase-2 mouseover, done honestly.
 //
 // The per-dot JSON (plane_dots_v1_2.json, schema atlas-plane-dots/v1.2) is CELL-addressed,
-// not pixel-addressed: each record carries cell {movement, delivery, amp} but NO x/y. So
-// rather than fabricate hover hotspots over the static raster (which would be inventing
-// coordinates the truth model does not contain), we render a faithful cell grid — rows =
-// movement, columns = delivery — straight from the JSON. Selecting a cell surfaces the
-// kits it contains, each by its PUBLIC naming-law label (never the internal dot_id).
+// not pixel-addressed: each record carries cell {movement, delivery, amp} + both naming
+// registers (display_name, public_label) but NO x/y. Within a cell the dots are jittered
+// (anonymous), so we anchor hover/tap to the CELL, not to individual pixels.
 //
-// Honesty affordances baked in (per the data contract, 2026-07-13):
-//   - counts are DERIVED live from the JSON — nothing hardcoded.
-//   - roster overlay dots are movement:UNMAPPED (S7-pending) → their own band, labelled
-//     as pending, cell_confident:false marked. Their NAMES work now; only their movement
-//     POSITION follows S7.
-//   - negative_canon:true → muted "historical exhibit" treatment (none in corpus yet, but
-//     the styling is wired so it lights up the moment the negative catalogue lands).
+// The cell rectangles are recovered EXACTLY from the committed render's own layout — the
+// renderer (render_v1_2_stratified.py) plots a fixed 7-col × 3-row grid at integer axis
+// positions (xlim -0.05..7.05, ylim -1.15..3.85), and the matplotlib SVG places the first
+// cell-row at pixel x-lefts [112.6, 216.3, …] pitch 103.68, rows at y-tops [268.8, 372.5,
+// 476.1]. Solving that affine gives px = A + data·S below. We overlay a transparent
+// SVG (same viewBox as the render) so hotspots scale pixel-perfect with the responsive
+// image. This is NOT invented geometry — it is the render's own grid, read back.
+//
+// Honesty (per data contract 2026-07-13): occupancy counts derived live; roster +
+// movement-unknown kits live in the render's UNMAPPED strip (a text region), surfaced via
+// a strip hotspot — their names are final, only movement POSITION is S7-pending
+// (cell_confident:false → "position provisional"); negative_canon:true → muted
+// "historical exhibit" popover.
 // ---------------------------------------------------------------------------
 type PlaneDot = {
   dot_id: string;
   source: 'corpus' | 'roster';
+  display_name: string;
   cell: { movement: string | null; delivery: string | null; amp: string | null };
   cell_confident: boolean;
   public_label: string;
-  label_parts: {
+  label_parts?: {
     game_id: string | null;
     era_year: number | null;
     stabilization_patch: string | null;
@@ -1130,43 +1116,67 @@ type PlaneDot = {
 };
 type PlaneDotsDoc = { schema: string; provenance: string; count: number; dots: PlaneDot[] };
 
-// Axis orders + display labels. UNMAPPED movement (roster, S7-pending) sits last, in its
-// own band. Unmapped delivery (a handful of not-yet-classified corpus kits) sits last too.
-const MOVEMENT_ORDER: (string | null)[] = ['FREE-MOVE', 'WALK', 'ROOTED', null];
-const MOVEMENT_LABEL: Record<string, string> = {
-  'FREE-MOVE': 'free-move',
-  WALK: 'walk-cast',
-  ROOTED: 'rooted',
-  'null': 'unmapped',
-};
-const DELIVERY_ORDER: (string | null)[] = [
-  'PROJECTILE', 'ORBITAL', 'NOVA', 'ZONE', 'BEAM', 'MELEE', 'SUMMON', null,
-];
-const AMP_ORDER: (string | null)[] = ['FLAT', 'SPIKY', 'VAR', null];
-const AMP_LABEL: Record<string, string> = {
-  FLAT: 'flat tempo', SPIKY: 'spiky tempo', VAR: 'variable tempo', 'null': 'tempo n/a',
-};
-const cellKey = (mv: string | null, dl: string | null) => `${mv ?? 'null'}|${dl ?? 'null'}`;
+// TWO-REGISTER SPLIT. The popover TITLE reads ONE configurable field. This internal team
+// preview shows the exact build name (display_name). A future player-facing publish flips
+// the register to a safe field (public_display_name — NOT built yet). Change this ONE line
+// to flip; the rest of the component is register-agnostic. (Falls back to public_label if
+// the chosen field is absent on a record, so the flip never renders blank.)
+const TITLE_REGISTER: keyof PlaneDot = 'display_name'; // future: 'public_display_name'
+function titleRegister(dot: PlaneDot): string {
+  const v = dot[TITLE_REGISTER];
+  return typeof v === 'string' && v ? v : dot.public_label;
+}
 
-function AtlasCellExplorer() {
+// The committed render's fixed axis order (render_v1_2_stratified.py PLANE_ROWS/PLANE_COLS).
+const PLANE_ROWS = ['FREE-MOVE', 'WALK', 'ROOTED'] as const; // top→bottom, ri 0..2
+const PLANE_COLS = ['PROJECTILE', 'ORBITAL', 'NOVA', 'ZONE', 'BEAM', 'MELEE', 'SUMMON'] as const;
+const MOVEMENT_WORD: Record<string, string> = {
+  'FREE-MOVE': 'free-move', WALK: 'walk-cast', ROOTED: 'rooted',
+};
+
+// Render viewBox + recovered data→pixel affine (see header). px = A + data·S.
+const PLANE_VB = { w: 873.423631, h: 705.037812 };
+const AX_X0 = 108.468163, AX_SX = 103.68; // pixel_x = AX_X0 + dataX*AX_SX
+const AX_Y0 = 575.665012, AX_SY = 103.68; // pixel_y = AX_Y0 - dataY*AX_SY (y-up data → y-down px)
+
+// Cell (ri,ci) occupies data x∈[ci,ci+1], y∈[2-ri, 3-ri]. Return its viewBox px rect.
+function cellRectPx(ri: number, ci: number) {
+  const x = AX_X0 + ci * AX_SX;
+  const y = AX_Y0 - (3 - ri) * AX_SY;
+  return { x, y, w: AX_SX, h: AX_SY };
+}
+// The UNMAPPED strip (render strip_y = -0.55): a text band below the grid. One hotspot.
+const STRIP_RECT = {
+  x: AX_X0,
+  y: AX_Y0 - 0.0 * AX_SY, // data y=0 top edge (grid bottom)
+  w: 7 * AX_SX,
+  h: (0.0 - -1.15) * AX_SY, // down to ylim bottom -1.15
+};
+
+type PlaneSel = { ri: number; ci: number } | 'UNMAPPED' | null;
+const selKey = (s: Exclude<PlaneSel, null>) => (s === 'UNMAPPED' ? 'UNMAPPED' : `${s.ri}|${s.ci}`);
+
+function AtlasInteractivePlane({ svgUrl, missing }: { svgUrl: string; missing: boolean }) {
   const [doc, setDoc] = useState<PlaneDotsDoc | null>(null);
-  const [missing, setMissing] = useState(false);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [dotsMissing, setDotsMissing] = useState(false);
+  const [sel, setSel] = useState<PlaneSel>(null);
   const base = import.meta.env.BASE_URL;
 
   useEffect(() => {
     fetch(`${base}atlas/plane_dots_v1_2.json`, { cache: 'no-store' })
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
       .then((d: PlaneDotsDoc) => setDoc(d))
-      .catch(() => setMissing(true));
+      .catch(() => setDotsMissing(true));
   }, [base]);
 
-  // Group dots by cell (movement|delivery). Amp strata live inside each cell.
+  // Bucket dots by cell. movement∈ROWS && delivery∈COLS → grid cell; else → UNMAPPED strip.
   const byCell = useMemo(() => {
     const m = new Map<string, PlaneDot[]>();
     if (!doc) return m;
     for (const dot of doc.dots) {
-      const k = cellKey(dot.cell.movement, dot.cell.delivery);
+      const ri = PLANE_ROWS.indexOf(dot.cell.movement as (typeof PLANE_ROWS)[number]);
+      const ci = PLANE_COLS.indexOf(dot.cell.delivery as (typeof PLANE_COLS)[number]);
+      const k = ri >= 0 && ci >= 0 ? `${ri}|${ci}` : 'UNMAPPED';
       const arr = m.get(k);
       if (arr) arr.push(dot);
       else m.set(k, [dot]);
@@ -1174,187 +1184,221 @@ function AtlasCellExplorer() {
     return m;
   }, [doc]);
 
-  const maxCount = useMemo(() => {
-    let mx = 0;
-    for (const arr of byCell.values()) mx = Math.max(mx, arr.length);
-    return mx;
-  }, [byCell]);
-
   if (missing) {
     return (
-      <div className="mt-2 rounded border border-slate-800 bg-slate-950/40 p-3 text-[0.7rem] text-slate-500">
-        Interactive cell explorer unavailable — <span className="font-mono">plane_dots_v1_2.json</span>{' '}
-        not staged. (The plane render above is unaffected.)
-      </div>
-    );
-  }
-  if (!doc) {
-    return (
-      <div className="mt-2 rounded border border-slate-800 bg-slate-950/40 p-3 text-[0.7rem] text-slate-500">
-        Loading cell explorer…
+      <div className="overflow-x-auto rounded border border-slate-800 bg-slate-950/40">
+        <div className="p-6 text-center text-xs text-slate-500">
+          Plane asset not staged. Run <span className="font-mono">npm run stage-assets</span>{' '}
+          (fires automatically in <span className="font-mono">npm run build</span>).
+        </div>
       </div>
     );
   }
 
-  const rosterCount = doc.dots.filter((d) => d.source === 'roster').length;
-  const selDots = selected ? byCell.get(selected) ?? [] : [];
+  const selDots = sel ? byCell.get(selKey(sel)) ?? [] : [];
+  const interactive = !!doc && !dotsMissing;
 
-  // Grid cell tint: intensity scales with occupancy (DB-derived, never hardcoded).
-  const tint = (n: number) => {
-    if (n === 0) return 'bg-slate-900/40 text-slate-600 border-slate-800';
-    const r = maxCount > 0 ? n / maxCount : 0;
-    if (r > 0.66) return 'bg-teal-700/70 text-teal-50 border-teal-500/60';
-    if (r > 0.33) return 'bg-teal-800/55 text-teal-100 border-teal-600/50';
-    return 'bg-teal-900/40 text-teal-200 border-teal-800/60';
-  };
+  // Popover anchor (% of viewBox) — cell/strip center, floated above.
+  let anchor: { leftPct: number; topPct: number } | null = null;
+  if (sel) {
+    const r = sel === 'UNMAPPED' ? STRIP_RECT : cellRectPx(sel.ri, sel.ci);
+    anchor = {
+      leftPct: ((r.x + r.w / 2) / PLANE_VB.w) * 100,
+      topPct: (r.y / PLANE_VB.h) * 100,
+    };
+  }
 
   return (
-    <div className="mt-3">
-      <p className="mb-2 text-[0.7rem] leading-snug text-slate-400">
-        <span className="font-semibold text-teal-200">Explore the cells.</span> Tap a cell —
-        movement row × delivery column — to see the kits it holds, each by its public label.
-        Occupancy is live from <span className="font-mono">plane_dots_v1_2.json</span> ({doc.count} dots).
-      </p>
+    <div className="overflow-x-auto rounded border border-slate-800 bg-slate-950/40">
+      {/* relative wrapper: the min-width forces the horizontal-scroll on tiny phones and
+          keeps the SVG overlay locked to the raster (both share the same box + aspect). */}
+      <div
+        className="relative mx-auto w-full min-w-[640px] max-w-full"
+        onMouseLeave={() => setSel(null)}>
+        <img
+          src={svgUrl}
+          alt="RULED V1.2 Stratified Plane View — DB-derived occupancy atlas"
+          className="block h-auto w-full"
+          loading="lazy"
+        />
 
-      {/* the grid — horizontally scrollable on narrow phones, like the raster above. */}
-      <div className="overflow-x-auto rounded border border-slate-800 bg-slate-950/40 p-2">
-        <table className="w-full min-w-[560px] border-separate border-spacing-1 text-center">
-          <thead>
-            <tr>
-              <th className="w-16 text-left text-[0.55rem] font-normal uppercase tracking-wide text-slate-500">
-                mv ╲ delivery
-              </th>
-              {DELIVERY_ORDER.map((dl) => (
-                <th
-                  key={dl ?? 'null'}
-                  className="px-0.5 text-[0.55rem] font-semibold uppercase tracking-tight text-slate-400">
-                  {dl ? dl.toLowerCase() : 'unmapped'}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {MOVEMENT_ORDER.map((mv) => {
-              const pending = mv === null;
-              return (
-                <tr key={mv ?? 'null'}>
-                  <th className="text-left text-[0.6rem] font-semibold text-slate-300">
-                    {MOVEMENT_LABEL[mv ?? 'null']}
-                    {pending && (
-                      <span className="block text-[0.5rem] font-normal text-amber-500/80">
-                        S7-pending
-                      </span>
-                    )}
-                  </th>
-                  {DELIVERY_ORDER.map((dl) => {
-                    const k = cellKey(mv, dl);
-                    const n = byCell.get(k)?.length ?? 0;
-                    const isSel = selected === k;
-                    return (
-                      <td key={k} className="p-0">
-                        <button
-                          type="button"
-                          disabled={n === 0}
-                          onClick={() => setSelected(isSel ? null : k)}
-                          onMouseEnter={() => n > 0 && setSelected(k)}
-                          className={[
-                            'h-8 w-full rounded border text-[0.7rem] font-mono transition',
-                            tint(n),
-                            n === 0 ? 'cursor-default' : 'cursor-pointer hover:brightness-125',
-                            isSel ? 'ring-2 ring-sky-400' : '',
-                          ].join(' ')}
-                          aria-label={`${MOVEMENT_LABEL[mv ?? 'null']} × ${dl ?? 'unmapped'}: ${n} kits`}>
-                          {n || ''}
-                        </button>
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        {interactive && (
+          <svg
+            viewBox={`0 0 ${PLANE_VB.w} ${PLANE_VB.h}`}
+            preserveAspectRatio="xMidYMid meet"
+            className="pointer-events-none absolute inset-0 h-full w-full"
+            aria-hidden={false}>
+            {PLANE_ROWS.map((mv, ri) =>
+              PLANE_COLS.map((dl, ci) => {
+                const k = `${ri}|${ci}`;
+                const n = byCell.get(k)?.length ?? 0;
+                if (n === 0) return null;
+                const r = cellRectPx(ri, ci);
+                const active = sel && sel !== 'UNMAPPED' && sel.ri === ri && sel.ci === ci;
+                return (
+                  <rect
+                    key={k}
+                    x={r.x} y={r.y} width={r.w} height={r.h}
+                    rx={6}
+                    className="pointer-events-auto cursor-pointer transition"
+                    fill={active ? 'rgba(56,189,248,0.16)' : 'transparent'}
+                    stroke={active ? 'rgba(56,189,248,0.9)' : 'transparent'}
+                    strokeWidth={active ? 2 : 0}
+                    tabIndex={0}
+                    role="button"
+                    aria-label={`${MOVEMENT_WORD[mv]} × ${dl.toLowerCase()}: ${n} kits`}
+                    onMouseEnter={() => setSel({ ri, ci })}
+                    onFocus={() => setSel({ ri, ci })}
+                    onClick={() => setSel(active ? null : { ri, ci })}
+                  />
+                );
+              }),
+            )}
+            {/* UNMAPPED strip hotspot (roster + movement-unknown, rendered as text in-strip) */}
+            {(byCell.get('UNMAPPED')?.length ?? 0) > 0 && (
+              <rect
+                x={STRIP_RECT.x} y={STRIP_RECT.y} width={STRIP_RECT.w} height={STRIP_RECT.h}
+                className="pointer-events-auto cursor-pointer transition"
+                fill={sel === 'UNMAPPED' ? 'rgba(255,153,102,0.12)' : 'transparent'}
+                stroke={sel === 'UNMAPPED' ? 'rgba(255,153,102,0.8)' : 'transparent'}
+                strokeWidth={sel === 'UNMAPPED' ? 2 : 0}
+                tabIndex={0}
+                role="button"
+                aria-label={`UNMAPPED strip: ${byCell.get('UNMAPPED')?.length ?? 0} kits`}
+                onMouseEnter={() => setSel('UNMAPPED')}
+                onFocus={() => setSel('UNMAPPED')}
+                onClick={() => setSel(sel === 'UNMAPPED' ? null : 'UNMAPPED')}
+              />
+            )}
+          </svg>
+        )}
+
+        {/* the popover — anchored above the hovered/tapped cell, clamped on-screen. */}
+        {sel && anchor && selDots.length > 0 && (
+          <PlanePopover
+            sel={sel}
+            dots={selDots}
+            anchor={anchor}
+            onClose={() => setSel(null)}
+          />
+        )}
       </div>
 
-      {/* the selected-cell panel — the actual "mouseover kit names". */}
-      {selected && selDots.length > 0 && (
-        <CellPanel cellK={selected} dots={selDots} onClose={() => setSelected(null)} />
+      {dotsMissing && (
+        <div className="px-3 py-1.5 text-[0.65rem] text-slate-500">
+          Interactive hover unavailable — <span className="font-mono">plane_dots_v1_2.json</span>{' '}
+          not staged. (The plane render is unaffected.)
+        </div>
       )}
-
-      {/* honesty footnote — roster/S7 caveat, live count, never hardcoded. */}
-      <p className="mt-2 text-[0.6rem] leading-snug text-slate-500">
-        {rosterCount} roster-overlay {rosterCount === 1 ? 'kit sits' : 'kits sit'} in the{' '}
-        <span className="text-amber-500/80">unmapped movement band</span> — their names are
-        final, only their movement-axis position awaits S7. Cells marked{' '}
-        <span className="text-amber-400/80">◇</span> hold kits whose cell address is not yet
-        fully confident.
-      </p>
     </div>
   );
 }
 
-// CellPanel — lists the kits in one selected cell, grouped by amp stratum, each by its
-// PUBLIC label. dot_id is NEVER shown (internal register). negative_canon → muted exhibit.
-function CellPanel({
-  cellK, dots, onClose,
-}: { cellK: string; dots: PlaneDot[]; onClose: () => void }) {
-  const [mv, dl] = cellK.split('|');
-  const heading =
-    `${MOVEMENT_LABEL[mv] ?? mv.toLowerCase()} × ${dl === 'null' ? 'unmapped delivery' : dl.toLowerCase()}`;
+// PlanePopover — the small hover/tap card. Single kit → title = configured register,
+// detail = public_label + cell tags. Multiple kits → title = cell address, list kits.
+// negative_canon → muted "historical exhibit"; cell_confident:false → "position provisional".
+function PlanePopover({
+  sel, dots, anchor, onClose,
+}: {
+  sel: Exclude<PlaneSel, null>;
+  dots: PlaneDot[];
+  anchor: { leftPct: number; topPct: number };
+  onClose: () => void;
+}) {
+  const isStrip = sel === 'UNMAPPED';
+  const cellAddr = isStrip
+    ? 'unmapped — movement pending S7'
+    : `${MOVEMENT_WORD[PLANE_ROWS[sel.ri]]} · ${PLANE_COLS[sel.ci].toLowerCase()}`;
+  const single = dots.length === 1 && !isStrip ? dots[0] : null;
+  // clamp horizontal anchor so the ~15rem card doesn't run off narrow screens
+  const leftPct = Math.min(88, Math.max(12, anchor.leftPct));
 
-  // group by amp, in canonical amp order
-  const groups = AMP_ORDER.map((amp) => ({
-    amp,
-    label: AMP_LABEL[amp ?? 'null'],
-    kits: dots.filter((d) => d.cell.amp === amp),
-  })).filter((g) => g.kits.length > 0);
+  const cellTags = (d: PlaneDot) =>
+    [d.cell.movement, d.cell.delivery, d.cell.amp].filter(Boolean) as string[];
 
   return (
-    <div className="mt-2 rounded-lg border border-sky-700/50 bg-slate-950/60 p-3">
-      <div className="mb-2 flex items-baseline justify-between gap-2">
-        <span className="text-sm font-semibold text-sky-200">{heading}</span>
-        <button
-          type="button"
-          onClick={onClose}
-          className="text-[0.7rem] text-slate-400 hover:text-slate-200">
-          close ✕
-        </button>
-      </div>
-      <div className="space-y-3">
-        {groups.map((g) => (
-          <div key={g.amp ?? 'null'}>
-            <div className="mb-1 text-[0.6rem] font-semibold uppercase tracking-wide text-teal-400/80">
-              {g.label} · {g.kits.length}
+    <div
+      className="pointer-events-none absolute z-20"
+      style={{ left: `${leftPct}%`, top: `${anchor.topPct}%`, transform: 'translate(-50%, calc(-100% - 8px))' }}>
+      <div className="pointer-events-auto w-[min(17rem,80vw)] rounded-lg border border-sky-600/60 bg-slate-950/95 p-2.5 shadow-xl shadow-black/50">
+        {single ? (
+          // ---- single kit ----
+          <div className={single.negative_canon ? 'opacity-70' : ''}>
+            <div className="flex items-start justify-between gap-2">
+              <span className={[
+                'text-sm font-semibold leading-tight',
+                single.negative_canon ? 'text-slate-400 line-through decoration-slate-600' : 'text-sky-100',
+              ].join(' ')}>
+                {titleRegister(single)}
+              </span>
+              <button type="button" onClick={onClose}
+                className="-mr-1 -mt-1 text-[0.7rem] text-slate-500 hover:text-slate-300">✕</button>
             </div>
-            <ul className="space-y-1">
-              {g.kits.map((d) => (
-                <li
-                  key={d.dot_id}
+            <div className="mt-0.5 font-mono text-[0.7rem] leading-snug text-slate-400">
+              {single.public_label}
+            </div>
+            <div className="mt-1.5 flex flex-wrap gap-1">
+              {cellTags(single).map((t) => (
+                <span key={t} className="rounded bg-slate-800/80 px-1.5 py-0.5 text-[0.55rem] uppercase tracking-wide text-teal-300/90">
+                  {t.toLowerCase()}
+                </span>
+              ))}
+            </div>
+            {single.negative_canon && <ExhibitTag />}
+            {!single.cell_confident && <ProvisionalNote />}
+          </div>
+        ) : (
+          // ---- multi-kit cell / strip ----
+          <div>
+            <div className="flex items-start justify-between gap-2">
+              <span className="text-xs font-semibold uppercase tracking-wide text-sky-200">
+                {cellAddr}
+                <span className="ml-1 text-slate-500">· {dots.length}</span>
+              </span>
+              <button type="button" onClick={onClose}
+                className="-mr-1 -mt-1 text-[0.7rem] text-slate-500 hover:text-slate-300">✕</button>
+            </div>
+            <ul className="mt-1.5 max-h-52 space-y-1 overflow-y-auto pr-1">
+              {dots.map((d) => (
+                <li key={d.dot_id}
                   className={[
-                    'rounded border px-2 py-1 text-[0.72rem] leading-snug',
+                    'rounded border px-1.5 py-1 text-[0.7rem] leading-snug',
                     d.negative_canon
-                      ? 'border-slate-800 bg-slate-900/30 text-slate-500 italic'
-                      : 'border-slate-800 bg-slate-900/50 text-slate-200',
+                      ? 'border-slate-800 bg-slate-900/40 text-slate-500'
+                      : 'border-slate-800 bg-slate-900/60 text-slate-200',
                   ].join(' ')}>
-                  <span className="font-mono">{d.public_label}</span>
+                  <span className={d.negative_canon ? 'italic line-through decoration-slate-700' : 'font-semibold text-sky-100'}>
+                    {titleRegister(d)}
+                  </span>
+                  <span className="ml-1 font-mono text-[0.62rem] text-slate-500">{d.public_label}</span>
                   {d.negative_canon && (
-                    <span className="ml-1 text-[0.55rem] uppercase tracking-wide text-slate-600">
-                      historical exhibit
-                    </span>
+                    <span className="ml-1 text-[0.5rem] uppercase tracking-wide text-amber-500/70">negative canon</span>
                   )}
                   {!d.cell_confident && (
-                    <span
-                      className="ml-1 text-amber-400/80"
-                      title="cell address not yet fully confident (roster movement or unclassified delivery)">
-                      ◇
-                    </span>
+                    <span className="ml-1 text-amber-400/70" title="position provisional — movement axis pending S7">◇</span>
                   )}
                 </li>
               ))}
             </ul>
+            {isStrip && <ProvisionalNote />}
           </div>
-        ))}
+        )}
       </div>
+    </div>
+  );
+}
+
+function ExhibitTag() {
+  return (
+    <div className="mt-1.5 inline-flex items-center gap-1 rounded bg-amber-950/40 px-1.5 py-0.5 text-[0.55rem] uppercase tracking-wide text-amber-500/80">
+      historical exhibit · negative canon
+    </div>
+  );
+}
+function ProvisionalNote() {
+  return (
+    <div className="mt-1.5 text-[0.6rem] leading-snug text-amber-400/70">
+      ◇ position provisional — name final; movement-axis placement pending S7.
     </div>
   );
 }
