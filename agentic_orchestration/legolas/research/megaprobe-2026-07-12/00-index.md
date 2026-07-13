@@ -8,9 +8,23 @@
 
 ---
 
-## Schema notes
+## Schema notes (corrected 2026-07-12 per gandalf mid-run brief)
 
-**Positives (full schema):** kit_id · folk_name · game · status · atlas_key · attr · range · tempo · amp · proxy · commit · delivery · footprint · era_span · post_cutoff · dossier_owed · prov · mech_note
+**CORRECTED POSITIVES (full schema — 6 fact families per kit):**
+```
+kit_id · game · folk_name · atlas_key (verbatim provenance)
+delivery:      {value: projectile|line|beam|at-target|self-origin|orbit|aura-pulse|other, conf, evidence}
+footprint:     {value: point|small-radius|large-zone|ring|cone|lane|chain-hop|multi-point|other, conf, evidence}
+geo_text:      1–2 sentence plain-text spatial behavior
+control:       {ailments: [...], centrality: core|rider|none, conf}
+defense:       {layers: [armor|resist|dodge|block|shield-absorb|sustain-leech|hp-stack|glass|other], primary, conf}
+economy:       {resource_verbatim, model: spend|cooldown|meter|reserve|ammo|proc|recipe|draft|harvest|self-cost|other,
+                meter_type: rage|combo|focus|charge|n/a, builder_source, plain_text, conf}
+element:       {label_verbatim, damage_mode: hit|dot|hybrid, conf}
+movement:      {verbs: [...], policy_while_casting: rooted|walk|full-move, skill_is_movement: bool, conf}
+prefix_claims: {attr, range, tempo, amp, proxy, commitment} — each {value, conf, evidence}
+mechanics_notes · era_confirmed · post_cutoff · rank1_upgrade · sources_used: [prov keys + live URLs]
+```
 
 **Negatives (light schema):** kit_id · folk_name · game · status · atlas_key · delivery · footprint · why_negative · era_span · post_cutoff · dossier_owed · prov · mech_note
 
@@ -20,11 +34,18 @@
 
 **commit vocab:** instant | wind-up | channel (NEVER "snap" — code hygiene flag only)
 
-**Confidence rules:**
-- Engine-prefix slots use `avg_conf` from atlas bc6 key as baseline
-- `delivery` conf = avg_conf × 0.9
-- `footprint` conf = avg_conf × 0.85
+**Confidence rules (corrected):**
+- Prefix slots: source-verified confidence per slot (NOT formula avg_conf × multiplier — that approach retired)
+- delivery/footprint: source-verified confidence (approximate the quality of mechanic knowledge for that skill)
 - Post-cutoff kits: all slot conf capped at 0.50; `dossier_owed: true`
+
+**Three directed sweeps (restore per gandalf brief):**
+1. Support-existence (ctrl C2): does ANY solo-context pure-support kit exist? Answer in index.
+2. Line-vs-projectile (geo G2): inside single-target/projectile kits, flag true line geometry.
+3. Shield-split (def D1): flag which kits are actually shield/ES/ward kits vs armour/HP.
+
+**UPGRADE-OWED games (reduced schema — missing 5 of 6 fact families):**
+- d2, poe1, d3, d4, gd — in-place upgrade pass runs AFTER `hot` completes; delivery/footprint/post-cutoff preserved
 
 ---
 
@@ -32,11 +53,11 @@
 
 | # | Game | File | Corpus rows | Status | Commit |
 |---|---|---|---|---|---|
-| 1 | d2 | `d2-facts.jsonl` | 58 (51 pos / 7 neg) | **DONE** | pending |
-| 2 | poe1 | `poe1-facts.jsonl` | 91 | PENDING | — |
-| 3 | d3 | `d3-facts.jsonl` | 46 | PENDING | — |
-| 4 | d4 | `d4-facts.jsonl` | 45 | PENDING | — |
-| 5 | gd | `gd-facts.jsonl` | 41 | PENDING | — |
+| 1 | d2 | `d2-facts.jsonl` | 58 (51 pos / 7 neg) | **DONE — UPGRADE-OWED** | 1462eaf |
+| 2 | poe1 | `poe1-facts.jsonl` | 91 (85 pos / 6 neg) | **DONE — UPGRADE-OWED** | 848c1b0 |
+| 3 | d3 | `d3-facts.jsonl` | 46 (42 pos / 4 neg) | **DONE — UPGRADE-OWED** | 8eea8ec |
+| 4 | d4 | `d4-facts.jsonl` | 45 (41 pos / 4 neg) | **DONE — UPGRADE-OWED** | fa4684b |
+| 5 | gd | `gd-facts.jsonl` | 41 (38 pos / 3 neg) | **DONE — UPGRADE-OWED** | def1fbc |
 | 6 | le | `le-facts.jsonl` | 35 | PENDING | — |
 | 7 | poe2 | `poe2-facts.jsonl` | 38 | PENDING | — |
 | 8 | di | `di-facts.jsonl` | 23 | PENDING | — |
