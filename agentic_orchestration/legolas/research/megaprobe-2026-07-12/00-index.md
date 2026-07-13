@@ -58,8 +58,8 @@ mechanics_notes · era_confirmed · post_cutoff · rank1_upgrade · sources_used
 | 3 | d3 | `d3-facts.jsonl` | 46 (42 pos / 4 neg) | **DONE — UPGRADE-OWED** | 8eea8ec |
 | 4 | d4 | `d4-facts.jsonl` | 45 (41 pos / 4 neg) | **DONE — UPGRADE-OWED** | fa4684b |
 | 5 | gd | `gd-facts.jsonl` | 41 (38 pos / 3 neg) | **DONE — UPGRADE-OWED** | def1fbc |
-| 6 | le | `le-facts.jsonl` | 35 | PENDING | — |
-| 7 | poe2 | `poe2-facts.jsonl` | 38 | PENDING | — |
+| 6 | le | `le-facts.jsonl` | 35 (32 pos / 3 neg / 4 pc) | **DONE (full schema)** | 995a732 |
+| 7 | poe2 | `poe2-facts.jsonl` | 38 (34 pos / 4 neg / 7 post-cutoff) | **DONE (full schema)** | — |
 | 8 | di | `di-facts.jsonl` | 23 | PENDING | — |
 | 9 | tq + tq2 | `tq-facts.jsonl` | 26 | PENDING | — |
 | 10 | tl1 + tl2 + tli | `tl-facts.jsonl` | 22 | PENDING | — |
