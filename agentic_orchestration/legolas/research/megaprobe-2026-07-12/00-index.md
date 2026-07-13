@@ -59,15 +59,15 @@ mechanics_notes · era_confirmed · post_cutoff · rank1_upgrade · sources_used
 | 4 | d4 | `d4-facts.jsonl` | 45 (41 pos / 4 neg) | **DONE — UPGRADE-OWED** | fa4684b |
 | 5 | gd | `gd-facts.jsonl` | 41 (38 pos / 3 neg) | **DONE — UPGRADE-OWED** | def1fbc |
 | 6 | le | `le-facts.jsonl` | 35 (32 pos / 3 neg / 4 pc) | **DONE (full schema)** | 995a732 |
-| 7 | poe2 | `poe2-facts.jsonl` | 38 (34 pos / 4 neg / 7 post-cutoff) | **DONE (full schema)** | — |
-| 8 | di | `di-facts.jsonl` | 23 (20 pos / 0 neg / 3 post-cutoff) | **DONE (full schema)** | — |
-| 9 | tq + tq2 | `tq-facts.jsonl` | 26 (19 pos / 2 neg / 5 post-cutoff TQ2-EA) | **DONE (full schema)** | — |
-| 10 | tl1 + tl2 + tli | `tl-facts.jsonl` | 22 (16 pos / 1 neg / 5 post-cutoff TLI-2026) | **DONE (full schema)** | — |
-| 11 | chronicon | `chronicon-facts.jsonl` | 17 (17 pos / 0 neg / 0 post-cutoff) | **DONE (full schema)** | — |
-| 12 | undecember | `undecember-facts.jsonl` | 17 (17 pos / 0 neg / 4 post-cutoff ud-s7-2025) | **DONE (full schema)** | — |
-| 13 | hades1 + hades2 | `hades-facts.jsonl` | 13 (13 pos / 0 neg / 4 post-cutoff hades2-1.0+) | **DONE (full schema)** | — |
-| 14 | vs | `vs-facts.jsonl` | 24 (22 pos / 2 neg / 1 post-cutoff vs-1.13-2025+) | **DONE (full schema)** | — |
-| 15 | hot | `hot-facts.jsonl` | 19 (18 pos / 1 neg / 2 post-cutoff hot-1.1-2026) | **DONE (full schema)** | — |
+| 7 | poe2 | `poe2-facts.jsonl` | 38 (34 pos / 4 neg / 7 post-cutoff) | **DONE (full schema)** | 998c6a8 |
+| 8 | di | `di-facts.jsonl` | 23 (20 pos / 0 neg / 3 post-cutoff) | **DONE (full schema)** | 1df4d50 |
+| 9 | tq + tq2 | `tq-facts.jsonl` | 26 (19 pos / 2 neg / 5 post-cutoff TQ2-EA) | **DONE (full schema)** | 1cf9122 |
+| 10 | tl1 + tl2 + tli | `tl-facts.jsonl` | 22 (16 pos / 1 neg / 5 post-cutoff TLI-2026) | **DONE (full schema)** | 3de8aa6 |
+| 11 | chronicon | `chronicon-facts.jsonl` | 17 (17 pos / 0 neg / 0 post-cutoff) | **DONE (full schema)** | 234f657 |
+| 12 | undecember | `undecember-facts.jsonl` | 17 (17 pos / 0 neg / 4 post-cutoff ud-s7-2025) | **DONE (full schema)** | 8729cd6 |
+| 13 | hades1 + hades2 | `hades-facts.jsonl` | 13 (13 pos / 0 neg / 4 post-cutoff hades2-1.0+) | **DONE (full schema)** | 3dc0a96 |
+| 14 | vs | `vs-facts.jsonl` | 24 (22 pos / 2 neg / 1 post-cutoff vs-1.13-2025+) | **DONE (full schema)** | 2945325 |
+| 15 | hot | `hot-facts.jsonl` | 19 (18 pos / 1 neg / 2 post-cutoff hot-1.1-2026) | **DONE (full schema)** | 7384750 |
 
 **Unit B** (founding-roster lineage enrichment, 45 rows): PENDING — `roster-lineage-enrichment.jsonl`
 
