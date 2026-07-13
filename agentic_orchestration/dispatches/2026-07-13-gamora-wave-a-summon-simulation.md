@@ -9,10 +9,10 @@
 
 ## Slice discipline (READ FIRST — the load-bearing sequencing call)
 
-Wave A ships in **two slices**. Do **Slice 1 now** (fully authorized). Do **NOT** start the Slice 2 item — it is gated on a Matt build-shape ruling filed at `canonical/matt_decision_needed/2026-07-13-wave-a-slice2-build-shape-escalations.md`.
+Wave A ships in **two slices**, sequenced melee-first. **The Matt nav-fix escalation RULED 2026-07-13** — Slice 2 is now build-authorized (`canonical/matt_decision_needed/2026-07-13-wave-a-slice2-build-shape-escalations.md`, RULING RECORD).
 
-- **Slice 1 (build now):** B1 re-summon fight-loop · GX-19 proxy commitment clock · proxy-AI behavior-branch map + proximity trigger (melee + volatile_emitter; **ranged excluded — blocked by §8**) · C1a/C1b calibration bands with D3/D2 rails · **then sign off calibration readiness so rocket can lift the gate.**
-- **Slice 2 (HELD — do not build until Matt rules the fix-shape):** ranged-proxy nav fix (§8). You SCOPE the fix-shape options for the escalation; you do NOT self-authorize the fix (Gate-1 fold D). Ranged-summon cert is blocked on this — melee ships without it.
+- **Slice 1 (build first):** B1 re-summon fight-loop · GX-19 proxy commitment clock · proxy-AI behavior-branch map + proximity trigger (melee + volatile_emitter; **ranged excluded this slice**) · C1a/C1b calibration bands with D3/D2 rails · **then sign off calibration readiness so rocket can lift the gate.**
+- **Slice 2 (build after Slice 1 — NOW AUTHORIZED, no longer waits on Matt):** ranged-proxy nav fix (§8). **Q26 RULED (a) boss-focus inheritance** — build (a) ONLY. Adds `ranged_proxy` to the behavior map. Ranged-summon cert unblocks once this lands.
 
 ## Context
 
@@ -50,10 +50,12 @@ Before touching the calibration numbers, document (math-note under `simulation/n
 - [ ] `simulation/AGENT_STATE.md` updated at session end.
 - [ ] Tag: `gamora/v1.7-wave-a-summon-simulation-1`.
 
-## Slice 2 scope (HELD — do NOT build until Matt rules the fix-shape)
+## Slice 2 scope (BUILD AFTER SLICE 1 — Q26 RULED (a) boss-focus inheritance 2026-07-13)
 
 - [ ] **Ranged-proxy nav fix** (§8): a ranged proxy parks **38.9 m** from a boss it hits at 10 m — ally-nav chases nearest-enemy adds instead of holding boss-focus at range (`spatial_engine.py:~1996` nearest-enemy nav; `:2350` attack-phase boss-focus parity). **No magnitude lever moves `proxy_realized_damage_dealt` — this is a nav MECHANIC, not tuning.**
-  - **Your Slice-1 deliverable on this item is to SCOPE the fix-shape options for the escalation, NOT to build.** Options gandalf surfaced: (a) boss-focus **inheritance** (ranged ally adopts the player's boss-focus target — cleaner for the drop-and-forget C1b fantasy); (b) a **hold-at-range** behavior variant (proxy maintains engagement distance vs its target — more general); (c) a nav_target priority override. gandalf lean: (a) or (b). Add your engineering read (cost/blast-radius/E4-nav-entanglement risk) to the escalation file so Matt/you can rule the fix-shape, then build.
+  - **RULED fix-shape: (a) boss-focus inheritance** — the ranged ally **adopts the player's boss-focus target** rather than chasing nearest-enemy adds. Build (a) ONLY; do NOT build (b) hold-at-range or (c) nav_target override. This is the cleaner shape for the drop-and-forget C1b fantasy (the proxy tracks what the player is fighting).
+  - Add `ranged_proxy`→`ranged_kite`/`cast_at_range` to the `PROXY_TYPE_BEHAVIOR` map (§7) once the nav fix lands. Certify ranged-summon `proxy-light`/`proxy-heavy` at the C1b coordinate with the same D3/D2 rails as melee.
+  - **Math-before-code:** document the boss-focus inheritance mechanism in the math-note before editing `_navigate_entity` — specifically how the ranged ally reads the player's boss-focus target, and confirm it does NOT re-entangle the E4 nav spine (the 2026-07-11 concurrency hazard). Tag with a Slice-2 suffix or fold into the wave tag per your judgment — coordinate tag intent through KR.
 
 ## S6 interaction
 
@@ -67,13 +69,13 @@ The matchup gate certifies at the **C1b endgame coordinate** with D3-evaporate /
 - [ ] `proxy-light` + `proxy-heavy` certify at the C1b coordinate within the D3/D2 rails; math-note states the proxy-HP floor + DPS ceiling + the ~0.5–0.8s-class C1a ramp floor (actual calibrated number).
 - [ ] **Round-trip smoke** exercising the gamora→star-lord proxy-telemetry / fight_log boundary IF any cross-seam field changed — OR `Round-trip: not applicable because <reason>`.
 - [ ] Calibration-readiness go-signal appended for rocket's §9 lift.
-- [ ] Nav-fix fix-shape scoped in the escalation file (Slice 2 held — NOT built).
+- [ ] Slice 2: ranged-proxy nav fix built per **(a) boss-focus inheritance** (Q26 ruled); `ranged_proxy` added to `PROXY_TYPE_BEHAVIOR`; ranged-summon certified at C1b within the D3/D2 rails; E4 nav spine confirmed un-entangled.
 - [ ] gamora-owned tests green (no NEW failures vs HEAD; prove pre-existing on HEAD via git-stash).
 - [ ] Auto-commit; **NO push** (KR owns the Wave-A push after Gate-2).
 
 ## Out of scope (explicit non-goals)
 
-- **Building** the ranged-proxy nav fix (Slice 2 — scope only, held on Matt).
+- Building the ranged-proxy nav fix during Slice 1 (it's now Slice-2 authorized — build it AFTER the melee loop + calibration land; and build **(a) boss-focus inheritance ONLY**, not (b)/(c)).
 - The economy CONFIG surface (A1/A2/A4 params) + A3 reservation resource type + the `_DEFERRED_PROXY_BINS` lift — all rocket (companion dispatch).
 - **fission mid-fight combat-spawn** (evidence §8) — DEFERRABLE, post-Wave-A.
 - **B11 master-hides / zero-aggro taunt** (evidence §5) — DEFERRABLE; taunt-0.6 approximates, full model later.

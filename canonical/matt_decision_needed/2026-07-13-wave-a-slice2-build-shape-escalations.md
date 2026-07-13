@@ -54,8 +54,9 @@
 
 ---
 
-## RULING RECORD
-_(Matt: append your ruling on each escalation here; KR/gandalf strike the queue rows to RESOLVED on your ruling. gamora appends her nav-fix engineering read above Escalation 1's pick.)_
+## RULING RECORD — ✓ BOTH RULED 2026-07-13 (Matt)
 
-- Escalation 1 (nav fix-shape): _pending_
-- Escalation 2 (A3 build-true vs approximate): _pending_
+- **Escalation 1 (Q26 — nav fix-shape): ✓ RULED (a) boss-focus inheritance.** The ranged ally adopts the player's boss-focus target rather than chasing nearest-add. **Unblocks ranged-summon for Slice 2.** gamora builds against **(a) ONLY** — do NOT build (b) hold-at-range or (c) nav_target override.
+- **Escalation 2 (Q27 — A3 reservation economy): ✓ RULED build-true.** Permanent regen-cap reservation (`regen_cap -= reservation_per_proxy × active_count`), NOT a spend approximation. Preserves the 4th distinct economy Matt mandated + its abandonment-tax inversion. **Unblocks the A3 economy for Slice 2.** rocket builds the true reservation-ceiling resource type per spec §2 option (a).
+
+**→ Slice 2 (ranged-summon + A3 reservation) is now BUILD-AUTHORIZED.** Sequence it behind Slice 1 per the melee-first plan; it no longer waits on Matt. Dispatches updated to reflect the unblock (rocket A3 section + gamora nav-fix section flipped from HELD to authorized-against-the-ruling).

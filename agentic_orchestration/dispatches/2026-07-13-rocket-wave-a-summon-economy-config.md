@@ -9,10 +9,10 @@
 
 ## Slice discipline (READ FIRST — the load-bearing sequencing call)
 
-Wave A ships in **two slices**. Do **Slice 1 now** (fully authorized). Do **NOT** start Slice 2 items — they are gated on Matt build-shape rulings filed at `canonical/matt_decision_needed/2026-07-13-wave-a-slice2-build-shape-escalations.md`.
+Wave A ships in **two slices**, sequenced melee-first. **Both Matt build-shape escalations RULED 2026-07-13** — Slice 2 is now build-authorized (`canonical/matt_decision_needed/2026-07-13-wave-a-slice2-build-shape-escalations.md`, RULING RECORD).
 
-- **Slice 1 (build now):** melee economy config A1/A2/A4 · C2a dual-address + center-of-gravity emission · then HOLD.
-- **Slice 2 (HELD — do not build until Matt rules):** A3 reservation-ceiling resource type (§2 escalation — build-true vs approximate).
+- **Slice 1 (build first):** melee economy config A1/A2/A4 · C2a dual-address + center-of-gravity emission · then HOLD for calibration.
+- **Slice 2 (build after Slice 1 — NOW AUTHORIZED, no longer waits on Matt):** A3 reservation-ceiling resource type. **Q27 RULED build-true** — build the true `reserved` resource type per spec §2 option (a); do NOT approximate-as-spend.
 - **The `_DEFERRED_PROXY_BINS` lift (§9) is the LAST action of the whole wave** — it fires only after gamora signs off calibration readiness (companion dispatch §6). Do not lift it at the end of Slice 1; lift it when gamora's calibration lands.
 
 ## Context
@@ -53,9 +53,9 @@ The A1/A2/A4 economies are **drop-rate governors** — each produces a distinct 
 - [ ] Tag: `rocket/v2.8-wave-a-summon-economy-config-1`.
 - [ ] **HOLD** — do not lift `_DEFERRED_PROXY_BINS`; do not build A3. Append a completion record and hand off to gamora calibration.
 
-## Slice 2 scope (HELD — do NOT build until Matt rules the escalation)
+## Slice 2 scope (BUILD AFTER SLICE 1 — Q27 RULED build-true 2026-07-13)
 
-- [ ] **A3 reservation-ceiling resource type** (§2). gandalf lean: **build-true (option a)** — a true `reserved` resource type where `regen_cap -= reservation_per_proxy × active_count` (a permanent regenerating-resource-cap tax, not a per-cast spend). The alternative (map A3 to a spend-economy approximation) collapses A3 into A2 and loses the "army-size wall = permanent tax" fantasy + the A3 abandonment-tax inversion documented in the rulings. **This is a Matt call because it determines whether we ship 4 distinct economies or 3.5.** Do NOT self-authorize (Gate-1 fold D). Build only after the escalation file records Matt's ruling.
+- [ ] **A3 reservation-ceiling resource type** (§2, spec option (a) — **RULED**): build the true `reserved` resource type where `regen_cap -= reservation_per_proxy × active_count` (a permanent regenerating-resource-cap tax, NOT a per-cast spend). This preserves A3 as the 4th distinct economy + its abandonment-tax inversion (weakest re-drop tax, hardest leash). **Do NOT approximate-as-spend** (that was option (b), ruled out — it collapses A3 into A2). Sequence behind Slice 1; it no longer waits on Matt. Tag with a Slice-2 suffix (e.g. `rocket/v2.8-wave-a-summon-economy-config-2`) or fold into the wave tag per your judgment — coordinate the tag intent through KR.
 
 ## The gate (§9) — the LAST action of the wave
 
@@ -73,7 +73,7 @@ The A1/A2/A4 economies are **drop-rate governors** — each produces a distinct 
 
 ## Out of scope (explicit non-goals)
 
-- **A3 reservation mechanic** until Matt rules the escalation (Slice 2).
+- **A3 reservation mechanic** during Slice 1 (it's now Slice-2 authorized — build it AFTER the melee economies + C2a emission land, not before).
 - **Lifting the gate** until gamora calibration signs off (sequence LAST).
 - The re-summon fight-loop, GX-19 clock, proxy-AI behavior branches, calibration bands, ranged-proxy nav — all gamora (companion dispatch).
 - **fission mid-fight combat-spawn** (evidence §8) — DEFERRABLE, post-Wave-A. Lifetime fission works; do not build combat-spawn.

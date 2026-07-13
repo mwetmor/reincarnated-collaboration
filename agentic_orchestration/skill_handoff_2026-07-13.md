@@ -16,23 +16,24 @@ gandalf (SPEC-AUTHOR) handed off the Wave-A engine spec to KR for sequencing + d
 ### Dispatches authored (all auto-committed, NOT pushed; Matt owns Wave-A push after Gate-2)
 1. **rocket** — `dispatches/2026-07-13-rocket-wave-a-summon-economy-config.md`: economy config A1/A2/A4 + C2a dual-address + CoG emission (§5), then HOLD; A3 (Slice 2, held); `_DEFERRED_PROXY_BINS` lift is the LAST action of the whole wave (only after gamora's calibration token). Cross-seam contract (C2a emission → atlas render + S6) → round-trip clause + MIGRATION mandatory.
 2. **gamora** — `dispatches/2026-07-13-gamora-wave-a-summon-simulation.md`: B1 re-summon fight-loop (§3) + GX-19 proxy commitment clock (§4) + proxy-AI behavior-branch map + proximity trigger (§7, melee + volatile_emitter; ranged excluded) + C1a/C1b calibration (§6). Ranged-proxy nav fix (§8) is Slice 2 — gamora SCOPES the fix-shape into the escalation file, does NOT build.
-3. **elrond** — `dispatches/2026-07-13-elrond-wave-a-returns-data-corrections.md`: 4 corpus-DB corrections (poe1→le-ring-of-shields re-key; CotA/IK-HotA distinct no-dedup; d2-sacrifice negative=1 KEEP; 9 mint dossiers era_year/patch/URL backfill). Independent of the engine slices.
+3. **elrond** — `dispatches/2026-07-13-elrond-wave-a-returns-data-corrections.md`: 4 corpus-DB corrections (poe1→le-ring-of-shields re-key; CotA/IK-HotA distinct no-dedup; d2-sacrifice negative=1 KEEP; 9 mint dossiers era_year/patch/URL backfill). **⛔ SUPERSEDED — EXECUTED-VIA-GANDALF-PROMPT.** Matt already launched elrond under gandalf's running prompt, a SUPERSET (Fold 1 = these 4 corrections + Fold 2 = key the 9 mint dossiers into `canon_engine_key` for atlas plotting). **Do NOT launch a second elrond** = would be a double-writer on corpus.db. Dispatch retained for lineage only; elrond is already live.
 
 ### Gate-1 (jack-ryan, DESIGN-MODE) — both engine dispatches PASS-with-notes; all 4 punch-list items folded
 - Principle-6 dispositions confirmed right (rocket mandatory round-trip; gamora conditional).
 - Seam-ownership (`PROXY_TYPE_TARGETING`→`PROXY_TYPE_BEHAVIOR`, gen-decl vs sim-exec): symmetric MIGRATION+escalate note confirmed CORRECT (do NOT pin now — the opposite of the 2026-07-11 double-writer, which failed on *silent* co-writes; here coordination is explicit).
 - **Folded edits:** (1) tightened rocket's round-trip escape hatch — atlas is a hard consumer, Wave A doesn't close without the export round-trip proven somewhere; (2) named the gate go-signal a **literal token** `CALIBRATION-READY: _DEFERRED_PROXY_BINS lift authorized` (both dispatches) to close a lift-race; (3) added Discipline #12 semantic-shift citation on the `PROXY_TYPE_BEHAVIOR` widening (both); (4) A4 accumulator cross-fight-vs-within-fight reset made explicit.
 
-### 2 Matt escalations filed → `canonical/matt_decision_needed/2026-07-13-wave-a-slice2-build-shape-escalations.md` (queue rows **Q26 + Q27**)
-- **Q26 — ranged-proxy nav fix-shape:** archer parks 38.9m from a boss it hits at 10m (nav MECHANIC, not tuning). Pick (a) boss-focus inheritance [gandalf lean] / (b) hold-at-range variant [gandalf lean] / (c) nav_target override — or delegate to gamora after she posts her engineering read. Gates ranged-summon ONLY.
-- **Q27 — A3 reservation build-true vs approximate:** (a) build-true `regen_cap -= reservation_per_proxy × active_count` [gandalf lean; preserves the permanent-tax fantasy] vs (b) approximate → collapses A3 into A2 (3.5 economies not 4). Bears on the all-4 mandate. Gates the A3 economy ONLY.
+### 2 Matt escalations — ✓ BOTH RULED 2026-07-13 → Slice 2 build-authorized (queue rows Q26 + Q27 struck)
+- **Q26 — ranged-proxy nav fix-shape → RULED (a) boss-focus inheritance.** Ranged ally adopts the player's boss-focus target rather than chasing nearest-add. gamora builds (a) ONLY; not (b)/(c). Unblocks ranged-summon (Slice 2).
+- **Q27 — A3 reservation → RULED build-true.** Permanent regen-cap reservation (`regen_cap -= reservation_per_proxy × active_count`), not spend approximation. Preserves the 4th distinct economy + abandonment-tax inversion. rocket builds spec §2 (a). Unblocks the A3 economy (Slice 2).
+- Both engine dispatches updated: Slice-2 sections flipped HELD→build-authorized; escalation file RULING RECORD + queue rows struck to RESOLVED.
 
 ---
 
 ## Next-session actions (KR-owned)
-1. **Relay the launch commands to Matt** for the 3 dispatches (rocket + gamora + elrond): `cd ~/Games/reincarnated-engine && claude --agent rocket` (or gamora); `cd ~/Games/reincarnated-collaboration && claude --agent elrond` (corpus.db seam). rocket + gamora serialize on the calibration→lift handoff; elrond is independent.
-2. **Broker the gate handoff live:** when gamora's completion record carries the `CALIBRATION-READY` token, confirm to rocket that the §9 `_DEFERRED_PROXY_BINS` lift is authorized. This is the one live sequencing point KR must be in the loop for.
-3. **When Q26/Q27 return from Matt:** unblock Slice 2 (ranged nav build + A3). If Matt delegates Q26 to gamora, gamora posts the engineering read into the escalation file first, then builds.
+1. **Relay the launch commands to Matt** for **rocket + gamora ONLY** (elrond is ALREADY LIVE under gandalf's prompt — do NOT launch a second): `cd ~/Games/reincarnated-engine && claude --agent rocket` (or gamora). rocket + gamora serialize on the calibration→lift handoff.
+2. **Broker the gate handoff live:** when gamora's completion record carries the exact token `CALIBRATION-READY: _DEFERRED_PROXY_BINS lift authorized`, confirm to rocket that the §9 lift is authorized. This is the one live sequencing point KR must be in the loop for.
+3. **Slice 2 is build-authorized** (Q26/Q27 ruled) — sequences behind Slice 1 per melee-first; no longer waits on Matt. rocket: A3 build-true. gamora: ranged nav fix (a) boss-focus inheritance + `ranged_proxy` behavior branch.
 4. **Gate-2 (jack-ryan) + Wave-A push** after the slices land (Matt owns the push).
 
 ## Carried-forward from 2026-07-12 (still open — not Wave-A)

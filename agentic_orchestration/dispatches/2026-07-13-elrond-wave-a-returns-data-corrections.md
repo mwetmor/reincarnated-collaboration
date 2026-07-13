@@ -1,5 +1,11 @@
 # Dispatch — 2026-07-13 — elrond — Wave-A returns-adjudication data corrections + mint-dossier backfill
 
+> **⛔ SUPERSEDED — EXECUTED-VIA-GANDALF-PROMPT (do NOT launch a second elrond session).**
+> Matt already launched elrond under gandalf's running prompt, which is a **SUPERSET** of this dispatch:
+> - **Fold 1** (= this dispatch): the 4 returns-corrections below.
+> - **Fold 2** (NOT in this dispatch): key the 9 mint dossiers into `canon_engine_key` so they plot on the atlas.
+> Launching a second elrond = two concurrent writers on `corpus.db` = the 2026-07-11 double-writer anti-pattern the Gate-1 note warned against. This dispatch is retained for lineage; its scope is subsumed by the live gandalf-prompted session. **KR launches only rocket + gamora for the Wave-A slices; elrond is already live.**
+
 **From:** knight-rider
 **To:** elrond (data steward — `research/curated/corpus.db` + curation seam)
 **Approved by:** Matt — corrections fall out of the Wave-A returns adjudication (gandalf, ruled 2026-07-13 in the Wave-A KR-handoff). These are corpus-DB corrections within elrond's stewarded seam (not external/production systems), so they execute under the standing data-steward mandate; KR routes.
