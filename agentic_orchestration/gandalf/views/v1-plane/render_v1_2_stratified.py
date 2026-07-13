@@ -95,6 +95,8 @@ UNMAPPED_COL = {
     "d4-ball-lightning": "ORBITAL",
     "d4-bouldercane": "ORBITAL",
     "poe1-poison-bv": "ORBITAL",
+    "le-ring-of-shields": "ORBITAL",       # mint keying (Elrond S1 render-flag #1)
+    "poe1-vaal-blade-vortex": "ORBITAL",   # mint keying (Elrond S1 render-flag #1)
     "d2-firewall-sorc": "ZONE",
     "di-bone-wall-necro-pvp": "ZONE",
     "le-frost-wall-rm": "ZONE",  # overrides default SUMMON via walls-demand flag
@@ -253,6 +255,11 @@ def build_dot_records(corpus_kits, roster_kits, roster_assignments):
         records.append({
             "dot_id": kit["kit_id"],
             "source": "mint" if kit["mint"] else "corpus",
+            # display_name = EXACT real build/build-guide name (recognition register).
+            # TEAM-TOOLING ONLY per naming law §7.1 — safe on Glance (internal), NOT
+            # cleared for player-facing publish (Q28 gate). Player-facing safe name
+            # (public_display_name) is a pending transposition adjudication.
+            "display_name": kit["folk_name"],
             "cell": {"movement": row, "delivery": col, "amp": stratum},
             "cell_confident": (row is not None and col is not None),
             "public_label": build_public_label(game_id, era_year, patch, mech),
@@ -279,6 +286,7 @@ def build_dot_records(corpus_kits, roster_kits, roster_assignments):
         records.append({
             "dot_id": kid,
             "source": "roster",
+            "display_name": name,  # exact roster/lineage name (recognition register)
             "cell": {"movement": None, "delivery": col, "amp": stratum},
             "cell_confident": False,  # movement pending S7
             "public_label": label,
