@@ -7,6 +7,59 @@
 
 ---
 
+## v2.1 — corpus.db S1 DATA-COMPLETION (five payloads) — 2026-07-13 — **LANDED**
+
+### What changed (one line)
+Additive S1 data-completion pass per gandalf wind-down §3: added 6 nullable columns across three tables and backfilled from ENGINE + probe sources of record, with strict honest-NULL where source genuinely absent. **Zero row-count change** (524 / 4,780 / 478 / 45 all hold); `corpus_schema_meta` bumped `2.0 → 2.1`.
+
+### D6 rebuild sequence (now TWO committed scripts)
+```
+python3 agentic_orchestration/research/scripts/corpus_ingest_2026_07_12.py       # base three-layer ingest
+python3 agentic_orchestration/research/scripts/corpus_completion_s1_2026_07_13.py # this S1 completion pass (idempotent)
+```
+Both deterministic from committed inputs. The completion script is **idempotent** (`ADD COLUMN` guarded by pragma check; all backfills are pure UPDATEs from source) — safe to re-run. corpus.db stays gitignored; scripts + this entry are the committed truth.
+
+### The five payloads + fill census (honest-NULL discipline)
+
+| # | Table.column(s) added | Source of record | Fill rate | Honest-NULL |
+|---|---|---|---|---|
+| **P1** | `roster_atlas.amp_val` | expand engine-sourced atlas amp code (S/F/V → spiky/flat/var) | **26/45** | 19 (undeclared `_`) |
+| P1 | `roster_atlas.commit_val` + `commit_provenance` | expand atlas commit code (W/I/C → wind-up/instant/channel) | **5/45** | 40 (rolled at S7, not fixed at S1) |
+| P1 | `roster_atlas.mob_policy_while_casting` | — (no S1 source) | **0/45** | 45 (emitted per-skill at S7) |
+| **P2** | `canon_engine_key.delivery_value` | promote probe `delivery.value` → keyed column | **478/478** | 0 |
+| **P5** | `canon_corpus.era_year` | per-game canonical release year (per-game-meta.jsonl `release_era`) | **524/524** | 0 |
+| P5 | `canon_corpus.stabilization_patch` | `current-X.Y` token, eras ∪ sources_used | **10/524** | 514 (naming law omits segment where absent, §7.1) |
+
+**P3** (6 poe2 movement-unknowns) and **P4** (d2-wl-void-rift amp) are **census-only** — no schema change. All 6 poe2 remain `mob_policy_while_casting='unknown'` (unresolved in engine-key + probe + megaprobe re-probe → honest-NULL). d2-wl-void-rift `amp_val` remains NULL (no amp code in atlas_key; probe/megaprobe supply none).
+
+### Verification (all gates passed)
+- **Row counts hold:** canon_corpus 524 · canon_probe_facts 4,780 · canon_engine_key 478 · roster_atlas 45.
+- **P2 cone Path-2 split reproduces exactly** — 5 BEAM {gd-flames-of-ignaffar-purifier, hot-dragons-breath, hot-exterminator-burn, poe1-incinerate, ud-flamethrower-channel} / 6 PROJECTILE {di-multishot-dh, di-vengeance-strafe-dh, le-frost-claw, poe2-galvanic-shards, tl2-shotgonne-outlander, tq-ternion-bone-charmer}.
+- **P1 amp validated 25/26 exact vs CellDef amplitude** (`bc_target_cell_sampler.py` CELL_DEFINITIONS). Sole divergence K9f (flat vs cell9 target var) is the legitimate "fired-leg" engine emission — kept as-emitted, NOT overridden.
+- **V1.2 plane render reproduces from rebuilt DB** (`gandalf/views/v1-plane/render_v1_2_stratified.py`, exit 0; 463 combat / 37 negative / 45 roster; cone Path-2 verified). The additive `delivery_value` column does NOT change render output (render still parses delivery via JSON subquery — see render-spec FLAG below).
+
+### Discipline #11 findings surfaced (empirical inspection contradicts commission assumptions)
+1. **Roster movement is genuinely absent at S1.** The commission assumed engine sources (CellDefs/battle-sim) carry roster movement; empirically move_policy is emitted **per-skill at generation (S7)** via `per_skill_emitter.py` `_MOVE_ROOTED/_MOVE_WALK/_MOVE_FULL` — there is no static per-roster-kit movement source of record. All 45 → honest-NULL.
+2. **Roster commit is mostly rolled, not fixed.** Only CellDef-PINNED cells carry a fixed commitment (K1=wind-up, K7=snap/instant, K19=channel) + 2 roster-explicit (B12=channel, H6=wind-up). Unpinned cells are "rolled" at S7 → NULL, never snap-invented.
+3. **stabilization_patch signal lives in `eras`, not `sources_used`.** Commission scoped P5 patch to sources_used (1 clean `current-` token); the richer signal is the eras field (10 tokens). Extractor unions both with provenance. **STEWARD SCOPE NOTE — flagged to gandalf for ratification** (data-domain steward call; reversible; non-inventing).
+4. **chronicon era-year source discrepancy.** `era_range` token says `1.0-2020`; `release_era` field says `1.0 2021`. era_year=2020 chosen (matches era_range + real release); flagged for Matt/gandalf.
+
+### Render-spec FLAGS to gandalf (follow-ups; NOT elrond's to change)
+- **delivery_value column now exists** — `render_v1_2_stratified.py` line ~116-119 still parses `json_extract(pf.facts_json,'$.value')` for delivery. It MAY now read `canon_engine_key.delivery_value` directly (simpler, schema-derivable). Render-spec change is gandalf's call, not elrond's.
+- Roster placement in the render is hardcoded UNMAPPED (movement-derived rows use engine-key movement, not roster columns), so the P1 roster backfill does not alter render output — as expected.
+
+### ADR compliance
+- **ADR-004:** this entry. Additive columns on elrond-owned corpus.db; **no engine-telemetry change** → star-lord-side MIGRATION.md unaffected. Cross-repo reads of `bc_target_cell_sampler.py` were READ-ONLY (values embedded as documented literals for a self-contained collab-repo rebuild).
+- **Reversibility:** raw columns preserved (roster `amp`/`commit_slot` codes, `eras` untouched); all new columns derived at completion time from committed source; re-runnable to byte-identical state.
+- **ADR-006:** auto-commit (in-scope cycle work-product); push deferred to Matt/KR authorization.
+
+### Artifacts
+- `scripts/corpus_completion_s1_2026_07_13.py` — idempotent S1 completion pass (the new committed source).
+- `curated/corpus-completion-s1-log-2026-07-13.md` — full per-payload log + honest-NULL census + findings.
+- `curated/corpus.db` — rebuilt (gitignored; schema_meta 2.1).
+
+---
+
 ## v1.14 — corpus.db THREE-LAYER INGEST (DELTA v2 + Q24 rulings) — 2026-07-12 — **LANDED**
 
 ### What changed (one line)
