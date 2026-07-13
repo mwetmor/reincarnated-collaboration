@@ -30,16 +30,22 @@ This is the entire anti-stereotype architecture, and it is non-negotiable:
 - **Persistence:** gender is stored on the generated form record; fixed for that form's lifetime across seasons (the Earth-Self re-encounters the same accumulated form with the same gender).
 - **Emission surfaces it may color:** generated *name*, *portrait/visual direction*, *flavor text*. It must NOT color: any stat, geometry, economy, or balance field.
 
-## 5 — Roll distribution (one open sub-decision for Matt)
-"Randomized" is ratified; the *distribution* is not yet chosen:
-- **Option A — uniform binary** (50/50 M/F). Simplest; fully decorrelates; safe default.
-- **Option B — binary + a fluid/androgynous third outcome** (e.g. 45/45/10). Thematically supported by the Slime/genderless reincarnation precedent and the samsara frame; adds a distinctive form-type the genre rarely offers. Higher presentation ambiguity (portrait/body direction for the third outcome needs an art answer).
-- **gandalf lean: A for v1** (ship the decorrelation win cleanly), **hold B as a thematically-earned expansion** once the portrait/body pipeline can express it well. Rushing B with a weak visual answer would read as a checkbox; done well later it reads as the frame deepening.
+## 5 — Roll distribution + the RACE-CONDITIONAL table (Synty audit 2026-07-13)
+"Randomized" is ratified; the roll is **race-conditional**, not uniform, because Synty art coverage is race-conditional (audit: `reincarnated-godot/Assets/Synty`).
 
-## 6 — Presentation dependency (drax / Godot)
-Cost splits by surface, and this needs a word to drax before build:
-- **LLM-generated portraits (form-library / gacha):** gender is nearly free — a prompt axis. Preferred path for v1.
-- **Godot/Synty POLYGON bodies in-scene:** a gendered body *is* a distinct asset. If a form is shown as a 3D body, each gender is real art work. Flag to drax: does the presented form read as portrait or body? That answers the cost.
+**Roll table:**
+- **Humanoid "peoples" races → {M, F}.** Art confirmed both-gender: **Human** (full modular M/F, richest), **Dwarf** (Casual + Soldier F/M), **Goblin** (Goblin + Warrior F/M), **Elf** (modular ears + Elven Realm female heads/bodies). Samurai has 1 female (token — treat as male-default until backfilled).
+- **Monster / undead races → {genderless}.** No female art: **Orc, Skeleton/Undead, Demon, Werewolf.** This is **theme-aligned, not a compromise** — rising as a skeleton or demon = a form that has *shed gendered identity*, the exact Slime/samsara "reincarnation dissolves fixed gender" beat. A genderless monster form is fiction, not a missing asset.
+
+**Distribution within the gendered branch:** uniform binary (50/50 M/F) for v1 — ship the decorrelation win cleanly. A dedicated fluid/androgynous *humanoid* outcome is deferred (the monster/undead genderless branch already delivers the beyond-gender form-type without new art); revisit only if the portrait pipeline can express a fluid *humanoid* well.
+
+**Reconciliation REQUIRED before build:** this table is the *Synty capability*. It must be cross-checked against **which races the generation pipeline actually emits** (rocket's seam). If the pipeline emits a race with no Synty character art, that's a separate gap to resolve before the roll ships.
+
+## 6 — Presentation dependency (drax / Godot) — cost is LOWER than feared
+Key finding from the audit: **at ARPG camera zoom, low-poly Synty gender dimorphism reads mostly as hair length + silhouette** — the body is a *weak* gender signal. Consequences:
+- **The LLM emission (name / flavor / portrait) is the primary gender-carrier**, not the 3D body. Gender lands through §4's emission surfaces; the in-scene body is a subtle secondary cue.
+- **No new gendered-body art is required for v1.** The modular Human M/F parts + existing Dwarf/Goblin/Elf female variants + hair-length differentiation suffice at camera distance.
+- **drax still owns two answers:** (a) does a presented form read as portrait or 3D body (sets which surface carries gender), and (b) the hair/silhouette swap for the gendered humanoid races. Neither requires new asset creation.
 
 ## 7 — Empirical guardrail: decorrelation audit
 Because the *point* is breaking archetype↔gender correlation, we can verify it cheaply (Discipline #11, empirical inspection over assumption). After a generation batch, telemetry (star-lord / elrond) audits gender distribution **across archetype / delivery / element buckets** — it should be ~uniform per the roll, with no bucket skewing. If a skew appears, the LLM is smuggling correlation back in via flavor selection and the prompt constraint needs hardening. A one-query check, run once post-integration and periodically thereafter.
