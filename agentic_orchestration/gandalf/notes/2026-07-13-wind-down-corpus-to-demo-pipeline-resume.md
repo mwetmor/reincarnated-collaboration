@@ -2,8 +2,8 @@
 
 > **STATUS:** CURRENT — single resume surface for the next session (Matt directive 2026-07-13: *"a single document that captures what we have done… and keys up the plans to get the views up so that we can ultimately develop the periodic table of kits and then move them all from corpus to engine roster and then actually emit them as JSON so that I can make the selection of which kits I want to include in the Demo."*)
 >
-> **Authored:** gandalf, 2026-07-13 (session close). V1.2 findings folded in (agent returned + verified before authoring).
-> **Companions:** Q19/Q25 rows in `canonical/matt_decision_needed/README.md` · serial tracker CONTINUATION 18 (pointer) · `gandalf/views/v1-plane/plane-b-prime-lock-addendum.md` (the plane's technical record).
+> **Authored:** gandalf, 2026-07-13 (session close). V1.2 findings folded in (agent returned + verified before authoring). §7 naming-law + Steam-validation rider folded same session (Matt-forwarded Gemini research, gandalf ADOPT-with-refinements verdict).
+> **Companions:** Q19/Q25 rows in `canonical/matt_decision_needed/README.md` · serial tracker CONTINUATIONs 18–19 (pointers) · `gandalf/views/v1-plane/plane-b-prime-lock-addendum.md` (the plane's technical record) · `matt_notes_handoff_docs/gemini-steam-mothership-research-and-kit-naming-advice-for-devlog` (§7 source).
 
 ---
 
@@ -61,9 +61,9 @@ Operationalizes the already-RULED emission-selection order (PART F §F.5: pool �
 | Stage | What | Owner(s) | Gate / depends on |
 |---|---|---|---|
 | **S0 — Q19 formal lock** | Matt speaks the lock word on the ruled plane → gandalf canonizes the plane rule (renderer-spec §2 amendment: movement×delivery×amp supersedes commitment×dispersion for the atlas; archive axes unchanged) | Matt → gandalf | **Only Matt's word.** Look-half already positive |
-| **S1 — Data completion wave** | ONE elrond rebuild carrying: 45-roster backfill (movement + amp + commit from engine sources of record — `bc_target_cell_sampler.py` CellDefs + battle-sim configs); `delivery.value` probe→keyed column; 6 poe2 movement-unknowns; void-rift amp if resolvable. Parallel legolas: mint dossiers ×9 (paste-ready, queue row 4) + kb live-URL backfill | elrond + legolas (seam agents, opus) | Rebuild UNBLOCKED (no agents mid-read). Gandalf drafts the brief |
+| **S1 — Data completion wave** | ONE elrond rebuild carrying: 45-roster backfill (movement + amp + commit from engine sources of record — `bc_target_cell_sampler.py` CellDefs + battle-sim configs); `delivery.value` probe→keyed column; 6 poe2 movement-unknowns; void-rift amp if resolvable; **`era_year` + `stabilization_patch` columns (public-register naming feed, §7.1** — era from per-game meta ×19 already landed; patch pin from probe `sources_used` where present, NULL-honest otherwise). Parallel legolas: mint dossiers ×9 (paste-ready, queue row 4) + kb live-URL backfill | elrond + legolas (seam agents, opus) | Rebuild UNBLOCKED (no agents mid-read). Gandalf drafts the brief |
 | **S2 — Remaining views** | **V7 negative-space map** (seed exists; now supercharged by the 63-bucket whitespace: 12 VAR-band empties, ROOTED×VAR 5/7, WALK×BEAM) · **V8 behavior map** Edition-I display contract (synthetic watermark) · **NEW: migration-readiness census** — per-kit expressibility: emittable-with-current-mechanics vs Wave-A/B/C-gated vs mint-only. This census is the steering table for S5 | gandalf (+ sub-agents) | S1 for full fidelity; V7 can fire before |
-| **S3 — PERIODIC TABLE (PROMPT 5)** | The renderer harness proper on the locked plane: isotope-seq sub-ordering within strata, badges/dots as per-version payload, **permanent cell addresses = kit identity**, corpus ghosts + engine solids on equal footing. V1.2 is the coverage dashboard ancestor ("a contingency table wearing the periodic table's costume" — views README); the table adds identity payload + browse affordances. This is Matt's selection surface | gandalf spec → render agent | S0 lock + S1 data |
+| **S3 — PERIODIC TABLE (PROMPT 5)** | The renderer harness proper on the locked plane: isotope-seq sub-ordering within strata, badges/dots as per-version payload, **permanent cell addresses = kit identity**, corpus ghosts + engine solids on equal footing. V1.2 is the coverage dashboard ancestor ("a contingency table wearing the periodic table's costume" — views README); the table adds identity payload + browse affordances. This is Matt's selection surface. **Harness requirement (§7.1): `--public-labels` render mode** — two-register naming law; any view screenshot destined for the dev log renders under it | gandalf spec → render agent | S0 lock + S1 data |
 | **S4 — Mechanics waves (parallel track)** | **Wave A** summoner/proxy: gandalf ELICITOR grill of Matt (forks: summon economy — cooldown/spend/reserve/harvest; re-summon cadence; GX-19 absorption seam) → engine spec → KR sequences gamora/rocket (un-gate `_DEFERRED_PROXY_BINS`; nav behavior-branch; mid-fight re-spawn loop; AI tiers). **Ailments** parallel (session evidence in hand; shock collision #1). Then **Wave B** reservation/aura, **Wave C** trigger+mark-consume; econ/commitment design (GX-20); keystone (GX-02) | gandalf + Matt → KR → gamora/rocket | Evidence DELIVERED; sessions await Matt convening |
 | **S5 — Corpus → engine roster migration** | Per §F.5: candidate pool (corpus positives + mint ×9 + founding roster) → true cell-duplication tiebreak (tier · lineage/longevity · recency, engine frame) → kits become lattice occupants (roster = occupant set over the 972 cells). **Staged by the S2 readiness census:** expressible-now kits migrate immediately; wave-gated kits migrate as A/B/C land | gandalf (tiebreak surfaces) + Matt (calls) | S2 census + S4 waves for full coverage |
 | **S6 — JSON emission** | Emission realizes full kits (elements/skills/T4s/names/factions) → engine kit JSONs (`kit_space/kits/` pattern) | rocket + star-lord via KR | **§F.4 gate:** Matt-judged genre-canon coverage — no count, one-word veto standing |
@@ -87,7 +87,9 @@ Operationalizes the already-RULED emission-selection order (PART F §F.5: pool �
 4. Convene **Wave-A ELICITOR grill** (Matt + gandalf) when Matt calls it → Wave-A engine spec → KR.
 5. **Ailment session** when Matt calls it.
 6. Post-S0+S1: **periodic-table harness spec** (PROMPT 5) → render agent (S3).
-7. Standing: E4 Gate-2 resolution → push; PoE1 3.29 re-harvest ~Jul 24; GX-12 hypothesis rides next element-design opening.
+7. **Legolas Mode A — Steam-mechanics verification** (§7.2: demo→mothership discovery coupling; multi-mode hub vs Valve demo policy; current AI-questionnaire text) — fires before any GTM decision load-bears on the Gemini research.
+8. **GTM fold:** mothership + satellite plan + naming law → `canonical/reap-die-rise-game/` (launch-scope home) when the game-spec pass opens.
+9. Standing: E4 Gate-2 resolution → push; PoE1 3.29 re-harvest ~Jul 24; GX-12 hypothesis rides next element-design opening.
 
 ## §6 Operational notes carried forward
 
@@ -97,4 +99,38 @@ Operationalizes the already-RULED emission-selection order (PART F §F.5: pool �
 - **Rulings recorded verbatim-anchored same-turn** (Q19/Q25 rows + tracker deltas); one-word veto stays open on every record.
 - **DB governs; boards/views are derived** (D6). Any count in any doc must reproduce from SQL.
 
-**Signed:** gandalf, 2026-07-13. The plane is ruled, the raster is loved, the pipeline to the demo is staged. Next session opens on the lock word.
+---
+
+## §7 ADOPTED (Matt + gandalf concur, 2026-07-13 wind-down rider): customer-facing naming law + Steam mothership validation
+
+Source: `matt_notes_handoff_docs/gemini-steam-mothership-research-and-kit-naming-advice-for-devlog` (Gemini research, Matt-forwarded; committed for durability). Gandalf design verdict: **ADOPT the naming scheme with refinements · TREAT the Steam research as directionally-supporting, verification owed.**
+
+### §7.1 The chronological-taxonomy naming law (public register)
+
+**Rule:** customer-facing surfaces (dev-log posts, Steam pages, the public periodic table) never render corpus internal names — kit_id/display_name entries like "Nova Sorceress," "Multishot Demon Hunter," "Whirlwind Barbarian" carry trademarked class names and proprietary skill names. The public register labels cells/kits by factual chronological metadata + OUR descriptive mechanical vocabulary:
+
+> **`[game-id]-[era year] (v[stabilization patch]) + [mechanical description]`** — e.g. `D2-2001 (v1.09) Splintering Ice Radial`
+
+**Why this costs almost nothing (the deep reason to adopt):** the mechanical-description half is exactly the engine frame we already built — plane cell address (movement × delivery × tempo) + engine-key descriptors (element/damage-mode, geometry, signature mechanic). **The rekey pass IS the trademark-laundering machine:** descriptive coordinates instead of proprietary names, produced systematically for all 463 combat kits. The naming law is a **display contract** (same class as V8's synthetic watermark), not new data work.
+
+**Refinements (gandalf, binding on implementation):**
+1. **Two-register law.** Internal register unchanged everywhere (kit_id + display_name keep provenance legibility; renaming internal vocabulary would be churn and damage our own lineage reads). Public register is DERIVED: `label_public = f(game-id, era_year, stabilization_patch, engine-key descriptors, plane cell)`. DB governs (D6); hand-polish allowed (Matt curation) but the default derives.
+2. **Render modes.** Every view renderer destined for the dev log grows `--public-labels` (PROMPT 5 harness requirement, §3 S3; V1.2-class views re-render under it before any screenshot ships publicly — current rasters carry internal names and are internal-only artifacts).
+3. **The description half must also be launder-clean.** No proprietary skill names inside the mechanical description ("Frozen Orb" out; "splintering ice radial" in). Engine-frame vocabulary satisfies this by construction; the rule guards hand-polish.
+4. **"Legal air gap" is an overclaim — downgrade to "material risk reduction."** Factual game/year/patch citation is classic nominative-use territory and far safer than class names, but a cheap legal sanity check rides before the Steam page goes live (a market-stage Matt-gate, not a now-gate).
+5. **Data feed:** `era_year` + `stabilization_patch` join the S1 elrond wave (§3). Where the patch pin is absent, the label honestly omits the segment (`D2-2001 · Splintering Ice Radial`) — never invented.
+
+**Engagement thesis endorsed (senior-designer concur):** hardcore ARPG min-maxers remember patch eras precisely — v1.09 Hammerdin vs v1.10 synergy-era is a *lived distinction* for this audience. Presenting cells as historical data points invites veteran audit; the Cunningham's-Law pull drives exactly the community our corpus work courts, into exactly the surface (the periodic table) we're building anyway.
+
+### §7.2 Steam mothership + satellite validation (research — supporting, verification owed)
+
+The research supports the standing mothership + satellite plan: single premium App ID; **Standalone Demo** ("Simulation Hub") with its own store page, reviews, and community hub hosting the free mini-game satellites; Valve-native wishlist/buy overlay; demo volume feeding the mothership's discovery index; permanent pre/during/post-launch lifecycle. Mini-games = thin rule-set wrappers over battle-sim-certified kit JSONs (hero-line-wars/horde-defense ~1-2wk-class; TD/auto-chess ~3-4wk-class) — **our factory-is-the-product doctrine wearing a GTM face**; the §F.4 Godot ladder is the same harness the satellites reuse.
+
+- **AI-compliance shape confirmed by architecture:** pre-runtime LLM emission → static JSON, zero live client calls → "Pre-generated content" disclosure box; the doc's draft statement is usable after rewording "seasonal" → "periodic pre-runtime content updates" (retired-vocabulary law). Composes with the D7 AI-tell line.
+- **Lore bridge endorsed in shape:** mini-games framed in-fiction as memory re-enactments of harvested souls composes cleanly with the RDR death-faith frame and the "Keep What You Kill" hook. Specific naming ("Tactical Soul Simulations" etc.) = story-side call when the hub is specced.
+- **Verification owed (legolas Mode A, §5 item 7) before GTM decisions load-bear:** (a) the demo-review/volume → mothership discovery-index coupling is asserted, unsourced; (b) a multi-mode hub inside ONE demo app vs current Valve demo policy; (c) current Steamworks AI-questionnaire text. The visible mechanics (separate demo page, native wishlist overlay) match my training-era knowledge; the algorithmic-coupling claim is the one to ground.
+- **Fold targets:** GTM plan + naming law → `canonical/reap-die-rise-game/` (§5 item 8); naming law display contract → views README rulings log (done this session) + PROMPT 5 spec (S3).
+
+---
+
+**Signed:** gandalf, 2026-07-13. The plane is ruled, the raster is loved, the pipeline to the demo is staged — and the table now knows what name to wear in public. Next session opens on the lock word.
