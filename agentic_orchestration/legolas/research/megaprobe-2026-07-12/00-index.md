@@ -62,7 +62,7 @@ mechanics_notes · era_confirmed · post_cutoff · rank1_upgrade · sources_used
 | 7 | poe2 | `poe2-facts.jsonl` | 38 (34 pos / 4 neg / 7 post-cutoff) | **DONE (full schema)** | — |
 | 8 | di | `di-facts.jsonl` | 23 (20 pos / 0 neg / 3 post-cutoff) | **DONE (full schema)** | — |
 | 9 | tq + tq2 | `tq-facts.jsonl` | 26 (19 pos / 2 neg / 5 post-cutoff TQ2-EA) | **DONE (full schema)** | — |
-| 10 | tl1 + tl2 + tli | `tl-facts.jsonl` | 22 | PENDING | — |
+| 10 | tl1 + tl2 + tli | `tl-facts.jsonl` | 22 (16 pos / 1 neg / 5 post-cutoff TLI-2026) | **DONE (full schema)** | — |
 | 11 | chronicon | `chronicon-facts.jsonl` | 17 | PENDING | — |
 | 12 | undecember | `undecember-facts.jsonl` | 17 | PENDING | — |
 | 13 | hades1 + hades2 | `hades-facts.jsonl` | 13 | PENDING | — |
