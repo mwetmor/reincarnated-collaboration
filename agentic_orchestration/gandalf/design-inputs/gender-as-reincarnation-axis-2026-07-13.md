@@ -30,16 +30,23 @@ This is the entire anti-stereotype architecture, and it is non-negotiable:
 - **Persistence:** gender is stored on the generated form record; fixed for that form's lifetime across seasons (the Earth-Self re-encounters the same accumulated form with the same gender).
 - **Emission surfaces it may color:** generated *name*, *portrait/visual direction*, *flavor text*. It must NOT color: any stat, geometry, economy, or balance field.
 
-## 5 — Roll distribution + the RACE-CONDITIONAL table (Synty audit 2026-07-13)
-"Randomized" is ratified; the roll is **race-conditional**, not uniform, because Synty art coverage is race-conditional (audit: `reincarnated-godot/Assets/Synty`).
+## 5 — Roll table, reconciled against the RATIFIED vessel-race well
+The gender roll applies ONLY to **becomable vessel races** — the forms the player rises as. Per the ratified race well (`canonical/reap-die-rise-engine/bestiary-race-well-design-2026-07-09.md`, Matt-ruled 2026-07-09, W1–W4 + Q17), that well is **CLOSED at 5 races: Human, Orc, Elf, Dwarf, Goblin.**
 
-**Roll table:**
-- **Humanoid "peoples" races → {M, F}.** Art confirmed both-gender: **Human** (full modular M/F, richest), **Dwarf** (Casual + Soldier F/M), **Goblin** (Goblin + Warrior F/M), **Elf** (modular ears + Elven Realm female heads/bodies). Samurai has 1 female (token — treat as male-default until backfilled).
-- **Monster / undead races → {genderless}.** No female art: **Orc, Skeleton/Undead, Demon, Werewolf.** This is **theme-aligned, not a compromise** — rising as a skeleton or demon = a form that has *shed gendered identity*, the exact Slime/samsara "reincarnation dissolves fixed gender" beat. A genderless monster form is fiction, not a missing asset.
+**W2 scope correction:** undeath is a vessel-*state*, not a race — **skeleton / zombie / werewolf / demon are MOB-ONLY kinds, NOT becomable.** They never enter the reincarnation gender roll. (An earlier draft framed "monster/undead → genderless" as a roll branch; that was wrong — those kinds aren't becomable forms at all. Mobs are gender-irrelevant.)
 
-**Distribution within the gendered branch:** uniform binary (50/50 M/F) for v1 — ship the decorrelation win cleanly. A dedicated fluid/androgynous *humanoid* outcome is deferred (the monster/undead genderless branch already delivers the beyond-gender form-type without new art); revisit only if the portrait pipeline can express a fluid *humanoid* well.
+**Roll table (Synty gender-art audit ⋈ the 5 becomable races):**
+| Becomable race | Female art (Synty) | Roll |
+|---|---|---|
+| Human | ✓ full modular M/F | **{M, F}** |
+| Elf | ✓ (modular + Elven Realm) | **{M, F}** |
+| Dwarf | ✓ (Casual + Soldier F/M) | **{M, F}** |
+| Goblin | ✓ (Goblin + Warrior F/M) | **{M, F}** |
+| **Orc** | **✗ none off-the-shelf** | **one decision (below)** |
 
-**Reconciliation REQUIRED before build:** this table is the *Synty capability*. It must be cross-checked against **which races the generation pipeline actually emits** (rocket's seam). If the pipeline emits a race with no Synty character art, that's a separate gap to resolve before the roll ships.
+**The single gap — Orc — is soft, because Orc is a RESKIN race.** Orc is admitted as green-skin + robust-musculature material/mesh on the human sidekick rig (zero new rig). So a **female orc is a reskin of the female-human frame** (material swap + bulk modular pieces), not a missing-rig build. Options: **(a)** resolve the female-orc reskin → full M/F parity across all 5 [gandalf lean — cheap material/modular work, no new rig]; **(b)** orc male-default v1, backfill later; **(c)** orc genderless (weak thematically — orcs aren't "beyond gender" like a reaped corpse). Route (a) vs (b) to drax as a reskin-cost check.
+
+**Distribution within the gendered branch:** uniform binary (50/50 M/F) for v1.
 
 ## 6 — Presentation dependency (drax / Godot) — cost is LOWER than feared
 Key finding from the audit: **at ARPG camera zoom, low-poly Synty gender dimorphism reads mostly as hair length + silhouette** — the body is a *weak* gender signal. Consequences:
