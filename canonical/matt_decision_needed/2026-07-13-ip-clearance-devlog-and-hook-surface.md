@@ -1,6 +1,6 @@
 # Q28 — IP-clearance gate: player-facing dev-log Atlas + primary hook
 
-**Surfaced:** gandalf (ARCHITECT/ELICITOR), 2026-07-13 · **Ruled by:** Matt · **Status:** OPEN — evidence-gathering probe launched.
+**Surfaced:** gandalf (ARCHITECT/ELICITOR), 2026-07-13 · **Ruled by:** Matt · **Status:** OPEN — **probe RETURNED 2026-07-13; decision sharpened below (§ Probe synthesis). Awaiting Matt risk-accept-or-counsel ruling.**
 **Gates:** any *player-facing* publish of (a) the Atlas / dev-log with retained game titles, and (b) the primary store-page hook.
 
 ---
@@ -29,4 +29,35 @@ Primary claim moves **from** "ARPG meets Shadows of Mordor" (a *named, trademark
 Proceed under an **editorial-homage posture + standing trademark disclaimer + community-canon framing**; keep game-ids pending probe findings; **hold literal player-facing publish** until the probe returns AND Matt risk-accepts (or counsel clears). Team tooling (Glance internal) is unaffected — negligible exposure, not published.
 
 ## Instrument
-Legolas Mode A probe launched 2026-07-13 to build the evidence base (comparable projects, build-DB/wiki norms, C&D precedent, storefront trademark policy, puffery line, defensive value of genre-generic + community framing). Findings → this gate → Matt ruling.
+Legolas Mode A probe launched 2026-07-13 to build the evidence base. **RETURNED 2026-07-13** — full dossier: `agentic_orchestration/legolas/findings/ip-clearance-probe-2026-07-13/q28-ip-clearance-2026-07-13.md`.
+
+---
+
+## Probe synthesis (2026-07-13) — what the evidence base establishes
+
+**Copyright — CLOSED.** Mechanics/rules not copyrightable (*Tetris v. Xio*, 17 U.S.C. §102(b)); short names/phrases not copyrightable (37 C.F.R. §202.1(a)). Derived build names + mechanical descriptions = **near-zero exposure.** No residual.
+
+**Hook — CLOSED (safe).** "Every build the genre ever made. One arena. Reap. Die. Rise." = non-measurable genre-aspirational superlative = **puffery** (FTC 15 U.S.C. §45), not actionable. The retired "meets Shadows of Mordor" was the single most exposed use (named franchise used *to sell*, not to attribute) AND unusual by industry norm (Hades/Vampire Survivors/Dead Cells all use genre-generic-only store framing). **The change was a genuine improvement on both axes.** Keep it.
+
+**Atlas body — DEFENSIBLE-EDITORIAL, gated on two mandatory conditions + one residual.** Nominative fair use (*New Kids on the Block*, *Toyota v. Tabari*, 9th Cir.) protects retained game titles as inline provenance: prong 1 (necessity) + prong 2 (minimal use) are satisfied; **prong 3 (no false endorsement) is the operative risk**, addressed by editorial-homage framing. Industry analog is strongly favorable — Maxroll / Icy Veins / poe.ninja use full game + skill/class names with **zero documented C&Ds** across years — but those are *purely editorial*; ours is *commercial-adjacent* (Steam-linked). That gap is the residual.
+
+### The two MANDATORY conditions (design constraints on any player-facing Atlas publish)
+1. **Visible non-affiliation disclaimer** on Atlas/dev-log pages (poe.ninja-class: "Not affiliated with or endorsed by [publishers]; all game titles are trademarks of their respective owners; this is an editorial tribute to the ARPG genre").
+2. **Game titles appear as inline provenance labels, NOT headline branding** — no logos, no above-the-fold franchise call-outs, no "featuring Diablo II." Violating either condition shifts the posture toward exposed-promotional.
+
+### The one residual that needs a ruling
+Whether the retained-game-title usage on our *specific commercial-adjacent Atlas layout* satisfies prong 3 in practice is the ONE thing the probe cannot clear — it needs either Matt's documented risk-acceptance or a **narrowly-scoped** counsel review (not "review everything" — just: does our specific layout + framing satisfy prong 3, given Blizzard's flagged more-aggressive enforcement posture on commercial-adjacent uses vs GGG's community-tolerant one).
+
+## Naming-ladder decision (folds Matt's exact-by-default directive, 2026-07-13)
+The probe **vindicates exact-by-default for the Atlas body** — editorial norm keeps full skill/class names with zero enforcement. Q7 says the §7.1 mark-strip is the *most defensive* layer, but the probe does not require it for defensibility; it's the max-safety endpoint. Resolution = a **three-register ladder** with a **surgical** (not wholesale) transposition:
+- **`display_name`** (exact real name) — default for the Atlas body. Team-tooling/Glance = unconditionally safe now.
+- **`public_display_name`** (per-token transposed, Matt's "Totem Witch not Witch Doctor") — **SURGICAL, not the default.** Applied ONLY to the highest-distinctiveness / most-aggressive-holder tokens (Blizzard-held distinctive class marks first), keeping every generic/mechanical token exact. This is a targeted hedge, not a 215-name wholesale pass.
+- **`public_label`** (fully mechanical) — the max-safety fallback lever, held in reserve.
+
+## What Matt owes (sharpened)
+1. **Ruling on the residual:** (a) risk-accept the prong-3 commercial-adjacent residual for the Atlas body as a documented conscious call, OR (b) commission the narrowly-scoped counsel review above. Player-facing publish HOLDS until one of these.
+2. **Ratify the two mandatory conditions** as standing design constraints (disclaimer + inline-not-headline).
+3. **Ratify the surgical-transposition scope** (transpose only the flagged high-risk tokens; keep the rest exact) — vs the alternatives (all-exact / all-mechanical).
+4. Hook: no action — confirmed safe, keep.
+
+*(A research probe informs; it is not a substitute for counsel. Items 1(b), jurisdiction, Steamworks store-page policy, and disclaimer wording remain counsel's domain per the dossier's "What still needs a lawyer" list.)*
