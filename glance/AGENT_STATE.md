@@ -82,8 +82,21 @@ read galadriel verified for v2), NOT invented coordinates.
 - **Smoke:** `npm run build` GREEN (parse green, stage-assets emitted "+ dot positions",
   tsc clean, vite built). Preview served root 200 + positions JSON 200 `application/json` +
   SVG 200. dist carries `plane_dot_positions.json` (463 dots).
-- **NOT deployed to prod** — Matt-gated (ADR-006). Preview + galadriel visual pass on hover
-  behavior are the recommended gates before prod promotion.
+- **galadriel visual pass (2026-07-13):** items 1–5 PASS — per-dot hover resolves the nearest
+  dot; highlight ring is pixel-perfect (0.000 vb offset — the render's own coords used
+  directly, no scale-transform drift); popover shows ONE real build name + mono public_label
+  + cell tags; cursor-move changes which dot is ringed; UNMAPPED strip still a list. Caught a
+  mobile defect (item 6): a left-side dot's popover CLIPPED off the left edge at 375px.
+- **Clamp refix (commit `7edfd5f3`):** measure the rendered plane px width (`planeW`) and
+  clamp the card center so half its width stays inside, in plane px space (replaces the fixed
+  12%/88% that couldn't account for the ~272px card). galadriel RE-VERIFIED PASS — left dot
+  now on-screen (title complete), right dot on-screen after horizontal scroll, desktop
+  mid-plane still centered (0px shift). The earlier right "dead-zone" = cursor at the viewport
+  boundary (plane is wider than 375px and scrolls), NOT a code bug.
+- **Preview (Matt-gated for prod, ADR-006):** latest fixed build —
+  `https://reincarnated-glance-frfn98i8m-matthew-wetmore-s-projects.vercel.app/#/atlas`
+  (positions + root both 200). Commits: `d815fd0b` (v3 per-dot) + `7edfd5f3` (clamp refix).
+- **NOT promoted to prod** — awaiting Matt go.
 
 ### PHASE 2 v2 (per-cell hover/tap POPOVER) — BUILT + galadriel-verified 2026-07-13
 
