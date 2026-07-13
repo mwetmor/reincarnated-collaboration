@@ -98,4 +98,16 @@ Per positive row: `{kit_id, game, folk_name, engine_geometry:{value, rule_fired,
 
 Judgment queue (`judgment-queue-v1.md`): every J-flagged kit with its facts inline, grouped by flag class — gandalf resolves per-kit.
 
-**Signed:** gandalf 2026-07-12. Rules serve the corpus; where they can't express a kit, the kit flags rather than bends.
+## 7. v1.1 amendments (gandalf 2026-07-12, post-first-run verification — supersede where they touch)
+
+First-run spot-check (verify-at-first-commit) caught three mechanical fixes + codified two adaptations:
+
+1. **CTRL shock law (TIGHTENED — replaces any chain-context heuristic):** corpus `shock`/`jolt` maps to **GAP-AILMENT:damage-amp, ALWAYS.** Engine `shock` (chain-propagating hard-lock) is an RDR-original mechanic — NO corpus kit expresses it; it is unreachable from corpus facts. Hard locks in the corpus are `stun` (already GAP).
+2. **GEO placed-lane:** delivery `at-target` + footprint `lane` → **J-GEO:placed-lane**, never `line` (these are placed walls/zones — D2 Firewall, DI Bone Wall — the engine's `line` is a cast pierce-line; placed blocking/zone-lane geometry is the Q15 **Walls** named-workstream gap; these rows are its corpus demand evidence).
+3. **DEF layer synonyms (fact-register → bin, physics-identical):** `ward` (LE) → `absorb` · `energy-shield`/`ES` (PoE) → `absorb` · `evasion` → `evade`. These are game-verbatim names for listed physics, not new layers.
+4. **ECON `channel` model** → `native` (spend-while-channeling variant; commitment axis already carries channel). Compound models (`spend+cooldown`, `spend+ammo`) → map each part (ammo part still censuses `gap:AM`). Post-cutoff `unknown` → stays `UNKNOWN` census row (post-cutoff law).
+5. **Board 1 SU correction:** the SU *economy* count (kits whose resource model IS troop-management) understates mechanics DEMAND. Board 1's SU row must ALSO cite the placement/army demand number = `totem`-keyed kits + J-SUM flags (mechanics-leverage is what pause-2/V3 consumes; Matt's §F.5(1) explicitly names the summon/totem corpus).
+
+**Fork D4 evidence landed:** sustain-leech primaries = **12 > 10 threshold → ESCALATED to Matt** (kit list in boards; gandalf lean documented in the escalation: PoE itself files leech under *recovery*, not defense — genre supports rider-not-verb).
+
+**Signed:** gandalf 2026-07-12. Rules serve the corpus; where they can't express a kit, the kit flags rather than bends. v1.1 same-day post-verification.
