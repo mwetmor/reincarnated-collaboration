@@ -43,6 +43,32 @@ asset on the `/atlas` (PROJECTION) page. ZERO new parse shapes — a render/layo
   config touched (vercel.json unchanged) → no re-smoke beyond preview.
 - **NOT deployed** — production Vercel deploy is Matt-gated (ADR-006). Awaiting Matt go.
 
+### PHASE 2 v2 (per-cell hover/tap POPOVER) — BUILT + galadriel-verified 2026-07-13
+
+Matt's two changes: removed the docked cell-explorer panel ("let the plane breathe"); added
+a small popover anchored to a cell hotspot showing real build names.
+
+- **`AtlasInteractivePlane`** (replaces `AtlasCellExplorer`/`CellPanel`): a transparent `<svg>`
+  overlay (SAME viewBox as the committed matplotlib render) places per-cell hotspot `<rect>`s
+  over the 21 movement×delivery cells + the UNMAPPED strip. Hover/tap/focus → popover.
+- **Geometry read DIRECTLY from the render's cell-background paths** (fill #0f1218): col-0 left
+  x=110.542, row-0 (FREE-MOVE) top y=169.239, pitch 103.68, box 99.533. NOT a reconstructed
+  affine. (First attempt used the rounded-rect M-start = cell BOTTOM edge → +1-row offset;
+  galadriel caught it, fixed to true corners, re-verified 0.00 offset both corner cells.)
+- **`PlanePopover`:** single kit → title = configured register + `public_label` + cell tags;
+  multi-kit cell/strip → title = cell address, lists kits.
+- **Two-register split → ONE field:** `TITLE_REGISTER: keyof PlaneDot = 'display_name'` (flip to
+  `'public_display_name'` = one-line change; falls back to `public_label` so a flip never renders
+  blank). NEVER renders `dot_id`.
+- **Treatments:** `negative_canon` (d2-sacrifice) → muted "historical exhibit" + "negative canon"
+  tag; `cell_confident:false` (45 roster + strip) → "position provisional" note (names final,
+  movement-axis position S7-pending).
+- **Data:** `plane_dots_v1_2.json` (gandalf commit 17885eb7, 515 dots + `display_name`): 463 grid
+  + 52 strip. stage-assets copies it; `.vercelignore` allowlists it; `public/atlas/` git-ignored.
+- **Verified:** build GREEN; galadriel visual pass PASS (alignment 0.00 offset, popover real names,
+  no docked panel, mobile 375px popover on-screen). Commits `123abaab` (v2) + `836ae8fa` (align fix).
+- **Deployed to PREVIEW only** — Matt decides prod promotion (ADR-006).
+
 ### PHASE 2 (interactive mouseover) — BUILT 2026-07-13, awaiting deploy go
 
 Both upstream gates cleared: (a) gandalf per-dot JSON + `public_label` derivation (commit
