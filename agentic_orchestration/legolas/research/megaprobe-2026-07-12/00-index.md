@@ -2,7 +2,7 @@
 
 **Commission:** gandalf, 2026-07-12 (Matt's G1 ruling: "collect entire surface of re-probe at once")
 **Filed:** legolas, 2026-07-12
-**Purpose:** Re-characterize all 515 canon corpus rows (19 games) from retired mobile-harvest vocabulary to structured mechanical FACTS. Replace suffix slots (mob/geo/ctrl/def/econ/elem) with delivery + footprint per new vocab. Engine-prefix 6-slot (attr/range/tempo/amp/proxy/commit) carried forward from atlas bc6 keys.
+**Purpose:** Re-characterize all 515 canon corpus rows (19 games) from retired mobile-harvest vocabulary to structured mechanical FACTS. Full schema = 6 fact families per positive kit: delivery · footprint · geo_text · control · defense · economy · element · movement · prefix_claims (6-slot: attr/range/tempo/amp/proxy/commit) · mechanics_notes · era_confirmed · post_cutoff · dossier_owed · rank1_upgrade · sources_used. Negative kits use light schema.
 
 **Output directory:** `agentic_orchestration/legolas/research/megaprobe-2026-07-12/`
 
@@ -44,8 +44,8 @@ mechanics_notes · era_confirmed · post_cutoff · rank1_upgrade · sources_used
 2. Line-vs-projectile (geo G2): inside single-target/projectile kits, flag true line geometry.
 3. Shield-split (def D1): flag which kits are actually shield/ES/ward kits vs armour/HP.
 
-**UPGRADE-OWED games (reduced schema — missing 5 of 6 fact families):**
-- d2, poe1, d3, d4, gd — in-place upgrade pass runs AFTER `hot` completes; delivery/footprint/post-cutoff preserved
+**UPGRADE-OWED games (status: COMPLETED 2026-07-12):**
+- d2, poe1, d3, d4, gd — in-place full-schema upgrade applied (commits 7b64fbb / 44a63e5 / 130feb0 / 955161e / 71b7be2); delivery/footprint/post-cutoff preserved; all 6 fact families added
 
 ---
 
@@ -53,11 +53,11 @@ mechanics_notes · era_confirmed · post_cutoff · rank1_upgrade · sources_used
 
 | # | Game | File | Corpus rows | Status | Commit |
 |---|---|---|---|---|---|
-| 1 | d2 | `d2-facts.jsonl` | 58 (51 pos / 7 neg) | **DONE — UPGRADE-OWED** | 1462eaf |
-| 2 | poe1 | `poe1-facts.jsonl` | 91 (85 pos / 6 neg) | **DONE — UPGRADE-OWED** | 848c1b0 |
-| 3 | d3 | `d3-facts.jsonl` | 46 (42 pos / 4 neg) | **DONE — UPGRADE-OWED** | 8eea8ec |
-| 4 | d4 | `d4-facts.jsonl` | 45 (41 pos / 4 neg) | **DONE — UPGRADE-OWED** | fa4684b |
-| 5 | gd | `gd-facts.jsonl` | 41 (38 pos / 3 neg) | **DONE — UPGRADE-OWED** | def1fbc |
+| 1 | d2 | `d2-facts.jsonl` | 58 (51 pos / 7 neg) | **DONE (full schema)** | 7b64fbb |
+| 2 | poe1 | `poe1-facts.jsonl` | 91 (85 pos / 6 neg) | **DONE (full schema)** | 44a63e5 |
+| 3 | d3 | `d3-facts.jsonl` | 46 (42 pos / 4 neg) | **DONE (full schema)** | 130feb0 |
+| 4 | d4 | `d4-facts.jsonl` | 45 (41 pos / 4 neg) | **DONE (full schema)** | 955161e |
+| 5 | gd | `gd-facts.jsonl` | 41 (38 pos / 3 neg) | **DONE (full schema)** | 71b7be2 |
 | 6 | le | `le-facts.jsonl` | 35 (32 pos / 3 neg / 4 pc) | **DONE (full schema)** | 995a732 |
 | 7 | poe2 | `poe2-facts.jsonl` | 38 (34 pos / 4 neg / 7 post-cutoff) | **DONE (full schema)** | 998c6a8 |
 | 8 | di | `di-facts.jsonl` | 23 (20 pos / 0 neg / 3 post-cutoff) | **DONE (full schema)** | 1df4d50 |
@@ -69,11 +69,11 @@ mechanics_notes · era_confirmed · post_cutoff · rank1_upgrade · sources_used
 | 14 | vs | `vs-facts.jsonl` | 24 (22 pos / 2 neg / 1 post-cutoff vs-1.13-2025+) | **DONE (full schema)** | 2945325 |
 | 15 | hot | `hot-facts.jsonl` | 19 (18 pos / 1 neg / 2 post-cutoff hot-1.1-2026) | **DONE (full schema)** | 7384750 |
 
-**Unit B** (founding-roster lineage enrichment, 45 rows): PENDING — `roster-lineage-enrichment.jsonl`
+**Unit B** (founding-roster lineage enrichment, 45 rows): **DONE** — `roster-lineage-enrichment.jsonl` | commit 58d7e96
 
-**Unit C** (per-game meta verify, 19 rows): PENDING — `per-game-meta.jsonl`
+**Unit C** (per-game meta verify, 19 rows): **DONE** — `per-game-meta.jsonl` | commit cf26c37
 
-**Unit D** (mint dossiers re-expressed in Unit A schema): PENDING — `mint-dossiers-reexpressed.jsonl`
+**Unit D** (mint dossiers re-expressed in Unit A schema): **DONE** — `mint-dossiers-reexpressed.jsonl` | commit 5f4dbce
 
 ---
 
@@ -87,6 +87,69 @@ mechanics_notes · era_confirmed · post_cutoff · rank1_upgrade · sources_used
 
 ---
 
+---
+
+## Sweep answers (compiled 2026-07-12 from all 15 game files)
+
+### C2 — Support-existence verdict
+
+**VERDICT: NO solo-context pure-support kit exists in the 515-row corpus.**
+
+No kit has `control.centrality = core` in a way that denotes "pure support with no damage function." All 478 positive kits deliver damage as their primary vector. Control at centrality=rider exists in ~58 kits (kits where control is a meaningful secondary function, e.g., d2-singer stun, d2-bonemancer Bone Prison, poe1-bane curse application, d2-trapsin Lightning Sentry stun) but none are damage-free support kits. The corpus genre (solo-play ARPG) structurally excludes pure supports — there is no ally to support.
+
+Kits with control centrality=core in the data are those where the control mechanism IS the damage delivery (e.g., le-frost-wall-rm, poe2-acolyte-darkness, vs-infinite-corridor-crimson-shroud) — these are better described as control-via-damage kits, not support kits. The C2 question is answered definitively: the genre does not have this archetype.
+
+### G2 — Line-vs-projectile (beam/lane census)
+
+**True beams (delivery=beam): 14 kits**
+
+| Kit | Footprint | Note |
+|---|---|---|
+| poe1-incinerate | cone | Channeled flamethrower; ramp stages |
+| poe1-crackling-lance | lane | Branching lightning beam along lane |
+| poe1-divine-ire | lane | Charged-release focused beam |
+| d3-arachyr-firebats | cone | Witch Doctor flame beam |
+| gd-flames-of-ignaffar-purifier | cone | Channeled flame blast |
+| gd-drain-essence-spellbinder | chain-hop | Beam that chains |
+| gd-aar-spellbinder | point | Point-discharge beam (low spread) |
+| le-ghostflame-warlock | cone | Ghostflame channel cone |
+| di-ray-of-frost-wizard | lane | DI beam + lane freeze |
+| ud-flamethrower-channel | cone | Undecember flame channel |
+| vs-infinite-corridor-crimson-shroud | lane | Clock Lancet freeze beams |
+| vs-phieraggi | ring | Rotating laser fans |
+| hot-dragons-breath | cone | Halls of Torment flame cone |
+| hot-exterminator-burn | cone | Flamethrower class |
+
+**Key non-beams confirmed (poe1 Spark/Arc explicitly):**
+- `poe1-arc`: delivery=**projectile**, footprint=chain-hop — NOT a beam. Arc fires projectiles that chain; the "lightning arc" visuals are from the chain, not a sustained beam.
+- `poe1-spark`: delivery=**projectile**, footprint=multi-point — NOT a beam. Spark fires wandering scatter projectiles; no beam geometry.
+- `vs-heaven-sword`: delivery=projectile, footprint=lane — boomerang return arc; NOT a beam.
+- `vs-hellfire`: delivery=projectile, footprint=lane — screen-length piercing projectile; NOT a beam.
+
+**Lane footprint non-beam kits (projectile or self-origin with lane shape):** d2-firewall-sorc (line/lane), d4-pen-shot (projectile/lane), gd-forcewave-warlord (self-origin/lane), le-chthonic-fissure-warlock (line/lane), le-frost-wall-rm (at-target/lane), di-bone-wall-necro-pvp (at-target/lane), di-draw-quarter-crusader (self-origin/lane), tq-shield-charge-conqueror (self-origin/lane), vs-hellfire (projectile/lane), hot-phantom-needles (projectile/lane).
+
+### D1 — Shield-split
+
+**Primary defense layer breakdown across 478 positive kits:**
+
+| Primary layer | Count | Representative kits |
+|---|---|---|
+| armor | ~300 | Most T1 ARPG kits (default) |
+| resist | ~60 | poe1 resist-primary (many poe1 kits) |
+| energy-shield | 8 | poe1-bane, poe1-soulrend, poe2 ES builds (poe2-cof-comet, poe2-spark-stormweaver, poe2-demon-form, poe2-erasure-edc-lich, poe2-bonestorm, poe2-temporalis-blink) |
+| shield-absorb | 10 | d2-bonemancer (Bone Armor), poe2-grim-feast, di-corpse-explosion-necro, di-bone-wall-necro-pvp, di-minion-necro, di-warlock-launch, tq-liche-king-conjurer, chr-bloodbinder-warlock, chr-demon-legion-warlock, vs-infinite-corridor-crimson-shroud (damage cap) |
+| block | 8 | d2-hammerdin, d2-zealot, d2-charger, d2-smiter, di-crusader-banner, chr-thorns-templar, hades1-beowulf-cast, hot-shieldmaiden-block |
+| hp-stack | ~15 | Summoner builds, bear form |
+| sustain-leech | ~12 | d2-frenzy-barb, poe1-cyclone, poe1-life-tap-slayer |
+| glass | ~20 | Nova sorc, poe1 extreme glass cannons |
+| dodge | ~15 | Assassin variants, rogue builds |
+
+**Shield-absorb (true absorb buffer) vs ES (energy shield) vs ward:** shield-absorb = a discrete damage-absorb layer that regenerates (bone armor, damage cap, barrier). ES = mana-shield equivalent (poe1/poe2). No ward-specific archetype in corpus. The two are mechanically distinct: ES depletes and recharges via mechanics; shield-absorb is typically a hit-count absorb layer.
+
+---
+
 ## Continuation protocol
 
 Each game-file is self-contained JSONL. Sessions can pick up from the next PENDING game in the table. Update this index status column + commit column as each file lands.
+
+**Mega-probe COMPLETE as of 2026-07-12.** All 15 Unit A game files upgraded to full schema. Units B/C/D filed. Three sweep verdicts recorded.
