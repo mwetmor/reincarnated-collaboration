@@ -87,8 +87,8 @@ Operationalizes the already-RULED emission-selection order (PART F §F.5: pool �
 4. Convene **Wave-A ELICITOR grill** (Matt + gandalf) when Matt calls it → Wave-A engine spec → KR.
 5. **Ailment session** when Matt calls it.
 6. Post-S0+S1: **periodic-table harness spec** (PROMPT 5) → render agent (S3).
-7. **Legolas Mode A — Steam-mechanics verification** (§7.2: demo→mothership discovery coupling; multi-mode hub vs Valve demo policy; current AI-questionnaire text) — fires before any GTM decision load-bears on the Gemini research.
-8. **GTM fold:** mothership + satellite plan + naming law → `canonical/reap-die-rise-game/` (launch-scope home) when the game-spec pass opens.
+7. ~~Legolas Mode A — Steam-mechanics verification~~ **DONE same session** (Matt-fired; `f9dc5467`; verdicts folded into §7.2 — discovery-coupling REFUTED, prologue-deprecation tailwind CONFIRMED, Jan-2026 AI-form rewrite caught).
+8. **GTM fold:** mothership + satellite plan + naming law + verification verdicts → `canonical/reap-die-rise-game/` (launch-scope home) when the game-spec pass opens. Carries the market-stage gate: multi-mode-hub grey area (support ticket or phased rollout).
 9. Standing: E4 Gate-2 resolution → push; PoE1 3.29 re-harvest ~Jul 24; GX-12 hypothesis rides next element-design opening.
 
 ## §6 Operational notes carried forward
@@ -128,8 +128,12 @@ The research supports the standing mothership + satellite plan: single premium A
 
 - **AI-compliance shape confirmed by architecture:** pre-runtime LLM emission → static JSON, zero live client calls → "Pre-generated content" disclosure box; the doc's draft statement is usable after rewording "seasonal" → "periodic pre-runtime content updates" (retired-vocabulary law). Composes with the D7 AI-tell line.
 - **Lore bridge endorsed in shape:** mini-games framed in-fiction as memory re-enactments of harvested souls composes cleanly with the RDR death-faith frame and the "Keep What You Kill" hook. Specific naming ("Tactical Soul Simulations" etc.) = story-side call when the hub is specced.
-- **Verification owed (legolas Mode A, §5 item 7) before GTM decisions load-bear:** (a) the demo-review/volume → mothership discovery-index coupling is asserted, unsourced; (b) a multi-mode hub inside ONE demo app vs current Valve demo policy; (c) current Steamworks AI-questionnaire text. The visible mechanics (separate demo page, native wishlist overlay) match my training-era knowledge; the algorithmic-coupling claim is the one to ground.
-- **Fold targets:** GTM plan + naming law → `canonical/reap-die-rise-game/` (§5 item 8); naming law display contract → views README rulings log (done this session) + PROMPT 5 spec (S3).
+- **Verification RETURNED same session (legolas Mode A, Matt-fired: `legolas/findings/2026-07-13-steam-mothership-demo-mechanics-verification.md`, commit `f9dc5467`) — 5 CONFIRMED · 3 PARTIAL · 1 REFUTED:**
+  - **REFUTED (the load-bearing claim):** demo volume/reviews do NOT algorithmically elevate the mothership's discovery index; demo reviews stay on the demo page, never roll into the main score. The coupling was folklore. **The REAL levers (confirmed):** native wishlist/buy funnel on the demo page · one-shot event triggers (demo-launch wishlist email, notify-followers, New & Trending entry — spend deliberately, they don't repeat) · permanent pre/during/post-launch lifecycle · Next Fest = once per game EVER (pick the window strategically).
+  - **CONFIRMED (the strategic tailwind):** Valve deprecated separate prologue App IDs in favor of demos (Aug 2024, Valve verbatim) — the platform steers everyone toward exactly our satellite pattern. Demo store page/library/reviews confirmed; free bi-weekly build updates confirmed (no per-update review). **Correction: demos get NO community hub** (Valve verbatim) — veteran argument-traffic lands on the MOTHERSHIP's hub + external channels, which is where we want it anyway.
+  - **AI compliance (post-cutoff catch):** Steamworks form REWRITTEN Jan 16–17 2026 — AI-assisted CODE now explicitly out of scope (would have been in-scope 2024–25); pre-generated disclosure statement usable with the "seasonal"→"periodic" reword; **gap: AI-generated MARKETING/store-page assets also require disclosure — audit the full ship-to-Steam surface, not just the binary.**
+  - **Strategy reshape (gandalf read):** the plan SURVIVES — arguably strengthens on the prologue-deprecation tailwind — but its engine changes from "algorithmic transfer" to **funnel + one-shot events + the dev log as the recurring channel** (bi-weekly mode drops can't re-fire the notify email; cadence communication rides Steam news posts + the text-first dev-log strategy — which the naming law §7.1 serves). **Market-stage gate: multi-mode hub inside one demo = Valve-review grey area** (no prohibition, no precedent surfaced) — resolve via Steamworks support ticket or phased mode rollout before the hub ships.
+- **Fold targets:** GTM plan + naming law + verification verdicts → `canonical/reap-die-rise-game/` (§5 item 8); naming law display contract → views README rulings log (done this session) + PROMPT 5 spec (S3).
 
 ---
 
