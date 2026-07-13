@@ -5,10 +5,54 @@
 > (glance lives here, not in loadout/demo). Contract:
 > `agentic_orchestration/operating-procedures/glance-contract-spec-2026-07-03.md`.
 
-## Current version — v1.9 (nine pages)
+## Current version — v1.10 (nine pages; /atlas gains the RULED plane)
 
-Tag: `glance/v1.9-reference-trio-1`. Nine pages:
+Tag: `glance/v1.10-atlas-plane-1`. Nine pages unchanged:
 `/engine · /story · /game · /content-emission · /kits · /minigames · /coordinates · /atlas · /mechanics`.
+
+### v1.10 — RULED V1.2 Stratified Plane View on /atlas (PHASE 1) — LANDED 2026-07-13
+
+Surfaces the Q19-LOCKED plane (Matt ruled Q19 LOCKED 2026-07-13) as a DB-derived static
+asset on the `/atlas` (PROJECTION) page. ZERO new parse shapes — a render/layout addition.
+
+- **Asset staging (`glance/app/scripts/stage-assets.mjs`):** copies the committed
+  `agentic_orchestration/gandalf/views/v1-plane/plane_view_v1_2_stratified.svg` →
+  `public/atlas/plane_view_v1_2_stratified.svg` on every build, and emits
+  `public/atlas/plane-provenance.json` with a GIT-DERIVED `source_commit` (never hand-typed).
+  Single source of truth stays gandalf's committed render; an upstream re-render flows
+  through on the next push. KEPT SEPARATE from the parser — the parser's charter is
+  `canonical/**` truth-model only; asset provisioning is not truth-path.
+- **Build wiring:** `build` = `parse && stage-assets && tsc && vite build`;
+  `build:preview` mirrors it. New `stage-assets` npm script. `dev` NOT wired (run
+  `npm run stage-assets` once before `npm run dev` if the plane is needed in dev).
+- **App (`src/App.tsx`):** new `AtlasPlaneView` component, gated on
+  `reference.id === 'atlas'` (the connective PROJECTION page only). Renders the vector
+  SVG (`<img>`, `w-full min-w-[640px]` inside `overflow-x-auto` = phone-first horizontal
+  scroll, no clip) + an "open full-size ↗" link for pinch-zoom + a provenance stamp:
+  "RULED V1.2 · Q19 LOCKED 2026-07-13 · generator render_v1_2_stratified.py · source
+  commit <8-char sha linked to GitHub>". Fetches plane-provenance.json (falls back to
+  known constants if absent). Placed after the STATUS banner, before the quiet FLOW nav.
+- **CONTRACT-ADJACENT (§7.7 rule 7):** rule 7 says /atlas renders NO occupancy numbers —
+  because it forbids HAND-derived occupancy (dual-source-of-truth failure class). This
+  raster is DB-DERIVED (`render(corpus.db)`, same class as `chart = render(atlas.json)`),
+  so it honors the provenance law. No parse grammar touched → no jack-ryan §2 gate.
+  SURFACED to KR/gandalf/jack-ryan for awareness (drax made the render call per commission).
+- **Smoke:** `npm run build` GREEN (parse green, stage-assets ran, tsc + vite built).
+  Preview served root + `/atlas` (200 via SPA rewrite) + SVG (200 `image/svg+xml` 259859 B)
+  + provenance JSON (source_commit 62183c1a). Bundle carries AtlasPlaneView. No routing
+  config touched (vercel.json unchanged) → no re-smoke beyond preview.
+- **NOT deployed** — production Vercel deploy is Matt-gated (ADR-006). Awaiting Matt go.
+
+### PHASE 2 (interactive mouseover) — SPEC'd, GATED, NOT BUILT
+
+Per-dot interactive tooltips (customer/analyst-facing naming-law label on hover/tap).
+Requires the plane rendered from DATA, not a flat image. Spec + data contract:
+`agentic_orchestration/drax/notes/2026-07-13-atlas-plane-phase2-mouseover-spec.md`.
+GATES (both upstream, flagged to KR): (a) the plane render emitting a per-dot data JSON
+with `public_label` (gandalf owns the label-derivation rule); (b) elrond S1 `era_year` +
+`stabilization_patch` columns for full-precision labels. Phase 1 has NO gates.
+
+### v1.9 — kit-design reference TRIO (§7.7) — LANDED 2026-07-11
 
 ### v1.9 — kit-design reference TRIO (§7.7) — LANDED 2026-07-11
 

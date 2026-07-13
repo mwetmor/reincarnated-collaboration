@@ -49,6 +49,27 @@ push to canonical/**  →  GitHub Action  →  parser (parser/parse.mjs, determi
 - **UNRESOLVED** (dangling `gates-on:` token) → **warning badge** + global counter. Visible debt, not a broken build.
 - **ABSENCE** is never an error — a doc with no delta log, a table that isn't a queue: fine, rendered as prose.
 
+## v1.10 — the RULED plane on /atlas (Phase 1, CURRENT)
+
+`/atlas` now surfaces the **RULED V1.2 Stratified Plane View** (Q19 LOCKED 2026-07-13) — the
+realized projection: 3 movement rows × 7 delivery columns × amp-tempo strata.
+
+- **DB-derived static asset.** The plane is `chart = render(corpus.db)` (generator
+  `render_v1_2_stratified.py`), staged from gandalf's committed SVG by
+  `glance/app/scripts/stage-assets.mjs` into `public/atlas/` on every build, with a
+  git-derived provenance stamp (`plane-provenance.json`). Single source of truth stays the
+  committed render — an upstream re-render flows through on the next push. The staging step
+  is KEPT SEPARATE from the parser (the parser's charter is `canonical/**` truth-model only).
+- **`AtlasPlaneView`** (App.tsx), gated on the atlas reference: vector SVG scaled phone-first
+  (`overflow-x-auto`, horizontal scroll on narrow phones, "open full-size ↗" for pinch-zoom)
+  + provenance stamp linking the source commit to GitHub. ZERO new parse shapes.
+- **Reconciles with §7.7 rule 7:** rule 7 forbids HAND-derived occupancy (dual-source-of-truth
+  failure). This raster is DB-DERIVED, so it honors the provenance law — a render/layout call,
+  not a parse-contract change.
+- **Phase 2 (interactive per-dot naming-law tooltips)** is spec'd + GATED (per-dot data JSON
+  from the render + elrond S1 era_year/patch columns): see
+  `agentic_orchestration/drax/notes/2026-07-13-atlas-plane-phase2-mouseover-spec.md`.
+
 ## v1.9 — the kit-design reference TRIO (§7.7, CURRENT)
 
 Three pages added (NINE total): **`#/coordinates`** (the LATTICE — `substrate-coordinates.md`,

@@ -6,9 +6,10 @@
   "scripts": {
     "parse": "node ../parser/parse.mjs",
     "parse:report": "node ../parser/parse.mjs --report",
+    "stage-assets": "node scripts/stage-assets.mjs",
     "dev": "vite",
-    "build": "npm run parse && tsc -b && vite build",
-    "build:preview": "node ../parser/parse.mjs || true && tsc -b && vite build",
+    "build": "npm run parse && npm run stage-assets && tsc -b && vite build",
+    "build:preview": "node ../parser/parse.mjs || true && node scripts/stage-assets.mjs && tsc -b && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

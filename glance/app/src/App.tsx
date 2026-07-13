@@ -959,12 +959,132 @@ function ReferencePage({
         </a>
       )}
 
+      {/* RULED V1.2 Stratified Plane View (Q19 LOCKED 2026-07-13) — the REALIZED
+          projection, rendered as a DB-derived static asset. Contract v1.10 §7.7 render-
+          adjacent addition (see AtlasPlaneView). ONLY on /atlas (the connective PROJECTION
+          page); the LATTICE + CODEX layers have no realized plane. */}
+      {connective && <AtlasPlaneView ghBase={ghBase} />}
+
       {/* 2 + 3 — the QUIET-BY-DESIGN FLOW bar + per-stage `## §N` drill strip. */}
       <ReferenceFlowLead reference={reference} ghBase={ghBase} />
 
       {/* 4 — the verbatim `## §N` payload sections (rendered, NEVER parsed). */}
       <ReferenceSections reference={reference} ghBase={ghBase} />
     </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// AtlasPlaneView — the RULED V1.2 Stratified Plane View (Q19 LOCKED 2026-07-13).
+//
+// PROVENANCE-CLEAN DERIVED ARTIFACT. This is chart = render(corpus.db): the plane's
+// occupancy is DB-derived by render_v1_2_stratified.py, NOT hand-drawn. It is staged
+// as a static SVG by scripts/stage-assets.mjs (single source of truth = gandalf's
+// committed render; a re-render upstream flows through on the next push). The
+// provenance stamp (source commit + generator) is git-derived at stage time and read
+// from plane-provenance.json — never hand-typed.
+//
+// CONTRACT NOTE (v1.10 §7.7 render-adjacent addition): §7.7 rule 7 forbids HAND-derived
+// occupancy on /atlas (that would recreate the dual-source-of-truth failure the page
+// exists to prevent). This raster is DB-DERIVED (render(DB), same class as
+// chart = render(atlas.json)), so it honors the provenance law. It is a static
+// generated asset with a provenance stamp — a render/layout call. If a §2/§7.7 GRAMMAR
+// question arises, that routes to jack-ryan via KR; embedding a provenance-stamped
+// derived image does not touch the parse contract (zero new parse shapes).
+//
+// Phone-first: vector SVG scales to container width; a full-size link opens it
+// standalone for pinch-zoom on the dense 3×7 stratified grid.
+// ---------------------------------------------------------------------------
+type PlaneProvenance = {
+  asset: string; title: string; ruling: string; generator: string;
+  source_path: string; source_commit: string; derivation: string; staged_at: string;
+};
+
+function AtlasPlaneView({ ghBase }: { ghBase: string }) {
+  const [meta, setMeta] = useState<PlaneProvenance | null>(null);
+  const [missing, setMissing] = useState(false);
+  const base = import.meta.env.BASE_URL;
+  const svgUrl = `${base}atlas/plane_view_v1_2_stratified.svg`;
+
+  useEffect(() => {
+    fetch(`${base}atlas/plane-provenance.json`, { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((m: PlaneProvenance) => setMeta(m))
+      .catch(() => setMissing(true));
+  }, [base]);
+
+  // Fallback stamp values (known constants) if the provenance JSON is unavailable —
+  // the asset is still the committed derived render; only the git-derived hash is absent.
+  const m: PlaneProvenance = meta ?? {
+    asset: svgUrl,
+    title: 'RULED V1.2 Stratified Plane View',
+    ruling: 'Q19 LOCKED 2026-07-13',
+    generator: 'render_v1_2_stratified.py',
+    source_path: 'agentic_orchestration/gandalf/views/v1-plane/plane_view_v1_2_stratified.svg',
+    source_commit: '',
+    derivation: 'render(corpus.db)',
+    staged_at: '',
+  };
+  const shortSha = m.source_commit ? m.source_commit.slice(0, 8) : 'unknown';
+
+  return (
+    <section className="rounded-lg border-2 border-teal-700/60 bg-teal-950/20 p-3">
+      <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
+        <div className="flex items-baseline gap-2">
+          <span className="text-sm font-semibold text-teal-200">{m.title}</span>
+          <span className="rounded bg-teal-800/60 px-1.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide text-teal-200">
+            {m.ruling}
+          </span>
+        </div>
+        <a
+          href={svgUrl} target="_blank" rel="noreferrer"
+          className="text-xs text-sky-400 hover:text-sky-300">
+          open full-size ↗
+        </a>
+      </div>
+
+      <p className="mb-2 text-[0.7rem] leading-snug text-slate-400">
+        The REALIZED atlas — 3 movement rows × 7 delivery columns × amp-tempo strata.
+        <span className="ml-1 text-teal-300/90">
+          DB-derived occupancy (<span className="font-mono">{m.derivation}</span>), not
+          hand-drawn — honors the provenance law (§7.7 r7 forbids only hand-derived counts).
+        </span>
+      </p>
+
+      {/* the vector plane — scales to container width; horizontal scroll guard for
+          very narrow phones so nothing clips. */}
+      <div className="overflow-x-auto rounded border border-slate-800 bg-slate-950/40">
+        {missing ? (
+          <div className="p-6 text-center text-xs text-slate-500">
+            Plane asset not staged. Run <span className="font-mono">npm run stage-assets</span>{' '}
+            (fires automatically in <span className="font-mono">npm run build</span>).
+          </div>
+        ) : (
+          <img
+            src={svgUrl}
+            alt="RULED V1.2 Stratified Plane View — DB-derived occupancy atlas"
+            className="mx-auto block h-auto w-full min-w-[640px] max-w-full"
+            loading="lazy"
+          />
+        )}
+      </div>
+
+      {/* provenance stamp — the seeing-stone's answer: no true image without provenance. */}
+      <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.65rem] text-slate-500">
+        <span>RULED V1.2</span><span className="text-slate-700">·</span>
+        <span className="text-teal-400/80">{m.ruling}</span><span className="text-slate-700">·</span>
+        <span>generator <span className="font-mono text-slate-400">{m.generator}</span></span>
+        <span className="text-slate-700">·</span>
+        <span>source commit{' '}
+          <a
+            href={`${ghBase.replace(/\/blob\/[^/]+$/, '')}/commit/${m.source_commit}`}
+            target="_blank" rel="noreferrer"
+            className={m.source_commit ? 'font-mono text-sky-400 hover:text-sky-300' : 'font-mono text-slate-500'}>
+            {shortSha}
+          </a>
+        </span>
+      </div>
+    </section>
   );
 }
 
