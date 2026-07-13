@@ -4,7 +4,12 @@
 **Full design:** `gender-as-reincarnation-axis-2026-07-13.md` · **Race well:** `canonical/reap-die-rise-engine/bestiary-race-well-design-2026-07-09.md`
 **Ratified (Matt 2026-07-13):** design approved; roll = uniform binary 50/50 within the gendered branch (v1); **Orc route (a)** — resolve female-orc reskin, all 5 races roll M/F.
 
-KR: cover-sheet. One primary build target (rocket) + one parallel presentation dependency (drax). No escalations — the race reconciliation that gated this is CLOSED (well is the 5 ratified vessel races; only Orc art-gap, ruled route a).
+KR: cover-sheet. One primary build target (rocket) + one parallel presentation dependency (drax).
+
+## ⚠ UPSTREAM DEPENDENCY — do NOT dispatch standalone (reconciliation 2026-07-13)
+Race reconciliation confirmed the ratified well = exactly 5 (Human/Orc/Elf/Dwarf/Goblin), budget-verified. **BUT the pipeline does not emit race as a per-form coordinate yet** — race is schema-only scaffold (Discipline #40); `mob-affix-system-spec §10.1`: *"mob/kit records carry no race field"*; the well is a build target for **E10 Leg 3**, not yet consumed. Only culture-seeds (§4) are wired (LLM morphology steering), not a discrete emitted race field.
+
+**Consequence:** the gender roll is race-conditional → it has a HARD dependency on race emission. It cannot condition on a race coordinate that isn't on the record. **Bundle gender-axis WITH, or sequence it immediately AFTER, the E10 Leg 3 race-well emission build.** Both are per-form emission fields consuming the same closed well; gender rides in the moment race becomes an emitted coordinate. Do NOT fire gender-axis before race emission exists.
 
 ---
 
@@ -26,8 +31,9 @@ Add **gender** as a per-form generation-emission attribute on becomable vessel f
 Decorrelation audit (Discipline #11): after a generation batch, one query verifying gender distribution is ~uniform across archetype / delivery / element buckets. A per-bucket skew = the LLM smuggling correlation back via flavor → harden the prompt constraint. Run once post-integration, periodically after.
 
 ## Sequencing (the call)
-- **rocket build is independent and ships the feature** (roll + injection + persistence + inertness). Fire now.
-- **drax female-orc reskin runs in parallel** — the roll assigns orc-female regardless; the asset just needs to exist before orc-female forms render. Not a rocket blocker.
+- **GATE: race emission (E10 Leg 3 race-well build) must land first** — see the upstream-dependency box above. Gender-axis is NOT independent; it conditions on the emitted race field.
+- **rocket gender build** (roll + injection + persistence + inertness) bundles with or follows the race-emission build. It ships the feature once race is an emitted coordinate.
+- **drax female-orc reskin runs in parallel** — independent of the emission gate; the asset just needs to exist before orc-female forms render.
 - **audit hook lands after** the first batch generates with gender.
 
 ## Guardrails to carry into the dispatch (non-negotiable)
