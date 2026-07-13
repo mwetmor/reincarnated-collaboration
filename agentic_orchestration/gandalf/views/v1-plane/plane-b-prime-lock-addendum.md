@@ -1,11 +1,11 @@
 # Plane B′ — Lock Addendum for Q19 Ruling
 
 **STATUS:** CURRENT — decision instrument
-**Date:** 2026-07-13
-**Author:** gandalf (sub-agent, drafting against gandalf-prime's delta-read verdict)
-**Status:** DRAFT — awaits Matt's Q19 ruling
+**Date:** 2026-07-13 (V1.1 draft) · 2026-07-13 (V1.2 §10 added post-ruling)
+**Author:** gandalf (sub-agent, drafting against gandalf-prime's delta-read verdict; V1.2 §10 by gandalf sub-agent)
+**Status:** RULED — Matt ruled 2026-07-13; §10 captures the rulings (rows = movement; strata = amp per-cell; cone Path 2 applied)
 **Authority:** gandalf owns the surface; Matt rules the lock
-**Companion:** `plane_view_v1_1_bprime.png` / `.svg` (single 3×7 render) · `README.md` (V1 context) · `rollup-tables.md` (Table 2 mock mapping) · `delta-findings.md` (A vs B disagreements #1–#5) · `occupancy-stats.md` (V1 baselines)
+**Companion:** `plane_view_v1_2_stratified.png` / `.svg` (RULED render) · `plane_view_v1_1_bprime.png` / `.svg` (pre-ruling B′ render) · `occupancy-stats-v1-2.md` (RULED stats) · `README.md` (V1 context) · `rollup-tables.md` (Table 2 mock mapping) · `delta-findings.md` (A vs B disagreements #1–#5) · `occupancy-stats.md` (V1 baselines)
 
 ---
 
@@ -219,3 +219,29 @@ Row totals: SNAP=413, WIND-UP=16, CHANNEL=33. Column totals: PROJECTILE=118, ORB
 
 Second-largest cell is `SNAP × ZONE = 105` — driven by the deterministic `ground_targeted_circle → ZONE` rule pulling in 94 kits. This is a real cluster in the corpus (the entire "I place damage on the ground" archetype family), and merits Matt's attention as a possible plane-lock sub-question: is a 105-kit ZONE cell acceptable, or does it warrant a further sub-facet (e.g., "placed burst" vs "placed persistent field")? Under Path 2 in §3.3, cone-beam and cone-projectile reassignment reduces ZONE by 11 to 94, which does not materially change the cluster size.
 
+---
+
+## 10. V1.2 — RULED plane (2026-07-13)
+
+**Rulings recorded** (Matt, 2026-07-13):
+
+1. **Rows changed** from commitment (SNAP/WIND-UP/CHANNEL, sourced from `commit_val`) to **movement-while-casting** (FREE-MOVE/WALK/ROOTED, sourced from `canon_engine_key.mob_policy_while_casting`; values full-move/walk/rooted map 1:1; unknown → UNMAPPED strip).
+2. **Within-cell stratification adopted:** every one of the 21 cells is internally split into three horizontal strata by `canon_corpus.amp_val`, FIXED order top→bottom: **FLAT / SPIKY / VAR**. Empty strata stay visible (design-frontier signal). Chart-wide horizontal alignment preserved so bands scan across the whole plane.
+3. **Cone Path 2 applied** (from §3.3): geometry=`cone` splits by `canon_probe_facts.delivery.value` — 5 cone-beam kits → BEAM, 6 cone-projectile kits → PROJECTILE. Derived from the DB, not hardcoded; V1.2 render verifies the derivation matches the ruled 5/6 lists exactly at load time.
+4. **UNMAPPED-9 rows re-derived:** V1.1 hardcoded all 9 kits to SNAP; V1.2 derives each row from actual movement. The 9 kits now spread FREE-MOVE 3 / WALK 2 / ROOTED 4 — a meaningful spread the commit axis flattened. Columns unchanged per addendum §4.
+5. **Amp-NULL kit preserved as unkeyed sliver:** `d2-wl-void-rift` (the 1 combat kit with amp=NULL) renders as a thin pink diamond sliver at the bottom of its cell (WALK × ZONE), not silently dropped or bent into an amp bin.
+
+**Headline stats** (see `occupancy-stats-v1-2.md` for full detail):
+
+| Grain | Occupied | Empty | Max | HHI |
+|---|---|---|---|---|
+| Cell (21) | 20 | 1 (`WALK × BEAM`) | 65 (FREE-MOVE × PROJECTILE) | 0.081 |
+| Bucket (63) | 50 | 13 (12 are VAR-band) | 53 (FREE-MOVE × PROJECTILE × FLAT) | 0.046 |
+
+Vs V1.1: max-cell down 40% (109 → 65), HHI down 48% (0.157 → 0.081), occupied-cell density up (18/21 → 20/21). The movement axis dissolves the dominant SNAP row (413 kits → three rows of 268 / 108 / 80). The 12-of-13 empty VAR-band buckets reveal a corpus-wide amplitude-variance scarcity (34 VAR kits total).
+
+**Corpus reconciliation:** grid holds 456 kits (= 463 − 6 movement-unknown poe2 kits − 1 pure-mobility residual). Every kit accounted for.
+
+**Renders:** `plane_view_v1_2_stratified.png` / `.svg`. Generator: `render_v1_2_stratified.py`.
+
+---
