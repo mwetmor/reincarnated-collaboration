@@ -37,6 +37,8 @@ God's Archive" devlog dress). Skins are theme parameters over one layout engine 
 
 ## §2 — THE PLANE (the lock case)
 
+> **⚠ AMENDED 2026-07-13 — Q19 LOCKED. The plane below (§2.1–§2.x: commitment × geometry, 15 cells) is SUPERSEDED as the ATLAS plane.** Matt ruled Q19 locked ("I rule Q19 as locked"): the atlas plane is now **3 movement rows (FREE-MOVE/WALK/ROOTED, from `mob_policy_while_casting`) × 7 delivery columns (PROJECTILE/ORBITAL/NOVA/ZONE/BEAM/MELEE/SUMMON) × amp-tempo strata (FLAT/SPIKY/VAR)** — see `views/v1-plane/plane-b-prime-lock-addendum.md` §10 (RULED render V1.2) for the authoritative rule + assignment logic (incl. cone Path 2, RING→ORBITAL merge). **Movement × delivery × amp SUPERSEDES commitment × dispersion for the atlas plane.** The commitment and dispersion/geometry axes are NOT demoted — they remain MEASURED substrate archive axes (design-active in GX-19/GX-20), just no longer the atlas browse plane. The §0/§1/§3–§5 provenance laws (chart = render(atlas.json); two skins, one renderer; badges = per-version payload; layout ≠ content) are UNCHANGED and carry forward to the locked plane. The PROMPT-5 harness (arc S3) builds against the locked plane; the §2.1–§2.x prose below is retained as lock-case lineage only.
+
 ### 2.1 The frame: 15 cells, both axes already governance-locked
 
 **Rows (3) = `bc_commitment` · Columns (5) = damage geometry (Axis 2).** Arities are not this

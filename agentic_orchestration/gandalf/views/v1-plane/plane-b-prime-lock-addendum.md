@@ -1,9 +1,9 @@
 # Plane B′ — Lock Addendum for Q19 Ruling
 
-**STATUS:** CURRENT — decision instrument
-**Date:** 2026-07-13 (V1.1 draft) · 2026-07-13 (V1.2 §10 added post-ruling)
+**STATUS:** ✅ LOCKED — Matt ruled Q19 LOCKED 2026-07-13 ("I rule Q19 as locked"). The RULE is now permanent canon: **3 movement rows (FREE-MOVE/WALK/ROOTED) × 7 delivery columns × amp-tempo strata (FLAT/SPIKY/VAR)**, cell addresses = permanent kit identity. Locked = the RULE (axes + assignment rules + stratum order), NOT the raster (dots/badges stay per-version payload). Unblocks the PROMPT 5 periodic-table harness (arc S3).
+**Date:** 2026-07-13 (V1.1 draft) · 2026-07-13 (V1.2 §10 added post-ruling) · 2026-07-13 (LOCKED)
 **Author:** gandalf (sub-agent, drafting against gandalf-prime's delta-read verdict; V1.2 §10 by gandalf sub-agent)
-**Status:** RULED — Matt ruled 2026-07-13; §10 captures the rulings (rows = movement; strata = amp per-cell; cone Path 2 applied)
+**Status:** LOCKED — Matt ruled the plane RULE permanent 2026-07-13; §10 captures the rulings (rows = movement; strata = amp per-cell; cone Path 2 applied)
 **Authority:** gandalf owns the surface; Matt rules the lock
 **Companion:** `plane_view_v1_2_stratified.png` / `.svg` (RULED render) · `plane_view_v1_1_bprime.png` / `.svg` (pre-ruling B′ render) · `occupancy-stats-v1-2.md` (RULED stats) · `README.md` (V1 context) · `rollup-tables.md` (Table 2 mock mapping) · `delta-findings.md` (A vs B disagreements #1–#5) · `occupancy-stats.md` (V1 baselines)
 

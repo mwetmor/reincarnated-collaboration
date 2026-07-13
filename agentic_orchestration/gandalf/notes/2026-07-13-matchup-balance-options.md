@@ -4,6 +4,8 @@
 >
 > **Discipline:** recognition + options NOW; architectural commitments DEFERRED until the empirical gate (§8 pilot matrix on the founding roster) resolves. Nothing here amends canon yet.
 > **Author:** gandalf, 2026-07-13. Companion: wind-down doc §3/§5 (pointers added same session).
+>
+> **⟶ ARC POSITION RULED 2026-07-13 (Matt): this balance work is a MAINLINE stage — arc S6 — falling JUST BEFORE full JSON emission (S7), NOT a post-emission parallel track.** Matt verbatim: *"we do also need to include a step to balance kit vs kit fight selection/mini-game lanes/etc… it should fall just before full JSON emission."* Rationale (concurred): kit surgery (Option 6 / L6) re-fires certification, so it must complete before final flavored JSONs exist. The representativeness gate (§8) therefore opens **post-S5 migration** (once the sim-runnable population is representative), not "during S6 emission" as earlier drafted — see §8. S-references below updated: emission = S7, selection = S8.
 
 ---
 
@@ -48,7 +50,7 @@ Two balance contexts, one shared substrate:
 *Verdict: ADOPT as the measurement layer.* Options 2+3 compose: 2 pre-registers, 3 validates; the surviving faces are the legible compression of the measured matrix.
 
 **OPTION 4 — Population/ecosystem curation.** Balance the SELECTION, not the kits: given the matrix, choose demo/mini-game populations whose matchup graph is healthy (KPIs §5). This is Matt's own framing ("all have decent representation across the final group I select") and the Fairy-type lesson operationalized.
-*Verdict: ADOPT as the primary balance operation.* No kit surgery; per-mini-game populations; composes with S7 curation — the selection surface gains a live ecosystem-health read.
+*Verdict: ADOPT as the primary balance operation.* No kit surgery; per-mini-game populations; composes with S8 curation — the selection surface gains a live ecosystem-health read.
 
 **OPTION 5 — Wrapper-layer knobs.** Pricing (HLW send-economy, auto-chess cost), tiers/leagues (Smogon-style, usage- or strength-derived), draft/ban, mirror-symmetric formats.
 *Verdict: ADOPT as the secondary operation.* Converts residual imbalance into strategy; preserves the power chase.
@@ -62,7 +64,7 @@ Two balance contexts, one shared substrate:
 - **L1 (new measurement — gamora seam):** duel harness extending the spatial gauntlet. **A 3-context battery**, because AoE/summon value flips wildly between contexts: **(i) open arena 1v1** · **(ii) lane army-vs-army** (HLW physics) · **(iii) wave-throughput** (TD/horde physics). Output → matchup matrices per context → telemetry (star-lord).
 - **L2 (faces — gandalf spec, math hotspot):** cluster matchup rows per context; test pre-registered interaction hypotheses (§6); derive ~5-8 faces (legibility prior; the count is the data's call, 6 if the data says 6). Validity test: intra-face matchup-profile coherence (a face label must PREDICT a matchup row). Freeze face taxonomy Edition-I style once retrodiction holds.
 - **L3 (operations, preference order):** population curation → wrapper pricing/tiers/draft → kit surgery last.
-- **L4 (the dashboard — Matt's S7 surface):** ecosystem-health KPI panel live over any candidate selection: pick kits on the periodic table, watch the health vector update.
+- **L4 (the dashboard — Matt's S8 selection surface, lit from the S6 matrices):** ecosystem-health KPI panel live over any candidate selection: pick kits on the periodic table, watch the health vector update.
 - **Bridge hypothesis (registered, not assumed):** V8 behavior-space position predicts matchup profile. If validated on measured kits, corpus ghosts get **projected matchup estimates** via nearest measured anchors (watermarked PROJECTED per measured-vs-projected law) — matchup foresight even before a kit is emitted.
 
 ## §5 The derived KPI catalog (Matt's ask)
@@ -106,12 +108,12 @@ This is a design-direction recognition, registered here; it needs no ruling to p
 
 ## §8 Staged plan + the empirical gate
 
-1. **PILOT (fires when Matt says go — no dependency on Q19/S6):** gamora extends the gauntlet with arena-1v1 duel mode; run the founding-roster matrix (~45×45, sampled, 100x speed — small). Output: first real matchup matrices + noise profile.
+1. **PILOT (fires when Matt says go — no dependency on Q19-lock or emission):** gamora extends the gauntlet with arena-1v1 duel mode; run the founding-roster matrix (~45×45, sampled, 100x speed — small). Output: first real matchup matrices + noise profile. *(Pilot is L1-harness build + noise-profile only — NOT face-freeze input; faces wait for the representative-population gate.)*
 2. **Methodology consultation (Discipline #18, extension-hotspot timing):** AFTER pilot empirics land, legolas Mode A on the formal toolkit — Nash averaging / α-Rank (DeepMind agent-population evaluation), replicator dynamics for game balance, tournament-graph statistics — chosen against the observed signal-to-noise, not in the dark.
 3. **Face derivation + hypothesis adjudication (§6 table confirmed/refuted) → face taxonomy freeze** (Edition-I discipline).
 4. **Lane + wave contexts** added to the battery (mini-game physics).
-5. **L4 dashboard** joins the S7 selection surface; per-mini-game population curation + wrapper pricing derive from it.
-6. **Corpus kits enter the matrix as they emit** (S6) — matchups measured on arrival; projected-estimate bridge (§4) validated or discarded.
+5. **L4 dashboard** joins the S8 selection surface; per-mini-game population curation + wrapper pricing derive from it.
+6. **Kits enter the matrix as they become sim-runnable** (S5 migration output / mechanical kit-configs) — matchups measured, faces derived, balance operations applied ALL BEFORE S7 final emission; projected-estimate bridge (§4) validated or discarded. *(Open seam: whether "sim-runnable" needs a mechanical pre-emission distinct from the full flavored emission is a gamora/rocket call — flagged in wind-down §3 S6.)*
 
 **Forks for Matt (decision-shaped, one-word-vetoable):**
 - **F-1 Face source:** derived-and-validated (Options 2+3, my lean) vs declared element chart (Option 1, rejected-with-reasons) — confirm the lean or challenge.
@@ -123,13 +125,13 @@ This is a design-direction recognition, registered here; it needs no ruling to p
 **⟶ RULED (Matt 2026-07-13, wind-down): FINAL face count/structure derivation is GATED on a representative population.** Matt verbatim: *"I suspect we won't have a representative sampling across all necessary groups to derive final face count/structure, so please log this as a to-do once we gain a representative population."* Effects:
 
 - **F-4/F-5 resolve to DEFERRED-TO-CRITERION.** The L2 face derivation + Edition-I freeze fires only when the MEASURED (emitted, sim-runnable) population is representative across the plane's occupied structure. Matt's suspicion is statistically correct: the 45-kit founding roster is known-biased (caster/summoner/aura tilt accepted at pause-2; engine-native clustering) — deriving the face taxonomy from it would be **pre-imposed taxonomy wearing empirical clothes**, the exact failure the substrate-led discipline exists to catch.
-- **Draft operational gate-test (vetoable, refine at gate-time):** measured population covers all 7 delivery columns × all 3 movement rows, with every §6 face-hypothesis group populated at small-n or better. Gate expected to OPEN during S6 as emission waves land (corpus kits become measurable on arrival).
+- **Draft operational gate-test (vetoable, refine at gate-time):** measured population covers all 7 delivery columns × all 3 movement rows, with every §6 face-hypothesis group populated at small-n or better. **Gate opens post-S5 migration** (once the sim-runnable population is representative), feeding mainline **S6 — before S7 emission** (Matt's relocation, 2026-07-13). Earlier drafts said "during S6 emission"; that was written before the balance stage was promoted ahead of emission.
 - **The duel HARNESS (L1) remains unblocked engineering** — needed regardless of face timing; KR sequences it whenever gamora seam capacity opens. Any pre-gate matrices are methodology/noise-profile data ONLY — never face-freeze input.
 - **§6 hypotheses stay pre-registered, untested** — that's their designed state; they wait for the gate.
 - **The Disc-#18 methodology consultation rides the gate too** — fires after the first representative matrices, per extension-hotspot timing.
 - F-1/F-2/F-3 remain open leans, consumed when the gate opens (no urgency — nothing downstream blocks on them before then).
 
-**THE TO-DO (logged per Matt directive):** *When the measured population passes the representativeness gate → run the context-battery matrices → derive face count/structure by clustering → adjudicate §6 hypotheses → freeze face taxonomy Edition-I → light L4 dashboard on the S7 selection surface.* Carried in: wind-down doc §3 S-M track + §5 queue; serial tracker CONTINUATION 22.
+**THE TO-DO (logged per Matt directive):** *When the measured population passes the representativeness gate → run the context-battery matrices → derive face count/structure by clustering → adjudicate §6 hypotheses → freeze face taxonomy Edition-I → apply L3 balance operations (curation → wrapper → surgery-last) BEFORE S7 emission → light L4 dashboard on the S8 selection surface.* Carried in: wind-down doc §3 mainline S6 + S-M track + §5 queue; serial tracker CONTINUATION 22.
 
 ---
 
