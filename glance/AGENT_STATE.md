@@ -93,10 +93,10 @@ read galadriel verified for v2), NOT invented coordinates.
   now on-screen (title complete), right dot on-screen after horizontal scroll, desktop
   mid-plane still centered (0px shift). The earlier right "dead-zone" = cursor at the viewport
   boundary (plane is wider than 375px and scrolls), NOT a code bug.
-- **Preview (Matt-gated for prod, ADR-006):** latest fixed build —
-  `https://reincarnated-glance-frfn98i8m-matthew-wetmore-s-projects.vercel.app/#/atlas`
-  (positions + root both 200). Commits: `d815fd0b` (v3 per-dot) + `7edfd5f3` (clamp refix).
-- **NOT promoted to prod** — awaiting Matt go.
+- **DEPLOYED TO PRODUCTION 2026-07-13** (Matt authorized per ADR-006): live at
+  `https://reincarnated-glance.vercel.app/#/atlas` (canonical alias root + positions both
+  200; deployment `reincarnated-glance-2bic3csus`). Commits: `d815fd0b` (v3 per-dot) +
+  `7edfd5f3` (clamp refix). No routing/vercel.json change (no re-smoke beyond preview needed).
 
 ### PHASE 2 v2 (per-cell hover/tap POPOVER) — BUILT + galadriel-verified 2026-07-13
 
