@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import {
   type State, type Tracker, type TrackerId, type StatusToken, type QueueRow,
   type Queue, type Flow, type FlowStage, type Pipeline, type PageId,
@@ -1078,30 +1078,31 @@ function AtlasPlaneView({ ghBase }: { ghBase: string }) {
 }
 
 // ---------------------------------------------------------------------------
-// AtlasInteractivePlane — the Phase-2 mouseover, done honestly.
+// AtlasInteractivePlane — the Phase-2 mouseover, done honestly (v3: ONE kit per dot).
 //
-// The per-dot JSON (plane_dots_v1_2.json, schema atlas-plane-dots/v1.2) is CELL-addressed,
-// not pixel-addressed: each record carries cell {movement, delivery, amp} + both naming
-// registers (display_name, public_label) but NO x/y. Within a cell the dots are jittered
-// (anonymous), so we anchor hover/tap to the CELL, not to individual pixels.
+// Matt's ask: "show one kit at a time, depending on which dot you hover over." That needs
+// each on-screen dot bound to a specific kit. The per-dot JSON (plane_dots_v1_2.json) is
+// CELL-addressed only (jitter is PCG64 — not JS-reproducible), so it carries no x/y. But
+// the committed render SVG carries every dot's EXACT pixel position in its <use> elements,
+// and the render scatters each cell+stratum group in kit order. So stage-assets.mjs reads
+// the render's OWN dot coordinates back and binds each dot to its kit (glyph→kind,
+// centroid-y→stratum, per-group COUNT reconciliation as a fail-loud self-check), emitting
+// plane_dot_positions.json. This is the SAME faithful "read the render's own geometry"
+// method used for the cell grid — NOT invented coordinates.
 //
-// The cell rectangles are read DIRECTLY from the committed render's own cell-background
-// paths (the matplotlib SVG draws each of the 21 movement×delivery cells as a rounded rect
-// with fill #0f1218). Col-0 left x = 110.542, row-0 (FREE-MOVE) top y = 169.239, pitch
-// 103.68, box 99.533 — the render's actual pixel corners. We overlay a transparent SVG
-// (same viewBox as the render) so hotspots scale pixel-perfect with the responsive image.
-// This is NOT invented geometry — it is the render's own grid, read back. (Verified via
-// galadriel visual alignment pass 2026-07-13.)
+// Hover model: nearest positioned dot to the cursor (within a small radius) → single-kit
+// popover. Empty space / margins → nothing. The amp-null sliver draws ONE diamond per cell
+// aggregating its unkeyed kits (render limitation), so dots sharing a marker surface
+// together — honest to what the render actually shows.
 //
-// Honesty (per data contract 2026-07-13): occupancy counts derived live; roster +
-// movement-unknown kits live in the render's UNMAPPED strip (a text region), surfaced via
-// a strip hotspot — their names are final, only movement POSITION is S7-pending
-// (cell_confident:false → "position provisional"); negative_canon:true → muted
-// "historical exhibit" popover.
+// The UNMAPPED strip (roster + movement-unknown kits) is a TEXT region in the render, not
+// plotted per-dot, so it keeps a cell-level list popover (from plane_dots_v1_2.json). Names
+// final; movement POSITION S7-pending (cell_confident:false → "position provisional").
+// negative_canon:true → muted "historical exhibit".
 // ---------------------------------------------------------------------------
 type PlaneDot = {
   dot_id: string;
-  source: 'corpus' | 'roster';
+  source: 'corpus' | 'mint' | 'roster';
   display_name: string;
   cell: { movement: string | null; delivery: string | null; amp: string | null };
   cell_confident: boolean;
@@ -1115,6 +1116,15 @@ type PlaneDot = {
   negative_canon: boolean;
 };
 type PlaneDotsDoc = { schema: string; provenance: string; count: number; dots: PlaneDot[] };
+// Per-dot POSITIONS (grid only) — the render's own <use> pixel coords bound to kits by
+// stage-assets.mjs. schema atlas-plane-dot-positions/v1.
+type DotPosition = PlaneDot & { px: number; py: number; shared_marker: boolean };
+type PlanePositionsDoc = {
+  schema: string;
+  viewBox: { w: number; h: number };
+  count: number;
+  dots: DotPosition[];
+};
 
 // TWO-REGISTER SPLIT. The popover TITLE reads ONE configurable field. This internal team
 // preview shows the exact build name (display_name). A future player-facing publish flips
@@ -1140,12 +1150,8 @@ const MOVEMENT_WORD: Record<string, string> = {
 // ci 0=PROJECTILE (left) increases rightward. These are the render's actual pixel corners,
 // not a reconstructed affine — so the overlay lands exactly on the drawn cells.
 const PLANE_VB = { w: 873.423631, h: 705.037812 };
-const CELL_X0 = 110.541763, CELL_Y0 = 169.239412, CELL_PITCH = 103.68, CELL_BOX = 99.5328;
+const CELL_X0 = 110.541763, CELL_Y0 = 169.239412, CELL_PITCH = 103.68;
 
-// Cell (ri,ci) → its viewBox px rect (the drawn cell box).
-function cellRectPx(ri: number, ci: number) {
-  return { x: CELL_X0 + ci * CELL_PITCH, y: CELL_Y0 + ri * CELL_PITCH, w: CELL_BOX, h: CELL_BOX };
-}
 // The UNMAPPED strip: the text band below the 3-row grid (roster + movement-unknown kits
 // are listed by name there, not plotted in cells). One hotspot covering that region.
 const STRIP_RECT = {
@@ -1155,36 +1161,55 @@ const STRIP_RECT = {
   h: PLANE_VB.h - (CELL_Y0 + 3 * CELL_PITCH) - 12, // down to near the viewBox bottom
 };
 
-type PlaneSel = { ri: number; ci: number } | 'UNMAPPED' | null;
-const selKey = (s: Exclude<PlaneSel, null>) => (s === 'UNMAPPED' ? 'UNMAPPED' : `${s.ri}|${s.ci}`);
+// Nearest-dot hit radius (viewBox units). Generous enough that dense clusters always
+// resolve to a dot, small enough that margins/axis labels select nothing.
+const DOT_HIT_R2 = 20 * 20;
+
+type ScreenPoint = { px: number; py: number; dots: DotPosition[] };
+// hover = a resolved grid point (1+ kits sharing a marker); 'UNMAPPED' = strip; null = none.
+type PlaneHover = ScreenPoint | 'UNMAPPED' | null;
 
 function AtlasInteractivePlane({ svgUrl, missing }: { svgUrl: string; missing: boolean }) {
-  const [doc, setDoc] = useState<PlaneDotsDoc | null>(null);
-  const [dotsMissing, setDotsMissing] = useState(false);
-  const [sel, setSel] = useState<PlaneSel>(null);
+  const [posDoc, setPosDoc] = useState<PlanePositionsDoc | null>(null);
+  const [dotsDoc, setDotsDoc] = useState<PlaneDotsDoc | null>(null);
+  const [posMissing, setPosMissing] = useState(false);
+  const [hover, setHover] = useState<PlaneHover>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
   const base = import.meta.env.BASE_URL;
 
   useEffect(() => {
+    // Primary source for per-dot hover: the bound positions (grid dots).
+    fetch(`${base}atlas/plane_dot_positions.json`, { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((d: PlanePositionsDoc) => setPosDoc(d))
+      .catch(() => setPosMissing(true));
+    // Full per-dot records: only needed for the UNMAPPED strip list (not plotted per-dot).
     fetch(`${base}atlas/plane_dots_v1_2.json`, { cache: 'no-store' })
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-      .then((d: PlaneDotsDoc) => setDoc(d))
-      .catch(() => setDotsMissing(true));
+      .then((d: PlaneDotsDoc) => setDotsDoc(d))
+      .catch(() => undefined);
   }, [base]);
 
-  // Bucket dots by cell. movement∈ROWS && delivery∈COLS → grid cell; else → UNMAPPED strip.
-  const byCell = useMemo(() => {
-    const m = new Map<string, PlaneDot[]>();
-    if (!doc) return m;
-    for (const dot of doc.dots) {
-      const ri = PLANE_ROWS.indexOf(dot.cell.movement as (typeof PLANE_ROWS)[number]);
-      const ci = PLANE_COLS.indexOf(dot.cell.delivery as (typeof PLANE_COLS)[number]);
-      const k = ri >= 0 && ci >= 0 ? `${ri}|${ci}` : 'UNMAPPED';
+  // Group grid dots by exact screen point (shared diamonds collapse to one point).
+  const points = useMemo<ScreenPoint[]>(() => {
+    const m = new Map<string, DotPosition[]>();
+    for (const d of posDoc?.dots ?? []) {
+      const k = `${d.px.toFixed(2)},${d.py.toFixed(2)}`;
       const arr = m.get(k);
-      if (arr) arr.push(dot);
-      else m.set(k, [dot]);
+      if (arr) arr.push(d);
+      else m.set(k, [d]);
     }
-    return m;
-  }, [doc]);
+    return [...m.values()].map((dots) => ({ px: dots[0].px, py: dots[0].py, dots }));
+  }, [posDoc]);
+
+  // The UNMAPPED strip kits (movement or delivery axis unmapped) — from the full records.
+  const stripDots = useMemo<PlaneDot[]>(() => {
+    return (dotsDoc?.dots ?? []).filter((d) => {
+      const ri = PLANE_ROWS.indexOf(d.cell.movement as (typeof PLANE_ROWS)[number]);
+      const ci = PLANE_COLS.indexOf(d.cell.delivery as (typeof PLANE_COLS)[number]);
+      return !(ri >= 0 && ci >= 0);
+    });
+  }, [dotsDoc]);
 
   if (missing) {
     return (
@@ -1197,17 +1222,48 @@ function AtlasInteractivePlane({ svgUrl, missing }: { svgUrl: string; missing: b
     );
   }
 
-  const selDots = sel ? byCell.get(selKey(sel)) ?? [] : [];
-  const interactive = !!doc && !dotsMissing;
+  const interactive = points.length > 0;
+  const gridTop = CELL_Y0 - 8;
+  const gridBottom = CELL_Y0 + 3 * CELL_PITCH + 2;
 
-  // Popover anchor (% of viewBox) — cell/strip center, floated above.
+  // Map a pointer event → viewBox coords → nearest grid dot (within radius). Aspect ratios
+  // of the img and overlay match (same viewBox), so the mapping is a plain linear scale.
+  function resolvePointer(clientX: number, clientY: number) {
+    const svg = svgRef.current;
+    if (!svg || !points.length) return;
+    const rect = svg.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    const vbX = ((clientX - rect.left) / rect.width) * PLANE_VB.w;
+    const vbY = ((clientY - rect.top) / rect.height) * PLANE_VB.h;
+    // Below the grid → the strip owns it (kept as a list; not plotted per-dot).
+    if (vbY > gridBottom) {
+      setHover(vbY < STRIP_RECT.y + STRIP_RECT.h && stripDots.length ? 'UNMAPPED' : null);
+      return;
+    }
+    if (vbY < gridTop) { setHover(null); return; }
+    let best: ScreenPoint | null = null;
+    let bd = Infinity;
+    for (const p of points) {
+      const dx = p.px - vbX, dy = p.py - vbY, d = dx * dx + dy * dy;
+      if (d < bd) { bd = d; best = p; }
+    }
+    setHover(best && bd <= DOT_HIT_R2 ? best : null);
+  }
+
+  // Popover anchor (% of viewBox) — the dot's own point, or the strip's top-center.
   let anchor: { leftPct: number; topPct: number } | null = null;
-  if (sel) {
-    const r = sel === 'UNMAPPED' ? STRIP_RECT : cellRectPx(sel.ri, sel.ci);
+  let popDots: PlaneDot[] = [];
+  let isStrip = false;
+  if (hover === 'UNMAPPED') {
+    isStrip = true;
+    popDots = stripDots;
     anchor = {
-      leftPct: ((r.x + r.w / 2) / PLANE_VB.w) * 100,
-      topPct: (r.y / PLANE_VB.h) * 100,
+      leftPct: ((STRIP_RECT.x + STRIP_RECT.w / 2) / PLANE_VB.w) * 100,
+      topPct: (STRIP_RECT.y / PLANE_VB.h) * 100,
     };
+  } else if (hover) {
+    popDots = hover.dots;
+    anchor = { leftPct: (hover.px / PLANE_VB.w) * 100, topPct: (hover.py / PLANE_VB.h) * 100 };
   }
 
   return (
@@ -1216,7 +1272,7 @@ function AtlasInteractivePlane({ svgUrl, missing }: { svgUrl: string; missing: b
           keeps the SVG overlay locked to the raster (both share the same box + aspect). */}
       <div
         className="relative mx-auto w-full min-w-[640px] max-w-full"
-        onMouseLeave={() => setSel(null)}>
+        onMouseLeave={() => setHover(null)}>
         <img
           src={svgUrl}
           alt="RULED V1.2 Stratified Plane View — DB-derived occupancy atlas"
@@ -1226,69 +1282,62 @@ function AtlasInteractivePlane({ svgUrl, missing }: { svgUrl: string; missing: b
 
         {interactive && (
           <svg
+            ref={svgRef}
             viewBox={`0 0 ${PLANE_VB.w} ${PLANE_VB.h}`}
             preserveAspectRatio="xMidYMid meet"
-            className="pointer-events-none absolute inset-0 h-full w-full"
+            className="absolute inset-0 h-full w-full"
             aria-hidden={false}>
-            {PLANE_ROWS.map((mv, ri) =>
-              PLANE_COLS.map((dl, ci) => {
-                const k = `${ri}|${ci}`;
-                const n = byCell.get(k)?.length ?? 0;
-                if (n === 0) return null;
-                const r = cellRectPx(ri, ci);
-                const active = sel && sel !== 'UNMAPPED' && sel.ri === ri && sel.ci === ci;
-                return (
-                  <rect
-                    key={k}
-                    x={r.x} y={r.y} width={r.w} height={r.h}
-                    rx={6}
-                    className="pointer-events-auto cursor-pointer transition"
-                    fill={active ? 'rgba(56,189,248,0.16)' : 'transparent'}
-                    stroke={active ? 'rgba(56,189,248,0.9)' : 'transparent'}
-                    strokeWidth={active ? 2 : 0}
-                    tabIndex={0}
-                    role="button"
-                    aria-label={`${MOVEMENT_WORD[mv]} × ${dl.toLowerCase()}: ${n} kits`}
-                    onMouseEnter={() => setSel({ ri, ci })}
-                    onFocus={() => setSel({ ri, ci })}
-                    onClick={() => setSel(active ? null : { ri, ci })}
-                  />
-                );
-              }),
+            {/* One transparent capture surface over the whole plane → nearest-dot on move/tap. */}
+            <rect
+              x={0} y={0} width={PLANE_VB.w} height={PLANE_VB.h}
+              fill="transparent"
+              className="pointer-events-auto cursor-crosshair"
+              onPointerMove={(e) => resolvePointer(e.clientX, e.clientY)}
+              onPointerDown={(e) => resolvePointer(e.clientX, e.clientY)}
+              onPointerLeave={() => setHover(null)}
+            />
+            {/* Highlight ring on the resolved dot so the user sees which one is selected. */}
+            {hover && hover !== 'UNMAPPED' && (
+              <circle
+                cx={hover.px} cy={hover.py} r={6}
+                fill="rgba(56,189,248,0.18)"
+                stroke="rgba(56,189,248,0.95)"
+                strokeWidth={1.6}
+                className="pointer-events-none"
+              />
             )}
-            {/* UNMAPPED strip hotspot (roster + movement-unknown, rendered as text in-strip) */}
-            {(byCell.get('UNMAPPED')?.length ?? 0) > 0 && (
+            {/* Strip hotspot (roster + movement-unknown, rendered as text in-strip). */}
+            {stripDots.length > 0 && (
               <rect
                 x={STRIP_RECT.x} y={STRIP_RECT.y} width={STRIP_RECT.w} height={STRIP_RECT.h}
                 className="pointer-events-auto cursor-pointer transition"
-                fill={sel === 'UNMAPPED' ? 'rgba(255,153,102,0.12)' : 'transparent'}
-                stroke={sel === 'UNMAPPED' ? 'rgba(255,153,102,0.8)' : 'transparent'}
-                strokeWidth={sel === 'UNMAPPED' ? 2 : 0}
+                fill={hover === 'UNMAPPED' ? 'rgba(255,153,102,0.12)' : 'transparent'}
+                stroke={hover === 'UNMAPPED' ? 'rgba(255,153,102,0.8)' : 'transparent'}
+                strokeWidth={hover === 'UNMAPPED' ? 2 : 0}
                 tabIndex={0}
                 role="button"
-                aria-label={`UNMAPPED strip: ${byCell.get('UNMAPPED')?.length ?? 0} kits`}
-                onMouseEnter={() => setSel('UNMAPPED')}
-                onFocus={() => setSel('UNMAPPED')}
-                onClick={() => setSel(sel === 'UNMAPPED' ? null : 'UNMAPPED')}
+                aria-label={`UNMAPPED strip: ${stripDots.length} kits`}
+                onMouseEnter={() => setHover('UNMAPPED')}
+                onFocus={() => setHover('UNMAPPED')}
               />
             )}
           </svg>
         )}
 
-        {/* the popover — anchored above the hovered/tapped cell, clamped on-screen. */}
-        {sel && anchor && selDots.length > 0 && (
+        {/* the popover — anchored on the hovered dot (or strip), clamped on-screen. */}
+        {anchor && popDots.length > 0 && (
           <PlanePopover
-            sel={sel}
-            dots={selDots}
+            dots={popDots}
+            isStrip={isStrip}
             anchor={anchor}
-            onClose={() => setSel(null)}
+            onClose={() => setHover(null)}
           />
         )}
       </div>
 
-      {dotsMissing && (
+      {posMissing && (
         <div className="px-3 py-1.5 text-[0.65rem] text-slate-500">
-          Interactive hover unavailable — <span className="font-mono">plane_dots_v1_2.json</span>{' '}
+          Per-dot hover unavailable — <span className="font-mono">plane_dot_positions.json</span>{' '}
           not staged. (The plane render is unaffected.)
         </div>
       )}
@@ -1296,23 +1345,28 @@ function AtlasInteractivePlane({ svgUrl, missing }: { svgUrl: string; missing: b
   );
 }
 
-// PlanePopover — the small hover/tap card. Single kit → title = configured register,
-// detail = public_label + cell tags. Multiple kits → title = cell address, list kits.
+// PlanePopover — the small hover/tap card. ONE grid dot → title = configured register,
+// detail = public_label + cell tags. Shared marker (amp-null diamond) or the UNMAPPED
+// strip → title = cell address, list the kits.
 // negative_canon → muted "historical exhibit"; cell_confident:false → "position provisional".
 function PlanePopover({
-  sel, dots, anchor, onClose,
+  dots, isStrip, anchor, onClose,
 }: {
-  sel: Exclude<PlaneSel, null>;
   dots: PlaneDot[];
+  isStrip: boolean;
   anchor: { leftPct: number; topPct: number };
   onClose: () => void;
 }) {
-  const isStrip = sel === 'UNMAPPED';
-  const cellAddr = isStrip
-    ? 'unmapped — movement pending S7'
-    : `${MOVEMENT_WORD[PLANE_ROWS[sel.ri]]} · ${PLANE_COLS[sel.ci].toLowerCase()}`;
   const single = dots.length === 1 && !isStrip ? dots[0] : null;
-  // clamp horizontal anchor so the ~15rem card doesn't run off narrow screens
+  const addr = (d: PlaneDot) => {
+    const mv = d.cell.movement ? MOVEMENT_WORD[d.cell.movement] ?? d.cell.movement.toLowerCase() : null;
+    const dl = d.cell.delivery ? d.cell.delivery.toLowerCase() : null;
+    return isStrip
+      ? 'unmapped — movement pending S7'
+      : [mv, dl].filter(Boolean).join(' · ') || 'shared marker';
+  };
+  const cellAddr = isStrip ? 'unmapped — movement pending S7' : (dots[0] ? addr(dots[0]) : '');
+  // clamp horizontal anchor so the card doesn't run off narrow screens
   const leftPct = Math.min(88, Math.max(12, anchor.leftPct));
 
   const cellTags = (d: PlaneDot) =>
@@ -1321,7 +1375,7 @@ function PlanePopover({
   return (
     <div
       className="pointer-events-none absolute z-20"
-      style={{ left: `${leftPct}%`, top: `${anchor.topPct}%`, transform: 'translate(-50%, calc(-100% - 8px))' }}>
+      style={{ left: `${leftPct}%`, top: `${anchor.topPct}%`, transform: 'translate(-50%, calc(-100% - 10px))' }}>
       <div className="pointer-events-auto w-[min(17rem,80vw)] rounded-lg border border-sky-600/60 bg-slate-950/95 p-2.5 shadow-xl shadow-black/50">
         {single ? (
           // ---- single kit ----
@@ -1350,7 +1404,7 @@ function PlanePopover({
             {!single.cell_confident && <ProvisionalNote />}
           </div>
         ) : (
-          // ---- multi-kit cell / strip ----
+          // ---- shared marker (amp-null diamond) / UNMAPPED strip ----
           <div>
             <div className="flex items-start justify-between gap-2">
               <span className="text-xs font-semibold uppercase tracking-wide text-sky-200">
@@ -1360,6 +1414,11 @@ function PlanePopover({
               <button type="button" onClick={onClose}
                 className="-mr-1 -mt-1 text-[0.7rem] text-slate-500 hover:text-slate-300">✕</button>
             </div>
+            {!isStrip && (
+              <div className="mt-0.5 text-[0.6rem] leading-snug text-slate-500">
+                these kits share one marker in the render (amp-unkeyed)
+              </div>
+            )}
             <ul className="mt-1.5 max-h-52 space-y-1 overflow-y-auto pr-1">
               {dots.map((d) => (
                 <li key={d.dot_id}

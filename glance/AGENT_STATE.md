@@ -43,6 +43,48 @@ asset on the `/atlas` (PROJECTION) page. ZERO new parse shapes — a render/layo
   config touched (vercel.json unchanged) → no re-smoke beyond preview.
 - **NOT deployed** — production Vercel deploy is Matt-gated (ADR-006). Awaiting Matt go.
 
+### PHASE 2 v3 (ONE kit per dot — nearest-dot hover) — BUILT 2026-07-13
+
+Matt: "show one kit at a time, depending on which dot you hover over" (replaces v2's
+scrollable per-cell kit list). Per-dot hover needs each on-screen dot bound to a specific
+kit — which the CELL-addressed JSON alone cannot do. Solved IN-LANE by reading the render's
+OWN dot coordinates back from the committed SVG (same faithful method as the cell-geometry
+read galadriel verified for v2), NOT invented coordinates.
+
+- **Position binder (`stage-assets.mjs` → `plane_dot_positions.json`, schema
+  `atlas-plane-dot-positions/v1`):** parses the committed SVG's `<g PathCollection>` `<use>`
+  elements (each carries a dot's EXACT pixel x/y). Attribution: **glyph → kind** (circle
+  `me898b4409d` = corpus · star `m219d2e7fba` = mint · diamond `md1ae64e445` = amp-null
+  sliver), **centroid-y sort → stratum** (FLAT always above SPIKY above VAR), **kit-order
+  within a scatter group** (render scatters each cell+stratum in `corpus_kits` order;
+  `build_dot_records` iterates the same order — verified in `assign_all`). **Fail-loud
+  per-group COUNT reconciliation** against the JSON: 463/463 grid dots bound exactly
+  (455 corpus circles + 6 mint stars + 2 sliver diamonds). If a future re-render breaks any
+  assumption the count check throws → stage-assets WARNs and skips the positions file → app
+  DEGRADES to the cell-level list (never emits silently-wrong bindings). matplotlib orders
+  SVG groups by GLOBAL zorder (all corpus first, then mint/diamond) — so binding classifies
+  each group independently (glyph+geometry), NOT by doc order.
+- **Sliver honesty:** the render draws ONE diamond per cell aggregating all its amp-unkeyed
+  kits (render line ~622), so dots sharing a marker (`shared_marker:true`) surface together
+  in a small list titled "these kits share one marker (amp-unkeyed)". Current data: 2 such
+  dots, each alone in its cell → each shows as a single kit.
+- **App (`AtlasInteractivePlane` rewrite):** one transparent capture `<rect>` over the plane;
+  `onPointerMove`/`onPointerDown` → viewBox coords (linear map, img+overlay share viewBox) →
+  **nearest positioned dot within radius** (`DOT_HIT_R2 = 20²` vb units); a sky highlight
+  ring marks the resolved dot; popover shows that ONE kit (title = `TITLE_REGISTER` register,
+  detail = `public_label` + cell tags). Empty space / axis margins → nothing. UNMAPPED strip
+  UNCHANGED (text region, not plotted per-dot) → keeps its cell-level list popover from
+  `plane_dots_v1_2.json`. Two-register split + negative_canon/cell_confident treatments
+  carried over from v2.
+- **Data flow:** app now fetches BOTH `plane_dot_positions.json` (grid per-dot) and
+  `plane_dots_v1_2.json` (strip list). `.vercelignore` UNCHANGED — positions file is derived
+  at build from already-allowlisted sources; git-ignored under `public/atlas/`.
+- **Smoke:** `npm run build` GREEN (parse green, stage-assets emitted "+ dot positions",
+  tsc clean, vite built). Preview served root 200 + positions JSON 200 `application/json` +
+  SVG 200. dist carries `plane_dot_positions.json` (463 dots).
+- **NOT deployed to prod** — Matt-gated (ADR-006). Preview + galadriel visual pass on hover
+  behavior are the recommended gates before prod promotion.
+
 ### PHASE 2 v2 (per-cell hover/tap POPOVER) — BUILT + galadriel-verified 2026-07-13
 
 Matt's two changes: removed the docked cell-explorer panel ("let the plane breathe"); added
