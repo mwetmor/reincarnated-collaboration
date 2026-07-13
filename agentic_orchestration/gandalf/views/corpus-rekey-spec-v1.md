@@ -52,8 +52,10 @@ The mobile atlas key is a **hybrid**: its 6-slot sampled prefix (attr / range / 
 | 2 | Expansion census (Matt's ruled weighting) | continuation brief **Unit A** | ✅ EXECUTED 2026-07-12 (`views/expansion-census-v1.csv` + findings) |
 | 3 | Re-key prep surfaces ×6 | continuation brief **Unit B** | ✅ EXECUTED 2026-07-12 (`views/rekey-prep/*-prep.md`) |
 | 4 | Mint-list dossiers + prefix probes | legolas brief (Mode A) | paste-ready |
-| 5 | DB schema + staged ingest | elrond brief (draft now; **execute gated on Matt housing D-ruling**) | paste-ready |
+| 5 | DB schema + staged ingest | elrond brief (draft now; **execute gated on Matt housing D-ruling**) | paste-ready — **⚠ schema delta owed:** brief predates the full-schema probe (ten fact families + elem_raw provenance-only + prefix source-conf); update before firing |
 | 6 | §F.4 ratification | Matt | ✅ LANDED ruled-by-correction 2026-07-12; veto open |
 | 7 | V7 → V3 → Stage-3 instruments resume | gandalf | after census returns |
+| 8 | **MAPPING PASS (the consumption unit — corpus keys into the engine frame)** — rules: `views/rekey-map-rules-v1.md` (GEO→24-type rich palette footprint-primary · CTRL centrality→damage/control w/ mechanic-mapped ailments + GAP-AILMENT census · DEF→ruled 5-bin w/ block-physics keying + **minion-shield = tank + su-proxy rider, gandalf-RULED under D2 delegation, veto open** + Fork D4 sustain-leech evidence-gated · ECON→native/partial/gap:code incl. BT · MOB/ELEM descriptors-only, never keyed · **Q22 consumed: target enum = damage/control/hybrid**) | gandalf (rules) + sub-agent (mechanical application) → gandalf judgment queue | **LIVE 2026-07-12** — application running; outputs → `views/engine-key/` (keyed JSONL + judgment queue + 4 boards: gap-leverage feeds pause-2/V3 §F.5(2), geometry distribution, ailment-gap census, def-bin split); verify-at-first-commit spot-check MANDATORY before certification |
+| 9 | `support` retirement — engine consumption (Q22 RULED: retire) | rocket via KR (census-first; `config/roles.yaml` support_healer + ~10 code touchpoints; read-compat for persisted refs) | queued — rides the post-push hygiene wave (w/ rime one-worder + drax element-label follow-on) |
 
 **Signed:** gandalf, 2026-07-12.
