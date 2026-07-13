@@ -4,14 +4,21 @@
 # WHY THIS FILE EXISTS: Vercel CLI deploys do NOT honor .gitignore. Deploying
 # from the meta-repo root would otherwise upload ~4GB of untracked heavy dirs
 # (godot-sqlite vendored addon, duskweaver media-gen output, node_modules).
-# The Glance build only needs two trees:
+# The Glance build needs two trees plus one derived VIEW asset:
 #   - glance/        (the app + its deterministic parser)
 #   - canonical/     (the parser's ONLY input: the 4 trackers + 2 Matt queues)
+#   - the RULED V1.2 plane SVG (Glance v1.10 §7.7) — a DB-derived view that
+#     scripts/stage-assets.mjs copies onto /atlas at build. It is the SINGLE
+#     source of truth (gandalf-owned); we upload the one canonical file rather
+#     than vendor a duplicate copy into the glance tree (a duplicate would drift
+#     — the exact failure this project fights). The PARSER's read set is
+#     UNCHANGED (canonical/** only); this asset is consumed only by asset-staging.
 # Everything else is excluded.
 #
-# Pattern: ignore everything, then negate the two trees the build reads.
+# Pattern: ignore everything, then negate the trees the build reads.
 # NOTE: the parser's git best-effort reads (repo_sha/last_commit) will return
-# null in this context — that is by design (try/catch, never fatal).
+# null in this context — that is by design (try/catch, never fatal). The
+# provenance stamp's source_commit is likewise git-best-effort (stage-assets).
 
 *
 
@@ -19,6 +26,13 @@
 !glance/**
 !canonical
 !canonical/**
+
+# The one derived view asset (see header) — un-ignore the path to just this file.
+!agentic_orchestration
+!agentic_orchestration/gandalf
+!agentic_orchestration/gandalf/views
+!agentic_orchestration/gandalf/views/v1-plane
+!agentic_orchestration/gandalf/views/v1-plane/plane_view_v1_2_stratified.svg
 
 # Within the two kept trees, still drop derived/heavy artifacts:
 glance/app/node_modules

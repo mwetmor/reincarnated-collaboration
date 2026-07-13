@@ -51,9 +51,14 @@ function gitTry(cmd) {
     return '';
   }
 }
+// Prefer the commit that last touched the SVG (its true render provenance). On a
+// remote Vercel build there is no .git in the upload, so fall back to the deploy SHA
+// Vercel injects, then HEAD, then honest 'unknown'. LOCAL builds (where drax validates
+// and the committed state is authoritative) resolve the exact render commit.
 const sourceCommit =
   gitTry(`git log -1 --format=%H -- "${SRC_REL}"`) ||
   gitTry('git rev-parse HEAD') ||
+  process.env.VERCEL_GIT_COMMIT_SHA ||
   'unknown';
 
 const meta = {
