@@ -23,7 +23,7 @@ Every candidate coordinate belongs to exactly one class. The class decides wheth
 
 | Class | In the key? | Definition | Discriminator | Members |
 |---|---|---|---|---|
-| **A — Mechanical identity** | **YES** | Measured from combat behavior; source-faithful; the cell address. | "Does it describe how the kit *fights*, invariant under re-skinning?" | the 11 coordinates in §2 |
+| **A — Mechanical identity** | **YES** | Measured from combat behavior; source-faithful; the cell address. | "Does it describe how the kit *fights*, invariant under re-skinning?" | the 13 coordinates in §2 |
 | **B — Emission overlay** | **NO** | Rolled/rotated at emission; decorrelated from mechanics; colors name / portrait / flavor only. | "Is it rolled at emission and mechanically inert?" | element, race, gender, culture, faction, hybridity, period, flavor |
 | **C — Transformation-mapping** | **NO** | The engine re-derives it by internal logic; the value **may differ from the source game's value.** | "Does our engine reassign it such that it can differ from the source?" | **attribute** (first member) |
 
@@ -44,8 +44,8 @@ Counts are combat-kit snapshots (n = 470) as of 2026-07-13.
 | 4 | **Geometry sub-type** | `geometry_value` / `geo_raw`→keyed-v1 | ~21 raw shapes rolling up into #2 (circle, cone, chain, totem, dash, vortex…) | keyed, refine within #2 |
 | 5 | **Control** (treatment + function) | `ctrl_treatment` + control-function tag | treatment: damage · control · hybrid (3); function sub-axis: §3 | **RESOLVED THIS SESSION** (was 205/470 ailment-gap) |
 | 6 | **Defense** | `def_bin` | tank · mitigate · evade · absorb · glass (5) | keyed (215→28) |
-| 7 | **Economy** | `econ_status` / `econ_meter_type` | native · partial · gap | **OPEN** — 161 pure-gap (34%), ~200 not-fully-native (43%) → S4 Wave B |
-| 8 | **Proxy density** | `proxy_val` | solo · light · heavy (3) | keyed; summon-economy **OPEN** — 143 non-solo (78 light + 65 heavy) → S4 Wave A |
+| 7 | **Economy model** | `economy.model` · resource-name via `resource_verbatim` | spend · cooldown · generator-spender · reserve · self-cost · finite · free (7) | **RESOLVED THIS SESSION** (Wave B; §3B — model = Class A; resource-name = 1:1 preserved, out of key) |
+| 8 | **Proxy density** | `proxy_val` | solo · light · heavy (3) | keyed; **summon-economy RESOLVED** (Wave A) — derived read = #7 model ∩ delivery=SUMMON (#2) ∩ proxy density, not a separate axis (§3B) |
 | 9 | **Range** | `range_val` | melee · mid · ranged · dual (4) | keyed |
 | 10 | **Tempo** | `tempo_val` | low · med · high (3) | keyed |
 | 11 | **Commit** | `commit_val` | instant · wind-up · channel (3) | keyed |
@@ -67,7 +67,7 @@ Counts are combat-kit snapshots (n = 470) as of 2026-07-13.
 **Three layers:**
 - **Layer 1 — CONTROL** (Class A key; element-neutral; element-*names*-it). The mechanical function lives here.
 - **Layer 2 — ELEMENTAL AILMENT** (Class B emission; weak, always-on, flavor-tier; supplies element↔ailment continuity). When a same-family Layer-1 control is present, Layer 2 is *absorbed* into the Layer-1 naming rather than double-counted.
-- **Layer 3 — GEAR AMPLIFICATION** (**DEFERRED** to a gear-axis follow-on): **soul-bound gear** (`agnostic-loot-engine-spec.md`) — kit-agnostic, mechanic-*adjusting* operators, **never** per-kit stat-rolls — amplifies a latent/signature ailment. **Amplifier, never creator.** The kit-agnostic operator model is the only itemization that scales across ~500 kits from ~15 incompatible source games (a universal amplify operator serves all of them; a legacy per-kit roll serves one). Build-crafting + loot relevance + the isekai "gear awakens power" beat. Scoped later; the seam is reserved. (The same law governs coord #12 — see §3A.1.)
+- **Layer 3 — GEAR AMPLIFICATION** (**DEFERRED** to a gear-axis follow-on): **soul-bound gear** (`agnostic-loot-engine-spec.md`) — kit-agnostic, mechanic-*adjusting* operators, **never** per-kit stat-rolls — amplifies a latent/signature ailment. **The gear law (§3A.1) — amplify your own · path texture to anyone · import no one's core · invent nothing.** The kit-agnostic operator model is the only itemization that scales across ~500 kits from ~15 incompatible source games (a universal amplify operator serves all of them; a legacy per-kit roll serves one). Build-crafting + loot relevance + the isekai "gear awakens power" beat. Scoped later; the seam is reserved. (The same law governs coord #12 — see §3A.1.)
 
 ### 3.1 — The element-naming compatibility rule (the "gacha" resolution)
 **The problem is semantic, not lexical.** Element is a Class-B free roll, but some control functions cannot be coherently *named* by every element — "fire hard-stop" fails because fire does not immobilise, and no clever word fixes that. You cannot name your way out of a semantic gap; you must prevent the incoherent pairing at the roll.
@@ -114,7 +114,44 @@ Four corners populated ⇒ the two axes are genuinely independent, not one axis 
 
 **Source builds whose trigger came from a bespoke unique item key as `active`, not `triggered`.** Andariel's-Visage ignite-proc, a helm that *is* the build — that reactivity was granted by a **kit-specific loot artifact we do not reproduce.** Our **soul-bound gear** (`agnostic-loot-engine-spec.md`) grants **no kit-specific mechanics**: it is kit-agnostic, mechanic-*adjusting* operators over universal axes (value / structural / transform) — the only itemization that scales across ~500 kits from ~15 incompatible source games. Soul-bound gear can add reactivity, but **only as a universal structural operator any kit may equip** — a *build choice*, never a cell-identity coordinate.
 
-**This is the same law that governs ailment Layer-3 (§3): amplifier, never creator.** Gear amplifies or adjusts a mechanic the kit already owns; it never mints the kit's identity. So the discriminator is clean: **intrinsic trigger → keys `triggered`; gear-granted reactivity → keys `active`** (the base kit) **+ an equippable operator** (the build layer). The tell for elrond (§8): a `mech_note` reading "Cast-on-Crit **gem**" is intrinsic → `triggered`; "the **helm** IS the build" is gear → `active`.
+**This is the same law that governs ailment Layer-3 (§3) — THE GEAR LAW, in four clauses:**
+- **Amplify your own** — gear scales a mechanic the kit *already owns* (an owner's control-effectiveness, an owner's minion count/quality). This is the specialist's reward for specializing.
+- **Path texture to anyone** — gear may grant *texture* coordinates (movement #1, geometry #4, tempo #10, activation-trigger #12, cost-reduction #7…) to any kit as a build choice; texture is not cell-defining, so pathing it dilutes nothing.
+- **Import no one's core** — gear never grants another cell's *core competency* (#5 control-specialization, #8 proxy/summon, #2 delivery-type) at specialist grade. Core may appear on a non-owner ONLY as **capped-garnish** — hard-capped, low-potency — never at the specialist's scaling tier.
+- **Invent nothing** — every operator moves along an *existing* Class-A coordinate (§2); gear never mints a mechanic absent from the register.
+
+The earlier "amplifier, never creator" was too tight — it forbade the legitimate *path-texture* clause. The four-clause law is the precise statement. So the discriminator is clean: **intrinsic trigger → keys `triggered`; gear-granted reactivity → keys `active`** (the base kit) **+ an equippable operator** (the build layer). The tell for elrond (§8): a `mech_note` reading "Cast-on-Crit **gem**" is intrinsic → `triggered`; "the **helm** IS the build" is gear → `active`.
+
+---
+
+## 3B — Coordinate #7: economy model-structure (Wave-B resolution)
+"Economy" was overloading **two separable things** — the *mechanical structure* of how a kit pays for its power, and the *name* that structure wears in the source game. Separating them closes Wave B and de-risks the fantasy Matt flagged: *"a warrior with mana, or a sorceress spending rage, would immediately kill the fantasy."*
+
+**The carve.**
+- **Economy MODEL** — the mechanical cost-structure. **Class A, in the key.** Seven values (corpus `economy.model`, n = 478):
+
+  | Model | What it is | n |
+  |---|---|---|
+  | **spend** | pay-per-cast pool (mana/energy/focus); regen-rate is a parameter | 183 |
+  | **cooldown** | time-gated, no pool | 61 |
+  | **generator-spender** | build via generators, spend via spenders (Fury/Hatred/Rage/Combo/Wrath); carries a `{continuous · combo · stack}` sub-structure | ~44 |
+  | **reserve** | ongoing upkeep — auras, sustained minions, channel-sustain | ~47 |
+  | **self-cost** | life/HP *is* the resource (blood magic) | 15 |
+  | **finite** | consumable inputs — ammo · charges · recipe · corpses | ~37 |
+  | **free** | no economy; paced by cooldown or trigger (folds `proc`) | residual |
+
+  De-conflicts: `proc` → coord #12 (activation = triggered, economy = free); `channel` → coord #11 (commit = channel, economy = reserve). The `generator-spender` sub-structure `{continuous · combo · stack}` is a **strong hypothesis, split resolved at keying** (Matt 2026-07-13) — it does not fork the coordinate now.
+- **Resource NAME** — the label the model wears (mana, fury, hatred, essence, combo points…). **NOT in the key.** It is a **1:1 preserved lineage attribute**, like `display_name`: read verbatim from source (`resource_verbatim`), never rolled, never re-derived.
+
+**Why the name is preserved, not rolled — the principle: *roll the overlays that add experiential variety; preserve the overlays that are pure recognition.*** Element is a Class-B *roll* because changing it moves the kit through the 7×7 matchup matrix — real, felt variety. Resource-name, once the model is fixed, adds **zero** mechanical variety — Fury vs Rage is the same generator-spender; the name is a pure recognition anchor. Rolling it would only ever *break* recognition (the warrior-with-mana failure) for no variety gain. So it is preserved verbatim — a preserved overlay, not a rolled one.
+
+**Empirical warrant for 1:1** (Matt's question — *"can a build map to more than one resource?"*): the corpus answers **no.** `resource_verbatim` is populated for 461/478 kits (96%), **strictly one economy fact per kit** — zero kits carry a resource *choice*. A WW Barb is Fury; it is not "Fury-or-Rage." 1:1 source-preservation is therefore strictly better than an allow-list — an allow-list would manufacture a choice the genre never offered. **The allow-list is demoted to a fallback:** for the 17 unknowns and any net-new (non-source) kit, where a model-appropriate name must be chosen because none was inherited.
+
+**The "exact fit" gate is SATISFIED by construction.** Matt: *"fold it in after we are certain how we skin the resource for an exact fit."* 1:1 verbatim preservation **is** the exact fit — there is no skinning step to get wrong. The warrior keeps Fury because Fury is on its record; mana is impossible for it by construction.
+
+**KWYK — this closes coordinate #8's summon-economy too.** "Summon economy" is not a separate axis; it is a **derived read**: `#7 economy-model ∩ delivery = SUMMON (#2) ∩ proxy density (#8)`. A heavy-proxy SUMMON kit on a **reserve** model is an upkeep-summoner; on **cooldown**, a cooldown-summoner. Closing #7 closes #8 — no separate fill.
+
+**F5 dependency — engine-native MECHANIC fidelity is a BUILD gap, not a KEY gap.** The key is complete: every kit keys to one of the 7 models. But the *engine* today natively simulates only the mana-substrate + live martial economies (`econ_status`: 264 native, 174 `gap`). The 174 `gap` kits key correctly, yet their model (reserve / self-cost / generator-spender) is not yet natively costed in sim — this is the **F5 cost-type-bin** build (`agnostic-loot-engine-spec.md` §2 RESERVED / §8 R1: three structural cost-TYPE bins open at the F5 re-derivation event). Flagged as the economy-fidelity build dependency; it does **not** hold the key open.
 
 ---
 
@@ -135,10 +172,12 @@ Four corners populated ⇒ the two axes are genuinely independent, not one axis 
 |---|---|---|---|---|
 | #5 control / ailment | function sub-axis + naming | 205/470 (44%) ailment-gap | (this session) | **CLOSED** |
 | #12 activation + #13 dependency | carved from the old "trigger / mark-consume" placeholder into two orthogonal axes (§3A); intrinsic-vs-gear discriminator ruled (§3A.1) | ~60 intrinsic-trigger; ~70 setup-payoff | Wave C | **CLOSED** |
-| #7 economy | reservation / aura / meter | 161 pure-gap (34%); ~200 (43%) not-fully-native | Wave B | **OPEN** |
-| #8 proxy | summon / companion economy | 143 non-solo | Wave A | **OPEN** |
+| #7 economy model | 7 model-structure values ratified; resource-name 1:1-preserved out of key; engine cost-fidelity (174 econ-`gap`) deferred to F5 cost-type bins (§3B) | 7 values / 478 kits | Wave B | **CLOSED** |
+| #8 summon-economy | derived read (#7 model ∩ SUMMON ∩ proxy) — closes with #7, not a separate axis (§3B) | 143 non-solo | Wave A | **CLOSED** |
 
-**Gate rule:** do not force fine granularity or dedup while any OPEN item stands. Merging on an incomplete key forces a re-key later; splitting a cell as the key sharpens is cheap (§6). Split-late beats merge-wrong.
+**⊳ GATE STATE (2026-07-13): all four S4 waves CLOSED — no OPEN coordinate remains. The completeness gate is OPEN.** Full-key operations — dedup, representative-selection, freeze (§6) — are unblocked. Engine-native cost-fidelity for the 174 econ-`gap` kits is an F5 *build* dependency, not a *key* gap; the key is complete (§3B).
+
+**Gate rule (standing):** do not force fine granularity or dedup while any OPEN item stands. Merging on an incomplete key forces a re-key later; splitting a cell as the key sharpens is cheap (§6). Split-late beats merge-wrong. (No item is currently OPEN — see gate state above; the rule governs any future re-open.)
 
 ---
 
