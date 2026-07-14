@@ -59,6 +59,15 @@ The 13 coordinates are *designed* and CLOSED. They are not yet *runnable* as a k
 - **Unknown / blank = its own literal value** (`unknown`, `blank`) — never coalesced. This is the "never-merge-on-absence" guarantee (§6.1 Stage 1).
 - **Cross-table join:** `cell_key` spans `canon_engine_key` (#1/#2/#4/#5a/#5b-new/#6/#7-new/#12-new/#13-new) ⋈ `canon_corpus` (#3/#8/#9/#10/#11) on `kit_id`. Recommend `cell_key` lives on `canon_engine_key` (the keyed table), populated by the join. elrond's call on storage.
 
+## Verification self-report (deliverable — this IS the gamora-release gate)
+KR clears a **mandatory checkpoint** between you and gamora: a malformed `cell_key` silently poisons dedup (garbage cells, undetected), so gamora is **not** blind-chained. Give KR a concrete object to clear it against — emit a short self-report alongside the built columns:
+1. **Row coverage:** total kit rows; count with non-null `cell_key`; count with any null coord slot. **Target: 0 nulls** — every slot resolves to a literal, `unknown`, or `blank` (never-merge-on-absence guarantee).
+2. **Arity check:** confirm every `cell_key` has **exactly 14** pipe-joined positions (#5 = two slots). Report any row that fails.
+3. **Per-column enum distribution:** value→count for each of the 4 new columns (`ctrl_function`, `economy_model`, `activation_val`, `dependency_val`). This catches **degenerate builds** — e.g. `activation_val` ~100% `active` means the triggered discriminator never fired; `economy_model` >50% `unknown` means the token map under-covered.
+4. **Spot rows:** 5–10 sample `kit_id → cell_key` rows spanning different economy models, for eyeball sanity.
+
+Anything degenerate → **hold and flag; do NOT clear for gamora.** Conservative-split ambiguity (unknown→literal, hybrid→compound) is expected and fine; degenerate uniformity is the red flag.
+
 ## What it unblocks + sequencing
 1. **elrond** builds the 4 columns + `resource_verbatim` + serializes `cell_key`.
 2. **gamora** runs dedup v1 = strict `GROUP BY cell_key` (§6.1 Stage 1) → cells + isotope stacks. Representative-selection = the §6 tiebreak (lineage-longevity → recency; losers kept as isotopes, never deleted) — grain-independent, no new decision.
