@@ -4,6 +4,26 @@ Continuity doc for the next knight-rider session. What shipped, what's queued, w
 
 ---
 
+## ⭐⭐ CELL-KEY SEQUENCE — CLOSED END-TO-END (elrond materialize → gamora dedup Stage-1 → all checkpoints cleared)
+
+The ratified strict-13 cell key is now materialized, deduped, and STOPPED at the Stage-2 review gate. KR orchestrated all three sub-agents directly (elrond, gamora, gandalf-confirm). NO pushes (all Matt-gated per ADR-006).
+
+**elrond — materialized (commit `2a02ed0d`):** 4 new keyed columns on `canon_engine_key` (`ctrl_function` #5b, `economy_model` #7, `activation_val` #12, `dependency_val` #13) + `resource_verbatim` (display, out-of-key) + serialized `cell_key` (materialized column, 14-field, #5 = two slots). Combat-kit scope (470/470); system-records NULL. Durable record COMPLETE + committed: completion record (dispatch lines 100–133), curation log (`research/curated/corpus-cell-key-log-2026-07-13.md`), MIGRATION.md, migration script (`research/scripts/corpus_cell_key_materialize_2026_07_13.py`). Idempotent (`shasum 9e158f59`). NOTE: an earlier *separate* elrond run (Matt's, for gandalf's read-only verify) didn't commit — that's the "durable-record owed" gandalf flagged in `30938cc1`; the KR-fired sub-agent's run IS durable, so the residual is CLOSED.
+
+**gandalf — gate verified read-only (commit `30938cc1`; `gandalf/design-inputs/cell-key-verification-gandalf-2026-07-13.md`):** 470/470 non-null, all 14-arity, 457 distinct cells, 49 unknown/blank, hybrids as compounds, cross-game isotopes confirmed (cyclone=whirlwind, d3-dash=le-shift). GATE PASSES.
+
+**gamora — dedup Stage-1 (commits `e00f4151` + `348de6f7`):** strict `GROUP BY cell_key` → **470 → 457 cells** (445 singletons / 11 pairs / 1 triple; 13 isotope losers RETAINED, never deleted). Priority-reshuffled per Matt: histogram trivial, **near-twin adjacency aggregate = PRIMARY**. Result (92 Hamming-1 pairs, per-coord): #4 geometry=17, #7 economy=17, #5b ctrl_function=14, #6 defense=13, #3 amp=7; **#2 delivery=0 and #5a treatment=0** (strongest never-demote evidence). Flat-topped — no runaway texture coord. Evidence packet: `agentic_orchestration/gamora/analyses/2026-07-13-cell-key-dedup-v1/` (collapse-structure-report.md + cell_table.csv + near_twin_*.csv). STOPPED at the gate — no coarsening.
+
+**gandalf — rep-selection SQL CONFIRMED** (`gandalf/design-inputs/dedup-stage1-rep-selection-ruling-2026-07-13.md`): gamora's ORDER BY (era_span → era_year → tier_rank → kit_id) ruled faithful to §6; `era_span` substitutes the dead `skill_debut_year` (7/470); no re-run. gamora's outputs are FINAL.
+
+### ▶ NEXT: Stage-2 coarsening cluster-review (gandalf + gamora + Matt)
+The only forward item on this workstream. Ruled against gamora's near-twin aggregate. gamora's read on demote candidates (for the review, NOT ruled): #4 geometry + #3 amp cleanest demotes; #6 defense demotable w/ glass~tank caveat; **#7 economy = split-the-values NOT demote-whole** (generator-spender/self-cost/reserve build-defining; spend~unknown/cooldown~finite texture — a blanket #7 demote would wrong-merge); #5b keep (identity); #2/#5a never-demote (zero near-twins). KR schedules this review — it's a decision loop, not a dispatch to auto-fire.
+
+### Open micro-item for gandalf (parked, non-blocking): `draft` economy ruling
+elrond flagged 2 `draft`-economy rows (roguelite build-selection, not consumable-`finite`), kept as `unknown` literal pending gandalf's ruling (new `draft` value / `free` residual / confirm finite). Orthogonal to dedup (2 rows, held as literals — won't wrong-merge). Route to gandalf when convenient.
+
+---
+
 ## ⭐⭐ WAVE-A BUILT + GATE-2 PASSED — awaiting ONLY Matt's push (4 unpushed commits, engine `main`)
 
 KR orchestrated all 4 slices directly via sub-agents (no launch-commands handed to Matt — Matt directive "sub-agent orchestration is your seam"). Serialized on the shared engine working tree; gate lifted LAST.
