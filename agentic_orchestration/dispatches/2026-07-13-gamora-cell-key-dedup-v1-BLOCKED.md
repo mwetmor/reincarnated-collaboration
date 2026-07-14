@@ -21,10 +21,14 @@ The cell key is ratified (register §6.1) and (once elrond completes) materializ
 
 - **Stage 1 = strict exact-match `GROUP BY cell_key`** over the 470 `row_class='combat-kit'` rows → **cells** (each distinct `cell_key` = one mechanical "element") + **isotope stacks** (kits sharing a cell = true variants, retained, never deleted). Strict only — no coarsening, no merge beyond exact match, no deletion.
 - **Representative per cell = the §6 tiebreak:** longevity of lineage across games → recency → primary; losers retained as mouseover "isotopes." **Column-math is yours to draft** (e.g. longevity ≈ distinct-game span or earliest `skill_debut_year`; recency ≈ max `era_year`) — propose the exact SQL and **confirm with gandalf (one line) before finalizing.** **Do NOT use the deprecated `mobile_*` fields** (`mobile_representative`/`mobile_rank_in_cell`/`mobile_key_group` — DEPRECATED per register §0).
-- **Emit the 3 Stage-2-readiness outputs** (the design-relevant deliverables):
-  1. **Cell table:** `cell_key` · representative `kit_id` · isotope member `kit_id`s · population count.
-  2. **Isotope-depth histogram:** how many cells at depth 1, 2, 3, 4+ (the shape the cluster review reads first — did strict-13 collapse meaningfully, or is it ~flat? KR pre-read: 457 cells / 470 rows → shallow, mostly depth-1).
-  3. **★ Near-twin adjacency aggregate (THE Stage-2 driver):** all cell-pairs whose `cell_key`s differ in **exactly one** of the 14 positions, annotated with which coord differs + the two values; then **count near-twin pairs per differing-coord.** The coord with the most near-twin pairs is the strongest demotion candidate — the empirical object §6.1 Stage-2 rules on.
+- **Emit the 3 Stage-2-readiness outputs — but note the PRIORITY RESHUFFLE below.**
+
+### ⚠ PRIORITY RESHUFFLE (Matt 2026-07-13, from the verified gate)
+The strict-13 collapse is **near-maximally-split: 470 → 457 cells** = **445 singletons, 11 pairs, 1 triple** (gandalf-verified). The isotope-depth histogram is therefore **nearly trivial** — it tells the review almost nothing. **ALL the Stage-2 signal lives in the ★near-twin adjacency aggregate.** Treat it as the **PRIMARY deliverable**, not output #3. Spend your effort there.
+
+  1. **Cell table** (support): `cell_key` · representative `kit_id` · isotope member `kit_id`s · population count.
+  2. **Isotope-depth histogram** (support — expected trivial: ~445 depth-1, 11 depth-2, 1 depth-3): emit it, but it is not the decision object. Confirm the shape and move on.
+  3. **★ Near-twin adjacency aggregate — THE PRIMARY DELIVERABLE (the Stage-2 driver):** all cell-pairs whose `cell_key`s differ in **exactly one** of the 14 positions, annotated with *which* coord differs + the two values; then **count near-twin pairs per differing-coord.** The coord with the most near-twin pairs is the strongest demotion candidate (e.g. "N near-twin pairs differ only on #10 tempo → tempo is behaving as texture"). This aggregate is the empirical object §6.1 Stage-2 rules on — it is where the grain decision is actually made now that the histogram is flat. Give it the depth: per-coord counts, the actual differing value-pairs, and your read on which coords are behaving as texture vs. identity.
 
 ## Out of scope
 
