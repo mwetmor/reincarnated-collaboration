@@ -128,6 +128,6 @@ _(append: each new column's populated-count + null/unknown footprint; the cell-c
 
 **Downstream:** gamora dedup v1 (`dispatches/2026-07-13-gamora-cell-key-dedup-v1-BLOCKED.md`) is now UNBLOCKED — stable `GROUP BY cell_key` target on 470 combat-kit rows.
 
-**Commit:** _(see commit hash below)_
+**Commit:** `2a02ed0d` (elrond: materialize strict-13 cell key — corpus.db v2.3).
 
 **ADR-006:** committed scripts + logs; **NO push** (Matt-gated).
