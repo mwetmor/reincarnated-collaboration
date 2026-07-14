@@ -1,0 +1,15 @@
+differing_coord,near_twin_pairs,distinct_value_swaps,top_swaps
+1-movement,4,3,full-move~rooted(2); full-move~walk(1); rooted~walk(1)
+2-delivery,0,0,
+3-amp,7,2,flat~var(4); flat~spiky(3)
+4-geometry,17,11,chain~circle(3); multi_projectile~single_target(3); ground_targeted_circle~melee_strike(2); melee_strike~single_target(2); chain~melee_strike(1); blank~dash_attack(1); chain~multi_projectile(1); circle~melee_strike(1); circle~single_target(1); circle~whirlwind(1); ground_targeted_circle~multi_projectile(1)
+5a-ctrl_treatment,0,0,
+5b-ctrl_function,14,8,none~stun(3); hard-stop~none(3); expose~none(3); hard-stop~hex(1); none~taunt(1); expose~hard-stop(1); knockback~none(1); blind~hard-stop(1)
+6-defense,13,7,evade~tank(3); mitigate~tank(3); glass~mitigate(2); glass~tank(2); absorb~tank(1); evade~mitigate(1); absorb~evade(1)
+7-economy_model,17,10,reserve~spend(3); spend~unknown(3); finite~spend(3); self-cost~spend(2); generator-spender~spend(1); cooldown~finite(1); reserve~unknown(1); finite~unknown(1); spend~spend+finite(1); generator-spender~self-cost(1)
+8-proxy,2,2,heavy~light(1); light~solo(1)
+9-range,4,2,melee~ranged(3); dual~ranged(1)
+10-tempo,4,2,high~med(3); high~low(1)
+11-commit,3,2,channel~instant(2); instant~wind-up(1)
+12-activation,3,1,active~triggered(3)
+13-dependency,4,2,build→spend~one-shot(3); apply→detonate~build→spend(1)
