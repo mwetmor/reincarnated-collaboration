@@ -131,3 +131,25 @@ _(append: each new column's populated-count + null/unknown footprint; the cell-c
 **Commit:** `2a02ed0d` (elrond: materialize strict-13 cell key — corpus.db v2.3).
 
 **ADR-006:** committed scripts + logs; **NO push** (Matt-gated).
+
+---
+
+### KR DURABLE-RECORD VERIFICATION (knight-rider — 2026-07-13) — gap CLOSED
+
+**Trigger:** gandalf's verification note (`gandalf/design-inputs/cell-key-verification-gandalf-2026-07-13.md`, residual #1) flagged that the elrond **subagent** skipped its recording discipline — completion record un-appended, migration script + curation log un-committed, so the untracked `corpus.db` migration was "unauditable and unreproducible." KR was tasked to close that gap (git/doc writes only; nothing here writes corpus.db).
+
+**Finding: the gap was ALREADY CLOSED by elrond's own follow-up commit(s) after gandalf's note was authored.** Empirical inspection (Discipline #11) against the live git tree confirms the durable record is complete and auditable — no re-fire needed, no fabrication warranted. Verified:
+
+| Artifact | State | Provenance |
+|---|---|---|
+| Dispatch completion record | **Populated** (this file, "COMPLETE — LANDED" block above) | `2a02ed0d` + hash-record follow-up `6c726afd` |
+| Migration script `research/scripts/corpus_cell_key_materialize_2026_07_13.py` | **Committed, clean, tracked** — idempotent, byte-identical rebuild, inline guardrail doc, `git status` clean | `2a02ed0d` |
+| Curation log `research/curated/corpus-cell-key-log-2026-07-13.md` | **Committed, clean, tracked** (12,942 B) | `2a02ed0d` |
+| `research/curated/MIGRATION.md` | **Committed, clean, tracked** | `2a02ed0d` |
+| `corpus.db` (binary) | **gitignored BY DESIGN** — `git check-ignore` confirms; the seam convention is scripts+logs are the reproducibility path, binary is not tracked. The dispatch scope explicitly prescribed this ("commit any schema-def/migration scripts + a curation log, not the binary"). NOT an audit gap. | `.gitignore` |
+
+**KR read-only re-confirmation of the live DB** (`mode=ro`, no write): 457 distinct `cell_key` / 470 combat-kit rows / 0 missing / 14-arity — matches elrond's smoke and gandalf's independent verification exactly.
+
+**Disposition:** gandalf residual #1 is **RESOLVED.** The migration is auditable (script + log + MIGRATION.md all committed) and reproducible (idempotent script → byte-identical `9e158f59…`). The situation that gandalf's note captured was a true point-in-time gap at the moment the subagent returned; elrond's follow-up commit closed it before this KR pass. **No elrond re-fire fired — doing so would have duplicated already-committed, verified artifacts (avoided per "do NOT fabricate specifics" guardrail).** The lesson stands for future subagent migrations: the recording discipline (append record + commit script/log in the same pass) is the concrete cost of subagenting a curation write — it landed here, but a beat late.
+
+**Round-trip:** N/A — this is a git/doc verification write on the dispatch file only; nothing touched corpus.db. — knight-rider

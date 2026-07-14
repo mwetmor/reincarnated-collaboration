@@ -1,11 +1,23 @@
-# Dispatch — 2026-07-13 — gamora — Cell-key dedup v1 (⛔ BLOCKED on elrond materialization)
+# Dispatch — 2026-07-13 — gamora — Cell-key dedup v1 (✅ FIRED — gate cleared, Matt GO)
 
 **From:** knight-rider (sequencing)
 **To:** gamora (simulation seam — dedup/matchup consumes the cell key per register §7)
-**Spec author:** gandalf — **authoritative build spec:** `agentic_orchestration/gandalf/design-inputs/dedup-stage1-gamora-handoff-2026-07-13.md` (register §6/§6.1/§8). Build straight off it; this dispatch is the sequencing wrapper.
-**Status:** ✅ **GATE CLEARED — launch-ready, pending Matt's go.** elrond materialization COMPLETE + KR-verified 2026-07-13 (commits `2a02ed0d`/`6c726afd`): `cell_key` is a materialized column, `GROUP BY`-able, 470/470 combat-kit rows keyed (system-records NULL), all 4 keyed columns + `resource_verbatim` populated, #5 two-slot confirmed, unknown/blank preserved as literals. The "no-blind-chain checkpoint" (gandalf `ea4f18a1`, KR-owned) is CLEARED — arity/coverage/enum-distribution/spot-rows all verified against the live DB. Nothing technical gates this now; Matt owns the launch go.
+**Spec author:** gandalf — **authoritative build spec:** `agentic_orchestration/gandalf/design-inputs/dedup-stage1-gamora-handoff-2026-07-13.md` (register §6/§6.1/§8). **This authored spec SUPERSEDES the thin build summary in this wrapper — build straight off it.**
+**Status:** ✅ **FIRED 2026-07-13 (Matt GO).** Gate fully cleared. elrond materialization COMPLETE + KR-verified (commits `2a02ed0d`/`6c726afd`): `cell_key` is a materialized column, `GROUP BY`-able, 470/470 combat-kit rows keyed (system-records NULL), all 4 keyed columns + `resource_verbatim` populated, #5 two-slot confirmed, unknown/blank preserved as literals. gandalf independent read-only verification PASSED (`30938cc1`; full record `gandalf/design-inputs/cell-key-verification-gandalf-2026-07-13.md`) — arity/coverage/enum-distribution/spot-rows all verified against the live DB. KR re-confirmed read-only 2026-07-13: 457 distinct / 470 rows / 0 missing / 14-arity. Nothing gates this. Matt GO given; fired as read-only subagent.
 **Pattern:** B (pure data analysis over corpus.db — a `GROUP BY` + a Hamming-1 scan; ~470 rows. NOT a sim run: no gauntlet/batch/cert/compute campaign.)
 **Approved by:** Matt 2026-07-13 (§6.1 ratified: strict-13 first; dedup v1 = strict `GROUP BY cell_key`). This is execution of the ratified key — no new design decision inside this dispatch.
+
+## ▶ PICK-UP DIRECTIVE (gamora — execute on session start)
+
+**This dispatch is FIRED and ready. Execute it.** Run mode: read-only over `corpus.db` (`PRAGMA query_only=ON` / `mode=ro` URI). No writes to corpus.db — analysis-only.
+
+1. Build straight off the authored spec `gandalf/design-inputs/dedup-stage1-gamora-handoff-2026-07-13.md` (it supersedes the thin summary below).
+2. Run Stage-1 strict `GROUP BY cell_key` + the THREE outputs — **in the reshuffled priority below (★near-twin aggregate is PRIMARY, not #3).**
+3. **STOP after the three outputs.** Do NOT coarsen, do NOT demote, do NOT delete isotopes. Stage-2 is the gandalf + gamora + Matt cluster review — a separate loop KR schedules once your collapse-structure report lands.
+4. One-line-confirm your representative-selection SQL with gandalf before finalizing the cell table (per spec §Stage-1 step 2).
+5. Auto-commit your analysis artifacts (log + any script); **NO push** (Matt-gated per ADR-006). `corpus.db` is gitignored-by-design — commit the log/script, not the binary.
+
+**KR gate-clearance for your session start:** the "do NOT start until cell_key exists AND has been verified" HARD GATE in the spec (§HARD GATE) is **CLEARED** — elrond materialized it (`2a02ed0d`), gandalf independently verified it read-only (`30938cc1`), KR re-confirmed (457/470/0-missing/14-arity). You are clear to read `cell_key` immediately.
 
 ## Context
 
@@ -59,4 +71,10 @@ After dedup v1 lands, KR convenes a **cluster review: gandalf + gamora + Matt** 
 - Canon: register §6/§6.1/§7; ratification commit `fdfe220c`
 
 ## Completion record
-_(append: cell count vs 470; isotope-stack distribution; representative-vs-isotope counts; unknown/blank-slot cells; path to the collapse-structure report for the Stage-2 review)_
+_(append ALL of:_
+- _cell count vs 470; isotope-stack distribution (depth-1/2/3+ histogram — expected trivial per reshuffle);_
+- _representative-vs-isotope counts; the representative-selection SQL you finalized + gandalf's one-line confirmation;_
+- _unknown/blank-slot cell count;_
+- _**★ the near-twin-per-coord aggregate, RANKED — which of the 14 positions carries the MOST near-twin (Hamming-1) pairs, descending. This is the headline: the top-ranked coord is the strongest Stage-2 demotion candidate. Include the per-coord pair counts and your read on which coords behave as texture vs. identity;**_
+- _path to the collapse-structure report artifact for the Stage-2 review;_
+- _commit hash; round-trip disposition (expected: N/A — read-only over corpus.db).)_
