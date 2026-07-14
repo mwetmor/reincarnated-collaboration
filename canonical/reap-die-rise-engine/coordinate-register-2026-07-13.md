@@ -184,10 +184,26 @@ The earlier "amplifier, never creator" was too tight — it forbade the legitima
 ## 6 — Dedup (grain + tiebreak) and the isotope model
 Dedup has two independent parts, and the hard dependency is on **key-completeness (§5)**, not on tiebreak complexity.
 
-- **Grain** — *who shares a cell* — is set entirely by the matured key (§2). Grain-completeness = the S4 gate.
+- **Grain** — *who shares a cell* — is the **cell key**: a projection of the matured 13-tuple (§2) onto the coords that define "same build." **RATIFIED (Matt 2026-07-13): strict-13-tuple first, then coarsen with the data — see §6.1.** Grain-completeness = the S4 gate (now OPEN, §5).
 - **Tiebreak** — *who is the primary representative* — is **simple and grain-independent:** longevity of lineage across games → recency → primary. Losers are **never deleted** — they are retained as mouseover **"isotopes."** Breadth is the pitch ("every build the genre ever made"); deletion would throw away the pitch.
 
 **Isotope model.** A hexagon is one mechanical "element"; kits sharing a fully-resolved cell are its **isotopes** (true variants). As S4 sharpens the key, some cells **split** — an isotope resolves into its own element (the early-chemistry pattern). This is exactly why dedup waits on §5: a later split is cheap; a wrong early merge is a re-key.
+
+### 6.1 — The ratified cell key (Matt 2026-07-13): strict-13 first, coarsen with the data
+
+**Class A ≠ cell-defining.** The 13-tuple is the *identity* key; the *cell* key is a **projection** of it. Two isotopes differ on some Class-A coord — that difference is *what makes them isotopes* rather than identical rows. So the cell key = the subset of the 13 whose equality means "same build." That subset is decided in two stages:
+
+**Stage 1 — the STRICT key = the full 13-tuple, exact-match.** Two kits share a cell iff identical on all 13 (with #5 contributing **both** treatment AND function; unknown / blank = its own literal value → conservative, never merges on absence). This is the *maximally-split* start: it **never wrong-merges.** Dedup v1 is a `GROUP BY` on the serialized `cell_key` — zero further grain guesswork. gamora runs it the moment the columns materialize (§8).
+
+**Stage 2 — coarsen with the data (the grain-review pass).** Review the Stage-1 clusters: where two cells are the same build archetype differing only on one *texture* coord, demote that coord from cell-defining to isotope-distinguishing (collapsing the cells). This is a **reviewed merge with evidence** — the safe direction (split-late beats merge-wrong; Discipline #11 empirical-over-assumption, applied to the key itself). **The result of Stage 1 IS the evidence that drives Stage 2** — the grain is measured, never guessed a priori.
+
+**Coarsening guardrails (gandalf lean — the demotable set is RULED at Stage 2 with the cluster data, NOT now):**
+- **Never-demote core** (build identity — stays in the cell key regardless): **#2 delivery · #5 control (treatment + function) · #8 proxy · #1 movement · #12 activation · #13 dependency.**
+- **Demotable-with-evidence** (in the strict v1 key; candidates for isotope-demotion if clusters show over-split): **#3 amp · #4 geometry · #6 defense · #7 economy-model · #9 range · #10 tempo · #11 commit.** (#7 is the contentious one — generator-spender is build-defining; mana-vs-cooldown often is not. The data rules.)
+
+**Why strict-first, not a designed-coarse key up front:** a coarse key bakes in merges you cannot cheaply undo (re-key); strict-first bakes in nothing and *measures* the real collapse structure. Genre precedent: Mendeleev left gaps and split later — he never merged speculatively; poe.ninja clusters builds by a coarse projection (skill + support gems), but that projection was tuned against observed build data, not guessed. We tune ours against Stage-1 output.
+
+**The gate to gamora:** the strict key is not runnable until elrond materializes the 4 non-column coords (#5-function, #7-model, #12, #13) and serializes `cell_key` (§8). Then: gamora strict-dedup → cluster review → Stage-2 coarsen. Representative-selection rides on top unchanged (the tiebreak above is grain-independent).
 
 ---
 
@@ -200,8 +216,8 @@ Dedup has two independent parts, and the hard dependency is on **key-completenes
 
 ## 8 — Sequencing hooks
 - **rocket** — implement §3.1: after the Class-A control function is fixed, roll the primary element from `eligibility ∩ function-allow-list`; universal functions roll free; emit the intersection-empty flag.
-- **elrond** — promote the control-function sub-axis (§3) to a keyed column; add the `activation_val` (#12) + `dependency_val` (#13) columns and key them per §3A, applying the §3A.1 discriminator (the tell: `mech_note` "Cast-on-Crit **gem**" = intrinsic → `triggered`; "the **helm** IS the build" = gear → `active`); author the economy (#7) and summon-economy (#8) gap-fill columns as their S4 waves land.
-- **gamora** — dedup + matchup consume the key **only after** §5 closes.
+- **elrond** — **materialize the cell key (§6.1).** Promote to keyed columns the 4 coords that are not columns yet: **#5 control-function** sub-axis (from `canon_probe_facts` control family / `mech_note`, §3), **#7 economy-model** (the 7 values, from `canon_probe_facts` economy family, §3B — distinct from the existing `econ_status`), **#12 `activation_val`** + **#13 `dependency_val`** (per §3A, applying the §3A.1 discriminator — tell: `mech_note` "Cast-on-Crit **gem**" = intrinsic → `triggered`; "the **helm** IS the build" = gear → `active`). Also surface **`resource_verbatim`** as a column (1:1-preserved lineage; out of the cell key, needed for display, §3B). Then **serialize `cell_key`** = the canonical ordered 13-tuple (#5 contributes treatment+function; unknown/blank = literal value) — note this **spans two tables**: `canon_engine_key` (#1/#2/#4/#5/#6 + new #7-model/#12/#13) ⋈ `canon_corpus` (#3/#8/#9/#10/#11) on `kit_id`. The other 9 coords are already columns.
+- **gamora** — dedup consumes `cell_key` **after elrond materializes it** (§5 is now OPEN). Dedup v1 = strict exact-match `GROUP BY cell_key` (§6.1 Stage 1); the cluster review then feeds Stage-2 coarsening. Matchup consumes the key likewise.
 - **S3 harness** — renders the current key now; **S5** migration turns cell addresses into kit identity and fires dedup (§6); **S8** selects demo kits from representatives.
 
 ---
