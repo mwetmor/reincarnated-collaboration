@@ -88,3 +88,46 @@ All read from tables already present. `mech_note` lives on `canon_corpus`; contr
 
 ## Completion record
 _(append: each new column's populated-count + null/unknown footprint; the cell-count vs 470-row-count; economy `draft`/`other`/`unknown` dispositions; system-record scope call; `cell_key` storage mechanism; smoke output; round-trip disposition; commit hash(es); any spec gap found + flagged to gandalf)_
+
+---
+
+### COMPLETE — elrond — 2026-07-13 — **LANDED**
+
+**Sole-writer confirmed** before write (1 elrond session = this one; no concurrent corpus.db writer). All 8 scope items ✅. Full detail: `agentic_orchestration/research/curated/corpus-cell-key-log-2026-07-13.md`; MIGRATION `v2.3`; script `scripts/corpus_cell_key_materialize_2026_07_13.py` (idempotent, D6 slot 4/4).
+
+**Headline: 470 combat-kit rows → 457 distinct cells** (strict-13 exact-match — first read of the collapse structure). Shallow, as a strict key should be. 49 rows carry ≥1 `unknown`/`blank` literal slot (never-merge-on-absence footprint). 12 multi-kit cells absorbed 13 rows (genuine isotope pairs: Cyclone/Whirlwind, shield-charge cross-game, PoE trap trio, etc.).
+
+**Columns built (all `canon_engine_key`, additive, combat-kit populated / system-record NULL):**
+| column | in key? | populated / 470 | null/unknown footprint |
+|---|---|---|---|
+| `ctrl_function` #5b | yes | 470 | 7 `unknown` (mint no-probe); `silence`=0 (reserved, no source token) |
+| `economy_model` #7 | yes | 470 | 43 `unknown` (28 raw-`other`, 7 no-probe, 6 raw-`unknown`, 2 `draft`); 2 literal compounds |
+| `activation_val` #12 | yes | 470 | 7 `unknown` (empty mech_note) — 87 triggered / 376 active |
+| `dependency_val` #13 | yes | 470 | 7 `unknown` — 359 one-shot / 60 apply→detonate / 44 build→spend |
+| `resource_verbatim` | **NO** (display) | 461 | 1:1 verbatim, never coalesced |
+| `cell_key` | serialization | 470 | 17 system-record NULL |
+
+**Smoke:** `SELECT count(DISTINCT cell_key), count(*) FROM canon_engine_key WHERE row_class='combat-kit' AND cell_key IS NOT NULL;` → **457 | 470**. 49 rows carry an unknown/blank slot.
+
+**Economy dispositions:**
+- **`draft` (2 rows) → SPEC GAP flagged; kept `unknown`, NOT `finite`.** The 2 draft rows are roguelite **draft/offer-pool build-SELECTION** economies (VS-style — "choosing what NOT to take" / "starts with the draft position"), not consumable-input `finite`. Folding to `finite` would wrong-merge. Candidates for gandalf: new `draft` value / `free` residual / confirm finite. **Did not guess past it.**
+- **`other` (28 on combat-kit) → mostly `unknown`, only genuine no-economy (`none`/`stamina/none` resource) → `free`.** Conservative never-invent.
+- **`unknown` (6 raw) → `unknown`** literal.
+
+**system-record scope call: NULL (not excluded-by-sentinel), combat-kit only.** 17/17 system-records have the 4 new cols + cell_key NULL. NULL (not a sentinel string) so a naive whole-table `GROUP BY` cannot mint a phantom NULL-cell; gamora filters `row_class='combat-kit' AND cell_key IS NOT NULL`.
+
+**cell_key storage mechanism: MATERIALIZED COLUMN** (not a view) — stable index-able `GROUP BY` target frozen at materialization; a view would re-execute the two-table join per read + expose gamora to mid-flight coord edits. Re-run the idempotent script to re-materialize if any of the 13 source coords change. #5 = TWO slots verified (all 470 rows = 14 pipe-fields).
+
+**Round-trip disposition: NOT APPLICABLE — confirmed.** All writes additive on elrond-owned corpus.db; no star-lord engine-telemetry boundary column implicated; no STOP-and-flag triggered. No MIGRATION.md against star-lord required.
+
+**Guardrails (all honored):** strict-first (never pre-coarsened) · unknown/blank = literal (never coalesced) · #5 = 2 slots · hybrids as literal compounds (`spend+finite`, `spend+cooldown`) · `resource_verbatim` out of key · `economy_model` additive (`econ_status`/`econ_meter_type` untouched — 463 each) · dedup NOT run.
+
+**Reproducibility:** idempotent (re-run → byte-identical `shasum 9e158f59…`); full clean rebuild from scratch (base → s1 → fold12 → this) reproduces the same hash + 457/470 smoke.
+
+**Spec gaps flagged to gandalf:** (1) `draft` economy model — build-selection economy, not consumable-finite (kept `unknown`, awaiting ruling). (2) minor — `dependency_val` text-derivation runs a touch above the §5 "~70" estimate (104); a Stage-2 refinement candidate, not a gap.
+
+**Downstream:** gamora dedup v1 (`dispatches/2026-07-13-gamora-cell-key-dedup-v1-BLOCKED.md`) is now UNBLOCKED — stable `GROUP BY cell_key` target on 470 combat-kit rows.
+
+**Commit:** _(see commit hash below)_
+
+**ADR-006:** committed scripts + logs; **NO push** (Matt-gated).

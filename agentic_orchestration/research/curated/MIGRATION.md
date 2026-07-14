@@ -7,6 +7,58 @@
 
 ---
 
+## v2.3 — corpus.db CELL-KEY MATERIALIZATION (strict-13 key → gamora dedup gate) — 2026-07-13 — **LANDED**
+
+### What changed (one line)
+Materialized the Matt-ratified **strict-13 cell key** (register §6.1): promoted the 4 non-column coordinates to keyed columns on `canon_engine_key` (`ctrl_function` #5b, `economy_model` #7, `activation_val` #12, `dependency_val` #13), added `resource_verbatim` (display; OUT of key), and serialized `cell_key` — the canonical ordered 13-tuple (#5 = two slots; unknown/blank = literal) — for the **470 combat-kit rows**. **Additive only** (6 new nullable columns; no existing column touched — `econ_status`/`econ_meter_type` explicitly preserved). This is the single execution gate between the ratified key and gamora's dedup v1 (a separate BLOCKED dispatch — dedup NOT run here). `corpus_schema_meta` bumped `2.2 → 2.3`.
+
+### Headline result
+**470 combat-kit rows → 457 distinct cells** (strict-13 exact-match — the first read of the collapse structure; 12 multi-kit cells absorbed 13 rows). 49 rows carry ≥1 `unknown`/`blank` literal slot (the never-merge-on-absence footprint). Full detail + per-column distributions + derivation logic + spec-gap flags: `corpus-cell-key-log-2026-07-13.md`.
+
+### Columns added (all `canon_engine_key`, all nullable, combat-kit populated / system-record NULL)
+| column | in cell_key? | source | populated (of 470 combat-kit) |
+|---|---|---|---|
+| `ctrl_function` | yes (#5b) | probe `control` family ailments → §3 element-neutral fn map | 470 (7 `unknown` = mint no-probe) |
+| `economy_model` | yes (#7) | probe `economy` family model → §3B 7-value + literal compounds | 470 (43 `unknown`; 2 compounds) |
+| `activation_val` | yes (#12) | `mech_note` §3A.1 discriminator | 470 (7 `unknown`) |
+| `dependency_val` | yes (#13) | `mech_note` §3A tells | 470 (7 `unknown`) |
+| `resource_verbatim` | **NO** (display) | probe `economy` `resource_verbatim` 1:1 | 461 (verbatim, never coalesced) |
+| `cell_key` | (the serialization) | 13-tuple join `canon_engine_key ⋈ canon_corpus` on kit_id | 470 combat-kit; 17 system-record NULL |
+
+### cell_key storage decision
+**Materialized column** (not a view). gamora needs a stable, index-able `GROUP BY cell_key` target frozen at materialization; a view would re-execute the two-table join per read and expose gamora to mid-flight coord edits. Re-materialize (re-run the idempotent script) if any of the 13 source coords change. `#5` contributes TWO slots — all 470 rows verified = 14 pipe-fields.
+
+### Guardrails honored (handoff §67-72 + KR econ-distinctness note)
+Strict-first (never pre-coarsened) · unknown/blank = literal (never coalesced) · #5 = 2 slots · hybrids as literal compounds (`spend+finite`, `spend+cooldown`) · `resource_verbatim` out of key · `economy_model` additive (`econ_status`/`econ_meter_type` untouched: 463 each still populated) · dedup NOT run.
+
+### Spec gaps flagged to gandalf (did NOT guess past)
+1. **`draft` economy (2 rows)** — kept `unknown` literal, NOT `finite`. The 2 draft rows are roguelite **draft/offer-pool build-SELECTION** economies (VS-style), not consumable-input `finite`; folding to `finite` would wrong-merge. Candidates for gandalf ruling: new `draft` value / `free` residual / confirm finite.
+2. **`dependency_val`** text-derivation runs slightly above the §5 "~70 setup-payoff" estimate (104). Not a gap — a Stage-2 refinement candidate; robust to the strict-key collapse (dependency is a never-demote core coord).
+
+### Verification (idempotent + clean-rebuild reproducible)
+- Re-run → byte-identical (`shasum 9e158f59…` of the combat-kit key projection).
+- Full clean rebuild from scratch (base → s1 → fold12 → **this**) reproduces the same hash + 457/470 smoke.
+- Raw columns untouched; derivations re-computed from committed source every run.
+
+### D6 rebuild sequence (now FOUR committed scripts)
+```
+python3 agentic_orchestration/research/scripts/corpus_ingest_2026_07_12.py             # base three-layer ingest
+python3 agentic_orchestration/research/scripts/corpus_completion_s1_2026_07_13.py       # S1 completion (idempotent)
+python3 agentic_orchestration/research/scripts/corpus_fold12_2026_07_13.py              # mint-dossier fold (idempotent)
+python3 agentic_orchestration/research/scripts/corpus_cell_key_materialize_2026_07_13.py  # THIS — cell-key materialize (idempotent)
+```
+corpus.db stays gitignored; scripts + `corpus-cell-key-log-2026-07-13.md` + this entry are the committed truth.
+
+### ADR compliance
+- **ADR-004:** this entry. Additive columns on elrond-owned corpus.db; **no engine-telemetry change** → star-lord-side MIGRATION.md unaffected. **Round-trip: NOT APPLICABLE** (no star-lord boundary column implicated — confirmed; no STOP-and-flag triggered).
+- **ADR-006:** commit scripts + log + this entry; **NO push** (Matt-gated). corpus.db binary stays gitignored.
+- **Reversibility:** all changes re-derived from committed inputs at materialization time; raw columns untouched; re-runnable to byte-identical state.
+
+### Downstream unblock
+gamora's dedup v1 (`dispatches/2026-07-13-gamora-cell-key-dedup-v1-BLOCKED.md`) is now UNBLOCKED — `cell_key` is a stable `GROUP BY` target on the 470 combat-kit rows. Stage-2 coarsening (gandalf + gamora + Matt) rides on top of the Stage-1 output; NOT this dispatch's scope.
+
+---
+
 ## v2.2 — corpus.db MINT-DOSSIER FOLD 1+2 (corrections + plane-keying) — 2026-07-13 — **LANDED**
 
 ### What changed (one line)
