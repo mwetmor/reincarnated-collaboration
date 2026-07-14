@@ -33,6 +33,20 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-13 (gandalf, Pattern-B ultrathink) — gaps/KPIs/direction analysis LANDED; B defined; graveyard mined; ruling surface = D.3
+
+**Artifact:** `agentic_orchestration/gandalf/design-inputs/2026-07-13-gaps-kpis-direction-analysis.md` (commit `1bf4c2c9`). Four charges against the fiber definition + coordinate register + dedup Stage-1 evidence. Structural outputs that govern forward work:
+
+- **B (behavior map) is DEFINED: differential-response shape at frozen reference tuning** — the balanced scalar win-rate is excluded as identity signal (bounded viability is engineered to destroy it). K1–K6 KPI vector proposed; K1/K3/K4/K5 computable from existing FightResult accumulators; K2 blocked on the gauntlet re-base (unchanged); K6 needs small gamora accumulators. B-as-oracle = milestone with a named acceptance test (separate 6 fibers from null mush + reproduce ≥1 known-bad signature); fibers stay proxy-confirmed until it passes.
+- **Stale-gap correction:** engine_version + termination_reason telemetry gaps are CLOSED schema-side (migration 1.9 + recorder) — prior analyses citing them are stale.
+- **38-negative failure taxonomy:** 12 patterns; 3 intrinsic RED laws (co-location; no anti-synergy; movement-damage carve-out = instant+spammable only) as generation/curation hard filters; ~2/3 of corpses died EXTRINSICALLY (tuning/itemization/port-context) → **amber-promotion law** (extrinsic graveyards are promoted generation targets). Prompt's 33/5 split corrected: 36 genre-negatives + 1 system-evidence + 1 unfilled (d2-sacrifice, which leaked into the keyed 470).
+- **Cell taxonomy gains CONTESTED** (corpses + survivors, tuning-separated; rooted-channel is first member) alongside unclaimed/graveyard/amber/forbidden. Honesty rule: UNCLAIMED requires out-of-corpus genre-check (control-trap exhibit: 2 GD corpses + PoE Bear Trap success).
+- **Feeds Stage-2 dedup review:** #4/#3 demote support, #7 value-split (not wholesale), movement-fusion marker = Stage-2 consideration not new coord, CONTESTED annotations.
+- **elrond curation batch recommended (5 items):** mech_note 140-char truncation; d2-sacrifice fill/quarantine; re-key 37 negatives; 5 no-rule-matched pipeline TODOs; `death=` provenance tags. Recommend before Stage-2 close.
+- **Ruling surface:** D.3 = **REFINE with five bindings** — queued as **Q28** in `matt_decision_needed/`.
+
+---
+
 ### 2026-07-11 (star-lord, Matt-authorized ADR-006 write) — v2.21 telemetry migration APPLIED to production DB (zero data loss)
 
 **Migration:** v2.21 E3 attribution spine — two additive NULL-able columns on `spatial_fight_results`: `output_by_element_json TEXT NULL` (cid=26) + `killing_element TEXT NULL` (cid=27). ALTER TABLE only; no row rewrite.
