@@ -2,9 +2,9 @@
 
 **From:** knight-rider (sequencing)
 **To:** gamora (simulation seam — dedup/matchup consumes the cell key per register §7)
-**Spec author:** gandalf (register §6.1 Stage 1 + §7)
-**Status:** ⛔ **HARD-BLOCKED.** Do NOT launch until elrond's `2026-07-13-elrond-cell-key-materialization.md` carries a completion record confirming `cell_key` is serialized and `GROUP BY`-able for the 470 combat-kit rows. KR brokers the gate — gamora launches only after KR confirms elrond is done. Launching early = `GROUP BY` on a non-existent/partial column.
-**Pattern:** B (analysis over corpus.db; own session memory)
+**Spec author:** gandalf — **authoritative build spec:** `agentic_orchestration/gandalf/design-inputs/dedup-stage1-gamora-handoff-2026-07-13.md` (register §6/§6.1/§8). Build straight off it; this dispatch is the sequencing wrapper.
+**Status:** ✅ **GATE CLEARED — launch-ready, pending Matt's go.** elrond materialization COMPLETE + KR-verified 2026-07-13 (commits `2a02ed0d`/`6c726afd`): `cell_key` is a materialized column, `GROUP BY`-able, 470/470 combat-kit rows keyed (system-records NULL), all 4 keyed columns + `resource_verbatim` populated, #5 two-slot confirmed, unknown/blank preserved as literals. The "no-blind-chain checkpoint" (gandalf `ea4f18a1`, KR-owned) is CLEARED — arity/coverage/enum-distribution/spot-rows all verified against the live DB. Nothing technical gates this now; Matt owns the launch go.
+**Pattern:** B (pure data analysis over corpus.db — a `GROUP BY` + a Hamming-1 scan; ~470 rows. NOT a sim run: no gauntlet/batch/cert/compute campaign.)
 **Approved by:** Matt 2026-07-13 (§6.1 ratified: strict-13 first; dedup v1 = strict `GROUP BY cell_key`). This is execution of the ratified key — no new design decision inside this dispatch.
 
 ## Context
@@ -13,14 +13,18 @@ The cell key is ratified (register §6.1) and (once elrond completes) materializ
 
 ## Required reading before starting
 
-- `canonical/reap-die-rise-engine/coordinate-register-2026-07-13.md` §6/§6.1 (ratified key + isotope/tiebreak model) + §7 (your consumer contract).
-- elrond's completion record on `dispatches/2026-07-13-elrond-cell-key-materialization.md` (the `cell_key` contract you consume — storage mechanism, row scope, unknown/blank footprint).
+- **Authoritative build spec:** `agentic_orchestration/gandalf/design-inputs/dedup-stage1-gamora-handoff-2026-07-13.md` — the strict `GROUP BY` + the 3 Stage-2-readiness outputs + the stopping point. **Build off this; the summary below is orientation, not a re-derivation.**
+- `canonical/reap-die-rise-engine/coordinate-register-2026-07-13.md` §6/§6.1 (ratified key + isotope/tiebreak model) + §8 (your hook).
+- elrond's completion record on `dispatches/2026-07-13-elrond-cell-key-materialization.md` (the `cell_key` contract you consume — materialized column, combat-kit scope, unknown/blank footprint = 49 rows).
 
-## The build
+## The build (per gandalf's finalized spec — summary)
 
-- **Dedup v1 = strict exact-match `GROUP BY cell_key`** over the 470 `row_class='combat-kit'` rows → **cells** (each distinct `cell_key` = one mechanical "element") + **isotope stacks** (kits sharing a fully-resolved cell = true variants, retained, never deleted).
-- **Representative-selection rides the §6 tiebreak — grain-independent, no new decision:** longevity of lineage across games → recency → primary. Losers are **kept as mouseover "isotopes,"** never deleted (breadth is the pitch).
-- Report the **collapse structure**: cell count vs 470 rows, isotope-stack size distribution, the largest cells, and any cell whose members carry `unknown`/`blank` slots (candidates the strict key kept apart on absence — informs Stage-2).
+- **Stage 1 = strict exact-match `GROUP BY cell_key`** over the 470 `row_class='combat-kit'` rows → **cells** (each distinct `cell_key` = one mechanical "element") + **isotope stacks** (kits sharing a cell = true variants, retained, never deleted). Strict only — no coarsening, no merge beyond exact match, no deletion.
+- **Representative per cell = the §6 tiebreak:** longevity of lineage across games → recency → primary; losers retained as mouseover "isotopes." **Column-math is yours to draft** (e.g. longevity ≈ distinct-game span or earliest `skill_debut_year`; recency ≈ max `era_year`) — propose the exact SQL and **confirm with gandalf (one line) before finalizing.** **Do NOT use the deprecated `mobile_*` fields** (`mobile_representative`/`mobile_rank_in_cell`/`mobile_key_group` — DEPRECATED per register §0).
+- **Emit the 3 Stage-2-readiness outputs** (the design-relevant deliverables):
+  1. **Cell table:** `cell_key` · representative `kit_id` · isotope member `kit_id`s · population count.
+  2. **Isotope-depth histogram:** how many cells at depth 1, 2, 3, 4+ (the shape the cluster review reads first — did strict-13 collapse meaningfully, or is it ~flat? KR pre-read: 457 cells / 470 rows → shallow, mostly depth-1).
+  3. **★ Near-twin adjacency aggregate (THE Stage-2 driver):** all cell-pairs whose `cell_key`s differ in **exactly one** of the 14 positions, annotated with which coord differs + the two values; then **count near-twin pairs per differing-coord.** The coord with the most near-twin pairs is the strongest demotion candidate — the empirical object §6.1 Stage-2 rules on.
 
 ## Out of scope
 
