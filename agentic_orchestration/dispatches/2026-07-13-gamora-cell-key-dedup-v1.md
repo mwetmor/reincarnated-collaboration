@@ -78,3 +78,40 @@ _(append ALL of:_
 - _**★ the near-twin-per-coord aggregate, RANKED — which of the 14 positions carries the MOST near-twin (Hamming-1) pairs, descending. This is the headline: the top-ranked coord is the strongest Stage-2 demotion candidate. Include the per-coord pair counts and your read on which coords behave as texture vs. identity;**_
 - _path to the collapse-structure report artifact for the Stage-2 review;_
 - _commit hash; round-trip disposition (expected: N/A — read-only over corpus.db).)_
+
+---
+
+### Completion record — gamora 2026-07-13 (commit `e00f4151`)
+
+**Nature:** PURE DATA executed as specified — read-only strict `GROUP BY cell_key` + Hamming-1 scan over the 470 combat-kit rows (`row_class='combat-kit' AND cell_key IS NOT NULL`) in `agentic_orchestration/research/curated/corpus.db`. No sim, no gauntlet/batch/cert instrument. No coarsening, no deletion. STOPPED at the Stage-2 gate.
+
+**Stage-1 collapse:** 470 kits → **457 cells** (strict exact-match on the 14-slot key; #5 control = 2 slots, 5a treatment + 5b function, per register §2 — arity 14/14 verified). **13 isotope losers RETAINED** (457 reps + 13 losers = 470); nothing deleted.
+
+**Isotope-depth histogram (SUPPORT — trivial, as reshuffle predicted):** depth-1 = **445** cells · depth-2 = **11** · depth-3 = **1** (the `poe1` totem/cooldown/apply→detonate triple). 445+22+3=470 kits; 445+11+1=457 cells.
+
+**Unknown/blank-slot cells:** 49 kit-rows carry ≥1 literal `unknown`/`blank` slot → **45 cells** (guardrail #3: literals preserved, never merged on absence).
+
+**Representative-selection SQL (FINALIZED pending gandalf confirm — §6 tiebreak):**
+`ROW_NUMBER() OVER (PARTITION BY cell_key ORDER BY era_span DESC, era_year DESC, tier_rank DESC, kit_id ASC)`, rnk=1 = representative. longevity=`era_span` (era-segment count in `canon_corpus.eras`) · recency=`era_year` · quality=`canon_tier` rank · deterministic floor=`kit_id`. Deprecated `mobile_*` NOT used. `skill_debut_year` unusable (7/470 populated) → `era_span` substituted. **gandalf one-line confirm PENDING** (spec-required checkpoint; request routed at `gandalf/requests/2026-07-13-gamora-rep-selection-sql-confirm.md`; artifacts non-destructive, re-run trivially via `generate_outputs.py` if amended).
+
+**★ Near-twin-per-coord aggregate (THE headline — 92 Hamming-1 pairs, RANKED descending):**
+
+| rank | coord | pairs | class |
+|---|---|---:|---|
+| 1 | **#4 geometry** | 17 | demotable |
+| 1 | **#7 economy_model** | 17 | demotable (contentious) |
+| 3 | #5b ctrl_function | 14 | never-demote core |
+| 4 | #6 defense | 13 | demotable |
+| 5 | #3 amp | 7 | demotable |
+| 6 | #1 movement · #9 range · #10 tempo · #13 dependency | 4 each | mixed |
+| 10 | #11 commit · #12 activation | 3 each | mixed |
+| 12 | #8 proxy | 2 | core |
+| 13 | **#2 delivery · #5a ctrl_treatment** | **0** | core (perfect identity partition) |
+
+**Texture-vs-identity read:** shape is flat-topped — NO runaway texture coord (gandalf's "312-pair" illustration does not occur; the strict-14 key is near-orthogonal). Cleanest wholesale demote candidates: **#4 geometry** (same-delivery shape variants — register already flags "refine within #2") and **#3 amp** (low swap-diversity). **#6 defense** demotable with a glass~tank survivability caveat. **#7 economy_model is SPLIT-THE-VALUES, not demote-whole** — generator-spender / self-cost / reserve are build-defining (a Fury barb ≠ a spend-pool kit), while `spend~unknown` / `cooldown~finite` swaps read as texture; a blanket #7 demote would wrong-merge. **#5b ctrl_function** high (14) but that count is IDENTITY doing its job (`has-control ~ none` forks are real build differences) — keep. **#2 delivery & #5a treatment = zero near-twins** — strongest evidence for their never-demote status. #9/#10/#11 too few (3–4) to drive a confident call.
+
+**Collapse-structure report (evidence packet for the Stage-2 review):** `agentic_orchestration/gamora/analyses/2026-07-13-cell-key-dedup-v1/collapse-structure-report.md`. Data artifacts alongside: `cell_table.csv` · `isotope_depth_hist.csv` · `near_twin_pairs.csv` · `near_twin_percoord.csv` · `generate_outputs.py` (reproducible).
+
+**Round-trip:** N/A — read-only over elrond's corpus.db curation layer; no engine schema / fight_log / loadout / export contract touched. **Auto-committed** (`e00f4151`); **NO push** (Matt-gated per ADR-006).
+
+**STOP confirmed:** no coord demoted, no coarsening. Stage-2 coarsening is the cluster review (gandalf + gamora + Matt), ruled against the §4 near-twin aggregate. Holding at the gate.
