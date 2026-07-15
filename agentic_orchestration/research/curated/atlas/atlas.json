@@ -1,0 +1,5389 @@
+{
+  "atlas_version": "Edition-I",
+  "badge_fields_mandatory": [
+    "inertia_pct",
+    "retained_dims",
+    "structure_statement"
+  ],
+  "basis": {
+    "axis_names": {
+      "dim1": "PERFORM <-> DEPLOY",
+      "dim2": "EMBODY <-> LAUNCH"
+    },
+    "edition": 1,
+    "frozen": true,
+    "inertia_pct": 8.36,
+    "loadings_ref": "atlas-loadings.csv",
+    "method": "MCA with Greenacre-corrected inertia, MFA block-weighted; parallel-analysis retention of 14 dims (95th-pct null threshold); seed 20260714; prereg v1.1",
+    "ratified": "2026-07-14",
+    "retained_dims": 14,
+    "structure_statement": "continuum with condensations, not discrete cells"
+  },
+  "counts": {
+    "active": 469,
+    "null_death_class_sentineled": 12,
+    "supplementary": 37,
+    "total": 506
+  },
+  "emitted_at": "2026-07-15T03:02:30.091239+00:00",
+  "emitter_script": "agentic_orchestration/research/scripts/build_atlas_json_edition1.py",
+  "loadings": [
+    {
+      "abs_loading": 2.1832866,
+      "coordinate": "delivery",
+      "dim": 1,
+      "level": "beam",
+      "loading": 2.1832866,
+      "rank": 1
+    },
+    {
+      "abs_loading": 1.9798721,
+      "coordinate": "geometry",
+      "dim": 1,
+      "level": "cone",
+      "loading": 1.9798721,
+      "rank": 2
+    },
+    {
+      "abs_loading": 1.881288,
+      "coordinate": "commit",
+      "dim": 1,
+      "level": "channel",
+      "loading": 1.881288,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.7989656,
+      "coordinate": "geometry",
+      "dim": 1,
+      "level": "whirlwind",
+      "loading": 1.7989656,
+      "rank": 4
+    },
+    {
+      "abs_loading": 1.5230174,
+      "coordinate": "geometry",
+      "dim": 1,
+      "level": "totem",
+      "loading": -1.5230174,
+      "rank": 5
+    },
+    {
+      "abs_loading": 1.2392268,
+      "coordinate": "commit",
+      "dim": 1,
+      "level": "wind-up",
+      "loading": -1.2392268,
+      "rank": 6
+    },
+    {
+      "abs_loading": 1.1720833,
+      "coordinate": "dependency",
+      "dim": 1,
+      "level": "apply→detonate",
+      "loading": -1.1720833,
+      "rank": 7
+    },
+    {
+      "abs_loading": 1.1560786,
+      "coordinate": "proxy",
+      "dim": 1,
+      "level": "heavy",
+      "loading": -1.1560786,
+      "rank": 8
+    },
+    {
+      "abs_loading": 0.94627397,
+      "coordinate": "economy",
+      "dim": 1,
+      "level": "cooldown",
+      "loading": -0.94627397,
+      "rank": 9
+    },
+    {
+      "abs_loading": 0.9225102,
+      "coordinate": "geometry",
+      "dim": 1,
+      "level": "other-rare",
+      "loading": 0.9225102,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.87482805,
+      "coordinate": "function",
+      "dim": 1,
+      "level": "other-rare",
+      "loading": -0.87482805,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.83030905,
+      "coordinate": "delivery",
+      "dim": 1,
+      "level": "orbit",
+      "loading": 0.83030905,
+      "rank": 12
+    },
+    {
+      "abs_loading": 2.5587019,
+      "coordinate": "geometry",
+      "dim": 2,
+      "level": "whirlwind",
+      "loading": -2.5587019,
+      "rank": 1
+    },
+    {
+      "abs_loading": 2.1946432,
+      "coordinate": "function",
+      "dim": 2,
+      "level": "taunt",
+      "loading": -2.1946432,
+      "rank": 2
+    },
+    {
+      "abs_loading": 1.4493424,
+      "coordinate": "economy",
+      "dim": 2,
+      "level": "reserve",
+      "loading": -1.4493424,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.434476,
+      "coordinate": "commit",
+      "dim": 2,
+      "level": "channel",
+      "loading": -1.434476,
+      "rank": 4
+    },
+    {
+      "abs_loading": 1.3223361,
+      "coordinate": "geometry",
+      "dim": 2,
+      "level": "chain",
+      "loading": 1.3223361,
+      "rank": 5
+    },
+    {
+      "abs_loading": 1.1355665,
+      "coordinate": "delivery",
+      "dim": 2,
+      "level": "self-origin",
+      "loading": -1.1355665,
+      "rank": 6
+    },
+    {
+      "abs_loading": 1.07573,
+      "coordinate": "delivery",
+      "dim": 2,
+      "level": "projectile",
+      "loading": 1.07573,
+      "rank": 7
+    },
+    {
+      "abs_loading": 1.072239,
+      "coordinate": "function",
+      "dim": 2,
+      "level": "knockback",
+      "loading": -1.072239,
+      "rank": 8
+    },
+    {
+      "abs_loading": 0.99271204,
+      "coordinate": "economy",
+      "dim": 2,
+      "level": "other-rare",
+      "loading": 0.99271204,
+      "rank": 9
+    },
+    {
+      "abs_loading": 0.91011717,
+      "coordinate": "geometry",
+      "dim": 2,
+      "level": "dash_attack",
+      "loading": -0.91011717,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.87368646,
+      "coordinate": "delivery",
+      "dim": 2,
+      "level": "aura-pulse",
+      "loading": -0.87368646,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.8196821,
+      "coordinate": "geometry",
+      "dim": 2,
+      "level": "multi_projectile",
+      "loading": 0.8196821,
+      "rank": 12
+    },
+    {
+      "abs_loading": 2.7611224,
+      "coordinate": "treatment",
+      "dim": 3,
+      "level": "control",
+      "loading": 2.7611224,
+      "rank": 1
+    },
+    {
+      "abs_loading": 2.090828,
+      "coordinate": "geometry",
+      "dim": 3,
+      "level": "cone",
+      "loading": 2.090828,
+      "rank": 2
+    },
+    {
+      "abs_loading": 2.0392902,
+      "coordinate": "delivery",
+      "dim": 3,
+      "level": "beam",
+      "loading": 2.0392902,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.9437741,
+      "coordinate": "commit",
+      "dim": 3,
+      "level": "wind-up",
+      "loading": 1.9437741,
+      "rank": 4
+    },
+    {
+      "abs_loading": 1.0429148,
+      "coordinate": "economy",
+      "dim": 3,
+      "level": "other-rare",
+      "loading": 1.0429148,
+      "rank": 5
+    },
+    {
+      "abs_loading": 0.97477391,
+      "coordinate": "geometry",
+      "dim": 3,
+      "level": "vortex_pull",
+      "loading": 0.97477391,
+      "rank": 6
+    },
+    {
+      "abs_loading": 0.86088836,
+      "coordinate": "defense",
+      "dim": 3,
+      "level": "absorb",
+      "loading": 0.86088836,
+      "rank": 7
+    },
+    {
+      "abs_loading": 0.81052826,
+      "coordinate": "function",
+      "dim": 3,
+      "level": "hard-stop",
+      "loading": 0.81052826,
+      "rank": 8
+    },
+    {
+      "abs_loading": 0.77403019,
+      "coordinate": "function",
+      "dim": 3,
+      "level": "knockback",
+      "loading": 0.77403019,
+      "rank": 9
+    },
+    {
+      "abs_loading": 0.75689229,
+      "coordinate": "amp",
+      "dim": 3,
+      "level": "var",
+      "loading": -0.75689229,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.73370049,
+      "coordinate": "delivery",
+      "dim": 3,
+      "level": "aura-pulse",
+      "loading": -0.73370049,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.72735318,
+      "coordinate": "geometry",
+      "dim": 3,
+      "level": "multi_projectile",
+      "loading": -0.72735318,
+      "rank": 12
+    },
+    {
+      "abs_loading": 2.0595649,
+      "coordinate": "geometry",
+      "dim": 4,
+      "level": "dash_attack",
+      "loading": 2.0595649,
+      "rank": 1
+    },
+    {
+      "abs_loading": 1.6699597,
+      "coordinate": "function",
+      "dim": 4,
+      "level": "taunt",
+      "loading": -1.6699597,
+      "rank": 2
+    },
+    {
+      "abs_loading": 1.4700551,
+      "coordinate": "delivery",
+      "dim": 4,
+      "level": "beam",
+      "loading": -1.4700551,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.4148256,
+      "coordinate": "economy",
+      "dim": 4,
+      "level": "other-rare",
+      "loading": -1.4148256,
+      "rank": 4
+    },
+    {
+      "abs_loading": 1.4143862,
+      "coordinate": "delivery",
+      "dim": 4,
+      "level": "other-rare",
+      "loading": -1.4143862,
+      "rank": 5
+    },
+    {
+      "abs_loading": 1.4123963,
+      "coordinate": "economy",
+      "dim": 4,
+      "level": "generator-spender",
+      "loading": 1.4123963,
+      "rank": 6
+    },
+    {
+      "abs_loading": 1.1641629,
+      "coordinate": "geometry",
+      "dim": 4,
+      "level": "cone",
+      "loading": -1.1641629,
+      "rank": 7
+    },
+    {
+      "abs_loading": 1.1448825,
+      "coordinate": "geometry",
+      "dim": 4,
+      "level": "whirlwind",
+      "loading": 1.1448825,
+      "rank": 8
+    },
+    {
+      "abs_loading": 1.1184271,
+      "coordinate": "geometry",
+      "dim": 4,
+      "level": "totem",
+      "loading": -1.1184271,
+      "rank": 9
+    },
+    {
+      "abs_loading": 1.0807745,
+      "coordinate": "geometry",
+      "dim": 4,
+      "level": "other-rare",
+      "loading": -1.0807745,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.99633532,
+      "coordinate": "economy",
+      "dim": 4,
+      "level": "free",
+      "loading": 0.99633532,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.97088961,
+      "coordinate": "proxy",
+      "dim": 4,
+      "level": "heavy",
+      "loading": -0.97088961,
+      "rank": 12
+    },
+    {
+      "abs_loading": 2.5210684,
+      "coordinate": "delivery",
+      "dim": 5,
+      "level": "aura-pulse",
+      "loading": 2.5210684,
+      "rank": 1
+    },
+    {
+      "abs_loading": 2.150852,
+      "coordinate": "geometry",
+      "dim": 5,
+      "level": "whirlwind",
+      "loading": -2.150852,
+      "rank": 2
+    },
+    {
+      "abs_loading": 1.8142685,
+      "coordinate": "commit",
+      "dim": 5,
+      "level": "channel",
+      "loading": -1.8142685,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.485219,
+      "coordinate": "economy",
+      "dim": 5,
+      "level": "other-rare",
+      "loading": -1.485219,
+      "rank": 4
+    },
+    {
+      "abs_loading": 1.445158,
+      "coordinate": "function",
+      "dim": 5,
+      "level": "taunt",
+      "loading": 1.445158,
+      "rank": 5
+    },
+    {
+      "abs_loading": 1.4382975,
+      "coordinate": "delivery",
+      "dim": 5,
+      "level": "other-rare",
+      "loading": 1.4382975,
+      "rank": 6
+    },
+    {
+      "abs_loading": 1.411602,
+      "coordinate": "geometry",
+      "dim": 5,
+      "level": "other-rare",
+      "loading": 1.411602,
+      "rank": 7
+    },
+    {
+      "abs_loading": 1.1366796,
+      "coordinate": "geometry",
+      "dim": 5,
+      "level": "cone",
+      "loading": -1.1366796,
+      "rank": 8
+    },
+    {
+      "abs_loading": 1.0997154,
+      "coordinate": "delivery",
+      "dim": 5,
+      "level": "orbit",
+      "loading": 1.0997154,
+      "rank": 9
+    },
+    {
+      "abs_loading": 1.0895567,
+      "coordinate": "commit",
+      "dim": 5,
+      "level": "wind-up",
+      "loading": -1.0895567,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.95648875,
+      "coordinate": "defense",
+      "dim": 5,
+      "level": "absorb",
+      "loading": 0.95648875,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.85617119,
+      "coordinate": "geometry",
+      "dim": 5,
+      "level": "totem",
+      "loading": -0.85617119,
+      "rank": 12
+    },
+    {
+      "abs_loading": 2.5440924,
+      "coordinate": "geometry",
+      "dim": 6,
+      "level": "dash_attack",
+      "loading": -2.5440924,
+      "rank": 1
+    },
+    {
+      "abs_loading": 1.7577884,
+      "coordinate": "delivery",
+      "dim": 6,
+      "level": "aura-pulse",
+      "loading": 1.7577884,
+      "rank": 2
+    },
+    {
+      "abs_loading": 1.4826,
+      "coordinate": "delivery",
+      "dim": 6,
+      "level": "beam",
+      "loading": 1.4826,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.3120372,
+      "coordinate": "economy",
+      "dim": 6,
+      "level": "other-rare",
+      "loading": -1.3120372,
+      "rank": 4
+    },
+    {
+      "abs_loading": 1.2252241,
+      "coordinate": "function",
+      "dim": 6,
+      "level": "knockback",
+      "loading": -1.2252241,
+      "rank": 5
+    },
+    {
+      "abs_loading": 1.1873923,
+      "coordinate": "economy",
+      "dim": 6,
+      "level": "free",
+      "loading": 1.1873923,
+      "rank": 6
+    },
+    {
+      "abs_loading": 1.1315788,
+      "coordinate": "commit",
+      "dim": 6,
+      "level": "wind-up",
+      "loading": 1.1315788,
+      "rank": 7
+    },
+    {
+      "abs_loading": 0.92743819,
+      "coordinate": "function",
+      "dim": 6,
+      "level": "expose",
+      "loading": -0.92743819,
+      "rank": 8
+    },
+    {
+      "abs_loading": 0.91354654,
+      "coordinate": "commit",
+      "dim": 6,
+      "level": "channel",
+      "loading": 0.91354654,
+      "rank": 9
+    },
+    {
+      "abs_loading": 0.86367307,
+      "coordinate": "delivery",
+      "dim": 6,
+      "level": "orbit",
+      "loading": 0.86367307,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.85254117,
+      "coordinate": "geometry",
+      "dim": 6,
+      "level": "other-rare",
+      "loading": 0.85254117,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.82457543,
+      "coordinate": "geometry",
+      "dim": 6,
+      "level": "circle",
+      "loading": -0.82457543,
+      "rank": 12
+    },
+    {
+      "abs_loading": 1.5905775,
+      "coordinate": "geometry",
+      "dim": 7,
+      "level": "melee_strike",
+      "loading": 1.5905775,
+      "rank": 1
+    },
+    {
+      "abs_loading": 1.4478703,
+      "coordinate": "function",
+      "dim": 7,
+      "level": "other-rare",
+      "loading": -1.4478703,
+      "rank": 2
+    },
+    {
+      "abs_loading": 1.3232612,
+      "coordinate": "economy",
+      "dim": 7,
+      "level": "other-rare",
+      "loading": 1.3232612,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.2383237,
+      "coordinate": "function",
+      "dim": 7,
+      "level": "taunt",
+      "loading": -1.2383237,
+      "rank": 4
+    },
+    {
+      "abs_loading": 1.1492429,
+      "coordinate": "economy",
+      "dim": 7,
+      "level": "self-cost",
+      "loading": -1.1492429,
+      "rank": 5
+    },
+    {
+      "abs_loading": 1.0830172,
+      "coordinate": "delivery",
+      "dim": 7,
+      "level": "aura-pulse",
+      "loading": 1.0830172,
+      "rank": 6
+    },
+    {
+      "abs_loading": 1.0696405,
+      "coordinate": "economy",
+      "dim": 7,
+      "level": "free",
+      "loading": -1.0696405,
+      "rank": 7
+    },
+    {
+      "abs_loading": 1.0663472,
+      "coordinate": "function",
+      "dim": 7,
+      "level": "hex",
+      "loading": -1.0663472,
+      "rank": 8
+    },
+    {
+      "abs_loading": 1.0405272,
+      "coordinate": "function",
+      "dim": 7,
+      "level": "stun",
+      "loading": 1.0405272,
+      "rank": 9
+    },
+    {
+      "abs_loading": 0.97846479,
+      "coordinate": "activation",
+      "dim": 7,
+      "level": "triggered",
+      "loading": -0.97846479,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.9780841,
+      "coordinate": "geometry",
+      "dim": 7,
+      "level": "whirlwind",
+      "loading": -0.9780841,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.97536596,
+      "coordinate": "defense",
+      "dim": 7,
+      "level": "absorb",
+      "loading": -0.97536596,
+      "rank": 12
+    },
+    {
+      "abs_loading": 2.6541568,
+      "coordinate": "geometry",
+      "dim": 8,
+      "level": "cone",
+      "loading": -2.6541568,
+      "rank": 1
+    },
+    {
+      "abs_loading": 2.6523621,
+      "coordinate": "economy",
+      "dim": 8,
+      "level": "other-rare",
+      "loading": -2.6523621,
+      "rank": 2
+    },
+    {
+      "abs_loading": 2.1848832,
+      "coordinate": "commit",
+      "dim": 8,
+      "level": "wind-up",
+      "loading": 2.1848832,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.3109582,
+      "coordinate": "delivery",
+      "dim": 8,
+      "level": "other-rare",
+      "loading": 1.3109582,
+      "rank": 4
+    },
+    {
+      "abs_loading": 1.3101814,
+      "coordinate": "geometry",
+      "dim": 8,
+      "level": "single_target",
+      "loading": -1.3101814,
+      "rank": 5
+    },
+    {
+      "abs_loading": 1.2912525,
+      "coordinate": "economy",
+      "dim": 8,
+      "level": "self-cost",
+      "loading": 1.2912525,
+      "rank": 6
+    },
+    {
+      "abs_loading": 1.0917636,
+      "coordinate": "delivery",
+      "dim": 8,
+      "level": "beam",
+      "loading": -1.0917636,
+      "rank": 7
+    },
+    {
+      "abs_loading": 0.92666945,
+      "coordinate": "proxy",
+      "dim": 8,
+      "level": "heavy",
+      "loading": -0.92666945,
+      "rank": 8
+    },
+    {
+      "abs_loading": 0.83970274,
+      "coordinate": "economy",
+      "dim": 8,
+      "level": "free",
+      "loading": -0.83970274,
+      "rank": 9
+    },
+    {
+      "abs_loading": 0.73268384,
+      "coordinate": "activation",
+      "dim": 8,
+      "level": "triggered",
+      "loading": -0.73268384,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.66139812,
+      "coordinate": "geometry",
+      "dim": 8,
+      "level": "totem",
+      "loading": -0.66139812,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.60830583,
+      "coordinate": "amp",
+      "dim": 8,
+      "level": "var",
+      "loading": 0.60830583,
+      "rank": 12
+    },
+    {
+      "abs_loading": 1.6188328,
+      "coordinate": "economy",
+      "dim": 9,
+      "level": "other-rare",
+      "loading": -1.6188328,
+      "rank": 1
+    },
+    {
+      "abs_loading": 1.4255863,
+      "coordinate": "function",
+      "dim": 9,
+      "level": "expose",
+      "loading": -1.4255863,
+      "rank": 2
+    },
+    {
+      "abs_loading": 1.3938628,
+      "coordinate": "commit",
+      "dim": 9,
+      "level": "wind-up",
+      "loading": 1.3938628,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.3836919,
+      "coordinate": "geometry",
+      "dim": 9,
+      "level": "dash_attack",
+      "loading": -1.3836919,
+      "rank": 4
+    },
+    {
+      "abs_loading": 1.344836,
+      "coordinate": "economy",
+      "dim": 9,
+      "level": "finite",
+      "loading": 1.344836,
+      "rank": 5
+    },
+    {
+      "abs_loading": 1.1290129,
+      "coordinate": "geometry",
+      "dim": 9,
+      "level": "melee_strike",
+      "loading": 1.1290129,
+      "rank": 6
+    },
+    {
+      "abs_loading": 1.1114871,
+      "coordinate": "geometry",
+      "dim": 9,
+      "level": "circle",
+      "loading": 1.1114871,
+      "rank": 7
+    },
+    {
+      "abs_loading": 1.0140182,
+      "coordinate": "delivery",
+      "dim": 9,
+      "level": "beam",
+      "loading": -1.0140182,
+      "rank": 8
+    },
+    {
+      "abs_loading": 0.86296766,
+      "coordinate": "economy",
+      "dim": 9,
+      "level": "self-cost",
+      "loading": -0.86296766,
+      "rank": 9
+    },
+    {
+      "abs_loading": 0.8262958,
+      "coordinate": "function",
+      "dim": 9,
+      "level": "stun",
+      "loading": 0.8262958,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.72521856,
+      "coordinate": "economy",
+      "dim": 9,
+      "level": "free",
+      "loading": 0.72521856,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.66181925,
+      "coordinate": "function",
+      "dim": 9,
+      "level": "taunt",
+      "loading": 0.66181925,
+      "rank": 12
+    },
+    {
+      "abs_loading": 4.0901584,
+      "coordinate": "economy",
+      "dim": 10,
+      "level": "other-rare",
+      "loading": 4.0901584,
+      "rank": 1
+    },
+    {
+      "abs_loading": 2.3036573,
+      "coordinate": "geometry",
+      "dim": 10,
+      "level": "cone",
+      "loading": 2.3036573,
+      "rank": 2
+    },
+    {
+      "abs_loading": 1.8188025,
+      "coordinate": "geometry",
+      "dim": 10,
+      "level": "vortex_pull",
+      "loading": -1.8188025,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.6222438,
+      "coordinate": "function",
+      "dim": 10,
+      "level": "other-rare",
+      "loading": 1.6222438,
+      "rank": 4
+    },
+    {
+      "abs_loading": 1.469549,
+      "coordinate": "geometry",
+      "dim": 10,
+      "level": "whirlwind",
+      "loading": -1.469549,
+      "rank": 5
+    },
+    {
+      "abs_loading": 1.2736989,
+      "coordinate": "delivery",
+      "dim": 10,
+      "level": "orbit",
+      "loading": -1.2736989,
+      "rank": 6
+    },
+    {
+      "abs_loading": 1.2559683,
+      "coordinate": "delivery",
+      "dim": 10,
+      "level": "beam",
+      "loading": 1.2559683,
+      "rank": 7
+    },
+    {
+      "abs_loading": 1.1595071,
+      "coordinate": "economy",
+      "dim": 10,
+      "level": "self-cost",
+      "loading": 1.1595071,
+      "rank": 8
+    },
+    {
+      "abs_loading": 1.0931699,
+      "coordinate": "dependency",
+      "dim": 10,
+      "level": "build→spend",
+      "loading": 1.0931699,
+      "rank": 9
+    },
+    {
+      "abs_loading": 1.0419554,
+      "coordinate": "function",
+      "dim": 10,
+      "level": "stun",
+      "loading": -1.0419554,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.9588924,
+      "coordinate": "geometry",
+      "dim": 10,
+      "level": "chain",
+      "loading": -0.9588924,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.90946606,
+      "coordinate": "economy",
+      "dim": 10,
+      "level": "generator-spender",
+      "loading": 0.90946606,
+      "rank": 12
+    },
+    {
+      "abs_loading": 3.1866355,
+      "coordinate": "economy",
+      "dim": 11,
+      "level": "other-rare",
+      "loading": 3.1866355,
+      "rank": 1
+    },
+    {
+      "abs_loading": 2.7834358,
+      "coordinate": "function",
+      "dim": 11,
+      "level": "expose",
+      "loading": 2.7834358,
+      "rank": 2
+    },
+    {
+      "abs_loading": 2.0072966,
+      "coordinate": "geometry",
+      "dim": 11,
+      "level": "vortex_pull",
+      "loading": -2.0072966,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.7765945,
+      "coordinate": "function",
+      "dim": 11,
+      "level": "other-rare",
+      "loading": -1.7765945,
+      "rank": 4
+    },
+    {
+      "abs_loading": 1.7565204,
+      "coordinate": "commit",
+      "dim": 11,
+      "level": "wind-up",
+      "loading": 1.7565204,
+      "rank": 5
+    },
+    {
+      "abs_loading": 1.7001653,
+      "coordinate": "delivery",
+      "dim": 11,
+      "level": "other-rare",
+      "loading": -1.7001653,
+      "rank": 6
+    },
+    {
+      "abs_loading": 1.4417008,
+      "coordinate": "delivery",
+      "dim": 11,
+      "level": "aura-pulse",
+      "loading": 1.4417008,
+      "rank": 7
+    },
+    {
+      "abs_loading": 1.3971686,
+      "coordinate": "geometry",
+      "dim": 11,
+      "level": "chain",
+      "loading": 1.3971686,
+      "rank": 8
+    },
+    {
+      "abs_loading": 1.0954834,
+      "coordinate": "geometry",
+      "dim": 11,
+      "level": "dash_attack",
+      "loading": 1.0954834,
+      "rank": 9
+    },
+    {
+      "abs_loading": 1.0727731,
+      "coordinate": "economy",
+      "dim": 11,
+      "level": "self-cost",
+      "loading": 1.0727731,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.8869839,
+      "coordinate": "delivery",
+      "dim": 11,
+      "level": "orbit",
+      "loading": -0.8869839,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.77154393,
+      "coordinate": "amp",
+      "dim": 11,
+      "level": "var",
+      "loading": -0.77154393,
+      "rank": 12
+    },
+    {
+      "abs_loading": 3.92019,
+      "coordinate": "economy",
+      "dim": 12,
+      "level": "other-rare",
+      "loading": -3.92019,
+      "rank": 1
+    },
+    {
+      "abs_loading": 2.303602,
+      "coordinate": "function",
+      "dim": 12,
+      "level": "expose",
+      "loading": -2.303602,
+      "rank": 2
+    },
+    {
+      "abs_loading": 1.8850264,
+      "coordinate": "delivery",
+      "dim": 12,
+      "level": "other-rare",
+      "loading": -1.8850264,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.8593813,
+      "coordinate": "function",
+      "dim": 12,
+      "level": "other-rare",
+      "loading": -1.8593813,
+      "rank": 4
+    },
+    {
+      "abs_loading": 1.7049081,
+      "coordinate": "economy",
+      "dim": 12,
+      "level": "self-cost",
+      "loading": -1.7049081,
+      "rank": 5
+    },
+    {
+      "abs_loading": 1.3387379,
+      "coordinate": "function",
+      "dim": 12,
+      "level": "taunt",
+      "loading": 1.3387379,
+      "rank": 6
+    },
+    {
+      "abs_loading": 1.057523,
+      "coordinate": "function",
+      "dim": 12,
+      "level": "stun",
+      "loading": -1.057523,
+      "rank": 7
+    },
+    {
+      "abs_loading": 1.0049852,
+      "coordinate": "function",
+      "dim": 12,
+      "level": "hard-stop",
+      "loading": 1.0049852,
+      "rank": 8
+    },
+    {
+      "abs_loading": 0.94601573,
+      "coordinate": "geometry",
+      "dim": 12,
+      "level": "chain",
+      "loading": -0.94601573,
+      "rank": 9
+    },
+    {
+      "abs_loading": 0.89436617,
+      "coordinate": "geometry",
+      "dim": 12,
+      "level": "multi_projectile",
+      "loading": 0.89436617,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.86839099,
+      "coordinate": "delivery",
+      "dim": 12,
+      "level": "orbit",
+      "loading": -0.86839099,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.8658573,
+      "coordinate": "geometry",
+      "dim": 12,
+      "level": "single_target",
+      "loading": 0.8658573,
+      "rank": 12
+    },
+    {
+      "abs_loading": 3.9433603,
+      "coordinate": "economy",
+      "dim": 13,
+      "level": "other-rare",
+      "loading": 3.9433603,
+      "rank": 1
+    },
+    {
+      "abs_loading": 2.1896724,
+      "coordinate": "geometry",
+      "dim": 13,
+      "level": "dash_attack",
+      "loading": -2.1896724,
+      "rank": 2
+    },
+    {
+      "abs_loading": 1.5744718,
+      "coordinate": "function",
+      "dim": 13,
+      "level": "taunt",
+      "loading": 1.5744718,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.3035095,
+      "coordinate": "delivery",
+      "dim": 13,
+      "level": "orbit",
+      "loading": -1.3035095,
+      "rank": 4
+    },
+    {
+      "abs_loading": 1.1653565,
+      "coordinate": "function",
+      "dim": 13,
+      "level": "knockback",
+      "loading": 1.1653565,
+      "rank": 5
+    },
+    {
+      "abs_loading": 1.1406054,
+      "coordinate": "delivery",
+      "dim": 13,
+      "level": "beam",
+      "loading": -1.1406054,
+      "rank": 6
+    },
+    {
+      "abs_loading": 1.0357756,
+      "coordinate": "geometry",
+      "dim": 13,
+      "level": "melee_strike",
+      "loading": 1.0357756,
+      "rank": 7
+    },
+    {
+      "abs_loading": 0.90564613,
+      "coordinate": "geometry",
+      "dim": 13,
+      "level": "whirlwind",
+      "loading": 0.90564613,
+      "rank": 8
+    },
+    {
+      "abs_loading": 0.86474208,
+      "coordinate": "geometry",
+      "dim": 13,
+      "level": "other-rare",
+      "loading": -0.86474208,
+      "rank": 9
+    },
+    {
+      "abs_loading": 0.82722305,
+      "coordinate": "dependency",
+      "dim": 13,
+      "level": "apply→detonate",
+      "loading": -0.82722305,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.72665148,
+      "coordinate": "function",
+      "dim": 13,
+      "level": "hex",
+      "loading": -0.72665148,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.71266016,
+      "coordinate": "defense",
+      "dim": 13,
+      "level": "evade",
+      "loading": 0.71266016,
+      "rank": 12
+    },
+    {
+      "abs_loading": 1.2751777,
+      "coordinate": "economy",
+      "dim": 14,
+      "level": "finite",
+      "loading": 1.2751777,
+      "rank": 1
+    },
+    {
+      "abs_loading": 1.2622819,
+      "coordinate": "economy",
+      "dim": 14,
+      "level": "other-rare",
+      "loading": 1.2622819,
+      "rank": 2
+    },
+    {
+      "abs_loading": 1.085501,
+      "coordinate": "geometry",
+      "dim": 14,
+      "level": "whirlwind",
+      "loading": 1.085501,
+      "rank": 3
+    },
+    {
+      "abs_loading": 1.0853881,
+      "coordinate": "defense",
+      "dim": 14,
+      "level": "glass",
+      "loading": 1.0853881,
+      "rank": 4
+    },
+    {
+      "abs_loading": 0.93243184,
+      "coordinate": "geometry",
+      "dim": 14,
+      "level": "single_target",
+      "loading": 0.93243184,
+      "rank": 5
+    },
+    {
+      "abs_loading": 0.91553121,
+      "coordinate": "geometry",
+      "dim": 14,
+      "level": "melee_strike",
+      "loading": -0.91553121,
+      "rank": 6
+    },
+    {
+      "abs_loading": 0.80101153,
+      "coordinate": "function",
+      "dim": 14,
+      "level": "expose",
+      "loading": 0.80101153,
+      "rank": 7
+    },
+    {
+      "abs_loading": 0.77467277,
+      "coordinate": "delivery",
+      "dim": 14,
+      "level": "aura-pulse",
+      "loading": -0.77467277,
+      "rank": 8
+    },
+    {
+      "abs_loading": 0.70017643,
+      "coordinate": "movement",
+      "dim": 14,
+      "level": "rooted",
+      "loading": -0.70017643,
+      "rank": 9
+    },
+    {
+      "abs_loading": 0.68104354,
+      "coordinate": "geometry",
+      "dim": 14,
+      "level": "vortex_pull",
+      "loading": 0.68104354,
+      "rank": 10
+    },
+    {
+      "abs_loading": 0.67347676,
+      "coordinate": "defense",
+      "dim": 14,
+      "level": "absorb",
+      "loading": -0.67347676,
+      "rank": 11
+    },
+    {
+      "abs_loading": 0.65525155,
+      "coordinate": "geometry",
+      "dim": 14,
+      "level": "totem",
+      "loading": -0.65525155,
+      "rank": 12
+    }
+  ],
+  "points": [
+    {
+      "franchise": "chronicon",
+      "gateA_group": null,
+      "kit_id": "chr-arrow-storm-warden",
+      "supplementary": false,
+      "x": 0.3531408,
+      "y": 0.33982866
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": null,
+      "kit_id": "chr-bee-warden",
+      "supplementary": false,
+      "x": 0.087225985,
+      "y": -0.52544862
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": null,
+      "kit_id": "chr-bleed-berserker",
+      "supplementary": false,
+      "x": -0.15718756,
+      "y": -0.094623029
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": null,
+      "kit_id": "chr-bloodbinder-warlock",
+      "supplementary": false,
+      "x": 0.071213111,
+      "y": -0.31746624
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "chr-crown-proc-engine",
+      "supplementary": false,
+      "x": 0.20882267,
+      "y": 0.57374004
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": "MINION-PET",
+      "kit_id": "chr-demon-legion-warlock",
+      "supplementary": false,
+      "x": 0.07048178,
+      "y": -1.1037705
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "chr-fire-berserker",
+      "supplementary": false,
+      "x": -0.01608083,
+      "y": -0.15422505
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "chr-firestorm-warlock",
+      "supplementary": false,
+      "x": -0.32994792,
+      "y": 0.28371778
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": null,
+      "kit_id": "chr-frost-berserker",
+      "supplementary": false,
+      "x": -0.31994938,
+      "y": 0.016815306
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "chr-fulmination-templar",
+      "supplementary": false,
+      "x": -0.34109751,
+      "y": -0.11758951
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": null,
+      "kit_id": "chr-high-ranger-warden",
+      "supplementary": false,
+      "x": 0.11563674,
+      "y": 0.46395045
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": null,
+      "kit_id": "chr-mechanist-rocketeer",
+      "supplementary": false,
+      "x": 0.1405511,
+      "y": 0.0045928925
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": null,
+      "kit_id": "chr-mechanist-saw-master",
+      "supplementary": false,
+      "x": 0.18875092,
+      "y": 0.58467199
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "chr-mechanist-turret-drone",
+      "supplementary": false,
+      "x": -0.56914728,
+      "y": -0.2372686
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": "MINION-PET",
+      "kit_id": "chr-pet-warden",
+      "supplementary": false,
+      "x": 0.032966232,
+      "y": -1.0964919
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": null,
+      "kit_id": "chr-plague-curse-warlock",
+      "supplementary": false,
+      "x": -0.21077889,
+      "y": 0.43695946
+    },
+    {
+      "franchise": "chronicon",
+      "gateA_group": null,
+      "kit_id": "chr-thorns-templar",
+      "supplementary": false,
+      "x": 0.2538628,
+      "y": -0.42474231
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "AURA",
+      "kit_id": "d2-auradin",
+      "supplementary": false,
+      "x": 0.41780014,
+      "y": -0.066958299
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-avenger",
+      "supplementary": false,
+      "x": 0.0055863417,
+      "y": 0.096388709
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-berserker",
+      "supplementary": false,
+      "x": -0.085190778,
+      "y": 0.072374974
+    },
+    {
+      "death_class": "extrinsic-tuning",
+      "kit_id": "d2-blade-sin",
+      "supplementary": true,
+      "x": 0.98795729,
+      "y": -0.33764749
+    },
+    {
+      "death_class": "intrinsic-red",
+      "kit_id": "d2-blaze-sorc",
+      "supplementary": true,
+      "x": 0.2035644,
+      "y": -0.35604143
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-blizzard-sorc",
+      "supplementary": false,
+      "x": -0.15128125,
+      "y": 0.3740451
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-bonemancer",
+      "supplementary": false,
+      "x": 0.27421405,
+      "y": 0.55531745
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-bowazon",
+      "supplementary": false,
+      "x": 0.27883971,
+      "y": 0.61044299
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "d2-bvc",
+      "supplementary": false,
+      "x": 0.71135295,
+      "y": -1.2105496
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-charger",
+      "supplementary": false,
+      "x": -0.19246935,
+      "y": -0.11543144
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-conc-barb",
+      "supplementary": false,
+      "x": -0.056337649,
+      "y": -0.056092529
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-daggermancer",
+      "supplementary": false,
+      "x": -0.05555857,
+      "y": 0.065401439
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-enchantress",
+      "supplementary": false,
+      "x": -0.27704191,
+      "y": -0.16699064
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-fire-druid",
+      "supplementary": false,
+      "x": -0.16916557,
+      "y": 0.33242319
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-fire-sorc",
+      "supplementary": false,
+      "x": -0.17573225,
+      "y": 0.21451722
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-fireclaw-wolf",
+      "supplementary": false,
+      "x": -0.13744243,
+      "y": -0.056459559
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-firewall-sorc",
+      "supplementary": false,
+      "x": 0.21488541,
+      "y": 0.20212858
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-fishyzon",
+      "supplementary": false,
+      "x": 0.14459392,
+      "y": 0.51225077
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-fohdin",
+      "supplementary": false,
+      "x": -0.27019663,
+      "y": 0.25972196
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "d2-frenzy-barb",
+      "supplementary": false,
+      "x": -0.06959223,
+      "y": 0.076645372
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-frost-bowazon",
+      "supplementary": false,
+      "x": 0.2400783,
+      "y": 0.37413091
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-frozen-orb-sorc",
+      "supplementary": false,
+      "x": 0.28432398,
+      "y": 0.53067549
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-fury-wolf",
+      "supplementary": false,
+      "x": -0.12463152,
+      "y": 0.09552867
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-ghost-pvp",
+      "supplementary": false,
+      "x": -0.58079082,
+      "y": -0.030415031
+    },
+    {
+      "death_class": "extrinsic-split-scaling",
+      "kit_id": "d2-golemancer",
+      "supplementary": true,
+      "x": -0.50603577,
+      "y": -0.12750585
+    },
+    {
+      "death_class": "unknown-pending-recrawl",
+      "kit_id": "d2-grim-ward-barb",
+      "supplementary": true,
+      "x": -0.6357514,
+      "y": 0.027315108
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-hammerdin",
+      "supplementary": false,
+      "x": 0.42048809,
+      "y": 0.13874159
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "d2-horker",
+      "supplementary": false,
+      "x": -0.14209537,
+      "y": 0.20706255
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-hydra-sorc",
+      "supplementary": false,
+      "x": -0.6867502,
+      "y": -0.27281713
+    },
+    {
+      "death_class": "unknown-pending-recrawl",
+      "kit_id": "d2-impale-zon",
+      "supplementary": true,
+      "x": -1.2148737,
+      "y": 0.14778635
+    },
+    {
+      "death_class": "extrinsic-tuning",
+      "kit_id": "d2-inferno-sorc",
+      "supplementary": true,
+      "x": 1.5748492,
+      "y": -0.75184869
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-javazon",
+      "supplementary": false,
+      "x": 0.33747444,
+      "y": 0.75679202
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-kicksin",
+      "supplementary": false,
+      "x": -0.096526539,
+      "y": 0.2891981
+    },
+    {
+      "death_class": "intrinsic-red",
+      "kit_id": "d2-leap-attack-barb",
+      "supplementary": true,
+      "x": -0.820759,
+      "y": 0.20657755
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-lightning-sorc",
+      "supplementary": false,
+      "x": 0.31336048,
+      "y": 0.66938261
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-maul-bear",
+      "supplementary": false,
+      "x": -0.45422122,
+      "y": 0.15119975
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-meteorb",
+      "supplementary": false,
+      "x": -0.49143391,
+      "y": 0.33299474
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-mosaic-sin",
+      "supplementary": false,
+      "x": -0.03055466,
+      "y": 0.24937122
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-nova-sorc",
+      "supplementary": false,
+      "x": 0.50439393,
+      "y": -0.23772718
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-poison-javazon",
+      "supplementary": false,
+      "x": -0.33097792,
+      "y": 0.33091723
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-poison-nova-necro",
+      "supplementary": false,
+      "x": 0.2801646,
+      "y": -0.12772563
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-rabies-wolf",
+      "supplementary": false,
+      "x": -0.070258549,
+      "y": 0.39412949
+    },
+    {
+      "death_class": "unknown-pending-recrawl",
+      "kit_id": "d2-sacrifice",
+      "supplementary": true,
+      "x": -0.41763791,
+      "y": -0.22712038
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-singer",
+      "supplementary": false,
+      "x": 0.31830394,
+      "y": -0.30623908
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-smiter",
+      "supplementary": false,
+      "x": -0.22366188,
+      "y": 0.023358881
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-summon-druid",
+      "supplementary": false,
+      "x": -0.21653587,
+      "y": -0.19136147
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-summonmancer",
+      "supplementary": false,
+      "x": -0.77637229,
+      "y": 0.051388651
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-throw-barb",
+      "supplementary": false,
+      "x": 0.18156705,
+      "y": 0.43466331
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-trapsin",
+      "supplementary": false,
+      "x": -0.86639685,
+      "y": -0.033298577
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-wind-druid",
+      "supplementary": false,
+      "x": 0.37577257,
+      "y": 0.68474809
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-wl-abyss",
+      "supplementary": false,
+      "x": -0.29527666,
+      "y": 0.39620324
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-wl-blood-boil",
+      "supplementary": false,
+      "x": -0.43265064,
+      "y": 0.27337893
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-wl-echoing-strike",
+      "supplementary": false,
+      "x": -0.13744009,
+      "y": 0.18826128
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-wl-fire",
+      "supplementary": false,
+      "x": -0.29527666,
+      "y": 0.39620324
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-wl-tainted-summoner",
+      "supplementary": false,
+      "x": -0.46761856,
+      "y": 0.32694596
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-wl-void-rift",
+      "supplementary": false,
+      "x": -0.34152672,
+      "y": 0.31211675
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "d2-ww-barb",
+      "supplementary": false,
+      "x": 0.86218278,
+      "y": -1.0861682
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "d2-ww-sin",
+      "supplementary": false,
+      "x": 0.99562662,
+      "y": -1.0116467
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d2-zealot",
+      "supplementary": false,
+      "x": -0.20054139,
+      "y": 0.20999437
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-akkhan-condemn",
+      "supplementary": false,
+      "x": 0.074157732,
+      "y": -0.20873659
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-aov-foth",
+      "supplementary": false,
+      "x": -0.14195929,
+      "y": 0.23234953
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "CHANNELED-BEAM",
+      "kit_id": "d3-arachyr-firebats",
+      "supplementary": false,
+      "x": 1.023126,
+      "y": -0.54406563
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-call-of-the-ancients",
+      "supplementary": false,
+      "x": -1.1584202,
+      "y": -0.52740166
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-dashing-strike-monk",
+      "supplementary": false,
+      "x": 0.094619169,
+      "y": -0.4683903
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-dmo-twister",
+      "supplementary": false,
+      "x": 0.00029040125,
+      "y": 0.39038299
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-firebird",
+      "supplementary": false,
+      "x": -0.33342429,
+      "y": 0.052418719
+    },
+    {
+      "death_class": "extrinsic-itemization",
+      "kit_id": "d3-firebomb",
+      "supplementary": true,
+      "x": 0.2218703,
+      "y": 0.40622165
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "d3-frenzy-h90",
+      "supplementary": false,
+      "x": -0.10305982,
+      "y": 0.28832976
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-god-hungering",
+      "supplementary": false,
+      "x": 0.5820548,
+      "y": 0.029346334
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-helltooth-garg",
+      "supplementary": false,
+      "x": -0.44088285,
+      "y": -0.34025718
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-ik-hota",
+      "supplementary": false,
+      "x": -0.30958353,
+      "y": 0.075607922
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-inarius-bonestorm",
+      "supplementary": false,
+      "x": 0.24247158,
+      "y": 0.031988767
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-inna-allies",
+      "supplementary": false,
+      "x": -0.63596256,
+      "y": -0.54368723
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-invoker-thorns",
+      "supplementary": false,
+      "x": 0.096716553,
+      "y": -0.27066379
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-jade-harvester",
+      "supplementary": false,
+      "x": -0.62627735,
+      "y": -0.0040648083
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-leapquake",
+      "supplementary": false,
+      "x": -0.45957076,
+      "y": -0.36997118
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-lod-archetype",
+      "supplementary": false,
+      "x": 0.056377241,
+      "y": 0.12887038
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-lod-bazooka",
+      "supplementary": false,
+      "x": -0.56914652,
+      "y": 0.30126206
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-lon-bombardment",
+      "supplementary": false,
+      "x": -0.58707703,
+      "y": 0.068161025
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "d3-m6-sentries",
+      "supplementary": false,
+      "x": -0.56764323,
+      "y": -0.1780798
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "d3-manald-heal",
+      "supplementary": false,
+      "x": -0.18087188,
+      "y": 0.39275902
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-masquerade-spear",
+      "supplementary": false,
+      "x": 0.12225527,
+      "y": 0.45954939
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "d3-mundunugu-sb",
+      "supplementary": false,
+      "x": -0.38676788,
+      "y": -0.11091818
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-natalya-rov",
+      "supplementary": false,
+      "x": -0.59063491,
+      "y": -0.06872923
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "d3-pestilence-lance",
+      "supplementary": false,
+      "x": -0.34223424,
+      "y": 0.31930882
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-poj-tempest-rush",
+      "supplementary": false,
+      "x": 0.74927387,
+      "y": -0.59100297
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-raekor-boulder",
+      "supplementary": false,
+      "x": -0.31087192,
+      "y": -0.31228107
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-raiment-shenlong",
+      "supplementary": false,
+      "x": -0.052011573,
+      "y": 0.048150859
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-rathma-aotd",
+      "supplementary": false,
+      "x": -0.77712063,
+      "y": -0.036208684
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-rolands",
+      "supplementary": false,
+      "x": 0.37489406,
+      "y": -0.20302812
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-s6-impale",
+      "supplementary": false,
+      "x": 0.00033261836,
+      "y": 0.16539703
+    },
+    {
+      "death_class": "extrinsic-tuning",
+      "kit_id": "d3-shield-bash",
+      "supplementary": true,
+      "x": -0.38303392,
+      "y": -0.15172932
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-sotl-hammer",
+      "supplementary": false,
+      "x": 0.32182097,
+      "y": 0.1371712
+    },
+    {
+      "death_class": "unknown-pending-recrawl",
+      "kit_id": "d3-spectral-blade",
+      "supplementary": true,
+      "x": 0.43691981,
+      "y": -0.25421121
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-sunwuko-wol",
+      "supplementary": false,
+      "x": -0.23717734,
+      "y": 0.10622489
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-tal-meteor",
+      "supplementary": false,
+      "x": -0.76856973,
+      "y": 0.07857792
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-trag-nova",
+      "supplementary": false,
+      "x": 0.29896796,
+      "y": -0.30324637
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-typhon-hydra",
+      "supplementary": false,
+      "x": -0.49021816,
+      "y": -0.10611156
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-ue-multishot",
+      "supplementary": false,
+      "x": 0.36752068,
+      "y": 0.29962491
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-uliana-ep",
+      "supplementary": false,
+      "x": -0.52578708,
+      "y": -0.403305
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-vyr-archon",
+      "supplementary": false,
+      "x": -0.18055806,
+      "y": -0.44012301
+    },
+    {
+      "death_class": "extrinsic-itemization",
+      "kit_id": "d3-wave-of-force",
+      "supplementary": true,
+      "x": 0.1997715,
+      "y": -0.49953578
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "d3-ww-wastes",
+      "supplementary": false,
+      "x": 0.98909333,
+      "y": -1.012515
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-zbarb",
+      "supplementary": false,
+      "x": -0.20391598,
+      "y": -0.21993294
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-zero-dogs",
+      "supplementary": false,
+      "x": -0.27213528,
+      "y": 0.26112752
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-znec",
+      "supplementary": false,
+      "x": -0.43706158,
+      "y": -0.029968102
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d3-zuni-carnevil",
+      "supplementary": false,
+      "x": -0.2256869,
+      "y": 0.22321705
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-andariel-flurry",
+      "supplementary": false,
+      "x": -0.17978313,
+      "y": 0.021127316
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "AURA",
+      "kit_id": "d4-auradin-paladin",
+      "supplementary": false,
+      "x": 0.24447816,
+      "y": -0.61983888
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-ball-lightning",
+      "supplementary": false,
+      "x": 0.27282521,
+      "y": 0.088294499
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-bash",
+      "supplementary": false,
+      "x": -0.20286945,
+      "y": 0.040473015
+    },
+    {
+      "death_class": "unknown-pending-recrawl",
+      "kit_id": "d4-blade-shift",
+      "supplementary": true,
+      "x": 0.43414223,
+      "y": -0.3635175
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-blazing-abyss-warlock",
+      "supplementary": false,
+      "x": -0.36193405,
+      "y": 0.23206651
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-blood-lance",
+      "supplementary": false,
+      "x": 0.26287513,
+      "y": 0.55554814
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-blood-surge",
+      "supplementary": false,
+      "x": 0.13936393,
+      "y": -0.25764796
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "d4-blood-wave",
+      "supplementary": false,
+      "x": 0.10672843,
+      "y": -0.69343207
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-bone-spear",
+      "supplementary": false,
+      "x": 0.07478061,
+      "y": 0.50957002
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-bouldercane",
+      "supplementary": false,
+      "x": 0.24247158,
+      "y": 0.031988767
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-cataclysm",
+      "supplementary": false,
+      "x": 0.083883092,
+      "y": -0.20021312
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-chain-lightning",
+      "supplementary": false,
+      "x": 0.32463595,
+      "y": 0.66295642
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-dance-of-knives",
+      "supplementary": false,
+      "x": 0.71897155,
+      "y": -0.38320793
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "d4-death-trap",
+      "supplementary": false,
+      "x": -1.0583891,
+      "y": -0.3523799
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-dread-claws-warlock",
+      "supplementary": false,
+      "x": -0.35715652,
+      "y": -0.0074312391
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-earthquake-barb",
+      "supplementary": false,
+      "x": -0.35095119,
+      "y": -0.38900454
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-evade-sb",
+      "supplementary": false,
+      "x": 0.13012075,
+      "y": -0.48615209
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-flame-shield-immortal",
+      "supplementary": false,
+      "x": 0.0086577122,
+      "y": -0.46602631
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-frozen-orb",
+      "supplementary": false,
+      "x": 0.33146809,
+      "y": 0.49489454
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-hammerdin-paladin",
+      "supplementary": false,
+      "x": 0.29282976,
+      "y": 0.077526004
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-heartseeker",
+      "supplementary": false,
+      "x": 0.16571857,
+      "y": 0.37295887
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-hota",
+      "supplementary": false,
+      "x": -0.37534917,
+      "y": 0.032941991
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-ice-shards",
+      "supplementary": false,
+      "x": 0.2244201,
+      "y": 0.51461373
+    },
+    {
+      "death_class": "unknown-pending-recrawl",
+      "kit_id": "d4-incinerate",
+      "supplementary": true,
+      "x": 1.6247802,
+      "y": -0.56513235
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-infinimist",
+      "supplementary": false,
+      "x": -0.40463842,
+      "y": -0.33878224
+    },
+    {
+      "death_class": "extrinsic-itemization",
+      "kit_id": "d4-kick",
+      "supplementary": true,
+      "x": -0.38303392,
+      "y": -0.15172932
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-lightning-spear",
+      "supplementary": false,
+      "x": -0.49921523,
+      "y": -0.074364881
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-lightning-storm",
+      "supplementary": false,
+      "x": 0.81977172,
+      "y": -0.38634592
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "d4-mighty-throw",
+      "supplementary": false,
+      "x": -0.61021,
+      "y": -0.1971156
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-minion-necro",
+      "supplementary": false,
+      "x": -0.34733218,
+      "y": -0.30383846
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "d4-payback-sb",
+      "supplementary": false,
+      "x": -0.047674045,
+      "y": -0.18726308
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-pen-shot",
+      "supplementary": false,
+      "x": 0.17038207,
+      "y": 0.073174819
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-pulverize",
+      "supplementary": false,
+      "x": -0.28802396,
+      "y": 0.0068153251
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-quill-volley",
+      "supplementary": false,
+      "x": 0.32143709,
+      "y": 0.44053225
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-rabies-lacerate",
+      "supplementary": false,
+      "x": -0.022260445,
+      "y": 0.18747159
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-rapid-fire",
+      "supplementary": false,
+      "x": 0.16421453,
+      "y": 0.31377008
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-shadowblight",
+      "supplementary": false,
+      "x": -0.68356221,
+      "y": 0.1442604
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-thorns-barb",
+      "supplementary": false,
+      "x": 0.11114648,
+      "y": -0.054962433
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-tornado-werewolf",
+      "supplementary": false,
+      "x": 0.27189216,
+      "y": 0.48790454
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "d4-touch-of-death",
+      "supplementary": false,
+      "x": -0.57404864,
+      "y": -0.18953282
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-twisting-blades",
+      "supplementary": false,
+      "x": 0.040517691,
+      "y": 0.11439377
+    },
+    {
+      "death_class": "extrinsic-itemization",
+      "kit_id": "d4-wind-shear",
+      "supplementary": true,
+      "x": 0.40235755,
+      "y": 0.62290875
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-wing-strike-arbiter",
+      "supplementary": false,
+      "x": -0.33718842,
+      "y": -0.057420848
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "d4-ww-dust-devils",
+      "supplementary": false,
+      "x": 0.6953437,
+      "y": -0.40902353
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-blood-knight",
+      "supplementary": false,
+      "x": -0.27415749,
+      "y": -0.017413799
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-bombardment-wizard-pvp",
+      "supplementary": false,
+      "x": -0.40776713,
+      "y": 0.11605449
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-bone-wall-necro-pvp",
+      "supplementary": false,
+      "x": 0.13918308,
+      "y": 0.23982176
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-corpse-explosion-necro",
+      "supplementary": false,
+      "x": -0.28768403,
+      "y": 0.20232853
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-crusader-banner-support",
+      "supplementary": false,
+      "x": -0.55213121,
+      "y": -0.23783348
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-cyclone-monk-pvp",
+      "supplementary": false,
+      "x": 0.099786228,
+      "y": -0.38977574
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-draw-quarter-crusader",
+      "supplementary": false,
+      "x": -0.040798626,
+      "y": -0.74159944
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-druid-bear",
+      "supplementary": false,
+      "x": 0.014034111,
+      "y": -0.98902036
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-frenzy-barb",
+      "supplementary": false,
+      "x": 0.12186799,
+      "y": 0.057891739
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-hota-wotb-barb",
+      "supplementary": false,
+      "x": -0.55802519,
+      "y": -0.12823076
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-meteor-wizard",
+      "supplementary": false,
+      "x": -0.64684687,
+      "y": 0.23237437
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "MINION-PET",
+      "kit_id": "di-minion-necro",
+      "supplementary": false,
+      "x": 0.068341533,
+      "y": -0.95898279
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-monk-sss",
+      "supplementary": false,
+      "x": -0.049663428,
+      "y": -0.29059786
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-multishot-dh",
+      "supplementary": false,
+      "x": 0.69721951,
+      "y": 0.53414746
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "CHANNELED-BEAM",
+      "kit_id": "di-ray-of-frost-wizard",
+      "supplementary": false,
+      "x": 1.0287125,
+      "y": -0.53119128
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-spiritform-druid-pvp",
+      "supplementary": false,
+      "x": 0.07358798,
+      "y": -0.30748592
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-tempest",
+      "supplementary": false,
+      "x": 0.2464489,
+      "y": -0.34996596
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-vengeance-strafe-dh",
+      "supplementary": false,
+      "x": 0.45789372,
+      "y": 0.34480248
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": null,
+      "kit_id": "di-warlock-launch",
+      "supplementary": false,
+      "x": -0.49982104,
+      "y": -0.0039484393
+    },
+    {
+      "franchise": "Diablo",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "di-whirlwind-barb",
+      "supplementary": false,
+      "x": 1.0575115,
+      "y": -1.5618569
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": "CHANNELED-BEAM",
+      "kit_id": "gd-aar-spellbinder",
+      "supplementary": false,
+      "x": 1.0821307,
+      "y": -0.36829066
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-aegis-paladin",
+      "supplementary": false,
+      "x": 0.18473201,
+      "y": 0.53427288
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-belgothian-blademaster",
+      "supplementary": false,
+      "x": 0.017360356,
+      "y": -0.061019888
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-berserker-wereforms",
+      "supplementary": false,
+      "x": -0.19329973,
+      "y": 0.082642234
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-blade-arc-warder",
+      "supplementary": false,
+      "x": 0.14627842,
+      "y": -0.2103509
+    },
+    {
+      "death_class": "extrinsic-content-mix",
+      "kit_id": "gd-blade-trap",
+      "supplementary": true,
+      "x": -0.12871794,
+      "y": 0.14333172
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-blight-fiend-ritualist",
+      "supplementary": false,
+      "x": -0.65234022,
+      "y": 0.031648992
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-bloody-pox-conjurer",
+      "supplementary": false,
+      "x": -0.20869145,
+      "y": 0.27843069
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-bwc-demolitionist",
+      "supplementary": false,
+      "x": -0.40401883,
+      "y": 0.01744813
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-cadence-witchblade",
+      "supplementary": false,
+      "x": -0.49670432,
+      "y": -0.054959234
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-callidors-tempest-templar",
+      "supplementary": false,
+      "x": 0.37489406,
+      "y": -0.20302812
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-canister-saboteur",
+      "supplementary": false,
+      "x": -0.7703136,
+      "y": -0.2164698
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-dee-witch-hunter",
+      "supplementary": false,
+      "x": 0.19086968,
+      "y": 0.2908026
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-devastation-sorcerer",
+      "supplementary": false,
+      "x": -0.57485879,
+      "y": 0.032747015
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-doom-bolt-sentinel",
+      "supplementary": false,
+      "x": -0.40670173,
+      "y": 0.24592089
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": "CHANNELED-BEAM",
+      "kit_id": "gd-drain-essence-spellbinder",
+      "supplementary": false,
+      "x": 0.98014464,
+      "y": 0.084146004
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "gd-eor-warlord",
+      "supplementary": false,
+      "x": 1.0034732,
+      "y": -1.0527188
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-fire-strike-purifier",
+      "supplementary": false,
+      "x": 0.20429911,
+      "y": 0.19177691
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": "CHANNELED-BEAM",
+      "kit_id": "gd-flames-of-ignaffar-purifier",
+      "supplementary": false,
+      "x": 1.3088649,
+      "y": -0.062852487
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-forcewave-warlord",
+      "supplementary": false,
+      "x": 0.49362129,
+      "y": -0.20169306
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-krieg-death-knight",
+      "supplementary": false,
+      "x": -0.40635994,
+      "y": 0.02075039
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-mortar-purifier",
+      "supplementary": false,
+      "x": -1.1029272,
+      "y": -0.35484929
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-panettis-mage-hunter",
+      "supplementary": false,
+      "x": 0.29684481,
+      "y": 0.61140409
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-pet-conjurer",
+      "supplementary": false,
+      "x": -0.36652081,
+      "y": -0.18414313
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-phantasmal-blades-witch-hunter",
+      "supplementary": false,
+      "x": 0.28314967,
+      "y": 0.47984847
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-primal-strike-vindicator",
+      "supplementary": false,
+      "x": -0.21534383,
+      "y": 0.096778312
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-ravenous-earth-oppressor",
+      "supplementary": false,
+      "x": -0.48767505,
+      "y": 0.12725332
+    },
+    {
+      "death_class": "extrinsic-split-scaling",
+      "kit_id": "gd-reap-spirit",
+      "supplementary": true,
+      "x": -0.49990512,
+      "y": 0.058430437
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-retaliation-warlord",
+      "supplementary": false,
+      "x": 0.096716553,
+      "y": -0.27066379
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-righteous-fervor-dervish",
+      "supplementary": false,
+      "x": -0.034433922,
+      "y": -0.073890453
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-roh-infiltrator",
+      "supplementary": false,
+      "x": -0.71153908,
+      "y": -0.017824465
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-savagery-warder",
+      "supplementary": false,
+      "x": -0.20671327,
+      "y": -0.077054678
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-shadow-strike-infiltrator",
+      "supplementary": false,
+      "x": -0.43515989,
+      "y": -0.35581265
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "gd-skeleton-ritualist",
+      "supplementary": false,
+      "x": -0.82266191,
+      "y": -0.65201705
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-stormbox-elementalist",
+      "supplementary": false,
+      "x": -0.23154894,
+      "y": 0.20812721
+    },
+    {
+      "death_class": "extrinsic-no-lever",
+      "kit_id": "gd-stun-jacks",
+      "supplementary": true,
+      "x": -0.13251084,
+      "y": -0.0001626326
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-trozan-druid",
+      "supplementary": false,
+      "x": -0.36745842,
+      "y": 0.23209198
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-vires-might-shieldbreaker",
+      "supplementary": false,
+      "x": -0.20375639,
+      "y": -0.39050323
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-vitality-conjurer",
+      "supplementary": false,
+      "x": -0.53444008,
+      "y": 0.056062298
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-wendigo-totem-ritualist",
+      "supplementary": false,
+      "x": -0.96307618,
+      "y": -0.33986295
+    },
+    {
+      "franchise": "gd",
+      "gateA_group": null,
+      "kit_id": "gd-word-of-pain-tactician",
+      "supplementary": false,
+      "x": -0.44938762,
+      "y": 0.087937105
+    },
+    {
+      "franchise": "Hades",
+      "gateA_group": null,
+      "kit_id": "hades1-ares-doom",
+      "supplementary": false,
+      "x": -0.38501032,
+      "y": 0.42537211
+    },
+    {
+      "franchise": "Hades",
+      "gateA_group": null,
+      "kit_id": "hades1-aspect-chiron",
+      "supplementary": false,
+      "x": 0.25274763,
+      "y": 0.47548737
+    },
+    {
+      "franchise": "Hades",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "hades1-aspect-guan-yu",
+      "supplementary": false,
+      "x": 0.42625674,
+      "y": -0.83861537
+    },
+    {
+      "franchise": "Hades",
+      "gateA_group": null,
+      "kit_id": "hades1-athena-dash",
+      "supplementary": false,
+      "x": -0.0059859795,
+      "y": -0.55600875
+    },
+    {
+      "franchise": "Hades",
+      "gateA_group": null,
+      "kit_id": "hades1-beowulf-cast",
+      "supplementary": false,
+      "x": -0.038167164,
+      "y": 0.17741124
+    },
+    {
+      "franchise": "Hades",
+      "gateA_group": null,
+      "kit_id": "hades1-merciful-end",
+      "supplementary": false,
+      "x": -0.28620097,
+      "y": -0.32864516
+    },
+    {
+      "franchise": "Hades",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "hades1-zeus-chain",
+      "supplementary": false,
+      "x": 0.26567717,
+      "y": 0.59139651
+    },
+    {
+      "franchise": "Hades",
+      "gateA_group": null,
+      "kit_id": "hades2-glorious-disaster",
+      "supplementary": false,
+      "x": -0.096387205,
+      "y": -0.4947767
+    },
+    {
+      "franchise": "Hades",
+      "gateA_group": null,
+      "kit_id": "hades2-hail-storm",
+      "supplementary": false,
+      "x": -0.19552348,
+      "y": 0.35369644
+    },
+    {
+      "franchise": "Hades",
+      "gateA_group": null,
+      "kit_id": "hades2-hephaestus-blast",
+      "supplementary": false,
+      "x": -0.8003637,
+      "y": 0.27833157
+    },
+    {
+      "franchise": "Hades",
+      "gateA_group": null,
+      "kit_id": "hades2-medea-skull-cast",
+      "supplementary": false,
+      "x": -0.29381147,
+      "y": 0.3886927
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": null,
+      "kit_id": "hot-archer",
+      "supplementary": false,
+      "x": 0.40120354,
+      "y": 0.5499664
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": null,
+      "kit_id": "hot-astronomer-orbs",
+      "supplementary": false,
+      "x": 0.33781027,
+      "y": -0.56628777
+    },
+    {
+      "death_class": "system-evidence",
+      "kit_id": "hot-blood-catcher",
+      "supplementary": true,
+      "x": 0.051274601,
+      "y": -0.010692428
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": "AURA",
+      "kit_id": "hot-cleric-radiant",
+      "supplementary": false,
+      "x": 0.3601674,
+      "y": -0.71988561
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": null,
+      "kit_id": "hot-dragons-breath",
+      "supplementary": false,
+      "x": 0.86701479,
+      "y": 0.38833574
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": null,
+      "kit_id": "hot-exterminator-burn",
+      "supplementary": false,
+      "x": 0.96672755,
+      "y": 0.34407753
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": null,
+      "kit_id": "hot-kugelblitz",
+      "supplementary": false,
+      "x": 0.15943967,
+      "y": -0.38472116
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "hot-landsknecht-grenades",
+      "supplementary": false,
+      "x": 0.10965914,
+      "y": 0.12611454
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": null,
+      "kit_id": "hot-meteor-strike",
+      "supplementary": false,
+      "x": -0.19626208,
+      "y": -0.2147618
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": null,
+      "kit_id": "hot-norseman-frost-avalanche",
+      "supplementary": false,
+      "x": -0.32810332,
+      "y": 0.11862928
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": null,
+      "kit_id": "hot-phantom-needles",
+      "supplementary": false,
+      "x": 0.48880368,
+      "y": -0.0713858
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": null,
+      "kit_id": "hot-sage-ring-blades",
+      "supplementary": false,
+      "x": 0.5452233,
+      "y": 0.020296934
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "hot-shieldmaiden-block",
+      "supplementary": false,
+      "x": 0.21052587,
+      "y": -0.40524958
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": null,
+      "kit_id": "hot-sorceress-splinters",
+      "supplementary": false,
+      "x": 0.40120354,
+      "y": 0.5499664
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": null,
+      "kit_id": "hot-spirit-warrior",
+      "supplementary": false,
+      "x": -0.19961423,
+      "y": -0.28674807
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": null,
+      "kit_id": "hot-swordsman",
+      "supplementary": false,
+      "x": 0.33293764,
+      "y": -0.24739043
+    },
+    {
+      "franchise": "hot",
+      "gateA_group": null,
+      "kit_id": "hot-warlock",
+      "supplementary": false,
+      "x": -0.14456659,
+      "y": 0.16112397
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-bladestorm-bd",
+      "supplementary": false,
+      "x": 0.43057287,
+      "y": -0.14917106
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-bomb-lance-falconer",
+      "supplementary": false,
+      "x": 0.10002327,
+      "y": 0.17033604
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-chthonic-fissure-warlock",
+      "supplementary": false,
+      "x": 0.39078757,
+      "y": 0.042895423
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-detonating-arrow-mm",
+      "supplementary": false,
+      "x": 0.087446403,
+      "y": 0.33118545
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-dive-bomb-falconer",
+      "supplementary": false,
+      "x": -0.35460282,
+      "y": 0.20353848
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-erasing-strike-vk",
+      "supplementary": false,
+      "x": -0.57616377,
+      "y": 0.22421168
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-explosive-trap-falconer",
+      "supplementary": false,
+      "x": -0.5386207,
+      "y": -0.032369673
+    },
+    {
+      "franchise": "le",
+      "gateA_group": "AURA",
+      "kit_id": "le-fire-aura-spellblade",
+      "supplementary": false,
+      "x": 0.38066083,
+      "y": -0.62554707
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-flame-reave-spellblade",
+      "supplementary": false,
+      "x": 0.038320043,
+      "y": 0.12621595
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-frost-claw",
+      "supplementary": false,
+      "x": 0.7974567,
+      "y": 0.63518762
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-frost-wall-rm",
+      "supplementary": false,
+      "x": -0.42951583,
+      "y": 0.023824234
+    },
+    {
+      "franchise": "le",
+      "gateA_group": "CHANNELED-BEAM",
+      "kit_id": "le-ghostflame-warlock",
+      "supplementary": false,
+      "x": 1.1390855,
+      "y": -0.44109253
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-hammer-throw-paladin",
+      "supplementary": false,
+      "x": 0.45107698,
+      "y": -0.048933457
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-harvest-lich",
+      "supplementary": false,
+      "x": -0.086940899,
+      "y": 0.10996727
+    },
+    {
+      "franchise": "le",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "le-healing-hands-paladin",
+      "supplementary": false,
+      "x": -0.15220659,
+      "y": 0.10569338
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-judgement-paladin",
+      "supplementary": false,
+      "x": -0.17940438,
+      "y": -0.012218036
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-lightning-blast",
+      "supplementary": false,
+      "x": 0.51287677,
+      "y": 0.70749265
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-low-life-ward",
+      "supplementary": false,
+      "x": -0.037606056,
+      "y": 0.025997704
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-manifest-armor",
+      "supplementary": false,
+      "x": -0.51327736,
+      "y": -0.31864006
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-reaper-form-lich",
+      "supplementary": false,
+      "x": 0.26068054,
+      "y": -0.26393016
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-ring-of-shields",
+      "supplementary": false,
+      "x": -0.20787439,
+      "y": -0.37458688
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-runic-invocation",
+      "supplementary": false,
+      "x": 0.18045175,
+      "y": 0.2698972
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-shadow-bladedancer",
+      "supplementary": false,
+      "x": -0.35224697,
+      "y": -0.10164049
+    },
+    {
+      "death_class": "extrinsic-itemization",
+      "kit_id": "le-shield-bash-le",
+      "supplementary": true,
+      "x": -0.38303392,
+      "y": -0.15172932
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-shield-throw-time-rot-vk",
+      "supplementary": false,
+      "x": 0.29912898,
+      "y": 0.55936985
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-shift-bladedancer",
+      "supplementary": false,
+      "x": 0.094619169,
+      "y": -0.4683903
+    },
+    {
+      "franchise": "le",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "le-skeleton-necro",
+      "supplementary": false,
+      "x": -0.56700703,
+      "y": -0.3820563
+    },
+    {
+      "franchise": "le",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "le-smite-paladin",
+      "supplementary": false,
+      "x": -0.058692589,
+      "y": 0.059713873
+    },
+    {
+      "death_class": "extrinsic-split-scaling",
+      "kit_id": "le-soul-feast",
+      "supplementary": true,
+      "x": -0.41354228,
+      "y": 0.18990171
+    },
+    {
+      "franchise": "le",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "le-squirrel-bm",
+      "supplementary": false,
+      "x": -0.44009647,
+      "y": -0.3084031
+    },
+    {
+      "franchise": "le",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "le-storm-totem-shaman",
+      "supplementary": false,
+      "x": -0.75338076,
+      "y": -0.31278548
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-swarmblade-druid",
+      "supplementary": false,
+      "x": 0.20723828,
+      "y": -0.38465531
+    },
+    {
+      "death_class": "extrinsic-no-lever",
+      "kit_id": "le-tempest-strike",
+      "supplementary": true,
+      "x": -0.0070883471,
+      "y": 0.24876366
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-umbral-blades",
+      "supplementary": false,
+      "x": 0.23245835,
+      "y": 0.48143704
+    },
+    {
+      "franchise": "le",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "le-warpath-vk",
+      "supplementary": false,
+      "x": 1.0233536,
+      "y": -1.2829781
+    },
+    {
+      "franchise": "le",
+      "gateA_group": null,
+      "kit_id": "le-werebear-druid",
+      "supplementary": false,
+      "x": 0.17260793,
+      "y": -0.38916974
+    },
+    {
+      "franchise": "le",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "le-wraithlord-necro",
+      "supplementary": false,
+      "x": -0.63844547,
+      "y": -0.21014398
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "poe1-aegis-max-block",
+      "supplementary": false,
+      "x": -0.29448737,
+      "y": 0.26501037
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-animate-weapon",
+      "supplementary": false,
+      "x": -0.3670881,
+      "y": -0.047619209
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-arc",
+      "supplementary": false,
+      "x": 0.34119115,
+      "y": 0.88592663
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-archmage",
+      "supplementary": false,
+      "x": 0.3131999,
+      "y": 0.57257707
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-armageddon-brand",
+      "supplementary": false,
+      "x": -0.5614219,
+      "y": -0.11410015
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "AURA",
+      "kit_id": "poe1-aurabot",
+      "supplementary": false,
+      "x": 0.33549338,
+      "y": -0.28855024
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-aurastacker",
+      "supplementary": false,
+      "x": 0.4887125,
+      "y": -0.40983113
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "poe1-autobomber",
+      "supplementary": false,
+      "x": 0.33317112,
+      "y": 0.31706087
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-ball-lightning",
+      "supplementary": false,
+      "x": 0.3131999,
+      "y": 0.57257707
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-bane",
+      "supplementary": false,
+      "x": -0.11568921,
+      "y": 0.29564832
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-baron-zombies",
+      "supplementary": false,
+      "x": -0.31914646,
+      "y": -0.05274895
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-blade-flurry",
+      "supplementary": false,
+      "x": 0.40421303,
+      "y": -0.48061439
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "poe1-bladefall-bladeblast",
+      "supplementary": false,
+      "x": -0.77001986,
+      "y": 0.16381521
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-boneshatter",
+      "supplementary": false,
+      "x": -0.17228468,
+      "y": 0.090894686
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-caustic-arrow",
+      "supplementary": false,
+      "x": 0.26804504,
+      "y": 0.46245029
+    },
+    {
+      "death_class": "intrinsic-red",
+      "kit_id": "poe1-charged-dash",
+      "supplementary": true,
+      "x": 0.93617471,
+      "y": -0.90872011
+    },
+    {
+      "death_class": "unknown-pending-recrawl",
+      "kit_id": "poe1-cleave",
+      "supplementary": true,
+      "x": 0.051928882,
+      "y": -0.050860702
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-coc-ice-nova",
+      "supplementary": false,
+      "x": 0.7215161,
+      "y": -0.33990123
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-cold-dot-occ",
+      "supplementary": false,
+      "x": -0.18965583,
+      "y": 0.17530477
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-crackling-lance",
+      "supplementary": false,
+      "x": 0.58473426,
+      "y": 0.23538003
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "poe1-cwdt-loop",
+      "supplementary": false,
+      "x": 0.30795276,
+      "y": 0.15909544
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "poe1-cyclone",
+      "supplementary": false,
+      "x": 0.98909333,
+      "y": -1.012515
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-dark-pact",
+      "supplementary": false,
+      "x": 0.13357559,
+      "y": 0.51064564
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "AURA",
+      "kit_id": "poe1-deaths-oath",
+      "supplementary": false,
+      "x": 0.33959128,
+      "y": -0.35150469
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "poe1-detonate-dead",
+      "supplementary": false,
+      "x": -0.61084685,
+      "y": 0.29958692
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-discharge",
+      "supplementary": false,
+      "x": 0.050912297,
+      "y": -0.12612887
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "CHANNELED-BEAM",
+      "kit_id": "poe1-divine-ire",
+      "supplementary": false,
+      "x": 0.92636698,
+      "y": -0.31347636
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "poe1-ea-ballista",
+      "supplementary": false,
+      "x": -1.0885473,
+      "y": -0.39505304
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-earthquake",
+      "supplementary": false,
+      "x": -0.81992137,
+      "y": 0.064962514
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-earthshatter",
+      "supplementary": false,
+      "x": -1.104616,
+      "y": -0.053893498
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-edc",
+      "supplementary": false,
+      "x": 0.29603629,
+      "y": 0.77579985
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-elemental-hit",
+      "supplementary": false,
+      "x": 0.14061622,
+      "y": 0.32542694
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-facebreaker",
+      "supplementary": false,
+      "x": -0.077895048,
+      "y": 0.24004307
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "poe1-fire-trap",
+      "supplementary": false,
+      "x": -1.0885473,
+      "y": -0.39505304
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-flameblast",
+      "supplementary": false,
+      "x": 0.43330426,
+      "y": -0.30180699
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-flicker",
+      "supplementary": false,
+      "x": -0.014921839,
+      "y": -0.16436879
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "poe1-forbidden-rite",
+      "supplementary": false,
+      "x": -0.65848223,
+      "y": -0.21315497
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-freezing-pulse",
+      "supplementary": false,
+      "x": 0.26695516,
+      "y": 0.77573975
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-frost-blades",
+      "supplementary": false,
+      "x": 0.20514079,
+      "y": 0.34172187
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-generals-cry",
+      "supplementary": false,
+      "x": -0.4407786,
+      "y": -0.15992572
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "poe1-glacial-cascade-mines",
+      "supplementary": false,
+      "x": -0.95160579,
+      "y": -0.26703755
+    },
+    {
+      "death_class": "extrinsic-content-mix",
+      "kit_id": "poe1-glacial-hammer",
+      "supplementary": true,
+      "x": -0.18244185,
+      "y": -0.18687898
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-golementalist",
+      "supplementary": false,
+      "x": -0.21324681,
+      "y": -0.2224517
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-heavy-strike-stun",
+      "supplementary": false,
+      "x": -0.60402339,
+      "y": -0.17412142
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-hexblast-mines",
+      "supplementary": false,
+      "x": -0.69151433,
+      "y": 0.084811342
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-hoag",
+      "supplementary": false,
+      "x": -0.51884431,
+      "y": -0.16067089
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-ice-shot",
+      "supplementary": false,
+      "x": 0.38617735,
+      "y": 0.43440907
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-icicle-mines",
+      "supplementary": false,
+      "x": -0.47401961,
+      "y": 0.010553365
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "CHANNELED-BEAM",
+      "kit_id": "poe1-incinerate",
+      "supplementary": false,
+      "x": 1.3886314,
+      "y": 0.046581655
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-kinetic-fusillade",
+      "supplementary": false,
+      "x": 0.3102372,
+      "y": 0.64408944
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-lacerate-glad",
+      "supplementary": false,
+      "x": -0.20124773,
+      "y": 0.30328012
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-lightning-arrow",
+      "supplementary": false,
+      "x": 0.4041376,
+      "y": 0.69339635
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "poe1-lightning-conduit",
+      "supplementary": false,
+      "x": -0.41377415,
+      "y": 0.43365794
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-lightning-strike",
+      "supplementary": false,
+      "x": 0.19510979,
+      "y": 0.28735958
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-low-life-shavs",
+      "supplementary": false,
+      "x": -0.20382082,
+      "y": 0.0025629705
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-minion-pact-bv",
+      "supplementary": false,
+      "x": 0.19682003,
+      "y": 0.2225602
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "poe1-mjolner",
+      "supplementary": false,
+      "x": 0.053227096,
+      "y": 0.62453093
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-molten-strike",
+      "supplementary": false,
+      "x": 0.23706621,
+      "y": 0.33172189
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-pconc",
+      "supplementary": false,
+      "x": 0.40544851,
+      "y": 0.36232492
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "poe1-pizza-sticks",
+      "supplementary": false,
+      "x": -1.0885473,
+      "y": -0.39505304
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-poets-pen-vd",
+      "supplementary": false,
+      "x": -0.15212161,
+      "y": 0.36990133
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-poison-bv",
+      "supplementary": false,
+      "x": 0.32479946,
+      "y": 0.11177976
+    },
+    {
+      "death_class": "intrinsic-red",
+      "kit_id": "poe1-reaper",
+      "supplementary": true,
+      "x": -0.59222102,
+      "y": -0.23233803
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "AURA",
+      "kit_id": "poe1-righteous-fire",
+      "supplementary": false,
+      "x": 0.27136128,
+      "y": -0.13689753
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-scourge-arrow",
+      "supplementary": false,
+      "x": 0.59680651,
+      "y": 0.29212141
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "poe1-seismic-trap",
+      "supplementary": false,
+      "x": -0.97992777,
+      "y": -0.4140864
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "poe1-siege-ballista",
+      "supplementary": false,
+      "x": -0.66624309,
+      "y": -0.32553554
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-skeleton-mages",
+      "supplementary": false,
+      "x": -0.23239344,
+      "y": -0.12440765
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TRAP-MINE",
+      "kit_id": "poe1-soulrend",
+      "supplementary": false,
+      "x": 0.12614866,
+      "y": 0.57128645
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-spark",
+      "supplementary": false,
+      "x": 0.36578343,
+      "y": 0.7150548
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-spectral-helix",
+      "supplementary": false,
+      "x": 0.40532398,
+      "y": 0.33636503
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-spectral-throw",
+      "supplementary": false,
+      "x": 0.27450181,
+      "y": 0.59933614
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-spectres",
+      "supplementary": false,
+      "x": -0.34526223,
+      "y": 0.17410287
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-split-arrow-bleed",
+      "supplementary": false,
+      "x": 0.25850437,
+      "y": 0.59706175
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-srs",
+      "supplementary": false,
+      "x": -0.28184215,
+      "y": 0.18358975
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-sst",
+      "supplementary": false,
+      "x": 0.22268172,
+      "y": 0.66820882
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-storm-brand",
+      "supplementary": false,
+      "x": -0.45208899,
+      "y": 0.081594363
+    },
+    {
+      "death_class": "unknown-pending-recrawl",
+      "kit_id": "poe1-sweep",
+      "supplementary": true,
+      "x": 0.1997715,
+      "y": -0.49953578
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-tectonic-slam",
+      "supplementary": false,
+      "x": -0.28915038,
+      "y": 0.11220775
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-tornado-shot",
+      "supplementary": false,
+      "x": 0.38336109,
+      "y": 0.59301349
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-totem-hierophant",
+      "supplementary": false,
+      "x": -1.2613521,
+      "y": -0.72296598
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-toxic-rain",
+      "supplementary": false,
+      "x": -0.1427678,
+      "y": 0.3967453
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-vaal-blade-vortex",
+      "supplementary": false,
+      "x": 0.26161739,
+      "y": -0.11334565
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-venom-gyre",
+      "supplementary": false,
+      "x": 0.23364237,
+      "y": 0.13575486
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-viper-poison",
+      "supplementary": false,
+      "x": 0.00011308,
+      "y": 0.26689439
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-wander",
+      "supplementary": false,
+      "x": 0.38336109,
+      "y": 0.59301349
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "poe1-warchief",
+      "supplementary": false,
+      "x": -0.9358311,
+      "y": -0.5145118
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-ward-loop",
+      "supplementary": false,
+      "x": 0.38091057,
+      "y": 0.27194799
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-whispering-ice",
+      "supplementary": false,
+      "x": -0.28447891,
+      "y": 0.45472092
+    },
+    {
+      "death_class": "extrinsic-no-lever",
+      "kit_id": "poe1-wild-strike",
+      "supplementary": true,
+      "x": 0.019467538,
+      "y": 0.17451781
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-winter-orb",
+      "supplementary": false,
+      "x": 0.68382493,
+      "y": 0.060259218
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-woc-ignite",
+      "supplementary": false,
+      "x": 0.22249587,
+      "y": 0.12441574
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe1-wormblaster",
+      "supplementary": false,
+      "x": 0.29260165,
+      "y": 0.69151462
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-acolyte-darkness",
+      "supplementary": false,
+      "x": -0.036678205,
+      "y": 0.078440546
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-archmage-totems",
+      "supplementary": false,
+      "x": -1.0191487,
+      "y": -0.16276956
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-blood-mage",
+      "supplementary": false,
+      "x": -0.39688457,
+      "y": 0.49821974
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-bonestorm",
+      "supplementary": false,
+      "x": -0.2338136,
+      "y": 0.57954026
+    },
+    {
+      "death_class": "extrinsic-tuning",
+      "kit_id": "poe2-chronomancer-01",
+      "supplementary": true,
+      "x": -0.21885567,
+      "y": 0.3058847
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-cof-comet",
+      "supplementary": false,
+      "x": -0.12422866,
+      "y": 0.44609196
+    },
+    {
+      "death_class": "unknown-pending-recrawl",
+      "kit_id": "poe2-concoction",
+      "supplementary": true,
+      "x": -0.15906673,
+      "y": 0.074083222
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-demon-form",
+      "supplementary": false,
+      "x": 0.37156798,
+      "y": 0.087552231
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-erasure-edc-lich",
+      "supplementary": false,
+      "x": 0.26988333,
+      "y": 0.64906037
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-galvanic-shards",
+      "supplementary": false,
+      "x": 0.7079539,
+      "y": 0.63575536
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-gas-arrow-ignite",
+      "supplementary": false,
+      "x": 0.16988343,
+      "y": 0.30243951
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-gemling-stacker",
+      "supplementary": false,
+      "x": -0.11202789,
+      "y": 0.13911417
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-grim-feast",
+      "supplementary": false,
+      "x": 0.39165583,
+      "y": -0.66464833
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-howa-invoker",
+      "supplementary": false,
+      "x": -0.058729575,
+      "y": 0.21117353
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-ice-strike-invoker",
+      "supplementary": false,
+      "x": -0.057782498,
+      "y": 0.094651337
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "poe2-infernal-legion",
+      "supplementary": false,
+      "x": -0.563882,
+      "y": -0.6906709
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-lightning-arrow-deadeye",
+      "supplementary": false,
+      "x": 0.39551192,
+      "y": 0.61297447
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-lightning-spear-amazon",
+      "supplementary": false,
+      "x": 0.40711191,
+      "y": 0.69133403
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "poe2-minion-infernalist",
+      "supplementary": false,
+      "x": -0.56602225,
+      "y": -0.54588319
+    },
+    {
+      "death_class": "unknown-pending-recrawl",
+      "kit_id": "poe2-perfect-strike-01",
+      "supplementary": true,
+      "x": -0.81798143,
+      "y": 0.31588384
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-poison-pathfinder",
+      "supplementary": false,
+      "x": 0.27645377,
+      "y": 0.49708772
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-rake-ritualist",
+      "supplementary": false,
+      "x": 0.036907387,
+      "y": 0.15110273
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-shaman-bear",
+      "supplementary": false,
+      "x": 0.32551526,
+      "y": -0.26347607
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-smith-ignite",
+      "supplementary": false,
+      "x": -0.52911339,
+      "y": 0.2139088
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-snipe-mirage-deadeye",
+      "supplementary": false,
+      "x": 0.39884717,
+      "y": -0.16689251
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-spark-stormweaver",
+      "supplementary": false,
+      "x": 0.52110483,
+      "y": 0.35897907
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-spiral-volley",
+      "supplementary": false,
+      "x": 0.41641924,
+      "y": 0.5157648
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-supporting-fire",
+      "supplementary": false,
+      "x": -0.27980855,
+      "y": -0.20570056
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-tempest-bell",
+      "supplementary": false,
+      "x": -0.59879806,
+      "y": -0.32559346
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-tempest-flurry",
+      "supplementary": false,
+      "x": -0.10570638,
+      "y": -0.017145395
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-temporalis-blink",
+      "supplementary": false,
+      "x": 0.34510936,
+      "y": -0.32625726
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-titan-hotg",
+      "supplementary": false,
+      "x": -0.75715821,
+      "y": 0.12322502
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "poe2-twister",
+      "supplementary": false,
+      "x": 0.64278838,
+      "y": -0.954025
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-walking-calamity",
+      "supplementary": false,
+      "x": 0.3072064,
+      "y": -0.2853595
+    },
+    {
+      "death_class": "extrinsic-tuning",
+      "kit_id": "poe2-wall-of-shields",
+      "supplementary": true,
+      "x": -0.29156768,
+      "y": -0.10061004
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "poe2-warbringer-totems",
+      "supplementary": false,
+      "x": -0.83495443,
+      "y": -0.43940093
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-whirling-assault-ma",
+      "supplementary": false,
+      "x": -0.21508038,
+      "y": 0.0033333077
+    },
+    {
+      "franchise": "PoE",
+      "gateA_group": null,
+      "kit_id": "poe2-witchhunter-grenades",
+      "supplementary": false,
+      "x": -0.039706358,
+      "y": 0.26268728
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tl1-alchemist-summoner",
+      "supplementary": false,
+      "x": 0.6287245,
+      "y": -1.3514771
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tl1-ricochet-vanquisher",
+      "supplementary": false,
+      "x": 0.16772093,
+      "y": 0.62134309
+    },
+    {
+      "death_class": "extrinsic-tuning",
+      "kit_id": "tl2-arc-beam",
+      "supplementary": true,
+      "x": 1.6275578,
+      "y": -0.45582606
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": "MINION-PET",
+      "kit_id": "tl2-bot-engineer",
+      "supplementary": false,
+      "x": -0.59119078,
+      "y": -0.93811909
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tl2-cannon-engineer",
+      "supplementary": false,
+      "x": 0.13618505,
+      "y": -0.13317488
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tl2-emberquake-engineer",
+      "supplementary": false,
+      "x": 0.32944166,
+      "y": -0.607963
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tl2-flame-hammer-engineer",
+      "supplementary": false,
+      "x": -0.30166518,
+      "y": -0.29998581
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tl2-glaive-outlander",
+      "supplementary": false,
+      "x": 0.42468956,
+      "y": 0.56929272
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tl2-hailstorm-embermage",
+      "supplementary": false,
+      "x": -0.16361704,
+      "y": 0.25503622
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tl2-prismatic-embermage",
+      "supplementary": false,
+      "x": 0.30853543,
+      "y": 0.52948183
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": "MINION-PET",
+      "kit_id": "tl2-shadowling-outlander",
+      "supplementary": false,
+      "x": -0.3965619,
+      "y": -0.68724093
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tl2-shotgonne-outlander",
+      "supplementary": false,
+      "x": 0.74629961,
+      "y": 0.27775058
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tl2-wolf-shade-berserker",
+      "supplementary": false,
+      "x": -0.1691691,
+      "y": -0.30535293
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tli-carino2-lethal-flash",
+      "supplementary": false,
+      "x": 0.13053576,
+      "y": 0.3577534
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tli-erika3-vendetta",
+      "supplementary": false,
+      "x": 0.093449847,
+      "y": 0.15880881
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tli-gemma-frost-caster",
+      "supplementary": false,
+      "x": 0.4040198,
+      "y": 0.39136198
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tli-iris2-thunder-magus",
+      "supplementary": false,
+      "x": -0.04399939,
+      "y": -0.46001309
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": "MINION-PET",
+      "kit_id": "tli-moto-bots",
+      "supplementary": false,
+      "x": -0.59119078,
+      "y": -0.93811909
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tli-rehan-berserker",
+      "supplementary": false,
+      "x": -0.21671104,
+      "y": -0.27069492
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tli-rosa-unsullied",
+      "supplementary": false,
+      "x": 0.081914808,
+      "y": 0.045257726
+    },
+    {
+      "franchise": "Torchlight",
+      "gateA_group": null,
+      "kit_id": "tli-youga-spirit-magus",
+      "supplementary": false,
+      "x": 0.15631003,
+      "y": -0.57881733
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "tq-battlemage-warfare-earth",
+      "supplementary": false,
+      "x": -0.31177813,
+      "y": -0.43592266
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-brigand-poison",
+      "supplementary": false,
+      "x": 0.04653717,
+      "y": 0.43748721
+    },
+    {
+      "death_class": "unknown-pending-recrawl",
+      "kit_id": "tq-calculated-strike",
+      "supplementary": true,
+      "x": -0.38303392,
+      "y": -0.15172932
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-distortion-templar",
+      "supplementary": false,
+      "x": 0.01588163,
+      "y": -0.48897608
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-dream-harbinger",
+      "supplementary": false,
+      "x": -0.024848605,
+      "y": -0.43862719
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-druid-squall-caster",
+      "supplementary": false,
+      "x": -0.30085377,
+      "y": 0.13957126
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-elementalist-volcanic-storm",
+      "supplementary": false,
+      "x": 0.20041509,
+      "y": 0.32674216
+    },
+    {
+      "death_class": "unknown-pending-recrawl",
+      "kit_id": "tq-flame-surge",
+      "supplementary": true,
+      "x": 0.85869325,
+      "y": 0.17873679
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-ice-shard-oracle",
+      "supplementary": false,
+      "x": 0.30072397,
+      "y": 0.62689122
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-liche-king-conjurer",
+      "supplementary": false,
+      "x": -0.24917452,
+      "y": -0.43242996
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-marksmanship-haruspex",
+      "supplementary": false,
+      "x": 0.28357134,
+      "y": 0.55129585
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-onslaught-assassin",
+      "supplementary": false,
+      "x": 0.069038974,
+      "y": 0.14465027
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": "MINION-PET",
+      "kit_id": "tq-petmaster-summoner",
+      "supplementary": false,
+      "x": 0.071357753,
+      "y": -1.2683222
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-phantom-strike-dreamkiller",
+      "supplementary": false,
+      "x": -0.3899851,
+      "y": -0.39608619
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-ranger-hunting-nature",
+      "supplementary": false,
+      "x": 0.085235659,
+      "y": -0.062343429
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-rune-weapon-thunderer",
+      "supplementary": false,
+      "x": 0.031741516,
+      "y": -0.33541624
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-shield-charge-conqueror",
+      "supplementary": false,
+      "x": -0.040798626,
+      "y": -0.74159944
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-ternion-bone-charmer",
+      "supplementary": false,
+      "x": 0.5875849,
+      "y": 0.45792954
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-thane-storm-warfare",
+      "supplementary": false,
+      "x": 0.079529715,
+      "y": -0.22732516
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-trap-magician",
+      "supplementary": false,
+      "x": -0.76027084,
+      "y": -0.20923596
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq-warlock-poison-vitality",
+      "supplementary": false,
+      "x": -0.044995748,
+      "y": -0.028395474
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq2-bastion-tank",
+      "supplementary": false,
+      "x": -0.24652933,
+      "y": -0.44881624
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq2-elementalist",
+      "supplementary": false,
+      "x": 0.20191913,
+      "y": 0.38593095
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": "TOTEM-SENTRY",
+      "kit_id": "tq2-forge-turrets",
+      "supplementary": false,
+      "x": -0.81356916,
+      "y": -0.28129533
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": null,
+      "kit_id": "tq2-stormblade-ice-shards",
+      "supplementary": false,
+      "x": 0.28882277,
+      "y": 0.4856958
+    },
+    {
+      "franchise": "TitanQuest",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "tq2-whirlwind-rogue",
+      "supplementary": false,
+      "x": 1.1108098,
+      "y": -1.4897975
+    },
+    {
+      "franchise": "undecember",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "ud-cwc-spin-caster",
+      "supplementary": false,
+      "x": 0.91379144,
+      "y": -0.95409826
+    },
+    {
+      "franchise": "undecember",
+      "gateA_group": "CHANNELED-BEAM",
+      "kit_id": "ud-flamethrower-channel",
+      "supplementary": false,
+      "x": 1.3902523,
+      "y": -0.32122174
+    },
+    {
+      "franchise": "undecember",
+      "gateA_group": null,
+      "kit_id": "ud-ice-crystal-arrow",
+      "supplementary": false,
+      "x": 0.34439801,
+      "y": 0.63634949
+    },
+    {
+      "franchise": "undecember",
+      "gateA_group": null,
+      "kit_id": "ud-illusion-family",
+      "supplementary": false,
+      "x": -0.074246718,
+      "y": 0.24766139
+    },
+    {
+      "franchise": "undecember",
+      "gateA_group": null,
+      "kit_id": "ud-lightning-vortex",
+      "supplementary": false,
+      "x": 0.14140003,
+      "y": 0.14971383
+    },
+    {
+      "franchise": "undecember",
+      "gateA_group": null,
+      "kit_id": "ud-seal-veil-daimonios",
+      "supplementary": false,
+      "x": -0.11143194,
+      "y": -0.15465486
+    },
+    {
+      "franchise": "undecember",
+      "gateA_group": null,
+      "kit_id": "ud-snowstorm-frost",
+      "supplementary": false,
+      "x": -0.1337036,
+      "y": 0.25200379
+    },
+    {
+      "franchise": "undecember",
+      "gateA_group": null,
+      "kit_id": "ud-spread-rapid-dex",
+      "supplementary": false,
+      "x": 0.37623946,
+      "y": 0.57178042
+    },
+    {
+      "franchise": "undecember",
+      "gateA_group": null,
+      "kit_id": "ud-summon-strand",
+      "supplementary": false,
+      "x": 0.082462644,
+      "y": -0.52209354
+    },
+    {
+      "franchise": "undecember",
+      "gateA_group": null,
+      "kit_id": "ud-toxic-flame",
+      "supplementary": false,
+      "x": -0.10107837,
+      "y": 0.25172086
+    },
+    {
+      "franchise": "undecember",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "ud-whirlwind-str",
+      "supplementary": false,
+      "x": 1.0065982,
+      "y": -1.3613334
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-bloody-tear",
+      "supplementary": false,
+      "x": 0.287547,
+      "y": -0.21937828
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-death-spiral",
+      "supplementary": false,
+      "x": 0.50042055,
+      "y": -0.14881283
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": "WHIRLWIND",
+      "kit_id": "vs-fuwalafuwaloo",
+      "supplementary": false,
+      "x": 0.44750664,
+      "y": -0.70226447
+    },
+    {
+      "death_class": "intrinsic-red",
+      "kit_id": "vs-gatti-amari",
+      "supplementary": true,
+      "x": -0.22790262,
+      "y": 0.096567295
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-gorgeous-moon",
+      "supplementary": false,
+      "x": 0.18839355,
+      "y": 0.20630947
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-heaven-sword",
+      "supplementary": false,
+      "x": 0.48384552,
+      "y": 0.18135544
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-hellfire",
+      "supplementary": false,
+      "x": 0.21913775,
+      "y": 0.17041736
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-holy-wand",
+      "supplementary": false,
+      "x": 0.27752466,
+      "y": 0.51729023
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-infinite-corridor-crimson-shroud",
+      "supplementary": false,
+      "x": 0.52726633,
+      "y": 0.074745351
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-je-ne-viv",
+      "supplementary": false,
+      "x": 0.13501211,
+      "y": 0.16606416
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-la-borra",
+      "supplementary": false,
+      "x": 0.22272908,
+      "y": -0.075980957
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-out-of-bounds-freeze",
+      "supplementary": false,
+      "x": -0.48744269,
+      "y": 0.24543675
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-phieraggi",
+      "supplementary": false,
+      "x": 0.70379635,
+      "y": -0.026649045
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-queen-sigma",
+      "supplementary": false,
+      "x": 0.26770184,
+      "y": -0.11548252
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-red-death",
+      "supplementary": false,
+      "x": 0.51846249,
+      "y": -0.21719481
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-runetracer-no-future",
+      "supplementary": false,
+      "x": 0.37658941,
+      "y": 0.6783614
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": "AURA",
+      "kit_id": "vs-soul-eater",
+      "supplementary": false,
+      "x": 0.41675752,
+      "y": -0.61667466
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-thousand-edge",
+      "supplementary": false,
+      "x": 0.37019278,
+      "y": 0.53777479
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-thunder-loop",
+      "supplementary": false,
+      "x": -0.21688833,
+      "y": 0.057397811
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-unholy-vespers",
+      "supplementary": false,
+      "x": 0.43058503,
+      "y": -0.19621157
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-vandalier",
+      "supplementary": false,
+      "x": 0.20410021,
+      "y": 0.17648586
+    },
+    {
+      "franchise": "vs",
+      "gateA_group": null,
+      "kit_id": "vs-vlad-dracula",
+      "supplementary": false,
+      "x": -0.34617521,
+      "y": 0.039354688
+    }
+  ]
+}
