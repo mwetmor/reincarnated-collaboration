@@ -7,6 +7,53 @@
 
 ---
 
+## edition-2-2026-07-15 — EDITION II: pull vocabulary + census-freeze revert + EAST-half drill-in + lattice re-emission — 2026-07-15 — **LANDED**
+
+### What changed (one line)
+Edition-II lands the `pull` function vocabulary (register v1.2), REVERTS the census-freeze-violating 7-row pull-tranche insert, re-keys 2 existing kits to pull on intrinsic evidence, and re-emits the ghost field + EAST-half geometry×commit drill-in + every denominator. **The FIT layer is byte-frozen vs Edition-I (r6): basis + all 506 point coords + tombstones + axis names + RIDER-1 + F-1 untouched.** All acceptance 22-28 PASS; P-DF-1 = PASS.
+
+### Stage 1-R — REVERT the 7-row pull-tranche insert (Matt census-freeze ruling 2026-07-15)
+Matt: *"Queue the full Lost Ark tranche post-Edition-II… let's not add gravity or anything until post edition 2."* → CENSUS FREEZE: no new corpus rows this edition; the pull VOCABULARY still enters. The prior agent's insert (`corpus_ingest_pull_tranche_2026_07_15.py`, run twice) was reverted.
+- **Reverted batch (4 classes):** 7 rows from `canon_corpus` (651→644) + 7 from `canon_engine_key` (625→618); mech_note suffix-append enrichment on `di-cyclone-monk-pvp` + `d3-zbarb` restored verbatim from the pre-insert backup; both `pull-tranche-edition2-stage1-2026-07-15` schema_meta rows deleted (8→6).
+- **Revert script (new, idempotent):** `scripts/corpus_revert_pull_tranche_2026_07_15.py`. Backup-before-batch: `corpus.db.pre-revert-2026-07-15-backup` (651 rows). WAL checkpoint.
+- **Survivor-integrity proof (in-script, fail-loud):** full `.dump` diff of the reverted DB vs `corpus.db.pre-edition2-2026-07-15-backup` → **0 removed lines; the ONLY additions are the two legitimate Stage-2 register-v1.2 tables** (`atlas_feasibility_cuts_v1_2_2026_07_15` + `atlas_feasibility_ladder_v1_2_2026_07_15`, 19 additive lines). The census (`canon_corpus` 644 / `canon_engine_key` 618) is byte-identical to pre-insert.
+- **Baseline correction (audit note):** the brief assumed "the insert was the only batch since that backup"; verified on disk, the Stage-2 register-v1.2 generator ALSO ran post-backup (materializing those two tables) — legitimate Stage-2, OUT of revert scope, retained. The honest identity invariant is "reverted DB == pre-insert backup + exactly the two v1.2 register tables."
+- **Committed record:** `corpus-curation-pull-tranche-deferred-2026-07-15-log.md` (records the insert fired AND was reverted; 7 rows QUEUED post-Edition-II).
+
+### Stage 2 — register v1.2 (`pull` function level)
+`pull` = inward displacement force (knockback's inverse). function coordinate 10 → 11 levels. Law ledger UNCHANGED and wholly inherited; pull vets under the ratified ledger with **ZERO new laws** (L1′ cannot seal pull since pull≠none; L2 seals SUMMON×solo×pull = 54). **HALT=False.**
+- **Independently re-derived (acceptance 22 audit bar), all exact:** exact raw **990,186,120** · post-logical **819,439,740** · post-red-law **767,411,820**; meso raw **12,474** · feasible **11,160** · sealed **1,314** (L1′-composed 756 + L2-composed 558). Pull slice: **1,080 feasible + 54 sealed** (all L2). Numbers reproduce the register generator + JSON EXACTLY.
+- **Register v1.2 artifacts:** `atlas/feasibility-cuts-register-v1.2.{md,csv,json}` (md authored this stage; csv/json by the prior agent's `scripts/feasibility_cuts_register_v1_2_2026_07_15.py`). v1/v1.1 retained in git as lineage.
+- **Per-cut marginal convention (inherited from v1.1, documented in v1.2 §3/§4):** the `per_cut_removed_*` fields report each cut's ORIGINAL (pre-amendment) predicate footprint on the raw box (a legibility/lineage figure, NOT a denominator). The load-bearing ladder + sealed decomposition + pull slice use the AMENDED predicates via composed survivors and reproduce exactly. Verified: v1.1's published per-cut marginals are the same pre-amendment convention at function=10; v1.2 scales to function=11 (L1′ meso 4,158→4,536; RED-3′ exact 76.2M→83.8M). Not a v1.2 defect.
+
+### Stage 3 — existing-kit pull re-keys (NARROWED to corrections, not additions; C3-style reversible)
+- **`d3-zbarb`: function none → pull (FIRED).** Evidence: Ground Stomp Wrenching Smash is a RUNE (intrinsic), 24y radial-nova pull-to-self, 40% CC-res. Treatment stays `damage` (pull is the rune rider). The pull slice's first on-plane light.
+- **`di-cyclone-monk-pvp`: function knockback → pull (FIRED).** Evidence: base Cyclone Strike pull is INTRINSIC (no Legendary); the existing `knockback` is the DI engine's force-direction-blind label; the inward vortex IS pull (register v1.2 boundary rule). Treatment stays `control`.
+- **`d3-dmo-twister`: DECLINED** (prior ruling stands; asserted untouched, function=none).
+- **6 MCD pull kits (mcd-):** flag-resolved (pull vocab landed) + `function=pull` recorded at the DESCRIPTOR level (flags JSON + mech_note). They have NO engine-key row (classless-gear; deferred docket) → NO engine-key row created (freeze), REMAIN off-plane. Key-hygiene, not plane admission (spec §10.1.6).
+- **Re-key script (new):** `scripts/corpus_rekey_pull_stage3_2026_07_15.py`. Backup: `corpus.db.pre-stage3-rekey-2026-07-15-backup` (644). Positional cell_key splice (#5b only) — every other slot byte-preserved.
+- **Proofs (in-script, all PASS):** 467 survivors byte-identical (only d3-zbarb + di-cyclone-monk-pvp changed, each ONLY at cell_key #5b→pull); declined row untouched; 6 MCD still no engine-key row; counts unchanged (644/618); `lattice_coord` unchanged for re-keyed rows (function ∉ the BC6 prefix — the "lattice_coord batch update" is vacuous for function re-keys, asserted).
+
+### Stage 4 — EAST-half drill-in + full lattice re-emission (census 644 + 2 re-keys)
+- **Edition-II ghost emitter (new):** `scripts/ghost_field_edition2.py` — extends Edition-I: `pull` added to REG function vocab; `REG2FIT["function"]["pull"]=None` (masked-like — the frozen fit never saw pull, so it has no column-standard coordinate; projects on the other 6 core coords, EXACTLY as silence/hybrid/MELEE/SUMMON → **basis stays byte-frozen**). New v1.2 denominators; off-plane MCD disclosure; EAST-half drill-in; P-DF-1 scoring.
+- **Edition-II atlas.json builder (new):** `scripts/build_atlas_json_edition2.py` → `atlas/atlas-edition2.json` (7.49 MB; Edition-I `atlas.json` preserved as the archived Edition-I artifact). Reads the SAME frozen basis CSVs (never regenerates them). atlas_version "Edition-II"; register_ref v1.2; P-DF-1 verdict.
+- **Ghost field (lattice):** 11,160 feasible + 1,314 sealed (L1′ 756 + L2 558) meso cells; **193 lit** (was 192; +1 net); **2 pull-lit cells** = d3-zbarb `[FREE-MOVE,ZONE,damage,pull,solo,active,one-shot]` + di-cyclone-monk-pvp `[WALK,NOVA,control,pull,solo,active,one-shot]`; depth Σ = **767,411,820** exact.
+- **EAST-half geometry×commit drill-in (slate #1 ES + #2 EN):** 5,068 EAST-half parent cells (x≥0); **172,312 sub-feasible + 10,136 RED-3- sealed** sub-cells. Grain-scoped seal enum {L1-, L2-, **RED-3-**} — RED-3′ SURFACES here (geometry∈{dash_attack}×commit≠instant), absent at meso. Emission form (steward decision, §10.4.1 intent + §9.1 coincident-aggregation + §10.3.3 ~21× glyph-field law + atlas.json practicality): exact counts + 23-vertex reach hull + render-grid glyph field (distinct @2dp + multiplicity) + seal ledger (pattern) + P-DF-1 extremal; the full 172,312-cell enumeration is reproducible from the emitter (renders as dark GROUND, coincident glyphs aggregated).
+- **Off-plane corpus disclosure (§10.4.4):** N=**94** — the keyed MCD gear kits held off by the movement gate (movement=blank); N computed from gate rejections, never hard-coded. (26 unresolved MCD reported separately.)
+- **Denominator supersession:** Edition-I `693,146,160` / `10,080` appear ONLY inside the labeled `superseded_edition1` block; anti-`422445240` carries forward. Grep-verified.
+- **P-DF-1 (§10.5) scored mechanically at render: VERDICT = PASS.** S_max 2.841 > K_max 1.874 along û=normalize(mean(c_whirlwind,c_channel)); 14 beyond-horizon kits (matches the displacement memo). The EAST drill-in extends the dark BEYOND the whirlwind/beam kits (x-reach 1.258→2.308, y-reach −1.817→−2.436). INTERIOR-1 stays closed (not falsified).
+- **Acceptance suite (new):** `scripts/edition2_acceptance_2026_07_15.py` — **25/25 PASS** across criteria 22-28, incl. doctored-input proofs BOTH grains (RED-3- surfaces at drill-in, absent at meso) + the real mcd-forced-past-gate HALT proof (a doctored mcd row lighting a pull cell → emitter RAISES; run on a /tmp DB copy, live corpus.db untouched). Emitter deterministic (byte-identical modulo `emitted_at`).
+
+### Corpus.db final state
+`canon_corpus` **644** · `canon_engine_key` **618** · pull-function rows **2** (d3-zbarb, di-cyclone-monk-pvp). WAL checkpointed; integrity_check = ok.
+
+### ADR compliance
+- **ADR-004:** this entry. No engine-telemetry change; star-lord-side MIGRATION.md unaffected. The Edition-II ghost emitter + atlas.json builder are collab-side curation artifacts (elrond-owned research tree); the FIT layer (star-lord's frozen basis CSVs) is READ-ONLY. No engine consumer contract reshaped.
+- **Reversibility:** the revert restores the pre-insert census byte-for-byte; the 2 re-keys are C3-style (from-value recorded in flags + this log + the re-key script); the 7 tranche rows are QUEUED (idempotent re-insert post-Edition-II). Register v1/v1.1 + Edition-I atlas.json retained. Full re-emission reproducible from version-controlled scripts + frozen artifacts.
+- Analysis tables `atlas_feasibility_*_v1_2_2026_07_15` (elrond-owned, gitignored) present from Stage 2; no new schema. Auto-committed per project discipline (Matt-authorized Edition-II chain). Push deferred to KR's gate.
+
+---
+
 ## displacement-rerun-mcd-confirm-2026-07-15 — Edition-II slate CONFIRMATION re-run over grown corpus (READ-ONLY on frozen layer) — 2026-07-15 — **LANDED**
 
 ### What changed (one line)
