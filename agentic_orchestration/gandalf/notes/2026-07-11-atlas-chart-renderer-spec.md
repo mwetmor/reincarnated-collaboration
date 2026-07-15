@@ -643,6 +643,52 @@ auto-fired.
 4. **P-DF-1 verdict + any new-law need → Matt.** Falsification consequences (§10.5) are
    surfaced, not auto-fired.
 
+### 10.8 Edition-II FIX PASS — E2.1 (2026-07-15, post-ebb18784 verify)
+
+**Authority:** Matt 2026-07-15, two rulings on the landed render — (1) *"include the newly
+drilled-in ghost clusters inside of the dotted-line (known search space)"* (rename open;
+gandalf lean below); (2) drill-in dots confirmed visible-but-*"SO dim and SO tiny"* —
+plus gandalf DRIFT-CRITIC verify findings. **Presentation-only iteration on FROZEN
+Edition-II data:** `atlas-edition2.json` read-only; FIT layer stays byte-frozen vs r6;
+data-change and style-change never share a render (law carries).
+
+- **a. CHARTED HORIZON (redefinition + rename).** The dashed line becomes
+  **hull(meso-feasible ∪ drill-in sub-feasible)**, clipped at the frozen frame per
+  existing clip law. Name lean: **CHARTED HORIZON** (Matt veto point — string swap if
+  overruled). Gloss supersedes the r-series "coverage limit — dark beyond this line is
+  unmapped at meso grain, not absent" (content-lock amended BY RULING) with charted-space
+  semantics + the grain asymmetry disclosed: east half charted to geometry×commit
+  drill-in depth, west half to meso grain only; **beyond the line: uncharted — not yet
+  computed, not infeasible, not absent.** Beyond-horizon kit count recomputes vs the new
+  hull (was 14); clipped counts recompute; headline pair re-words so the LINE carries the
+  P-DF-1 finding (the charted horizon extends beyond the outermost settled kits along û).
+  P-DF-1 verdict line UNCHANGED (data-layer). The old meso hull retires from the visual;
+  its semantics survive in gloss + hover disclosures.
+- **b. Drill-in visible-minimum prominence floor.** Base sub-glyphs measured r=0.75px
+  (10,805) / 0.93px (5,858) — sub-pixel at overview scale. Impose a radius floor AND a
+  fill-contrast floor vs canvas, BOTH skins; preserve subordination ORDER (settled >
+  meso ghost > drill-in > canvas, all four separable) and the log₂ size-step grammar
+  above the floor (compress the step curve, never flatten it). galadriel proposes exact
+  values; acceptance includes a sparse-region legibility smoke (the WHIRLWIND/BEAM
+  approach — the chart must show its own P-DF-1 finding at overview scale).
+- **c. Banner relabel.** The strip leading `Edition 1 · frozen 2026-07-14 · …` reads as a
+  contradictory edition stamp. Lead with the chart's OWN edition; demote the basis to an
+  attribute (e.g. `Edition II lattice · basis: Edition-I (frozen 2026-07-14) · plane = …`).
+  Locked substrings survive verbatim inside the re-led string.
+- **d. Provenance dedupe.** Footer `Edition-II · Edition II · …` → single edition token.
+- **e. Skin→canvas mapping assertion.** `instrument` = LIGHT `#f7f8fa`; `archive` = DARK
+  (verified). Do NOT rename mid-series; `render-provenance.json` gains an explicit
+  skin→canvas map so downstream (drax PRD black-copy lead) binds to CANVAS, never name.
+- **f. Chrome-uniqueness + bottom-band overlap.** Every visible chrome string appears
+  exactly once (kills the double-print class seen in an intermediate state); zero
+  text-bbox overlap in the below-plane band + footer, both skins.
+
+**Acceptance:** full standard suite re-runs; r4-horizon / r5-beyond-horizon re-baseline as
+charted-horizon criteria (items a–f above, lettered E2.1-a…f); determinism double-render;
+same deliverable shape. **Sequencing:** E2.1 PRECEDES r7 — the fix-pass render becomes the
+geometry baseline r7 freezes against (radius floor is geometry; it must land before the
+freeze).
+
 ---
 
 **Signed:** gandalf, 2026-07-11 — SPEC-AUTHOR. Anchors: `projection-atlas.md` §0/§3/§4/§5 ·

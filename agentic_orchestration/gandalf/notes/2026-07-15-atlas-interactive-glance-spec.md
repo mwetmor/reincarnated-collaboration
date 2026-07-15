@@ -48,7 +48,7 @@ Ground truth (gandalf probe, r6 SVG): zero `class=`, zero `<g id=`. Flat SVG. Am
 ## 4. Basic legend + slim class-highlight (drax page)
 
 - **Top-left BASIC legend**, four entries in Matt's vocabulary: **Condensations, Live Kits, Graveyard, Ghosts.** Sits above/beside existing chrome; does not displace the emitted in-SVG legend.
-- Each entry **toggleable (multi-select).** Selecting a class highlights ALL its members: **stroke halo ≤ 0.75px, no fill change, no dimming of non-selected marks** — "very slim, almost non-existent; dots never obscured." Instrument skin: pale luminous stroke; archive: dark ink stroke.
+- Each entry **toggleable (multi-select).** Selecting a class highlights ALL its members: **stroke halo ≤ 0.75px, no fill change, no dimming of non-selected marks** — "very slim, almost non-existent; dots never obscured." Dark canvas: pale luminous stroke; light canvas: dark ink stroke. **(Skin-naming correction 2026-07-15: galadriel's `instrument` skin is the LIGHT canvas `#f7f8fa`; `archive` is the DARK one — verified against the Edition-II SVGs. All skin selection downstream binds to CANVAS, never to skin name.)**
 - Implementation: page-injected CSS targeting the §3 layer groups / `data-el` — the vendored SVG bytes are untouched at rest.
 
 ## 5. Hierarchical pivot table (drax page, below chart)
@@ -74,7 +74,7 @@ Axis-X (WEST | EAST)
 
 ## 6. Page composition + PRD
 
-- **Black copy (instrument skin) LEADS** the atlas page; archive (white) skin behind the existing toggle. Edition-I stays as the archived second lens per current page structure.
+- **Black copy LEADS** the atlas page — selected by CANVAS (dark), which in galadriel's file naming is the **`archive`** skin (naming correction, §4); the white (`instrument`) skin sits behind the existing toggle. render-provenance.json carries an explicit skin→canvas mapping so drax's wiring cannot invert. Edition-I stays as the archived second lens per current page structure.
 - Provenance JSON carries render commit + data commit + P-DF-1 verdict (existing law) + interactive-data build hash.
 - PRD ship of this package: pre-authorized (Matt 2026-07-15). Collab-repo push remains separately Matt-gated.
 
