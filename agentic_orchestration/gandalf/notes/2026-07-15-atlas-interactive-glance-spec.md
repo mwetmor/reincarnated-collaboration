@@ -2,8 +2,8 @@
 
 **Date:** 2026-07-15
 **Author:** gandalf (SPEC-AUTHOR / SCENEWRIGHT)
-**Status:** v1 — cut on Matt's directive package 2026-07-15 ("When Drax moves it to PRD…" + three functional effects). One marked veto point (§1).
-**Authority:** Matt 2026-07-15 — black-copy lead · axis-title overlap fix · live/ghost color separation · basic selectable legend w/ slim highlight · hierarchical pivot table w/ chart wiring. PRD ship of this package pre-authorized by the same message.
+**Status:** v1.1 — cut on Matt's directive package 2026-07-15 ("When Drax moves it to PRD…" + three functional effects). One marked veto point (§1). **§8 v1-zoom amendment added same date on Matt's two-bound ruling.**
+**Authority:** Matt 2026-07-15 — black-copy lead · axis-title overlap fix · live/ghost color separation · basic selectable legend w/ slim highlight · hierarchical pivot table w/ chart wiring. PRD ship of this package pre-authorized by the same message. **v1 zoom (§8): Matt 2026-07-15 — "max zoom out would allow view of the full horizon-line and max zoom in would allow ease of selection for a single kit/ghost."**
 **Companion docs:** `2026-07-11-atlas-chart-renderer-spec.md` (render law §§7–10; this note amends presentation + adds hooks as r7) · `research/curated/atlas/atlas-edition2.json` (data of record) · Glance app (`reincarnated-loadout` seam, drax).
 
 ---
@@ -14,7 +14,7 @@ Three seams: **galadriel** (r7 SVG restyle + semantic hooks), **drax** (interact
 
 **Sequencing (single-variable discipline):** the in-flight Edition-II render completes and verifies FIRST — it is the data-correctness baseline, and its acceptance-23 FIT byte-regression vs r6 is only provable on an unchanged visual grammar. r7 then restyles on FROZEN Edition-II data (its own regression law: geometry/coords byte-frozen vs Edition-II render; fills/strokes/layout re-baselined). Data-change and style-change never share a render.
 
-Chain: Edition-II verify → **r7 render** → gandalf verify → **drax interactive build** → PRD (black copy leads). Drax MAY begin the pivot-table component + data-slim script in parallel against `atlas-edition2.json` (data model is render-independent); interactive wiring waits for r7 hooks.
+Chain: Edition-II verify → **r7 render** → gandalf verify → **drax interactive build** → PRD (black copy leads) → **v1 zoom pass** (§8, a discrete pass AFTER the wiring pass verifies — single-variable discipline). Drax MAY begin the pivot-table component + data-slim script in parallel against `atlas-edition2.json` (data model is render-independent); interactive wiring waits for r7 hooks.
 
 ## 1. Four-class visual encoding (Matt fork — resolved with lean; VETO POINT)
 
@@ -88,6 +88,50 @@ Axis-X (WEST | EAST)
 34. **wiring-roundtrip:** chart→table drill+scroll and table→chart halo+pan, demonstrated on one live kit, one condensation member, one graveyard kit.
 35. **black-lead:** instrument skin default at PRD; skin toggle preserved; anti-stale greps carry.
 
+36.–40. **v1 zoom** — §8.5 (zoom-bounds-derived · halo-screen-constancy · gesture-perf · state-independence · clip-tracks-view).
+
+---
+
+## 8. v1 Zoom — viewBox lens on the inlined artifact (Matt 2026-07-15, two-bound ruling)
+
+**Authority:** Matt 2026-07-15 — *"max zoom out would allow view of the full horizon-line and max zoom in would allow ease of selection for a single kit/ghost."* Page-level capability, drax seam. **Zero renderer changes** — gandalf probes (same date, r7 archive SVG + e21 render script) establish both preconditions in the shipped artifact:
+
+- The charted-horizon polyline is emitted from the **FULL world hull** (24 projected points incl. closing; px bbox **x[43.1, 1725.5] × y[−1.7, 1363.3]** — exceeds the frozen frame on ALL FOUR edges; it is the SVG's only dashed polyline, dasharray `7 5`), with `planeClip` trimming at paint time only.
+- Beyond-frame glyphs are **emitted-and-masked, never dropped** (render law line ~514: "CLIPPED … never dropped"; e21 counts `ghost_clipped` 27 + `sub_clipped` 1,130). Everything zoom-out reveals already sits in the DOM behind `planeClip`.
+
+**Sequencing:** fires as a **discrete pass AFTER the §§3–7 wiring pass verifies** (single-variable discipline; NOT folded into the in-flight wiring brief). Ships preview-first → gandalf verify → promotion, per standing discipline.
+
+### 8.1 Interaction grammar
+
+Wheel (cursor-anchored) · pinch · drag-pan · **+/− buttons** (×1.5 steps) · double-click zoom-in step at cursor · **reset** · keyboard `+`/`−`/`0`. Continuous scale S clamped to **[S_min, S_max]** (§8.2). Implementation: viewBox arithmetic on the inlined `<svg>`; hand-rolled or `svg-pan-zoom` (tiny) at drax's option — **no d3-class dependency** for ~200 lines of window math.
+
+### 8.2 The two bounds — derived from the mounted artifact, never hardcoded
+
+The page derives both bounds from the inlined SVG DOM at mount (the artifact of record — §4c never-invent extended to page constants: copy the artifact, don't restate it). Exactly ONE design constant is named: **TARGET_D = 24 screen px**, the comfortable pointer-target diameter.
+
+- **S_min (zoom-out floor) = Matt's full-horizon view.** Aspect-fit scale of union(canvas 0,0–1600,1200 ∪ hull-polyline px bbox) + 24px margin. Reference on Edition-II r7: union x[0, 1725.5] × y[−1.7, 1363.3] ⇒ **S_min ≈ 0.85×**. Acceptance meaning: at S_min every hull point is in-viewport — **the dashed line closes on screen.**
+- **S_max (zoom-in ceiling) = Matt's single-mark selection ease.** `S_max = TARGET_D / (2 · r_min_selectable)`, where r_min_selectable = min radius among **selection-wirable** marks only — `[data-kit]` circles + `[data-core]` meso ghosts. Drill-in glyphs are EXCLUDED (unwirable, §5 ruled seam B — the 1.37px drill floor does not drag the ceiling). Reference: min meso-ghost r = **1.45px** ⇒ **S_max ≈ 8.3×** (min selectable mark renders ≈ TARGET_D; kit points at r=3 render ≈ 50px).
+
+### 8.3 Clip-tracks-view (one rule, all states)
+
+While any zoom/pan state is active, the page sets the `planeClip` rect to the current viewBox; **reset restores the emitted rect verbatim.** Consequences: zoom-out reveals the full charted horizon + the 27/1,130 masked marks ("looking past the map edge"); panning to the frame edge zoomed-in reveals the same, honestly; chrome paints above throughout (paint order unchanged — beyond-frame marks pass UNDER the r7 axis rails). Wrapper background = canvas hex from provenance `skin_canvas_map`, so the exposed surround blends seamlessly. This is runtime DOM state in the same law-class as §4's injected CSS — **the vendored SVG bytes are untouched at rest.**
+
+### 8.4 Composition with standing law
+
+- **Halo screen-constancy:** the injected halo CSS adds `vector-effect: non-scaling-stroke` — the ≤0.75px halo law is a SCREEN-perceptual cap ("almost non-existent") and must hold at 8× exactly as at 1×. Stroke-only law carries; zero fill mutation; zero dimming. (Marks carry no native strokes — fills are group-inherited — so the vector-effect touches halos only.)
+- **Gesture perf (46.5k marks):** CSS transform on the wrapper DURING the gesture (compositor-only), a single viewBox write + clip update on gesture-settle; wheel rAF-throttled. No per-frame viewBox writes.
+- **Table→chart pan** (§5 wiring) upgrades from scrollIntoView to **lens-pan**: center the mark at current S; if its rendered diameter < TARGET_D/2, raise S to that mark's ease-scale (≤ S_max). Deterministic.
+- **Chrome under zoom = v1 option-1** (whole-SVG lens; chrome slides off-view when deep in the plane, returns on reset). Fixed-chrome zoom is r8 territory (needs zoom-cooperative rails from galadriel) — out of v1 scope by design.
+- Selection + legend toggles are zoom-independent state; **skin flip preserves the lens.**
+
+### 8.5 Acceptance additions
+
+36. **zoom-bounds-derived:** S_min shows all hull points + full canvas in-viewport; S_max renders the min selectable mark ≥ TARGET_D; both bounds provably derived from the mounted artifact (a doctored-radius probe shifts S_max with zero code change).
+37. **halo-screen-constancy:** halo ≤ 0.75 SCREEN px at S_min / 1× / S_max; stroke-only; zero fill mutation; zero dimming.
+38. **gesture-perf:** transform-during-gesture + settle-write demonstrated on the full 46.5k-mark artifact; no continuous viewBox writes.
+39. **state-independence:** legend + selection survive zoom/pan; skin flip preserves the lens; reset restores the emitted viewBox AND the emitted planeClip rect verbatim.
+40. **clip-tracks-view:** beyond-frame marks + the closed horizon visible whenever the view exceeds the plane rect; the on-disk SVG byte-untouched (checksum before/after a zoom session).
+
 ---
 
 ## Cross-references
@@ -95,6 +139,8 @@ Axis-X (WEST | EAST)
 `2026-07-11-atlas-chart-renderer-spec.md` §§7–10 (render law; r7 amends presentation) · `atlas-edition2.json` ghost_field (core_order, drill_in, denominators) · tracker SESSION-DELTA -l (Edition-II audit) · Matt directive message 2026-07-15 (this package's authority).
 
 Tracker-delta: new gap — r7 + interactive-page package specced, gated on Edition-II render verify → current-to-end-state-engine, SESSION-DELTA -m.
+
+Tracker-delta (v1.1 zoom amendment): new gap — v1 zoom (§8) specced on Matt's two-bound ruling, build gated on wiring-pass verify → current-to-end-state-engine, SESSION-DELTA -q.
 
 ---
 
