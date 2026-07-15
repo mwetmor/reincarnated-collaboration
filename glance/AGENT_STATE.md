@@ -9,6 +9,31 @@
 
 Tag: `glance/v1.11-atlas-edition1-ghost-1`. Nine pages unchanged.
 
+### Atlas Edition-I r6 (legibility) — RE-SHIPPED to /atlas PRD 2026-07-15
+
+Third same-day re-ship on the SAME ratified render→gandalf-verify→drax-ship chain (standing Matt
+PRD auth). Pure re-vendor of the SAME `atlas.json` (data commit `d0b2a025` UNCHANGED); only the
+stage-assets vendoring pointer (`EDITION1_DIR_REL`) + `collab_render_commit` + comments moved. No
+parse-shape change, no app code change. gandalf verified r6 ACCEPT (21/21 acceptance, byte-level +
+visual).
+
+- **r6 (legibility), render commit `0e795ae4`** — repointed vendoring from r5 (`0175faa5`) to
+  `2026-07-15-atlas-edition1-r6-legibility`. r6 is a strictly-CORRECTIVE legibility revision vs r5:
+  2 diff hunks only — (1) the clip-disclosure line "21 unlit cells project beyond the frame (clipped,
+  not rescaled — frame frozen to the settled points)" WRAPPED to 2 tspans (`y=1105` + `y=1116`) w/
+  whole-string `<title>`, plaque grew 10px upward (bottom pinned 1200); (2) footer census re-anchored
+  x=1504→1132. Everything else byte-identical to r5. Deploy `dpl_2BxaSLGwGTRnRnZJYfJUgGxdmEYE`,
+  READY/production, aliased canonical `https://reincarnated-glance.vercel.app`. Followed the r4 lesson
+  set exactly (repoint stage-assets → `npm run build` in glance/app → overwrite ROOT
+  `.vercel/output/static/` from dist → `npx vercel deploy --prebuilt --prod --yes` from collab ROOT;
+  ROOT static tree confirmed STALE r5 `99f00c47…` beforehand, replaced with r6). BYTE-EQUALITY:
+  prod-served SVGs SHA-256 == galadriel r6 source (instrument `3135fe7b…5b10…4914ee2a` · archive
+  `ad4a73fb…c3c7acb3f`; both 200 `image/svg+xml`, 668363B / 668557B). Live receipts: served instrument
+  contains the wrapped clip line (whole-string `<title>` + exactly 2 wrapped tspans) + census
+  `x="1132.00"` (1 occ) + ZERO `x="1504"`; archive skin parity confirmed; `/atlas` SPA route 200;
+  provenance JSON reports `collab_render_commit "0e795ae4"` + full `source_commit 0e795ae4b440…` + r6
+  source paths + `collab_data_commit d0b2a025` (unchanged). Commit: this session.
+
 ### Atlas Edition-I r4 (ghost-horizon) + r5 (beyond-horizon) — RE-SHIPPED to /atlas PRD 2026-07-15
 
 Two same-day re-ships under Matt's STANDING PRD auth for the ratified render→gandalf-verify→drax-ship
@@ -324,15 +349,17 @@ Three pages added (`/coordinates` + `/atlas` + `/mechanics`), render-only, ZERO 
   routes + `state.json` (all three references present). CI report-mode parse exit 0, MALFORMED 0.
 - 12 dangling gates-on = pre-existing visible debt (proxy-P0/P1/P2, launch-scope-planning, etc.),
   NOT from the trio. 0 dangling flow-refs.
-- **CURRENT PRODUCTION = Atlas Edition-I r5 (beyond-horizon), 2026-07-15.** Deploy
-  `dpl_7VgezhpYZqnYqgG3wRWoTbwRDzjb` (`reincarnated-glance-l5pitb5s5…`), READY, target
+- **CURRENT PRODUCTION = Atlas Edition-I r6 (legibility), 2026-07-15.** Deploy
+  `dpl_2BxaSLGwGTRnRnZJYfJUgGxdmEYE` (`reincarnated-glance-iplzmk4x9…`), READY, target
   production, aliased to canonical `https://reincarnated-glance.vercel.app`. Render commit
-  `0175faa5` · data commit `d0b2a025`. Live receipts: instrument SVG 200 `image/svg+xml`
-  668193B contains `14 settled kits stand beyond the horizon` · archive SVG 200 668387B ·
-  `/atlas` 200 (SPA rewrite) · provenance JSON `collab_render_commit "0175faa5"`. BYTE-EQUALITY:
-  prod SVGs SHA-256 == galadriel r5 source (instrument `99f00c47…` · archive `6f5c16ed…`).
-  Prior PRD deploys same day: r4 `dpl_9r4BWTciRWML8b8mzJFmdPBYz3xU` (render `c27d7af7`) ·
-  v1.11 r3.2 `dpl_6bwdofFTU9g4VR3zLkV3CUz3pp8k` (render `53db59a2`). All under Matt's standing
+  `0e795ae4` · data commit `d0b2a025`. Live receipts: instrument SVG 200 `image/svg+xml`
+  668363B contains the wrapped clip line (whole-string `<title>` + 2 tspans) + census
+  `x="1132.00"` (0× `x="1504"`) · archive SVG 200 668557B · `/atlas` 200 (SPA rewrite) ·
+  provenance JSON `collab_render_commit "0e795ae4"`. BYTE-EQUALITY: prod SVGs SHA-256 ==
+  galadriel r6 source (instrument `3135fe7b…` · archive `ad4a73fb…`). Prior PRD deploys same
+  day: r5 `dpl_7VgezhpYZqnYqgG3wRWoTbwRDzjb` (render `0175faa5`, instrument `99f00c47…`) ·
+  r4 `dpl_9r4BWTciRWML8b8mzJFmdPBYz3xU` (render `c27d7af7`) · v1.11 r3.2
+  `dpl_6bwdofFTU9g4VR3zLkV3CUz3pp8k` (render `53db59a2`). All under Matt's standing
   render→gandalf-verify→drax-ship PRD auth.
 - **DEPLOY-PATH LEARNING (load-bearing — the collab repo is now UNPUSHED per Matt):** a
   normal `npx vercel deploy --prod` triggers a REMOTE Vercel build that runs the parser +

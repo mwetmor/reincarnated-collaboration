@@ -40,18 +40,20 @@ const OUT_DOTS = join(OUT_DIR, 'plane_dots_v1_2.json');
 const OUT_POS = join(OUT_DIR, 'plane_dot_positions.json');
 const OUT_META = join(OUT_DIR, 'plane-provenance.json');
 
-// ── Atlas Edition-I (r5 beyond-horizon) — the PCA-projection instrument (Glance
+// ── Atlas Edition-I (r6 legibility) — the PCA-projection instrument (Glance
 //    contract §7.7 /atlas render-adjacent addition; chart = render(atlas.json)).
-//    VENDORED from galadriel's verified capture (collab render commit 0175faa5,
+//    VENDORED from galadriel's verified capture (collab render commit 0e795ae4,
 //    data commit d0b2a025). Served UNMODIFIED — never hand-edited, never scraped.
-//    r5 = strictly-additive ONE microcopy line in the GHOST FIELD ledger plaque
-//    (both skins): the beyond-horizon disclosure "14 settled kits stand beyond the
-//    horizon — …". All data layers byte-identical vs r4 (gandalf-verified: single
-//    diff hunk, plaque rect grew upward 48px, nothing else moved). r4 was the
-//    dashed ghost-horizon envelope + 1.9%-lit / 2.4-kits-per-lit-cell headline pair.
-//    Two verified deterministic skins: instrument (light) + archive (dark). The
-//    page copy cites ONLY numbers we read back from atlas.json here — never the SVG.
-const EDITION1_DIR_REL = 'agentic_orchestration/galadriel/captures/2026-07-15-atlas-edition1-r5-beyond-horizon';
+//    r6 = strictly-corrective legibility revision vs r5 (2 diff hunks only,
+//    gandalf-verified 21/21 ACCEPT byte-level + visual): (1) the clip-disclosure
+//    line "21 unlit cells project beyond the frame (clipped, not rescaled — frame
+//    frozen to the settled points)" wrapped to 2 tspans w/ whole-string <title>,
+//    plaque grew 10px upward (bottom pinned 1200); (2) footer census re-anchored
+//    x=1504→1132. Everything else byte-identical to r5. r5 was the beyond-horizon
+//    disclosure microcopy line; r4 was the dashed ghost-horizon envelope + 1.9%-lit
+//    headline pair. Two verified deterministic skins: instrument (light) + archive
+//    (dark). The page copy cites ONLY numbers we read back from atlas.json here.
+const EDITION1_DIR_REL = 'agentic_orchestration/galadriel/captures/2026-07-15-atlas-edition1-r6-legibility';
 const E1_INSTRUMENT_REL = `${EDITION1_DIR_REL}/atlas-edition1-instrument.svg`;
 const E1_ARCHIVE_REL = `${EDITION1_DIR_REL}/atlas-edition1-archive.svg`;
 const E1_INSTRUMENT_SRC = join(REPO_ROOT, E1_INSTRUMENT_REL);
@@ -246,7 +248,7 @@ const meta = {
 };
 writeFileSync(OUT_META, JSON.stringify(meta, null, 2) + '\n');
 
-// ── Atlas Edition-I (r4 ghost-horizon) staging ─────────────────────────────
+// ── Atlas Edition-I (r6 legibility) staging ────────────────────────────────
 // FAIL-LOUD: both skins are the shipped payload of contract §7.7 /atlas; a missing
 // SVG is a broken build, not a degrade (unlike the Phase-2 hover, which is optional).
 for (const [rel, src] of [[E1_INSTRUMENT_REL, E1_INSTRUMENT_SRC], [E1_ARCHIVE_REL, E1_ARCHIVE_SRC]]) {
@@ -319,7 +321,7 @@ const e1Meta = {
   source_path_archive: E1_ARCHIVE_REL,
   source_path_data: ATLAS_JSON_REL,
   source_commit: e1SourceCommit,
-  collab_render_commit: '0175faa5',
+  collab_render_commit: '0e795ae4',
   collab_data_commit: 'd0b2a025',
   staged_at: new Date().toISOString(),
 };
