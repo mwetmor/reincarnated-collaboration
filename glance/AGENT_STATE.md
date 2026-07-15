@@ -282,12 +282,29 @@ Three pages added (`/coordinates` + `/atlas` + `/mechanics`), render-only, ZERO 
   routes + `state.json` (all three references present). CI report-mode parse exit 0, MALFORMED 0.
 - 12 dangling gates-on = pre-existing visible debt (proxy-P0/P1/P2, launch-scope-planning, etc.),
   NOT from the trio. 0 dangling flow-refs.
-- **DEPLOYED TO PRODUCTION 2026-07-13** (PHASE 2 v4 — Matt authorized "move to PRD and then push").
-  Deploy `dpl_E9y5gvGqskfnS5JhYF6n7DY5tmpt` (`reincarnated-glance-ib18uqx4j…`), READY, aliased to
-  canonical `https://reincarnated-glance.vercel.app`. Post-deploy smoke: root + positions + svg all
-  200; `plane-provenance.json` source_commit `39c1c988` (== the shipped commit). No routing/
-  `vercel.json` change → no re-smoke beyond preview. Deploy from meta-repo ROOT
-  (`npx vercel deploy --prod --yes`); Root Directory = `glance/app`.
+- **DEPLOYED TO PRODUCTION 2026-07-15** (v1.11 — Matt authorized direct-to-PRD: "have Drax
+  launch this to the Glance Vercel app directly to PRD"). Deploy
+  `dpl_6bwdofFTU9g4VR3zLkV3CUz3pp8k` (`reincarnated-glance-1a0evb319…`), READY, target
+  production, aliased to canonical `https://reincarnated-glance.vercel.app`. Post-deploy smoke
+  (live PROD): `/` 200 · `/atlas` 200 (SPA rewrite) · instrument SVG 200 `image/svg+xml`
+  665944B · archive SVG 200 666120B · provenance JSON 200 (all 5 atlas.json numbers +
+  collab commits 53db59a2/d0b2a025). BYTE-EQUALITY verified: prod-served SVGs SHA-256 ==
+  galadriel source (instrument 15b673e6… · archive 7c1c11e6…) — served UNMODIFIED.
+  Content-locked elements confirmed un-obscured in the served instrument SVG (denominator,
+  192 lit, 1,260 sealed, clip-disclosure line, RIDER-1 8.36).
+- **DEPLOY-PATH LEARNING (load-bearing — the collab repo is now UNPUSHED per Matt):** a
+  normal `npx vercel deploy --prod` triggers a REMOTE Vercel build that runs the parser +
+  stage-assets on Vercel's servers — which FAILS because the meta-repo is not pushed where
+  Vercel builds (stage-assets can't find the vendored SVGs / capture dir; parser can't find
+  `canonical/**`). The v1.10 deploy worked only because the repo was pushed then. NOW the
+  correct path is a PREBUILT deploy: `npm run build` locally (where the capture dir exists
+  and stage-assets vendors the SVGs into `dist/`), copy `dist/` → `.vercel/output/static/`,
+  write `.vercel/output/config.json` (`{version:3, routes:[{handle:filesystem},{src:"/(.*)",
+  dest:"/index.html"}]}` — the SPA rewrite), set `.vercel/output/builds.json` target=production
+  (no error nodes), then from meta-repo ROOT run `npx vercel deploy --prebuilt --prod --yes`.
+  NOTE: run from ROOT (not glance/app) — the linked project's Root Directory `glance/app`
+  double-appends if cwd is already glance/app. `vercel build` itself is unusable in this
+  environment (`spawn sh ENOENT`); assemble the Build Output API v3 tree by hand.
 
 ## Files (this session)
 
