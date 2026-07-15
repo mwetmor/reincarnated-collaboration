@@ -7,6 +7,31 @@
 
 ---
 
+## displacement-rerun-mcd-confirm-2026-07-15 — Edition-II slate CONFIRMATION re-run over grown corpus (READ-ONLY on frozen layer) — 2026-07-15 — **LANDED**
+
+### What changed (one line)
+Re-ran the frozen-Edition-I displacement decomposition over the **grown** corpus (survivors + 94 keyed MCD rows) to CONFIRM gandalf's pre-registered Edition-II drill-in slate. **VERDICT: SLATE HOLDS, unchanged and mcd-invariant** (max |grown − survivor-only| over all 8 regions = **0.0** on mass and n; geometry remains #1 promotable in all 8 regions; P-DF-1 unaffected). **No schema change. No DB write. Every frozen input read-only; survivors byte-reproduced (worst drift 0.00e+00); pre-registration artifacts + r5/r6 captures UNTOUCHED; new files only.**
+- **Emitter (new; reproducible, idempotent):** `agentic_orchestration/research/scripts/displacement_field_edition1_rerun_mcd_2026_07_15.py` — imports the original `displacement_field_edition1.py` wholesale (frozen machinery byte-identical), adds only mcd masked-like projection + census. Re-run → identical MD5.
+- **New artifacts:** `atlas/atlas-displacement-field-edition1-rerun-mcd.csv` (455 rows + `origin`/`beyond_horizon` cols) + `.json` (rows + regions + mcd census + gate diagnosis). **Confirmation memo:** `atlas/2026-07-15-displacement-rerun-mcd-confirm.md`.
+- **Freeze anchors reproduced:** 455 survivor rows exact · ghost hull 22 vtx / 7128 pos / east 1.2581 · survivor beyond-horizon 14 (ids match r5 census verbatim) · r_split 0.434249. All identical to pre-registration commit `c7804393`.
+
+### The load-bearing finding — MCD is predicate-satisfied but PLANE-unmapped (corrects a phrase in the MCD log)
+The 94 keyed MCD rows satisfy the SQL predicate (`row_class='combat-kit' AND negative=0 AND cell_key IS NOT NULL`) — the predicate the MCD curation log verified 94/94 — but they are **rejected by the emitter's second gate** (`kit_core_tuple` register-meso crosswalk, applied AFTER the SQL fetch). **0 of 94 light a ghost cell.** Two independent gates:
+- **Primary (all 94):** `movement='blank'` → `fit2reg_movement` returns None (maps only full-move/walk/rooted). MCD is **classless twin-stick action-RPG**; a gear item carries no per-kit movement stance in-source, so movement is honestly `blank` — but `movement` is one of the 7 CORE meso slots the join hard-requires. (Structurally the same class as the `attr_val`-NULL the MCD log documents; that one is non-core, this one is core.)
+- **Secondary (26 of 94):** `delivery='melee'` → `fit2reg_delivery` has no `melee` image. The MCD melee weapons.
+- **Counterfactual (DB not mutated):** if movement were assigned, **68** would map; **26** (melee) would still not. A movement fix is necessary-not-sufficient AND would require inventing a value the source lacks (never-invent). MCD is correctly out.
+- **Census:** MCD region distribution N/A (0 mapped). MCD beyond-horizon **0** (verified: all 14 survivor beyond-horizon kits are `commit=channel`; MCD commit dist over all 94 keyed = instant 58 · blank 24 · wind-up 10 · channel 2 — overwhelmingly instant, only 2 channel, neither maps). coresub-on-mcd **0** (vacuous + structural: no separate pre-C3 frozen key for MCD).
+- **No number in the MCD log is wrong** — only the phrase "already satisfy the displacement/ghost predicate" over-reaches (SQL predicate ≠ plane-membership). Documented here + in the memo + in the emitter's inline rationale.
+
+### Consequence (Edition-II vocabulary-pass docket)
+Two gates would admit up to 68 of the 94 MCD weapons to the displacement plane: (1) a `movement=blank`/classless-gear treatment; (2) admitting `delivery=melee` to the register-meso vocabulary. Both are Edition-II vocabulary decisions (gandalf/Matt own; elrond re-keys once the vocabulary exists) — the same deferral class as the 6 `pull_pending_vocab` kits. Recommended for the Edition-II docket.
+
+### ADR compliance
+- **ADR-004:** this entry. No engine-telemetry change; star-lord-side MIGRATION.md unaffected. Pure collab-side analytical artifact (elrond-owned research tree); reshapes no engine consumer contract. Auto-committed per project commit discipline (Matt-approved confirmation-gate commission). Push deferred to KR's gate.
+- **Reversibility:** read-only on every frozen input; survivors byte-reproduced under runtime assertion (run HALTS on any drift); pre-registration + captures untouched; fully re-runnable (idempotent, identical MD5).
+
+---
+
 ## mcd-curation-complete-2026-07-15 — corpus.db +2 FIRST-CLASS COLUMNS + MCD Mode-B ingest completion — 2026-07-15 — **LANDED**
 
 ### What changed (one line)
