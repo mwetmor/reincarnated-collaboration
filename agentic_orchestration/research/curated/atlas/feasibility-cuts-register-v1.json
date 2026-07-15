@@ -1,0 +1,192 @@
+{
+  "generated": "2026-07-14",
+  "generator": "feasibility_cuts_register_2026_07_14.py",
+  "base_register": "coordinate-register-2026-07-13.md §2 (13-coordinate kit-identity key)",
+  "DISTINCTION": "This is the 13-coordinate CORPUS-IDENTITY lattice, NOT the engine-native substrate lattice (substrate-coordinates.md L4≈1.284e9; banned box 2.57e9). The '2.57B' ban is the SUBSTRATE naive box; this register's own naive box is reported below with its own pre-cut caveat (renderer R2 spirit).",
+  "counts_ladder": {
+    "exact_lattice": {
+      "raw": 900169200,
+      "post_logical": 461515320,
+      "post_redlaw": 422445240
+    },
+    "meso_grain": {
+      "raw": 11340,
+      "post_logical": 6840,
+      "post_redlaw": 6840
+    }
+  },
+  "per_cut_removed_exact": {
+    "L1-treatment-function-coherence": 330062040,
+    "L2-summon-implies-proxy": 42865200,
+    "L3-melee-delivery-range-coherence": 32148900,
+    "L4-ranged-delivery-range-coherence": 96446700,
+    "RED-3-movement-damage-carveout": 76204800
+  },
+  "per_cut_removed_meso": {
+    "L1-treatment-function-coherence": 4158,
+    "L2-summon-implies-proxy": 540,
+    "L3-melee-delivery-range-coherence": 0,
+    "L4-ranged-delivery-range-coherence": 0,
+    "RED-3-movement-damage-carveout": 0
+  },
+  "taste_candidate_footprint_exact_on_raw": {
+    "T1-glass-rooted-channel": 20003760,
+    "T2-triggered-windup": 150028200,
+    "T3-selfcost-heavy-proxy": 42865200,
+    "T4-flat-low-channel": 33339600,
+    "T5-hybrid-treatment-plane": 300056400
+  },
+  "taste_candidate_removal_exact_post_redlaw": {
+    "T1-glass-rooted-channel": 9279144,
+    "T2-triggered-windup": 69593580,
+    "T3-selfcost-heavy-proxy": 21299760,
+    "T4-flat-low-channel": 15465240,
+    "T5-hybrid-treatment-plane": 200105640
+  },
+  "taste_candidate_footprint_meso": {
+    "T1-glass-rooted-channel": 0,
+    "T2-triggered-windup": 0,
+    "T3-selfcost-heavy-proxy": 0,
+    "T4-flat-low-channel": 0,
+    "T5-hybrid-treatment-plane": 3780
+  },
+  "move_verb_geom_binding": [
+    "g00",
+    "g01"
+  ],
+  "cuts": [
+    {
+      "id": "L1-treatment-function-coherence",
+      "cls": "logical",
+      "applies_to_lattice": true,
+      "predicate_rule": "treatment=damage ⟺ function=none; treatment∈{control,hybrid} ⟺ function≠none",
+      "rationale": "Coord #5 serializes treatment+function as two slots but they are ONE concept (register §3): a damage kit has no control function ('none'); a control/hybrid kit IS its control function, so 'none' is incoherent. Enumerating the two slots freely fabricates non-existent cells.",
+      "removed_exact": 330062040,
+      "removed_meso": 4158
+    },
+    {
+      "id": "L2-summon-implies-proxy",
+      "cls": "logical",
+      "applies_to_lattice": true,
+      "predicate_rule": "delivery=SUMMON ⟹ proxy∈{light,heavy}  (SUMMON⊗solo forbidden)",
+      "rationale": "Register §3B: a SUMMON kit's identity is its proxy; proxy=solo means nothing was summoned. SUMMON⊗solo is definitionally empty (the summoned entity IS the proxy).",
+      "removed_exact": 42865200,
+      "removed_meso": 540
+    },
+    {
+      "id": "L3-melee-delivery-range-coherence",
+      "cls": "logical",
+      "applies_to_lattice": true,
+      "predicate_rule": "delivery=MELEE ⟹ range≠ranged  (MELEE⊗ranged forbidden; melee/mid/dual allowed)",
+      "rationale": "Charge C.5: melee⊗projectile-family is DEFINITIONAL (range is partly derived from delivery). A MELEE-delivered kit cannot have pure-ranged reach; dual (hybrid reach) and mid (lunge) remain coherent.",
+      "removed_exact": 32148900,
+      "removed_meso": 0
+    },
+    {
+      "id": "L4-ranged-delivery-range-coherence",
+      "cls": "logical",
+      "applies_to_lattice": true,
+      "predicate_rule": "delivery∈{PROJECTILE,ORBITAL,BEAM} ⟹ range≠melee  (payload travels)",
+      "rationale": "A projectile/orbital/beam kit whose reach is pure-melee contradicts its delivery — the payload travels away from the body. mid/ranged/dual remain. NOVA/ZONE/MELEE/SUMMON are unconstrained (point-blank novas are coherent).",
+      "removed_exact": 96446700,
+      "removed_meso": 0
+    },
+    {
+      "id": "RED-1-co-location",
+      "cls": "red-law",
+      "applies_to_lattice": false,
+      "predicate_rule": "(no coordinate predicate — positional/geometry property, key-invisible)",
+      "rationale": "The co-location law distinguishes damage painted where the avatar WAS from damage at its present position — a trail-vs-chase GEOMETRY property. The 13-coord identity key encodes no trail/present positional coordinate (gandalf §B.5: 'structurally under-observable ... carried by curation/generation filters instead'). Force-fitting it would fabricate a predicate the key cannot honestly express. STAYS a generation/curation filter.",
+      "removed_exact": "N/A-filter",
+      "removed_meso": "N/A-filter"
+    },
+    {
+      "id": "RED-2-no-anti-synergy",
+      "cls": "red-law",
+      "applies_to_lattice": false,
+      "predicate_rule": "(no coordinate predicate — kit-internal relational property, key-invisible)",
+      "rationale": "Anti-synergy is a within-kit RELATION (sustain consumes the kit's OWN army/economy). Two kits with identical 13-coord keys can differ on whether sustain cannibalizes — the property lives in the mechanic, not the coordinate tuple. gandalf §A.2-6: observable only as a future sim-KPI (K5/K6) on EMITTED kits, never as a lattice predicate. STAYS a generation/curation filter.",
+      "removed_exact": "N/A-filter",
+      "removed_meso": "N/A-filter"
+    },
+    {
+      "id": "RED-3-movement-damage-carveout",
+      "cls": "red-law",
+      "applies_to_lattice": true,
+      "predicate_rule": "geometry∈{movement-verb geoms} ∧ ¬(commit=instant ∧ tempo=high) ⟹ SEAL (committal movement-damage dies; instant+high-tempo movement-damage lives)",
+      "rationale": "gandalf §A.2-4: the register ALREADY separates flicker-survivors (commit=instant, tempo=high) from leap-attack-corpses (commit=wind-up, tempo=low). This IS a coordinate predicate: movement-verb geometry serving as the damage loop, sealed unless instant-commit + high-tempo. HONESTLY EXPRESSIBLE on the key. CAVEAT: the antecedent is keyed to the movement-verb GEOMETRY class (corpus: dash_attack, teleport = 2 of the ~21 abstract slots); exact cardinality depends on the curation binding of which #4 slots are movement-verbs (flagged).",
+      "removed_exact": 76204800,
+      "removed_meso": 0
+    },
+    {
+      "id": "T1-glass-rooted-channel",
+      "cls": "taste-candidate",
+      "applies_to_lattice": "CANDIDATE",
+      "predicate_rule": "(taste — proposed, never applied)",
+      "rationale": "Rooted + channel + glass = the maximally-exposed sustained-cast corner (the CONTESTED rooted-channel cell's most fragile sub-region). Taste question: seal, or keep as balance-loop showcase.",
+      "removed_exact": 9279144,
+      "removed_meso": 0
+    },
+    {
+      "id": "T2-triggered-windup",
+      "cls": "taste-candidate",
+      "applies_to_lattice": "CANDIDATE",
+      "predicate_rule": "(taste — proposed, never applied)",
+      "rationale": "Triggered activation THEN a wind-up = double-latency (the condition fires, then you still charge). Genre-rare. Taste question: seal as feel-dead, or keep for telegraphed heavy procs.",
+      "removed_exact": 69593580,
+      "removed_meso": 0
+    },
+    {
+      "id": "T3-selfcost-heavy-proxy",
+      "cls": "taste-candidate",
+      "applies_to_lattice": "CANDIDATE",
+      "predicate_rule": "(taste — proposed, never applied)",
+      "rationale": "HP-as-resource (self-cost) sustaining a HEAVY proxy army = the blood-summoner corner. Coherent but a strong flavor commitment. Taste question: reserve for a signature archetype, or seal as over-specific.",
+      "removed_exact": 21299760,
+      "removed_meso": 0
+    },
+    {
+      "id": "T4-flat-low-channel",
+      "cls": "taste-candidate",
+      "applies_to_lattice": "CANDIDATE",
+      "predicate_rule": "(taste — proposed, never applied)",
+      "rationale": "Flat amplitude + low tempo + channel = the flattest, slowest, most inert damage feel in the space. Taste question: seal as anti-fun, or keep (some sustained-drain fantasies live here).",
+      "removed_exact": 15465240,
+      "removed_meso": 0
+    },
+    {
+      "id": "T5-hybrid-treatment-plane",
+      "cls": "taste-candidate",
+      "applies_to_lattice": "CANDIDATE",
+      "predicate_rule": "(taste — proposed, never applied)",
+      "rationale": "treatment=hybrid is defined but corpus-empty (active corpus: damage/control only). Taste question: enumerate the full hybrid-treatment plane as frontier (Mendeleev), or treat hybrid as a curation interpolation not a first-class ghost region. HIGH-IMPACT — hybrid multiplies the whole function sub-plane.",
+      "removed_exact": 200105640,
+      "removed_meso": 3780
+    }
+  ],
+  "coordinate_sizes": {
+    "movement": 3,
+    "delivery": 7,
+    "amp": 3,
+    "geometry": 21,
+    "treatment": 3,
+    "function": 10,
+    "defense": 5,
+    "economy": 7,
+    "proxy": 3,
+    "range": 4,
+    "tempo": 3,
+    "commit": 3,
+    "activation": 2,
+    "dependency": 3
+  },
+  "never_demote_core": [
+    "movement",
+    "delivery",
+    "treatment",
+    "function",
+    "proxy",
+    "activation",
+    "dependency"
+  ]
+}

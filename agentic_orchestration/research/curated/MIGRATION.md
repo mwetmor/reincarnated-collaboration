@@ -7,6 +7,25 @@
 
 ---
 
+## feasibility-cuts-register-v1-2026-07-14 — corpus.db +2 ANALYSIS TABLES (enumerated feasible lattice) — 2026-07-14 — **LANDED**
+
+### What changed (one line)
+The feasibility-cuts register (tracker IV.x-b) enumerated the **feasible kit-identity lattice** (SPACE) from the 13-coordinate register cardinalities minus ratified cut classes, and materialized **2 additive analysis tables** into corpus.db (`atlas_feasibility_cuts_2026_07_14`, `atlas_feasibility_ladder_2026_07_14`). **Zero rows in any existing table altered.** `corpus_schema_meta` NOT bumped (analysis-output tables, not a curation-state change). corpus.db is gitignored; the register `.md` + `.csv` + `.json` + script + this entry are the committed record.
+**Script (single reproducible entrypoint):** `agentic_orchestration/research/scripts/feasibility_cuts_register_2026_07_14.py` (regenerates counts ladder, CSV, JSON, and both corpus.db tables from one command).
+**Deliverables:** `agentic_orchestration/research/curated/atlas/feasibility-cuts-register-v1.{md,csv,json}`.
+
+### Counts ladder (exact-lattice)
+raw naive box **900,169,200** → post-logical (4 cuts) **461,515,320** → post-red-law (1 lattice cut) **422,445,240** = the feasible lattice (coverage denominator). Meso-grain (register rollup / never-demote core): 11,340 → 6,840 (post-cut). Cut classes: **4 logical**, **1 red-law lattice-expressible** (RED-3 movement-damage carve-out; RED-1 co-location + RED-2 anti-synergy stay generation/curation filters — key-invisible, NOT force-fit), **5 taste-CANDIDATES** (proposed, never applied — Matt ratifies one by one).
+
+### ADR compliance
+- **ADR-004 (MIGRATION.md for cross-seam handoff):** this entry. **No engine-telemetry change; star-lord-side MIGRATION.md unaffected.** No engine-side migration owed.
+- **Cross-seam contract change?** No — additive analysis tables on elrond-owned corpus.db; no consumer-contract reshape. The register consumes the RATIFIED coordinate-register §2 (untouched) as read-only input.
+- **Reversibility:** every cut is a stated predicate; no coordinate value destructively transformed; raw naive box preserved in-register with its R2 pre-cut caveat. Fully re-runnable from script.
+- **Distinction preserved:** this is the 13-coord CORPUS-IDENTITY lattice, NOT the engine-native substrate lattice (`substrate-coordinates.md` L4≈1.284e9 / banned box 2.57e9). The two naive boxes are different objects; documented in-register §0.
+- Push to remote deferred to KR's gate (Matt authorization). Auto-commit fires (register doc + table) per team commit discipline.
+
+---
+
 ## atlas-derivation-2026-07-14 — corpus.db +2 ANALYSIS TABLES (atlas-derivation pipeline artifacts) — 2026-07-14 — **LANDED**
 
 ### What changed (one line)
