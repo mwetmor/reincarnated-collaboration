@@ -431,6 +431,55 @@ Laws:
    overshoot 14-block kits along consensus directions — symmetric with today's W/S/N
    overshoot). Freeze is structurally safe: drill-in sub-cells are zero-mass supplementary
    ground; any that exit the frame clip-and-disclose via existing §9.2.3 machinery.
+   *(2026-07-15 later: formalized as scorable P-DF-1 w/ falsifier — elrond displacement-field
+   memo §5, `research/curated/atlas/2026-07-15-displacement-field-drill-in-slate.md`.)*
+
+### 9.6 r6 amendment (2026-07-15): plaque legibility + footer de-collision (strictly-CORRECTIVE)
+
+> Fired by Matt's directive ("fire the r6 legibility pass," 2026-07-15) on gandalf's
+> DRIFT-CRITIC finding during r5 verification: two byte-proven PRE-EXISTING chrome flaws
+> (present since r3.2, surfaced by 2x plaque crop). First **corrective** rN — moves existing
+> chrome GEOMETRY; adds, removes, or rewords NOTHING. The flaws sit in the disclosure
+> apparatus itself, which is why they clear the amendment bar: the chart's honesty spine
+> must not be its least legible part. **Explicitly OUT of r6 scope: drill-in sub-cell
+> emission / any new ghost ground — that is Edition-II's opening move (§9.5.3, slate #1),
+> gated on feasibility vetting at the promoted grain. r6 touches chrome only.**
+
+1. **The two fixes (the ONLY intentional diffs vs r5):**
+   1. **Clip-line wrap (fix a).** The §9.2.3 clip-disclosure line renders as one row from
+      x=1156 and overruns the plaque's right edge. It must flow through the SAME
+      deterministic wrap the §9.5 beyond-horizon line uses (`wrapByChars`, budget 62,
+      font 9.5) → multi-row `<tspan>`s + full contiguous string in a `<title>` node on the
+      parent `<text>`. Content byte-identical to r5's clip string; geometry only.
+   2. **Footer-census re-anchor (fix b).** The right-anchored frame-footer census line
+      ("points: 469 active + 37 corpse = 506 · …", end-anchored x=1504, y=1188) overprints
+      the sealed-ledger rows (y=1178/1192) inside the plaque footprint. Re-anchor: end-anchor
+      moves to `plaqueRect.x − 12` (computed from the render pass, not a constant; = 1132 at
+      current geometry), y + content + treatment unchanged. Mid-frame clearance vs the
+      left footer line verified by measure (left ends ≈x=550; census starts ≈x=757).
+2. **Mechanical reflow allowance:** the plaque rect grows by the wrap's added row(s) —
+   UPWARD, bottom edge fixed (r5 mechanism); plaque internals shift as one block. Enumerated
+   as allowed reflow; nothing else moves.
+3. **Zero-content law:** r6 may not add, remove, or reword ANY string. Every text node's
+   CONTENT is byte-identical to r5; only the geometry (x/y/tspan structure) of the two named
+   elements + the plaque reflow may differ. Both skins, one layout engine, as always.
+4. **Acceptance (18–21):**
+   18. **r6-clip-wrap:** clip line renders ≥2 tspan rows, each ≤ wrap budget; full string in
+       `<title>`; content == r5's clip string byte-exact.
+   19. **r6-footer-anchor:** census footer end-anchor x == plaqueRect.x − 12 (both from the
+       render pass), y=1188, content byte-identical; no non-plaque text remains inside the
+       plaque rect bounds.
+   20. **r6-frozen-layer-regression-vs-r5:** all circles + polylines byte-identical; every
+       text node's content byte-identical; attribute diffs confined to the two named elements
+       + plaque-internal reflow + plaque rect geometry. Direct diff enumerated.
+   21. **r6-occlusion-guard (HALT-gate):** zero data-mark centers (points, tombstones, ghost
+       glyphs) inside the GROWN plaque rect, computed from the render pass. Nearest-mark
+       margin reported in the verification note. If violated → HALT (reconsider growth
+       direction / wrap), never ship silent occlusion. *(Motivation: a settled point sits
+       ≈y=1050 near the plaque's projected new top edge — the guard makes the clearance
+       mechanical rather than lucky.)*
+5. **Footer render-script string stays frozen** (single-purpose-diff discipline, per r4/r5);
+   r6 provenance in the verification note + script filename.
 
 ---
 
@@ -440,3 +489,6 @@ messages 2026-07-11. **r3:** Q30 ruling 2026-07-15 · atlas-derivation-charter �
 feasibility-register audit §3. **r4:** Matt ratification of INTERIOR-1 review items 1–4,
 2026-07-15 · review-of-record in design-inputs. **r5:** Matt directive 2026-07-15 ("cut §9.5
 and fire the r5 pass") · beyond-horizon receipts in-session (14 kits, all channel).
+**r6:** Matt directive 2026-07-15 ("fire the r6 legibility pass") · DRIFT-CRITIC
+pre-existing-flaw finding during r5 verification (clip-line overrun + footer-census
+collision, byte-proven since r3.2).
