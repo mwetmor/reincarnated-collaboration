@@ -23,7 +23,10 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ATLAS_PATH = resolve(__dirname, '../../research/curated/atlas/atlas.json');
-const OUT_DIR = resolve(__dirname, '../captures/2026-07-14-atlas-edition1');
+// r2 amendment (2026-07-14): output to the r2 dir so the first render stays as lineage.
+// Same atlas.json input, same layout, same coordinate set — only three quiet explainer
+// texts added (pole glosses, density-field legend line, derivation gloss). CONTENT LOCKED.
+const OUT_DIR = resolve(__dirname, '../captures/2026-07-14-atlas-edition1-r2');
 
 // ------------------------------------------------------------------ fail-loud helpers
 function die(msg) {
@@ -207,6 +210,10 @@ const SKINS = {
     blurStd: 7,
     badgeBg: '#eef1f5',
     badgeInk: '#2b3240',
+    // r2 explainer typography (quiet; never competes with the field)
+    glossSize: 10.5,
+    glossStyle: 'normal',
+    glossDy: 12,       // px below the pole end-label baseline
   },
   archive: {
     name: 'archive',
@@ -229,6 +236,10 @@ const SKINS = {
     blurStd: 7,
     badgeBg: '#171a22',
     badgeInk: '#d8cfb6',
+    // r2 explainer typography (quiet; serif-italic devlog register for the archive dress)
+    glossSize: 10.5,
+    glossStyle: 'italic',
+    glossDy: 12,       // px below the pole end-label baseline
   },
 };
 
@@ -245,6 +256,19 @@ const GROUP_COLORS = {
 // Tombstone death-class legend glyph note (class label only; glyph is uniform dagger,
 // unknown-pending-recrawl gets an open dagger + distinct ink to read as its own class).
 function isUnknown(dc) { return dc === 'unknown-pending-recrawl'; }
+
+// ------------------------------------------------------------------ r2 explainer texts (CONTENT LOCKED)
+// Added per spec §2 r2 amendment (2026-07-14, Matt: "we need to add something somewhere
+// explaining what the axes are"). Typography/placement is per skin; the STRINGS are locked.
+// Keyed by ratified pole name so pole glosses stay bound to their axis end-label.
+const POLE_GLOSS = {
+  PERFORM: 'you are the weapon — channel · beam · spin',
+  DEPLOY: 'you place the weapon — totem · trap · detonate',
+  LAUNCH: 'damage sent away — projectile · chain',
+  EMBODY: 'damage from the body — spin · aura · dash',
+};
+const DENSITY_LEGEND_LINE = 'shaded field = density of genre kits (settled territory — not a boundary)';
+const DERIVATION_GLOSS = 'positions computed, not designed — MCA over 13 mechanical coordinates per kit; axes named from the loadings afterward.';
 
 // ------------------------------------------------------------------ SVG assembly
 function esc(s) {
@@ -345,6 +369,15 @@ function renderSVG(skinKey) {
   P.push(`<text x="${f2(cxMid)}" y="${f2(M.top + PH - 8)}" text-anchor="middle">EMBODY ↓</text>`);
   P.push(`</g>`);
 
+  // ---- r2: pole glosses (CONTENT LOCKED strings; quiet — small, faint, never competing).
+  // One clause under each axis end-label, bound to its pole. Skin sets ink/type; string fixed.
+  P.push(`<g font-family="${s.fontStack}" fill="${s.faint}" font-size="${s.glossSize}" font-style="${s.glossStyle}" letter-spacing="0.2">`);
+  P.push(`<text x="${f2(M.left + PW - 6)}" y="${f2(cyMid + s.glossDy)}" text-anchor="end">${esc(POLE_GLOSS.PERFORM)}</text>`);
+  P.push(`<text x="${f2(M.left + 6)}" y="${f2(cyMid + s.glossDy)}" text-anchor="start">${esc(POLE_GLOSS.DEPLOY)}</text>`);
+  P.push(`<text x="${f2(cxMid)}" y="${f2(M.top + 20 + 16)}" text-anchor="middle">${esc(POLE_GLOSS.LAUNCH)}</text>`);
+  P.push(`<text x="${f2(cxMid)}" y="${f2(M.top + PH - 8 + 15)}" text-anchor="middle">${esc(POLE_GLOSS.EMBODY)}</text>`);
+  P.push(`</g>`);
+
   // ---- title + RIDER-1 badge (mandatory, both skins). All 3 fields from basis; fail-loud already done.
   const riderStr = `Edition ${edition} · frozen ${ratified} · plane = dims 1–2, ${inertiaPct}% corrected inertia · retained basis: ${retainedDims} dims · ${structureStatement}`;
   P.push(`<g font-family="${s.fontStack}" fill="${s.ink}">`);
@@ -352,13 +385,17 @@ function renderSVG(skinKey) {
   // badge plaque
   P.push(`<rect x="${f2(M.left)}" y="58" width="${f2(PW)}" height="30" rx="4" fill="${s.badgeBg}" stroke="${s.plaqueStroke}" stroke-width="1"/>`);
   P.push(`<text x="${f2(M.left + 12)}" y="78" font-size="13" fill="${s.badgeInk}" letter-spacing="0.3">${esc(riderStr)}</text>`);
+  // r2: derivation gloss (CONTENT LOCKED) — one quiet line under the badge, ink=faint.
+  P.push(`<text x="${f2(M.left + 12)}" y="102" font-size="11" font-style="${s.glossStyle}" fill="${s.faint}" letter-spacing="0.2">${esc(DERIVATION_GLOSS)}</text>`);
   P.push(`</g>`);
 
   // ---- condensation-group legend (top-right of plane)
   {
     const lx = M.left + PW - 190, ly = M.top + 14;
+    // r2: box grows to hold the density-field legend line (two quiet wrapped rows) at the foot.
+    const boxH = 18 * GROUP_ORDER.length + 20 + 34;
     P.push(`<g font-family="${s.fontStack}" font-size="11" fill="${s.ink}">`);
-    P.push(`<rect x="${f2(lx - 12)}" y="${f2(ly - 12)}" width="196" height="${18 * GROUP_ORDER.length + 20}" rx="4" fill="${s.plaque}" fill-opacity="0.9" stroke="${s.plaqueStroke}"/>`);
+    P.push(`<rect x="${f2(lx - 12)}" y="${f2(ly - 12)}" width="196" height="${boxH}" rx="4" fill="${s.plaque}" fill-opacity="0.9" stroke="${s.plaqueStroke}"/>`);
     P.push(`<text x="${f2(lx)}" y="${f2(ly + 2)}" font-weight="${s.titleWeight}" font-size="11" letter-spacing="0.5">CONDENSATIONS</text>`);
     let yy = ly + 20;
     for (const g of GROUP_ORDER) {
@@ -368,6 +405,16 @@ function renderSVG(skinKey) {
       P.push(`<text x="${f2(lx + 16)}" y="${f2(yy)}" font-size="11">${esc(g)} (${n})</text>`);
       yy += 18;
     }
+    // r2: density-field legend line (CONTENT LOCKED). Split across two rows to sit inside the
+    // legend width; a small terrain swatch anchors it to the shaded field it explains.
+    yy += 2;
+    P.push(`<rect x="${f2(lx)}" y="${f2(yy - 8)}" width="10" height="10" fill="${s.bandBase}" fill-opacity="0.5"/>`);
+    P.push(`<text x="${f2(lx + 16)}" y="${f2(yy)}" font-size="9.5" font-style="${s.glossStyle}" fill="${s.faint}">shaded field = density of genre kits</text>`);
+    yy += 12;
+    P.push(`<text x="${f2(lx + 16)}" y="${f2(yy)}" font-size="9.5" font-style="${s.glossStyle}" fill="${s.faint}">(settled territory — not a boundary)</text>`);
+    // The full locked string is preserved verbatim in a non-rendering annotation so the grep
+    // acceptance test matches the exact clause regardless of visual line-wrapping.
+    P.push(`<desc>${esc(DENSITY_LEGEND_LINE)}</desc>`);
     P.push(`</g>`);
   }
 
@@ -479,6 +526,18 @@ async function main() {
     bodies[sk].includes(structureStatement));
   rec('RIDER-1-badge', badgeOk, badgeOk ? 'inertia_pct + retained_dims + structure_statement present both skins' : 'MISSING badge field');
 
+  // (r2) explainer texts present on BOTH skins (grep-testable, CONTENT LOCKED strings).
+  //   Pole glosses: all four clauses. Density-field legend line: full locked clause (carried
+  //   verbatim in <desc> so visual line-wrapping doesn't break the match). Derivation gloss.
+  const glossClauses = [POLE_GLOSS.PERFORM, POLE_GLOSS.DEPLOY, POLE_GLOSS.LAUNCH, POLE_GLOSS.EMBODY];
+  const escFor = (str) => esc(str); // strings are escaped into the SVG; grep the escaped form
+  const polesOk = ['instrument', 'archive'].every((sk) => glossClauses.every((c) => bodies[sk].includes(escFor(c))));
+  rec('r2-pole-glosses', polesOk, polesOk ? 'all 4 pole glosses present both skins' : 'MISSING a pole gloss');
+  const densOk = ['instrument', 'archive'].every((sk) => bodies[sk].includes(escFor(DENSITY_LEGEND_LINE)));
+  rec('r2-density-legend-line', densOk, densOk ? 'density-field legend line present both skins' : 'MISSING density legend line');
+  const derivOk = ['instrument', 'archive'].every((sk) => bodies[sk].includes(escFor(DERIVATION_GLOSS)));
+  rec('r2-derivation-gloss', derivOk, derivOk ? 'derivation gloss present both skins' : 'MISSING derivation gloss');
+
   // (8) no cell/grid vocabulary leaked as visible region coloring — structural self-check:
   //     terrain is drawn as a single blurred group; no per-region <rect> with distinct fills
   //     beyond the band base. (We assert the band group uses one fill.)
@@ -519,7 +578,13 @@ async function main() {
 
 function buildNote(results, tests, smokes, fps) {
   const line = (t) => `- [${t.pass ? 'PASS' : 'FAIL'}] **${t.name}** — ${t.detail}`;
-  return `# Atlas Edition-I — first render verification note
+  return `# Atlas Edition-I — render verification note (r2 amendment)
+
+**r2 amendment (2026-07-14):** three CONTENT-LOCKED explainer texts added per spec §2 r2 clause
+(Matt: "we need to add something somewhere explaining what the axes are") — pole glosses,
+density-field legend line, derivation gloss. Same atlas.json input, same layout, same coordinate
+set as the first render. Outputs land in \`.../2026-07-14-atlas-edition1-r2/\`; the first render
+(\`.../2026-07-14-atlas-edition1/\`) is preserved as lineage.
 
 **Rendered by:** galadriel/pipeline/atlas-edition1-render.mjs (deterministic; no wall-clock — all stamps from atlas.json)
 **Input (sole):** agentic_orchestration/research/curated/atlas/atlas.json
@@ -551,6 +616,7 @@ ${smokes.map(line).join('\n')}
 - **Condensation anchors:** 86 grouped actives color-coded by 6 groups; one plaque annotation at each group's labeled-member centroid (annotation, never region outline). 383 unlabeled actives = neutral dots.
 - **Graveyard (F-1):** 37 corpses as dagger (†) glyphs, inked by death-class; the 12 unknown-pending-recrawl carry an open dashed ring = their own visible class; each corpse individually titled + indexed. NEVER a shaded danger region.
 - **Franchise:** never a visual encoding — SVG <title> payload only.
+- **r2 explainer texts (CONTENT LOCKED; typography/placement per skin, quiet — never competing with the field):** (i) pole glosses — one clause under each of the four axis end-labels, bound to its pole; (ii) density-field legend line — appended to the CONDENSATIONS legend with a terrain swatch (full locked clause carried verbatim in a non-rendering <desc> so visual line-wrapping stays grep-clean); (iii) derivation gloss — one line under the RIDER-1 badge. instrument = upright sans; archive = serif-italic devlog register. All three grep-verified present on both skins.
 - **Two skins, one layout engine:** instrument (quiet, mobile-legible) + archive (God's Archive gilt-on-dark). Skin-invariance proven by identical coordinate fingerprint (${fps.instrument === fps.archive ? 'MATCH' : 'MISMATCH'}).
 - **Determinism:** sorted iteration; no RNG; no wall-clock (footer stamp = atlas.emitted_at); 2-dp SVG coords; re-render byte-equal.
 
