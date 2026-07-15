@@ -654,8 +654,8 @@ data-change and style-change never share a render (law carries).
 
 - **a. CHARTED HORIZON (redefinition + rename).** The dashed line becomes
   **hull(meso-feasible ∪ drill-in sub-feasible)**, clipped at the frozen frame per
-  existing clip law. Name lean: **CHARTED HORIZON** (Matt veto point — string swap if
-  overruled). Gloss supersedes the r-series "coverage limit — dark beyond this line is
+  existing clip law. Name: **CHARTED HORIZON** (**RATIFIED Matt 2026-07-15** — "Charted
+  horizon works for me"). Gloss supersedes the r-series "coverage limit — dark beyond this line is
   unmapped at meso grain, not absent" (content-lock amended BY RULING) with charted-space
   semantics + the grain asymmetry disclosed: east half charted to geometry×commit
   drill-in depth, west half to meso grain only; **beyond the line: uncharted — not yet
