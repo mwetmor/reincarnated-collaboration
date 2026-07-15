@@ -81,24 +81,28 @@ def build_logical_cuts():
     """Return list of dicts: id, predicate(fn over a dict-cell), rule, rationale."""
     cuts = []
 
-    # L1 — treatment/function coherence (the #5 two-slot pairing law).
-    #   damage  => function MUST be 'none' (a pure-damage kit has no control function)
-    #   control => function MUST NOT be 'none' (a control kit's function is its identity)
-    #   hybrid  => function MUST NOT be 'none' (a hybrid carries a control function too)
-    # Incoherent cells: damage⊗(function != none) OR (control|hybrid)⊗(function == none).
+    # L1′ — treatment/function coherence (AMENDED 2026-07-15 per gandalf audit §2.A1,
+    #   Matt-ratified Q30a). The ONLY incoherent pairs are {control,hybrid}⊗none:
+    #   a control/hybrid kit MUST carry a function (that IS its identity). BUT
+    #   damage⊗(any function) is NOW COHERENT — the control-RIDER semantics: a damage
+    #   primary carrying a kit-designed control rider (Frozen-Orb class) is bedrock genre,
+    #   and 130 living kits (damage×hard-stop 33, ×stun 26, ×hex 24, ×knockback 16,
+    #   ×expose 11, ×taunt 10, ×blind 7, ×fear 3) prove it. v1's L1 over-formalized this
+    #   with a `damage⟺none` half that the occupancy test falsified.
+    #   Coherent pairs: 30 − 2 = 28 (was 19). Incoherent: {control,hybrid}×none only.
     def L1(c):
-        if c["treatment"] == "damage":
-            return c["function"] != "none"
-        else:  # control or hybrid
-            return c["function"] == "none"
+        return c["treatment"] in ("control", "hybrid") and c["function"] == "none"
     cuts.append(dict(
         id="L1-treatment-function-coherence",
         predicate=L1,
-        rule="treatment=damage ⟺ function=none; treatment∈{control,hybrid} ⟺ function≠none",
-        rationale=("Coord #5 serializes treatment+function as two slots but they are ONE concept "
-                   "(register §3): a damage kit has no control function ('none'); a control/hybrid "
-                   "kit IS its control function, so 'none' is incoherent. Enumerating the two slots "
-                   "freely fabricates non-existent cells."),
+        rule="treatment∈{control,hybrid} ⟹ function≠none  (control/hybrid MUST have a function; "
+             "damage×function IS coherent — control-rider semantics, 130 living kits)",
+        rationale=("AMENDED L1′ (Matt-ratified Q30a, gandalf audit §2.A1): the only incoherent "
+                   "treatment×function pairs are {control,hybrid}×none — a control/hybrid kit's "
+                   "function is its identity, so 'none' is incoherent for it. damage×(any control "
+                   "function) is COHERENT: a damage primary carrying a control rider (Frozen-Orb "
+                   "class) is bedrock genre — 130 active kits sit there. v1's `damage⟺none` half "
+                   "was over-reach, falsified by 30%% of the living corpus. 28 coherent pairs."),
         cls="logical",
     ))
 
@@ -136,19 +140,26 @@ def build_logical_cuts():
         cls="logical",
     ))
 
-    # L4 — PROJECTILE/ORBITAL/BEAM delivery ⟺ non-pure-melee range (the converse tension).
-    #   A projectile/orbital/beam kit that is pure melee-range contradicts its own delivery
-    #   (the payload travels). delivery∈{PROJECTILE,ORBITAL,BEAM} ⊗ range=melee is incoherent.
-    #   (NOVA/ZONE/SUMMON/MELEE are NOT constrained here — a NOVA can be point-blank melee-range.)
+    # L4″ — PROJECTILE-only delivery ⟺ non-pure-melee range (AMENDED 2026-07-15 per
+    #   gandalf audit §2.A3, Matt-ratified Q30a). ONLY delivery=PROJECTILE ⊗ range=melee
+    #   is incoherent (a payload that travels cannot have pure-melee reach — zero referents).
+    #   BEAM and ORBITAL DROP OUT of the cut: the occupancy test found the "flamethrower
+    #   corner" inhabited — d3-arachyr-firebats is ACTIVE at BEAM×melee (rooted point-blank
+    #   channel-beam), and 8 active whirling-blades-class kits sit at ORBIT×melee. Both cells
+    #   have living referents, so they are NOT logically incoherent.
     def L4(c):
-        return c["delivery"] in ("PROJECTILE", "ORBITAL", "BEAM") and c["range"] == "melee"
+        return c["delivery"] == "PROJECTILE" and c["range"] == "melee"
     cuts.append(dict(
         id="L4-ranged-delivery-range-coherence",
         predicate=L4,
-        rule="delivery∈{PROJECTILE,ORBITAL,BEAM} ⟹ range≠melee  (payload travels)",
-        rationale=("A projectile/orbital/beam kit whose reach is pure-melee contradicts its "
-                   "delivery — the payload travels away from the body. mid/ranged/dual remain. "
-                   "NOVA/ZONE/MELEE/SUMMON are unconstrained (point-blank novas are coherent)."),
+        rule="delivery=PROJECTILE ⟹ range≠melee  (projectile⊗melee: zero referents; BEAM & "
+             "ORBITAL dropped — flamethrower + whirling-blades corners are inhabited)",
+        rationale=("AMENDED L4″ (Matt-ratified Q30a, gandalf audit §2.A3): only PROJECTILE×melee "
+                   "is incoherent (a travelling payload cannot have pure-melee reach — zero "
+                   "referents). BEAM×melee is ALIVE (d3-arachyr-firebats, the point-blank "
+                   "channel-beam flamethrower) and ORBIT×melee is ALIVE (8 whirling-blades kits). "
+                   "v1's L4 over-cut two inhabited cells. mid/ranged/dual remain; NOVA/ZONE/MELEE/"
+                   "SUMMON unconstrained."),
         cls="logical",
     ))
 
@@ -239,24 +250,32 @@ def build_redlaw_cuts():
         is_move_verb = c["geometry"] in (move_verb_geoms or set())
         if not is_move_verb:
             return False
-        # movement-verb-as-damage-loop survives ONLY at instant + high tempo.
-        return not (c["commit"] == "instant" and c["tempo"] == "high")
+        # AMENDED RED-3′ (Matt-ratified Q30a; law text amended at source, gandalf
+        # gaps-kpis-direction §A.4): TEMPO CONJUNCT DROPPED. Movement-verb-as-damage-loop
+        # survives ONLY at instant commit; sealed at any non-instant commit.
+        return c["commit"] != "instant"
 
     cuts.append(dict(
         id="RED-3-movement-damage-carveout",
         predicate=RED3,                 # applied with a designated move-verb geometry subset
         applies_to_lattice=True,
         move_verb_geom_count=MOVE_VERB_GEOMS,
-        rule=("geometry∈{movement-verb geoms} ∧ ¬(commit=instant ∧ tempo=high) ⟹ SEAL "
-              "(committal movement-damage dies; instant+high-tempo movement-damage lives)"),
-        rationale=("gandalf §A.2-4: the register ALREADY separates flicker-survivors "
-                   "(commit=instant, tempo=high) from leap-attack-corpses (commit=wind-up, "
-                   "tempo=low). This IS a coordinate predicate: movement-verb geometry serving as "
-                   "the damage loop, sealed unless instant-commit + high-tempo. HONESTLY "
-                   "EXPRESSIBLE on the key. CAVEAT: the antecedent is keyed to the movement-verb "
-                   "GEOMETRY class (corpus: dash_attack, teleport = 2 of the ~21 abstract slots); "
-                   "exact cardinality depends on the curation binding of which #4 slots are "
-                   "movement-verbs (flagged)."),
+        rule=("geometry∈{movement-verb geoms: dash_attack, teleport} ∧ commit≠instant ⟹ SEAL "
+              "(committal movement-damage dies; instant-commit movement-damage lives — "
+              "tempo conjunct DROPPED per RED-3′)"),
+        rationale=("AMENDED RED-3′ (Matt-ratified Q30a; law text amended at source, gandalf "
+                   "gaps-kpis-direction §A.4): the occupancy test found what separates dead from "
+                   "living movement kits is COMMIT, not tempo. All 19 living movement-verb kits "
+                   "are commit=instant (across low/med/high tempo — Leapquake & Shield Charge are "
+                   "instant+high, alive). Both intrinsic-red movement corpses (d2-leap-attack-barb "
+                   "wind-up, poe1-charged-dash channel) are non-instant. d4-blade-shift (instant+ "
+                   "high) died extrinsic-itemization and is correctly SPARED. So: seal iff "
+                   "commit≠instant. Three-way concordance (law text · corpus occupancy · legolas "
+                   "death-class re-crawl) now agrees. CAVEAT (binding): the movement-verb geometry "
+                   "class = {dash_attack, teleport} is curation-bound (2 of ~21 slots); the two "
+                   "motivating corpses were re-keyed blank→dash_attack (corpus.db, Edition-II) so "
+                   "the law's evidence lives inside its own predicate. Cardinality moves if a "
+                   "third movement-verb geometry lands (re-run trigger)."),
         cls="red-law",
     ))
 
@@ -453,39 +472,51 @@ def enumerate_lattice(coords, logical_cuts, redlaw_cuts, taste_cands,
         "T5-hybrid-treatment-plane": (["treatment"],
             lambda s: s["treatment"] == "hybrid"),
     }
-    # taste ADDITIONAL removal on the POST-RED-LAW survivor lattice (the honest
-    # "if Matt accepts this cut, this many additional cells seal"). Exact, factored:
-    # enumerate the UNION of (all lattice-cut read-coords) + (taste read-coords),
-    # count cells that SURVIVE the lattice cuts AND match the taste predicate,
-    # multiply untouched.
-    LATTICE_READS = {"treatment", "function", "delivery", "proxy", "range", "geometry", "commit", "tempo"}
+    # taste ADDITIONAL removal on the POST-RED-LAW SURVIVOR lattice (the honest
+    # "if Matt accepts this cut, this many additional cells seal") — COMPOSED-ON-SURVIVORS,
+    # NOT marginal-on-raw (that was the v1 T5 slip: gandalf audit §1, table row 4). Exact,
+    # factored: enumerate the UNION of (lattice-cut read-coords present at THIS grain) +
+    # (taste read-coords), count cells that SURVIVE the amended lattice cuts AND match the
+    # taste predicate, multiply untouched.
+    #
+    # AMENDED predicates (L1′ / L4″ / RED-3′) — must match build_logical_cuts / build_redlaw_cuts.
+    # Grain-aware: reads only coords present in `coords` (meso drops range/geometry/etc., so the
+    # cuts keyed to absent coords simply don't fire at that grain — correct: L3/L4/RED-3 are
+    # invisible at meso, only L1′ + L2 bind there).
+    LATTICE_READS_FULL = {"treatment", "function", "delivery", "proxy", "range", "geometry", "commit"}
+    LATTICE_READS = {k for k in LATTICE_READS_FULL if k in coords}
 
     def survives_lattice(sub):
-        # only reads keys present in sub; sub carries the union block
-        if sub["treatment"] == "damage":
-            if sub["function"] != "none":
+        # L1′: {control,hybrid}×none incoherent (damage×function IS coherent).
+        if "treatment" in sub and "function" in sub:
+            if sub["treatment"] in ("control", "hybrid") and sub["function"] == "none":
                 return False
-        else:
-            if sub["function"] == "none":
+        # L2: SUMMON×solo forbidden.
+        if "delivery" in sub and "proxy" in sub:
+            if sub["delivery"] == "SUMMON" and sub["proxy"] == "solo":
                 return False
-        if sub["delivery"] == "SUMMON" and sub["proxy"] == "solo":
-            return False
-        if sub["delivery"] == "MELEE" and sub["range"] == "ranged":
-            return False
-        if sub["delivery"] in ("PROJECTILE", "ORBITAL", "BEAM") and sub["range"] == "melee":
-            return False
-        if sub["geometry"] in move_verb_geoms and not (sub["commit"] == "instant" and sub["tempo"] == "high"):
-            return False
+        # L3: MELEE×ranged forbidden.
+        if "delivery" in sub and "range" in sub:
+            if sub["delivery"] == "MELEE" and sub["range"] == "ranged":
+                return False
+        # L4″: PROJECTILE×melee only (BEAM/ORBITAL spared).
+        if "delivery" in sub and "range" in sub:
+            if sub["delivery"] == "PROJECTILE" and sub["range"] == "melee":
+                return False
+        # RED-3′: movement-verb geometry × non-instant commit sealed (tempo conjunct dropped).
+        if "geometry" in sub and "commit" in sub:
+            if sub["geometry"] in move_verb_geoms and sub["commit"] != "instant":
+                return False
         return True
 
     taste_counts_postcut = {}
     for cid, (rd, fn) in T_READS.items():
-        union = set(rd) | LATTICE_READS
-        # only meaningful at exact grain (meso lacks range/geometry/etc.)
-        if not union.issubset(set(coords)):
+        # a taste candidate is expressible at THIS grain only if ALL its read-coords are present.
+        if not set(rd).issubset(set(coords)):
             taste_counts_postcut[cid] = None
             continue
-        tkeys = [k for k in names if k in union]
+        union = set(rd) | LATTICE_READS
+        tkeys = [k for k in names if k in union and k in coords]
         rest = [k for k in coords if k not in tkeys]
         rest_prod = 1
         for k in rest:
@@ -562,14 +593,21 @@ def main():
                          removed_meso=(meso["per_cut"].get(c["id"], "N/A-no-geometry") if atl else "N/A-filter")))
     for c in taste:
         pc = exact["taste_counts_postcut"].get(c["id"])
-        rows.append(dict(id=c["id"], cls=c["cls"], applies_to_lattice="CANDIDATE",
-                         predicate_rule="(taste — proposed, never applied)", rationale=c["rationale"],
+        # meso taste count: COMPOSED-ON-SURVIVORS (T5 slip fix). Only T5 is meso-expressible
+        # (treatment ∈ meso core); the rest read non-core coords -> None at meso. Use the
+        # grain-aware composed count, NOT the marginal-on-raw footprint.
+        pcm = meso["taste_counts_postcut"].get(c["id"])
+        rows.append(dict(id=c["id"], cls=c["cls"],
+                         applies_to_lattice="RULED-KEEP-2026-07-15-Matt-Q30b",
+                         predicate_rule="(taste — RULED KEEP by Matt 2026-07-15; ZERO cuts; "
+                                        "recorded as lineage, nothing sealed by taste)",
+                         rationale=c["rationale"],
                          removed_exact=(pc if pc is not None else ""),
-                         removed_meso=meso["taste_counts"].get(c["id"], "")))
+                         removed_meso=(pcm if pcm is not None else "N/A-this-grain")))
 
     os.makedirs(OUT, exist_ok=True)
-    csv_path = os.path.join(OUT, "feasibility-cuts-register-v1.csv")
-    json_path = os.path.join(OUT, "feasibility-cuts-register-v1.json")
+    csv_path = os.path.join(OUT, "feasibility-cuts-register-v1.1.csv")
+    json_path = os.path.join(OUT, "feasibility-cuts-register-v1.1.json")
     import csv as _csv
     with open(csv_path, "w", newline="") as f:
         w = _csv.DictWriter(f, fieldnames=["id", "cls", "applies_to_lattice",
@@ -579,8 +617,20 @@ def main():
             w.writerow(r)
 
     payload = dict(
-        generated="2026-07-14",
+        version="1.1",
+        generated="2026-07-15",
         generator="feasibility_cuts_register_2026_07_14.py",
+        amendments_ratified=(
+            "Q30a (Matt 2026-07-15 'Great. Approved on all. Please proceed.'): "
+            "L1′ (only {control,hybrid}×none incoherent — 28 coherent tf pairs; "
+            "damage×function coherent via control-rider, 130 living kits); "
+            "L4″ (only PROJECTILE×melee cut — BEAM & ORBITAL spared, flamethrower + "
+            "whirling-blades corners inhabited); "
+            "RED-3′ (tempo conjunct dropped — seal iff movement-verb geometry × commit≠instant). "
+            "Slips fixed: T5 meso composed-on-survivors (was marginal-on-raw); "
+            "§2 prose 'removes ~8.5% of post-logical survivors' (was 'naive box'). "
+            "Q30b (Matt): taste slate RULED — ZERO cuts, all five KEEP as lineage."),
+        taste_slate_ruling="RULED 2026-07-15 — ZERO CUTS (Matt Q30b); five candidates kept as lineage",
         base_register="coordinate-register-2026-07-13.md §2 (13-coordinate kit-identity key)",
         DISTINCTION=("This is the 13-coordinate CORPUS-IDENTITY lattice, NOT the engine-native "
                      "substrate lattice (substrate-coordinates.md L4≈1.284e9; banned box 2.57e9). "
@@ -596,7 +646,8 @@ def main():
         per_cut_removed_meso=meso["per_cut"],
         taste_candidate_footprint_exact_on_raw=exact["taste_counts"],
         taste_candidate_removal_exact_post_redlaw=exact["taste_counts_postcut"],
-        taste_candidate_footprint_meso=meso["taste_counts"],
+        taste_candidate_removal_meso_post_logical=meso["taste_counts_postcut"],
+        taste_candidate_footprint_meso_marginal_on_raw=meso["taste_counts"],
         move_verb_geom_binding=sorted(move_verb_geoms),
         cuts=rows,
         coordinate_sizes=exact["sizes"],

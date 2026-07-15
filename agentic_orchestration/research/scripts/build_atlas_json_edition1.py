@@ -28,7 +28,15 @@ import json
 import math
 import os
 import sys
+import sqlite3
 from datetime import datetime, timezone
+
+# elrond extension (2026-07-15): ghost_field block (charter §4). Minimal touch —
+# logged in research/curated/MIGRATION.md. See ghost_field_edition1.py.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import ghost_field_edition1 as ghost_field_mod
+
+CORPUS_DB = "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/corpus.db"
 
 # ---------------------------------------------------------------------------
 # Paths (absolute, collab-repo relative to this script's location)
@@ -281,6 +289,20 @@ def build():
     # Sort all points by kit_id for byte-stable output
     all_points.sort(key=lambda p: p["kit_id"])
 
+    # ---- elrond extension: ghost_field block (charter §4) ----
+    # Zero-mass supplementary projection of the feasibility-cuts-register v1.1 meso lattice
+    # into the FROZEN Edition-I basis. Does NOT touch basis or any of the 506 points (the
+    # decoupling law: ghosts land additively; axes cannot move). Reconstructs the frozen fit
+    # from the pre-C3 snapshot; lights from the LIVE (post-C3) corpus AT EMISSION TIME.
+    print("[build_atlas_json_edition1] Building ghost_field (charter §4)...")
+    _con = sqlite3.connect(CORPUS_DB)
+    ghost_field = ghost_field_mod.build_ghost_field(_con)
+    _con.close()
+    print(f"  ghost_field: {ghost_field['denominators']['meso_feasible']} feasible + "
+          f"{ghost_field['denominators']['meso_sealed']} sealed cells; "
+          f"{ghost_field['lit_cells']} lit; depth_sum={ghost_field['depth_sum_check']} "
+          f"({'OK' if ghost_field['depth_sum_check'] == 693146160 else 'MISMATCH!'})")
+
     # Build the atlas.json payload
     emitted_at = datetime.now(timezone.utc).isoformat()
     atlas = {
@@ -297,6 +319,7 @@ def build():
             "null_death_class_sentineled": null_dc,
         },
         "points": all_points,
+        "ghost_field": ghost_field,
     }
 
     print(f"[build_atlas_json_edition1] Writing output: {OUTPUT_JSON}")
