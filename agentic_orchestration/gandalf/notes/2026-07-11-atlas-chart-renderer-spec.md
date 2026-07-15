@@ -382,10 +382,61 @@ Laws:
    (renormalization inverts the memo's premise) and no fuel (the ratified ledger's only
    masked-coordinate law, RED-3′, binds geometry×commit — masked×masked).
 
+### 9.5 r5 amendment (2026-07-15): beyond-horizon disclosure (the second misreading)
+
+> Fired by Matt's directive ("please cut §9.5 and fire the r5 pass," 2026-07-15) after the
+> chart's first reader — Matt — hit the second misreading within one session of r4 going
+> live: *"how can we have kits outside the ghost's meso area?"* The r4 label kills
+> misreading #1 (dark beyond the line = mined out). This line kills misreading #2 (kits
+> beyond the line = paradox). Empirical receipts (gandalf, 2026-07-15): **14 active kits
+> stand outside the ghost hull — all fourteen carry `commit=channel`**; 10 carry
+> `geometry=whirlwind` (10 of the 15 WHIRLWIND condensation members), 3 `geometry=cone`
+> (CHANNELED-BEAM), 1 `self_buff`. Each stands Δx +0.46..+0.78 east of its OWN meso cell —
+> and every one of those cells is LIT. Position ≠ membership: kits project with all 14
+> coordinates; ghost cells carry the 7 core only.
+
+1. **BEYOND-HORIZON LEDGER LINE.** One microcopy line in the GHOST FIELD ledger box (both
+   skins), rendered directly after the clip-disclosure line (§9.2.3). String template:
+   *"N settled kits stand beyond the horizon — kits project with all 14 coordinates; ghost
+   cells carry the 7 core only (the strongest east pulls — cone/whirlwind geometry, channel
+   commit — are invisible at meso grain)."*
+   - **N COMPUTED FROM THE RENDER PASS:** point-in-polygon test of all ACTIVE
+     (`supplementary=false`) points against the SAME hull polygon §9.4.1 computes (one code
+     path — never a second hull). Boundary convention: a kit exactly ON the hull counts as
+     inside (not beyond). Never hard-coded; follows any future atlas.json change. N=14 today.
+   - **Zero-case omission:** if no active kit lies outside the hull, the line is omitted
+     entirely (no "0 kits" — same protocol as the clip line).
+   - **Supplementary points (tombstones) excluded from N** — the graveyard is its own
+     register. (The 3 easternmost points of the whole plane are dead channel kits:
+     tl2-arc-beam · d4-incinerate · d2-inferno-sorc — beyond-horizon by the same mechanism,
+     already disclosed by their own layer.)
+   - The coordinate examples in the string (cone/whirlwind geometry, channel commit) are
+     content-locked disclosure copy — same class as the pole glosses: empirical facts about
+     the FROZEN basis (loading ranks #2/#3), immutable within Edition-I.
+2. **Acceptance extensions (adds to §7/§9.3/§9.4):**
+   16. **r5-beyond-horizon** — line present both skins; N matches independent recomputation;
+       doctored-input proof (removing a beyond-horizon kit from a COPY of the input changes
+       N → computed-not-constant); zero-case omission honored on a doctored all-inside input.
+   17. **Frozen-layer regression extends:** vs the r4 baseline, the ONLY diff is the new
+       ledger line. Points, ghost glyphs, horizon polyline + label, tombstones, headline
+       callout, explainer trio: byte-frozen.
+3. **Edition-II forward note (drill-in planning, logged 2026-07-15):** the beyond-horizon
+   set is the lit-ground trace of meso blindness. Its systematic form — the kit-vs-own-cell
+   **DISPLACEMENT FIELD** over all 469 active kits — is computable from frozen Edition-I
+   artifacts alone (basis, loadings, kit positions, cell positions; INTERIOR-1's G-i
+   calibration gate survives as its blueprint) and converts the memo §5 drill-in rulings
+   (region-selection rule; coordinate pair per region) from taste into measurement.
+   **Registered prediction:** an east drill-in promoting geometry×commit locally will extend
+   the dark BEYOND the whirlwind/beam kits (sub-cells renormalize over ~9 blocks and
+   overshoot 14-block kits along consensus directions — symmetric with today's W/S/N
+   overshoot). Freeze is structurally safe: drill-in sub-cells are zero-mass supplementary
+   ground; any that exit the frame clip-and-disclose via existing §9.2.3 machinery.
+
 ---
 
 **Signed:** gandalf, 2026-07-11 — SPEC-AUTHOR. Anchors: `projection-atlas.md` §0/§3/§4/§5 ·
 `substrate-coordinates.md` §0/§2/§7 · axes-lock (W-C.5) · Q-E4-4b · Matt GO + lock-criteria
 messages 2026-07-11. **r3:** Q30 ruling 2026-07-15 · atlas-derivation-charter §2/§4 ·
 feasibility-register audit §3. **r4:** Matt ratification of INTERIOR-1 review items 1–4,
-2026-07-15 · review-of-record in design-inputs.
+2026-07-15 · review-of-record in design-inputs. **r5:** Matt directive 2026-07-15 ("cut §9.5
+and fire the r5 pass") · beyond-horizon receipts in-session (14 kits, all channel).
