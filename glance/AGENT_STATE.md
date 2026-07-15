@@ -9,6 +9,48 @@
 
 Tag: `glance/v1.11-atlas-edition1-ghost-1`. Nine pages unchanged.
 
+### Atlas Edition-I r4 (ghost-horizon) + r5 (beyond-horizon) — RE-SHIPPED to /atlas PRD 2026-07-15
+
+Two same-day re-ships under Matt's STANDING PRD auth for the ratified render→gandalf-verify→drax-ship
+chain. Both are pure re-vendors of the SAME `atlas.json` (data commit `d0b2a025` UNCHANGED throughout);
+only the render source dir + `collab_render_commit` moved. No parse-shape change, no code change beyond
+the stage-assets vendoring pointer + provenance comment. gandalf verified each render before ship.
+
+- **r4 (ghost-horizon), render commit `c27d7af7`** — repointed stage-assets vendoring from r3.2
+  (`53db59a2`) to the r4-horizon capture. Strictly-additive chrome on r3.2: dashed ghost-horizon
+  envelope + mandatory disclosure label; coverage callout re-led with the 1.9%-lit / 2.4-kits-per-lit
+  headline pair. All frozen layers byte-identical vs r3.2. Deploy `dpl_9r4BWTciRWML8b8mzJFmdPBYz3xU`,
+  READY/production, aliased canonical. Live SHA-256 == r4 source (served unmodified); horizon label +
+  1.9% headline confirmed on the deployed instrument. Commit `2baa188d`.
+- **r5 (beyond-horizon), render commit `0175faa5`** — repointed vendoring from r4 (`c27d7af7`) to the
+  r5-beyond-horizon capture (`2026-07-15-atlas-edition1-r5-beyond-horizon`). r5 adds ONE wrapped
+  microcopy line to the GHOST FIELD ledger plaque in both skins (beyond-horizon disclosure: "14 settled
+  kits stand beyond the horizon — …"). gandalf-verified strictly-additive: single diff hunk, plaque rect
+  grew upward 48px, nothing else moved; all data layers byte-identical to r4. Deploy
+  `dpl_7VgezhpYZqnYqgG3wRWoTbwRDzjb`, READY/production, aliased canonical
+  `https://reincarnated-glance.vercel.app`. Live receipts: served instrument SVG (200, `image/svg+xml`,
+  668193 B) contains `14 settled kits stand beyond the horizon`; provenance JSON reports
+  `collab_render_commit: "0175faa5"` + full `source_commit 0175faa5…` + r5 source paths +
+  `collab_data_commit d0b2a025` (unchanged). BYTE-EQUALITY: prod-served SVGs SHA-256 == galadriel source
+  (instrument `99f00c47…` · archive `6f5c16ed…`). `/atlas` SPA route 200. Commit: this session.
+
+- **RE-SHIP MECHANISM (the load-bearing r4 lesson set — follow exactly for future re-vendors):**
+  1. **The REAL vendoring seam is `glance/app/scripts/stage-assets.mjs` (`EDITION1_DIR_REL`)** — repoint
+     the hardcoded capture path + bump `collab_render_commit` there. `public/atlas/` is git-ignored and
+     RE-STAGED on every build; a bare byte-copy into `public/` (or `dist/`) does NOT survive `npm run
+     build` — it gets overwritten by stage-assets. Change the source, then rebuild.
+  2. **STALE-PREBUILT TRAP (my first r4 attempt shipped stale assets this way):** the authoritative
+     prebuilt tree is `.vercel/output/static/` at the **collab meta-repo ROOT**
+     (`/Users/admin/Games/reincarnated-collaboration/.vercel/`), NOT `glance/app/.vercel/`. Both dirs
+     exist and both link the SAME project (`prj_R6SCwuSmezW19HPOLWKoJfMCxeYx`, root dir `glance/app`), so
+     prebuilding/syncing at the app level looks right but deploys the OLD root tree. FIX: after `npm run
+     build` in `glance/app`, `rm -rf` + re-`cp -R glance/app/dist/. → ROOT .vercel/output/static/`, then
+     `npx vercel deploy --prebuilt --prod --yes` from the collab ROOT (NOT from glance/app — the linked
+     Root Directory `glance/app` double-appends if cwd is already there). config.json (SPA rewrite:
+     filesystem handle + `/(.*)`→`/index.html`) and builds.json (target=production, no error nodes) at
+     the ROOT are already correct and reused as-is. `vercel build` itself is unusable here (`spawn sh
+     ENOENT`) — assemble/sync the Build Output API v3 static tree by hand.
+
 ### v1.11 — Atlas Edition-I (r3.2 ghost-field) on /atlas — LANDED + DEPLOYED 2026-07-15
 
 Ships galadriel's two verified deterministic Edition-I SVGs (the PCA-PROJECTION
@@ -282,16 +324,16 @@ Three pages added (`/coordinates` + `/atlas` + `/mechanics`), render-only, ZERO 
   routes + `state.json` (all three references present). CI report-mode parse exit 0, MALFORMED 0.
 - 12 dangling gates-on = pre-existing visible debt (proxy-P0/P1/P2, launch-scope-planning, etc.),
   NOT from the trio. 0 dangling flow-refs.
-- **DEPLOYED TO PRODUCTION 2026-07-15** (v1.11 — Matt authorized direct-to-PRD: "have Drax
-  launch this to the Glance Vercel app directly to PRD"). Deploy
-  `dpl_6bwdofFTU9g4VR3zLkV3CUz3pp8k` (`reincarnated-glance-1a0evb319…`), READY, target
-  production, aliased to canonical `https://reincarnated-glance.vercel.app`. Post-deploy smoke
-  (live PROD): `/` 200 · `/atlas` 200 (SPA rewrite) · instrument SVG 200 `image/svg+xml`
-  665944B · archive SVG 200 666120B · provenance JSON 200 (all 5 atlas.json numbers +
-  collab commits 53db59a2/d0b2a025). BYTE-EQUALITY verified: prod-served SVGs SHA-256 ==
-  galadriel source (instrument 15b673e6… · archive 7c1c11e6…) — served UNMODIFIED.
-  Content-locked elements confirmed un-obscured in the served instrument SVG (denominator,
-  192 lit, 1,260 sealed, clip-disclosure line, RIDER-1 8.36).
+- **CURRENT PRODUCTION = Atlas Edition-I r5 (beyond-horizon), 2026-07-15.** Deploy
+  `dpl_7VgezhpYZqnYqgG3wRWoTbwRDzjb` (`reincarnated-glance-l5pitb5s5…`), READY, target
+  production, aliased to canonical `https://reincarnated-glance.vercel.app`. Render commit
+  `0175faa5` · data commit `d0b2a025`. Live receipts: instrument SVG 200 `image/svg+xml`
+  668193B contains `14 settled kits stand beyond the horizon` · archive SVG 200 668387B ·
+  `/atlas` 200 (SPA rewrite) · provenance JSON `collab_render_commit "0175faa5"`. BYTE-EQUALITY:
+  prod SVGs SHA-256 == galadriel r5 source (instrument `99f00c47…` · archive `6f5c16ed…`).
+  Prior PRD deploys same day: r4 `dpl_9r4BWTciRWML8b8mzJFmdPBYz3xU` (render `c27d7af7`) ·
+  v1.11 r3.2 `dpl_6bwdofFTU9g4VR3zLkV3CUz3pp8k` (render `53db59a2`). All under Matt's standing
+  render→gandalf-verify→drax-ship PRD auth.
 - **DEPLOY-PATH LEARNING (load-bearing — the collab repo is now UNPUSHED per Matt):** a
   normal `npx vercel deploy --prod` triggers a REMOTE Vercel build that runs the parser +
   stage-assets on Vercel's servers — which FAILS because the meta-repo is not pushed where
