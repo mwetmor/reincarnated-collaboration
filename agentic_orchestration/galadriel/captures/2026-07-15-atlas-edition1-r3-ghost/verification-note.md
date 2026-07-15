@@ -8,6 +8,15 @@ graveyard tombstone layout, RIDER-1 badge, and r2 explainer trio are all FROZEN;
 strictly additive and drawn FIRST (bottom of stack). The 12 formerly-unknown tombstones now carry
 emitted death_class verdicts.
 
+**r3.2 amendment (2026-07-15, spec §9.2.3, r3.2/commit `7cf1eeca`):** gandalf's r3 verification verdict
+was ACCEPT-WITH-ONE-AMENDMENT. The clip call on the out-of-frame ghost cells was correct (frozen plane
+bounds; zero-mass ground never rescales the frame) but was disclosed only in this note — on the chart, the
+GHOST FIELD ledger claimed all feasible cells without saying some project beyond the frame. §9.2.3 now binds:
+any clip MUST be disclosed on-chart in the ghost ledger. FIX: a clip-disclosure microcopy line renders in the
+GHOST FIELD ledger box (both skins); the count is COMPUTED FROM THE RENDER PASS (cells whose projected
+position falls outside the plane rect), never hard-coded — it follows any future atlas.json change; if zero
+cells clip the line is omitted entirely (no "0 clipped"). Acceptance suite gains `r3.2-clip-disclosure`.
+
 **Rendered by:** galadriel/pipeline/atlas-edition1-render-r3.mjs (deterministic; no wall-clock — all stamps from atlas.json)
 **Input (sole):** agentic_orchestration/research/curated/atlas/atlas.json
 **atlas_version:** Edition-I · **basis frozen:** 2026-07-14 · **inertia:** 8.36% · **retained dims:** 14
@@ -23,7 +32,8 @@ emitted death_class verdicts.
 - lit by census: **192** · unmapped pending curation: **14**
 - sealed meso cells (OFF-plane ledger): **1,260** — L1-treatment-function-coherence 756 · L2-summon-implies-proxy 504
 - coincident-projection aggregation: 10,080 cells → **7,128** distinct glyph positions (max multiplicity 6); size-stepped deterministically, NO jitter
-- ghost cells outside frozen plane box (clipped, all unlit): 21
+- ghost cells outside frozen plane box (clipped): **21** (all unlit=true; 7 distinct positions) — CLIP DISCLOSURE (r3.2, spec §9.2.3) rendered in the GHOST FIELD ledger, count from the render pass
+- clip-disclosure line as rendered (both skins): **"21 unlit cells project beyond the frame (clipped, not rescaled — frame frozen to the settled points)"**
 - depth Σ: **693,146,160** == depth_sum_check == post-red-law denom
 - coverage callout: 469 active ≈ 6.8×10⁻⁵ % of 693,146,160 feasible exact-grain kits
 - RED-3' note (emitted, drives off-plane seal semantics): RED-3' seals live at GEOMETRY drill-in, not the meso plane (geometry is a demotable non-core coord). Meso SEALED cells are L1' + L2 only. Depth badges already net out RED-3' within-cell (geometry x commit!=instant) survivors.
@@ -50,6 +60,7 @@ emitted death_class verdicts.
 - [PASS] **r2-density-legend-line** — density-field legend line present both skins
 - [PASS] **r2-derivation-gloss** — derivation gloss present both skins
 - [PASS] **r3-census-line** — mandatory census line present both skins
+- [PASS] **r3.2-clip-disclosure** — clip line present both skins (count=21, from render pass; all clipped cells unlit=true)
 - [PASS] **r3-coverage-callout** — active 469 + denom 693,146,160 present both skins
 - [PASS] **r3-sealed-ledger** — sealed 1,260 + cut ids [L1-treatment-function-coherence, L2-summon-implies-proxy] present both skins
 - [PASS] **ghost-glyphs-not-regions** — ghost is <circle> glyphs; no polygon/pattern/region fills
@@ -65,7 +76,7 @@ emitted death_class verdicts.
 
 ## Layout calls / judgment made (r3)
 - **FROZEN PLANE BOUNDS (load-bearing):** world bounds computed from POINTS ONLY (min/max over all 506 + 6% pad), byte-identical to the r2 baseline — so the 506 point SVG coordinates never move. The ghost field is zero-mass ground (spec §9.1a) and must NOT rescale the plane.
-- **Ghost outliers CLIPPED, not rescaled:** 21 feasible cells (all unlit, 7 distinct positions) project outside the frozen point-box. They are clipped to the plane frame via SVG clip-path. Rescaling to fit un-settled outliers would break frozen-layer regression AND shrink the settled archipelago — clip is the correct call.
+- **Ghost outliers CLIPPED, not rescaled — DISCLOSED on-chart (r3.2, spec §9.2.3):** 21 feasible cells (all unlit=true, 7 distinct positions) project outside the frozen point-box. They are clipped to the plane frame via SVG clip-path. Rescaling to fit un-settled outliers would break frozen-layer regression AND shrink the settled archipelago — clip is the correct call. **The clip is no longer silent:** a disclosure line renders in the GHOST FIELD ledger (both skins), count computed FROM THE RENDER PASS (cells whose projected position falls outside the plane rect), so it follows any future atlas.json change; if zero cells clipped the line is omitted entirely (no "0 clipped"). §9.2.3: the dark the reader sees implicitly claims to be the feasible space — silent truncation is an under-claim.
 - **Coincident-projection aggregation (spec §9.2.4):** cells sharing a 2-dp SVG position are merged into one glyph; radius grows by log2(multiplicity+1) (deterministic size-step, NO RNG). A merged position is LIT if ANY coincident cell is lit (census-current, spec §9.1b).
 - **Ghost as GLYPHS never regions (spec §9.2.2):** ghost cells are <circle> marks only — no Voronoi, no hatching, no painted boundaries (RIDER-1 continuum discipline; over-claim discipline shared with F-1).
 - **Figure-ground:** unlit ghost = the feasible dark (faint near-ground); lit ghost = a touch stronger (census-lit, still sub-point). Layer order bottom→top: unlit ghost → lit ghost → density → points → tombstones → chrome. The chart's story: settled territory is a lit archipelago in a vast feasible dark.

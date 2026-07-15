@@ -212,6 +212,31 @@ function ghostR(mult) {
 const ghostLit = ghostGlyphs.filter((g) => g.lit);
 const ghostDark = ghostGlyphs.filter((g) => !g.lit);
 
+// ------------------------------------------------------------------ CLIP DISCLOSURE (r3.2, spec §9.2.3)
+// The plane bounds are FROZEN to the settled points (zero-mass ground must not move the
+// frame). Ghost cells projecting outside the plane box are CLIPPED (SVG clip-path), never
+// rescaled-for. §9.2.3 binds: any clip MUST be disclosed on-chart in the ghost ledger — the
+// dark the reader sees implicitly claims to be the feasible space; silent truncation of it
+// is an under-claim. The count is COMPUTED FROM THE RENDER PASS (cells whose projected
+// position falls outside the plane rect = the actual clip-path), NEVER hard-coded — if a
+// future atlas.json changes the count, the disclosure follows. If ZERO cells clip, no line
+// is rendered (do not print "0 clipped"). Boundary test is inclusive of the frame edge (a
+// cell landing exactly on the rect is in-frame, not clipped).
+const IN_PLANE_EPS = 0.01; // 2-dp SVG raster tolerance — a cell within a rounding-tick of the edge is in-frame
+function ghostInPlane(c) {
+  const sxv = sx(c.x), syv = sy(c.y);
+  return sxv >= M.left - IN_PLANE_EPS && sxv <= M.left + PW + IN_PLANE_EPS
+      && syv >= M.top - IN_PLANE_EPS && syv <= M.top + PH + IN_PLANE_EPS;
+}
+const ghostClippedCells = feasibleCells.filter((c) => !ghostInPlane(c));
+const ghostClippedCount = ghostClippedCells.length;
+const ghostClippedAllUnlit = ghostClippedCells.every((c) => !c.lit);
+// Zero-mass invariant (spec §9.1a-adjacent): a CLIPPED-and-LIT ghost would mean the census
+// lights ground the settled frame cannot show — a silent under-claim of live territory.
+// The lit-glyphs-in-frame smoke test already asserts the positive; assert the negative here.
+if (!ghostClippedAllUnlit) die(`ghost CLIP disclosure: ${ghostClippedCells.filter((c) => c.lit).length} CLIPPED cell(s) are LIT — census lights ground outside the frozen frame (silent under-claim of live territory). Frame is frozen to settled points; a lit outlier is emitter/decoupling malfunction (spec §9.1a/§9.2.3).`);
+// (Disclosure microcopy string `ghostClipLine` is built below, after fmtInt is defined.)
+
 // Coverage callout (spec §9.2.6) — from emitted fields ONLY. active count and the ghost
 // exact-grain denominator; the percentage is a DISPLAY of counts.active / denom, formatted.
 // Both operands are emitted; the ratio is a presentation of emitted magnitudes (same class
@@ -232,6 +257,10 @@ function fmtInt(n) {
   const s = String(Math.trunc(n));
   return s.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
+
+// Clip-disclosure microcopy (r3.2, spec §9.2.3) — count from the render pass (above);
+// string built here now that fmtInt exists. OMITTED entirely at the render site when zero.
+const ghostClipLine = `${fmtInt(ghostClippedCount)} unlit cell${ghostClippedCount === 1 ? '' : 's'} project beyond the frame (clipped, not rescaled — frame frozen to the settled points)`;
 
 // ------------------------------------------------------------------ KDE density underlay
 // (FROZEN from r2 — byte-identical. Gaussian KDE of the 469 active kits; no cells/grid/regions.)
@@ -565,20 +594,29 @@ function renderSVG(skinKey) {
     const covStr = `${fmtInt(counts.active)} active ≈ ${fmtSci(coveragePct)} % of ${fmtInt(denomFeasibleExact)} feasible exact-grain kits`;
     P.push(`<text x="${f2(bx)}" y="${f2(by + 22)}" font-size="12" font-weight="${s.titleWeight}" fill="${s.ink}">${esc(covStr)}</text>`);
 
-    // (iii) ghost-field ledger plaque (right-aligned block): feasible / lit / unmapped + sealed.
+    // (iii) ghost-field ledger plaque (right-aligned block): feasible / lit / unmapped [/ clipped] + sealed.
+    // r3.2 (spec §9.2.3): a CLIP-DISCLOSURE line renders here IFF ghostClippedCount > 0 — the
+    // count is from the render pass (above), the box grows to hold it, and it is OMITTED
+    // entirely when zero (no "0 clipped"). Sealed lines below shift by one row when present.
+    const CLIP_ROW = ghostClippedCount > 0 ? 12 : 0;   // extra plaque height for the clip row
     const ledY = by - 4;
-    const ledW = 360, ledH = 74;
+    const ledW = 360, ledH = 74 + CLIP_ROW;
     const ledX = rightX - ledW;
     P.push(`<rect x="${f2(ledX)}" y="${f2(ledY)}" width="${ledW}" height="${ledH}" rx="4" fill="${s.plaque}" fill-opacity="0.92" stroke="${s.plaqueStroke}"/>`);
     P.push(`<text x="${f2(ledX + 12)}" y="${f2(ledY + 18)}" font-size="11" font-weight="${s.titleWeight}" letter-spacing="0.4" fill="${s.ink}">GHOST FIELD — the feasible dark</text>`);
     // feasible / lit / unmapped line (all emitted fields)
     const feasStr = `${fmtInt(feasibleCells.length)} feasible meso cells · ${fmtInt(litCells)} lit by the census · ${fmtInt(unmappedPending)} unmapped (pending curation)`;
     P.push(`<text x="${f2(ledX + 12)}" y="${f2(ledY + 35)}" font-size="10" fill="${s.faint}">${esc(feasStr)}</text>`);
-    // SEALED ledger — off-plane, cut ids verbatim from cut_id (spec §9.2.4)
+    // clip-disclosure line (r3.2, spec §9.2.3) — ONLY when cells clip; count dynamic from render pass.
+    if (ghostClippedCount > 0) {
+      P.push(`<text x="${f2(ledX + 12)}" y="${f2(ledY + 49)}" font-size="9.5" font-style="${s.glossStyle}" fill="${s.faint}">${esc(ghostClipLine)}</text>`);
+    }
+    // SEALED ledger — off-plane, cut ids verbatim from cut_id (spec §9.2.4). Shifts down by
+    // CLIP_ROW when the clip line is present so the plaque never overprints.
     // "1,260 meso cells sealed — L1′ treatment–function coherence 756 · L2 summon⇒proxy 504"
     const sealSummary = sealedCutOrder.map((cid) => `${esc(cid)} ${fmtInt(sealedByCut[cid])}`).join(' · ');
-    P.push(`<text x="${f2(ledX + 12)}" y="${f2(ledY + 52)}" font-size="10" fill="${s.ink}">${fmtInt(mesoSealed)} meso cells sealed (off-plane):</text>`);
-    P.push(`<text x="${f2(ledX + 12)}" y="${f2(ledY + 66)}" font-size="9.5" fill="${s.faint}">${sealSummary}</text>`);
+    P.push(`<text x="${f2(ledX + 12)}" y="${f2(ledY + 52 + CLIP_ROW)}" font-size="10" fill="${s.ink}">${fmtInt(mesoSealed)} meso cells sealed (off-plane):</text>`);
+    P.push(`<text x="${f2(ledX + 12)}" y="${f2(ledY + 66 + CLIP_ROW)}" font-size="9.5" fill="${s.faint}">${sealSummary}</text>`);
     P.push(`</g>`);
 
     // (iv) tiny ghost legend swatch pair (dark = feasible dark, lit = census-lit) inline with census line
@@ -726,6 +764,30 @@ async function main() {
   const censusOk = ['instrument', 'archive'].every((sk) => bodies[sk].includes(esc(GHOST_CENSUS_LINE)));
   rec('r3-census-line', censusOk, censusOk ? 'mandatory census line present both skins' : 'MISSING census line');
 
+  // (15.2) r3.2 CLIP DISCLOSURE line — spec §9.2.3. When cells clip (count from render pass > 0),
+  //        the exact ledger line MUST be present in BOTH skins. When zero clip, the line MUST be
+  //        ABSENT in both (no "0 clipped") AND no orphan "clipped, not rescaled" phrase may leak.
+  //        Also assert the disclosed count matches the render-pass count (no hard-coded stale value).
+  {
+    const CLIP_PHRASE = 'clipped, not rescaled';
+    let clipOk, clipMsg;
+    if (ghostClippedCount > 0) {
+      const present = ['instrument', 'archive'].every((sk) => bodies[sk].includes(esc(ghostClipLine)));
+      // guard against a stale hard-coded numeral: the rendered count is the render-pass count
+      const countMatch = ['instrument', 'archive'].every((sk) => bodies[sk].includes(`>${fmtInt(ghostClippedCount)} unlit cell`));
+      clipOk = present && countMatch;
+      clipMsg = clipOk
+        ? `clip line present both skins (count=${fmtInt(ghostClippedCount)}, from render pass; all clipped cells unlit=${ghostClippedAllUnlit})`
+        : `MISSING/STALE clip line (present=${present}, countMatch=${countMatch})`;
+    } else {
+      // zero clips: line omitted entirely; no "0 clipped", no orphan phrase.
+      const absent = ['instrument', 'archive'].every((sk) => !bodies[sk].includes(CLIP_PHRASE) && !/>0 unlit cells? project beyond/.test(bodies[sk]));
+      clipOk = absent;
+      clipMsg = absent ? 'zero cells clip — disclosure line correctly OMITTED both skins (no "0 clipped")' : 'ORPHAN clip phrase present despite zero clips';
+    }
+    rec('r3.2-clip-disclosure', clipOk, clipMsg);
+  }
+
   // (16) coverage callout numerals present both skins (active count + denom, from emitted fields)
   const covOk = ['instrument', 'archive'].every((sk) => bodies[sk].includes(fmtInt(counts.active)) && bodies[sk].includes(fmtInt(denomFeasibleExact)));
   rec('r3-coverage-callout', covOk, covOk ? `active ${fmtInt(counts.active)} + denom ${fmtInt(denomFeasibleExact)} present both skins` : 'MISSING coverage numeral');
@@ -831,6 +893,15 @@ graveyard tombstone layout, RIDER-1 badge, and r2 explainer trio are all FROZEN;
 strictly additive and drawn FIRST (bottom of stack). The 12 formerly-unknown tombstones now carry
 emitted death_class verdicts.
 
+**r3.2 amendment (2026-07-15, spec §9.2.3, r3.2/commit \`7cf1eeca\`):** gandalf's r3 verification verdict
+was ACCEPT-WITH-ONE-AMENDMENT. The clip call on the out-of-frame ghost cells was correct (frozen plane
+bounds; zero-mass ground never rescales the frame) but was disclosed only in this note — on the chart, the
+GHOST FIELD ledger claimed all feasible cells without saying some project beyond the frame. §9.2.3 now binds:
+any clip MUST be disclosed on-chart in the ghost ledger. FIX: a clip-disclosure microcopy line renders in the
+GHOST FIELD ledger box (both skins); the count is COMPUTED FROM THE RENDER PASS (cells whose projected
+position falls outside the plane rect), never hard-coded — it follows any future atlas.json change; if zero
+cells clip the line is omitted entirely (no "0 clipped"). Acceptance suite gains \`r3.2-clip-disclosure\`.
+
 **Rendered by:** galadriel/pipeline/atlas-edition1-render-r3.mjs (deterministic; no wall-clock — all stamps from atlas.json)
 **Input (sole):** agentic_orchestration/research/curated/atlas/atlas.json
 **atlas_version:** ${atlasVersion} · **basis frozen:** ${ratified} · **inertia:** ${inertiaPct}% · **retained dims:** ${retainedDims}
@@ -846,7 +917,8 @@ emitted death_class verdicts.
 - lit by census: **${fmtInt(litCells)}** · unmapped pending curation: **${fmtInt(unmappedPending)}**
 - sealed meso cells (OFF-plane ledger): **${fmtInt(sealedCells.length)}** — ${sealedCutOrder.map((c) => `${c} ${fmtInt(sealedByCut[c])}`).join(' · ')}
 - coincident-projection aggregation: ${fmtInt(feasibleCells.length)} cells → **${fmtInt(ghostGlyphs.length)}** distinct glyph positions (max multiplicity ${Math.max(...ghostGlyphs.map((g) => g.mult))}); size-stepped deterministically, NO jitter
-- ghost cells outside frozen plane box (clipped, all unlit): ${feasibleCells.filter((c) => !(minX <= c.x && c.x <= maxX && minY <= c.y && c.y <= maxY)).length}
+- ghost cells outside frozen plane box (clipped): **${fmtInt(ghostClippedCount)}** (all unlit=${ghostClippedAllUnlit}; ${fmtInt(new Set(ghostClippedCells.map((c) => `${c.x.toFixed(4)},${c.y.toFixed(4)}`)).size)} distinct positions) — CLIP DISCLOSURE (r3.2, spec §9.2.3) rendered in the GHOST FIELD ledger, count from the render pass
+- clip-disclosure line as rendered (both skins)${ghostClippedCount > 0 ? `: **"${ghostClipLine}"**` : ' — OMITTED (zero cells clip)'}
 - depth Σ: **${fmtInt(feasibleCells.reduce((s, c) => s + c.depth, 0))}** == depth_sum_check == post-red-law denom
 - coverage callout: ${fmtInt(counts.active)} active ≈ ${fmtSci(coveragePct)} % of ${fmtInt(denomFeasibleExact)} feasible exact-grain kits
 - RED-3' note (emitted, drives off-plane seal semantics): ${red3Note}
@@ -863,7 +935,7 @@ ${smokes.map(line).join('\n')}
 
 ## Layout calls / judgment made (r3)
 - **FROZEN PLANE BOUNDS (load-bearing):** world bounds computed from POINTS ONLY (min/max over all 506 + 6% pad), byte-identical to the r2 baseline — so the 506 point SVG coordinates never move. The ghost field is zero-mass ground (spec §9.1a) and must NOT rescale the plane.
-- **Ghost outliers CLIPPED, not rescaled:** ${feasibleCells.filter((c) => !(minX <= c.x && c.x <= maxX && minY <= c.y && c.y <= maxY)).length} feasible cells (all unlit, ${new Set(feasibleCells.filter((c) => !(minX <= c.x && c.x <= maxX && minY <= c.y && c.y <= maxY)).map((c) => `${c.x.toFixed(4)},${c.y.toFixed(4)}`)).size} distinct positions) project outside the frozen point-box. They are clipped to the plane frame via SVG clip-path. Rescaling to fit un-settled outliers would break frozen-layer regression AND shrink the settled archipelago — clip is the correct call.
+- **Ghost outliers CLIPPED, not rescaled — DISCLOSED on-chart (r3.2, spec §9.2.3):** ${fmtInt(ghostClippedCount)} feasible cells (all unlit=${ghostClippedAllUnlit}, ${fmtInt(new Set(ghostClippedCells.map((c) => `${c.x.toFixed(4)},${c.y.toFixed(4)}`)).size)} distinct positions) project outside the frozen point-box. They are clipped to the plane frame via SVG clip-path. Rescaling to fit un-settled outliers would break frozen-layer regression AND shrink the settled archipelago — clip is the correct call. **The clip is no longer silent:** a disclosure line renders in the GHOST FIELD ledger (both skins), count computed FROM THE RENDER PASS (cells whose projected position falls outside the plane rect), so it follows any future atlas.json change; if zero cells clipped the line is omitted entirely (no "0 clipped"). §9.2.3: the dark the reader sees implicitly claims to be the feasible space — silent truncation is an under-claim.
 - **Coincident-projection aggregation (spec §9.2.4):** cells sharing a 2-dp SVG position are merged into one glyph; radius grows by log2(multiplicity+1) (deterministic size-step, NO RNG). A merged position is LIT if ANY coincident cell is lit (census-current, spec §9.1b).
 - **Ghost as GLYPHS never regions (spec §9.2.2):** ghost cells are <circle> marks only — no Voronoi, no hatching, no painted boundaries (RIDER-1 continuum discipline; over-claim discipline shared with F-1).
 - **Figure-ground:** unlit ghost = the feasible dark (faint near-ground); lit ghost = a touch stronger (census-lit, still sub-point). Layer order bottom→top: unlit ghost → lit ghost → density → points → tombstones → chrome. The chart's story: settled territory is a lit archipelago in a vast feasible dark.
