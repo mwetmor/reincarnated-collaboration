@@ -134,6 +134,30 @@ While any zoom/pan state is active, the page sets the `planeClip` rect to the cu
 
 ---
 
+## 9. D1 defect pass — legend band + highlight-cost law + pivot memoization (Matt 2026-07-15, live-page defects)
+
+**Authority:** Matt 2026-07-15 — "the legend on the top-left is covering the title" + "the pivot table makes the page run very slowly, stutter and even time out… I am ok with changing the pivot features." **Gandalf diagnosis (from the shipped `cd7f387` bytes):** (1) the Ghosts legend class per-mark halos 46,006 circles and every selection change swaps the injected `<style>`, forcing style-recalc across the 46.5k-node SVG — the stutter/freeze; (2) pivot grouping is lazy but UNCACHED — every render re-walks the 11,666-item array per expanded node; (3) the legend is absolutely positioned inside the chart stage over the SVG banner. **Design ruling: no pivot-feature cuts** — the §4 per-mark-halo law was a gandalf misjudgment at ground-class scale; the fix is better design, not less feature.
+
+**Sequencing:** fires AFTER the in-flight v1 zoom pass returns + verifies (same files; single-variable). Re-profiles WITH zoom present.
+
+- **D1-a Legend band.** The legend moves OUT of the chart stage into a normal-flow band between the page header and the chart, top-left aligned. It never overlays the SVG canvas at any viewport width. (§4's "top-left" is satisfied at page level.)
+- **D1-b Highlight-cost law (amends §4).** Class-highlight cost must scale with CLASS SIZE, never with artifact size:
+  - Per-mark stroke halos remain ONLY for classes ≤ ~600 marks (live singles 383, condensations 86, graveyard 37) and for the single-selection halo (1). Unchanged visual law: stroke-only ≤ 0.75px, zero fill mutation, zero dimming.
+  - **Ground classes (Ghosts = meso + drill-in, 46k) highlight by LAYER GROUP** — one compositor-level emphasis on `#layer-ghosts, #layer-drillin` (e.g., `filter: brightness(~1.3) saturate(~1.2)` tuned per canvas; galadriel's terrainBlur already proves layer-level filters on this artifact). One selector, one composited surface, no 46k per-element strokes. Design meaning: the ground WAKES AS GROUND — legible emphasis, no rim-mush.
+  - Injected-CSS churn: the `<style>` text changes only when legend/selection state changes (semantically necessary); each change must now be O(class) to recalc.
+- **D1-c Pivot memoization law.** Group-children computation cached per (level-order, node-path) — cache invalidated only on reorder/data change; leaf-index lookup maps memoized per items array (kills per-selection findIndex sweeps); `React.memo` on leaf/group rows; virtualizer scroll state rAF-throttled; CSS containment (`contain: layout style`) on the table region so table renders never invalidate the SVG region's style scope.
+- **D1-d Perf budgets (acceptance, profiled receipts before/after on the prod build):** any legend toggle INCLUDING Ghosts ≤ 50ms main-thread block, visual settle ≤ 150ms; any selection change ≤ 50ms script+style; table scroll ≥ 50fps sustained (no frame > 32ms over 3s); route interactive < 1.5s; zero long-tasks > 200ms after mount through a full #34 roundtrip.
+- **Fallback ladder (fires ONLY if D1-b/c still miss budgets; Matt's feature-latitude spent in this order):** (1) ghost leaf-list pagination ("show next 500") inside virtualized nodes → (2) ghost core-axis pivot flattened to a filter-chip list. Kit-side features and bidirectional wiring are never on the ladder.
+
+### 9.1 Acceptance additions
+
+41. **legend-band:** legend bbox ∩ SVG canvas bbox = ∅ at 360/768/1280/1920px widths; banner headline fully visible.
+42. **highlight-cost:** Ghosts toggle produces ZERO per-mark stroke rules; per-mark rules exist only for ≤600-mark classes + selection; budgets D1-d met with profiler receipts.
+43. **pivot-memo:** re-render of the expanded tree performs zero re-grouping (cache hits proven by counter in dev instrumentation, stripped or gated in prod); reorder invalidates correctly (drag case still exact).
+44. **no-regression:** acceptance 32/34/35 receipts re-demonstrated post-fix; 36–40 (zoom) unaffected; all tests green.
+
+---
+
 ## Cross-references
 
 `2026-07-11-atlas-chart-renderer-spec.md` §§7–10 (render law; r7 amends presentation) · `atlas-edition2.json` ghost_field (core_order, drill_in, denominators) · tracker SESSION-DELTA -l (Edition-II audit) · Matt directive message 2026-07-15 (this package's authority).
