@@ -300,7 +300,11 @@ Laws:
    over-claim discipline as F-1's no-danger-regions rule.
 3. **Unlit-feasible** = the dark of the map: faint near-ground marks (skin-tuned), visually
    subordinate to points and density. The chart's story is the point: *settled territory is a lit
-   archipelago in a vast feasible dark.*
+   archipelago in a vast feasible dark.* **Out-of-frame ghosts (r3.2):** the plane bounds are
+   frozen to the settled points — ghost cells projecting outside are CLIPPED, never rescaled-for
+   (zero-mass ground must not move the frame). Any clip MUST be disclosed on-chart in the ghost
+   ledger (count + "clipped, not rescaled" microcopy) — the dark the reader sees implicitly
+   claims to be the feasible space; silent truncation of it is an under-claim.
 4. **Sealed = a margin/legend LEDGER, never on-plane marks.** The emitted sealed cells carry no
    coordinates (correct: a position claim for un-designable ground is one no kit will ever
    measure to validate — the F-1 over-claim discipline). Render as a chrome register: *"1,260
