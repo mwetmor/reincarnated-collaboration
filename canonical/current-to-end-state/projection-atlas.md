@@ -135,12 +135,16 @@ Codex, carries **no address** here, and is exempt from the §3 alarm.
   not. Until it lands, this page carries NO occupancy numbers (that is the honesty, not a gap to
   hand-patch). Harness = a named build-ladder candidate AFTER the emission primitive (ladder #5);
   KR sequences.
-- **Named face — THE PERIODIC TABLE OF KITS (registered 2026-07-11, GO):** the harness's first
-  display consumer — Matt's mobile-track chart concept (mock:
-  `matt_notes_handoff_docs/reap-die-rise-atlas-chart-mock.svg`). Plane = geometry family
-  (BC-MEASURED Axis-2 class) × commitment (ninth axis); all remaining axes fold into per-cell
-  isotope sub-dots; cells badge FUN-ladder state + claim level. Same law as everything on this
-  page: `chart = render(atlas.json)` — **emitted, never hand-drawn**; two skins (instrument +
+- **Named face — THE PERIODIC TABLE OF KITS (registered 2026-07-11, GO · plane re-based
+  2026-07-14):** the harness's first display consumer — Matt's mobile-track chart concept.
+  **Plane = the Edition-I DERIVED basis** per
+  `../reap-die-rise-engine/atlas-derivation-charter-2026-07-14.md` (statistical derivation +
+  four validation gates; PENDING pipeline execution) — Matt rejected all governance-history-picked
+  planes (both the original geometry × commitment sketch and the Q19 movement × delivery × amp
+  lock, the latter demoted to a census-dashboard view; identity-key register lock untouched).
+  Explored-vs-unexplored renders as the ghost field (charter §4); remaining axes fold into
+  per-hex depth badges + click-through to exact tuples. Same law as everything on this page:
+  `chart = render(atlas.json)` — **emitted, never hand-drawn**; two skins (instrument +
   "The God's Archive" devlog) off ONE renderer. Repairs + seam split at §5 arrival #3.
 
 ## §5 — Fold obligations (mobile-track arrivals)

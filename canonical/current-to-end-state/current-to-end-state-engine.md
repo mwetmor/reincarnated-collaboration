@@ -33,6 +33,23 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-14 (gandalf, Pattern-B with Matt) — Q28-direction RULED-BY-TRANSFORMATION; sim-KPI strike; goal re-charter (representation); ATLAS DERIVATION CHARTER ADOPTED
+
+**Ruling sequence (Matt, this session — governs the 2026-07-13 block below where they conflict):**
+
+1. **Sim-KPI STRIKE — B-as-oracle STRUCK.** Matt's three-point grill conceded on all three: the sim doesn't explore the space; on a *corpus* kit it falsifies only our reconstruction-of-a-representation (three degrees from the kit); build guides carry usage/feel info no sim reaches. **The 2026-07-13 block's "B-as-oracle = milestone with a named acceptance test" is STRUCK.** B's shape-telemetry survives ONLY as balance-loop exhaust on OUR emitted kits (representation = kit there). **K1–K6 freeze-spec PARKED to the engine-native epoch.**
+2. **Goal RE-CHARTER.** Matt: *"I simply want the best representation of our ~500 kits that we can possibly have."* Prediction → representation. Requirements: explored-vs-unexplored visible; eventually sim-falsifiable at cell level; **devlog-primary** ("the number one reference for my future devlog").
+3. **Q19 plane REJECTED as governing frame** (*"we have no reason to believe that those rows/columns should in any way govern the periodic table"*) → **demoted to census-dashboard view.** The coordinate-register identity-key lock (coords 1–3 membership) is UNTOUCHED.
+4. **ATLAS DERIVATION CHARTER ADOPTED** (*"adopted. let's proceed."*) — `canonical/reap-die-rise-engine/atlas-derivation-charter-2026-07-14.md`: SPACE≠MAP; three-truths state model (GENRE/ENGINE/ROSTER → CLAIMED/OWED/NOVEL/FRONTIER/SEALED/UNREACHABLE-YET + GRAVEYARD/AMBER/CONTESTED overlays); ghost field + denominator law; Edition law (frozen frame, supplementary projection); sim falsification via Mantel/PERMANOVA on emitted roster → Edition bumps; fallback clause (lattice-at-meso-grain + published negative finding). Pre-registration PINNED: `agentic_orchestration/gandalf/design-inputs/2026-07-14-atlas-derivation-preregistration.md` (MCA/CATPCA Greenacre+MFA · Gower-MDS · Leiden CPM · LCA BIC; Gates A–D: ARI≥0.6 + silhouette≥0.2 for ≥5/6 · negatives p<0.05 10k perms · franchise R²≤0.15 · bootstrap ≤10% diameter + LOFO/reweight Procrustes≥0.85).
+
+**Surviving bindings from D.3 (amended):** (b) CONTESTED → state-model overlay · (c) amber-promotion law + 3 red laws stand (red laws = feasibility-cut class) · (d) **elrond curation batch A.5 fires FIRST** (it IS the pipeline's data snapshot) · (e) breadth stays product-layer. **NEW: Legolas feel-layer commission queued** (Mode A; build-guide usage/feel harvest as overlay/naming input, never axis input).
+
+**Amendments landed this session:** renderer spec §2 second banner (derived basis; atlas.json gains `basis:{edition,method,loadings_ref,inertia_pct}` + ghost layer) · projection-atlas §4 named-face re-based to Edition-I derived basis · Q28-direction row struck in `matt_decision_needed/README.md` (number collision dissolves; IP file retains Q28).
+
+**NEW GAPS (PART IV queue):** (IV.x-a) derivation pipeline execution — elrond, gated on jack-ryan Gate-1 of the prereg; (IV.x-b) feasibility-cuts register (logical/red-law/taste classes) — elrond executes, Matt ratifies taste cuts; gates the ghost field, decoupled from axis derivation; (IV.x-c) atlas.json derived-basis block — star-lord, post-Edition-I. **Fire order:** jack-ryan Gate-1 → elrond A.5 → pipeline → gates → Edition I freeze (Matt ratifies) + axis naming from loadings (placeholders banned).
+
+---
+
 ### 2026-07-13 (gandalf, Pattern-B ultrathink) — gaps/KPIs/direction analysis LANDED; B defined; graveyard mined; ruling surface = D.3
 
 **Artifact:** `agentic_orchestration/gandalf/design-inputs/2026-07-13-gaps-kpis-direction-analysis.md` (commit `1bf4c2c9`). Four charges against the fiber definition + coordinate register + dedup Stage-1 evidence. Structural outputs that govern forward work:
