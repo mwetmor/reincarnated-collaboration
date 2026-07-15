@@ -168,6 +168,26 @@ While any zoom/pan state is active, the page sets the `planeClip` rect to the cu
 
 ---
 
+## 9.2 D2 extension pass — the FULL 14-axis columns for builds (Matt 2026-07-15 fourth message)
+
+**Authority:** Matt 2026-07-15 — "there are 7 axes for ghosts and 14 for live kits/builds, right? If so, then we need the 14 for the kits/builds." **VERIFIED CORRECT** (gandalf probe, same date): `canon_engine_key.cell_key` is `kit_id` + a **14-part coordinate** (sample: `d2-wl-fire|walk|at-target|var|ground_targeted_circle|damage|none|mitigate|unknown|solo|ranged|med|instant|active|one-shot`); per-axis engine-key coverage 534–610 of 618 rows; the MCA loadings' coordinate families (geometry, economy, defense, amp, commit, range … beyond the meso 7) and the exact-lattice raw 990,186,120 (vs meso raw 12,474) corroborate. **This SUPERSEDES D1-g's "builds show `—` in axis columns" ruling** — that ruling was scoped to the emitted atlas JSON, which was the wrong surface; the corpus/engine-key IS the kit-grain coding surface.
+
+**Sequencing:** fires AFTER the D1 pass returns + verifies (same grid/pivot files; single-variable). D1's `—` state is a known-interim, not a defect.
+
+- **D2-a Sidecar widens to the 14-axis key.** The D1-h sidecar export extends: `canon_engine_key.cell_key` (split into named parts) + the engine-key named columns as label truth (`geometry_value`, `ctrl_treatment`, `ctrl_function`, `delivery_value`, `activation_val`, `dependency_val`, `economy_model`, `def_bin`, plus `canon_corpus` `attr_val/range_val/tempo_val/amp_val/proxy_val/commit_val`). **The 14 axis NAMES + part-order must be DERIVED from the engine-key schema and/or the emitter (`research/scripts/build_atlas_json_edition2.py`) with a receipt — never hand-typed without one** (same inversion-guard discipline as D1-e).
+- **D2-b Union-grid column law.** Leaf-grid axis columns = UNION of the ghost meso-7 and the build 14. An axis SHARES a column iff the name matches at both grains (movement, treatment, function, proxy, activation, dependency are the expected shared six); vocabulary-distinct axes are NOT merged without an emitter-proven mapping (kit-grain `geometry` ≠ meso `delivery` unless the emitter's kit→meso mapping proves the collapse). Meso-only columns (delivery) populate for builds ONLY via the emitter's kit→meso cell mapping where the kit is mapped (the 108 `unmapped_pending_curation` kits show `—` there). Kit-only axes show `—` on ghost rows. `unknown` is a CURATED VALUE and renders literally — distinct from missing (`—`).
+- **D2-c Presentation.** Axis columns grouped: shared six first, then meso-only, then kit-only; header tooltips name axis + grain. Horizontal scroll INSIDE the table region permitted at narrow widths (the fluid page never scrolls horizontally — acceptance 46 holds). Virtualization holds ≥50fps with the wider rows.
+
+### Acceptance additions (D2)
+
+50. **build-14-axis-columns:** ≥5 spot-checked build rows show axis codes matching their `cell_key` verbatim; per-axis coverage on the atlas 506 reported in the return.
+51. **shared-column honesty:** no column mixes grain vocabularies without a named receipt (the emitter line/table proving the mapping); the axis-name/part-order derivation receipt included.
+52. **no-regression:** 41–49 re-demonstrated (spot), all tests green, budgets D1-d still met with the wider grid.
+
+**Naming note (pending Matt ruling, same date):** the surface's community-facing display name is under review to avoid the PoE "Atlas of Worlds" collision — candidates presented in-session; D1-i's `Build Atlas` title is interim. Internals (`atlas*` files, types, JSON, routes) stay `atlas` per the internal/community split regardless of the pick.
+
+---
+
 ## Cross-references
 
 `2026-07-11-atlas-chart-renderer-spec.md` §§7–10 (render law; r7 amends presentation) · `atlas-edition2.json` ghost_field (core_order, drill_in, denominators) · tracker SESSION-DELTA -l (Edition-II audit) · Matt directive message 2026-07-15 (this package's authority).
