@@ -33,6 +33,16 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-14-c (Matt ruling + consequence execution) — Q29 ✓ RATIFIED branch (a): EDITION-I FREEZE LIVE
+
+**Matt: "Ratify a."** Edition-I freeze RATIFIED on **A/C/D + Finding F-1** — the 14-dim MCA basis is **FROZEN as Edition I** (charter §9 discharged; charter Status + Stage-4 annotated, `ce1d634e`). Axis names dims 1–2 CANON: **dim 1 PERFORM↔DEPLOY · dim 2 EMBODY↔LAUNCH** (dim-3 DICTATE↔SCATTER sketch unratified — Edition-II candidate). F-1 published non-downgradable; GRAVEYARD = per-corpse tombstones only (RIDER-1 live).
+
+- **Consequences ALL FIRED + VERIFIED this session:** **(IV.x-c) ✓ DONE** — star-lord atlas.json Edition-I basis block (collab `5a9d58fc`: `agentic_orchestration/research/curated/atlas/atlas.json` + deterministic emitter `research/scripts/build_atlas_json_edition1.py`; 469 active + 37 supplementary tombstone points; badge-mandatory triplet enforced fail-loud; gandalf contract spot-check PASS — all 9 basis keys, zero bad coords, byte-stable sort) · KR decisions-log adoption entry (engine `96befad6`) · jack-ryan Gate-B-ruling row + Gate-2-lite APPROVAL of KR's entry, all nine load-bearing numbers verified exact (engine `3ca83ef`) · Q29 struck with ruling in `matt_decision_needed/README.md` (`ce1d634e`).
+- **Data-state note:** 12/37 supplementary points emit `death_class: "unknown-pending-recrawl"` (the known NULL census gap) — feeds the Legolas re-crawl + the CLARIFY-1 census-growth trigger for Edition II.
+- **Unblocked queue (next fires, charter fire-order):** (IV.x-b) feasibility-cuts register (elrond executes; Matt ratifies taste cuts; gates the ghost-field layer) · Legolas re-crawl (211 source-capped mech_notes + 12 NULL death_class) · Edition-II v2 prereg (per-law power target per CLARIFY-1; jack-ryan review) · renderer consumes atlas.json (charter step 7 — first Edition-I render) · feel-layer tranches beyond the 86 labeled kits.
+
+---
+
 ### 2026-07-14-b (gandalf, autonomous run per Matt directive) — PIPELINE EXECUTED; 3/4 GATES PASS; Gate-B reversed → diagnosis under jack-ryan review; Edition-I freeze = pending Matt ruling
 
 **Fire order completed through gates:** jack-ryan Gate-1 ✓ (PASS-WITH-AMENDMENTS A1–A7, commit 76bbcf5c) → prereg **v1.1** pinned + **frozen Gate-A label artifact** (86 kits / 6 FCA-extent groups, most-specific-intent overlap rule; commit 63f32817) → elrond A.5 snapshot ✓ (`atlas-prereg-2026-07-14`, commit 69fc27e5) → **pipeline EXECUTED** (elrond, zero protocol amendments, seed 20260714; gate report + artifacts: `agentic_orchestration/research/curated/atlas/`).
