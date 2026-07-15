@@ -7,6 +7,22 @@
 
 ---
 
+## mcd-curation-complete-2026-07-15 — corpus.db +2 FIRST-CLASS COLUMNS + MCD Mode-B ingest completion — 2026-07-15 — **LANDED**
+
+### What changed (one line)
+Completed the Minecraft Dungeons Mode-B curation that `corpus_ingest_mcd_2026_07_15.py` began (the predecessor's agent stream timed out mid-run; the DB write itself had landed). This pass promotes two annotations from the `flags` JSON blob to **first-class queryable columns** on the 120 mcd rows: **`architecture` TEXT** (='notable' on all 120 — the INGEST-granting 3-grain label) and **`pull_pending_vocab` INTEGER** (=1 on the 6 frozen-basis pull kits, 0 else). **Additive; every write `WHERE game='mcd'`; all 469 survivor cell_keys byte-identical (SHA `c6933deb…`).** No re-ingest. corpus.db is gitignored; the two scripts + the curation log + this entry are the committed record.
+- **Scripts:** `agentic_orchestration/research/scripts/corpus_ingest_mcd_2026_07_15.py` (predecessor ingest) + `agentic_orchestration/research/scripts/corpus_curation_mcd_complete_2026_07_15.py` (this completion pass; idempotent). **Full curation log:** `agentic_orchestration/research/curated/corpus-curation-mcd-2026-07-15-log.md`.
+- **Counts:** 122 tabled kit rows → **120 ingested** (2 base-family bows dropped: `mcd-void-bow` + `mcd-twisting-vine-bow`, both fetch-confirmed COMMON/RARE with kept unique variants — Wind-Bow precedent). corpus total 524 → **644**.
+- **Annotation landings:** `canon_tier='shallow'` 120/120 (predecessor) · `architecture='notable'` 120/120 (this pass, `WHERE architecture='notable'` → 120) · `pull_pending_vocab=1` on the 6 pull kits (`WHERE unresolved=1 AND pull_pending_vocab=1` → 6; the other 20 unresolved are thin artifacts, `pull_pending_vocab=0`).
+- **Unresolved 26** = 6 pull-primary (frozen-basis: inward force, `pull` not an Edition-I function, NOT force-keyed knockback, NO engine-key row) + 20 thin non-combat artifacts. **Keyed 94** carry survivor-compatible 14-field cell_keys.
+- **Rekey (`lattice_coord`) DEFERRED** — off critical path. The displacement + ghost field emitters read `canon_engine_key.cell_key` (which MCD's 94 keyable rows ALREADY have, all 94 already in the emitter predicate), NOT `lattice_coord` (consumed by nothing today). The displacement-field re-run is therefore **not blocked on elrond**; lattice_coord materialization is a ~30–45 min queued sub-pass folded into the next atlas-derivation batch, with no field-emitter dependency.
+
+### ADR compliance
+- **ADR-004:** this entry. No engine-telemetry change; star-lord-side MIGRATION.md unaffected. Pure collab-side curation surface (elrond-owned research tree); the two new columns reshape no engine consumer contract. Auto-committed per project commit discipline (Matt-authorized INGEST commission). Push deferred to KR's gate.
+- **Reversibility:** additive columns only; no coordinate value destructively transformed; the `flags` JSON tokens left in place as redundant provenance. Fully re-runnable (idempotent).
+
+---
+
 ## displacement-field-edition1-2026-07-15 — atlas displacement field + drill-in slate (READ-ONLY on frozen layer) — 2026-07-15 — **LANDED**
 
 ### What changed (one line)
