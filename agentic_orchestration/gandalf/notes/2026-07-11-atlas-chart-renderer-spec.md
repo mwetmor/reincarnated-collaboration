@@ -481,6 +481,156 @@ Laws:
 5. **Footer render-script string stays frozen** (single-purpose-diff discipline, per r4/r5);
    r6 provenance in the verification note + script filename.
 
+## §10 — EDITION II (2026-07-15): pull vocabulary + EAST-half drill-in + lattice re-emission
+
+> Fired by Matt's word ("If the slate holds, cut Edition-II §10," 2026-07-15) — the slate
+> holds: pre-registered drill-in slate `c7804393` confirmed by the post-MCD re-run
+> `a384c11d` (SLATE HOLDS — vacuously; 0/94 MCD gear rows reach the plane; all 8 regions
+> reproduce to the emitted decimal). Vocabulary SCOPE ruled by Matt same session:
+> **(a) NARROW — `pull` only**, evidence from *"fully legible test kits"* crawled from
+> class-kit sources, *"rather than a weapon enchantment without movement or anything
+> else."* Antecedent verified before cutting: MCD's only lattice-novel content IS pull
+> (2 melee + 4 ranged expressions); its other unique grains (classless-gear architecture,
+> third-pole power curve) are corpus-research value, not lattice content.
+
+### 10.0 What Edition-II IS (and is not)
+
+An **edition** changes the LATTICE; an rN discloses or corrects chrome on existing ground.
+Edition-II: (i) grows the core-7 function vocabulary by one level (`pull`), (ii) opens the
+first promoted-grain ground (EAST-half geometry×commit sub-cells), (iii) re-emits the ghost
+field + every denominator, (iv) re-renders. **The Edition-I FIT layer stays frozen** — the
+14-dim basis, all 506 point coordinates, tombstones, axis names, RIDER-1, F-1: untouched.
+Positions frozen / lighting-and-lattice census-current (§9.1(b) generalized: the C3
+decoupling precedent governs all Edition-II re-keys).
+
+**Explicitly OUT of Edition-II (the deferred docket, each with its re-entry condition):**
+- **Classless-gear `movement` value** — a GRAIN question (do gear-kits belong as points in
+  a class-kit lattice?), not a vocabulary question. Re-entry: only if the atlas is ever
+  asked to represent gear-kit architectures. The 94 MCD rows stay atlas-invisible.
+- **`delivery=melee` admission** — survivor-side question (unmapped-14 MELEE-collapse
+  cases), decoupled from MCD. Re-entry: after the queued unmapped-14 curation/re-crawl
+  returns and shows collapse = vocabulary gap rather than keying error.
+- **dim-3 DICTATE↔SCATTER naming** — stays an unratified Edition-II *candidate* (Q29),
+  not bound here. **Edition-III interior-placement trigger** (§9.4.4) unchanged.
+
+### 10.1 Register v1.2 — the `pull` function level
+
+1. **Definition.** `pull` = inward displacement force — knockback's inverse. Ontology line
+   (taxonomy note `3f20f738`): volition vs displacement — taunt moves the *mind*, pull
+   moves the *body*; pull ≠ taunt, pull ≠ knockback. Two anchor flavors documented as an
+   annotation, NOT two levels (no evidence pressure for grain): **pull-to-self** (wind-helix
+   bows, DI Cyclone Strike) vs **pull-to-point** (Gravity impact weapons, DMO vacuum).
+2. **Ecology-sensitive annotation (mandatory).** The register carries the probe finding:
+   pull is S-tier only where density-scaling damage economy × cheap fire meet; genre
+   containment grammar (cooldown floors · CC-res on repeat · elite immunity · class
+   confinement · boss-centric formats) cited from the legolas probe. The level is admitted
+   as design ground, flagged as balance-hot.
+3. **Evidence bar — intrinsic only.** Pull cells light from skill/rune/talent-level
+   evidence. Gear-assembled pull (Ranslor's Folly, Empire's Grasp-class reversals,
+   teleport-pull set pieces) is rider-proc/assembly lineage per the four-probe test —
+   documented, never kit-graind, never level evidence. In-corpus intrinsic exemplars
+   already known: `di-cyclone-monk-pvp` (skill-level), `d3-zbarb` (Wrenching Smash rune).
+4. **Lattice consequence + law inheritance.** Function axis +1 level → the feasible meso
+   lattice re-derives. EVERY new pull-slice cell is vetted at authoring under the RATIFIED
+   ledger (L1′ / L4″ / L2 / RED-3′) — new seals take cut_ids from the existing enum ONLY.
+   A pull-slice cell that needs a NEW law → HALT to Matt (law amendment, never silent).
+5. **Denominator supersession.** Exact + meso denominators re-derive. Grep discipline
+   extends: on Edition-II renders, **"10,080" and "693,146,160" become superseded strings**
+   (permitted only in explicitly-labeled Edition-I lineage copy) — same law as
+   anti-"422,445,240".
+6. **MCD disposition (Matt ruling).** The 6 `pull_pending_vocab` kits re-key to
+   `function=pull` in corpus.db (flag resolves; data honest) and REMAIN OFF-PLANE — the
+   `movement=blank` emitter gate holds all 94 MCD rows out. Survivor re-keys
+   (e.g. di-cyclone knockback→pull) are evidence-judged, C3-style reversible; positions
+   frozen, lighting moves.
+
+### 10.2 Pull-evidence crawl (fires FIRST — the fully-legible test kits)
+
+Legolas Mode B mini-crawl, per Matt's sourcing ruling: census **pull-INTRINSIC class-kits**
+across the genre. Flagship lead: **Lost Ark Destroyer** (gravity-core hammer class — pull
+as class identity; no `la-` prefix in corpus today = new source). Bar: skill/rune/talent
+level only; gear-assembled documented-but-excluded; FULL probe-fact capture (movement,
+delivery, geometry, tempo, commit, attr) so rows key at full completeness — the legibility
+requirement is the point of the crawl. Deliverable: standard tranche table → elrond
+curation. These rows are the RED-3′ vetting evidence + the lit exemplars for the pull slice.
+
+### 10.3 EAST-half geometry×commit drill-in (slate #1 + #2)
+
+1. **Ground.** Pre-registered slate `c7804393`, re-confirmed `a384c11d`: #1 ES
+   (EAST-EMBODY) → geometry×commit (mean|Δ| 0.380/0.377); #2 EN, same pair — ONE EAST-half
+   drill-in serves both. Alternate (WN-inner) stays logged, unfired.
+2. **Mechanism.** Within the EAST-half regions, promote geometry×commit from masked to
+   explicit: sub-cells = core-7 tuple × promoted-pair levels, **RED-3′-vetted at the
+   promoted grain** — the drill-in grain is exactly where RED-3′ binds (geometry×commit),
+   so its seals become VISIBLE sub-cell seals instead of netted-out depth.
+3. **Local-first law.** Edition-wide promotion is unvettable in one pass and ~21×
+   the glyph field (the interaction law) — EAST-half first; expansion only on a scored
+   P-DF-1 plus a NEW pre-registered slate.
+4. **Zero-mass carries.** Sub-cells are supplementary ground: never move the basis, the
+   frame, or any point; frame exits clip-and-disclose via §9.2.3 machinery.
+
+### 10.4 Ghost re-emission + Edition-II render
+
+1. **Emission (elrond).** atlas.json ghost block v2: new denominators; pull slice; a
+   `drill_in` block (region bounds, promoted-pair levels, per-sub-cell {core+pair tuple,
+   depth, lit, x, y} + sealed sub-cells WITH cut_id). Emitted, never renderer-derived
+   (§4c law).
+2. **Grain-scoped seal enum (extends §9.1(c)).** Meso sealed cut_ids remain {L1-, L2-} —
+   unchanged, and RED-3 at meso grain still REFUSES loud. **Sub-cell sealed cut_ids =
+   {L1-, L2-, RED-3-}** — at promoted grain RED-3′ surfaces, and only there. Doctored-input
+   both directions required.
+3. **Edition regression law (replaces rN frozen-layer-regression across the boundary).**
+   The FIT layer — basis block, 506 point coordinates, tombstones, explainer trio, RIDER-1,
+   axis names — byte-frozen vs r6. The LATTICE layer — ghost glyphs, horizon, ledgers,
+   denominators, coverage callouts — re-emits WHOLESALE (this is what makes it an edition).
+   Horizon hull + beyond-horizon N recompute from the new field (§9.4.1/§9.5's
+   computed-not-constant law pays off here). Clip + beyond-horizon disclosure lines
+   recompute; zero-case omission protocols carry.
+4. **Off-plane corpus disclosure (new mandatory ledger line, nonzero-only).** The ghost
+   ledger disclosed dark ground; it must also disclose held-out corpus: *"N gear-grain kits
+   (mcd-) sit in the corpus off-plane — classless gear carries no movement identity at kit
+   grain; admission is a deferred grain ruling."* N computed from the emitter's gate
+   rejections, never hard-coded. Same honesty class as §9.2.3 / §9.5.1.
+5. **Edition stamp.** Every render carries "Edition II" + register v1.2 ref in the footer
+   provenance; Edition-I renders remain archived (captures + PRD provenance history).
+
+### 10.5 P-DF-1 scored mechanically at render
+
+The registered prediction (§9.5.3; formalized w/ falsifier in the displacement memo §5):
+*an east drill-in extends the dark BEYOND the whirlwind/beam kits.* Scored at render
+against Edition-II's emitted field per the memo's mechanical form — verdict line in the
+verification note + machine-readable field in the provenance JSON. **If FALSIFIED →
+INTERIOR-1 re-opens with new fuel (§9.4.4 trigger)** — logged and surfaced to Matt, never
+auto-fired.
+
+### 10.6 Acceptance (Edition-II suite, 22–28; full §7+§9 suite re-instantiates against Edition-II artifacts)
+
+22. **register-v1.2-derivation:** new exact + meso denominators independently re-derived
+    (audit bar = v1/v1.1); pull-slice feasibility vetted cell-by-cell under the ratified
+    ledger; any new-law need → HALT.
+23. **fit-layer-regression:** basis + all 506 point coords + tombstones + content-locked
+    strings byte-identical to r6.
+24. **lattice-integrity:** depth Σ == new exact denominator; lit census reproduces from
+    corpus keys; unmapped + off-plane registers enumerated (MCD 94 disclosed per §10.4.4).
+25. **pull-slice-lit-integrity:** every lit pull cell traces to an intrinsic-evidence kit;
+    ZERO mcd-lit cells; doctored-input (an mcd row forced past the gate) → HALT.
+26. **drill-in-conformance:** sub-cells EAST-half only; grain-scoped seal enums per
+    §10.4.2 with doctored-input proofs both grains.
+27. **P-DF-1-scored:** verdict emitted mechanically (note + provenance field).
+28. **edition-stamp + anti-stale greps:** "Edition II" + v1.2 ref both skins; Edition-I
+    denominators absent outside labeled lineage copy; all carried content-locked strings
+    present verbatim.
+
+### 10.7 Sequencing (authorized by Matt's word 2026-07-15; no further gate inside the chain)
+
+1. **legolas** pull-source crawl (§10.2) → gandalf verify.
+2. **elrond** register v1.2 + vetting + re-keys (survivor evidence-judged + MCD 6) +
+   EAST-half drill-in derivation + ghost re-emission → gandalf audit-grade verify.
+3. **galadriel** Edition-II render (suite 22–28 + re-instantiated priors) → gandalf
+   verify → **drax** PRD ship (standing chain).
+4. **P-DF-1 verdict + any new-law need → Matt.** Falsification consequences (§10.5) are
+   surfaced, not auto-fired.
+
 ---
 
 **Signed:** gandalf, 2026-07-11 — SPEC-AUTHOR. Anchors: `projection-atlas.md` §0/§3/§4/§5 ·
@@ -491,4 +641,8 @@ feasibility-register audit §3. **r4:** Matt ratification of INTERIOR-1 review i
 and fire the r5 pass") · beyond-horizon receipts in-session (14 kits, all channel).
 **r6:** Matt directive 2026-07-15 ("fire the r6 legibility pass") · DRIFT-CRITIC
 pre-existing-flaw finding during r5 verification (clip-line overrun + footer-census
-collision, byte-proven since r3.2).
+collision, byte-proven since r3.2). **§10 / Edition-II:** Matt directives 2026-07-15
+("If the slate holds, cut Edition-II §10" · vocabulary scope (a)-narrow: "bring pull in
+from other sources and use those fully legible test kits") · slate `c7804393` confirmed
+`a384c11d` (SLATE HOLDS, vacuously) · taxonomy line `3f20f738` · legolas pull-probe +
+MCD tranche `38c23bd3`.
