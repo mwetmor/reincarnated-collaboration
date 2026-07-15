@@ -1,6 +1,6 @@
 # Matt decision needed — post-E2 conservation-law audit HALTED (5/7 bands lurched)
 
-**STATUS:** OPEN — waiting on Matt (disposition ruling; the bands STAND pending your call).
+**STATUS:** OPEN — waiting on Matt (disposition ruling; the bands STAND pending your call). **⚡ LIVE (queue-sweep 2026-07-15, gandalf):** TWO joined rulings on one page — (i) the E2 lurch disposition (options 1–4 below; gamora's evidence-backed diagnosis = **(b) substrate truth** — six conserved means falsify a global-k bug) + (ii) the Lane-3 elite_pack KPM-450 cap remedy (gamora recommends remedy 2, the 1.0 s clear-time floor guard — same censoring family; must be ruled jointly, else a re-anchor fits a cap-confounded elite_pack).
 **Surfaced:** 2026-07-09 by gamora (simulation seam), HALT branch of the post-E2 band-refit
 conservation-law audit. Routed to Matt via gandalf.
 **Authority for the HALT:** Matt HALT rule (verbatim, BINDING, dispatch §1): *"If the post-E2 re-fit

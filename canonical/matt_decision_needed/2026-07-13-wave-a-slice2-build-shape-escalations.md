@@ -1,5 +1,7 @@
 # MATT DECISION NEEDED — Wave-A Slice-2: two build-shape escalations (gate ranged-summon + A3)
 
+> **✓ STALE — RULED 2026-07-13 AND BUILT (queue-sweep 2026-07-15, gandalf, verified against engine repo).** Ruling record below (Q26 → (a) boss-focus inheritance; Q27 → A3 build-true). The Slice-2 build has since LANDED: gamora `4fdd314` ranged-proxy nav fix — "(Q26 (a) boss-focus inheritance ONLY)" — + rocket `43fa149` A3 reservation economy (build-true) + CoG re-pin 0.86 + ranged_proxy behavior map + **"§9 gate LIFT (Wave A ON)"**. Nothing open on this row; retained as ruling lineage.
+
 > **Surfaced:** 2026-07-13 by knight-rider, sequencing the Wave-A engine spec (gandalf SPEC-AUTHOR → KR handoff).
 > **Nature:** two build-shape decisions the spec deliberately did NOT self-authorize (Gate-1 fold D — gandalf did not self-authorize; routed to Matt/gamora before the specialist builds).
 > **What proceeds without you:** **Slice 1 is fully authorized and independent** — melee economies (A1/A2/A4) + GX-19 absorption clock + C1a/C1b calibration are dispatched now (`dispatches/2026-07-13-rocket-wave-a-summon-economy-config.md`, `…-gamora-wave-a-summon-simulation.md`). These two escalations gate **only Slice 2** (ranged-summon + the A3 economy). Do NOT block all of Wave A on these — that's the load-bearing sequencing call KR already made per gandalf's recommendation.

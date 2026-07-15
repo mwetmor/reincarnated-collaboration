@@ -1,6 +1,6 @@
 # Matt approval needed — Declared-baseline succession decisions-log entry (PENDING)
 
-**STATUS:** OPEN — waiting on Matt (approval sign-off only).
+**STATUS:** OPEN — waiting on Matt (approval sign-off only). **⚡ LIVE (queue-sweep 2026-07-15, gandalf):** one word ("approved") flips the decisions-log entry PENDING → Active (jack-ryan executes the flip). No code, no gate, no tag moves — the underlying §4 disposition was already Matt-ratified 2026-07-09; this confirms the canonical write records it faithfully.
 **Surfaced:** 2026-07-09 by jack-ryan (decisions-log write per Review Principle #4; parked here per ADR-002 — architectural entry gets Matt's sign-off).
 **Feeds:** Q12 rolling demo-gate row (this is the "succession decisions-log entry … approval parks HERE" item the Q12 row already anticipates).
 

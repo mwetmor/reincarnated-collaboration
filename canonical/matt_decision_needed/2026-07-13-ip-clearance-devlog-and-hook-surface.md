@@ -1,6 +1,6 @@
 # Q28 — IP-clearance gate: player-facing dev-log Atlas + primary hook
 
-**Surfaced:** gandalf (ARCHITECT/ELICITOR), 2026-07-13 · **Ruled by:** Matt · **Status:** OPEN — **probe RETURNED 2026-07-13; decision sharpened below (§ Probe synthesis). Awaiting Matt risk-accept-or-counsel ruling.**
+**Surfaced:** gandalf (ARCHITECT/ELICITOR), 2026-07-13 · **Ruled by:** Matt · **Status:** RULED 2026-07-13 except one deliberately-PARKED residual (queue-sweep 2026-07-15: NOT STALE, NOT awaiting action now) — rulings 2/3/4 landed (two mandatory conditions RATIFIED · surgical-transposition scope RATIFIED · hook confirmed safe, kept); ruling 1 (prong-3 residual: risk-accept vs narrow counsel) **PARKED — blocks ONLY the Steam dev-log publish** (§ Scope boundary). Open deliverable: **gandalf owes the surgical-transposition token adjudication draft** (candidate high-distinctiveness tokens + keep/transpose call each) before that surface ships.
 **Gates:** any *player-facing* publish of (a) the Atlas / dev-log with retained game titles, and (b) the primary store-page hook.
 
 ---

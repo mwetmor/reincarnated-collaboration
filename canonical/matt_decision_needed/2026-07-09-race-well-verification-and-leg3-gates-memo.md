@@ -2,6 +2,8 @@
 
 **From:** knight-rider (synthesis of the autonomous-run Lane 4 prep). **Date:** 2026-07-09.
 **Type:** VERIFICATION RECORD (the race-well slate is RULED + CLOSED — canon `908e858`; this memo verifies it, it does NOT propose or re-open it). **One genuine decision is surfaced** (Walls v1-vs-defer); the slate verification itself needs no decision.
+
+> **⚡ LIVE (queue-sweep 2026-07-15, gandalf):** ONE decision survives — ratify **Walls DEFER from E10 Leg 3 v1** (§3.1, KR+gamora recommendation). **Corpus evidence since (mega-probe, 2026-07-15 re-check):** across the characterized corpus only **3 rows carry wall-as-blocking-geometry** (`le-frost-wall-rm` = the one live solo-PvE walls-as-win-condition identity; `di-bone-wall-necro-pvp` = PvP-context; `poe2-wall-of-shields` = negative/dead row) — deferral costs ~1 live catalogue identity, cheap at scale. (The 4-kit projectile-bounce-off-arena-walls cluster is a DIFFERENT mechanic — terrain reflection, not summonable obstacles — untouched by this deferral.) §3.2 bone-dump probes are a drax work item, not a decision.
 **Feeds:** E10 Leg 3 build readiness. **Gates:** Leg 3 build still GATES on Matt curating (already done: slate CLOSED at 5) + the drax bone-dump probes named in §3.
 
 ---
