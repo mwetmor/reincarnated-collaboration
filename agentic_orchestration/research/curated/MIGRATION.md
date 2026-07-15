@@ -7,6 +7,33 @@
 
 ---
 
+## atlas-derivation-2026-07-14 — corpus.db +2 ANALYSIS TABLES (atlas-derivation pipeline artifacts) — 2026-07-14 — **LANDED**
+
+### What changed (one line)
+The atlas-derivation pipeline (pinned pre-registration v1.1, all seven jack-ryan Gate-1 amendments applied) executed against the `atlas-prereg-2026-07-14` snapshot and materialized **2 additive analysis tables** into corpus.db, plus a directory of file artifacts. **Zero rows in any existing table were altered** — the 469 survivor cell_keys, the 37 keyed negatives, and every prior column are untouched. `corpus_schema_meta` is NOT bumped (these are analysis-output tables, not a curation-state change; the snapshot marker `atlas-prereg-2026-07-14` remains the data-state of record). corpus.db itself is gitignored; the file artifacts + script + this entry are the committed record.
+**Script (single reproducible entrypoint):** `agentic_orchestration/research/scripts/atlas_derivation_2026_07_14.py` (pinned seed 20260714; lineage of `family-discovery-poc-rerank.py`; every gate-report number regenerates from `python3 atlas_derivation_2026_07_14.py`).
+**Gate report + artifacts:** `agentic_orchestration/research/curated/atlas/` (`2026-07-14-gate-report.md` + 4 CSVs; no basis draft — see verdict).
+
+### Additive schema deltas (no destructive change; zero existing-row rewrites)
+- **`atlas_gateA_labels_2026_07_14`** (kit_id PK, `"group"`, group_intent_rationale) — the frozen Gate-A ground-truth [A1] loaded BYTE-VERBATIM from `agentic_orchestration/gandalf/design-inputs/2026-07-14-gate-a-group-labels.csv`. 86 rows; 6 groups (WHIRLWIND 15 · TOTEM-SENTRY 24 · TRAP-MINE 23 · CHANNELED-BEAM 9 · AURA 8 · MINION-PET 7). Table is DROP-and-recreate on each run (deterministic; content-identical).
+- **`atlas_franchise_rollup`** (kit_id PK, game, franchise_rollup) — the [A2] game-series rollup materialized for Gates C/D. 469 rows; 11 franchises (Diablo 156 · PoE 121 · gd 38 · le 34 · TitanQuest 24 · vs 21 · Torchlight 20 · chronicon 17 · hot 16 · undecember 11 · Hades 11). DROP-and-recreate on each run.
+
+### File artifacts (in `curated/atlas/`, committed; corpus.db is gitignored)
+- `2026-07-14-gate-report.md` — Stage-0 verification, Stage-1 diagnostics, Stage-2 four-family results, Stage-3 four gates with exact numbers + PASS/FAIL, §amendments (NONE), gate summary. **Numbers only — interpretation is gandalf's (DRIFT-CRITIC).**
+- `atlas-coordinates-active.csv` (469 kits: 14 retained MCA dims + Leiden cluster + LCA class + franchise + Gate-A group), `atlas-coordinates-supplementary.csv` (37 projected negatives + death_class), `atlas-loadings.csv` (top-12 |loading| coord=level per retained dim — gandalf names axes from these), `atlas-bootstrap-summary.csv` (per-kit median displacement).
+- **`atlas-basis-edition-1-draft.json` NOT emitted** — the decision rule gates basis-draft on all-four-pass; Gate B failed. Per prereg §5 this is the honorable-fallback branch (gandalf/Matt rule, not elrond).
+
+### Result of record (executor reports numbers; does not interpret)
+Gate A **PASS** (ARI 0.668; all 6 group silhouettes ≥0.2). Gate B **FAIL** (pooled intrinsic-red k=5 mean-pairwise 2.44 vs null 1.85; p_lower 0.9638 — the 5 red corpses are *dispersed*, not clustered). Gate C **PASS** (franchise R² 0.0757 ≤0.15; PERMDISP p 0.066 ≥0.05 so R² pass-interpretable). Gate D **PASS** (bootstrap 3.60% of plane diameter ≤10%; all 11 LOFO congruences ≥0.968; reweight 0.985). **ALL FOUR PASS: NO.** MCA parallel-analysis retained all 14 dimensions (corrected inertia > null-95 at every dim — high-dimensional association). Leiden-CPM produced 132–469 communities across the entire pinned resolution sweep 0.5–2.0 (no non-degenerate plateau near the 6-group scale) — a numeric result of the pinned parameters, NOT a Louvain substitution (A7 clause: leidenalg+python-igraph were installed and used). §amendments = NONE.
+
+### ADR compliance
+- **ADR-004 (MIGRATION.md for cross-seam handoff):** this entry. **No engine-telemetry change** — both tables additive inside elrond-owned corpus.db; no `fight_log`/`export`/`loadout`/telemetry-schema field touched. Star-lord-side MIGRATION.md unaffected. No cross-seam round-trip owed (Principle 6) — the `atlas.json` derived-basis block is NOT emitted (gates did not all pass), so the star-lord/drax renderer contract is unchanged this run.
+- **A7 dependency pin:** `leidenalg` 0.12.0 + `python-igraph` 1.0.0 + `stepmix` 3.0.0 user-level-installed this session (were absent); CPM-with-`community_leiden` verified before the clustering stage. No substitution performed → no §amendment triggered.
+- **Reversibility (schema principle):** both tables are pure functions of the frozen snapshot + the frozen label CSV; re-run reproduces byte-identically (pinned seed). No raw data transformed.
+- Push to remote deferred to KR's gate (Matt authorization).
+
+---
+
 ## atlas-prereg-2026-07-14 — corpus.db CURATION BATCH A.5 (the atlas-derivation data snapshot) — 2026-07-14 — **LANDED**
 
 ### What changed (one line)
