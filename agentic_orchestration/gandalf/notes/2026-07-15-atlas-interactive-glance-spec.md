@@ -20,10 +20,13 @@ Chain: Edition-II verify → **r7 render** → gandalf verify → **drax interac
 
 Matt: live kits and ghosts are both grey, size-only distinct — confusing; "change the live kits color or the ghosts color." Ruling lean (proceed unless Matt vetoes):
 
-- **Ghosts KEEP grey** — they are ground (feasible-but-unlit lattice); ground recedes. Their aggregation grammar (log₂ size-step) is unchanged. Drill-in sub-glyphs stay subordinate-grey.
-- **Live kits TAKE color** — figure advances. One saturated hue family per skin (galadriel proposes exact hues; constraints: distinct from the 12 death-class label accents already in use (#e8663d, #d4a017, #c94f8a, #8e5cc4 family), from ghost grey, from chrome; legible at smallest radius on both skins).
-- **Condensations** = live-hue + multiplicity ring (they ARE live kits, plural — same hue, ringed/stepped, reading "live, many").
-- **Graveyard** keeps its existing distinct muted/tombstone treatment (already separable).
+**CORRECTED 2026-07-15 (against the Edition-II render + Matt's screenshot):** Condensations on this chart are the six NAMED groups (WHIRLWIND / TOTEM-SENTRY / TRAP-MINE / CHANNELED-BEAM / AURA / MINION-PET) and are ALREADY colored per-group. The grey-on-grey confusion is specifically **SINGLE (non-condensation) live kits vs ghosts** — both grey, split only by size. Encoding:
+
+- **Ghosts KEEP grey** — they are ground (feasible-but-unlit lattice); ground recedes. Their aggregation grammar (log₂ size-step) is unchanged. Drill-in sub-glyphs stay subordinate-grey — but with a **visible-minimum prominence** (Matt 2026-07-15: the drilled dark beyond the whirlwind/beam kits must be legible at overview scale; a chart that hides its own P-DF-1 finding fails — this floor lands in the Edition-II render fix pass, not r7).
+- **SINGLE live kits TAKE color** — figure advances. One saturated hue per skin, distinct from all six condensation group hues, from the death-class label accents, from ghost grey, from chrome; legible at smallest radius on both skins (galadriel proposes exact values).
+- **Condensation members KEEP their six group colors** (already separable; unchanged).
+- **Graveyard** keeps its † treatment (already separable).
+- Basic-legend semantics (§4): "Live Kits" toggles singles + condensation members (all live marks); "Condensations" toggles the six groups' members; "Graveyard" the †s; "Ghosts" the meso + drill-in ground.
 
 Rationale (genre-standard figure/ground): every ARPG overlay that works — D3 map pins, PoE atlas watchstones — colors the live layer and greys the potential layer, never the reverse. The four classes map 1:1 to Matt's basic-legend vocabulary (§4).
 
