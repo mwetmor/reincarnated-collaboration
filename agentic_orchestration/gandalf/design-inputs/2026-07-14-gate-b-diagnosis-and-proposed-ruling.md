@@ -1,7 +1,7 @@
 # Gate-B Diagnosis + Proposed Protocol Ruling — Atlas Derivation 2026-07-14
 
 **Date:** 2026-07-14 · **Author:** gandalf (DRIFT-CRITIC verdict; SPEC-AUTHOR proposal)
-**Status:** PROPOSED — awaiting jack-ryan post-results protocol review (BLOCK authority), then Matt ratification
+**Status:** **RATIFIED-WITH-AMENDMENTS by jack-ryan** (post-results review, `qa/findings/2026-07-14-gate2-atlas-gate-b-ruling-review.md`, commit 036d0a8d) — RIDER-1 + CLARIFY-1 applied below; jack-ryan independently reproduced the § 3.2 neighbor table byte-for-byte and the Gate-B statistic within Monte-Carlo tolerance, and ran his own falsifiability probe (a co-located corpse set would have cleared 1.389; the corpses sit at 2.44 — the gate was falsifiable both ways, the FAIL is real). **The RULING is cleared; the Edition-I FREEZE decision is Matt's.**
 **Review object for:** jack-ryan · **Decision object for:** Matt (Edition-I freeze / fallback)
 **Companion docs:**
 - `agentic_orchestration/gandalf/design-inputs/2026-07-14-atlas-derivation-preregistration.md` (v1.1 PINNED — the contract)
@@ -67,7 +67,9 @@ Two of these neighborhoods carry the finding in a single image: **the same neigh
 
 ### 3.3 The finding (F-1, proposed for publication in the Edition-I record)
 
-> **F-1 — Kit death is not geography.** Neither intrinsic-structural corpses (k=5, p_dispersed 0.036) nor tuning-killed corpses (k=6, non-clustered) concentrate in mechanical-coordinate space. Kits do not die because of *where* they are in the space; they die for causes the coordinates do not encode (tuning, itemization, meta context) or for kit-specific structural violations that are local to the kit, not to a region. **Consequence: the unexplored ghost field contains no forbidden zones** — any feasible cell can in principle host a living kit executed well. The graveyard is rendered as per-corpse tombstones with cause-of-death, never as shaded danger regions.
+> **F-1 — Kit death is not geography.** Neither intrinsic-structural corpses (k=5, p_dispersed 0.036) nor tuning-killed corpses (k=6, non-clustered) concentrate in mechanical-coordinate space. Kits do not die because of *where* they are in the space; they die for causes the coordinates do not encode (tuning, itemization, meta context) or for kit-specific structural violations that are local to the kit, not to a region. **Consequence: the unexplored ghost field contains no forbidden zones derived from corpse-geography** — any feasible cell can in principle host a living kit executed well. The graveyard is rendered as per-corpse tombstones with cause-of-death, never as shaded danger regions.
+>
+> *(RIDER-1 §2 applied — binding: this finding is **non-downgradable**. F-1 is a published NEGATIVE result about geography; no future Edition may quietly convert it into a soft danger-heuristic or claim "we always knew death was geographic." Revision requires a new powered test under a fresh prereg, not reinterpretation.)*
 
 ## 4. Proposed ruling (jack-ryan reviews → Matt ratifies)
 
@@ -75,7 +77,7 @@ Under the pinned decision rule ("One protocol-amendment cycle is permitted (§9)
 
 - **R1 — Reclassify, don't re-run.** The one permitted amendment cycle is spent as a specification correction: Gate B is reclassified from validity-gate to substantive result, published verbatim as **FAIL → Finding F-1**. The Edition-I freeze criterion becomes A+C+D (all of which passed with margins). **Zero recomputation, zero tuning** — every number stands exactly as computed under v1.1. No new gate is invented post-hoc to replace it in this edition.
 - **R2 — Overlay consequence.** Danger-zone overlay vocabulary is retired from the charter's ghost-field rendering; GRAVEYARD renders as individual tombstones with cause-of-death labels (feeds the devlog directly).
-- **R3 — Edition-II criterion.** A replacement negative-validity criterion (per-law locality, powered) is designed *before* Edition-II derivation, in a fresh v2 prereg with jack-ryan review, once the graveyard census grows (Legolas re-crawl of the 211 source-capped rows + new corpses). Per the second-attempt clause.
+- **R3 — Edition-II criterion.** A replacement negative-validity criterion (per-law locality, powered) is designed *before* Edition-II derivation, in a fresh v2 prereg with jack-ryan review, once the graveyard census grows (Legolas re-crawl of the 211 source-capped rows + new corpses). Per the second-attempt clause. *(CLARIFY-1 applied — binding: the v2 prereg must state the **minimum per-law corpse count** that makes a per-law locality test powered, with the power calculation behind it, AND the **census-growth trigger** — which Legolas re-crawl deliverable and what count unlocks Edition-II Gate-B design. "Grows" is no longer unpinned.)*
 - **If jack-ryan BLOCKS R1:** the fallback clause fires as pinned — exact lattice at meso-grain ships as the census dashboard + F-1 publishes as the negative finding. (Note: F-1 publishes on *either* branch; the branches differ only in whether the derived map freezes as Edition I.)
 
 ### What jack-ryan is asked to rule
