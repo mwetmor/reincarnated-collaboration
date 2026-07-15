@@ -7,6 +7,38 @@
 
 ---
 
+## atlas-prereg-2026-07-14 — corpus.db CURATION BATCH A.5 (the atlas-derivation data snapshot) — 2026-07-14 — **LANDED**
+
+### What changed (one line)
+Five hygiene+negatives items landed **additively** on corpus.db to produce the pre-registered data snapshot the atlas-derivation pipeline runs against: (1) mech_note truncation repaired grow-only from the untruncated megaprobe facts JSONL; (2) d2-sacrifice filled + re-keyed off its mint dossier; (3) the 38 negatives keyed through the Layer-3 pipeline (survivor keying fns reused); (4) the 5 no-rule-matched TODOs resolved (all in the 38); (5) a `death_class` provenance column (7-value enum, CHECK-equivalent triggers) tagged per the §A.2 pattern→class map. **The 469 clean survivor cell_keys are byte-identical** (SHA256 `6ac89754…`). `corpus_schema_meta` gets marker version `atlas-prereg-2026-07-14`. Backup: `corpus.db.pre-A5-2026-07-14-backup`.
+**Script:** `agentic_orchestration/research/scripts/corpus_curation_a5_2026_07_14.py` (idempotent; imports the survivors' keying functions from `corpus_cell_key_materialize_2026_07_13.py` so negatives key by identical rules).
+**Full log:** `agentic_orchestration/research/curated/corpus-curation-a5-log-2026-07-14.md`.
+
+### Additive schema deltas (no destructive change; zero survivor-row rewrites)
+- **`canon_corpus.death_class TEXT`** (nullable) + two BEFORE-INSERT/UPDATE triggers (`trg_death_class_enum` / `_ins`) enforcing the 7-value enum (SQLite can't ALTER-ADD a CHECK). Enum: `extrinsic-tuning / extrinsic-itemization / extrinsic-split-scaling / extrinsic-no-lever / extrinsic-content-mix / intrinsic-red / system-evidence`. 26 negatives assigned, 12 NULL (gandalf adjudicates; each flagged on `canon_engine_key.flags`).
+- **`canon_engine_key`: +37 rows** (the newly-keyed negatives; d2-sacrifice already had a row → its junk key overwritten). 37 land `row_class='combat-kit'` with a proper 14-field cell_key; `vs-golden-egg-scaling` lands `row_class='system-record'` (§A.2 pattern 11 — evidence, not a kit; NULL cell_key).
+- **`v_combat_kits` amended:** `+ AND c.negative = 0`. The combat denominator is now self-documenting: `WHERE row_class='combat-kit' AND negative=0` = **469**. (`v_corpus_substrate` was already `negative=0` — unchanged.)
+- **`canon_corpus.mech_note`:** 237 rows grown (grow-only re-extraction from megaprobe facts JSONL; 14 negatives among them). Not a schema change — a value repair.
+
+### Negative-keying discipline (charter §5 Stage 0 — passive categories)
+Negative facts rows are **sparse** (delivery + footprint + postmortem only). Recoverable coords land (#2 delivery, #3 amp, #8 proxy, #9 range, #10 tempo, #11 commit, #12 activation, #13 dependency); genuinely-unrecoverable coords are **LEFT NULL (passive)**, never guessed (#1 mob, #4 geometry, #5a/#5b ctrl, #6 def, #7 econ). Geometry is NULL for **all 37** because every negative lands on an ambiguous `(delivery, footprint)` pair (verified against the 478 positive engine-key rows; the atlas_key does not deterministically encode geometry either). Negatives stay `negative=1`, **supplementary-only** — they never shape the denominator or the derived axes.
+
+### Denominator reconciliation (the d2-sacrifice leak)
+470→469 combat denominator and 457→456 distinct cells are **exactly the d2-sacrifice leak removal** — 0 survivors held its old junk cell_key `walk|blank|spiky|melee_strike|…`, so the −1 cell is unique to it and no survivor cell was lost. This is the §D.2-4 "the table caught the d2-sacrifice leak" finding, now enacted.
+
+### ADR compliance
+- **ADR-004 (MIGRATION.md for cross-seam handoff):** this entry. **No engine-telemetry change** — all writes additive inside elrond-owned corpus.db; no `fight_log`/`export`/`loadout`/telemetry-schema field touched. Star-lord-side MIGRATION.md unaffected. No round-trip owed (Principle 6).
+- **Cross-seam contract change?** The combat-denominator read contract changes from `row_class='combat-kit'` to `row_class='combat-kit' AND negative=0`. Downstream consumers (gamora dedup, the derivation pipeline) must adopt the `negative=0` filter — documented here + in the schema-meta note + the curation log. The derivation pipeline is the immediate consumer and treats negatives as supplementary-only by design (charter §5), so it filters natively.
+- **Reversibility (schema principle):** raw values preserved (grow-only mech_note; additive columns/rows). Re-runnable from the committed script to byte-identical state. Backup taken pre-batch.
+- Push to remote deferred to KR's gate (Matt authorization).
+
+### Leftovers surfaced to gandalf
+1. The **12 NULL death_class** corpses (incompatible-class or no-enum-value cases; candidate new value `extrinsic-port` for poe2-concoction).
+2. **211 mech_note rows still ≤140** — a Legolas Mode-B re-crawl is the only path to fuller postmortems (re-harvest commission, not a curation step).
+3. **geometry/ctrl/def/econ/mob NULL on the 37 negatives** — a targeted Legolas re-probe of the negatives' full mechanics would be needed to place them geometrically; today they are honestly passive.
+
+---
+
 ## v2.3 — corpus.db CELL-KEY MATERIALIZATION (strict-13 key → gamora dedup gate) — 2026-07-13 — **LANDED**
 
 ### What changed (one line)

@@ -10,6 +10,14 @@ catalogue.db-shm
 *.db-wal
 *.db-shm
 
+# Pre-migration file-copy backups (elrond curation discipline) — local safety nets, not
+# durable records. The committed migration/curation scripts guarantee byte-identical rebuild,
+# so these regenerable backups + their transient WAL/SHM sidecars stay uncommitted.
+# (Durable historical snapshots go in archive/ instead — whitelisted below.)
+*-backup
+*-backup-wal
+*-backup-shm
+
 # Archive directory exception — historical SQLite snapshots are intentional, durable, and committed.
 # Filename pattern: archive/<store>-<as-of-date>.db (immutable historical records).
 !archive/*.db
