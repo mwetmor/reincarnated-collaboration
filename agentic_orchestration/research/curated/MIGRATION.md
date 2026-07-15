@@ -7,6 +7,20 @@
 
 ---
 
+## displacement-field-edition1-2026-07-15 — atlas displacement field + drill-in slate (READ-ONLY on frozen layer) — 2026-07-15 — **LANDED**
+
+### What changed (one line)
+Emitted the **displacement field** over frozen Atlas Edition-I — Δ(kit)=kit_position−own_cell_position for all 455 mapped active kits — the reconstruction error of the 7-core meso instrument at every lit point, plus the pre-registered Edition-II drill-in slate. **No schema change. No DB write. Every frozen input read-only** (atlas.json, atlas-frozen-fit-cellkeys-edition1.csv, atlas-loadings.csv, ghost_field_edition1.py, atlas_derivation pipeline). This entry certifies the freeze was honored: no re-fit, no basis change, new files only.
+- **Script (reproducible, deterministic):** `agentic_orchestration/research/scripts/displacement_field_edition1.py`. Reconstructs the frozen fit from the pre-C3 snapshot (reproduces all 469 kit positions to 0.00), reads cell positions from the published `atlas.json → ghost_field.feasible_cells`, reuses `ghost_field_edition1.lit_map` crosswalk verbatim for the join. Re-run → byte-identical CSV + JSON.
+- **Deliverables (new files, additive):** `atlas/atlas-displacement-field-edition1.csv` (455 rows × 46 cols: per-kit Δx/Δy/|Δ| + three-part attribution) · `atlas/atlas-displacement-field-edition1.json` (rows + region aggregation + provenance sidecar) · `atlas/2026-07-15-displacement-field-drill-in-slate.md` (memo: method, region ranking, slate, formalized prediction P-DF-1, unmapped list, anomalies).
+- **Attribution law:** exact three-part additive decomposition Δ = (A) per-non-core direct pull + (B) core-dilution + (C) core-substitution [frozen-position-key vs live-lighting-key drift]; verified to reconstruct every kit's Δ to 0.0 (machine precision). Term (C) is a curation signal on 70 kits (C3 treatment re-keys + `other-rare` delivery fusions), not a promotable drill-in target — documented in the memo §7.
+- **Sanity anchors held (all):** ghost x max 1.25805961; 22-vertex hull; 14 beyond-horizon kits reproduced independently (all +Δx dominated by commit=channel + geometry∈{whirlwind,cone}); 455 rows = 469 − 14 unmapped (unmapped set identical to ghost emitter's).
+
+### ADR compliance
+- **ADR-004:** this entry. No engine-telemetry change; star-lord-side MIGRATION.md unaffected. Pure collab-side analytical artifact (elrond-owned research tree), read-only on all frozen Edition-I inputs. Auto-committed per project discipline (Matt-authorized commission). Push deferred to KR's gate.
+
+---
+
 ## feasibility-cuts-register-v1-2026-07-14 — corpus.db +2 ANALYSIS TABLES (enumerated feasible lattice) — 2026-07-14 — **LANDED**
 
 ### What changed (one line)
