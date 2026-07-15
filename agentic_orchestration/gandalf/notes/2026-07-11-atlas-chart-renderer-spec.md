@@ -8,6 +8,8 @@
 > will lock them if they are arranged by columns/rows/axes and if the arrangement of the
 > columns/rows/axes are purposeful and sensible for the search/exploration of the space"*) — the
 > LOCK is Matt's ruling to grant; this spec makes the case and names exactly what the lock covers.
+> **r3 amendment 2026-07-15 (§9):** ghost-field layer clauses — fired by Matt's Q30 ruling (Q30a
+> amendments ratified + Q30b zero taste cuts). The feasible lattice is now data; §9 binds how it renders.
 
 ---
 
@@ -39,7 +41,7 @@ God's Archive" devlog dress). Skins are theme parameters over one layout engine 
 
 > **⚠ AMENDED 2026-07-13 — Q19 LOCKED. The plane below (§2.1–§2.x: commitment × geometry, 15 cells) is SUPERSEDED as the ATLAS plane.** Matt ruled Q19 locked ("I rule Q19 as locked"): the atlas plane is now **3 movement rows (FREE-MOVE/WALK/ROOTED, from `mob_policy_while_casting`) × 7 delivery columns (PROJECTILE/ORBITAL/NOVA/ZONE/BEAM/MELEE/SUMMON) × amp-tempo strata (FLAT/SPIKY/VAR)** — see `views/v1-plane/plane-b-prime-lock-addendum.md` §10 (RULED render V1.2) for the authoritative rule + assignment logic (incl. cone Path 2, RING→ORBITAL merge). **Movement × delivery × amp SUPERSEDES commitment × dispersion for the atlas plane.** The commitment and dispersion/geometry axes are NOT demoted — they remain MEASURED substrate archive axes (design-active in GX-19/GX-20), just no longer the atlas browse plane. The §0/§1/§3–§5 provenance laws (chart = render(atlas.json); two skins, one renderer; badges = per-version payload; layout ≠ content) are UNCHANGED and carry forward to the locked plane. The PROMPT-5 harness (arc S3) builds against the locked plane; the §2.1–§2.x prose below is retained as lock-case lineage only.
 
-> **⚠ AMENDED 2026-07-14 — PLANE *DERIVATION* SUPERSEDED by the atlas-derivation charter.** Matt rejected any governance-history-picked plane as the atlas frame ("we have no reason to believe that those rows/columns should in any way govern the periodic table") and adopted a statistically derived basis: `canonical/reap-die-rise-engine/atlas-derivation-charter-2026-07-14.md` + its pre-registration. **The Q19 movement × delivery × amp plane is DEMOTED to a census-dashboard view** (still emitted, still useful — no longer THE atlas plane; the coordinate-register identity-key lock on coords 1–3 is untouched). The atlas plane is now the **Edition-I derived basis** (MCA/CATPCA-family, four validation gates, frozen frame + supplementary projection) — **RATIFIED + FROZEN 2026-07-14** (pipeline executed under prereg v1.1; A/C/D pass; Gate B → Finding F-1; Matt: *"Ratify a"*). **Ratified axis names: dim 1 PERFORM ↔ DEPLOY · dim 2 EMBODY ↔ LAUNCH** — carried in `basis.axis_names`, rendered on both skins. The §0/§1/§3–§7 laws (chart = render(atlas.json); determinism; two skins one layout engine; R1–R4; fail-loud enums) are UNCHANGED and carry to the derived plane. **atlas.json plane block gains:** `basis: {edition, frozen, ratified, method, loadings_ref, inertia_pct, retained_dims, structure_statement, axis_names}` + per-point `{x, y, supplementary: bool}` (+ `death_class` on supplementary points — the F-1 tombstone payload) + ghost-field layer (charter §4) when the feasibility-cuts register lands. Axis names arrive AFTER derivation (placeholders banned). *(RIDER-1, 2026-07-14: `retained_dims` (Edition I: 14) + `structure_statement` ("continuum with condensations, not discrete cells") are MANDATORY badge fields rendered on every chart, both skins, alongside `inertia_pct` — the 2-D view must never present as a faithful summary of the 14-D basis. GRAVEYARD overlay renders per-corpse tombstones with cause-of-death, never shaded danger regions — Finding F-1.)* *(r2 amendment 2026-07-14 — Matt: "we need to add something somewhere explaining what the axes are." Every render, both skins, carries three explainer texts (CONTENT LOCKED; typography/placement per skin): (i) **pole glosses** — one clause under each axis end-label: PERFORM = "you are the weapon — channel · beam · spin" · DEPLOY = "you place the weapon — totem · trap · detonate" · LAUNCH = "damage sent away — projectile · chain" · EMBODY = "damage from the body — spin · aura · dash"; (ii) **density-field legend line** — "shaded field = density of genre kits (settled territory — not a boundary)"; (iii) **derivation gloss** under the badge — "positions computed, not designed — MCA over 13 mechanical coordinates per kit; axes named from the loadings afterward.")*
+> **⚠ AMENDED 2026-07-14 — PLANE *DERIVATION* SUPERSEDED by the atlas-derivation charter.** Matt rejected any governance-history-picked plane as the atlas frame ("we have no reason to believe that those rows/columns should in any way govern the periodic table") and adopted a statistically derived basis: `canonical/reap-die-rise-engine/atlas-derivation-charter-2026-07-14.md` + its pre-registration. **The Q19 movement × delivery × amp plane is DEMOTED to a census-dashboard view** (still emitted, still useful — no longer THE atlas plane; the coordinate-register identity-key lock on coords 1–3 is untouched). The atlas plane is now the **Edition-I derived basis** (MCA/CATPCA-family, four validation gates, frozen frame + supplementary projection) — **RATIFIED + FROZEN 2026-07-14** (pipeline executed under prereg v1.1; A/C/D pass; Gate B → Finding F-1; Matt: *"Ratify a"*). **Ratified axis names: dim 1 PERFORM ↔ DEPLOY · dim 2 EMBODY ↔ LAUNCH** — carried in `basis.axis_names`, rendered on both skins. The §0/§1/§3–§7 laws (chart = render(atlas.json); determinism; two skins one layout engine; R1–R4; fail-loud enums) are UNCHANGED and carry to the derived plane. **atlas.json plane block gains:** `basis: {edition, frozen, ratified, method, loadings_ref, inertia_pct, retained_dims, structure_statement, axis_names}` + per-point `{x, y, supplementary: bool}` (+ `death_class` on supplementary points — the F-1 tombstone payload) + ghost-field layer (charter §4) — **landed 2026-07-15 under the Q30 ruling; binding render clauses at §9 (r3)**. Axis names arrive AFTER derivation (placeholders banned). *(RIDER-1, 2026-07-14: `retained_dims` (Edition I: 14) + `structure_statement` ("continuum with condensations, not discrete cells") are MANDATORY badge fields rendered on every chart, both skins, alongside `inertia_pct` — the 2-D view must never present as a faithful summary of the 14-D basis. GRAVEYARD overlay renders per-corpse tombstones with cause-of-death, never shaded danger regions — Finding F-1.)* *(r2 amendment 2026-07-14 — Matt: "we need to add something somewhere explaining what the axes are." Every render, both skins, carries three explainer texts (CONTENT LOCKED; typography/placement per skin): (i) **pole glosses** — one clause under each axis end-label: PERFORM = "you are the weapon — channel · beam · spin" · DEPLOY = "you place the weapon — totem · trap · detonate" · LAUNCH = "damage sent away — projectile · chain" · EMBODY = "damage from the body — spin · aura · dash"; (ii) **density-field legend line** — "shaded field = density of genre kits (settled territory — not a boundary)"; (iii) **derivation gloss** under the badge — "positions computed, not designed — MCA over 13 mechanical coordinates per kit; axes named from the loadings afterward.")*
 
 ### 2.1 The frame: 15 cells, both axes already governance-locked
 
@@ -233,8 +235,84 @@ math note — different seams, later rung. When the harness lands, KR dispatches
 at §2.4; if the case holds, the lock makes the chart iconic-by-never-rearranging from its first
 public frame.
 
+## §9 — r3 amendment (2026-07-15): the ghost-field layer
+
+> Fired by Matt's Q30 ruling (2026-07-15 — Q30a cut-predicate amendments L1′/L4″/RED-3′ RATIFIED;
+> Q30b ZERO taste cuts). Data source: elrond's register **v1.1** + ghost-field emission (charter
+> §4). Audit-of-record + corrected ladder:
+> `agentic_orchestration/gandalf/design-inputs/2026-07-15-feasibility-register-audit-and-taste-slate.md` §3.
+
+### 9.1 atlas.json gains the ghost block (contract extension)
+
+```
+"ghost_field": {
+  "register_version": "v1.1",
+  "denominator_exact": 693146160, "denominator_meso": 10080, "sealed_meso": 1260,
+  "unmapped_pending_curation": <int>,
+  "cells": [ { "cell_key": "<meso key>", "status": "lit|unlit|sealed",
+               "seal_cause": "logical" (sealed only), "depth_exact": <int>,
+               "x": <float>, "y": <float> } ]
+}
+```
+
+Laws:
+
+- **(a) Ghosts are zero-mass.** Ghost cells enter the plane as CA supplementary projections onto
+  the FROZEN Edition-I basis — axes never move (decoupling law, charter §2). A ghost block whose
+  presence changes any basis field or any of the 506 point coordinates is emitter malfunction →
+  HALT.
+- **(b) Positions frozen, lighting census-current.** Lit-mapping keys the CURRENT corpus at
+  emission (post-ingestion keys, incl. the 9 `control×none` function fixes) — the documented
+  hybrid. A mandatory legend line states it: *"ghost field lit from the current census; positions
+  from the frozen Edition-I basis."* Kits whose keys resolve to no feasible cell are counted in
+  `unmapped_pending_curation` and excluded — never force-lit.
+- **(c) Meso seal-cause is ALWAYS `logical`.** The 1,260 sealed meso cells are L1′ + L2 composed
+  (756 + 504). RED-3′ seals exact-grain ground that does not surface at meso grain — a meso cell
+  claiming `red-law` seal-cause is an unknown-enum-class error → renderer REFUSES loud (R4).
+  Drill-in/tooltip copy naming seal causes cites the cut id (L1′ / L2) verbatim from the register.
+- **(d) Depth is emitted, never derived.** `depth_exact` per cell (delivery∈{MELEE, PROJECTILE} →
+  55,755; all others → 74,340; Σ over 10,080 = 693,146,160 exactly). The Σ-check is an EMITTER
+  test; the renderer renders the field (§4c no-hand-derived-numbers law).
+
+### 9.2 Render semantics — figure-ground, not data
+
+1. **Layer order (bottom → top):** sealed glyphs → unlit ghost marks → density field → points →
+   tombstones → badges/chrome. The ghost field is GROUND beneath everything that already exists.
+2. **Glyphs, never regions.** Ghost cells render as small per-cell glyphs at their projected
+   coordinates — **no Voronoi fills, no area hatching, no painted boundaries.** The 2-D view is a
+   lossy shadow of the 14-D basis (RIDER-1's `structure_statement`: continuum, not discrete
+   cells); painting regions would assert boundaries the basis does not claim — the same
+   over-claim discipline as F-1's no-danger-regions rule.
+3. **Unlit-feasible** = the dark of the map: faint near-ground marks (skin-tuned), visually
+   subordinate to points and density. The chart's story is the point: *settled territory is a lit
+   archipelago in a vast feasible dark.*
+4. **Sealed** = a distinct struck/hatched GLYPH (not-ground; visually "cannot sail there"),
+   clearly separable from unlit-feasible at a glance on both skins.
+5. **Depth badges** render `depth_exact` in the skin's compact-number style (order-of-magnitude
+   acceptable on `instrument`; exact on drill-in).
+6. **Coverage callout** renders from emitted fields only: *469 active ≈ 6.8×10⁻⁵ % of 693,146,160
+   feasible exact-grain kits.* R2-extension greps: the superseded denominator string
+   **"422,445,240" must not appear**; "900,169,200" may appear ONLY labeled as the pre-cut naive
+   box, never as denominator.
+7. **Tombstones:** the 12 death_class fills render as cause-of-death labels. F-1 unchanged —
+   per-corpse tombstones, never danger shading. RIDER-1 badge + the r2 explainer trio
+   (content-locked) carry forward verbatim.
+
+### 9.3 Acceptance extensions (adds to §7)
+
+9. **Frozen-layer regression:** ghost-ON render vs the r2 baseline artifact — basis block + all
+   point coordinates byte-identical; the ONLY permitted diffs in pre-existing layers are (i) the
+   12 tombstone death_class label strings and (ii) coverage-callout numerals re-sourced from the
+   new denominator field. Everything else new must be strictly additive (the ghost layer).
+10. **Seal-cause conformance:** doctored meso cell with `seal_cause: "red-law"` → loud non-zero
+    exit, no SVG.
+11. **Grep set extended:** no "422,445,240"; explainer-trio strings present verbatim; RIDER-1
+    fields rendered on both skins.
+12. **Skin invariance extended:** both skins emit identical ghost-cell coordinate + status sets.
+
 ---
 
 **Signed:** gandalf, 2026-07-11 — SPEC-AUTHOR. Anchors: `projection-atlas.md` §0/§3/§4/§5 ·
 `substrate-coordinates.md` §0/§2/§7 · axes-lock (W-C.5) · Q-E4-4b · Matt GO + lock-criteria
-messages 2026-07-11.
+messages 2026-07-11. **r3:** Q30 ruling 2026-07-15 · atlas-derivation-charter §2/§4 ·
+feasibility-register audit §3.
