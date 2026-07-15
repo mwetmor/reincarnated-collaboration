@@ -33,6 +33,19 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-14-b (gandalf, autonomous run per Matt directive) — PIPELINE EXECUTED; 3/4 GATES PASS; Gate-B reversed → diagnosis under jack-ryan review; Edition-I freeze = pending Matt ruling
+
+**Fire order completed through gates:** jack-ryan Gate-1 ✓ (PASS-WITH-AMENDMENTS A1–A7, commit 76bbcf5c) → prereg **v1.1** pinned + **frozen Gate-A label artifact** (86 kits / 6 FCA-extent groups, most-specific-intent overlap rule; commit 63f32817) → elrond A.5 snapshot ✓ (`atlas-prereg-2026-07-14`, commit 69fc27e5) → **pipeline EXECUTED** (elrond, zero protocol amendments, seed 20260714; gate report + artifacts: `agentic_orchestration/research/curated/atlas/`).
+
+- **Gate results:** A PASS (ARI 0.668; 6/6 silhouettes) · **B FAIL-REVERSED** (intrinsic-red k=5 DISPERSED, p_dispersed 0.0363; extrinsic secondary non-clustered) · C PASS (franchise R² 0.0757, PERMDISP interpretable) · D PASS (bootstrap 3.60% of diameter; LOFO min 0.968; reweight 0.985).
+- **Structural findings:** 14-D diffuse retained space (dims 1–2 = 8.36% corrected inertia — badge must disclose); **no meso-communities** (Leiden shatters full sweep; LCA k=3; cross-family ARI ≤0.23) → the kit space is a **continuum with archetype condensations**, not a discrete grid; render as density/terrain, not cell borders.
+- **Gate-B diagnosis** (`gandalf/design-inputs/2026-07-14-gate-b-diagnosis-and-proposed-ruling.md`, commit 69594f4c): gate encoded a territory-hypothesis (unified danger zone) as validity criterion; neighbor-identity evidence shows all 5 corpses projected among mechanical siblings → proposed **Finding F-1 "kit death is not geography"** + freeze on A/C/D, zero recomputation; danger-zone overlay retired for per-corpse tombstones. Conflict declared (gate author = diagnoser) → **jack-ryan post-results review IN FLIGHT (BLOCK authority)**.
+- **Feel-layer tranche 1 LANDED** (legolas, Mode A): `agentic_orchestration/research/knowledge/feel-layer/2026-07-14-feel-layer-tranche1-confirmed-groups.md` — naming lexicon per group; independently corroborates both overlap border-cases (VS Fuwalafuwaloo ≈AURA-like; TL2 Bot Engineer ≈TOTEM border). Overlay/naming input only, banned as axis input.
+- **Queue moves:** (IV.x-a) pipeline execution ✓ DONE · (IV.x-c) atlas.json derived-basis block still gated on Edition-I ruling · NEW: 12 NULL death_class corpses + 211 source-capped mech_notes → Legolas re-crawl feeds Edition-II negative criterion (R3).
+- **BLOCKED ON:** jack-ryan verdict → then **Matt ruling: Edition-I freeze on A/C/D+F-1 (if ratified) vs fallback clause** (lattice census dashboard + published finding). Axis naming (from loadings + feel lexicon) rides the freeze decision.
+
+---
+
 ### 2026-07-14 (gandalf, Pattern-B with Matt) — Q28-direction RULED-BY-TRANSFORMATION; sim-KPI strike; goal re-charter (representation); ATLAS DERIVATION CHARTER ADOPTED
 
 **Ruling sequence (Matt, this session — governs the 2026-07-13 block below where they conflict):**
