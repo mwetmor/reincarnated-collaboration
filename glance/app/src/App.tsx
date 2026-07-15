@@ -944,12 +944,20 @@ function ReferencePage({
         </a>
       </div>
 
+      {/* Atlas — Edition I (r3.2 ghost-field). The PCA-PROJECTION instrument: 469 settled
+          kits as a lit archipelago in the vast feasible dark (the 10,080-cell ghost field),
+          projected from the frozen Edition-I basis. chart = render(atlas.json); the two
+          verified deterministic SVGs are served UNMODIFIED. LEADS /atlas — it is the
+          newest PROJECTION-of-record (ghost field, sealed ledger, census) and the payload
+          the page exists to surface. Instrument skin default; archive skin as showpiece
+          toggle. ONLY on /atlas (the connective PROJECTION page). */}
+      {connective && <AtlasEdition1View ghBase={ghBase} />}
+
       {/* RULED V1.2 Stratified Plane View (Q19 LOCKED 2026-07-13) — the REALIZED
           projection, rendered as a DB-derived static asset. Contract v1.10 §7.7 render-
           adjacent addition (see AtlasPlaneView). ONLY on /atlas (the connective PROJECTION
-          page); the LATTICE + CODEX layers have no realized plane. LEADS the page — the
-          plane is the payload /atlas exists to surface, so it sits above the TRIPLE-LAW
-          nav and STATUS banner (a scroll should not be required to see it). */}
+          page); the LATTICE + CODEX layers have no realized plane. The complementary
+          3×7 occupancy grid — kept below the Edition-I instrument as a second lens. */}
       {connective && <AtlasPlaneView ghBase={ghBase} />}
 
       {/* 1 — the TRIPLE-LAW cross-link banner (§7.7 rule 4). Links the OTHER TWO layers. */}
@@ -973,6 +981,242 @@ function ReferencePage({
       {/* 4 — the verbatim `## §N` payload sections (rendered, NEVER parsed). */}
       <ReferenceSections reference={reference} ghBase={ghBase} />
     </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// AtlasEdition1View — Atlas Edition-I (r3.2 ghost-field). The PCA-PROJECTION instrument.
+//
+// PROVENANCE LAW (binding): chart = render(atlas.json). galadriel's two verified
+// deterministic SVGs are served UNMODIFIED — we never hand-edit them, never scrape
+// values out of them, never re-derive content. Every content-locked element (RIDER-1
+// badge, explainer trio, census line, clip-disclosure line, coverage callout, sealed
+// ledger, graveyard) is baked INTO the SVG by the renderer (gandalf FULL-ACCEPT
+// verified); page composition only frames them un-obscured. The SURROUNDING copy cites
+// ONLY numbers read back from atlas.json (via atlas-edition1-provenance.json, emitted by
+// stage-assets.mjs) — never a value scraped from the SVG, never a hand-typed constant.
+//
+// TWO SKINS, ONE LAYOUT ENGINE (galadriel): instrument (light — the working default) +
+// archive (dark — the showpiece). A toggle switches the served asset; both are the same
+// projection. VENDORED from the collab meta-repo (render commit 53db59a2 / data commit
+// d0b2a025) because that repo is not pushed where Vercel builds — stage-assets.mjs copies
+// the committed SVGs in on every build (single source of truth stays upstream).
+//
+// Phone-first: the 1600×1200 vector scales to container width inside an overflow-x-auto
+// guard (min-width floor so the dense field never clips on a 375px viewport); an
+// open-full-size affordance gives pinch-zoom on the archipelago.
+// ---------------------------------------------------------------------------
+type AtlasE1Provenance = {
+  title: string; subtitle: string;
+  skins: { instrument: string; archive: string };
+  derivation: string; atlas_version: string | null; emitted_at: string | null;
+  basis_frozen: boolean | null; inertia_pct: number | null; retained_dims: number | null;
+  numbers: {
+    active: number | null; feasible_exact_grain: number | null;
+    feasible_meso_cells: number | null; lit: number | null; sealed: number | null;
+    unmapped_pending_curation: number | null;
+  };
+  source_path_instrument: string; source_path_archive: string; source_path_data: string;
+  source_commit: string; collab_render_commit: string; collab_data_commit: string;
+  staged_at: string;
+};
+
+type AtlasSkin = 'instrument' | 'archive';
+
+function AtlasEdition1View({ ghBase }: { ghBase: string }) {
+  const [meta, setMeta] = useState<AtlasE1Provenance | null>(null);
+  const [missing, setMissing] = useState(false);
+  const [skin, setSkin] = useState<AtlasSkin>('instrument'); // instrument = working default
+  const [fullscreen, setFullscreen] = useState(false);
+  const base = import.meta.env.BASE_URL;
+
+  useEffect(() => {
+    fetch(`${base}atlas/atlas-edition1-provenance.json`, { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((m: AtlasE1Provenance) => setMeta(m))
+      .catch(() => setMissing(true));
+  }, [base]);
+
+  useEffect(() => {
+    if (!fullscreen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setFullscreen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [fullscreen]);
+
+  // The served SVG follows the skin toggle. Paths come from the provenance JSON when
+  // present, else the known staged locations (the SVGs are still the committed renders;
+  // only the git-derived stamp would be absent).
+  const instrumentUrl = `${base}atlas/atlas-edition1-instrument.svg`;
+  const archiveUrl = `${base}atlas/atlas-edition1-archive.svg`;
+  const svgUrl = skin === 'instrument' ? instrumentUrl : archiveUrl;
+
+  // Number formatting — thousands separators. The VALUES are atlas.json-emitted (from the
+  // provenance JSON); only the grouping is presentational. `nf` never invents a number.
+  const nf = (n: number | null | undefined) =>
+    typeof n === 'number' ? n.toLocaleString('en-US') : '—';
+  const num = meta?.numbers;
+  const shortSha = meta?.source_commit ? meta.source_commit.slice(0, 8) : 'unknown';
+
+  return (
+    <section className="rounded-lg border-2 border-teal-700/60 bg-teal-950/20 p-3">
+      <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
+        <div className="flex flex-wrap items-baseline gap-2">
+          <span className="text-sm font-semibold text-teal-200">Atlas — Edition I</span>
+          <span className="rounded bg-teal-800/60 px-1.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide text-teal-200">
+            render(atlas.json)
+          </span>
+          {meta?.atlas_version && (
+            <span className="text-[0.65rem] text-slate-500">
+              {meta.atlas_version}
+              {meta.basis_frozen ? ' · basis frozen' : ''}
+            </span>
+          )}
+        </div>
+        <div className="flex items-center gap-2">
+          {/* SKIN TOGGLE — instrument (working default) ↔ archive (showpiece). */}
+          <div className="inline-flex overflow-hidden rounded border border-teal-700/60 text-[0.65rem]">
+            {(['instrument', 'archive'] as AtlasSkin[]).map((s) => (
+              <button
+                key={s}
+                type="button"
+                onClick={() => setSkin(s)}
+                aria-pressed={skin === s}
+                className={`px-2 py-0.5 uppercase tracking-wide ${
+                  skin === s
+                    ? 'bg-teal-700/70 font-bold text-teal-100'
+                    : 'text-slate-400 hover:bg-slate-800'
+                }`}>
+                {s}
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => setFullscreen(true)}
+            className="text-xs text-sky-400 hover:text-sky-300">
+            open full-size ↗
+          </button>
+        </div>
+      </div>
+
+      {/* Explainer — the page's own gloss on the projection. Cites ONLY atlas.json numbers
+          (from the provenance JSON): active / feasible exact-grain / feasible meso / lit /
+          sealed. The chart's own RIDER-1 badge, census line, clip line, coverage callout,
+          sealed ledger + graveyard live INSIDE the SVG and are never restated here. */}
+      <p className="mb-2 text-[0.7rem] leading-snug text-slate-400">
+        The settled archipelago in the feasible dark — <span className="text-teal-300/90">
+        {nf(num?.active)} active kits</span> projected over the{' '}
+        <span className="text-slate-300">{nf(num?.feasible_meso_cells)} feasible meso cells</span>{' '}
+        of the ghost field ({nf(num?.lit)} lit by census).{' '}
+        THE denominator: <span className="font-mono text-slate-300">{nf(num?.feasible_exact_grain)}</span>{' '}
+        feasible exact-grain kits; {nf(num?.sealed)} meso cells sealed off-plane.
+        <span className="ml-1 text-slate-500">
+          The chart carries its own census, clip-disclosure, coverage callout, sealed
+          ledger + graveyard — served verbatim.
+        </span>
+      </p>
+
+      {/* the vector projection — scales to container width; horizontal-scroll guard so the
+          dense field never clips on a narrow phone. Served UNMODIFIED via <img>. */}
+      {missing ? (
+        <div className="rounded border border-rose-800 bg-rose-950/30 p-4 text-xs text-rose-300">
+          Atlas Edition-I asset not staged — run <span className="font-mono">npm run stage-assets</span>.
+        </div>
+      ) : (
+        <div className="overflow-x-auto rounded border border-slate-800 bg-slate-950/40">
+          <img
+            src={svgUrl}
+            alt={`Atlas — Edition I (${skin} skin) — PCA projection of ${nf(num?.active)} active kits over the feasible ghost field`}
+            className="block w-full min-w-[720px]"
+          />
+        </div>
+      )}
+
+      {/* provenance stamp — no true image without provenance. The two collab commits the
+          artifacts were VENDORED from (render 53db59a2 / data d0b2a025) + the git-derived
+          render commit. */}
+      <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.65rem] text-slate-500">
+        <span>Edition I</span><span className="text-slate-700">·</span>
+        <span className="text-teal-400/80">chart = render(atlas.json)</span>
+        {typeof meta?.inertia_pct === 'number' && (
+          <>
+            <span className="text-slate-700">·</span>
+            <span>PCA {meta.inertia_pct}% inertia · {meta.retained_dims} dims retained</span>
+          </>
+        )}
+        <span className="text-slate-700">·</span>
+        <span>vendored from collab{' '}
+          <a
+            href={`${ghBase.replace(/\/blob\/[^/]+$/, '')}/commit/${meta?.collab_render_commit ?? ''}`}
+            target="_blank" rel="noreferrer"
+            className="font-mono text-sky-400 hover:text-sky-300">
+            {meta?.collab_render_commit ?? '53db59a2'}
+          </a>{' '}(render) ·{' '}
+          <a
+            href={`${ghBase.replace(/\/blob\/[^/]+$/, '')}/commit/${meta?.collab_data_commit ?? ''}`}
+            target="_blank" rel="noreferrer"
+            className="font-mono text-sky-400 hover:text-sky-300">
+            {meta?.collab_data_commit ?? 'd0b2a025'}
+          </a>{' '}(data)
+        </span>
+        {meta?.source_commit && (
+          <>
+            <span className="text-slate-700">·</span>
+            <span>render commit <span className="font-mono text-slate-400">{shortSha}</span></span>
+          </>
+        )}
+      </div>
+
+      {/* Full-size view — the SAME served SVG at viewport scale, skin toggle live. */}
+      {fullscreen && (
+        <div
+          className="fixed inset-0 z-50 flex flex-col bg-slate-950/95 p-3 sm:p-5"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Atlas — Edition I — full size">
+          <div className="mb-2 flex items-center justify-between gap-2">
+            <div className="flex items-baseline gap-2">
+              <span className="text-sm font-semibold text-teal-200">Atlas — Edition I</span>
+              <span className="text-[0.65rem] uppercase tracking-wide text-slate-500">
+                full size · {skin} skin
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="inline-flex overflow-hidden rounded border border-teal-700/60 text-[0.65rem]">
+                {(['instrument', 'archive'] as AtlasSkin[]).map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => setSkin(s)}
+                    aria-pressed={skin === s}
+                    className={`px-2 py-0.5 uppercase tracking-wide ${
+                      skin === s
+                        ? 'bg-teal-700/70 font-bold text-teal-100'
+                        : 'text-slate-400 hover:bg-slate-800'
+                    }`}>
+                    {s}
+                  </button>
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={() => setFullscreen(false)}
+                className="rounded border border-slate-700 px-2 py-1 text-xs text-slate-300 hover:bg-slate-800">
+                close ✕
+              </button>
+            </div>
+          </div>
+          <div className="min-h-0 flex-1 overflow-auto">
+            <img
+              src={svgUrl}
+              alt={`Atlas — Edition I (${skin} skin) — full size`}
+              className="mx-auto block w-full max-w-[1600px]"
+            />
+          </div>
+        </div>
+      )}
+    </section>
   );
 }
 

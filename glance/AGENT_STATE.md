@@ -5,10 +5,60 @@
 > (glance lives here, not in loadout/demo). Contract:
 > `agentic_orchestration/operating-procedures/glance-contract-spec-2026-07-03.md`.
 
-## Current version — v1.10 (nine pages; /atlas gains the RULED plane)
+## Current version — v1.11 (/atlas leads with Atlas Edition-I ghost-field projection)
 
-Tag: `glance/v1.10-atlas-plane-1`. Nine pages unchanged:
-`/engine · /story · /game · /content-emission · /kits · /minigames · /coordinates · /atlas · /mechanics`.
+Tag: `glance/v1.11-atlas-edition1-ghost-1`. Nine pages unchanged.
+
+### v1.11 — Atlas Edition-I (r3.2 ghost-field) on /atlas — LANDED + DEPLOYED 2026-07-15
+
+Ships galadriel's two verified deterministic Edition-I SVGs (the PCA-PROJECTION
+instrument: 469 settled kits as a lit archipelago in the 10,080-cell feasible dark, with
+the new ghost field + sealed ledger + census) to the `/atlas` (PROJECTION) page as the
+LEAD, above the existing RULED V1.2 plane. Matt-authorized direct-to-PRD deploy of the
+GLANCE APP (2026-07-15 verbatim: "have Drax launch this to the Glance Vercel app directly
+to PRD"). Chain leg 3 of the Q30-ratified 3-leg chain. ZERO new parse shapes — a
+render/layout addition (same class as v1.10).
+
+- **VENDORED, not committed:** the collab meta-repo is NOT pushed where Vercel builds, so
+  `stage-assets.mjs` copies the two committed SVGs from the galadriel capture dir into
+  `public/atlas/` on every build (gitignored — single source of truth stays upstream; no
+  duplicated committed binary). Provenance: render commit `53db59a2` / data commit
+  `d0b2a025` (named in the stage-assets comment + the provenance JSON + the page stamp).
+- **Provenance-law compliance (binding):** chart = render(atlas.json). The SVGs are served
+  UNMODIFIED (byte-copy — never hand-edited, never scraped). The page's SURROUNDING copy
+  cites ONLY numbers READ BACK FROM atlas.json (via `atlas-edition1-provenance.json`,
+  emitted by stage-assets.mjs from the ghost_field/counts/denominators fields) — never a
+  value scraped from the SVG, never a hand-typed constant. If atlas.json re-emits, the
+  copy follows. Emitter integrity guard in stage-assets: `exact_post_red_law` must ==
+  `depth_sum_check` or the build fails (refuse to stage a mislabeled chart).
+- **Numbers on the page (all atlas.json-emitted):** 469 active · 693,146,160 feasible
+  exact-grain (THE denominator) · 10,080 feasible meso cells · 192 lit · 1,260 sealed.
+  Anti-drift greps on page source CLEAN: no season-N, no "2.57" as content, no
+  "422,445,240". (The "2.57" substrings inside the SVG are SVG coordinate values, e.g.
+  `cy="422.57"` — galadriel's own `R2-no-2.57-numeral` acceptance test already verified
+  2.57 absent AS CONTENT; we serve the SVG unmodified.)
+- **App (`src/App.tsx`):** new `AtlasEdition1View` component, gated on
+  `reference.id === 'atlas'`. **Instrument skin = working default** (light), **archive skin
+  = showpiece** reachable via an in-header SKIN TOGGLE (instrument ↔ archive) — my
+  contract lean, exercised as-is. Renders the served SVG (`<img>`, `w-full min-w-[720px]`
+  inside `overflow-x-auto` = phone-first horizontal scroll, no clip on 375px) + open-full-
+  size (skin toggle live in the modal) + a provenance stamp naming both collab commits +
+  the git-derived render commit + PCA inertia/dims. Explainer cites only the five
+  atlas.json numbers; every content-locked element (RIDER-1 badge, explainer trio, census
+  line, clip-disclosure line, coverage callout, sealed ledger, graveyard) is baked INTO
+  the SVG (galadriel FULL-ACCEPT verified) and served un-obscured — never restated.
+- **In-seam counters exercised (contract page-composition is my seam):** (1) LEAD ORDER —
+  Edition-I placed ABOVE the RULED V1.2 plane (it is the newer PROJECTION-of-record; the
+  3×7 grid stays as a complementary second lens, not deleted). (2) SKIN default =
+  instrument, per Matt's counterable lean; kept it. (3) No occupancy HAND-derived (§7.7
+  rule 7 honored) — Edition-I is `render(atlas.json)`, same DERIVED class as the plane's
+  `render(corpus.db)`; the chart's numbers are emitted, never page-computed.
+- **Smoke:** `npm run build` GREEN (parse GREEN, stage-assets vendored both skins + denom
+  693146160, tsc + vite built). Preview served root + `/atlas` (200 SPA rewrite) +
+  instrument SVG (200 `image/svg+xml` 665944 B) + archive SVG (200 `image/svg+xml`
+  666120 B) + provenance JSON (200, all 5 numbers). Skin bg confirmed (instrument #f7f8fa
+  / archive #0e1016). `vercel.json` UNCHANGED (no routing config touched) → SPA rewrite
+  proven identical to production.
 
 ### v1.10 — RULED V1.2 Stratified Plane View on /atlas (PHASE 1) — LANDED 2026-07-13
 

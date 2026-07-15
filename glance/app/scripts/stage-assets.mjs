@@ -40,6 +40,24 @@ const OUT_DOTS = join(OUT_DIR, 'plane_dots_v1_2.json');
 const OUT_POS = join(OUT_DIR, 'plane_dot_positions.json');
 const OUT_META = join(OUT_DIR, 'plane-provenance.json');
 
+// ── Atlas Edition-I (r3.2 ghost-field) — the PCA-projection instrument (Glance
+//    contract §7.7 /atlas render-adjacent addition; chart = render(atlas.json)).
+//    VENDORED from galadriel's verified capture (collab render commit 53db59a2,
+//    data commit d0b2a025). Served UNMODIFIED — never hand-edited, never scraped.
+//    Two verified deterministic skins: instrument (light) + archive (dark). The
+//    page copy cites ONLY numbers we read back from atlas.json here — never the SVG.
+const EDITION1_DIR_REL = 'agentic_orchestration/galadriel/captures/2026-07-15-atlas-edition1-r3-ghost';
+const E1_INSTRUMENT_REL = `${EDITION1_DIR_REL}/atlas-edition1-instrument.svg`;
+const E1_ARCHIVE_REL = `${EDITION1_DIR_REL}/atlas-edition1-archive.svg`;
+const E1_INSTRUMENT_SRC = join(REPO_ROOT, E1_INSTRUMENT_REL);
+const E1_ARCHIVE_SRC = join(REPO_ROOT, E1_ARCHIVE_REL);
+// The SOLE data input the renders were made from — the provenance-law source of truth.
+const ATLAS_JSON_REL = 'agentic_orchestration/research/curated/atlas/atlas.json';
+const ATLAS_JSON_SRC = join(REPO_ROOT, ATLAS_JSON_REL);
+const OUT_E1_INSTRUMENT = join(OUT_DIR, 'atlas-edition1-instrument.svg');
+const OUT_E1_ARCHIVE = join(OUT_DIR, 'atlas-edition1-archive.svg');
+const OUT_E1_META = join(OUT_DIR, 'atlas-edition1-provenance.json');
+
 if (!existsSync(SRC)) {
   console.error(`[stage-assets] FAIL — source SVG missing: ${SRC_REL}`);
   process.exit(1);
@@ -223,6 +241,90 @@ const meta = {
 };
 writeFileSync(OUT_META, JSON.stringify(meta, null, 2) + '\n');
 
+// ── Atlas Edition-I (r3.2 ghost-field) staging ─────────────────────────────
+// FAIL-LOUD: both skins are the shipped payload of contract §7.7 /atlas; a missing
+// SVG is a broken build, not a degrade (unlike the Phase-2 hover, which is optional).
+for (const [rel, src] of [[E1_INSTRUMENT_REL, E1_INSTRUMENT_SRC], [E1_ARCHIVE_REL, E1_ARCHIVE_SRC]]) {
+  if (!existsSync(src)) {
+    console.error(`[stage-assets] FAIL — Atlas Edition-I SVG missing: ${rel}`);
+    process.exit(1);
+  }
+}
+// Serve the verified SVGs UNMODIFIED (byte-copy). We NEVER hand-edit them and NEVER
+// scrape values out of them — the page's cited numbers come from atlas.json below.
+copyFileSync(E1_INSTRUMENT_SRC, OUT_E1_INSTRUMENT);
+copyFileSync(E1_ARCHIVE_SRC, OUT_E1_ARCHIVE);
+
+// The page copy may cite ONLY atlas.json-emitted numbers (binding law 3). Read them
+// back from the SOLE data source — never hand-typed, never scraped from the SVG. If a
+// future atlas.json re-emit changes a value, the page copy follows automatically.
+if (!existsSync(ATLAS_JSON_SRC)) {
+  console.error(`[stage-assets] FAIL — atlas.json missing (Edition-I number source): ${ATLAS_JSON_REL}`);
+  process.exit(1);
+}
+const atlas = JSON.parse(readFileSync(ATLAS_JSON_SRC, 'utf8'));
+const gf = atlas.ghost_field || {};
+const denom = gf.denominators || {};
+// Emitter-side integrity guard: THE denominator must equal the depth-sum check. If the
+// emitted fields ever disagree, refuse to stage a mislabeled chart (fail-loud, provenance law).
+if (denom.exact_post_red_law !== gf.depth_sum_check) {
+  console.error(
+    `[stage-assets] FAIL — atlas.json denominator mismatch: exact_post_red_law `
+    + `${denom.exact_post_red_law} != depth_sum_check ${gf.depth_sum_check}`,
+  );
+  process.exit(1);
+}
+// Git-derived provenance for the render itself (its true commit; falls back like the plane).
+const e1SourceCommit =
+  gitTry(`git log -1 --format=%H -- "${E1_INSTRUMENT_REL}"`) ||
+  gitTry('git rev-parse HEAD') ||
+  process.env.VERCEL_GIT_COMMIT_SHA ||
+  'unknown';
+
+const e1Meta = {
+  title: 'Atlas — Edition I',
+  subtitle: 'the settled archipelago in the feasible dark',
+  skins: {
+    instrument: '/atlas/atlas-edition1-instrument.svg',
+    archive: '/atlas/atlas-edition1-archive.svg',
+  },
+  // chart = render(atlas.json). Content is NOT computed on the page; layout was computed
+  // upstream by galadriel's deterministic renderer. We render the emitted SVGs as-is.
+  derivation: 'render(atlas.json)',
+  atlas_version: atlas.atlas_version ?? null,
+  emitted_at: atlas.emitted_at ?? null,
+  basis_frozen: atlas.basis?.frozen ?? null,
+  inertia_pct: atlas.basis?.inertia_pct ?? null,
+  retained_dims: atlas.basis?.retained_dims ?? null,
+  // The ONLY numbers the page copy is permitted to cite (binding law 3) — all read
+  // from atlas.json fields, never hand-typed, never scraped from the SVG.
+  numbers: {
+    active: atlas.counts?.active ?? null,                       // 469
+    feasible_exact_grain: denom.exact_post_red_law ?? null,     // 693,146,160 — THE denominator
+    feasible_meso_cells: denom.meso_feasible ?? null,           // 10,080
+    lit: gf.lit_cells ?? null,                                  // 192
+    sealed: denom.meso_sealed ?? null,                          // 1,260
+    unmapped_pending_curation: gf.unmapped_pending_curation ?? null, // 14
+  },
+  // Provenance stamp — the seeing-stone's answer: no true image without provenance.
+  // collab_render_commit / collab_data_commit are the two commits the dispatch names;
+  // these are LITERAL provenance anchors (the meta-repo isn't pushed where Vercel builds,
+  // so the artifacts are VENDORED — this records what they were vendored from).
+  source_path_instrument: E1_INSTRUMENT_REL,
+  source_path_archive: E1_ARCHIVE_REL,
+  source_path_data: ATLAS_JSON_REL,
+  source_commit: e1SourceCommit,
+  collab_render_commit: '53db59a2',
+  collab_data_commit: 'd0b2a025',
+  staged_at: new Date().toISOString(),
+};
+writeFileSync(OUT_E1_META, JSON.stringify(e1Meta, null, 2) + '\n');
+
 console.log(
   `[stage-assets] staged plane SVG${dotsStaged ? ' + dots JSON' : ''}${posStaged ? ' + dot positions' : ''} + provenance (source_commit ${sourceCommit.slice(0, 8)})`,
+);
+console.log(
+  `[stage-assets] staged Atlas Edition-I (instrument + archive) + provenance `
+  + `(render ${e1Meta.collab_render_commit} · data ${e1Meta.collab_data_commit} · `
+  + `denom ${e1Meta.numbers.feasible_exact_grain})`,
 );
