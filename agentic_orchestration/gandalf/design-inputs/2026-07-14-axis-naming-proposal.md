@@ -1,7 +1,7 @@
 # Axis-Naming Proposal — Atlas Edition I (dims 1–2, + dim 3 sketch)
 
 **Date:** 2026-07-14 · **Author:** gandalf (STORYWRIGHT naming over SPEC-AUTHOR loadings)
-**Status:** DRAFT — names ratify with the Edition-I freeze (Matt); void if fallback fires (lexicon then serves the census dashboard + Edition II)
+**Status:** **RATIFIED 2026-07-14** — Matt ruled branch (a) (*"Ratify a"*): the Edition-I freeze is live and the dims 1–2 names are canon with it — **dim 1 PERFORM ↔ DEPLOY · dim 2 EMBODY ↔ LAUNCH**. The dim-3 DICTATE ↔ SCATTER sketch remains UNRATIFIED (Edition-II candidate; ratify only if a dim-3 view ships). Names flow into the atlas.json `basis.axis_names` field (star-lord IV.x-c) and every render badge.
 **Method:** charter § 6 — names read FROM the top-loading categories (placeholders banned); feel-layer lexicon (`research/knowledge/feel-layer/2026-07-14-feel-layer-tranche1-confirmed-groups.md`) used as REGISTER input only, never axis input.
 
 ---

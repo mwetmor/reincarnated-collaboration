@@ -1,7 +1,7 @@
 # Gate-B Diagnosis + Proposed Protocol Ruling — Atlas Derivation 2026-07-14
 
 **Date:** 2026-07-14 · **Author:** gandalf (DRIFT-CRITIC verdict; SPEC-AUTHOR proposal)
-**Status:** **RATIFIED-WITH-AMENDMENTS by jack-ryan** (post-results review, `qa/findings/2026-07-14-gate2-atlas-gate-b-ruling-review.md`, commit 036d0a8d) — RIDER-1 + CLARIFY-1 applied below; jack-ryan independently reproduced the § 3.2 neighbor table byte-for-byte and the Gate-B statistic within Monte-Carlo tolerance, and ran his own falsifiability probe (a co-located corpse set would have cleared 1.389; the corpses sit at 2.44 — the gate was falsifiable both ways, the FAIL is real). **The RULING is cleared; the Edition-I FREEZE decision is Matt's.**
+**Status:** **RATIFIED-WITH-AMENDMENTS by jack-ryan** (post-results review, `qa/findings/2026-07-14-gate2-atlas-gate-b-ruling-review.md`, commit 036d0a8d) — RIDER-1 + CLARIFY-1 applied below; jack-ryan independently reproduced the § 3.2 neighbor table byte-for-byte and the Gate-B statistic within Monte-Carlo tolerance, and ran his own falsifiability probe (a co-located corpse set would have cleared 1.389; the corpses sit at 2.44 — the gate was falsifiable both ways, the FAIL is real). **The RULING is cleared; the Edition-I FREEZE decision is Matt's.** **→ ✓ RATIFIED 2026-07-14 (Matt: *"Ratify a"*) — Edition-I freeze LIVE on A/C/D + F-1; axis names dims 1–2 ratified (PERFORM↔DEPLOY / EMBODY↔LAUNCH); consequences fired (star-lord IV.x-c atlas.json basis block; KR + jack-ryan decisions-log rows).**
 **Review object for:** jack-ryan · **Decision object for:** Matt (Edition-I freeze / fallback)
 **Companion docs:**
 - `agentic_orchestration/gandalf/design-inputs/2026-07-14-atlas-derivation-preregistration.md` (v1.1 PINNED — the contract)
