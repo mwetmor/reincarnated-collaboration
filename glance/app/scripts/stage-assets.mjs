@@ -40,13 +40,16 @@ const OUT_DOTS = join(OUT_DIR, 'plane_dots_v1_2.json');
 const OUT_POS = join(OUT_DIR, 'plane_dot_positions.json');
 const OUT_META = join(OUT_DIR, 'plane-provenance.json');
 
-// ── Atlas Edition-I (r3.2 ghost-field) — the PCA-projection instrument (Glance
+// ── Atlas Edition-I (r4 ghost-horizon) — the PCA-projection instrument (Glance
 //    contract §7.7 /atlas render-adjacent addition; chart = render(atlas.json)).
-//    VENDORED from galadriel's verified capture (collab render commit 53db59a2,
+//    VENDORED from galadriel's verified capture (collab render commit c27d7af7,
 //    data commit d0b2a025). Served UNMODIFIED — never hand-edited, never scraped.
+//    r4 = strictly-additive chrome on r3.2 (dashed ghost-horizon envelope + its
+//    mandatory disclosure label; coverage callout re-led with the 1.9%-lit / 2.4-
+//    kits-per-lit-cell headline pair). All frozen layers byte-identical vs r3.2.
 //    Two verified deterministic skins: instrument (light) + archive (dark). The
 //    page copy cites ONLY numbers we read back from atlas.json here — never the SVG.
-const EDITION1_DIR_REL = 'agentic_orchestration/galadriel/captures/2026-07-15-atlas-edition1-r3-ghost';
+const EDITION1_DIR_REL = 'agentic_orchestration/galadriel/captures/2026-07-15-atlas-edition1-r4-horizon';
 const E1_INSTRUMENT_REL = `${EDITION1_DIR_REL}/atlas-edition1-instrument.svg`;
 const E1_ARCHIVE_REL = `${EDITION1_DIR_REL}/atlas-edition1-archive.svg`;
 const E1_INSTRUMENT_SRC = join(REPO_ROOT, E1_INSTRUMENT_REL);
@@ -241,7 +244,7 @@ const meta = {
 };
 writeFileSync(OUT_META, JSON.stringify(meta, null, 2) + '\n');
 
-// ── Atlas Edition-I (r3.2 ghost-field) staging ─────────────────────────────
+// ── Atlas Edition-I (r4 ghost-horizon) staging ─────────────────────────────
 // FAIL-LOUD: both skins are the shipped payload of contract §7.7 /atlas; a missing
 // SVG is a broken build, not a degrade (unlike the Phase-2 hover, which is optional).
 for (const [rel, src] of [[E1_INSTRUMENT_REL, E1_INSTRUMENT_SRC], [E1_ARCHIVE_REL, E1_ARCHIVE_SRC]]) {
@@ -314,7 +317,7 @@ const e1Meta = {
   source_path_archive: E1_ARCHIVE_REL,
   source_path_data: ATLAS_JSON_REL,
   source_commit: e1SourceCommit,
-  collab_render_commit: '53db59a2',
+  collab_render_commit: 'c27d7af7',
   collab_data_commit: 'd0b2a025',
   staged_at: new Date().toISOString(),
 };
