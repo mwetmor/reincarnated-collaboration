@@ -551,8 +551,18 @@ across the genre. Flagship lead: **Lost Ark Destroyer** (gravity-core hammer cla
 as class identity; no `la-` prefix in corpus today = new source). Bar: skill/rune/talent
 level only; gear-assembled documented-but-excluded; FULL probe-fact capture (movement,
 delivery, geometry, tempo, commit, attr) so rows key at full completeness — the legibility
-requirement is the point of the crawl. Deliverable: standard tranche table → elrond
-curation. These rows are the RED-3′ vetting evidence + the lit exemplars for the pull slice.
+requirement is the point of the crawl. Deliverable: standard tranche table (LANDED
+2026-07-15: `research/knowledge/mcd-pull-mechanic/2026-07-15-pull-intrinsic-classkit-tranche.md`,
+7 intrinsic rows / 4 franchises, gandalf-verified ACCEPT).
+
+**Census-freeze amendment (Matt 2026-07-15 — "let's not add gravity or anything until post
+edition 2"):** the tranche rows are RED-3′ vetting + feasibility EVIDENCE at the research
+layer ONLY this edition — **no new corpus rows curate until post-Edition-II.** The pull
+slice lights ONLY where EXISTING corpus kits re-key on intrinsic evidence (corrections,
+not additions — C3 precedent): d3-zbarb expected first light; di-cyclone-monk-pvp
+evidence-judged; MCD 6 re-key stays off-plane. The 7 tranche rows AND the full Lost Ark
+tranche (class-kit grain, ~27 classes, honing-economy confound annotated) are QUEUED
+post-Edition-II. This clause supersedes the pre-amendment "lit exemplars" framing above.
 
 ### 10.3 EAST-half geometry×commit drill-in (slate #1 + #2)
 
@@ -612,8 +622,10 @@ auto-fired.
     strings byte-identical to r6.
 24. **lattice-integrity:** depth Σ == new exact denominator; lit census reproduces from
     corpus keys; unmapped + off-plane registers enumerated (MCD 94 disclosed per §10.4.4).
-25. **pull-slice-lit-integrity:** every lit pull cell traces to an intrinsic-evidence kit;
-    ZERO mcd-lit cells; doctored-input (an mcd row forced past the gate) → HALT.
+25. **pull-slice-lit-integrity:** every lit pull cell traces to an EXISTING corpus kit
+    re-keyed on intrinsic evidence (census-freeze: zero NEW rows this edition — census
+    stays 644 + re-keys); ZERO mcd-lit cells; doctored-input (an mcd row forced past the
+    gate, OR a tranche row curated despite the freeze) → HALT.
 26. **drill-in-conformance:** sub-cells EAST-half only; grain-scoped seal enums per
     §10.4.2 with doctored-input proofs both grains.
 27. **P-DF-1-scored:** verdict emitted mechanically (note + provenance field).
@@ -645,4 +657,7 @@ collision, byte-proven since r3.2). **§10 / Edition-II:** Matt directives 2026-
 ("If the slate holds, cut Edition-II §10" · vocabulary scope (a)-narrow: "bring pull in
 from other sources and use those fully legible test kits") · slate `c7804393` confirmed
 `a384c11d` (SLATE HOLDS, vacuously) · taxonomy line `3f20f738` · legolas pull-probe +
-MCD tranche `38c23bd3`.
+MCD tranche `38c23bd3` · census-freeze: Matt 2026-07-15 ("Queue the full Lost Ark tranche
+post-Edition-II... let's not add gravity or anything until post edition 2") — §10.2
+amendment + acceptance-25 tightening; intrinsic tranche `b7f773d3` re-scoped to
+evidence-only.
