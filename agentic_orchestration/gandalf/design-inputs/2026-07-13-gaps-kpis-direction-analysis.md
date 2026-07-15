@@ -100,7 +100,7 @@ Tallying deaths by curability: **intrinsic RED** (patterns 3, 6, and the non-car
 > **Red laws (hard generation/curation filters):**
 > 1. **Co-location:** damage co-located with the avatar's present position or an anchored proxy.
 > 2. **No anti-synergy:** sustain must not cannibalize the build's own scaling substrate.
-> 3. **Movement-damage carve-out:** movement verbs as damage loops only at instant-commit + high tempo.
+> 3. **Movement-damage carve-out:** movement verbs as damage loops only at **instant commit**. *(AMENDED 2026-07-15, Matt-ratified Q30a — the tempo conjunct DROPPED. Occupancy audit falsified the original "+ high tempo" form: all 19 living movement-verb kits are instant across low/med/high tempo — Leapquake, Shield Charge, Shadow Strike stand at med; d2-charger at low — while both intrinsic-red movement corpses are non-instant (leap-attack wind-up, charged-dash channel). The living/dead separator is COMMIT alone. Lattice predicate: `geometry∈{movement-verb} ∧ commit≠instant ⟹ SEAL`. Audit: `2026-07-15-feasibility-register-audit-and-taste-slate.md` §2/A2. Note §A.2-4's original "the corpses sit at wind-up + low tempo" claim survives — but its tempo half was corpse-coincidence, not law.)*
 >
 > **Pricing laws (emission bars, not filters):** timing taxes must out-buy the always-on sibling (8); control payloads must be priced in AoE/duration/cooldown against their damage-pure sibling (from gd-blade-trap/gd-stun-jacks); ST kits require the F3 niche to exist (9).
 

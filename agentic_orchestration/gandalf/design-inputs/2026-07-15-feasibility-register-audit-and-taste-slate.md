@@ -1,6 +1,7 @@
 # Feasibility-Cuts Register v1 — gandalf Audit + Taste-Slate Surface (Q30)
 
 > **STATUS:** CURRENT (load-bearing as of 2026-07-15) — the charter-mandated audit of elrond's register (charter: *"elrond executes; gandalf audits; Matt ratifies taste cuts"*) + the taste-cut decision surface.
+> **→ ✓ RULED 2026-07-15 (Matt: "Great. Approved on all. Please proceed.")** — Q30a amendments RATIFIED (L1′/L4″/RED-3′; law text amended at `2026-07-13-gaps-kpis-direction-analysis.md` §A.4) + Q30b ZERO taste cuts (all five KEEP). §3's corrected ladder is now the ruling-of-record pending elrond's v1.1 regeneration; §5 curation queue authorized; ghost field + Glance-PRD ship chain fired same-session.
 
 **Date:** 2026-07-15 · **Author:** gandalf (`▶ ROLE: DRIFT-CRITIC` for §§1–3 audit · `SPEC-AUTHOR` for §4 leans)
 **Audits:** `agentic_orchestration/research/curated/atlas/feasibility-cuts-register-v1.md` (elrond, commit `d5cf6a5a`)
