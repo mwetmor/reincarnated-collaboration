@@ -245,15 +245,26 @@ public frame.
 ### 9.1 atlas.json gains the ghost block (contract extension)
 
 ```
-"ghost_field": {
-  "register_version": "v1.1",
-  "denominator_exact": 693146160, "denominator_meso": 10080, "sealed_meso": 1260,
-  "unmapped_pending_curation": <int>,
-  "cells": [ { "cell_key": "<meso key>", "status": "lit|unlit|sealed",
-               "seal_cause": "logical" (sealed only), "depth_exact": <int>,
-               "x": <float>, "y": <float> } ]
+"ghost_field": {                          // AS EMITTED (elrond d0b2a025) — authoritative over
+  "version", "register_ref",              //   the r3 draft sketch, per §4 preamble
+  "basis_ref", "frozen_fit_input",        // decoupling-law provenance (pre-C3 frozen-fit snapshot)
+  "grain", "core_order": [7 core coords], "projection", "red3_note",
+  "denominators": { exact_raw_naive, exact_post_logical, exact_post_red_law: 693146160,
+                    meso_raw, meso_feasible: 10080, meso_sealed: 1260 },
+  "depth_by_delivery": { MELEE: 55755, PROJECTILE: 55755, <others>: 74340 },
+  "depth_sum_check": 693146160, "lit_cells": 192,
+  "unmapped_pending_curation": 14, "unmapped_pending_curation_kits": [...],
+  "unmapped_would_seal_excluded": 0, "unmapped_would_seal_kits": [],
+  "feasible_cells": [ 10080 × { "core": [7-tuple], "depth", "kit_count", "lit", "x", "y" } ],
+  "sealed_cells":   [ 1260  × { "core": [7-tuple], "cut_id": "L1-…|L2-…" } ]
 }
 ```
+
+*(Sealed cells carry `cut_id` (L1/L2 only — the `red-law` refusal in (c) binds on this field) and
+NO coordinates — sealed ground is never projected; it renders in a legend/margin register, not on
+the plane. Note the coincident-projection reality: cells differing only on coords outside the fit
+vocabulary project to identical (x,y) — the renderer must aggregate coincident ghost glyphs
+deterministically (multiplicity glyph or size step from emitted positions), never RNG-jitter.)*
 
 Laws:
 
@@ -262,22 +273,26 @@ Laws:
   presence changes any basis field or any of the 506 point coordinates is emitter malfunction →
   HALT.
 - **(b) Positions frozen, lighting census-current.** Lit-mapping keys the CURRENT corpus at
-  emission (post-ingestion keys, incl. the 9 `control×none` function fixes) — the documented
+  emission (post-ingestion keys, incl. the 9 `control×none`→`damage×none` treatment
+  re-classifications — elrond C3, evidence-judged) — the documented
   hybrid. A mandatory legend line states it: *"ghost field lit from the current census; positions
   from the frozen Edition-I basis."* Kits whose keys resolve to no feasible cell are counted in
   `unmapped_pending_curation` and excluded — never force-lit.
-- **(c) Meso seal-cause is ALWAYS `logical`.** The 1,260 sealed meso cells are L1′ + L2 composed
-  (756 + 504). RED-3′ seals exact-grain ground that does not surface at meso grain — a meso cell
-  claiming `red-law` seal-cause is an unknown-enum-class error → renderer REFUSES loud (R4).
-  Drill-in/tooltip copy naming seal causes cites the cut id (L1′ / L2) verbatim from the register.
-- **(d) Depth is emitted, never derived.** `depth_exact` per cell (delivery∈{MELEE, PROJECTILE} →
+- **(c) Meso seal-cause is ALWAYS logical.** The 1,260 sealed meso cells are L1′ + L2 composed
+  (756 + 504), carried in `cut_id` (`L1-treatment-function-coherence` / `L2-summon-implies-proxy`).
+  RED-3′ seals exact-grain ground that does not surface at meso grain (the emitted `red3_note`
+  states this; depth badges already net out RED-3′ within-cell) — a sealed cell whose `cut_id` is
+  outside the {L1-, L2-} set is an unknown-enum-class error → renderer REFUSES loud (R4).
+  Drill-in/tooltip copy naming seal causes cites `cut_id` verbatim.
+- **(d) Depth is emitted, never derived.** `depth` per cell (delivery∈{MELEE, PROJECTILE} →
   55,755; all others → 74,340; Σ over 10,080 = 693,146,160 exactly). The Σ-check is an EMITTER
   test; the renderer renders the field (§4c no-hand-derived-numbers law).
 
 ### 9.2 Render semantics — figure-ground, not data
 
-1. **Layer order (bottom → top):** sealed glyphs → unlit ghost marks → density field → points →
-   tombstones → badges/chrome. The ghost field is GROUND beneath everything that already exists.
+1. **Layer order (bottom → top):** unlit ghost marks → density field → points → tombstones →
+   badges/chrome. The ghost field is GROUND beneath everything that already exists. **Sealed
+   cells render OFF-plane** (see 4) — the plane shows only ground that can exist.
 2. **Glyphs, never regions.** Ghost cells render as small per-cell glyphs at their projected
    coordinates — **no Voronoi fills, no area hatching, no painted boundaries.** The 2-D view is a
    lossy shadow of the 14-D basis (RIDER-1's `structure_statement`: continuum, not discrete
@@ -286,9 +301,12 @@ Laws:
 3. **Unlit-feasible** = the dark of the map: faint near-ground marks (skin-tuned), visually
    subordinate to points and density. The chart's story is the point: *settled territory is a lit
    archipelago in a vast feasible dark.*
-4. **Sealed** = a distinct struck/hatched GLYPH (not-ground; visually "cannot sail there"),
-   clearly separable from unlit-feasible at a glance on both skins.
-5. **Depth badges** render `depth_exact` in the skin's compact-number style (order-of-magnitude
+4. **Sealed = a margin/legend LEDGER, never on-plane marks.** The emitted sealed cells carry no
+   coordinates (correct: a position claim for un-designable ground is one no kit will ever
+   measure to validate — the F-1 over-claim discipline). Render as a chrome register: *"1,260
+   meso cells sealed — L1′ treatment–function coherence 756 · L2 summon⇒proxy 504"*, cut ids
+   verbatim from `cut_id`; drill-in may list tuples. The plane itself shows only feasible ground.
+5. **Depth badges** render `depth` in the skin's compact-number style (order-of-magnitude
    acceptable on `instrument`; exact on drill-in).
 6. **Coverage callout** renders from emitted fields only: *469 active ≈ 6.8×10⁻⁵ % of 693,146,160
    feasible exact-grain kits.* R2-extension greps: the superseded denominator string
@@ -302,10 +320,12 @@ Laws:
 
 9. **Frozen-layer regression:** ghost-ON render vs the r2 baseline artifact — basis block + all
    point coordinates byte-identical; the ONLY permitted diffs in pre-existing layers are (i) the
-   12 tombstone death_class label strings and (ii) coverage-callout numerals re-sourced from the
-   new denominator field. Everything else new must be strictly additive (the ghost layer).
-10. **Seal-cause conformance:** doctored meso cell with `seal_cause: "red-law"` → loud non-zero
-    exit, no SVG.
+   12 tombstone death_class label strings, (ii) coverage-callout numerals re-sourced from the
+   new denominator field, and (iii) the footer version stamp (`emitted_at` is provenance and is
+   necessarily fresh on re-emission). Everything else new must be strictly additive (the ghost
+   layer).
+10. **Seal-cause conformance:** doctored sealed cell with `cut_id` outside the {L1-, L2-} set
+    (e.g. a red-law id) → loud non-zero exit, no SVG.
 11. **Grep set extended:** no "422,445,240"; explainer-trio strings present verbatim; RIDER-1
     fields rendered on both skins.
 12. **Skin invariance extended:** both skins emit identical ghost-cell coordinate + status sets.
