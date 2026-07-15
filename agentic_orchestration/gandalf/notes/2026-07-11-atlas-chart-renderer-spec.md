@@ -334,9 +334,58 @@ Laws:
     fields rendered on both skins.
 12. **Skin invariance extended:** both skins emit identical ghost-cell coordinate + status sets.
 
+### 9.4 r4 amendment (2026-07-15): ghost horizon + headline coverage pair
+
+> Fired by Matt's ratification ("I agree with all four," 2026-07-15) of gandalf's INTERIOR-1
+> memo review (review-of-record:
+> `agentic_orchestration/gandalf/design-inputs/2026-07-15-interior1-memo-review.md`; memo:
+> `claude-mobile-session-docs/potential-kit-views/rdr-atlas-ghost-projection-interior-1.md`).
+> INTERIOR-1 §3 itself is REJECTED as specced (see review) — this amendment implements the
+> memo's §4 (horizon) and §6 (headline statistics) only. Strictly additive chrome; every
+> frozen layer (points, tombstones, ghost glyph positions, explainer trio, RIDER-1) unmoved.
+
+1. **GHOST HORIZON (disclosure law — sibling of r3.2).** Render the reach boundary of the
+   ghost lattice: the convex hull of ALL 10,080 projected ghost positions (including the 21
+   out-of-frame cells — the hull is of the lattice's reach, then clipped to the plane frame
+   like any geometry). Faint dashed envelope, both skins, visually sub-ghost (chrome, not
+   data). Mandatory label, exact string: *"ghost coverage limit — dark beyond this line is
+   unmapped at meso grain, not absent."* Label placement adjacent to the EAST gap (the
+   load-bearing direction: settled kits reach x=1.628, ghost reach ends at x=1.258 — 6 settled
+   kits stand beyond the horizon; west/south/north the ghosts overshoot the settled envelope
+   56/12/12 cells). The hull vertex set is COMPUTED FROM THE RENDER PASS, never hard-coded —
+   it follows any future atlas.json change. Rationale: the instrument's core-subspace
+   confinement (7-coordinate ghosts cannot access non-core pulls — `geometry=cone` +1.98,
+   `commit=channel` +1.88 are masked) must be a disclosed instrument property, not a silent
+   one. Same law as RIDER-1 / F-1 / r3.2: never let the reader mistake the instrument's reach
+   for the world's edge.
+2. **HEADLINE COVERAGE PAIR.** The coverage callout is re-led with the meso-grain pair, both
+   computed at render from emitted fields: *"192 / 10,080 ≈ 1.9% of feasible meso ground ever
+   lit"* + *"469 kits over 192 lit cells ≈ 2.4 kits per lit cell — the genre didn't explore;
+   it remade."* The exact-grain line (469 ≈ 6.8×10⁻⁵ % of 693,146,160) DEMOTES to a secondary
+   flavor line — retained (emitted, honest), no longer the lead (exact-grain denominators read
+   as combinatorial inflation under scrutiny). Anti-"422,445,240" grep carries forward.
+3. **Acceptance extensions (adds to §7/§9.3):**
+   13. **r4-horizon** — dashed envelope + exact label string present both skins; hull
+       vertices recomputed from the loaded ghost field (doctored-input test: removing an
+       extreme cell changes the hull → asserts computed-not-constant).
+   14. **r4-headline-pair** — both lead statistics present both skins with ratios matching
+       independent recomputation from emitted fields (192/10080, 469/192); the 693M line
+       present only in secondary position.
+   15. **Frozen-layer regression extends:** vs the r3.2 baseline, the ONLY diffs are the
+       horizon chrome + the re-led coverage callout. Points, ghost glyphs, tombstones,
+       ledgers, explainer trio: byte-frozen.
+4. **INTERIOR-1 disposition (logged for Edition-III):** placement stays passive-missing
+   renormalized core-consensus (current emitter behavior — verified honest: the dark field
+   overshoots the settled envelope on three of four compass extremes). Interior-aware
+   placement is RE-OPENABLE only if the law ledger accumulates dense core×non-core couplings
+   (drill-in verdicts, geometry-grain RED laws); until then interior sampling has no mechanism
+   (renormalization inverts the memo's premise) and no fuel (the ratified ledger's only
+   masked-coordinate law, RED-3′, binds geometry×commit — masked×masked).
+
 ---
 
 **Signed:** gandalf, 2026-07-11 — SPEC-AUTHOR. Anchors: `projection-atlas.md` §0/§3/§4/§5 ·
 `substrate-coordinates.md` §0/§2/§7 · axes-lock (W-C.5) · Q-E4-4b · Matt GO + lock-criteria
 messages 2026-07-11. **r3:** Q30 ruling 2026-07-15 · atlas-derivation-charter §2/§4 ·
-feasibility-register audit §3.
+feasibility-register audit §3. **r4:** Matt ratification of INTERIOR-1 review items 1–4,
+2026-07-15 · review-of-record in design-inputs.

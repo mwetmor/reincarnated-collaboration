@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 840" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <polygon id="hex" points="40,0 20,34.6 -20,34.6 -40,0 -20,-34.6 20,-34.6"/>
+    <filter id="gl2" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="seal" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="7" height="7" fill="#160B0B"/><line x1="0" y1="0" x2="0" y2="7" stroke="#C81E1E" stroke-width="2"/>
+    </pattern>
+  </defs>
+
+  <rect width="1160" height="840" fill="#0B0D10"/>
+  <text x="56" y="48" fill="#9AA3AD" font-size="12" letter-spacing="6">REAP. DIE. RISE. — THE GOD'S ARCHIVE</text>
+  <text x="56" y="80" fill="#FFFFFF" font-size="25" font-weight="bold">THE ATLAS — BEHAVIOR SPACE, EDITION I</text>
+  <text x="56" y="101" fill="#6B7480" font-size="11">axes = derived KPI composites, frame FROZEN on anchor calibration · hex fill = occupancy · glyphs = design-lattice family (labels, never axes)</text>
+
+  <!-- ================= HEX FIELD ================= -->
+  <!-- centers: x=150+60c ; y=205+69.3r (+34.65 if c odd) -->
+
+  <!-- REALM TINTS (occupied hexes, subtle) -->
+  <!-- Channel Marches (left): around Dg (1,1) and Ww (2,3) -->
+  <use href="#hex" x="150" y="274" fill="#0D171C" stroke="#1E2630"/>
+  <use href="#hex" x="210" y="309" fill="#0D171C" stroke="#1E2630"/>
+  <use href="#hex" x="150" y="343" fill="#0D171C" stroke="#1E2630"/>
+  <use href="#hex" x="270" y="343" fill="#0D171C" stroke="#1E2630"/>
+  <use href="#hex" x="210" y="378" fill="#0D171C" stroke="#1E2630"/>
+  <use href="#hex" x="270" y="412" fill="#0D171C" stroke="#1E2630"/>
+  <!-- Vortex realm (center): around Bv (5,1) -->
+  <use href="#hex" x="390" y="240" fill="#0E1A20" stroke="#1E2630"/>
+  <use href="#hex" x="450" y="274" fill="#0E1A20" stroke="#1E2630"/>
+  <use href="#hex" x="510" y="240" fill="#0E1A20" stroke="#1E2630"/>
+  <use href="#hex" x="450" y="343" fill="#0E1A20" stroke="#1E2630"/>
+  <use href="#hex" x="510" y="309" fill="#0E1A20" stroke="#1E2630"/>
+  <!-- Burst Reaches (right-high): around Mo (8,1) / Fo (10,1) -->
+  <use href="#hex" x="630" y="240" fill="#14120A" stroke="#2A2416"/>
+  <use href="#hex" x="690" y="274" fill="#14120A" stroke="#2A2416"/>
+  <use href="#hex" x="750" y="240" fill="#14120A" stroke="#2A2416"/>
+  <use href="#hex" x="690" y="343" fill="#14120A" stroke="#2A2416"/>
+  <use href="#hex" x="810" y="274" fill="#14120A" stroke="#2A2416"/>
+  <!-- Sword corner (right-low): around Sw (10,4) -->
+  <use href="#hex" x="750" y="447" fill="#12100C" stroke="#242018"/>
+  <use href="#hex" x="810" y="482" fill="#12100C" stroke="#242018"/>
+
+  <!-- FRONTIER hexes (empty, dim, coordinate codes) -->
+  <use href="#hex" x="330" y="205" fill="#0C1013" stroke="#161D25" stroke-dasharray="4 4"/>
+  <use href="#hex" x="330" y="412" fill="#0C1013" stroke="#161D25" stroke-dasharray="4 4"/>
+  <use href="#hex" x="570" y="412" fill="#0C1013" stroke="#161D25" stroke-dasharray="4 4"/>
+  <use href="#hex" x="630" y="447" fill="#0C1013" stroke="#161D25" stroke-dasharray="4 4"/>
+  <use href="#hex" x="870" y="378" fill="#0C1013" stroke="#161D25" stroke-dasharray="4 4"/>
+  <use href="#hex" x="450" y="482" fill="#0C1013" stroke="#161D25" stroke-dasharray="4 4"/>
+
+  <!-- SEALED cursed ground (top-right) -->
+  <use href="#hex" x="870" y="205" fill="url(#seal)" stroke="#C81E1E" stroke-width="1.6"/>
+  <use href="#hex" x="930" y="240" fill="url(#seal)" stroke="#C81E1E" stroke-width="1.6"/>
+
+  <!-- PROMISING hex -->
+  <use href="#hex" x="570" y="343" fill="#0E1A20" stroke="#22EEFF" stroke-width="1.6" stroke-dasharray="6 5"/>
+
+  <!-- ANCHOR capitals -->
+  <use href="#hex" x="210" y="240" fill="#0E1A20" stroke="#E8B14A" stroke-width="2.6"/>   <!-- Dg (1,1)-->
+  <use href="#hex" x="270" y="274" fill="#0F1B21" stroke="#E8B14A" stroke-width="1.2"/>   <!-- neighbor occupied -->
+  <use href="#hex" x="270" y="481" fill="#0E1A20" stroke="#E8B14A" stroke-width="2.6"/>   <!-- Ww (2,3)... y=205+3*69.3=412.9? use 412 -->
+  <use href="#hex" x="450" y="205" fill="#0E1A20" stroke="#E8B14A" stroke-width="2.6"/>   <!-- Bv (5,0-ish) -->
+  <use href="#hex" x="750" y="309" fill="#0E1A20" stroke="#E8B14A" stroke-width="2.6"/>   <!-- Mo -->
+  <use href="#hex" x="870" y="309" fill="#0E1A20" stroke="#E8B14A" stroke-width="2.6"/>   <!-- Fo (moved for balance) -->
+  <use href="#hex" x="810" y="412" fill="#0E1A20" stroke="#E8B14A" stroke-width="2.6"/>   <!-- Sw -->
+
+  <!-- SURVIVOR in the marches -->
+  <use href="#hex" x="630" y="378" fill="#0E1A20" stroke="#22EEFF" stroke-width="2.6" filter="url(#gl2)"/>
+
+  <!-- ============ LABELS ============ -->
+  <g text-anchor="middle">
+    <text x="210" y="236" fill="#E8B14A" font-size="17" font-weight="bold">Dg ━</text>
+    <text x="210" y="252" fill="#9AA3AD" font-size="8">DISINTEGRATE</text>
+
+    <text x="270" y="477" fill="#E8B14A" font-size="17" font-weight="bold">Ww ✕</text>
+    <text x="270" y="493" fill="#9AA3AD" font-size="8">WHIRLWIND ·2 anchors</text>
+
+    <text x="450" y="201" fill="#E8B14A" font-size="17" font-weight="bold">Bv ◎</text>
+    <text x="450" y="217" fill="#9AA3AD" font-size="8">BLADE VORTEX</text>
+
+    <text x="750" y="305" fill="#E8B14A" font-size="17" font-weight="bold">Mo ➤</text>
+    <text x="750" y="321" fill="#9AA3AD" font-size="8">METEORB</text>
+
+    <text x="870" y="305" fill="#E8B14A" font-size="17" font-weight="bold">Fo ➤</text>
+    <text x="870" y="321" fill="#9AA3AD" font-size="8">FROZEN ORB</text>
+
+    <text x="810" y="408" fill="#E8B14A" font-size="17" font-weight="bold">Sw ✕</text>
+    <text x="810" y="424" fill="#9AA3AD" font-size="8">SPELLSWORD</text>
+
+    <text x="630" y="374" fill="#22EEFF" font-size="16" font-weight="bold">Gw ✳</text>
+    <text x="630" y="390" fill="#8FF7FF" font-size="8">★ GRAVEWALTZ · S2</text>
+
+    <text x="570" y="339" fill="#22EEFF" font-size="10">PROMISING</text>
+    <text x="570" y="352" fill="#7FD8E0" font-size="7">➤+◎ convergent</text>
+
+    <text x="330" y="209" fill="#3A434D" font-size="10">T2·F4</text>
+    <text x="330" y="416" fill="#3A434D" font-size="10">T1·F2</text>
+    <text x="870" y="382" fill="#3A434D" font-size="10">T4·F2</text>
+
+    <text x="900" y="196" fill="#FF6B5A" font-size="9">🔒 RECURSION RIDGE</text>
+  </g>
+
+  <!-- Realm names -->
+  <g fill="#4A5560" font-size="10" letter-spacing="3" text-anchor="middle" opacity="0.9">
+    <text x="215" y="150" >THE CHANNEL MARCHES</text>
+    <text x="465" y="150">REALM OF THE VORTEX</text>
+    <text x="760" y="150">THE BURST REACHES</text>
+  </g>
+
+  <!-- ============ AXES ============ -->
+  <line x1="110" y1="560" x2="990" y2="560" stroke="#2A323B" stroke-width="2"/>
+  <polygon points="990,560 978,554 978,566" fill="#2A323B"/>
+  <text x="120" y="582" fill="#9AA3AD" font-size="11">TEMPO — committed / channel</text>
+  <text x="988" y="582" fill="#9AA3AD" font-size="11" text-anchor="end">instant / burst</text>
+  <text x="550" y="600" fill="#6B7480" font-size="10" text-anchor="middle">derived composite: timing-class exposure × uptime shape × kill cadence — VALIDATED: retrodicts anchor similarity</text>
+
+  <line x1="110" y1="560" x2="110" y2="150" stroke="#2A323B" stroke-width="2"/>
+  <polygon points="110,150 104,162 116,162" fill="#2A323B"/>
+  <text x="96" y="540" fill="#9AA3AD" font-size="11" transform="rotate(-90 96 540)">FOOTPRINT — single-target</text>
+  <text x="96" y="230" fill="#9AA3AD" font-size="11" transform="rotate(-90 96 230)">battlefield-wide</text>
+
+  <!-- ============ LEGEND + FOOTER ============ -->
+  <rect x="56" y="626" width="1048" height="58" rx="8" fill="#11161C" stroke="#1E2630"/>
+  <g font-size="10" fill="#6B7480">
+    <text x="74" y="648" fill="#9AA3AD" letter-spacing="3">READING THE MAP</text>
+    <text x="74" y="666">⬡ hex = behavior bin (fill intensity = occupancy) · gold border = ANCHOR capital · cyan glow = named SURVIVOR · dashed cyan = promising · dim + code = frontier · red hatch = sealed</text>
+    <text x="74" y="680">realm = anchor's Voronoi territory · discoveries live in the MARCHES between realms · two family glyphs in one hex = convergent evolution (different design coords, same behavior)</text>
+  </g>
+
+  <rect x="56" y="696" width="700" height="60" rx="8" fill="#11161C" stroke="#1E2630"/>
+  <text x="74" y="718" fill="#E8B14A" font-size="10" letter-spacing="3">EDITION RULE</text>
+  <text x="74" y="736" fill="#D5DAE0" font-size="10">Projection frozen on anchor calibration (Edition I). Seasons ADD points; the map never rearranges.</text>
+  <text x="74" y="750" fill="#6B7480" font-size="9">Stage-3 axis genesis → Edition II, restated coverage. Like the table: authority comes from fixed positions.</text>
+
+  <rect x="772" y="696" width="332" height="60" rx="8" fill="#11161C" stroke="#1E2630"/>
+  <text x="790" y="718" fill="#9AA3AD" font-size="10" letter-spacing="3">OPEN QUESTION — PERIODICITY</text>
+  <text x="790" y="736" fill="#D5DAE0" font-size="9">Does behavior RECUR along any 1-D ordering?</text>
+  <text x="790" y="750" fill="#6B7480" font-size="9">If yes → folds are earned, the true TABLE exists. Stage (iii) will answer.</text>
+
+  <text x="56" y="800" fill="#4A5560" font-size="9">Atlas Edition I = f(Codex v0.9, Projection v0.2, Anchor calibration v1) · design lattice: 1,000 rooms · configuration space: 2.57B arrangements · behavior space: what the sim can feel</text>
+</svg>
