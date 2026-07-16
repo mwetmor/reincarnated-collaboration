@@ -1,6 +1,7 @@
 // AtlasLegend — basic legend, moved INSIDE the chart box (spec §4, §6, §9.6 D6-b).
 //
-// Four entries in Matt's vocabulary: Condensations, Live Kits, Graveyard, Ghosts.
+// Four entries in D1-i community vocabulary: Build Families, Live Builds, Graveyard, Ghosts
+// (the display strings live in LEGEND_ENTRIES; LegendClass ids + data keys stay internal).
 // Multi-select. The selected Set drives the page-injected class-highlight CSS
 // (atlasHighlight.buildHighlightCss) that targets the r7 SVG's data-el hooks:
 // a stroke halo <= 0.75px, NO fill change, NO dimming of non-selected marks
@@ -12,36 +13,66 @@
 // overlay INSIDE the chart region.
 //
 // D6-b OCCLUSION LAW v2 (spec §9.6, gandalf verify-gate finding 2026-07-15 — SUPERSEDES
-// the earlier corner-enumeration law). The v1 bottom-LEFT placement passed every enumerated
-// check (title / poles / key / dots) yet OCCLUDED the leading words of the in-artifact
-// footer honesty block (feasible-kit denominators at canvas x=96, lit/unmapped/sealed
-// counts, emission provenance). Corner enumeration protects a LIST when the invariant is a
-// CLASS. The v2 binding set: the overlay may intersect the screen-space bbox of NO
-// in-artifact `<text>` node (±4px pad) and no drill-in dot — one rule over ALL text (title,
-// poles, condensation key, footer honesty block, points-denominator line, GHOST FIELD +
-// graveyard annotations, all current and future). Non-binding for the translucent panel:
-// ghost-lattice speckle + dashed boundary curves (a blurred backdrop over a segment of a
-// long dashed curve leaves it inferable; text under a panel is information DESTROYED).
+// the earlier corner-enumeration law; UNCHANGED by the v3 seat move — only the SEAT moves).
+// The v1 bottom-LEFT placement passed every enumerated check (title / poles / key / dots)
+// yet OCCLUDED the leading words of the in-artifact footer honesty block. Corner enumeration
+// protects a LIST when the invariant is a CLASS. The v2 binding set: the overlay may
+// intersect the screen-space bbox of NO in-artifact `<text>` node (±4px pad) and no drill-in
+// dot — one rule over ALL text (title, poles, BUILD FAMILIES key, footer honesty block,
+// points-denominator line, GHOST FIELD + graveyard annotations, all current and future).
+// Non-binding for the translucent panel: ghost-lattice speckle + dashed boundary curves (a
+// blurred backdrop over a segment of a long dashed curve leaves it inferable; text under a
+// panel is information DESTROYED).
 //
-// PLACEMENT (v2): BOTTOM-RIGHT, right-anchored inside the chart region, with the region's
-// existing inset/margin convention. The one clearance risk is the points-denominator line
-// (an SVG <text> node, right-anchored at canvas x=1504, its tail reaching ≈x=1210 of the
-// 1440 display) — a naive bottom-right panel clips that tail. The panel's LEFT edge must
-// clear it. The clearance is NOT a hardcoded magic pixel offset: the panel is right-anchored
-// with a small right/bottom inset and its width is capped at ~14% of the region (< the
-// points-line's clear zone at the right edge). Because the SVG scales WITH the region, that
-// text position scales too, so a right-anchored ≤14%-width panel with a small inset stays
-// clear under the region's proportional scaling — verified by the d6-verify probe's per-text
-// -node bbox intersection assertion (fail-loud, both viewports, both skins), NOT assumed.
+// PLACEMENT v3 (spec §9.6 D6-b; Matt 2026-07-16 verbatim: "the clickable legend should fit
+// inside the box on the upper-left-hand side, opposite to the 'Condensations' box" [now
+// renamed BUILD FAMILIES]). The seat moves BOTTOM-RIGHT → TOP-LEFT, the MIRROR of the
+// top-right BUILD FAMILIES key. The seat was DERIVED BY PROBE against the post-R8 furniture
+// geometry (drax B-2 top-left inspector, 5 widths × 2 skins), NOT assumed. The top-left
+// interior landscape is stable in FRACTIONS across every width (region-proportional scaling):
+//   - Plate TITLE BAND (title + subtitle + gloss + top ↑LAUNCH pole gloss) bottom ≈ 10.5%
+//     region-height at wide widths, ≈ 11.1% at 375 (proportionally tallest at the narrow
+//     region). The panel TOP must clear it (+4px pad). The title text is LEFT-anchored
+//     (L≈9.5%), so — unlike the right side where the key sits high — a left-seated panel
+//     CANNOT ride to the very top; it seats BELOW the band. This is the "opposite" seat's
+//     real geometry (the key clears its top only because the title is on the left).
+//   - Left-rail ROTATED titles ("you place the weapon…" gloss + "↑ DEPLOY") hug the left
+//     edge but are VERTICALLY CENTERED (T≈40.7%–50.5%) — they do NOT reach the top-left
+//     corner, so they bound the panel only from BELOW (the panel bottom must stay above
+//     40.7%; trivially met by a short panel).
+//   - First INTERIOR data text below the band: †d3-firebomb at L≈47.3%/T≈26.1% (near
+//     center, far right of a narrow left panel) and †poe2-perfect-strike-01 at L≈23.4%/
+//     T≈28.4% (the first LEFT-side interior column). The panel RIGHT edge must clear the
+//     23.4% column; the panel BOTTOM must clear the first interior row in its own x-band.
+// FRACTION-ANCHORED SEAT (load-bearing — the panel AND the plate text both scale with the
+// region, so fractional insets/caps hold at every width):
+//   - LEFT inset `left-2` (8px, the mirror of the old `right-2`). At 1280 (narrowest desktop)
+//     the panel spans L≈0.7%–15.2% — clears the 23.4% interior column with margin.
+//   - DESKTOP TOP `sm:top-[12%]`. Binding case is 1280 (the panel is proportionally TALLEST
+//     there: ≈20% region-height): top 12% + 20% = bottom ≈32% clears the first below-band
+//     interior row in the panel's x-band (†d2-impale-zon ≈32.6%) AND top 12% clears the band
+//     bottom (10.6%) — the lawful desktop window is top ∈ (≈11.1%, ≈12.6%); 12% sits centered
+//     in it. Probe-asserted 0 <text> hits at 2560/1920/1440/1280 × both skins.
+//   - WIDTH CAP `sm:max-w-[14.5%]` (unchanged value; RE-DERIVED denominator). The old 14.5%
+//     was derived against the bottom-right points-denominator tail (retired — that seat is
+//     gone). The NEW binding denominator is the first LEFT-side interior column at L≈23.4%:
+//     a left-anchored panel clears it iff panel-right < 23.4% − pad, i.e. width ≲ 22% region.
+//     14.5% is well under that AND is exactly the fixed content's natural width at 1440
+//     (measured 14.48%, no squeeze) — so 14.5% stays lawful and conservative on the new seat.
 //
 // A translucent plate-toned backdrop; `pointer-events` scoped so chart clicks pass
 // everywhere OUTSIDE the legend's own bounds (the wrapper is pointer-events-none; the panel
 // re-enables them).
 //
-// Mobile (375): same overlay, SAME bottom-right corner, COLLAPSED-by-default (the parent
-// passes `defaultCollapsed`) — a compact toggle chip that expands to the full legend. The
-// v2 law applies at 375 too; the collapsed chip is the smallest footprint, so the corner
-// must be clear of text at the narrow viewport as well (probe asserts it).
+// Mobile (375): same overlay, TOP-LEFT (v3), COLLAPSED-by-default (the parent passes
+// `defaultCollapsed`) — a compact toggle chip that expands to the full legend. The chip's
+// size is UNCHANGED by the seat move (a11y touch-target invariant is never shrunk — only the
+// seat relocates). The 375 chip seat is RE-DERIVED: `top-[15%]` is the ONE lawful top-left
+// chip seat at 375. The % is load-bearing — the band bottom is proportionally TALLEST at 375
+// (11.1%), so the chip must seat LOWER than the desktop 12% to clear it (+4px pad ≈ 1.75% at
+// 375), while its bottom (15% + ≈11% chip height ≈ 26%) still clears the first below-band
+// interior column (†poe2-perfect-strike-01 at T≈28.4%). Probe-asserted 0 <text> hits at 375
+// × both skins. (If no lawful top-left chip seat existed at 375 → HALT-don't-shrink; one does.)
 
 import { useState } from 'react';
 import type { LegendClass } from '../../data/atlasTypes';
@@ -77,32 +108,34 @@ export function AtlasLegend({ selected, onToggle, canvas, defaultCollapsed = fal
     : 'border-black/10 bg-white/90 text-gray-800';
 
   return (
-    // WRAPPER: absolutely positioned in the bottom-RIGHT of the chart REGION (the region is
-    // `relative`), per the D6-b v2 law. pointer-events-none so chart clicks pass THROUGH the
-    // empty wrapper area (§9.6 D6-b) — only the panel/chip below re-enables pointer events on
-    // its own bounds. `justify-end` right-aligns the inner panel/chip so it grows leftward
-    // from the region's right edge.
+    // WRAPPER (v3): absolutely positioned in the TOP-LEFT of the chart REGION (the region is
+    // `relative`), per the D6-b v2 law + Matt's "upper-left, opposite the BUILD FAMILIES key"
+    // order. pointer-events-none so chart clicks pass THROUGH the empty wrapper area (§9.6
+    // D6-b) — only the panel/chip below re-enables pointer events on its own bounds.
+    // `justify-start` left-aligns the inner panel/chip so it grows RIGHTWARD from the region's
+    // left edge (the mirror of the old `justify-end`).
     //
-    // WIDTH CAP — `sm:max-w-[14.5%]` of the REGION, NOT a fixed px, and this is load-bearing:
-    // the points-denominator <text> tail reaches ≈84.1% of region width, so a right-anchored
-    // panel clears it (±4px pad) iff its width ≤ ≈14.9% region. Both the panel's right inset
-    // AND that tail are fixed FRACTIONS of the region, so a fractional cap clears it at EVERY
-    // desktop width — a fixed 240px cap did NOT (it clipped the tail at 1280, where the fixed
-    // panel is a bigger fraction of the narrower region). 14.5% fits the panel's natural
-    // content at 1440 (~14.4%, no squeeze). Probe-asserted 0 text hits at 1440 + 1280.
+    // WIDTH CAP — `sm:max-w-[14.5%]` of the REGION, NOT a fixed px, load-bearing. RE-DERIVED
+    // denominator for the top-left seat (the old bottom-right points-denominator tail is
+    // retired with that seat): the first LEFT-side interior data column sits at L≈23.4% region
+    // (probe, all widths), so a LEFT-anchored panel clears it (±4px pad) iff its width ≲ 22%
+    // region. 14.5% is well under that AND is exactly the fixed content's natural width at 1440
+    // (measured 14.48%, no squeeze). Both the panel's left inset AND that interior column are
+    // fixed FRACTIONS of the region, so a fractional cap holds at EVERY desktop width. Probe-
+    // asserted 0 text hits at 2560/1920/1440/1280.
     //
-    // VERTICAL — desktop `sm:bottom-2` hugs the corner (at ≥640px the footer honesty block
-    // ends far LEFT of the panel; probe confirms 0 hits at 1440). MOBILE `bottom-[23%]` is the
-    // ONE lawful bottom-right seat at 375, and the % is load-bearing: buttons keep a 44px
-    // touch-target floor (globals.css @media max-width:640px — a11y invariant, never shrunk),
-    // but at 375 that 44px chip is TALLER than the ≈35px clear strip below the footer honesty
-    // band, and just above the band the interior is dense with drill-in dot labels. The chip
-    // fits ONLY in a narrow window (chip-bottom ≈396–401 display-px); 23% region-height centers
-    // it there (≈6px margin each side). No shrink, no drop, no scroll. KNOWN EDGE (AGENT_STATE):
-    // the window is narrow because a FIXED 44px chip must fit between two SCALING text bands —
-    // below ≈360px viewport width it can close; 375 (the spec's mobile viewport) is clean. The
-    // sub-360 fix, if ever needed, is a collapse-to-icon (no word), not a nudge. (Eyes-verify.)
-    <div className="pointer-events-none absolute bottom-[23%] right-2 z-10 flex max-w-[45%] justify-end sm:bottom-2 sm:max-w-[14.5%]">
+    // VERTICAL — desktop `sm:top-[12%]` seats the panel just below the plate title band (band
+    // bottom ≈10.6% at wide widths). Binding case 1280: the panel is proportionally TALLEST
+    // there (≈20% region-height), so top 12% + 20% = bottom ≈32% must clear the first below-
+    // band interior row in the panel's x-band (†d2-impale-zon ≈32.6%) — the lawful desktop
+    // window is top ∈ (≈11.1%, ≈12.6%); 12% centers it. MOBILE `top-[15%]` is the ONE lawful
+    // top-left chip seat at 375: the title band is proportionally TALLEST there (11.1%), so the
+    // chip must seat LOWER than the desktop 12% to clear it (+4px pad ≈1.75% at 375), while its
+    // bottom (15% + ≈11% chip ≈26%) still clears the first below-band interior column
+    // (†poe2-perfect-strike-01 at T≈28.4%). Chip SIZE unchanged from the bottom-right seat
+    // (a11y touch-target invariant never shrunk — only the seat moved). No shrink, no drop,
+    // no scroll; probe-asserted 0 text hits at 375 × both skins. (Eyes-verify.)
+    <div className="pointer-events-none absolute top-[15%] left-2 z-10 flex max-w-[45%] justify-start sm:top-[12%] sm:max-w-[14.5%]">
       {expanded ? (
         <div
           className={[

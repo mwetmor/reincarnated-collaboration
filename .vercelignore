@@ -48,12 +48,21 @@
 #   (2) the 7.5MB curated Edition-III emission — BUILD INPUT ONLY (never client-shipped) that
 #       scripts/atlas/build-atlas-interactive.mjs reads to derive the ~2MB slim JSON.
 # Un-ignore ONLY the exact files the build reads (the check-crops/*.png eyes-refs stay ignored).
+#
+# B-2 RE-VENDOR (drax, 2026-07-16; brief 2026-07-16-drax-b2-legend-topleft-revendor-brief.md):
+# stage-assets.mjs now byte-copies the R8 furniture-rescale plates from the r8-furniture capture
+# folder (galadriel B-1: 803cef1f + r8_fix 944afa98). The un-ignore paths MOVE to that folder so
+# the deploy context carries exactly what the build READS (the D7 lesson — .vercelignore is inert
+# locally, so a stale un-ignore path would only break in the deploy build). Seam (2)'s fat JSON
+# path (research/curated/…/atlas-edition3.json, below) is UNCHANGED: B-1 froze data geometry, so
+# the slim derivation reads the same emission. Basenames are unchanged (gandalf ruling: R8 keeps
+# atlas-edition3-{instrument,archive}.svg); only the DIR moved.
 !agentic_orchestration/galadriel
 !agentic_orchestration/galadriel/captures
-!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3
-!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3/atlas-edition3-instrument.svg
-!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3/atlas-edition3-archive.svg
-!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3/render-provenance.json
+!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3-r8-furniture
+!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3-r8-furniture/atlas-edition3-instrument.svg
+!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3-r8-furniture/atlas-edition3-archive.svg
+!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3-r8-furniture/render-provenance.json
 !agentic_orchestration/research
 !agentic_orchestration/research/curated
 !agentic_orchestration/research/curated/atlas

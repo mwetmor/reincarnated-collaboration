@@ -14,7 +14,8 @@
 //     provenance skin_canvas_map — NEVER by skin name (the names are inverted:
 //     'archive' = dark, 'instrument' = light; caught + ratified 2026-07-15).
 //   - White ('instrument') sits behind the skin toggle.
-//   - Basic legend INSIDE the box, bottom-right (D6-b v2). Toggling a class halos members.
+//   - Basic legend INSIDE the box, TOP-LEFT (D6-b v2 law, v3 seat — the mirror of the
+//     top-right BUILD FAMILIES key; Matt 2026-07-16). Toggling a class halos members.
 //   - A FILTER BAR + one flat build lattice below the chart (D3-a), wired
 //     bidirectionally to the chart.
 //   - Edition-I stays as an archived second lens (current page structure).
@@ -33,9 +34,10 @@
 // D6 (spec §9.6, Matt 2026-07-15): (a) the artifact FRAME rect joins the write-set
 //   (fit box inset 12u) so the drawn box contains the whole chart — the region's own
 //   border is dropped to transparent to avoid a doubled boundary; (b) the LEGEND moves
-//   INSIDE the box as a bottom-RIGHT overlay (D6-b v2 law: zero intersection with any
-//   in-artifact <text> bbox — the earlier bottom-left placement occluded the footer honesty
-//   block; the D1-a normal-flow band retires); (c) the
+//   INSIDE the box (D6-b v2 law: zero intersection with any in-artifact <text> bbox — the
+//   earlier bottom-left placement occluded the footer honesty block; the D1-a normal-flow
+//   band retires). v3 seat (Matt 2026-07-16): TOP-LEFT, the mirror of the top-right BUILD
+//   FAMILIES key ("opposite the Condensations box"); (c) the
 //   subtitle de-dupes ("Edition-Edition-II" → "Edition-II"); (d) the E2.2-relabeled
 //   artifact ("Build Horizon — Edition II" plate) is re-vendored.
 //
@@ -342,15 +344,17 @@ export function AtlasInstrument() {
             scoped under #svgRootId; the SVG bytes are never mutated at rest. */}
         <style>{highlightCss}</style>
 
-        {/* D6-b (§9.6): the LEGEND lives INSIDE the box now — an absolutely-positioned
-            overlay in the region's bottom-RIGHT (D6-b v2 law: the overlay may intersect the
-            screen-space bbox of NO in-artifact <text> node ±4px; the earlier bottom-left
-            placement occluded the footer honesty block's leading words, so it moved). The
-            right-anchored, ~14%-region-width panel clears the points-denominator text-node
-            tail (probe-asserted). pointer-events are scoped inside the component (wrapper
-            none, panel auto) so chart clicks pass through the empty overlay area. On mobile
-            the legend starts COLLAPSED (a chip, same corner) so it never covers >25% of the
-            region. */}
+        {/* D6-b (§9.6): the LEGEND lives INSIDE the box — an absolutely-positioned overlay in
+            the region's TOP-LEFT (v3 seat, Matt 2026-07-16: "upper-left, opposite the
+            [BUILD FAMILIES] box" — the mirror of the top-right key). D6-b v2 law: the overlay
+            may intersect the screen-space bbox of NO in-artifact <text> node ±4px. The seat is
+            probe-derived against the post-R8 furniture geometry — it seats BELOW the plate
+            title band and clears the first below-band interior data column; the left-anchored
+            ~14.5%-region-width panel clears that column at every width (probe-asserted, 5
+            widths × 2 skins). pointer-events are scoped inside the component (wrapper none,
+            panel auto) so chart clicks pass through the empty overlay area. On mobile the
+            legend starts COLLAPSED (a chip, same top-left corner) so it never covers >25% of
+            the region. */}
         <AtlasLegend
           selected={selectedClasses}
           onToggle={toggleClass}

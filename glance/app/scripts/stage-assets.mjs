@@ -47,7 +47,15 @@ rmSync(OUT_DIR, { recursive: true, force: true });
 //    NEVER hand-edit them and NEVER scrape values out of them — the page reads its numbers
 //    from the slim atlas-interactive.json (built below) + render-provenance.json.
 //    Two verified deterministic skins: instrument (light) + archive (dark, black-copy lead).
-const EDITION3_DIR_REL = 'agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3';
+// B-2 RE-VENDOR (drax, Matt-ruled 2026-07-16; gandalf brief 2026-07-16-drax-b2-legend-topleft-
+// revendor-brief.md): the served plates are now galadriel's B-1 R8 furniture-rescale render
+// (post-D7 fluid-width furniture + CONDENSATIONS→BUILD FAMILIES key rename; commits 803cef1f +
+// r8_fix 944afa98). Data geometry is BYTE-FROZEN vs the r7/Edition-III emission — only chrome/
+// furniture text + the boxes that hug it moved (acc-23/29 fit-freeze checks PASS upstream), so
+// the slim-JSON path (build-atlas-interactive.mjs ← research/curated/…/atlas-edition3.json) is
+// UNCHANGED. The R8 plates KEEP the `atlas-edition3-{instrument,archive}.svg` basenames
+// (gandalf ruling) — only the capture DIR changed.
+const EDITION3_DIR_REL = 'agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3-r8-furniture';
 const E3_INSTRUMENT_REL = `${EDITION3_DIR_REL}/atlas-edition3-instrument.svg`;
 const E3_ARCHIVE_REL = `${EDITION3_DIR_REL}/atlas-edition3-archive.svg`;
 const E3_PROVENANCE_REL = `${EDITION3_DIR_REL}/render-provenance.json`;

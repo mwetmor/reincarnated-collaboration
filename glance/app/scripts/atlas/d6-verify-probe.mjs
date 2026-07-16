@@ -26,7 +26,8 @@
 //      content sits INSIDE the drawn frame at mount + after skin flip; the fail-loud
 //      frame-identification test is in the unit suite (ambiguous fixture RAISES).
 //   67 legend-in-box: the legend node renders INSIDE the chart region (DOM containment);
-//      no normal-flow band between header and region; placement bottom-RIGHT; and — per the
+//      no normal-flow band between header and region; placement TOP-LEFT (v3 seat, Matt
+//      2026-07-16 — the mirror of the top-right BUILD FAMILIES key); and — per the
 //      D6-b OCCLUSION LAW v2 (gandalf verify-gate finding 2026-07-15) — the legend overlay
 //      rect intersects the screen-space bbox of ZERO in-artifact `<text>` node (±4px pad).
 //      This is a CLASS invariant, not a list: title, poles, condensation key, footer honesty
@@ -233,8 +234,11 @@ async function probeViewport(browser, vp, extras) {
       legendCorner = (nearLeft ? 'left' : 'right') + '-' + (nearBottom ? 'bottom' : 'top');
       legendCoveragePct = Math.round((legendRect.width / regionRect.width) * 1000) / 10;
       // Collapsed if the legend text is JUST "Legend" (+ maybe "N on") — no entry labels.
+      // Detection keys on the CURRENT D1-i community labels (Build Families / Live Builds /
+      // Graveyard / Ghosts), NEVER the retired vocabulary ("Live Kits" / "Condensations" are
+      // gone — matching them would silently mis-read an expanded legend as collapsed).
       const txt = (legendEl.textContent || '').replace(/\\s+/g, ' ').trim();
-      legendCollapsed = !/Live Kits|Ghosts|Condensations|Graveyard/i.test(txt);
+      legendCollapsed = !/Build Families|Live Builds|Ghosts|Graveyard/i.test(txt);
     }
 
     // ---- D6-b v2 TEXT-OCCLUSION (acc 67 v2) ----
@@ -284,7 +288,10 @@ async function probeViewport(browser, vp, extras) {
     if (region) {
       let node = region.previousElementSibling;
       while (node) {
-        if (/\\bLegend\\b/.test(node.textContent || '') && /Live Kits|Ghosts|Condensations|Graveyard/i.test(node.textContent||'')) {
+        // Detection keys on the CURRENT D1-i labels (Build Families / Live Builds / …), not the
+        // retired "Live Kits" / "Condensations" — a stale regex would never fire and the band-
+        // retirement guard would pass vacuously.
+        if (/\\bLegend\\b/.test(node.textContent || '') && /Build Families|Live Builds|Ghosts|Graveyard/i.test(node.textContent||'')) {
           bandBeforeRegion = true; break;
         }
         node = node.previousElementSibling;
@@ -357,9 +364,9 @@ async function probeViewport(browser, vp, extras) {
       fs.writeFileSync(fullPath, Buffer.from(full.data, 'base64'));
       result.fullScreenshot = fullPath;
 
-      // Corner crops — bottom-RIGHT is where the legend NOW sits (v2 occlusion eyes-ref);
-      // bottom-left / top-left / top-right kept so the footer honesty block (now UN-occluded,
-      // bottom-left) + title + condensation key are all eyes-checkable.
+      // Corner crops — TOP-LEFT is where the legend NOW sits (v3 seat, occlusion eyes-ref);
+      // top-right / bottom-left / bottom-right kept so the BUILD FAMILIES key (top-right, the
+      // legend's mirror) + the footer honesty block (bottom-left) + points line are eyes-checkable.
       const regionBox = await evalJs(`(() => {
         const region = document.querySelector('[aria-label="Build Horizon — full-horizon chart"]');
         const r = region.getBoundingClientRect();
