@@ -221,6 +221,25 @@ While any zoom/pan state is active, the page sets the `planeClip` rect to the cu
 
 ---
 
+## 9.4 D4 correction pass — chart mounts at the FULL-HORIZON FIT, not S_max (Matt 2026-07-15 seventh message)
+
+**Authority (verbatim):** *"The table is PERFECT! The Atlas chart is completely wrong. Instead of setting the atlas zoom to just barely encompass all of the horizon, it's super-zoomed into a small set of ghost cells."*
+
+**Correction of record (gandalf misread, owned):** D3-b mapped Matt's "max zoom parameter available" to **S_max** (the zoom-IN ceiling). Matt meant the zoom-OUT limit — the view that *just barely encompasses all of the horizon* = the **fit view** (the old S_min bound: `union(canvas ∪ hull-bbox) + FIT_MARGIN`, aspect-pinned). D3-b's fixed-S_max stage + scroll-navigation model is **SUPERSEDED by this section.** **D3-a (filters + flat table) is Matt-RATIFIED ("PERFECT") and MUST NOT be touched** — zero diffs to `AtlasBuildTable.tsx`, the filter model, or the column model.
+
+- **D4-a The chart is a STATIC full-horizon map.** At markup inline (initial mount AND each skin flip), set the SVG `viewBox` **and** the `planeClip` rect **ONCE** to the DERIVED fit box — computed from the mounted artifact bytes via the EXISTING pure derivation (`parseViewBox` + `parseHullBbox` + `unionBbox` + `padBbox(FIT_MARGIN)`, aspect-pinned to native 4:3, centered on the union — exactly the old lens's S_min view). No literals anywhere; a doctored hull in the source shifts the mount box with zero code change. Static thereafter: no zoom, no pan, no scroll interaction of any kind (zoom UI already gone per D3-b — that half of D3-b stands).
+- **D4-b Stage model reverts to page flow.** The bounded-height `overflow-auto` scroll stage is REMOVED — back to `w-full h-auto` block flow (the whole horizon is visible at fluid width; height follows the fit-box aspect). `overscroll-behavior` + stage-scroll styles die. The hull dashes render FULLY VISIBLE, including their beyond-canvas extent (the planeClip mount-write is what reveals plane-layer content outside the emitted clip — same mechanism as the old lens's clip-tracks-view, applied once).
+- **D4-c Verbatim-law amendment.** §9.3's "viewBox + planeClip serve VERBATIM, never mutated" is AMENDED by this ruling: **one mount-time configuration write to the derived fit box is lawful (it IS the ruled view); no interaction-driven mutation after mount.** In-file supersession note citing §9.4 where the old assertion lived (code comment + test).
+- **D4-d Wiring on the map.** Chart→table unchanged (mark click → selection + reveal row, filter-reset-then-scroll law intact). Table→chart: row click halos the mark; if the chart region is scrolled out of the page viewport, `scrollIntoView` the CHART REGION (page-level; there is no stage scroll). Accepted consequence, named: at fit scale the smallest marks render below TARGET_D — the TABLE is the precision selection surface; the chart is the overview map with halo feedback. `useAtlasStage`'s scroll-navigation math (`centerScroll`, scroll-fraction resize logic) retires or repoints accordingly.
+
+### Acceptance additions (D4)
+
+60. **fixed-full-horizon-view:** chart mounts showing the ENTIRE horizon (hull dashes fully visible, incl. beyond-canvas extent); DOM `viewBox` + `planeClip` equal the DERIVED fit box (receipt: box numbers + the implied S_min value + the derivation call path); re-applied on skin flip; no scroll stage, no zoom UI, page flows `w-full h-auto`.
+61. **table-untouched + wiring:** `git diff` shows ZERO changes to `AtlasBuildTable.tsx` / filter model / column model; both wiring directions demonstrated on the fit view (halo lands on the correct mark; filter-reset drill intact; table→chart brings the chart region into viewport when scrolled away).
+62. **supersession + no-regression:** byte-verbatim assertions repointed to "mount-config box, static after mount" with §9.4 notes; retired/repointed tests listed; full suite green; budgets hold (page-interactive, long-tasks; no scroll-fps claim needed — nothing scrolls).
+
+---
+
 ## Cross-references
 
 `2026-07-11-atlas-chart-renderer-spec.md` §§7–10 (render law; r7 amends presentation) · `atlas-edition2.json` ghost_field (core_order, drill_in, denominators) · tracker SESSION-DELTA -l (Edition-II audit) · Matt directive message 2026-07-15 (this package's authority).
