@@ -2251,4 +2251,100 @@ ahead of the ruling.
   read.
 - Auto-committed per project discipline (Matt-authorized charge work). Push deferred to KR's gate.
 
+> **RESOLUTION (2026-07-16):** gandalf ruled at the verify gate (brief "RULING" section, commit 0bc3b9da) — item
+> A is AMENDED to **A′**: in-plane orthogonal Procrustes alignment (rotation+reflection, NO scaling, NO
+> translation), applied atomically to every plane coordinate, stamped `plane_alignment`. Path 1 of the two above
+> (permit orthogonal alignment) was chosen but as a *disclosed presentation transform*, not a fit distortion —
+> distances/spreads/congruence/gates/plane-inertia are Q-invariant; only the arbitrary MCA/SVD orientation
+> convention rotates, and it is headlined. This HALT record stands as lineage. See the next entry for the A′
+> resolution + items B/C/D completion.
+
+---
+
+## 2026-07-16 — Refit-Candidate-1 R3-ADDENDUM RESOLVED: item A′ plane_alignment + drill-in + P-DF-1 + §10 census (elrond)
+
+**Charge:** `agentic_orchestration/gandalf/briefs/2026-07-16-elrond-refit-addendum-completion-brief.md` (AMENDED — the
+"RULING at the verify gate" section is the operative law; item A → A′). **Authority:** gandalf verify-gate ruling
+(commit 0bc3b9da), following elrond's correct item-A HALT (commit 90f839de). **No engine-telemetry change; no
+served-artifact write.** Only refit-candidate artifacts + fork scripts touched.
+
+### Item A′ — in-plane orthogonal Procrustes plane_alignment (replaces the reflection-only axis_sign_alignment)
+- **Q** = optimal orthogonal 2×2 map minimizing ‖E1 − refit·Q‖² over the 469 shared actives, computed from the
+  CENTERED clouds (orientation-only, translation-free — corr is translation-invariant, so centering isolates the
+  pure orientation map; both fits are barycenter-origin per the ruling). **Q = [[−0.459389, −0.888235],
+  [−0.888235, 0.459389]]**, **det = −1.0** (reflection component), **rotation_deg = −117.3477**.
+- **Diagonal-dominance flip (the ruling's assert + HALT gate):** RAW same-index corr matrix is ANTI-diagonal
+  dominant (sum|diag| 0.4723 < sum|anti| 0.7148; largest entry off-diagonal |E1_d1×refit_d2| = 0.6697). POST-Q it
+  is DIAGONAL-dominant (sum|diag| 0.9055 > sum|anti| 0.8015; largest entry 0.6364 on the diagonal). Test =
+  {sum|diag| > sum|anti|} AND {max-|entry| on-diagonal}. Asserted in the emitter (fail-loud HALT) + the comparison
+  script. **Disclosed structural finding:** aligned dim2 tracks E1_dim2 only weakly (0.2692, below its off-diagonal
+  0.4003) — the refit's 2nd axis does not survive the ~117° rotation cleanly; reported, not smoothed.
+- **Atomic application (one Q, everywhere):** applied to all 665 point coords, every ghost feasible-cell coord, the
+  pull/MELEE honest-coord tables, the drill-in (hull + glyph field + S_argmax), P-DF-1 (û = û_raw·Q as a direction;
+  S_argmax), and the emitted plane CSVs. S_max/K_max/verdict are Q-INVARIANT (projections onto correspondingly-
+  rotated directions); only the emitted coordinate presentation rotates. The `plane_alignment` stamp carries Q,
+  det, rotation_deg, raw_corr_before, corr_after, both diagonal-dominance flags, rationale, invariance_note.
+- **Single source of Q:** `scripts/axis_sign_alignment_refit_candidate_1_2026_07_16.py` (rewritten item A → A′;
+  exposes `compute_Q()`); the emitter + comparison script + ghost module all import the identical Q. Deterministic.
+
+### Item B — EAST-half drill-in fork (refit fit/vocab; ALIGNED coords), region pin VERBATIM
+- Region pin verbatim: **"EAST-half (projected x≥0; PERFORM side)"** — applied to the ALIGNED x (meaningful only
+  post-alignment). Promoted pair geometry×commit VERBATIM; RED-3 seal law identical (dash_attack × commit≠instant).
+- **Vocabulary delta (auto-follows the refit fit):** `promoted_geometry_levels` gains **`aura`** — **13 levels**
+  (refit) vs **12** (Edition-III); `aura` un-fuses at 628 (n=8 → earns a fit column). `promoted_commit_levels`
+  unchanged (channel, instant, wind-up). n_east_parent_cells = 3312 (aligned EAST side; differs from E3's 5068 —
+  the EAST/PERFORM half is defined by the ROTATED x). n_sub_feasible = 122,544; n_sub_sealed = 6624 (= 3312 × 2,
+  dash_attack × {channel, wind-up}, all RED-3-). Emitted `ghost_field.drill_in` with the EXACT Edition-III key set
+  (17 keys; verified equal, zero missing/extra).
+
+### Item C — P-DF-1 re-score (verbatim û against refit loadings; aligned frame)
+- û = normalize(mean(c_whirlwind, c_channel)) VERBATIM — both columns present in the refit fit (verified; no
+  vocab HALT). **verdict PASS**: S_max = 1.90823161 > K_max_beyond_horizon = 1.15472813; û (aligned) =
+  [0.84378, −0.53669]; n_beyond_horizon_kits = 13. S_argmax lies inside the drill-in reach hull (internal
+  consistency: points/loadings/cells/hull all carry the same Q). Emitted `ghost_field.p_df_1` with the EXACT
+  Edition-III key set (10 keys; verified equal).
+
+### Item D — §10 beyond-horizon census (appended to refit-candidate-1-comparison-report.md; ALIGNED; ALL 628)
+- Hulls computed-not-constant (aligned): meso-only hull 21 vertices; charted hull (meso feasible ∪ drill-in
+  sub-feasible reach) 25 vertices. Method reproduces Edition-III's baselines exactly (E3 meso-hull-beyond=14,
+  charted-beyond=0 confirmed on the served artifact).
+- **N beyond meso-only hull = 13** (Edition-era baseline 14 — that baseline is over E3's 469 in the E3 frame; this
+  is all 628 in the aligned refit frame). **N beyond charted hull = 0** (Edition-III baseline 0). Full 13-kit
+  beyond-meso list (positions + overshoot + octant + bearing + gateA + franchise) + per-quadrant (EAST-N 9, EAST-S
+  4) + per-octant (NE 9, SE 4) breakdown in the report.
+- **Coverage verdict:** P-DF-1 PASS is the evidence; ALL 13 beyond-meso overshoot kits are EAST-side (pinned);
+  WEST-side overshoot = 0; charted hull contains every active. **Uncovered overshoot directions: NONE** — the
+  EAST-half drill-in covers the overshoot; no drill-in-expansion direction is forced by the census (gandalf's call).
+
+### Comparison report re-run (ruling: printed coords must match the aligned artifact)
+- §2 rewritten: explicit Q + rotation_deg + det + RAW and POST corr matrices + before/after diagonal-dominance
+  (replacing the old scipy-procrustes-with-scaling §2). §§1/4/5/8/9 now print ALIGNED coords. **Report-vs-artifact
+  coord max L1 mismatch = 1.13e-07** (same Q, one frame — cross-checked in-script). §1 Procrustes congruence
+  (0.4677) / RMS displacement (19.94% diam) are reflection/rotation-invariant — unchanged; gates unchanged (fit-
+  structure quantities, not re-run).
+
+### Artifacts (this entry)
+- **Scripts (modified):** `scripts/axis_sign_alignment_refit_candidate_1_2026_07_16.py` (A → A′; single source of
+  Q), `scripts/ghost_field_refit_candidate_1.py` (+drill_in +p_df_1 +Q-application +plane_alignment stamp),
+  `scripts/build_atlas_refit_candidate_1_json.py` (+Q on points, +top-level headline, +aligned CSVs),
+  `scripts/refit_candidate_1_comparison_2026_07_16.py` (+§2 rewrite, +§10 census, aligned coords).
+- **Artifacts (re-emitted):** `atlas/atlas-refit-candidate-1.json` (now carries drill_in + p_df_1 + plane_alignment;
+  all coords aligned; 7.14 MB), `atlas/refit-candidate-1-coordinates.csv` (aligned x,y),
+  `atlas/refit-candidate-1-comparison-report.md` (§2 rewrite + §10 census).
+- **Artifacts (new):** `atlas/refit-candidate-1-coordinates-active-aligned.csv` (628),
+  `atlas/refit-candidate-1-coordinates-supplementary-aligned.csv` (37). The RAW `refit-candidate-1-coordinates-
+  active/-supplementary.csv` (dim1..dim17) stay RAW as the reproducible fit record (Q is a plane-only presentation
+  transform; rotating dim1/dim2 in place would corrupt higher-dim relations + Q-reproducibility).
+
+### Iron-law + HALT compliance
+- **Edition III + every served artifact READ-ONLY:** verified byte-untouched (git status shows only refit artifacts;
+  served mtimes unchanged; emitter fail-loud guard on served paths intact). No "Edition IV"/"edition4" anywhere.
+- **Lattice byte-identical (v1.3):** feasible 11,160 / sealed 1,314 / depth_sum 767,411,820 asserted (no drift).
+- **HALT conditions (none tripped):** û construction ran verbatim; no served write; no lattice drift; post-alignment
+  corr IS diagonal-dominant (asserted).
+- **ADR-004:** no engine-telemetry change; star-lord-side MIGRATION.md unaffected. **Reversibility:** the refit
+  artifacts regenerate deterministically from the fork scripts (SEED 20260714; Q from the two raw CSVs); RAW
+  derivation CSVs preserved. Auto-committed per project discipline (Matt-authorized charge). **Push deferred to
+  gandalf's gate.**
+
 ---

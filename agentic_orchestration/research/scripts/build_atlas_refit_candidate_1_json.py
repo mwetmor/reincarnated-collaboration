@@ -39,6 +39,9 @@ from datetime import datetime, timezone
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, SCRIPT_DIR)
 import ghost_field_refit_candidate_1 as ghost_field_mod
+import axis_sign_alignment_refit_candidate_1_2026_07_16 as align_mod  # single source of plane_alignment Q
+
+import numpy as _np
 
 CORPUS_DB = "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/corpus.db"
 ATLAS_DIR = os.path.normpath(os.path.join(SCRIPT_DIR, "..", "curated", "atlas"))
@@ -50,7 +53,13 @@ LOADINGS_CSV = os.path.join(ATLAS_DIR, "refit-candidate-1-loadings.csv")
 BASIS_JSON = os.path.join(ATLAS_DIR, "refit-candidate-1-basis-draft.json")
 
 OUTPUT_JSON = os.path.join(ATLAS_DIR, "atlas-refit-candidate-1.json")
-COORD_CSV = os.path.join(ATLAS_DIR, "refit-candidate-1-coordinates.csv")   # slim kit_id,x,y,... for diffing
+COORD_CSV = os.path.join(ATLAS_DIR, "refit-candidate-1-coordinates.csv")   # slim kit_id,x,y,... — ALIGNED plane, for diffing
+# aligned plane-coordinate CSVs (the ruling: every plane CSV carries Q). The RAW dim1..dimN derivation
+# CSVs (refit-candidate-1-coordinates-active/-supplementary.csv) stay RAW as the reproducible fit record
+# (Q is a plane-only presentation transform; rotating dim1/dim2 in place would corrupt the higher dims'
+# relation to the plane and destroy Q-reproducibility). These carry the aligned (x,y) explicitly.
+ALIGNED_ACTIVE_CSV = os.path.join(ATLAS_DIR, "refit-candidate-1-coordinates-active-aligned.csv")
+ALIGNED_SUPP_CSV = os.path.join(ATLAS_DIR, "refit-candidate-1-coordinates-supplementary-aligned.csv")
 
 # ---- served artifacts that MUST NOT be overwritten (iron law: read-only) ----
 SERVED_READ_ONLY = {
@@ -150,9 +159,23 @@ def _read_loadings(path):
     return loadings
 
 
+def _apply_Q(x, y, Q):
+    v = _np.array([x, y]) @ Q
+    return _fmt(float(v[0])), _fmt(float(v[1]))
+
+
 def build():
-    for p in (OUTPUT_JSON, COORD_CSV):
+    for p in (OUTPUT_JSON, COORD_CSV, ALIGNED_ACTIVE_CSV, ALIGNED_SUPP_CSV):
         _assert_not_served(p)
+
+    # ---- plane_alignment (item A' — gandalf verify-gate ruling): the SINGLE source of Q ----
+    Q, q_diag = align_mod.compute_Q()
+    Q = _np.array(Q)
+    print(f"[refit] plane_alignment Q (det={q_diag['det']}, rot={q_diag['rotation_deg']} deg); "
+          f"raw corr anti-diag-dominant -> post diag-dominant: {q_diag['post_diagonal_dominant']}")
+    if not q_diag["post_diagonal_dominant"]:
+        raise ValueError("HALT: post-alignment corr matrix NOT diagonal-dominant — Q failed to anchor "
+                         "the plane (ruling assert). See axis_sign_alignment_refit_candidate_1.")
 
     with open(BASIS_JSON) as f:
         basis_draft = json.load(f)
@@ -196,22 +219,27 @@ def build():
                      "PERFORM<->DEPLOY / EMBODY<->LAUNCH.")},
     }
 
+    # apply plane_alignment Q to EVERY point coordinate (all 665) — atomic, one transform everywhere.
     all_points = []
     for p in active_points:
-        all_points.append({"kit_id": p["kit_id"], "x": p["x"], "y": p["y"],
+        xa, ya = _apply_Q(p["x"], p["y"], Q)
+        all_points.append({"kit_id": p["kit_id"], "x": xa, "y": ya,
                            "supplementary": False, "gateA_group": p["gateA_group"],
                            "franchise": p["franchise"]})
     for p in supp_points:
-        all_points.append({"kit_id": p["kit_id"], "x": p["x"], "y": p["y"],
+        xa, ya = _apply_Q(p["x"], p["y"], Q)
+        all_points.append({"kit_id": p["kit_id"], "x": xa, "y": ya,
                            "supplementary": True, "death_class": p["death_class"]})
     all_points.sort(key=lambda p: p["kit_id"])
     if len(all_points) != EXPECTED_TOTAL:
         raise ValueError(f"Total points {len(all_points)} != expected {EXPECTED_TOTAL}.")
 
-    # --- ghost field: refit basis, pull + MELEE un-masked, v1.3 lattice byte-identical ---
-    print("[refit] Building refit ghost_field (pull + MELEE un-masked; v1.3 lattice byte-identical)...")
+    # --- ghost field: refit basis, pull + MELEE un-masked, v1.3 lattice byte-identical, ALIGNED (Q) ---
+    # all_points are ALREADY Q-aligned; ghost builder also applies Q internally to its projected cells /
+    # drill-in / hull / p_df_1 -> one Q, everywhere (the ruling's internal-consistency law).
+    print("[refit] Building refit ghost_field (pull + MELEE un-masked; v1.3 byte-identical; aligned Q)...")
     con = sqlite3.connect(CORPUS_DB)
-    ghost = ghost_field_mod.build_ghost_field(con, atlas_points=all_points)
+    ghost = ghost_field_mod.build_ghost_field(con, atlas_points=all_points, Q=Q)
     con.close()
     if ghost["depth_sum_check"] != EXACT_DENOMINATOR:
         raise ValueError(f"depth_sum {ghost['depth_sum_check']} != v1.3 exact {EXACT_DENOMINATOR} "
@@ -236,6 +264,17 @@ def build():
                             "pre-registered methodology, same seed 20260714. Edition III served truth "
                             "is byte-untouched. This is the number surface for Matt's adoption decision "
                             "(Refit Candidate 1 vs Edition III); see refit-candidate-1-comparison-report.md."),
+        "plane_alignment_headline": ("Every plane coordinate in this artifact (points, ghost cells, "
+                                     "drill-in, hull, p_df_1) is Q-ALIGNED to Edition-I orientation: an "
+                                     "in-plane orthogonal Procrustes map (rotation+reflection, NO "
+                                     "scaling, NO translation; det=%s, rotation=%s deg) fit on the 469 "
+                                     "shared actives. The refit plane rotated ~117deg + reflected vs "
+                                     "Edition-I; reflection-only alignment was insufficient (raw dim1 "
+                                     "same-index corr 0.045). Distances/spreads/congruence/gates/"
+                                     "plane-inertia are Q-invariant; only the arbitrary MCA/SVD "
+                                     "orientation convention changes. Full stamp: ghost_field."
+                                     "plane_alignment. Disclosed + headlined per the verify-gate ruling."
+                                     % (q_diag["det"], q_diag["rotation_deg"])),
         "basis": basis,
         "loadings": loadings,
         "counts": {"active": len(active_points), "supplementary": len(supp_points),
@@ -250,7 +289,7 @@ def build():
     sz = os.path.getsize(OUTPUT_JSON)
     print(f"  Done. {len(all_points)} total points; atlas-refit-candidate-1.json = {sz/1e6:.2f} MB")
 
-    # slim coordinates CSV for diffing (kit_id, x, y, game, gateA_group, supplementary)
+    # slim coordinates CSV for diffing (kit_id, x, y, ...) — x,y are ALIGNED (all_points carry Q).
     con = sqlite3.connect(CORPUS_DB)
     kit_game = dict(con.execute(
         "SELECT k.kit_id, c.game FROM canon_engine_key k JOIN canon_corpus c ON c.kit_id=k.kit_id "
@@ -258,11 +297,29 @@ def build():
     con.close()
     with open(COORD_CSV, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["kit_id", "x", "y", "game", "gateA_group", "supplementary"])
+        w.writerow(["kit_id", "x", "y", "game", "gateA_group", "supplementary"])   # x,y = ALIGNED plane
         for p in all_points:
             w.writerow([p["kit_id"], p["x"], p["y"], kit_game.get(p["kit_id"], ""),
                         p.get("gateA_group", "") or "", int(bool(p["supplementary"]))])
-    print(f"  Slim coordinates CSV: {COORD_CSV}")
+    print(f"  Slim coordinates CSV (aligned x,y): {COORD_CSV}")
+
+    # aligned plane-coordinate CSVs (the ruling: every plane CSV carries Q). Explicit x_aligned/y_aligned
+    # alongside the RAW dim1/dim2 (so a reader can see the transform); the RAW derivation CSVs stay raw.
+    aligned_active = [p for p in all_points if not p["supplementary"]]
+    aligned_supp = [p for p in all_points if p["supplementary"]]
+    with open(ALIGNED_ACTIVE_CSV, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["kit_id", "x_aligned", "y_aligned", "gateA_group", "franchise"])
+        for p in aligned_active:
+            w.writerow([p["kit_id"], p["x"], p["y"], p.get("gateA_group", "") or "",
+                        p.get("franchise", "") or ""])
+    with open(ALIGNED_SUPP_CSV, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["kit_id", "x_aligned", "y_aligned", "death_class"])
+        for p in aligned_supp:
+            w.writerow([p["kit_id"], p["x"], p["y"], p.get("death_class", "")])
+    print(f"  Aligned plane CSVs: {ALIGNED_ACTIVE_CSV} ({len(aligned_active)}), "
+          f"{ALIGNED_SUPP_CSV} ({len(aligned_supp)})")
     return atlas
 
 

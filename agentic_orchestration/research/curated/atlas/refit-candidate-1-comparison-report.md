@@ -12,42 +12,57 @@
 - Standardized-frame plane diameter = 0.2047. **RMS displacement = 0.0408 = 19.94% of plane diameter; median = 0.0329 = 16.05%.**
 - **Full retained-space congruence** (first 14 shared dims of E1's 14 vs refit's 17): √(1−M²) = 0.8595 (M²=0.26127).
 
-**Top-20 movers on the plane** (Procrustes-standardized displacement; old/new are raw dim1,dim2):
+**Top-20 movers on the plane** (Procrustes-standardized displacement — frame-invariant; E1 (x,y) is E1's served raw plane, refit (x,y) is the **Q-ALIGNED** plane matching the emitted artifact):
 
-| kit_id | E1 (x,y) | refit (x,y) | disp (std) | % diam | gateA |
+| kit_id | E1 (x,y) | refit aligned (x,y) | disp (std) | % diam | gateA |
 |---|---|---|---|---|---|
-| tq2-whirlwind-rogue | (1.111, -1.490) | (-0.105, -1.164) | 0.1040 | 50.8% | WHIRLWIND |
-| di-whirlwind-barb | (1.058, -1.562) | (0.061, -1.154) | 0.1029 | 50.2% | WHIRLWIND |
-| le-frost-claw | (0.797, 0.635) | (0.217, 0.690) | 0.0975 | 47.6% | — |
-| hot-dragons-breath | (0.867, 0.388) | (0.340, 0.247) | 0.0864 | 42.2% | — |
-| ud-flamethrower-channel | (1.390, -0.321) | (0.104, -0.533) | 0.0852 | 41.6% | CHANNELED-BEAM |
-| ud-whirlwind-str | (1.007, -1.361) | (0.332, -1.113) | 0.0811 | 39.6% | WHIRLWIND |
-| poe1-arc | (0.341, 0.886) | (0.392, -0.126) | 0.0810 | 39.6% | — |
-| poe1-incinerate | (1.389, 0.047) | (-0.178, -0.467) | 0.0802 | 39.2% | CHANNELED-BEAM |
-| ud-cwc-spin-caster | (0.914, -0.954) | (0.343, -0.444) | 0.0797 | 38.9% | WHIRLWIND |
-| hot-exterminator-burn | (0.967, 0.344) | (0.321, -0.156) | 0.0794 | 38.8% | — |
-| le-warpath-vk | (1.023, -1.283) | (0.441, -0.983) | 0.0791 | 38.6% | WHIRLWIND |
-| di-ray-of-frost-wizard | (1.029, -0.531) | (0.217, -0.243) | 0.0786 | 38.4% | CHANNELED-BEAM |
-| d3-call-of-the-ancients | (-1.158, -0.527) | (0.336, 0.294) | 0.0781 | 38.2% | — |
-| d2-bvc | (0.711, -1.211) | (0.156, -0.825) | 0.0778 | 38.0% | WHIRLWIND |
-| poe2-tempest-bell | (-0.599, -0.326) | (-0.509, -0.040) | 0.0774 | 37.8% | — |
-| di-draw-quarter-crusader | (-0.041, -0.742) | (-0.057, 0.429) | 0.0760 | 37.1% | — |
-| tq-shield-charge-conqueror | (-0.041, -0.742) | (-0.057, 0.429) | 0.0760 | 37.1% | — |
-| poe1-edc | (0.296, 0.776) | (0.471, 0.122) | 0.0753 | 36.8% | — |
-| poe1-earthshatter | (-1.105, -0.054) | (-0.130, 0.341) | 0.0752 | 36.7% | — |
-| poe1-freezing-pulse | (0.267, 0.776) | (0.480, 0.019) | 0.0748 | 36.5% | — |
+| tq2-whirlwind-rogue | (1.111, -1.490) | (1.082, -0.442) | 0.1040 | 50.8% | WHIRLWIND |
+| di-whirlwind-barb | (1.058, -1.562) | (0.997, -0.585) | 0.1029 | 50.2% | WHIRLWIND |
+| le-frost-claw | (0.797, 0.635) | (-0.713, 0.124) | 0.0975 | 47.6% | — |
+| hot-dragons-breath | (0.867, 0.388) | (-0.375, -0.188) | 0.0864 | 42.2% | — |
+| ud-flamethrower-channel | (1.390, -0.321) | (0.426, -0.337) | 0.0852 | 41.6% | CHANNELED-BEAM |
+| ud-whirlwind-str | (1.007, -1.361) | (0.836, -0.806) | 0.0811 | 39.6% | WHIRLWIND |
+| poe1-arc | (0.341, 0.886) | (-0.068, -0.406) | 0.0810 | 39.6% | — |
+| poe1-incinerate | (1.389, 0.047) | (0.497, -0.056) | 0.0802 | 39.2% | CHANNELED-BEAM |
+| ud-cwc-spin-caster | (0.914, -0.954) | (0.237, -0.508) | 0.0797 | 38.9% | WHIRLWIND |
+| hot-exterminator-burn | (0.967, 0.344) | (-0.009, -0.357) | 0.0794 | 38.8% | — |
+| le-warpath-vk | (1.023, -1.283) | (0.670, -0.844) | 0.0791 | 38.6% | WHIRLWIND |
+| di-ray-of-frost-wizard | (1.029, -0.531) | (0.116, -0.305) | 0.0786 | 38.4% | CHANNELED-BEAM |
+| d3-call-of-the-ancients | (-1.158, -0.527) | (-0.415, -0.163) | 0.0781 | 38.2% | — |
+| d2-bvc | (0.711, -1.211) | (0.661, -0.518) | 0.0778 | 38.0% | WHIRLWIND |
+| poe2-tempest-bell | (-0.599, -0.326) | (0.269, 0.433) | 0.0774 | 37.8% | — |
+| di-draw-quarter-crusader | (-0.041, -0.742) | (-0.355, 0.248) | 0.0760 | 37.1% | — |
+| tq-shield-charge-conqueror | (-0.041, -0.742) | (-0.355, 0.248) | 0.0760 | 37.1% | — |
+| poe1-edc | (0.296, 0.776) | (-0.325, -0.362) | 0.0753 | 36.8% | — |
+| poe1-earthshatter | (-1.105, -0.054) | (-0.243, 0.272) | 0.0752 | 36.7% | — |
+| poe1-freezing-pulse | (0.267, 0.776) | (-0.238, -0.418) | 0.0748 | 36.5% | — |
 
-## §2 — Axis identity (did LAUNCH/EMBODY + PERFORM/DEPLOY survive?)
+## §2 — Axis identity + plane_alignment (item A′ ruling): did PERFORM/DEPLOY + EMBODY/LAUNCH survive?
 
-- After optimal Procrustes alignment of the refit plane into Edition-I's plane frame, the aligned-axis correlations are:
+**plane_alignment (the ruling's amended item A → A′):** the raw refit plane is compared to Edition-I orientation on the 469 shared actives, then aligned by an **in-plane orthogonal Procrustes map Q (rotation+reflection, NO scaling, NO translation)**. This isolates the already-arbitrary MCA/SVD orientation convention; distances/spreads/congruence/gates/plane-inertia are all Q-invariant.
+
+- **Q = [[-0.459389, -0.888235], [-0.888235, 0.459389]]**
+- **rotation_deg = -117.3477° · det(Q) = -1.0** (det −1 ⇒ a reflection component; the refit plane rotated ~117° + reflected vs Edition-I).
+
+**RAW same-index corr matrix (E1 rows × refit cols) — BEFORE alignment:**
+
+| | refit dim1 (raw) | refit dim2 (raw) |
+|---|---|---|
+| **E1 dim1 (PERFORM↔DEPLOY)** | +0.0446 | -0.6697 |
+| **E1 dim2 (EMBODY↔LAUNCH)** | -0.0452 | +0.4277 |
+
+- RAW: same-index dim1 corr = **+0.0446** (|·| < 0.10 — the reflection-only tripwire that HALTed item A); dim2 = +0.4277; the LARGEST entry is OFF-diagonal (|E1_dim1 × refit_dim2| = 0.6697). sum|diag| = 0.4723 < sum|anti| = 0.7148 ⇒ **ANTI-diagonal dominant** (axes rotated/swapped).
+
+**POST-alignment corr matrix (E1 rows × aligned-refit cols) — AFTER Q:**
 
 | | refit dim1 (aligned) | refit dim2 (aligned) |
 |---|---|---|
-| **E1 dim1 (PERFORM↔DEPLOY)** | 0.6364 | -0.4012 |
-| **E1 dim2 (EMBODY↔LAUNCH)** | -0.4003 | 0.2692 |
+| **E1 dim1 (PERFORM↔DEPLOY)** | +0.6364 | -0.4012 |
+| **E1 dim2 (EMBODY↔LAUNCH)** | -0.4003 | +0.2692 |
 
-- Diagonal dominance (|r11|,|r22| vs off-diagonal |r12|,|r21|) = the "axes survived in place" signal; a large off-diagonal = axis swap/rotation. (Procrustes has already removed a global rotation/reflection, so residual off-diagonal is structural, not framing.)
-- Edition-I axis names (ratified): dim1 **PERFORM ↔ DEPLOY**, dim2 **EMBODY ↔ LAUNCH**. The refit basis carries NO ratified axis names (comparison artifact).
+- POST: the largest entry is now ON the diagonal (E1_dim1 × aligned_dim1 = **+0.6364**); sum|diag| = 0.9055 > sum|anti| = 0.8015 ⇒ **DIAGONAL-DOMINANT** (assert PASS — the ruling's sanity gate + HALT condition).
+- **Disclosed structural finding:** the aligned dim2 tracks E1_dim2 only weakly (**+0.2692**), BELOW its off-diagonal (-0.4003) — the refit's second axis does NOT survive the ~117° rotation cleanly. Diagonal dominance holds for the matrix as a whole (mass + max-entry on-diagonal) but not per-row for row 2. This is the honest geography signal, not smoothed.
+- Edition-I axis names (ratified): dim1 **PERFORM ↔ DEPLOY**, dim2 **EMBODY ↔ LAUNCH**. The refit basis carries NO ratified axis names (comparison artifact). Report-printed aligned coords match the emitted JSON points exactly (max L1 mismatch = 1.13e-07 — same Q, one frame).
 
 ## §3 — Inertia + retained-dimension comparison
 
@@ -67,38 +82,38 @@
 
 - **62 LA active kits** entered the fit (62). Of these, **6 are Destroyer skill-grain** (`la-destroyer-*`) and **56 are class-grain** (other LA classes). (The brief's recon framing was 4 Destroyer skill-grain + 58 class-grain; the corpus actually carries 6 Destroyer + 56 class-grain — reported as-is.)
 
-**Destroyer skill-grain kits — 5 nearest active neighbors each (plane distance):**
+**Destroyer skill-grain kits — 5 nearest active neighbors each (plane distance; aligned coords):**
 
-- **la-destroyer-gravity-compression** @ (-0.730, -0.170) [gateA —] → gd-righteous-fervor-dervish (0.079), la-summoner-master-summoner (0.089), gd-savagery-warder (0.100), la-destroyer-gravity-force (0.127), gd-belgothian-blademaster (0.142)
-- **la-destroyer-gravity-force** @ (-0.851, -0.207) [gateA —] → la-summoner-master-summoner (0.089), la-artillerist-firepower-enhancement (0.108), la-destroyer-gravity-compression (0.127), la-machinist-evolutionary-legacy (0.128), la-sorceress-igniter (0.139)
-- **la-destroyer-gravity-impact** @ (-0.978, -0.289) [gateA —] → la-sorceress-igniter (0.065), la-artillerist-barrage-enhancement (0.080), la-machinist-evolutionary-legacy (0.106), la-artillerist-firepower-enhancement (0.147), la-destroyer-gravity-force (0.152)
-- **la-destroyer-gravity-training** @ (-1.275, -0.479) [gateA —] → la-destroyer-rage-hammer (0.082), la-aeromancer-wind-fury (0.263), la-reaper-hunger (0.267), la-striker-esoteric-flurry (0.267), la-deathblade-remaining-energy (0.267)
-- **la-destroyer-rage-hammer** @ (-1.196, -0.457) [gateA —] → la-destroyer-gravity-training (0.082), la-deathblade-remaining-energy (0.263), la-reaper-hunger (0.263), la-striker-esoteric-flurry (0.263), la-destroyer-gravity-impact (0.275)
-- **la-destroyer-vortex-gravity** @ (-0.482, 0.176) [gateA —] → la-machinist-arthetinean-skill (0.073), la-scrapper-ultimate-skill-taijutsu (0.090), la-sorceress-reflux (0.117), la-deadeye-pistoleer (0.141), d2-frenzy-barb (0.144)
+- **la-destroyer-gravity-compression** @ (0.486, 0.570) [gateA —] → gd-righteous-fervor-dervish (0.079), la-summoner-master-summoner (0.089), gd-savagery-warder (0.100), la-destroyer-gravity-force (0.127), gd-belgothian-blademaster (0.142)
+- **la-destroyer-gravity-force** @ (0.575, 0.660) [gateA —] → la-summoner-master-summoner (0.089), la-artillerist-firepower-enhancement (0.108), la-destroyer-gravity-compression (0.127), la-machinist-evolutionary-legacy (0.128), la-sorceress-igniter (0.139)
+- **la-destroyer-gravity-impact** @ (0.706, 0.736) [gateA —] → la-sorceress-igniter (0.065), la-artillerist-barrage-enhancement (0.080), la-machinist-evolutionary-legacy (0.106), la-artillerist-firepower-enhancement (0.147), la-destroyer-gravity-force (0.152)
+- **la-destroyer-gravity-training** @ (1.011, 0.913) [gateA —] → la-destroyer-rage-hammer (0.082), la-aeromancer-wind-fury (0.263), la-reaper-hunger (0.267), la-striker-esoteric-flurry (0.267), la-deathblade-remaining-energy (0.267)
+- **la-destroyer-rage-hammer** @ (0.955, 0.852) [gateA —] → la-destroyer-gravity-training (0.082), la-deathblade-remaining-energy (0.263), la-reaper-hunger (0.263), la-striker-esoteric-flurry (0.263), la-destroyer-gravity-impact (0.275)
+- **la-destroyer-vortex-gravity** @ (0.065, 0.509) [gateA —] → la-machinist-arthetinean-skill (0.073), la-scrapper-ultimate-skill-taijutsu (0.090), la-sorceress-reflux (0.117), la-deadeye-pistoleer (0.141), d2-frenzy-barb (0.144)
 
 **Class-grain LA (56 kits) summary:**
-- Centroid (dim1,dim2) = (-1.235, -0.187); RMS spread about centroid = 0.453 (plane diameter = 5.295 → spread = 8.6% of diameter).
+- Centroid (aligned x,y) = (0.734, 1.011); RMS spread about centroid = 0.453 (plane diameter = 5.295 → spread = 8.6% of diameter).
 - gateA groups appearing among class-grain LA kits' 5-nearest neighbors (labelled kits only): TRAP-MINE×1.
 - Class-grain LA kits carrying a gateA label themselves: none.
 
 ## §5 — The 10 pull kits at honest coordinates (do they cohere?)
 
-- **10 pull kits** (the run's reason for being) at their refit ACTIVE coordinates:
+- **10 pull kits** (the run's reason for being) at their refit ACTIVE **aligned** coordinates:
 
-| kit_id | (x, y) | gateA |
+| kit_id | aligned (x, y) | gateA |
 |---|---|---|
-| d3-wizard-black-hole | (-0.357, -0.012) | — |
-| d3-zbarb | (-0.177, 0.083) | — |
-| d4-spiritborn-vortex | (-1.292, -0.078) | — |
-| di-cyclone-monk-pvp | (-0.235, 0.449) | — |
-| di-cyclone-strike-monk-base | (-0.885, 0.236) | — |
-| la-destroyer-gravity-force | (-0.851, -0.207) | — |
-| la-destroyer-gravity-impact | (-0.978, -0.289) | — |
-| la-destroyer-gravity-training | (-1.275, -0.479) | — |
-| la-destroyer-rage-hammer | (-1.196, -0.457) | — |
-| la-destroyer-vortex-gravity | (-0.482, 0.176) | — |
+| d3-wizard-black-hole | (0.175, 0.312) | — |
+| d3-zbarb | (0.008, 0.196) | — |
+| d4-spiritborn-vortex | (0.662, 1.112) | — |
+| di-cyclone-monk-pvp | (-0.291, 0.415) | — |
+| di-cyclone-strike-monk-base | (0.197, 0.894) | — |
+| la-destroyer-gravity-force | (0.575, 0.660) | — |
+| la-destroyer-gravity-impact | (0.706, 0.736) | — |
+| la-destroyer-gravity-training | (1.011, 0.913) | — |
+| la-destroyer-rage-hammer | (0.955, 0.852) | — |
+| la-destroyer-vortex-gravity | (0.065, 0.509) | — |
 
-- Pull-kit centroid (dim1,dim2) = (-0.773, -0.058). **Mean pairwise distance = 0.6664; max = 1.3936; RMS spread about centroid = 0.4995.** Plane diameter = 5.295 → mean pairwise = 12.6% of diameter.
+- Pull-kit centroid (aligned x,y) = (0.406, 0.660). **Mean pairwise distance = 0.6664; max = 1.3936; RMS spread about centroid = 0.4995** (all Q-invariant). Plane diameter = 5.295 → mean pairwise = 12.6% of diameter.
 - Cohesion context: a random draw of 10 active kits has mean pairwise = 0.8018 ± 0.1780 (2000 draws). The pull kits' mean pairwise (0.6664) sits at the **23.8 percentile** of that null (lower = tighter/more cohesive than random).
 
 ## §6 — Fuse-table delta (Edition-I 469 vs refit 628)
@@ -157,29 +172,83 @@ Levels that FUSE (n<10) per coordinate — the ones that lose an independent fit
 - **Lattice byte-identical** (denominators / feasible / sealed / depth_sum all unchanged — the SPACE did not move; only the FIT projection of it did).
 - **Pull masked→honest:** in Edition-III the pull meso cells projected on their other 6 core coords (masked-like, no `pull` column). In the refit they land at honest coordinates. Example pull-lit tuples and their coordinate shift:
 
-| pull-lit core tuple | refit honest (x,y) |
+| pull-lit core tuple | refit honest (aligned x,y) |
 |---|---|
-| FREE-MOVE·ZONE·damage·pull·solo·active·one-shot | (-0.360, -0.024) |
-| ROOTED·ZONE·damage·pull·solo·active·build→spend | (-1.203, -0.180) |
-| ROOTED·ZONE·damage·pull·solo·active·one-shot | (-0.735, -0.046) |
-| WALK·NOVA·control·pull·solo·active·one-shot | (-0.148, 0.709) |
+| FREE-MOVE·ZONE·damage·pull·solo·active·one-shot | (0.186, 0.308) |
+| ROOTED·ZONE·damage·pull·solo·active·build→spend | (0.712, 0.986) |
+| ROOTED·ZONE·damage·pull·solo·active·one-shot | (0.379, 0.631) |
+| WALK·NOVA·control·pull·solo·active·one-shot | (-0.562, 0.457) |
 
 - **MELEE un-mask:** delivery=melee had NO meso ghost image in Edition-I/II/III (masked-like). The refit gives MELEE meso cells honest coordinates (1674 feasible MELEE cells now placed). melee-lit = 0 (live corpus MELEE-meso lighting under the refit lit-map). The ghost-image collapse partially closes at the geometry level; the lit census is a separate question.
 
 ## §9 — Six condensation (gateA) centroid shifts (Edition-I → refit)
 
-Centroids computed over each group's LABELLED kits. Native = each fit's own raw plane. Aligned-frame shift = displacement in the §1 Procrustes-standardized frame (comparable units).
+Centroids computed over each group's LABELLED kits. E1 = E1's served raw plane; refit = the **Q-aligned** plane. Aligned-frame shift = displacement in the §1 Procrustes-standardized frame (comparable units, scale removed).
 
-| group | n | E1 native centroid | refit native centroid | aligned-frame shift | % diam |
+| group | n | E1 centroid | refit aligned centroid | aligned-frame shift | % diam |
 |---|---|---|---|---|---|
-| WHIRLWIND | 15 | (0.819, -1.082) | (0.260, -0.863) | 0.0675 | 33.0% |
-| TOTEM-SENTRY | 24 | (-0.731, -0.352) | (0.403, 0.102) | 0.0464 | 22.7% |
-| TRAP-MINE | 23 | (-0.098, 0.217) | (0.144, 0.340) | 0.0114 | 5.6% |
-| CHANNELED-BEAM | 9 | (1.141, -0.272) | (0.035, -0.594) | 0.0628 | 30.7% |
-| AURA | 8 | (0.346, -0.428) | (0.118, -0.813) | 0.0190 | 9.3% |
-| MINION-PET | 7 | (-0.191, -0.999) | (0.602, -0.565) | 0.0523 | 25.5% |
+| WHIRLWIND | 15 | (0.819, -1.082) | (0.647, -0.627) | 0.0675 | 33.0% |
+| TOTEM-SENTRY | 24 | (-0.731, -0.352) | (-0.276, -0.311) | 0.0464 | 22.7% |
+| TRAP-MINE | 23 | (-0.098, 0.217) | (-0.368, 0.028) | 0.0114 | 5.6% |
+| CHANNELED-BEAM | 9 | (1.141, -0.272) | (0.511, -0.304) | 0.0628 | 30.7% |
+| AURA | 8 | (0.346, -0.428) | (0.668, -0.478) | 0.0190 | 9.3% |
+| MINION-PET | 7 | (-0.191, -0.999) | (0.226, -0.794) | 0.0523 | 25.5% |
 
 - The aligned-frame shift isolates how much each condensation's CENTER moved after the global rotation/scale is removed — i.e. genuine structural drift of that build-family's location, not a framing artifact.
+
+## §10 — Beyond-horizon census on the refit plane (ALIGNED; ALL 628 actives)
+
+**Hulls (computed-not-constant, both variants — aligned refit ghost field):**
+- meso-only hull: 21 vertices (over 11160 aligned feasible cells). charted hull (meso feasible ∪ drill-in sub-feasible): 25 vertices (over 11187 points incl. the 27-vertex drill-in reach envelope).
+
+**Beyond-horizon membership — ALL 628 actives vs each hull:**
+- **N beyond meso-only hull = 13** (Edition-era baseline: 14 — computed over Edition-III's 469 actives; here over all 628 in the aligned refit frame).
+- **N beyond charted hull = 0** (Edition-III baseline: 0).
+
+**Full beyond-meso-hull kit list (13)** (position aligned; overshoot = signed distance beyond the nearest hull face; octant/bearing = outward direction, 0°=+x EAST/PERFORM, 90°=+y):
+
+| kit_id | aligned (x,y) | overshoot | octant | bearing° | gateA | franchise |
+|---|---|---|---|---|---|---|
+| la-soulfist-robust-spirit | (1.013, 1.627) | 0.2356 | NE | +60.4 | — | LostArk |
+| la-soulfist-energy-overflow | (0.957, 1.567) | 0.1553 | NE | +60.4 | — | LostArk |
+| la-arcanist-empresss-grace | (0.923, 1.499) | 0.0796 | NE | +60.4 | — | LostArk |
+| la-arcanist-order-of-the-emperor | (0.923, 1.499) | 0.0796 | NE | +60.4 | — | LostArk |
+| tl1-alchemist-summoner | (0.669, -1.007) | 0.0232 | SE | -43.2 | — | Torchlight |
+| la-deathblade-surge | (0.942, 1.414) | 0.0152 | NE | +60.4 | — | LostArk |
+| la-reaper-lunar-voice | (0.942, 1.414) | 0.0152 | NE | +60.4 | — | LostArk |
+| la-scrapper-shock-training | (0.942, 1.414) | 0.0152 | NE | +60.4 | — | LostArk |
+| la-souleater-full-moon-harvester | (0.942, 1.414) | 0.0152 | NE | +60.4 | — | LostArk |
+| la-striker-deathblow | (0.942, 1.414) | 0.0152 | NE | +60.4 | — | LostArk |
+| tq2-whirlwind-rogue | (1.082, -0.442) | 0.0118 | SE | -30.8 | WHIRLWIND | TitanQuest |
+| di-whirlwind-barb | (0.997, -0.585) | 0.0115 | SE | -30.8 | WHIRLWIND | Diablo |
+| ud-whirlwind-str | (0.836, -0.806) | 0.0067 | SE | -43.2 | WHIRLWIND | undecember |
+
+**Full beyond-CHARTED-hull kit list: NONE** — the charted hull (meso + EAST drill-in) contains every active in the aligned frame.
+
+**Per-quadrant overshoot breakdown (beyond meso-hull):**
+
+| quadrant | n | max overshoot | at kit | bearing° |
+|---|---|---|---|---|
+| EAST-N | 9 | 0.2356 | la-soulfist-robust-spirit | +60.4 |
+| EAST-S | 4 | 0.0232 | tl1-alchemist-summoner | -43.2 |
+
+**Per-octant (direction) overshoot breakdown (beyond meso-hull):**
+
+| octant (direction) | n | max overshoot | at kit | bearing° |
+|---|---|---|---|---|
+| NE | 9 | 0.2356 | la-soulfist-robust-spirit | +60.4 |
+| SE | 4 | 0.0232 | tl1-alchemist-summoner | -43.2 |
+
+**Coverage verdict — does the EAST-half pinned drill-in cover the overshoot?**
+
+- **P-DF-1 (evidence):** verdict **PASS** — S_max = 1.9082 (drill-in reach along û) vs K_max_beyond_horizon = 1.1547 (max beyond-hull active along û); û = [0.8438, -0.5367]; n_beyond_horizon_kits = 13. S_max > K_max ⇒ the EAST drill-in EXTENDS PAST the beyond-horizon reach along û.
+
+- **Beyond-meso-hull overshoot by side of the pin:** EAST (x≥0, the pinned side) = 13 kits; WEST (x<0, NOT coverable by the EAST-half pin) = 0 kits.
+- **Directions the pinned region does NOT cover** (direct input to gandalf's drill-in-expansion decision):
+
+  - **NONE.** Every beyond-meso-hull overshoot is on the EAST (pinned) side, and the charted hull (meso + EAST drill-in) contains every active — the EAST-half drill-in covers the overshoot; no uncovered direction remains.
+
+- NO recommendations — numbers only (gandalf synthesizes whether the candidate plate needs a drill-in-expansion pass before Matt's comparison).
 
 ---
 

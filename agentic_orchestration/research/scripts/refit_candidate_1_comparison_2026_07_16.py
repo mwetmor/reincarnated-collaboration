@@ -25,11 +25,16 @@ Run:  python3 refit_candidate_1_comparison_2026_07_16.py
 import csv
 import json
 import os
+import sys
 from collections import Counter, defaultdict
 
 import numpy as np
 from scipy.spatial import procrustes as scipy_procrustes
 from scipy.spatial.distance import pdist
+from scipy.spatial import ConvexHull
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import axis_sign_alignment_refit_candidate_1_2026_07_16 as align_mod  # single source of plane_alignment Q
 
 ATLAS = "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/atlas"
 DB = "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/corpus.db"
@@ -76,6 +81,21 @@ def main():
 
     shared = sorted(set(e1) & set(rc))
     only_rc = sorted(set(rc) - set(e1))
+
+    # ---- plane_alignment Q (item A' ruling): SINGLE source; align the refit plane coords so the report's
+    # printed coords MATCH the emitted aligned artifact (points/ghost cells/drill-in all carry this Q). ----
+    Q, q_diag = align_mod.compute_Q()
+    Q = np.array(Q)
+
+    def align_xy(kid):
+        v = np.array([rc[kid]["dim1"], rc[kid]["dim2"]]) @ Q
+        return float(v[0]), float(v[1])
+
+    rc_al = {k: align_xy(k) for k in rc}   # aligned (x,y) plane coords keyed by kit_id (all 628)
+    # cross-check the report's aligned coords equal the emitted JSON points (same Q, one frame)
+    _json_pts = {p["kit_id"]: (p["x"], p["y"]) for p in rc_json["points"] if not p.get("supplementary")}
+    _max_mismatch = max(abs(rc_al[k][0] - _json_pts[k][0]) + abs(rc_al[k][1] - _json_pts[k][1])
+                        for k in rc_al if k in _json_pts)
 
     # ---- header ----
     L("# Refit Candidate 1 vs Edition III (Edition-I fit) — comparison report")
@@ -125,43 +145,71 @@ def main():
     # top-20 movers on the plane
     movers = sorted(zip(shared, per_pt), key=lambda t: -t[1])[:20]
     L("")
-    L("**Top-20 movers on the plane** (Procrustes-standardized displacement; old/new are raw dim1,dim2):")
+    L("**Top-20 movers on the plane** (Procrustes-standardized displacement — frame-invariant; E1 (x,y) "
+      "is E1's served raw plane, refit (x,y) is the **Q-ALIGNED** plane matching the emitted artifact):")
     L("")
-    L("| kit_id | E1 (x,y) | refit (x,y) | disp (std) | % diam | gateA |")
+    L("| kit_id | E1 (x,y) | refit aligned (x,y) | disp (std) | % diam | gateA |")
     L("|---|---|---|---|---|---|")
     for k, dpt in movers:
+        rax, ray = rc_al[k]
         L("| %s | (%.3f, %.3f) | (%.3f, %.3f) | %.4f | %.1f%% | %s |"
-          % (k, e1[k]["dim1"], e1[k]["dim2"], rc[k]["dim1"], rc[k]["dim2"],
+          % (k, e1[k]["dim1"], e1[k]["dim2"], rax, ray,
              dpt, 100 * dpt / diam_std, e1[k]["gateA_group"] or "—"))
     L("")
 
     # ============================================================================
-    # §2 Axis identity — post-alignment correlation of refit dims vs E1 dims
+    # §2 Axis identity — the plane_alignment Q + RAW and POST-alignment corr matrices (item A' ruling:
+    # §2 gains the raw corr matrix + rotation_deg + det as explicit numbers; post-alignment corr must be
+    # diagonal-dominant — assert + report before/after).
     # ============================================================================
-    L("## §2 — Axis identity (did LAUNCH/EMBODY + PERFORM/DEPLOY survive?)")
+    L("## §2 — Axis identity + plane_alignment (item A′ ruling): did PERFORM/DEPLOY + EMBODY/LAUNCH survive?")
     L("")
-    # Align refit plane to E1 plane via orthogonal Procrustes (rotation+reflection+scale) on shared,
-    # then correlate the aligned refit dim1/dim2 with E1 dim1/dim2. Use the standardized frames.
-    # mtx2 is refit aligned into E1's standardized frame; correlate columnwise with mtx1.
-    def corr(u, v):
-        return float(np.corrcoef(u, v)[0, 1])
-    r11 = corr(mtx1[:, 0], mtx2[:, 0])
-    r22 = corr(mtx1[:, 1], mtx2[:, 1])
-    r12 = corr(mtx1[:, 0], mtx2[:, 1])
-    r21 = corr(mtx1[:, 1], mtx2[:, 0])
-    L("- After optimal Procrustes alignment of the refit plane into Edition-I's plane frame, the "
-      "aligned-axis correlations are:")
+    raw_C = np.array(q_diag["raw_corr"])
+    post_C = np.array(q_diag["post_corr"])
+    L("**plane_alignment (the ruling's amended item A → A′):** the raw refit plane is compared to "
+      "Edition-I orientation on the %d shared actives, then aligned by an **in-plane orthogonal "
+      "Procrustes map Q (rotation+reflection, NO scaling, NO translation)**. This isolates the "
+      "already-arbitrary MCA/SVD orientation convention; distances/spreads/congruence/gates/plane-"
+      "inertia are all Q-invariant." % q_diag["shared_n"])
+    L("")
+    L("- **Q = %s**" % [[round(v, 6) for v in row] for row in q_diag["Q"]])
+    L("- **rotation_deg = %.4f° · det(Q) = %+.1f** (det −1 ⇒ a reflection component; the refit plane "
+      "rotated ~117° + reflected vs Edition-I)." % (q_diag["rotation_deg"], q_diag["det"]))
+    L("")
+    L("**RAW same-index corr matrix (E1 rows × refit cols) — BEFORE alignment:**")
+    L("")
+    L("| | refit dim1 (raw) | refit dim2 (raw) |")
+    L("|---|---|---|")
+    L("| **E1 dim1 (PERFORM↔DEPLOY)** | %+.4f | %+.4f |" % (raw_C[0, 0], raw_C[0, 1]))
+    L("| **E1 dim2 (EMBODY↔LAUNCH)** | %+.4f | %+.4f |" % (raw_C[1, 0], raw_C[1, 1]))
+    L("")
+    L("- RAW: same-index dim1 corr = **%+.4f** (|·| < 0.10 — the reflection-only tripwire that HALTed "
+      "item A); dim2 = %+.4f; the LARGEST entry is OFF-diagonal (|E1_dim1 × refit_dim2| = %.4f). "
+      "sum|diag| = %.4f < sum|anti| = %.4f ⇒ **ANTI-diagonal dominant** (axes rotated/swapped)."
+      % (raw_C[0, 0], raw_C[1, 1], abs(raw_C[0, 1]), q_diag["raw_sum_diag"], q_diag["raw_sum_anti"]))
+    L("")
+    L("**POST-alignment corr matrix (E1 rows × aligned-refit cols) — AFTER Q:**")
     L("")
     L("| | refit dim1 (aligned) | refit dim2 (aligned) |")
     L("|---|---|---|")
-    L("| **E1 dim1 (PERFORM↔DEPLOY)** | %.4f | %.4f |" % (r11, r12))
-    L("| **E1 dim2 (EMBODY↔LAUNCH)** | %.4f | %.4f |" % (r21, r22))
+    L("| **E1 dim1 (PERFORM↔DEPLOY)** | %+.4f | %+.4f |" % (post_C[0, 0], post_C[0, 1]))
+    L("| **E1 dim2 (EMBODY↔LAUNCH)** | %+.4f | %+.4f |" % (post_C[1, 0], post_C[1, 1]))
     L("")
-    L("- Diagonal dominance (|r11|,|r22| vs off-diagonal |r12|,|r21|) = the \"axes survived in place\" "
-      "signal; a large off-diagonal = axis swap/rotation. (Procrustes has already removed a global "
-      "rotation/reflection, so residual off-diagonal is structural, not framing.)")
-    L("- Edition-I axis names (ratified): dim1 **PERFORM ↔ DEPLOY**, dim2 **EMBODY ↔ LAUNCH**. "
-      "The refit basis carries NO ratified axis names (comparison artifact).")
+    L("- POST: the largest entry is now ON the diagonal (E1_dim1 × aligned_dim1 = **%+.4f**); "
+      "sum|diag| = %.4f > sum|anti| = %.4f ⇒ **DIAGONAL-DOMINANT** (assert PASS — the ruling's "
+      "sanity gate + HALT condition)." % (post_C[0, 0], q_diag["post_sum_diag"], q_diag["post_sum_anti"]))
+    L("- **Disclosed structural finding:** the aligned dim2 tracks E1_dim2 only weakly (**%+.4f**), "
+      "BELOW its off-diagonal (%+.4f) — the refit's second axis does NOT survive the ~117° rotation "
+      "cleanly. Diagonal dominance holds for the matrix as a whole (mass + max-entry on-diagonal) but "
+      "not per-row for row 2. This is the honest geography signal, not smoothed."
+      % (post_C[1, 1], post_C[1, 0]))
+    # HARD ASSERT the ruling's gate (HALT condition: post-alignment corr NOT diagonal-dominant)
+    assert q_diag["post_diagonal_dominant"], ("HALT: post-alignment corr NOT diagonal-dominant "
+                                              "(ruling assert failed).")
+    L("- Edition-I axis names (ratified): dim1 **PERFORM ↔ DEPLOY**, dim2 **EMBODY ↔ LAUNCH**. The "
+      "refit basis carries NO ratified axis names (comparison artifact). Report-printed aligned coords "
+      "match the emitted JSON points exactly (max L1 mismatch = %.2e — same Q, one frame)."
+      % _max_mismatch)
     L("")
 
     # ============================================================================
@@ -201,9 +249,11 @@ def main():
       "class-grain — reported as-is.)" % (len(la_kits), len(destroyer), len(classgrain),
                                           len(destroyer), len(classgrain)))
     L("")
-    # nearest neighbors (plane distance) among ALL active refit points
+    # nearest neighbors (plane distance) among ALL active refit points — ALIGNED plane (distances are
+    # Q-invariant so neighbor sets/distances are identical to raw; printed coords are aligned to match
+    # the emitted artifact).
     all_ids = sorted(rc)
-    XY = np.array([[rc[k]["dim1"], rc[k]["dim2"]] for k in all_ids])
+    XY = np.array([rc_al[k] for k in all_ids])
     idx = {k: i for i, k in enumerate(all_ids)}
 
     def nearest(kid, n=5):
@@ -219,18 +269,18 @@ def main():
                 break
         return out
 
-    L("**Destroyer skill-grain kits — 5 nearest active neighbors each (plane distance):**")
+    L("**Destroyer skill-grain kits — 5 nearest active neighbors each (plane distance; aligned coords):**")
     L("")
     for k in destroyer:
         nn = nearest(k, 5)
         ga = rc[k]["gateA_group"] or "—"
         L("- **%s** @ (%.3f, %.3f) [gateA %s] → %s"
-          % (k, rc[k]["dim1"], rc[k]["dim2"], ga,
+          % (k, rc_al[k][0], rc_al[k][1], ga,
              ", ".join("%s (%.3f)" % (nid, dd) for nid, dd in nn)))
     L("")
     # class-grain summary: centroid + spread + gateA/neighborhood distribution
     if classgrain:
-        cg_xy = np.array([[rc[k]["dim1"], rc[k]["dim2"]] for k in classgrain])
+        cg_xy = np.array([rc_al[k] for k in classgrain])
         cent = cg_xy.mean(0)
         spread = float(np.sqrt(((cg_xy - cent) ** 2).sum(1).mean()))
         # which gateA groups do class-grain LA kits' NEAREST neighbors fall into?
@@ -242,7 +292,7 @@ def main():
                 if g:
                     nn_ga[g] += 1
         L("**Class-grain LA (%d kits) summary:**" % len(classgrain))
-        L("- Centroid (dim1,dim2) = (%.3f, %.3f); RMS spread about centroid = %.3f "
+        L("- Centroid (aligned x,y) = (%.3f, %.3f); RMS spread about centroid = %.3f "
           "(plane diameter = %.3f → spread = %.1f%% of diameter)."
           % (cent[0], cent[1], spread, rc_basis["plane_diameter"],
              100 * spread / rc_basis["plane_diameter"]))
@@ -272,24 +322,26 @@ def main():
         if ck.split("|")[5] == "pull":
             pull_kits.append(kid)
     pull_kits = sorted(pull_kits)
-    pxy = np.array([[rc[k]["dim1"], rc[k]["dim2"]] for k in pull_kits])
+    pxy = np.array([rc_al[k] for k in pull_kits])
     pcent = pxy.mean(0)
     pspread = float(np.sqrt(((pxy - pcent) ** 2).sum(1).mean()))
     ppair = pdist(pxy)
-    L("- **%d pull kits** (the run's reason for being) at their refit ACTIVE coordinates:" % len(pull_kits))
+    L("- **%d pull kits** (the run's reason for being) at their refit ACTIVE **aligned** coordinates:"
+      % len(pull_kits))
     L("")
-    L("| kit_id | (x, y) | gateA |")
+    L("| kit_id | aligned (x, y) | gateA |")
     L("|---|---|---|")
     for k in pull_kits:
-        L("| %s | (%.3f, %.3f) | %s |" % (k, rc[k]["dim1"], rc[k]["dim2"], rc[k]["gateA_group"] or "—"))
+        L("| %s | (%.3f, %.3f) | %s |" % (k, rc_al[k][0], rc_al[k][1], rc[k]["gateA_group"] or "—"))
     L("")
-    L("- Pull-kit centroid (dim1,dim2) = (%.3f, %.3f). **Mean pairwise distance = %.4f; "
-      "max = %.4f; RMS spread about centroid = %.4f.** Plane diameter = %.3f → mean pairwise = "
-      "%.1f%% of diameter." % (pcent[0], pcent[1], float(ppair.mean()), float(ppair.max()), pspread,
-                               rc_basis["plane_diameter"], 100 * float(ppair.mean()) / rc_basis["plane_diameter"]))
-    # compare to a random-10 baseline for cohesion context
+    L("- Pull-kit centroid (aligned x,y) = (%.3f, %.3f). **Mean pairwise distance = %.4f; "
+      "max = %.4f; RMS spread about centroid = %.4f** (all Q-invariant). Plane diameter = %.3f → mean "
+      "pairwise = %.1f%% of diameter." % (pcent[0], pcent[1], float(ppair.mean()), float(ppair.max()),
+                                          pspread, rc_basis["plane_diameter"],
+                                          100 * float(ppair.mean()) / rc_basis["plane_diameter"]))
+    # compare to a random-10 baseline for cohesion context (Q-invariant)
     rng = np.random.default_rng(20260714)
-    allxy = np.array([[rc[k]["dim1"], rc[k]["dim2"]] for k in all_ids])
+    allxy = np.array([rc_al[k] for k in all_ids])
     rand_means = []
     for _ in range(2000):
         sel = rng.choice(len(all_ids), size=len(pull_kits), replace=False)
@@ -407,7 +459,7 @@ def main():
     # pull-lit coordinate shift: for each Edition-III pull-lit tuple, find its refit honest coord
     rc_pull_honest = {tuple(pc["core"]): (pc["x"], pc["y"]) for pc in rcg["pull_honest_coords"]}
     e3_pull_lit = [tuple(t) for t in e3g["pull_slice"]["lit_pull_core_tuples"]]
-    L("| pull-lit core tuple | refit honest (x,y) |")
+    L("| pull-lit core tuple | refit honest (aligned x,y) |")
     L("|---|---|")
     for t in e3_pull_lit:
         xy = rc_pull_honest.get(t)
@@ -433,10 +485,11 @@ def main():
     # Simplest honest report: centroid in E1 native plane vs centroid in refit native plane, plus the
     # aligned-frame centroid shift (using mtx1/mtx2 standardized coords keyed by shared kit).
     shared_idx = {k: i for i, k in enumerate(shared)}
-    L("Centroids computed over each group's LABELLED kits. Native = each fit's own raw plane. "
-      "Aligned-frame shift = displacement in the §1 Procrustes-standardized frame (comparable units).")
+    L("Centroids computed over each group's LABELLED kits. E1 = E1's served raw plane; refit = the "
+      "**Q-aligned** plane. Aligned-frame shift = displacement in the §1 Procrustes-standardized frame "
+      "(comparable units, scale removed).")
     L("")
-    L("| group | n | E1 native centroid | refit native centroid | aligned-frame shift | % diam |")
+    L("| group | n | E1 centroid | refit aligned centroid | aligned-frame shift | % diam |")
     L("|---|---|---|---|---|---|")
     for g in groups:
         gk = [k for k in shared if e1[k]["gateA_group"] == g]
@@ -444,7 +497,7 @@ def main():
             L("| %s | 0 | — | — | — | — |" % g)
             continue
         e1c = np.array([[e1[k]["dim1"], e1[k]["dim2"]] for k in gk]).mean(0)
-        rcc = np.array([[rc[k]["dim1"], rc[k]["dim2"]] for k in gk]).mean(0)
+        rcc = np.array([rc_al[k] for k in gk]).mean(0)   # aligned refit centroid
         # aligned-frame centroids (standardized)
         a1 = mtx1[[shared_idx[k] for k in gk]].mean(0)
         a2 = mtx2[[shared_idx[k] for k in gk]].mean(0)
@@ -456,6 +509,11 @@ def main():
       "rotation/scale is removed — i.e. genuine structural drift of that build-family's location, not "
       "a framing artifact.")
     L("")
+
+    # ============================================================================
+    # §10 — beyond-horizon census on the refit plane (R3-ADDENDUM item D). ALIGNED frame; ALL 628 actives.
+    # ============================================================================
+    census = _section10_beyond_horizon(L, rc, rc_al, rc_json, e3_json, con)
 
     L("---")
     L("")
@@ -471,6 +529,167 @@ def main():
     print("comparison report written to", REPORT)
     print("shared actives:", len(shared), "| plane congruence:", round(congruence, 4),
           "| RMS disp %diam:", round(100 * rms / diam_std, 2))
+    print("plane_alignment: det=%s rot=%s post-diag-dominant=%s"
+          % (q_diag["det"], q_diag["rotation_deg"], q_diag["post_diagonal_dominant"]))
+    print("report-vs-artifact coord max L1 mismatch:", "%.2e" % _max_mismatch)
+    print("§10 census: beyond-meso-hull N=%d | beyond-charted-hull N=%d | WEST-uncovered=%d | "
+          "beyond-charted kits=%s" % (census["beyond_meso"], census["beyond_charted"],
+                                      census["west_uncovered"], census["beyond_charted_kits"]))
+
+
+def _hull_and_test(points_xy):
+    """ConvexHull + a signed 'beyond' test. Returns (hull, inside_fn, overshoot_fn).
+    overshoot_fn(p) = max over hull faces of (n·p + c); >0 => p is OUTSIDE by that distance
+    (the face it most violates gives the outward direction)."""
+    hull = ConvexHull(np.asarray(points_xy))
+    eq = hull.equations   # rows [nx, ny, c]; n·x + c <= 0 inside
+
+    def inside(p):
+        return bool(np.all(eq[:, :2] @ p + eq[:, 2] <= 1e-9))
+
+    def overshoot(p):
+        resid = eq[:, :2] @ p + eq[:, 2]   # >0 => outside that face
+        i = int(np.argmax(resid))
+        return float(resid[i]), eq[i, :2]  # (signed max distance beyond, outward face normal)
+
+    return hull, inside, overshoot
+
+
+def _bearing_octant(nx, ny):
+    """8-way compass octant + bearing (deg, 0=+x/EAST CCW) for an outward direction (nx,ny)."""
+    ang = float(np.degrees(np.arctan2(ny, nx)))   # -180..180, 0 = +x (EAST/PERFORM), 90 = +y
+    a = ang % 360.0
+    names = ["E", "NE", "N", "NW", "W", "SW", "S", "SE"]
+    oct_i = int(((a + 22.5) % 360) // 45)
+    return names[oct_i], round(ang, 1)
+
+
+def _section10_beyond_horizon(L, rc, rc_al, rc_json, e3_json, con):
+    L("## §10 — Beyond-horizon census on the refit plane (ALIGNED; ALL 628 actives)")
+    L("")
+    gf = rc_json["ghost_field"]
+    # ---- hulls (computed-not-constant, both variants like Edition-III) — ALIGNED coords ----
+    feas_xy = [[c["x"], c["y"]] for c in gf["feasible_cells"]]              # aligned meso feasible
+    drill_reach = gf["drill_in"]["sub_feasible_hull_reach"]                # aligned drill-in reach envelope
+    charted_xy = feas_xy + [[v[0], v[1]] for v in drill_reach]             # meso feasible ∪ drill-in sub-feasible
+    hull_meso, in_meso, over_meso = _hull_and_test(feas_xy)
+    hull_ch, in_ch, over_ch = _hull_and_test(charted_xy)
+
+    # ---- ALL 628 actives (aligned) vs each hull ----
+    all_ids = sorted(rc)
+    beyond_meso = []   # (kit, x, y, overshoot_dist, octant, bearing, gateA, franchise)
+    beyond_ch = []
+    for k in all_ids:
+        p = np.array(rc_al[k])
+        if not in_meso(p):
+            od, n = over_meso(p)
+            oc, br = _bearing_octant(n[0], n[1])
+            beyond_meso.append((k, p[0], p[1], od, oc, br, rc[k]["gateA_group"], rc[k]["franchise_rollup"]))
+        if not in_ch(p):
+            od, n = over_ch(p)
+            oc, br = _bearing_octant(n[0], n[1])
+            beyond_ch.append((k, p[0], p[1], od, oc, br, rc[k]["gateA_group"], rc[k]["franchise_rollup"]))
+
+    L("**Hulls (computed-not-constant, both variants — aligned refit ghost field):**")
+    L("- meso-only hull: %d vertices (over %d aligned feasible cells). charted hull (meso feasible ∪ "
+      "drill-in sub-feasible): %d vertices (over %d points incl. the %d-vertex drill-in reach envelope)."
+      % (len(hull_meso.vertices), len(feas_xy), len(hull_ch.vertices), len(charted_xy), len(drill_reach)))
+    L("")
+    L("**Beyond-horizon membership — ALL %d actives vs each hull:**" % len(all_ids))
+    L("- **N beyond meso-only hull = %d** (Edition-era baseline: 14 — computed over Edition-III's 469 "
+      "actives; here over all 628 in the aligned refit frame)." % len(beyond_meso))
+    L("- **N beyond charted hull = %d** (Edition-III baseline: 0)." % len(beyond_ch))
+    L("")
+
+    def _overshoot_table(rows, title):
+        L("**%s** (position aligned; overshoot = signed distance beyond the nearest hull face; "
+          "octant/bearing = outward direction, 0°=+x EAST/PERFORM, 90°=+y):" % title)
+        L("")
+        L("| kit_id | aligned (x,y) | overshoot | octant | bearing° | gateA | franchise |")
+        L("|---|---|---|---|---|---|---|")
+        for k, x, y, od, oc, br, ga, fr in sorted(rows, key=lambda r: -r[3]):
+            L("| %s | (%.3f, %.3f) | %.4f | %s | %+.1f | %s | %s |"
+              % (k, x, y, od, oc, br, ga or "—", fr or "—"))
+        L("")
+
+    _overshoot_table(beyond_meso, "Full beyond-meso-hull kit list (%d)" % len(beyond_meso))
+    if beyond_ch:
+        _overshoot_table(beyond_ch, "Full beyond-CHARTED-hull kit list (%d)" % len(beyond_ch))
+    else:
+        L("**Full beyond-CHARTED-hull kit list: NONE** — the charted hull (meso + EAST drill-in) "
+          "contains every active in the aligned frame.")
+        L("")
+
+    # ---- per-quadrant AND per-octant overshoot breakdown (max overshoot + direction) ----
+    def _dir_breakdown(rows, keyer, label):
+        agg = defaultdict(list)
+        for r in rows:
+            agg[keyer(r)].append(r)
+        L("**Per-%s overshoot breakdown (beyond meso-hull):**" % label)
+        L("")
+        L("| %s | n | max overshoot | at kit | bearing° |" % label)
+        L("|---|---|---|---|---|")
+        for key in sorted(agg, key=lambda kk: -max(r[3] for r in agg[kk])):
+            rows_k = agg[key]
+            mx = max(rows_k, key=lambda r: r[3])
+            L("| %s | %d | %.4f | %s | %+.1f |" % (key, len(rows_k), mx[3], mx[0], mx[5]))
+        L("")
+
+    def _quadrant(r):
+        x, y = r[1], r[2]
+        return ("EAST" if x >= 0 else "WEST") + ("-N" if y >= 0 else "-S")
+
+    _dir_breakdown(beyond_meso, _quadrant, "quadrant")
+    _dir_breakdown(beyond_meso, lambda r: r[4], "octant (direction)")
+
+    # ---- coverage verdict vs the EAST-half pinned drill-in ----
+    pdf = gf.get("p_df_1", {})
+    L("**Coverage verdict — does the EAST-half pinned drill-in cover the overshoot?**")
+    L("")
+    L("- **P-DF-1 (evidence):** verdict **%s** — S_max = %.4f (drill-in reach along û) vs "
+      "K_max_beyond_horizon = %.4f (max beyond-hull active along û); û = %s; n_beyond_horizon_kits = "
+      "%d. S_max %s K_max ⇒ the EAST drill-in %s the beyond-horizon reach along û."
+      % (pdf.get("verdict"), pdf.get("S_max"), pdf.get("K_max_beyond_horizon"),
+         [round(u, 4) for u in pdf.get("u_direction", [])], pdf.get("n_beyond_horizon_kits"),
+         (">" if pdf.get("S_max", 0) > pdf.get("K_max_beyond_horizon", 0) else "<="),
+         ("EXTENDS PAST" if pdf.get("verdict") == "PASS" else "does NOT extend past")))
+    L("")
+    # The drill-in region pin is EAST-half (aligned x>=0). Overshoot the pin does NOT cover =
+    # (a) any kit beyond the CHARTED hull (drill-in didn't reach it — even in EAST), PLUS
+    # (b) beyond-meso-hull kits whose overshoot direction is WEST (x<0 outward), which the EAST-half
+    #     pin structurally cannot densify (the region is x>=0 only).
+    east_pin_uncovered_beyond_charted = beyond_ch
+    west_overshoot = [r for r in beyond_meso if r[1] < 0.0]     # aligned x<0 => WEST/DEPLOY side
+    east_overshoot = [r for r in beyond_meso if r[1] >= 0.0]
+    L("- **Beyond-meso-hull overshoot by side of the pin:** EAST (x≥0, the pinned side) = %d kits; "
+      "WEST (x<0, NOT coverable by the EAST-half pin) = %d kits." % (len(east_overshoot), len(west_overshoot)))
+    L("- **Directions the pinned region does NOT cover** (direct input to gandalf's drill-in-expansion "
+      "decision):")
+    L("")
+    if not west_overshoot and not east_pin_uncovered_beyond_charted:
+        L("  - **NONE.** Every beyond-meso-hull overshoot is on the EAST (pinned) side, and the charted "
+          "hull (meso + EAST drill-in) contains every active — the EAST-half drill-in covers the "
+          "overshoot; no uncovered direction remains.")
+    else:
+        if west_overshoot:
+            octs = sorted(set(r[4] for r in west_overshoot))
+            mx = max(west_overshoot, key=lambda r: r[3])
+            L("  - **WEST-side overshoot (%d kits; octants %s)** — the EAST-half pin (x≥0) structurally "
+              "cannot densify these. Max WEST overshoot %.4f at `%s` (bearing %+.1f°). Kits: %s."
+              % (len(west_overshoot), ", ".join(octs), mx[3], mx[0], mx[5],
+                 ", ".join(r[0] for r in sorted(west_overshoot, key=lambda r: -r[3]))))
+        if east_pin_uncovered_beyond_charted:
+            octs = sorted(set(r[4] for r in east_pin_uncovered_beyond_charted))
+            L("  - **Beyond-CHARTED-hull (%d kits; octants %s)** — even where the EAST drill-in reaches, "
+              "these actives sit past the charted envelope: %s."
+              % (len(east_pin_uncovered_beyond_charted), ", ".join(octs),
+                 ", ".join(r[0] for r in sorted(east_pin_uncovered_beyond_charted, key=lambda r: -r[3]))))
+    L("")
+    L("- NO recommendations — numbers only (gandalf synthesizes whether the candidate plate needs a "
+      "drill-in-expansion pass before Matt's comparison).")
+    L("")
+    return {"beyond_meso": len(beyond_meso), "beyond_charted": len(beyond_ch),
+            "west_uncovered": len(west_overshoot), "beyond_charted_kits": [r[0] for r in beyond_ch]}
 
 
 if __name__ == "__main__":

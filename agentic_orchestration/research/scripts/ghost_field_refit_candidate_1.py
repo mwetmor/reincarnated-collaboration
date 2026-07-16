@@ -204,9 +204,238 @@ def lit_map(db_conn):
 
 
 # ===========================================================================
+# PLANE-ALIGNMENT (item A' — gandalf verify-gate ruling). Q = optimal orthogonal 2x2 map
+# (rotation+reflection, NO scaling, NO translation) refit-plane -> Edition-I-plane, computed on the
+# 469 shared actives. Applied ATOMICALLY to EVERY emitted plane coordinate so points/loadings-plane-
+# coords/ghost-cells/drill-in/hull/p_df_1 all carry the SAME Q (the ruling's internal-consistency
+# law). A direction vector d transforms as d @ Q as well (projections s = p·d are invariant since
+# (pQ)·(dQ) = p·d for orthogonal Q), so S_max / K_max / verdict are Q-INVARIANT; only the emitted
+# coordinate presentation rotates. Source of Q = axis_sign_alignment_refit_candidate_1_2026_07_16.py
+# (single source; the emitter + comparison script import the identical Q).
+# ===========================================================================
+def _apply_Q(x, y, Q):
+    if Q is None:
+        return x, y
+    v = np.array([x, y]) @ Q
+    return float(v[0]), float(v[1])
+
+
+# ===========================================================================
+# EAST-HALF geometry×commit DRILL-IN (R3-ADDENDUM item B). Ported from ghost_field_edition2 VERBATIM
+# in mechanics; the ONLY differences are (a) it consults the REFIT REG2FIT (pull/MELEE un-masked) and
+# REFIT fit, so the promoted geometry vocabulary AUTO-FOLLOWS the refit fit (gains `aura`: 13 vs 12
+# levels), and (b) coordinates are aligned by Q. The region pin, RED-3 seal law, local-first law,
+# glyph-field binning, and hull machinery are IDENTICAL. Region pin "EAST-half (projected x>=0;
+# PERFORM side)" is applied to the ALIGNED x (meaningful only post-alignment, per the ruling).
+# ===========================================================================
+DRILLIN_RENDER_BIN_DP = gf2.DRILLIN_RENDER_BIN_DP          # 2 — identical render-grid resolution
+MOVE_VERB_GEOMS_FITVOCAB = gf2.MOVE_VERB_GEOMS_FITVOCAB    # {dash_attack} — identical RED-3 geometry class
+
+
+def promoted_levels(fit):
+    """The promoted-level vocabularies = the REFIT fit's geometry + commit column levels (auto-follows
+    the refit fit -> gains `aura`). instant is the CA baseline; append only if fused-out (it is NOT in
+    the refit -> already present, guard won't fire). Identical logic to gf2.promoted_levels."""
+    geos = sorted({lvl for (coord, lvl) in fit["colidx"] if coord == "geometry"})
+    commits = sorted({lvl for (coord, lvl) in fit["colidx"] if coord == "commit"})
+    if "instant" not in commits:
+        commits = commits + ["instant"]
+    return geos, commits
+
+
+def drillin_cut_id(geometry, commit):
+    """Sub-cell seal cause at the PROMOTED (geometry×commit) grain — IDENTICAL law + convention to
+    gf2: RED-3- surfaces iff geometry in move-verb set {dash_attack} AND commit != instant."""
+    if geometry in MOVE_VERB_GEOMS_FITVOCAB and commit != "instant":
+        return "RED-3-movement-damage-carveout"
+    return None
+
+
+def project_subcell(cell, geometry, commit, fit):
+    """Project a drill-in sub-cell (7 core levels + promoted geometry + commit) via the SAME CA
+    supplementary transition formula, through the REFIT basis. RAW (pre-Q) plane coord; Q applied by
+    the caller. Mirrors gf2.project_subcell but reads the refit REG2FIT + refit fuse_map."""
+    col_std, colidx, block_of_col, first_sv = (fit["col_std"], fit["colidx"],
+                                               fit["block_of_col"], fit["first_sv"])
+    row = np.zeros(fit["ncols"])
+    for coord in CORE:
+        fitlvl = REG2FIT[coord][cell[coord]]
+        if fitlvl is None:
+            continue
+        fj = fit["fuse_map"].get((NAMES.index(coord), fitlvl))
+        lookup = fj if fj is not None else fitlvl
+        j = colidx.get((coord, lookup))
+        if j is None:
+            continue
+        row[j] = 1.0 / first_sv[block_of_col[j]]
+    jg = colidx.get(("geometry", geometry))
+    if jg is not None:
+        row[jg] = 1.0 / first_sv[block_of_col[jg]]
+    jc = colidx.get(("commit", commit))
+    if jc is not None:
+        row[jc] = 1.0 / first_sv[block_of_col[jc]]
+    rt = row.sum()
+    if rt <= 0:
+        return None, None
+    rowp = row / rt
+    coord = np.zeros(fit["nret"])
+    for j in range(len(row)):
+        if rowp[j] != 0:
+            coord += rowp[j] * col_std[j]
+    return float(coord[0]), float(coord[1])
+
+
+def build_drill_in(fit, feasible_cells, Q=None):
+    """EAST-half (ALIGNED x>=0) geometry×commit drill-in. Emission form IDENTICAL to gf2.build_drill_in
+    (exact counts + seal breakdown + reach hull + render-grid glyph field + pattern seal ledger +
+    _full_sub_feasible for P-DF-1). Differences: refit fit/vocab (aura promotes), aligned coords, and
+    the EAST region is pinned on the ALIGNED x. Every emitted coordinate is Q-applied.
+
+    IMPORTANT: feasible_cells carry ALIGNED x/y (Q already applied in build_ghost_field). The EAST pin
+    reads that aligned x. Sub-cell projections are computed RAW then Q-applied here, so ALL drill-in
+    coords share the one Q with the parent field + points."""
+    from scipy.spatial import ConvexHull as _CH
+    geos, commits = promoted_levels(fit)
+    east_cells = [c for c in feasible_cells if c["x"] >= 0.0]   # ALIGNED x (post-Q) — PERFORM side
+    full_sub_feasible = []      # ALIGNED (x,y) for P-DF-1 + hull (not serialized)
+    n_sub_sealed = 0
+    sealed_pattern = {}
+    for c in east_cells:
+        cell = dict(zip(CORE, c["core"]))
+        for g in geos:
+            for cm in commits:
+                cut = drillin_cut_id(g, cm)
+                if cut is not None:
+                    n_sub_sealed += 1
+                    sealed_pattern[(g, cm, cut)] = sealed_pattern.get((g, cm, cut), 0) + 1
+                    continue
+                x, y = project_subcell(cell, g, cm, fit)
+                if x is None:
+                    continue
+                xa, ya = _apply_Q(x, y, Q)
+                full_sub_feasible.append((round(xa, 8), round(ya, 8)))
+
+    xy = np.array(full_sub_feasible)
+    hull = _CH(xy)
+    hull_vertices = [[float(xy[v][0]), float(xy[v][1])] for v in hull.vertices]
+
+    binned = {}
+    for x, y in full_sub_feasible:
+        k = (round(x, DRILLIN_RENDER_BIN_DP), round(y, DRILLIN_RENDER_BIN_DP))
+        binned[k] = binned.get(k, 0) + 1
+    glyph_field = [{"x": k[0], "y": k[1], "multiplicity": v} for k, v in sorted(binned.items())]
+
+    seal_ledger = [{"geometry": g, "commit": cm, "cut_id": cut, "count": n}
+                   for (g, cm, cut), n in sorted(sealed_pattern.items())]
+
+    block = {
+        "region": "EAST-half (projected x>=0; PERFORM side) — slate #1 ES + #2 EN (one drill-in serves both)",
+        "promoted_pair": ["geometry", "commit"],
+        "promoted_geometry_levels": geos,
+        "promoted_commit_levels": commits,
+        "local_first_law": ("EAST-half only; Edition-wide promotion is ~21x the glyph field and "
+                            "unvettable in one pass (interaction law). Expansion only on a scored "
+                            "P-DF-1 + a NEW pre-registered slate. Alternate WN-inner logged, unfired."),
+        "seal_enum": ["L1-treatment-function-coherence", "L2-summon-implies-proxy",
+                      "RED-3-movement-damage-carveout"],
+        "red3_surfaces_here": ("RED-3' (geometry∈move-verb {dash_attack} × commit≠instant) is netted-out "
+                               "of meso depth; at the PROMOTED geometry×commit grain it SURFACES as visible "
+                               "RED-3- sub-cell seals — and ONLY here."),
+        "n_east_parent_cells": len(east_cells),
+        "n_sub_feasible": len(full_sub_feasible),
+        "n_sub_sealed": n_sub_sealed,
+        "sub_feasible_hull_reach": hull_vertices,
+        "sub_feasible_hull_n_vertices": len(hull_vertices),
+        "sub_feasible_glyph_field": glyph_field,
+        "sub_feasible_glyph_field_bin_dp": DRILLIN_RENDER_BIN_DP,
+        "sub_feasible_glyph_field_n_distinct": len(glyph_field),
+        "sub_sealed_ledger": seal_ledger,
+        "emission_note": ("The full n_sub_feasible enumeration is dense + coincident-heavy; it renders "
+                          "as dark GROUND (a field), coincident glyphs aggregated per §9.1. The JSON "
+                          "carries the render-grid glyph field (distinct @2dp + multiplicity) + reach "
+                          "hull; the FULL enumeration is reproducible from ghost_field_refit_candidate_1. "
+                          "Sealed sub-cells render as a chrome ledger (pattern), never on-plane (§9.2.4). "
+                          "All coordinates are plane_alignment Q-applied (aligned frame)."),
+        "_full_sub_feasible": full_sub_feasible,   # ALIGNED; for P-DF-1 (stripped before serialization)
+    }
+    return block
+
+
+# ===========================================================================
+# P-DF-1 scoring (R3-ADDENDUM item C). û construction VERBATIM against the REFIT loadings:
+# û = normalize(mean(c_whirlwind, c_channel)) on (x,y) from the refit column-standard coords. Both
+# referenced columns are present in the refit fit (verified) -> the construction runs; NO vocabulary
+# HALT. Q-consistency: û is a DIRECTION, so it is aligned as û @ Q; the feasible-cell + point coords
+# fed here are ALREADY aligned -> all projections live in the one aligned frame. S_max/K_max/verdict
+# are Q-invariant; only the emitted u_direction + S_argmax coords rotate.
+# ===========================================================================
+_feasible_cache = None   # module-level cache of the ALIGNED feasible ghost positions (P-DF-1 hull)
+
+
+def score_pdf1(fit, drill_in, atlas_points, Q=None):
+    colidx, col_std = fit["colidx"], fit["col_std"]
+    j_whirl = colidx.get(("geometry", "whirlwind"))
+    j_chan = colidx.get(("commit", "channel"))
+    if j_whirl is None or j_chan is None:
+        # verbatim-construction guard: referenced column absent/fused -> HALT + surface (never substitute)
+        raise RuntimeError(
+            "P-DF-1 û construction cannot run VERBATIM on the refit vocabulary: "
+            "geometry/whirlwind present=%s, commit/channel present=%s. HALT (do not improvise a column)."
+            % (j_whirl is not None, j_chan is not None))
+    c_whirl = np.array(col_std[j_whirl][:2])
+    c_chan = np.array(col_std[j_chan][:2])
+    u_raw = (c_whirl + c_chan) / 2.0
+    u_raw = u_raw / np.hypot(*u_raw)
+    # align the DIRECTION into the same frame as the (already-aligned) points/cells: û_aligned = û @ Q
+    u = np.array(_apply_Q(u_raw[0], u_raw[1], Q)) if Q is not None else u_raw
+
+    # S_max over ALL drill-in sub-feasible cells (aligned coords; the full enumeration)
+    full = drill_in["_full_sub_feasible"]        # ALIGNED (x,y)
+    s_vals = [x * u[0] + y * u[1] for (x, y) in full]
+    s_max = float(max(s_vals)) if s_vals else float("-inf")
+    s_argmax = None
+    if s_vals:
+        i = int(np.argmax(s_vals))
+        s_argmax = {"x": full[i][0], "y": full[i][1]}
+
+    # beyond-horizon kits: active points OUTSIDE the ALIGNED ghost hull (_feasible_cache is aligned).
+    from scipy.spatial import ConvexHull
+    ghost_xy = np.array([[c["x"], c["y"]] for c in _feasible_cache])
+    hull = ConvexHull(ghost_xy)
+
+    def inside_hull(p):
+        return np.all(hull.equations[:, :2] @ p + hull.equations[:, 2] <= 1e-9)
+
+    bh_projs = []
+    for p in atlas_points:
+        if p.get("supplementary"):
+            continue
+        pt = np.array([p["x"], p["y"]])   # atlas_points are ALIGNED (emitter applied Q before calling)
+        if not inside_hull(pt):
+            bh_projs.append(float(np.dot(pt, u)))
+    k_max = float(max(bh_projs)) if bh_projs else float("-inf")
+    verdict = "PASS" if s_max > k_max else "FAIL"
+    return {
+        "prediction": "P-DF-1",
+        "statement": ("EAST drill-in (geometry×commit) extends the dark BEYOND the whirlwind/beam "
+                      "kits along û=normalize(mean(c_whirlwind, c_channel))."),
+        "u_direction": [float(u[0]), float(u[1])],
+        "S_max": round(s_max, 8),
+        "S_argmax": s_argmax,
+        "K_max_beyond_horizon": round(k_max, 8),
+        "n_beyond_horizon_kits": len(bh_projs),
+        "verdict": verdict,
+        "falsified": verdict == "FAIL",
+        "consequence_if_falsified": ("INTERIOR-1 re-opens with new fuel (§9.4.4 trigger) — SURFACE to "
+                                     "Matt, never auto-fire."),
+    }
+
+
+# ===========================================================================
 # BUILD the refit ghost_field block.
 # ===========================================================================
-def build_ghost_field(db_conn, atlas_points=None):
+def build_ghost_field(db_conn, atlas_points=None, Q=None):
+    global _feasible_cache
     fit = build_refit_fit()
     depth_by_delivery = gf1.build_depth_by_delivery()
     lit_counts, unmapped, unmapped_would_seal, lit_pull_cells, lit_melee_cells = lit_map(db_conn)
@@ -225,6 +454,7 @@ def build_ghost_field(db_conn, atlas_points=None):
         core_tuple = list(combo)
         if gf2.meso_feasible(cell):
             x, y, present = project_meso_cell(cell, fit)
+            x, y = _apply_Q(x, y, Q)   # plane_alignment: aligned frame (atomic Q, everywhere)
             key = tuple(combo)
             kc = lit_counts.get(key, 0)
             depth = depth_by_delivery[cell["delivery"]]
@@ -262,6 +492,20 @@ def build_ghost_field(db_conn, atlas_points=None):
     sealed_L2 = sum(1 for c in sealed_cells if c["cut_id"] == "L2-summon-implies-proxy")
 
     off_plane = gf2.off_plane_corpus(db_conn)
+
+    # ---- R3-ADDENDUM item B: EAST-half drill-in (refit fit/vocab; ALIGNED coords) ----
+    # feasible_cells already carry ALIGNED x/y; drill-in reads that aligned x for the EAST pin and
+    # aligns its own sub-cell projections with the SAME Q. _feasible_cache (aligned) drives P-DF-1 hull.
+    _feasible_cache = feasible_cells
+    drill_in = build_drill_in(fit, feasible_cells, Q=Q)
+
+    # ---- R3-ADDENDUM item C: P-DF-1 re-score (verbatim û from refit loadings; aligned frame) ----
+    pdf1 = None
+    if atlas_points is not None:
+        pdf1 = score_pdf1(fit, drill_in, atlas_points, Q=Q)
+    # strip the P-DF-1-only full enumeration from the serialized block (the emitter is the
+    # reproducible source of the full sub-cell set; the JSON carries glyph-field + hull).
+    drill_in.pop("_full_sub_feasible", None)
 
     ghost = {
         "version": GHOST_FIELD_VERSION,
@@ -329,33 +573,84 @@ def build_ghost_field(db_conn, atlas_points=None):
         "unmapped_would_seal_kits": sorted(unmapped_would_seal),
         "off_plane_corpus": off_plane,
         "red3_note": ("RED-3' seals live at GEOMETRY drill-in, not the meso plane. Meso SEALED cells "
-                      "are L1' + L2 only. (drill_in omitted from this comparison artifact — the "
-                      "decision surface is structural basis comparison, not the promoted-grain glyph "
-                      "field; the v1.3 drill-in is unchanged and reproducible from ghost_field_edition2.)"),
+                      "are L1' + L2 only. Depth badges already net out RED-3' within-cell. RED-3- "
+                      "surfaces as VISIBLE sub-cell seals in the drill_in block (and only there) — "
+                      "run VERBATIM against the refit fit (promoted geometry gains `aura`: 13 levels)."),
+        "drill_in": drill_in,
         "feasible_cells": feasible_cells,
         "sealed_cells": sealed_cells,
     }
+    if pdf1 is not None:
+        ghost["p_df_1"] = pdf1
+    ghost["plane_alignment"] = _plane_alignment_stamp(Q)
     return ghost
 
 
+def _plane_alignment_stamp(Q):
+    """The ruling's `plane_alignment` stamp (replaces the reflection-only `axis_sign_alignment`)."""
+    import axis_sign_alignment_refit_candidate_1_2026_07_16 as align
+    _, d = align.compute_Q()
+    return {
+        "method": "in-plane orthogonal Procrustes (rotation+reflection), no scaling, no translation",
+        "Q": d["Q"],
+        "rotation_deg": d["rotation_deg"],
+        "det": d["det"],
+        "raw_corr_before": d["raw_corr"],
+        "corr_after": d["post_corr"],
+        "raw_corr_before_diagonal_dominant": d["raw_diagonal_dominant"],
+        "corr_after_diagonal_dominant": d["post_diagonal_dominant"],
+        "raw_same_index_dim1": d["raw_same_index_dim1"],
+        "raw_same_index_dim2": d["raw_same_index_dim2"],
+        "raw_cross_E1d1_refit_d2": d["raw_cross_E1d1_refit_d2"],
+        "shared_actives": d["shared_n"],
+        "rationale": ("refit plane rotated ~117deg + reflected vs Edition-I; reflection-only "
+                      "insufficient (raw dim1 same-index corr 0.045; raw matrix ANTI-diagonal "
+                      "dominant). Aligned for plate comparability; disclosed on-plate + reported as "
+                      "headline structure evidence. Distances/spreads/congruence/gates/plane-inertia "
+                      "are Q-invariant; only the arbitrary MCA/SVD orientation convention changes. "
+                      "Applied ATOMICALLY to every plane coordinate (points, ghost cells, drill-in, "
+                      "hull, p_df_1, CSVs). The aligned dim2 tracks E1_dim2 only weakly (0.27, below "
+                      "its off-diagonal 0.40) — the refit's 2nd axis does not survive the rotation "
+                      "cleanly; disclosed, not smoothed."),
+        "invariance_note": ("plane corrected-inertia 8.903% is a subspace property — invariant under "
+                            "Q; the per-dim split (5.15/3.75) does NOT apply to the aligned x/y and is "
+                            "NOT rendered per-axis. P-DF-1 is internally consistent because points, "
+                            "loadings-plane-coords, cells, and hull all carry the SAME Q."),
+        "source": "axis_sign_alignment_refit_candidate_1_2026_07_16.py (single source of Q)",
+    }
+
+
 if __name__ == "__main__":
-    import sqlite3, json
+    import sqlite3, csv as _csv
+    import axis_sign_alignment_refit_candidate_1_2026_07_16 as align
     DB = "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/corpus.db"
+    Q, _qd = align.compute_Q()   # single source of Q
+    # load refit active points, ALIGN them (the emitter does the same before calling)
+    pts = []
+    with open(os.path.join(ATLAS_DIR, "refit-candidate-1-coordinates-active.csv"), newline="") as f:
+        for row in _csv.DictReader(f):
+            xa, ya = _apply_Q(float(row["dim1"]), float(row["dim2"]), Q)
+            pts.append({"kit_id": row["kit_id"], "x": xa, "y": ya, "supplementary": False})
     con = sqlite3.connect(DB)
-    g = build_ghost_field(con)
+    g = build_ghost_field(con, atlas_points=pts, Q=Q)
     con.close()
     d = g["denominators"]
-    print("REFIT ghost field:")
+    print("REFIT ghost field (aligned frame; Q applied):")
     print("  MESO feasible:", d["meso_feasible"], "sealed:", d["meso_sealed"],
           "(L1", d["meso_sealed_L1"], "+ L2", d["meso_sealed_L2"], ")")
     print("  EXACT post-red-law:", d["exact_post_red_law"],
           "MATCH" if g["depth_sum_check"] == EXACT_POST_RED_LAW else "MISMATCH")
-    print("  depth_sum_check:", g["depth_sum_check"])
     print("  lit cells:", g["lit_cells"], "| pull-lit:", g["pull_slice"]["lit_cells"],
           "| melee-lit:", g["melee_slice"]["lit_cells"])
-    print("  unmapped:", g["unmapped_pending_curation"],
-          "would-seal:", g["unmapped_would_seal_excluded"])
     print("  off-plane N:", g["off_plane_corpus"]["n"])
-    print("  pull honest coords (n=%d):" % len(g["pull_honest_coords"]))
-    for pc in g["pull_honest_coords"][:12]:
-        print("     ", pc["core"], "(%.4f, %.4f)" % (pc["x"], pc["y"]), "LIT" if pc["lit"] else "")
+    pa = g["plane_alignment"]
+    print("  plane_alignment: det=%s rot=%s post-diag-dominant=%s"
+          % (pa["det"], pa["rotation_deg"], pa["corr_after_diagonal_dominant"]))
+    di = g["drill_in"]
+    print("  drill_in: EAST parents=%d sub-feasible=%d sub-sealed=%d | promoted_geometry=%d levels %s"
+          % (di["n_east_parent_cells"], di["n_sub_feasible"], di["n_sub_sealed"],
+             len(di["promoted_geometry_levels"]), di["promoted_geometry_levels"]))
+    p = g["p_df_1"]
+    print("  P-DF-1: %s  S_max=%.4f  K_max=%.4f  bh_kits=%d  u=%s"
+          % (p["verdict"], p["S_max"], p["K_max_beyond_horizon"], p["n_beyond_horizon_kits"],
+             [round(x, 4) for x in p["u_direction"]]))
