@@ -6,6 +6,26 @@
 
 ---
 
+## archipelago-mock-2026-07-16 — throwaway census/shape exhibit on E1-469 — 2026-07-16 — **MOCK (ratified:false; nothing served, nothing vendored)**
+
+### What it is (one line)
+A **throwaway-class** archipelago mock on Edition-I's 469 active kits, emitting `atlas-archipelago-mock.json` + `archipelago-mock-report.md`. Answers Matt's membership-census question with real numbers and shows the territory-surface shape. **NOT a served artifact; NOT an atlas edition; no G1/G2/G3 gates run.** Both files stamped `mock:true, ratified:false`. Logged here for provenance only — this is not a schema migration; no corpus.db change (consumes Part A's `grain` column read-only + the E1 coordinates CSV).
+
+### Census headline (the deliverable)
+Of 469: **cores 130** (27.7%, the six named islands) · **islets 213** (45.4%, 27 unnamed U-n clusters size>=3) · **straits 0** · **drifters 126** (26.9%, the mainland at sea). Per-family cores: TOTEM-SENTRY 46 · TRAP-MINE 43 · WHIRLWIND 15 · AURA 10 · CHANNELED-BEAM 9 · MINION-PET 7. Ghost: **76 shallows / 263 deep**.
+
+### Method (disclosed, all pinned to SEED=20260716; deterministic — md5-stable across runs)
+- **Stage 0 corpus assert (fail-loud, uses Part A `grain`):** all 469 `grain='kit'`; **0 mcd**; **LA composition 0** (post-E1 growth). Kit-grain-clean by construction; no HALT.
+- **Clustering:** full 14-dim MCA space (`dim1..dim14`, retained-dims, NOT the 2D plane). **Leiden-CPM consensus** on kNN(k=10), 60 seeds @ res=0.3 (existing `atlas_derivation_2026_07_14.leiden_consensus`). **66 clusters, biggest 4.5%** — no degeneracy. **HDBSCAN tried and REJECTED** (degenerate giant cluster 65-72% at mcs 5-10 — the dense MCA core lumps; would trip the >60% HALT). Disclosed.
+- **Family labels + tau:** seeded from the 86 gateA ratified labels (6 families). **tau = ABSOLUTE affinity threshold** (distance to nearest same-family seed), **calibrated on a stratified 20% gateA holdout** (18/86) maximizing accuracy x coverage x (1 - mainland-admit). **Chosen tau=0.8**, holdout accuracy 1.000, coverage 0.889, mainland-admit 0.107. *Key correction: a vote-share tau force-assigned the whole mainland and flooded two families to 130-160 members; the absolute-distance tau abstains the mainland as drifters and yields a real archipelago.*
+- **Five strata:** core (affinity<=tau) / islet (coherent unseeded cluster size>=3, else drifter) / strait (two families within m=0.15 AND both within tau — **fired 0×**, families are mechanically well-separated) / drifter (below-tau mainland) / ghost (shallows vs deep by family-affinity radius, MOCK approximation over the 469's own footprint — NOT the charter 11,160-cell meso projection).
+- **Seating (designed-for-legibility, disclosed as such IN the JSON — NOT measured):** MDS on cluster centroids (full-space euclidean) + within-island local MDS layout + water by fiat. **Tombstones:** E1-469 has 0 negative kits → Finding F-1 (tombstones on HOME island) honored **vacuously**, mechanism disclosed.
+
+### Iron laws honored
+No served artifact touched · no existing atlas artifact re-fit/re-emitted · corpus.db unchanged (grain read-only) · Edition III + Refit-Candidate-1 READ-ONLY. **Reproducible** from `../scripts/atlas_archipelago_mock_2026_07_16.py` + `corpus.db` (grain column) + `atlas-coordinates-active.csv`. Auto-committed; push deferred to KR's gate.
+
+---
+
 ## grain-law-ratification-2026-07-16 — `grain` column added to `canon_corpus` (kit|gear|class) + THE GRAIN LAW — 2026-07-16 — **APPLIED (Matt-ruled; column ratified)**
 
 ### THE GRAIN LAW (ratified — Matt rulings 2026-07-16, verbatim)

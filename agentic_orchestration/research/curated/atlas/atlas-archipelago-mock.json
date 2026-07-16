@@ -1,0 +1,7825 @@
+{
+  "artifact": "atlas-archipelago-mock",
+  "mock": true,
+  "ratified": false,
+  "disclosure": "THROWAWAY MOCK. Memberships are COMPUTED (clustering + label propagation in full 14-dim MCA space); island SEATING is DESIGNED-FOR-LEGIBILITY (MDS on cluster centroids + within-island local layout + water by fiat), NOT a measured coordinate. G1/G2/G3 ratification gates NOT run (charter-run, pre-registered, later). Nothing served, nothing vendored.",
+  "generated": "2026-07-16",
+  "generator": "agentic_orchestration/research/scripts/atlas_archipelago_mock_2026_07_16.py",
+  "corpus": {
+    "set": "Edition-I 469 active kits (atlas-coordinates-active.csv membership)",
+    "grain_assert": {
+      "all_kit_grain": true,
+      "grain_distribution": {
+        "kit": 469
+      },
+      "mcd_rows": 0,
+      "la_rows": 0,
+      "note": "kit-grain-clean by construction; mcd + LA are post-E1 growth"
+    },
+    "seed": 20260716
+  },
+  "clustering": {
+    "space": "full 14-dim MCA coordinates (dim1..dim14 from E1 CSV) \u2014 retained-dims space, NOT the 2D plane",
+    "method": "Leiden-CPM consensus on kNN(k=10) graph, 60 seeds @ resolution 0.3",
+    "n_clusters": 66,
+    "biggest_cluster_pct": 4.5,
+    "resolution_profile": [
+      {
+        "resolution": 0.2,
+        "consensus_clusters": 45,
+        "biggest": 24,
+        "biggest_pct": 5.1,
+        "top6": [
+          24,
+          22,
+          21,
+          21,
+          20,
+          19
+        ]
+      },
+      {
+        "resolution": 0.3,
+        "consensus_clusters": 60,
+        "biggest": 24,
+        "biggest_pct": 5.1,
+        "top6": [
+          24,
+          21,
+          17,
+          17,
+          17,
+          16
+        ]
+      },
+      {
+        "resolution": 0.5,
+        "consensus_clusters": 95,
+        "biggest": 16,
+        "biggest_pct": 3.4,
+        "top6": [
+          16,
+          15,
+          13,
+          12,
+          12,
+          12
+        ]
+      },
+      {
+        "resolution": 0.8,
+        "consensus_clusters": 182,
+        "biggest": 12,
+        "biggest_pct": 2.6,
+        "top6": [
+          12,
+          10,
+          10,
+          10,
+          10,
+          9
+        ]
+      },
+      {
+        "resolution": 1.0,
+        "consensus_clusters": 469,
+        "biggest": 1,
+        "biggest_pct": 0.2,
+        "top6": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "hdbscan_rejected": "HDBSCAN tried on the same space; produced a degenerate giant cluster (65-72% of kits at min_cluster_size 5-10) because the dense MCA core lumps. Rejected. Leiden-CPM partitions the core."
+  },
+  "family_labels": {
+    "seed_source": "86 gateA ratified family labels (atlas_gateA_labels_2026_07_14)",
+    "families": [
+      "TOTEM-SENTRY",
+      "TRAP-MINE",
+      "WHIRLWIND",
+      "CHANNELED-BEAM",
+      "AURA",
+      "MINION-PET"
+    ],
+    "method": "family = nearest gateA seed by family; core iff ABSOLUTE affinity (MCA-space distance to nearest same-family seed) <= tau; mainland (far from all families) abstains as drifters. Absolute-distance tau (not vote-share) is what makes the mainland/family separation real.",
+    "tau_calibration": {
+      "n_seed": 86,
+      "holdout_n": 18,
+      "holdout_accuracy": 1.0,
+      "holdout_coverage": 0.889,
+      "holdout_mainland_admit": 0.094,
+      "chosen_tau": 0.8,
+      "tau_curve": [
+        {
+          "tau": 0.3,
+          "admitted": 2,
+          "accuracy": 1.0,
+          "coverage": 0.111,
+          "mainland_admit_rate": 0.0,
+          "score": 0.111
+        },
+        {
+          "tau": 0.4,
+          "admitted": 3,
+          "accuracy": 1.0,
+          "coverage": 0.167,
+          "mainland_admit_rate": 0.003,
+          "score": 0.166
+        },
+        {
+          "tau": 0.5,
+          "admitted": 6,
+          "accuracy": 1.0,
+          "coverage": 0.333,
+          "mainland_admit_rate": 0.018,
+          "score": 0.327
+        },
+        {
+          "tau": 0.6,
+          "admitted": 10,
+          "accuracy": 1.0,
+          "coverage": 0.556,
+          "mainland_admit_rate": 0.023,
+          "score": 0.543
+        },
+        {
+          "tau": 0.7,
+          "admitted": 12,
+          "accuracy": 1.0,
+          "coverage": 0.667,
+          "mainland_admit_rate": 0.065,
+          "score": 0.623
+        },
+        {
+          "tau": 0.8,
+          "admitted": 16,
+          "accuracy": 1.0,
+          "coverage": 0.889,
+          "mainland_admit_rate": 0.094,
+          "score": 0.805
+        },
+        {
+          "tau": 0.9,
+          "admitted": 16,
+          "accuracy": 1.0,
+          "coverage": 0.889,
+          "mainland_admit_rate": 0.144,
+          "score": 0.761
+        },
+        {
+          "tau": 1.0,
+          "admitted": 16,
+          "accuracy": 1.0,
+          "coverage": 0.889,
+          "mainland_admit_rate": 0.211,
+          "score": 0.701
+        },
+        {
+          "tau": 1.1,
+          "admitted": 17,
+          "accuracy": 1.0,
+          "coverage": 0.944,
+          "mainland_admit_rate": 0.324,
+          "score": 0.639
+        },
+        {
+          "tau": 1.2,
+          "admitted": 17,
+          "accuracy": 1.0,
+          "coverage": 0.944,
+          "mainland_admit_rate": 0.507,
+          "score": 0.466
+        },
+        {
+          "tau": 1.3,
+          "admitted": 17,
+          "accuracy": 1.0,
+          "coverage": 0.944,
+          "mainland_admit_rate": 0.653,
+          "score": 0.328
+        },
+        {
+          "tau": 1.4,
+          "admitted": 17,
+          "accuracy": 1.0,
+          "coverage": 0.944,
+          "mainland_admit_rate": 0.749,
+          "score": 0.237
+        },
+        {
+          "tau": 1.5,
+          "admitted": 17,
+          "accuracy": 1.0,
+          "coverage": 0.944,
+          "mainland_admit_rate": 0.825,
+          "score": 0.165
+        },
+        {
+          "tau": 1.6,
+          "admitted": 17,
+          "accuracy": 1.0,
+          "coverage": 0.944,
+          "mainland_admit_rate": 0.903,
+          "score": 0.091
+        },
+        {
+          "tau": 1.7,
+          "admitted": 18,
+          "accuracy": 1.0,
+          "coverage": 1.0,
+          "mainland_admit_rate": 0.916,
+          "score": 0.084
+        },
+        {
+          "tau": 1.8,
+          "admitted": 18,
+          "accuracy": 1.0,
+          "coverage": 1.0,
+          "mainland_admit_rate": 0.948,
+          "score": 0.052
+        },
+        {
+          "tau": 1.9,
+          "admitted": 18,
+          "accuracy": 1.0,
+          "coverage": 1.0,
+          "mainland_admit_rate": 0.963,
+          "score": 0.037
+        },
+        {
+          "tau": 2.0,
+          "admitted": 18,
+          "accuracy": 1.0,
+          "coverage": 1.0,
+          "mainland_admit_rate": 0.974,
+          "score": 0.026
+        }
+      ],
+      "tau_semantics": "absolute distance in MCA space to nearest same-family gateA seed",
+      "seed_family_counts": {
+        "TRAP-MINE": 23,
+        "MINION-PET": 7,
+        "TOTEM-SENTRY": 24,
+        "AURA": 8,
+        "WHIRLWIND": 15,
+        "CHANNELED-BEAM": 9
+      }
+    },
+    "strait_margin_m": 0.15
+  },
+  "strata": {
+    "definitions": {
+      "core": "tau-confident family member (gateA seed OR propagated share>=tau)",
+      "islet": "member of an unseeded cluster (no gateA seed, no core) \u2014 labeled U-n",
+      "strait": "split affinity between two families within margin m=0.15",
+      "drifter": "below-tau with no strong family match (dense mainland + scatter)",
+      "ghost": "feasible cells shaded by family affinity; shallow=family-adjacent, deep=frontier"
+    },
+    "census": {
+      "islet": 213,
+      "drifter": 126,
+      "core": 130
+    },
+    "family_core_sizes": {
+      "TRAP-MINE": 43,
+      "MINION-PET": 7,
+      "TOTEM-SENTRY": 46,
+      "AURA": 10,
+      "WHIRLWIND": 15,
+      "CHANNELED-BEAM": 9
+    },
+    "islet_clusters": {
+      "U-1": 1,
+      "U-2": 5,
+      "U-3": 8,
+      "U-4": 11,
+      "U-5": 12,
+      "U-6": 13,
+      "U-7": 15,
+      "U-8": 21,
+      "U-9": 22,
+      "U-10": 24,
+      "U-11": 26,
+      "U-12": 27,
+      "U-13": 28,
+      "U-14": 29,
+      "U-15": 30,
+      "U-16": 32,
+      "U-17": 33,
+      "U-18": 36,
+      "U-19": 38,
+      "U-20": 39,
+      "U-21": 40,
+      "U-22": 41,
+      "U-23": 43,
+      "U-24": 44,
+      "U-25": 46,
+      "U-26": 47,
+      "U-27": 48
+    },
+    "islet_sizes": {
+      "U-1": 20,
+      "U-2": 16,
+      "U-3": 14,
+      "U-4": 13,
+      "U-5": 12,
+      "U-6": 12,
+      "U-7": 10,
+      "U-8": 9,
+      "U-9": 9,
+      "U-10": 9,
+      "U-11": 8,
+      "U-12": 7,
+      "U-13": 7,
+      "U-14": 7,
+      "U-15": 7,
+      "U-16": 7,
+      "U-17": 7,
+      "U-18": 5,
+      "U-19": 5,
+      "U-20": 4,
+      "U-21": 4,
+      "U-22": 4,
+      "U-23": 4,
+      "U-24": 4,
+      "U-25": 3,
+      "U-26": 3,
+      "U-27": 3
+    },
+    "islet_min_size": 3,
+    "reassigned_fringe_to_drifter": 90,
+    "reassigned_tiny_to_drifter": 14,
+    "seeded_clusters": [
+      3,
+      7,
+      9,
+      10,
+      14,
+      16,
+      17,
+      18,
+      19,
+      25,
+      34,
+      35,
+      37,
+      45,
+      49,
+      53,
+      54,
+      59
+    ]
+  },
+  "ghost_field": {
+    "frontier_cells": 339,
+    "shallows": 76,
+    "deep": 263,
+    "shallow_by_family": {
+      "TRAP-MINE": 75,
+      "CHANNELED-BEAM": 1
+    },
+    "affinity_radii": {
+      "TRAP-MINE": 1.2234,
+      "MINION-PET": 0.7143,
+      "TOTEM-SENTRY": 0.9538,
+      "AURA": 0.8748,
+      "WHIRLWIND": 0.9809,
+      "CHANNELED-BEAM": 1.3613
+    },
+    "radius_quantile": 0.9,
+    "method_note": "MOCK approximation over the 469 kits' own unclaimed (drifter+islet) footprint; NOT the charter 11,160-cell meso ghost-field projection (that is Edition-scoped + read-only)."
+  },
+  "seating": {
+    "disclosure": "designed-for-legibility, NOT measured",
+    "method": "MDS(2D) on cluster centroids (full-space euclidean) + within-island local MDS layout + water by fiat",
+    "mds_stress": 609.0437,
+    "n_clusters_seated": 66,
+    "islands": {
+      "TRAP-MINE": {
+        "type": "named-island",
+        "x": -13.340584205167612,
+        "y": 10.769319197780165,
+        "n_cores": 43
+      },
+      "MINION-PET": {
+        "type": "named-island",
+        "x": 63.955704409741585,
+        "y": -14.695200017967876,
+        "n_cores": 7
+      },
+      "TOTEM-SENTRY": {
+        "type": "named-island",
+        "x": 31.855066798877434,
+        "y": 46.108502044069745,
+        "n_cores": 46
+      },
+      "AURA": {
+        "type": "named-island",
+        "x": 39.71417853275162,
+        "y": -65.09410537313825,
+        "n_cores": 10
+      },
+      "WHIRLWIND": {
+        "type": "named-island",
+        "x": 17.06493155739992,
+        "y": -93.52028134038792,
+        "n_cores": 15
+      },
+      "CHANNELED-BEAM": {
+        "type": "named-island",
+        "x": -78.87246776457015,
+        "y": -51.656039768294896,
+        "n_cores": 9
+      },
+      "U-5": {
+        "type": "islet",
+        "x": -6.139333544290626,
+        "y": -23.227746731502634,
+        "n": 12
+      },
+      "U-26": {
+        "type": "islet",
+        "x": 53.3679490851052,
+        "y": -36.90522367779477,
+        "n": 3
+      },
+      "U-22": {
+        "type": "islet",
+        "x": 33.78038152516097,
+        "y": 13.36359778736455,
+        "n": 4
+      },
+      "U-6": {
+        "type": "islet",
+        "x": -31.26270417318499,
+        "y": -5.196256401076113,
+        "n": 12
+      },
+      "U-20": {
+        "type": "islet",
+        "x": -24.146042331832206,
+        "y": -72.30120828752277,
+        "n": 4
+      },
+      "U-24": {
+        "type": "islet",
+        "x": 52.974867457636506,
+        "y": -55.72022829739296,
+        "n": 4
+      },
+      "U-10": {
+        "type": "islet",
+        "x": 20.562273957550346,
+        "y": 9.061333070283288,
+        "n": 9
+      },
+      "U-1": {
+        "type": "islet",
+        "x": -22.495392259248348,
+        "y": -9.930031339590316,
+        "n": 20
+      },
+      "U-2": {
+        "type": "islet",
+        "x": 89.23295727424454,
+        "y": -8.079130184071893,
+        "n": 16
+      },
+      "U-19": {
+        "type": "islet",
+        "x": -1.4007547336946669,
+        "y": -37.69331868450534,
+        "n": 5
+      },
+      "U-11": {
+        "type": "islet",
+        "x": 0.9921948242334468,
+        "y": -20.54227913921799,
+        "n": 8
+      },
+      "U-16": {
+        "type": "islet",
+        "x": -15.889153722295617,
+        "y": -24.45236455244831,
+        "n": 7
+      },
+      "U-4": {
+        "type": "islet",
+        "x": -16.05345115086826,
+        "y": 84.35471638359991,
+        "n": 13
+      },
+      "U-15": {
+        "type": "islet",
+        "x": 47.543084796768724,
+        "y": 0.20020994321497984,
+        "n": 7
+      },
+      "U-7": {
+        "type": "islet",
+        "x": -45.05419937864353,
+        "y": -14.807361501680749,
+        "n": 10
+      },
+      "U-13": {
+        "type": "islet",
+        "x": 12.302775685233808,
+        "y": -32.897425487583504,
+        "n": 7
+      },
+      "U-18": {
+        "type": "islet",
+        "x": 57.85453115813897,
+        "y": 10.124122952898087,
+        "n": 5
+      },
+      "U-8": {
+        "type": "islet",
+        "x": -8.734693451376078,
+        "y": 13.599519847129166,
+        "n": 9
+      },
+      "U-25": {
+        "type": "islet",
+        "x": 43.496174293161765,
+        "y": 13.009254784349048,
+        "n": 3
+      },
+      "U-17": {
+        "type": "islet",
+        "x": -9.127519005465777,
+        "y": 1.5967550911379045,
+        "n": 7
+      },
+      "U-3": {
+        "type": "islet",
+        "x": 22.05822134405587,
+        "y": 18.587260647818443,
+        "n": 14
+      },
+      "U-23": {
+        "type": "islet",
+        "x": 2.3202841611286975,
+        "y": -62.9564693765102,
+        "n": 4
+      },
+      "U-9": {
+        "type": "islet",
+        "x": 17.756490316492997,
+        "y": -62.64122399386807,
+        "n": 9
+      },
+      "U-12": {
+        "type": "islet",
+        "x": -64.61416422623506,
+        "y": -61.88068598941229,
+        "n": 7
+      },
+      "U-14": {
+        "type": "islet",
+        "x": 71.35914751054531,
+        "y": 28.622191509377267,
+        "n": 7
+      },
+      "U-21": {
+        "type": "islet",
+        "x": -46.67709059829982,
+        "y": 43.72624628089916,
+        "n": 4
+      },
+      "U-27": {
+        "type": "islet",
+        "x": -41.05940296445302,
+        "y": -66.05621074846243,
+        "n": 3
+      }
+    },
+    "tombstones": {
+      "count": 0,
+      "kit_ids": [],
+      "finding_F1": "tombstones seat on their HOME island (kit death is not geography); E1-469 has ZERO negative kits, so F-1 is honored vacuously \u2014 mechanism disclosed, no placement needed."
+    }
+  },
+  "census_headline": {
+    "ashore_cores": 130,
+    "at_sea_drifters": 126,
+    "islands_named": 6,
+    "islets": 213,
+    "straits": 0,
+    "ghost_shallows": 76,
+    "ghost_deep": 263,
+    "total": 469
+  },
+  "points": [
+    {
+      "kit_id": "chr-arrow-storm-warden",
+      "cluster": 12,
+      "seat": {
+        "x": -1.974,
+        "y": -20.972
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.954,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "98",
+      "franchise_rollup": "chronicon",
+      "islet": "U-5",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "chr-bee-warden",
+      "cluster": 18,
+      "seat": {
+        "x": 66.306,
+        "y": -28.905
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.044,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "3",
+      "franchise_rollup": "chronicon",
+      "nearest_family": "MINION-PET"
+    },
+    {
+      "kit_id": "chr-bleed-berserker",
+      "cluster": 0,
+      "seat": {
+        "x": -15.077,
+        "y": 41.378
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.971,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "29",
+      "franchise_rollup": "chronicon",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "chr-bloodbinder-warlock",
+      "cluster": 47,
+      "seat": {
+        "x": 55.135,
+        "y": -32.552
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.219,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "3",
+      "franchise_rollup": "chronicon",
+      "islet": "U-26",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "chr-crown-proc-engine",
+      "cluster": 19,
+      "seat": {
+        "x": -50.395,
+        "y": -15.477
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "10",
+      "franchise_rollup": "chronicon",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "chr-demon-legion-warlock",
+      "cluster": 18,
+      "seat": {
+        "x": 72.27,
+        "y": -34.114
+      },
+      "stratum": "core",
+      "family": "MINION-PET",
+      "affinity": 0.0,
+      "e1_gateA_group": "MINION-PET",
+      "e1_leiden_cluster": "3",
+      "franchise_rollup": "chronicon",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "chr-fire-berserker",
+      "cluster": 25,
+      "seat": {
+        "x": 35.89,
+        "y": -38.882
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "79",
+      "franchise_rollup": "chronicon",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "chr-firestorm-warlock",
+      "cluster": 17,
+      "seat": {
+        "x": 7.745,
+        "y": 34.638
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "83",
+      "franchise_rollup": "chronicon",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "chr-frost-berserker",
+      "cluster": 41,
+      "seat": {
+        "x": 39.78,
+        "y": 13.751
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.952,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "19",
+      "franchise_rollup": "chronicon",
+      "islet": "U-22",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "chr-fulmination-templar",
+      "cluster": 34,
+      "seat": {
+        "x": -30.512,
+        "y": 60.426
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "18",
+      "franchise_rollup": "chronicon",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "chr-high-ranger-warden",
+      "cluster": 13,
+      "seat": {
+        "x": -29.499,
+        "y": -2.761
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.916,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "16",
+      "franchise_rollup": "chronicon",
+      "islet": "U-6",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "chr-mechanist-rocketeer",
+      "cluster": 12,
+      "seat": {
+        "x": -5.255,
+        "y": -28.252
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.929,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "26",
+      "franchise_rollup": "chronicon",
+      "islet": "U-5",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "chr-mechanist-saw-master",
+      "cluster": 4,
+      "seat": {
+        "x": -34.015,
+        "y": 7.476
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.003,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "99",
+      "franchise_rollup": "chronicon",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "chr-mechanist-turret-drone",
+      "cluster": 9,
+      "seat": {
+        "x": 40.889,
+        "y": 38.306
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "6",
+      "franchise_rollup": "chronicon",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "chr-pet-warden",
+      "cluster": 18,
+      "seat": {
+        "x": 70.491,
+        "y": -33.607
+      },
+      "stratum": "core",
+      "family": "MINION-PET",
+      "affinity": 0.0,
+      "e1_gateA_group": "MINION-PET",
+      "e1_leiden_cluster": "3",
+      "franchise_rollup": "chronicon",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "chr-plague-curse-warlock",
+      "cluster": 39,
+      "seat": {
+        "x": -19.621,
+        "y": -71.795
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.419,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "48",
+      "franchise_rollup": "chronicon",
+      "islet": "U-20",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "chr-thorns-templar",
+      "cluster": 44,
+      "seat": {
+        "x": 58.975,
+        "y": -52.813
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.774,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "100",
+      "franchise_rollup": "chronicon",
+      "islet": "U-24",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-auradin",
+      "cluster": 14,
+      "seat": {
+        "x": 42.444,
+        "y": -70.63
+      },
+      "stratum": "core",
+      "family": "AURA",
+      "affinity": 0.0,
+      "e1_gateA_group": "AURA",
+      "e1_leiden_cluster": "61",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d2-avenger",
+      "cluster": 0,
+      "seat": {
+        "x": -16.894,
+        "y": 42.76
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.178,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "15",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-berserker",
+      "cluster": 0,
+      "seat": {
+        "x": -15.805,
+        "y": 44.975
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.168,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "15",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-blizzard-sorc",
+      "cluster": 24,
+      "seat": {
+        "x": 26.562,
+        "y": 8.089
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.158,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "73",
+      "franchise_rollup": "Diablo",
+      "islet": "U-10",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-bonemancer",
+      "cluster": 31,
+      "seat": {
+        "x": -23.557,
+        "y": -10.321
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.057,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "13",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-bowazon",
+      "cluster": 1,
+      "seat": {
+        "x": -19.818,
+        "y": -6.035
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.109,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "58",
+      "franchise_rollup": "Diablo",
+      "islet": "U-1",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-bvc",
+      "cluster": 7,
+      "seat": {
+        "x": 17.229,
+        "y": -94.799
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "101",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d2-charger",
+      "cluster": 5,
+      "seat": {
+        "x": 88.352,
+        "y": -8.473
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.234,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "77",
+      "franchise_rollup": "Diablo",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-conc-barb",
+      "cluster": 0,
+      "seat": {
+        "x": -15.963,
+        "y": 42.622
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.057,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "15",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-daggermancer",
+      "cluster": 0,
+      "seat": {
+        "x": -17.418,
+        "y": 43.288
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.19,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "102",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-enchantress",
+      "cluster": 20,
+      "seat": {
+        "x": 5.681,
+        "y": 46.301
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.834,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "103",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-fire-druid",
+      "cluster": 2,
+      "seat": {
+        "x": 17.587,
+        "y": 11.731
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.098,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "67",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-fire-sorc",
+      "cluster": 10,
+      "seat": {
+        "x": 20.963,
+        "y": 35.287
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.777,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "104",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d2-fireclaw-wolf",
+      "cluster": 0,
+      "seat": {
+        "x": -14.257,
+        "y": 40.582
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.079,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "11",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-firewall-sorc",
+      "cluster": 38,
+      "seat": {
+        "x": 2.995,
+        "y": -36.577
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.435,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "105",
+      "franchise_rollup": "Diablo",
+      "islet": "U-19",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-fishyzon",
+      "cluster": 31,
+      "seat": {
+        "x": -23.058,
+        "y": -14.233
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.2,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "68",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-fohdin",
+      "cluster": 24,
+      "seat": {
+        "x": 21.372,
+        "y": 5.08
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.062,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "9",
+      "franchise_rollup": "Diablo",
+      "islet": "U-10",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-frenzy-barb",
+      "cluster": 34,
+      "seat": {
+        "x": -35.283,
+        "y": 59.971
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "18",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d2-frost-bowazon",
+      "cluster": 26,
+      "seat": {
+        "x": 3.975,
+        "y": -24.074
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.24,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "68",
+      "franchise_rollup": "Diablo",
+      "islet": "U-11",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-frozen-orb-sorc",
+      "cluster": 1,
+      "seat": {
+        "x": -20.658,
+        "y": -15.93
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.337,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "14",
+      "franchise_rollup": "Diablo",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-fury-wolf",
+      "cluster": 23,
+      "seat": {
+        "x": 37.347,
+        "y": 1.407
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.894,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "11",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-ghost-pvp",
+      "cluster": 20,
+      "seat": {
+        "x": 11.959,
+        "y": 39.657
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.001,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "27",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-hammerdin",
+      "cluster": 32,
+      "seat": {
+        "x": -19.842,
+        "y": -22.802
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.024,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "78",
+      "franchise_rollup": "Diablo",
+      "islet": "U-16",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-horker",
+      "cluster": 19,
+      "seat": {
+        "x": -54.29,
+        "y": -16.814
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "46",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d2-hydra-sorc",
+      "cluster": 9,
+      "seat": {
+        "x": 39.306,
+        "y": 39.879
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.457,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "6",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d2-javazon",
+      "cluster": 4,
+      "seat": {
+        "x": -36.926,
+        "y": 5.561
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.324,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "80",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-kicksin",
+      "cluster": 35,
+      "seat": {
+        "x": -2.023,
+        "y": 27.664
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.695,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "20",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d2-lightning-sorc",
+      "cluster": 51,
+      "seat": {
+        "x": -47.903,
+        "y": 6.484
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.178,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "80",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-maul-bear",
+      "cluster": 34,
+      "seat": {
+        "x": -27.101,
+        "y": 67.515
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.276,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "46",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-meteorb",
+      "cluster": 11,
+      "seat": {
+        "x": -15.799,
+        "y": 86.388
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.52,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "9",
+      "franchise_rollup": "Diablo",
+      "islet": "U-4",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-mosaic-sin",
+      "cluster": 30,
+      "seat": {
+        "x": 43.261,
+        "y": 0.163
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.302,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "43",
+      "franchise_rollup": "Diablo",
+      "islet": "U-15",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-nova-sorc",
+      "cluster": 15,
+      "seat": {
+        "x": -43.331,
+        "y": -17.55
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.125,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "7",
+      "franchise_rollup": "Diablo",
+      "islet": "U-7",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "d2-poison-javazon",
+      "cluster": 2,
+      "seat": {
+        "x": 18.706,
+        "y": 8.06
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.986,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "84",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-poison-nova-necro",
+      "cluster": 28,
+      "seat": {
+        "x": 13.238,
+        "y": -33.172
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.206,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "67",
+      "franchise_rollup": "Diablo",
+      "islet": "U-13",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-rabies-wolf",
+      "cluster": 37,
+      "seat": {
+        "x": -20.625,
+        "y": 25.732
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.777,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "11",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d2-singer",
+      "cluster": 6,
+      "seat": {
+        "x": 23.41,
+        "y": -28.533
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.037,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "2",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-smiter",
+      "cluster": 34,
+      "seat": {
+        "x": -35.748,
+        "y": 64.284
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.668,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "69",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d2-summon-druid",
+      "cluster": 23,
+      "seat": {
+        "x": 36.971,
+        "y": -3.5
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.9,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "70",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-summonmancer",
+      "cluster": 17,
+      "seat": {
+        "x": 2.624,
+        "y": 33.102
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.762,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "64",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d2-throw-barb",
+      "cluster": 13,
+      "seat": {
+        "x": -28.619,
+        "y": -6.392
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.878,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "13",
+      "franchise_rollup": "Diablo",
+      "islet": "U-6",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-trapsin",
+      "cluster": 3,
+      "seat": {
+        "x": 33.869,
+        "y": 63.081
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.62,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "64",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d2-wind-druid",
+      "cluster": 1,
+      "seat": {
+        "x": -27.967,
+        "y": -6.157
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.375,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "49",
+      "franchise_rollup": "Diablo",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d2-wl-abyss",
+      "cluster": 24,
+      "seat": {
+        "x": 18.975,
+        "y": 11.664
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.194,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "8",
+      "franchise_rollup": "Diablo",
+      "islet": "U-10",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-wl-blood-boil",
+      "cluster": 36,
+      "seat": {
+        "x": 61.406,
+        "y": 4.124
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.831,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "67",
+      "franchise_rollup": "Diablo",
+      "islet": "U-18",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-wl-echoing-strike",
+      "cluster": 2,
+      "seat": {
+        "x": 12.878,
+        "y": 5.087
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.97,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "17",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-wl-fire",
+      "cluster": 24,
+      "seat": {
+        "x": 18.975,
+        "y": 11.664
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.194,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "8",
+      "franchise_rollup": "Diablo",
+      "islet": "U-10",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-wl-tainted-summoner",
+      "cluster": 19,
+      "seat": {
+        "x": -59.857,
+        "y": -16.474
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.243,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "106",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-wl-void-rift",
+      "cluster": 24,
+      "seat": {
+        "x": 19.201,
+        "y": 9.272
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.093,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "8",
+      "franchise_rollup": "Diablo",
+      "islet": "U-10",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d2-ww-barb",
+      "cluster": 7,
+      "seat": {
+        "x": 18.495,
+        "y": -91.89
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "0",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d2-ww-sin",
+      "cluster": 7,
+      "seat": {
+        "x": 14.953,
+        "y": -90.298
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "0",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d2-zealot",
+      "cluster": 34,
+      "seat": {
+        "x": -30.392,
+        "y": 70.057
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.343,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "85",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-akkhan-condemn",
+      "cluster": 6,
+      "seat": {
+        "x": 25.363,
+        "y": -24.884
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.878,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "2",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-aov-foth",
+      "cluster": 2,
+      "seat": {
+        "x": 12.898,
+        "y": 6.978
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.034,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "17",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-arachyr-firebats",
+      "cluster": 16,
+      "seat": {
+        "x": -77.524,
+        "y": -52.145
+      },
+      "stratum": "core",
+      "family": "CHANNELED-BEAM",
+      "affinity": 0.0,
+      "e1_gateA_group": "CHANNELED-BEAM",
+      "e1_leiden_cluster": "88",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d3-call-of-the-ancients",
+      "cluster": 3,
+      "seat": {
+        "x": 34.871,
+        "y": 57.975
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.886,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "54",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-dashing-strike-monk",
+      "cluster": 5,
+      "seat": {
+        "x": 92.928,
+        "y": -3.921
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 2.724,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "36",
+      "franchise_rollup": "Diablo",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-dmo-twister",
+      "cluster": 21,
+      "seat": {
+        "x": -2.89,
+        "y": 12.382
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.103,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "49",
+      "franchise_rollup": "Diablo",
+      "islet": "U-8",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-firebird",
+      "cluster": 30,
+      "seat": {
+        "x": 51.07,
+        "y": -5.8
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.101,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "8",
+      "franchise_rollup": "Diablo",
+      "islet": "U-15",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-frenzy-h90",
+      "cluster": 19,
+      "seat": {
+        "x": -56.13,
+        "y": -18.907
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "20",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d3-god-hungering",
+      "cluster": 13,
+      "seat": {
+        "x": -36.871,
+        "y": -10.387
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.52,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "71",
+      "franchise_rollup": "Diablo",
+      "islet": "U-6",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-helltooth-garg",
+      "cluster": 46,
+      "seat": {
+        "x": 41.614,
+        "y": 17.544
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.973,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "12",
+      "franchise_rollup": "Diablo",
+      "islet": "U-25",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-ik-hota",
+      "cluster": 2,
+      "seat": {
+        "x": 10.485,
+        "y": 7.713
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.06,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "11",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-inarius-bonestorm",
+      "cluster": 33,
+      "seat": {
+        "x": -8.147,
+        "y": 0.884
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.232,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "86",
+      "franchise_rollup": "Diablo",
+      "islet": "U-17",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-inna-allies",
+      "cluster": 9,
+      "seat": {
+        "x": 42.522,
+        "y": 34.221
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.595,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "35",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d3-invoker-thorns",
+      "cluster": 0,
+      "seat": {
+        "x": -19.168,
+        "y": 39.783
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.22,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "15",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "d3-jade-harvester",
+      "cluster": 8,
+      "seat": {
+        "x": 18.593,
+        "y": 13.404
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.087,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "107",
+      "franchise_rollup": "Diablo",
+      "islet": "U-3",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-leapquake",
+      "cluster": 5,
+      "seat": {
+        "x": 88.105,
+        "y": -9.88
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.415,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "31",
+      "franchise_rollup": "Diablo",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-lod-archetype",
+      "cluster": 26,
+      "seat": {
+        "x": -0.161,
+        "y": -14.633
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.477,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "8",
+      "franchise_rollup": "Diablo",
+      "islet": "U-11",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-lod-bazooka",
+      "cluster": 11,
+      "seat": {
+        "x": -16.042,
+        "y": 85.648
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.435,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "39",
+      "franchise_rollup": "Diablo",
+      "islet": "U-4",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-lon-bombardment",
+      "cluster": 8,
+      "seat": {
+        "x": 20.184,
+        "y": 15.083
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.018,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "108",
+      "franchise_rollup": "Diablo",
+      "islet": "U-3",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-m6-sentries",
+      "cluster": 9,
+      "seat": {
+        "x": 40.698,
+        "y": 40.375
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "1",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d3-manald-heal",
+      "cluster": 19,
+      "seat": {
+        "x": -51.679,
+        "y": -18.416
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "20",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d3-masquerade-spear",
+      "cluster": 13,
+      "seat": {
+        "x": -32.975,
+        "y": -1.902
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.095,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "13",
+      "franchise_rollup": "Diablo",
+      "islet": "U-6",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-mundunugu-sb",
+      "cluster": 10,
+      "seat": {
+        "x": 18.888,
+        "y": 34.624
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "62",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d3-natalya-rov",
+      "cluster": 8,
+      "seat": {
+        "x": 21.374,
+        "y": 18.357
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.896,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "9",
+      "franchise_rollup": "Diablo",
+      "islet": "U-3",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-pestilence-lance",
+      "cluster": 19,
+      "seat": {
+        "x": -53.182,
+        "y": -17.997
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "38",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d3-poj-tempest-rush",
+      "cluster": 43,
+      "seat": {
+        "x": 8.32,
+        "y": -63.361
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.095,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "0",
+      "franchise_rollup": "Diablo",
+      "islet": "U-23",
+      "nearest_family": "WHIRLWIND"
+    },
+    {
+      "kit_id": "d3-raekor-boulder",
+      "cluster": 5,
+      "seat": {
+        "x": 92.849,
+        "y": -10.604
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.818,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "40",
+      "franchise_rollup": "Diablo",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-raiment-shenlong",
+      "cluster": 30,
+      "seat": {
+        "x": 46.416,
+        "y": 4.427
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.196,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "43",
+      "franchise_rollup": "Diablo",
+      "islet": "U-15",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-rathma-aotd",
+      "cluster": 8,
+      "seat": {
+        "x": 17.221,
+        "y": 18.2
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.052,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "34",
+      "franchise_rollup": "Diablo",
+      "islet": "U-3",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-rolands",
+      "cluster": 6,
+      "seat": {
+        "x": 25.128,
+        "y": -27.324
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.026,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "2",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-s6-impale",
+      "cluster": 0,
+      "seat": {
+        "x": -14.182,
+        "y": 44.345
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.026,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "77",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-sotl-hammer",
+      "cluster": 32,
+      "seat": {
+        "x": -18.321,
+        "y": -24.463
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.161,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "37",
+      "franchise_rollup": "Diablo",
+      "islet": "U-16",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-sunwuko-wol",
+      "cluster": 52,
+      "seat": {
+        "x": 11.352,
+        "y": 13.581
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.924,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "109",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-tal-meteor",
+      "cluster": 11,
+      "seat": {
+        "x": -15.881,
+        "y": 84.753
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.449,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "9",
+      "franchise_rollup": "Diablo",
+      "islet": "U-4",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-trag-nova",
+      "cluster": 6,
+      "seat": {
+        "x": 22.52,
+        "y": -20.962
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.161,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "2",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-typhon-hydra",
+      "cluster": 23,
+      "seat": {
+        "x": 33.057,
+        "y": -0.973
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.765,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "6",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d3-ue-multishot",
+      "cluster": 12,
+      "seat": {
+        "x": -3.879,
+        "y": -21.981
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.148,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "16",
+      "franchise_rollup": "Diablo",
+      "islet": "U-5",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-uliana-ep",
+      "cluster": 5,
+      "seat": {
+        "x": 92.008,
+        "y": -9.682
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.631,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "40",
+      "franchise_rollup": "Diablo",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-vyr-archon",
+      "cluster": 6,
+      "seat": {
+        "x": 30.04,
+        "y": -22.662
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.154,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "40",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d3-ww-wastes",
+      "cluster": 7,
+      "seat": {
+        "x": 18.419,
+        "y": -90.967
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "0",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d3-zbarb",
+      "cluster": 21,
+      "seat": {
+        "x": -7.955,
+        "y": 13.387
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.987,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "31",
+      "franchise_rollup": "Diablo",
+      "islet": "U-8",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-zero-dogs",
+      "cluster": 35,
+      "seat": {
+        "x": -7.298,
+        "y": 29.879
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.714,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "20",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d3-znec",
+      "cluster": 8,
+      "seat": {
+        "x": 18.991,
+        "y": 18.859
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.071,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "24",
+      "franchise_rollup": "Diablo",
+      "islet": "U-3",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d3-zuni-carnevil",
+      "cluster": 23,
+      "seat": {
+        "x": 34.906,
+        "y": 0.891
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.682,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "20",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d4-andariel-flurry",
+      "cluster": 35,
+      "seat": {
+        "x": 0.212,
+        "y": 34.653
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.501,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "110",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d4-auradin-paladin",
+      "cluster": 14,
+      "seat": {
+        "x": 39.556,
+        "y": -64.022
+      },
+      "stratum": "core",
+      "family": "AURA",
+      "affinity": 0.0,
+      "e1_gateA_group": "AURA",
+      "e1_leiden_cluster": "5",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d4-ball-lightning",
+      "cluster": 33,
+      "seat": {
+        "x": -7.195,
+        "y": -0.25
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.222,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "111",
+      "franchise_rollup": "Diablo",
+      "islet": "U-17",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d4-bash",
+      "cluster": 30,
+      "seat": {
+        "x": 49.556,
+        "y": -2.273
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.131,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "43",
+      "franchise_rollup": "Diablo",
+      "islet": "U-15",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-blazing-abyss-warlock",
+      "cluster": 24,
+      "seat": {
+        "x": 17.668,
+        "y": 9.255
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.152,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "8",
+      "franchise_rollup": "Diablo",
+      "islet": "U-10",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-blood-lance",
+      "cluster": 4,
+      "seat": {
+        "x": -44.265,
+        "y": 8.664
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.258,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "13",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-blood-surge",
+      "cluster": 6,
+      "seat": {
+        "x": 26.867,
+        "y": -28.282
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.06,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "87",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-blood-wave",
+      "cluster": 7,
+      "seat": {
+        "x": 20.705,
+        "y": -98.388
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "34",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d4-bone-spear",
+      "cluster": 13,
+      "seat": {
+        "x": -31.68,
+        "y": -3.706
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.029,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "13",
+      "franchise_rollup": "Diablo",
+      "islet": "U-6",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-bouldercane",
+      "cluster": 33,
+      "seat": {
+        "x": -8.147,
+        "y": 0.884
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.232,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "86",
+      "franchise_rollup": "Diablo",
+      "islet": "U-17",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-cataclysm",
+      "cluster": 26,
+      "seat": {
+        "x": -5.008,
+        "y": -19.308
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.161,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "60",
+      "franchise_rollup": "Diablo",
+      "islet": "U-11",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d4-chain-lightning",
+      "cluster": 4,
+      "seat": {
+        "x": -39.659,
+        "y": 6.204
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.288,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "112",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-dance-of-knives",
+      "cluster": 32,
+      "seat": {
+        "x": -12.797,
+        "y": -23.245
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.245,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "37",
+      "franchise_rollup": "Diablo",
+      "islet": "U-16",
+      "nearest_family": "WHIRLWIND"
+    },
+    {
+      "kit_id": "d4-death-trap",
+      "cluster": 53,
+      "seat": {
+        "x": 61.851,
+        "y": 62.448
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "27",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d4-dread-claws-warlock",
+      "cluster": 36,
+      "seat": {
+        "x": 57.485,
+        "y": 11.747
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.07,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "17",
+      "franchise_rollup": "Diablo",
+      "islet": "U-18",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-earthquake-barb",
+      "cluster": 5,
+      "seat": {
+        "x": 88.474,
+        "y": -9.603
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.419,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "31",
+      "franchise_rollup": "Diablo",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d4-evade-sb",
+      "cluster": 5,
+      "seat": {
+        "x": 91.112,
+        "y": -8.368
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.696,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "113",
+      "franchise_rollup": "Diablo",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d4-flame-shield-immortal",
+      "cluster": 6,
+      "seat": {
+        "x": 25.204,
+        "y": -22.582
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.964,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "21",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d4-frozen-orb",
+      "cluster": 1,
+      "seat": {
+        "x": -20.639,
+        "y": -12.736
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.282,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "14",
+      "franchise_rollup": "Diablo",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d4-hammerdin-paladin",
+      "cluster": 32,
+      "seat": {
+        "x": -18.563,
+        "y": -25.047
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.143,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "37",
+      "franchise_rollup": "Diablo",
+      "islet": "U-16",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d4-heartseeker",
+      "cluster": 13,
+      "seat": {
+        "x": -32.556,
+        "y": -9.536
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.298,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "71",
+      "franchise_rollup": "Diablo",
+      "islet": "U-6",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-hota",
+      "cluster": 2,
+      "seat": {
+        "x": 11.782,
+        "y": 9.189
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.052,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "19",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-ice-shards",
+      "cluster": 31,
+      "seat": {
+        "x": -33.293,
+        "y": -11.311
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.759,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "65",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d4-infinimist",
+      "cluster": 25,
+      "seat": {
+        "x": 35.259,
+        "y": -42.48
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.882,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "79",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-lightning-spear",
+      "cluster": 10,
+      "seat": {
+        "x": 14.447,
+        "y": 35.134
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.609,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "60",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "d4-lightning-storm",
+      "cluster": 43,
+      "seat": {
+        "x": 2.964,
+        "y": -67.685
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.493,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "114",
+      "franchise_rollup": "Diablo",
+      "islet": "U-23",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-mighty-throw",
+      "cluster": 10,
+      "seat": {
+        "x": 15.365,
+        "y": 37.226
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "62",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d4-minion-necro",
+      "cluster": 23,
+      "seat": {
+        "x": 35.157,
+        "y": -4.399
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.95,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "12",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-payback-sb",
+      "cluster": 25,
+      "seat": {
+        "x": 30.572,
+        "y": -38.783
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "87",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d4-pen-shot",
+      "cluster": 15,
+      "seat": {
+        "x": -46.045,
+        "y": -20.034
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.178,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "44",
+      "franchise_rollup": "Diablo",
+      "islet": "U-7",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d4-pulverize",
+      "cluster": 41,
+      "seat": {
+        "x": 36.011,
+        "y": 7.967
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.024,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "19",
+      "franchise_rollup": "Diablo",
+      "islet": "U-22",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d4-quill-volley",
+      "cluster": 1,
+      "seat": {
+        "x": -20.764,
+        "y": -11.513
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.246,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "4",
+      "franchise_rollup": "Diablo",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d4-rabies-lacerate",
+      "cluster": 4,
+      "seat": {
+        "x": -37.229,
+        "y": 11.479
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.035,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "53",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-rapid-fire",
+      "cluster": 13,
+      "seat": {
+        "x": -32.106,
+        "y": -7.128
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.159,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "71",
+      "franchise_rollup": "Diablo",
+      "islet": "U-6",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-shadowblight",
+      "cluster": 36,
+      "seat": {
+        "x": 54.221,
+        "y": 6.73
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.125,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "115",
+      "franchise_rollup": "Diablo",
+      "islet": "U-18",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d4-thorns-barb",
+      "cluster": 23,
+      "seat": {
+        "x": 42.074,
+        "y": -2.295
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.295,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "15",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-tornado-werewolf",
+      "cluster": 1,
+      "seat": {
+        "x": -27.467,
+        "y": -9.886
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.113,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "49",
+      "franchise_rollup": "Diablo",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "d4-touch-of-death",
+      "cluster": 10,
+      "seat": {
+        "x": 16.274,
+        "y": 38.882
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "25",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "d4-twisting-blades",
+      "cluster": 13,
+      "seat": {
+        "x": -34.785,
+        "y": -3.405
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.991,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "29",
+      "franchise_rollup": "Diablo",
+      "islet": "U-6",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-wing-strike-arbiter",
+      "cluster": 2,
+      "seat": {
+        "x": 10.045,
+        "y": 4.784
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.001,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "17",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "d4-ww-dust-devils",
+      "cluster": 32,
+      "seat": {
+        "x": -13.43,
+        "y": -25.182
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.132,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "0",
+      "franchise_rollup": "Diablo",
+      "islet": "U-16",
+      "nearest_family": "WHIRLWIND"
+    },
+    {
+      "kit_id": "di-blood-knight",
+      "cluster": 36,
+      "seat": {
+        "x": 55.061,
+        "y": 13.518
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.237,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "51",
+      "franchise_rollup": "Diablo",
+      "islet": "U-18",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "di-bombardment-wizard-pvp",
+      "cluster": 8,
+      "seat": {
+        "x": 24.009,
+        "y": 17.726
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.089,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "9",
+      "franchise_rollup": "Diablo",
+      "islet": "U-3",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "di-bone-wall-necro-pvp",
+      "cluster": 22,
+      "seat": {
+        "x": 19.627,
+        "y": -59.579
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.78,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "32",
+      "franchise_rollup": "Diablo",
+      "islet": "U-9",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "di-corpse-explosion-necro",
+      "cluster": 65,
+      "seat": {
+        "x": 5.611,
+        "y": 20.824
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.08,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "116",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "di-crusader-banner-support",
+      "cluster": 10,
+      "seat": {
+        "x": 17.112,
+        "y": 34.66
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.463,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "69",
+      "franchise_rollup": "Diablo"
+    },
+    {
+      "kit_id": "di-cyclone-monk-pvp",
+      "cluster": 44,
+      "seat": {
+        "x": 50.814,
+        "y": -60.132
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.708,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "21",
+      "franchise_rollup": "Diablo",
+      "islet": "U-24",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "di-draw-quarter-crusader",
+      "cluster": 5,
+      "seat": {
+        "x": 84.159,
+        "y": -6.631
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.956,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "21",
+      "franchise_rollup": "Diablo",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "di-druid-bear",
+      "cluster": 18,
+      "seat": {
+        "x": 65.008,
+        "y": -32.348
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.812,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "30",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "MINION-PET"
+    },
+    {
+      "kit_id": "di-frenzy-barb",
+      "cluster": 33,
+      "seat": {
+        "x": -12.262,
+        "y": 0.888
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.18,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "18",
+      "franchise_rollup": "Diablo",
+      "islet": "U-17",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "di-hota-wotb-barb",
+      "cluster": 20,
+      "seat": {
+        "x": 13.174,
+        "y": 44.795
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.013,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "19",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "di-meteor-wizard",
+      "cluster": 11,
+      "seat": {
+        "x": -15.042,
+        "y": 84.939
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.565,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "9",
+      "franchise_rollup": "Diablo",
+      "islet": "U-4",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "di-minion-necro",
+      "cluster": 18,
+      "seat": {
+        "x": 72.873,
+        "y": -33.267
+      },
+      "stratum": "core",
+      "family": "MINION-PET",
+      "affinity": 0.0,
+      "e1_gateA_group": "MINION-PET",
+      "e1_leiden_cluster": "3",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "di-monk-sss",
+      "cluster": 20,
+      "seat": {
+        "x": 11.267,
+        "y": 50.17
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.229,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "75",
+      "franchise_rollup": "Diablo",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "di-multishot-dh",
+      "cluster": 27,
+      "seat": {
+        "x": -64.165,
+        "y": -64.261
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.814,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "45",
+      "franchise_rollup": "Diablo",
+      "islet": "U-12",
+      "nearest_family": "CHANNELED-BEAM"
+    },
+    {
+      "kit_id": "di-ray-of-frost-wizard",
+      "cluster": 16,
+      "seat": {
+        "x": -70.639,
+        "y": -57.729
+      },
+      "stratum": "core",
+      "family": "CHANNELED-BEAM",
+      "affinity": 0.0,
+      "e1_gateA_group": "CHANNELED-BEAM",
+      "e1_leiden_cluster": "22",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "di-spiritform-druid-pvp",
+      "cluster": 44,
+      "seat": {
+        "x": 52.124,
+        "y": -54.839
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.238,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "21",
+      "franchise_rollup": "Diablo",
+      "islet": "U-24",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "di-tempest",
+      "cluster": 28,
+      "seat": {
+        "x": 10.126,
+        "y": -31.918
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.115,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "76",
+      "franchise_rollup": "Diablo",
+      "islet": "U-13",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "di-vengeance-strafe-dh",
+      "cluster": 27,
+      "seat": {
+        "x": -63.337,
+        "y": -63.562
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.6,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "45",
+      "franchise_rollup": "Diablo",
+      "islet": "U-12",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "di-warlock-launch",
+      "cluster": 8,
+      "seat": {
+        "x": 20.314,
+        "y": 21.879
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.993,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "9",
+      "franchise_rollup": "Diablo",
+      "islet": "U-3",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "di-whirlwind-barb",
+      "cluster": 7,
+      "seat": {
+        "x": 13.508,
+        "y": -92.309
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "0",
+      "franchise_rollup": "Diablo",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "gd-aar-spellbinder",
+      "cluster": 16,
+      "seat": {
+        "x": -76.35,
+        "y": -52.837
+      },
+      "stratum": "core",
+      "family": "CHANNELED-BEAM",
+      "affinity": 0.0,
+      "e1_gateA_group": "CHANNELED-BEAM",
+      "e1_leiden_cluster": "22",
+      "franchise_rollup": "gd",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "gd-aegis-paladin",
+      "cluster": 4,
+      "seat": {
+        "x": -37.767,
+        "y": 9.407
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.755,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "63",
+      "franchise_rollup": "gd"
+    },
+    {
+      "kit_id": "gd-belgothian-blademaster",
+      "cluster": 0,
+      "seat": {
+        "x": -12.503,
+        "y": 42.364
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.145,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "57",
+      "franchise_rollup": "gd",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "gd-berserker-wereforms",
+      "cluster": 2,
+      "seat": {
+        "x": 8.615,
+        "y": 5.196
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.866,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "17",
+      "franchise_rollup": "gd",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "gd-blade-arc-warder",
+      "cluster": 6,
+      "seat": {
+        "x": 22.971,
+        "y": -24.571
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.559,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "117",
+      "franchise_rollup": "gd"
+    },
+    {
+      "kit_id": "gd-blight-fiend-ritualist",
+      "cluster": 17,
+      "seat": {
+        "x": 4.511,
+        "y": 37.633
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.68,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "64",
+      "franchise_rollup": "gd"
+    },
+    {
+      "kit_id": "gd-bloody-pox-conjurer",
+      "cluster": 29,
+      "seat": {
+        "x": 70.09,
+        "y": 26.981
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.296,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "53",
+      "franchise_rollup": "gd",
+      "islet": "U-14",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "gd-bwc-demolitionist",
+      "cluster": 17,
+      "seat": {
+        "x": 4.536,
+        "y": 40.781
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.783,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "24",
+      "franchise_rollup": "gd"
+    },
+    {
+      "kit_id": "gd-cadence-witchblade",
+      "cluster": 20,
+      "seat": {
+        "x": 5.41,
+        "y": 43.561
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.114,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "40",
+      "franchise_rollup": "gd",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "gd-callidors-tempest-templar",
+      "cluster": 6,
+      "seat": {
+        "x": 25.128,
+        "y": -27.324
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.026,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "2",
+      "franchise_rollup": "gd",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "gd-canister-saboteur",
+      "cluster": 20,
+      "seat": {
+        "x": 14.647,
+        "y": 42.025
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.989,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "27",
+      "franchise_rollup": "gd",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "gd-dee-witch-hunter",
+      "cluster": 12,
+      "seat": {
+        "x": -8.608,
+        "y": -20.531
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.111,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "16",
+      "franchise_rollup": "gd",
+      "islet": "U-5",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "gd-devastation-sorcerer",
+      "cluster": 8,
+      "seat": {
+        "x": 20.362,
+        "y": 17.283
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.096,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "9",
+      "franchise_rollup": "gd",
+      "islet": "U-3",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "gd-doom-bolt-sentinel",
+      "cluster": 17,
+      "seat": {
+        "x": 10.488,
+        "y": 38.094
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.884,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "34",
+      "franchise_rollup": "gd",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "gd-drain-essence-spellbinder",
+      "cluster": 54,
+      "seat": {
+        "x": -98.464,
+        "y": -19.917
+      },
+      "stratum": "core",
+      "family": "CHANNELED-BEAM",
+      "affinity": 0.0,
+      "e1_gateA_group": "CHANNELED-BEAM",
+      "e1_leiden_cluster": "88",
+      "franchise_rollup": "gd",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "gd-eor-warlord",
+      "cluster": 7,
+      "seat": {
+        "x": 17.081,
+        "y": -92.231
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "0",
+      "franchise_rollup": "gd",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "gd-fire-strike-purifier",
+      "cluster": 55,
+      "seat": {
+        "x": 9.848,
+        "y": -20.374
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.234,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "13",
+      "franchise_rollup": "gd",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "gd-flames-of-ignaffar-purifier",
+      "cluster": 16,
+      "seat": {
+        "x": -81.536,
+        "y": -58.754
+      },
+      "stratum": "core",
+      "family": "CHANNELED-BEAM",
+      "affinity": 0.0,
+      "e1_gateA_group": "CHANNELED-BEAM",
+      "e1_leiden_cluster": "22",
+      "franchise_rollup": "gd",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "gd-forcewave-warlord",
+      "cluster": 28,
+      "seat": {
+        "x": 10.814,
+        "y": -35.859
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.191,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "118",
+      "franchise_rollup": "gd",
+      "islet": "U-13",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "gd-krieg-death-knight",
+      "cluster": 8,
+      "seat": {
+        "x": 23.94,
+        "y": 15.759
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.058,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "19",
+      "franchise_rollup": "gd",
+      "islet": "U-3",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "gd-mortar-purifier",
+      "cluster": 3,
+      "seat": {
+        "x": 36.667,
+        "y": 65.264
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.402,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "1",
+      "franchise_rollup": "gd"
+    },
+    {
+      "kit_id": "gd-panettis-mage-hunter",
+      "cluster": 4,
+      "seat": {
+        "x": -39.632,
+        "y": 7.749
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.114,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "13",
+      "franchise_rollup": "gd",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "gd-pet-conjurer",
+      "cluster": 23,
+      "seat": {
+        "x": 34.928,
+        "y": -1.66
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.911,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "70",
+      "franchise_rollup": "gd",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "gd-phantasmal-blades-witch-hunter",
+      "cluster": 4,
+      "seat": {
+        "x": -43.116,
+        "y": 9.458
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.452,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "65",
+      "franchise_rollup": "gd",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "gd-primal-strike-vindicator",
+      "cluster": 2,
+      "seat": {
+        "x": 11.04,
+        "y": 2.851
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.733,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "11",
+      "franchise_rollup": "gd"
+    },
+    {
+      "kit_id": "gd-ravenous-earth-oppressor",
+      "cluster": 29,
+      "seat": {
+        "x": 72.563,
+        "y": 30.09
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.431,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "24",
+      "franchise_rollup": "gd",
+      "islet": "U-14",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "gd-retaliation-warlord",
+      "cluster": 0,
+      "seat": {
+        "x": -19.168,
+        "y": 39.783
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.22,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "15",
+      "franchise_rollup": "gd",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "gd-righteous-fervor-dervish",
+      "cluster": 30,
+      "seat": {
+        "x": 48.2,
+        "y": 5.576
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.066,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "18",
+      "franchise_rollup": "gd",
+      "islet": "U-15",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "gd-roh-infiltrator",
+      "cluster": 56,
+      "seat": {
+        "x": 28.528,
+        "y": 46.145
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.814,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "27",
+      "franchise_rollup": "gd",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "gd-savagery-warder",
+      "cluster": 30,
+      "seat": {
+        "x": 49.369,
+        "y": 3.604
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.131,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "43",
+      "franchise_rollup": "gd",
+      "islet": "U-15",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "gd-shadow-strike-infiltrator",
+      "cluster": 5,
+      "seat": {
+        "x": 87.016,
+        "y": -10.163
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.369,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "31",
+      "franchise_rollup": "gd",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "gd-skeleton-ritualist",
+      "cluster": 9,
+      "seat": {
+        "x": 43.616,
+        "y": 39.496
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "35",
+      "franchise_rollup": "gd",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "gd-stormbox-elementalist",
+      "cluster": 57,
+      "seat": {
+        "x": -13.598,
+        "y": 30.37
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.077,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "53",
+      "franchise_rollup": "gd",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "gd-trozan-druid",
+      "cluster": 24,
+      "seat": {
+        "x": 23.195,
+        "y": 7.441
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.126,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "34",
+      "franchise_rollup": "gd",
+      "islet": "U-10",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "gd-vires-might-shieldbreaker",
+      "cluster": 5,
+      "seat": {
+        "x": 90.706,
+        "y": -9.694
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.572,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "31",
+      "franchise_rollup": "gd",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "gd-vitality-conjurer",
+      "cluster": 29,
+      "seat": {
+        "x": 71.92,
+        "y": 30.712
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.443,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "24",
+      "franchise_rollup": "gd",
+      "islet": "U-14",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "gd-wendigo-totem-ritualist",
+      "cluster": 3,
+      "seat": {
+        "x": 34.274,
+        "y": 64.384
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.694,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "119",
+      "franchise_rollup": "gd"
+    },
+    {
+      "kit_id": "gd-word-of-pain-tactician",
+      "cluster": 17,
+      "seat": {
+        "x": 5.647,
+        "y": 40.555
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.848,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "24",
+      "franchise_rollup": "gd",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "hades1-ares-doom",
+      "cluster": 58,
+      "seat": {
+        "x": -80.505,
+        "y": 80.58
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.683,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "120",
+      "franchise_rollup": "Hades",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "hades1-aspect-chiron",
+      "cluster": 40,
+      "seat": {
+        "x": -40.677,
+        "y": 43.883
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.167,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "10",
+      "franchise_rollup": "Hades",
+      "islet": "U-21",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "hades1-aspect-guan-yu",
+      "cluster": 7,
+      "seat": {
+        "x": 16.84,
+        "y": -99.52
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "91",
+      "franchise_rollup": "Hades",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "hades1-athena-dash",
+      "cluster": 5,
+      "seat": {
+        "x": 88.656,
+        "y": -6.238
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.492,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "89",
+      "franchise_rollup": "Hades",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "hades1-beowulf-cast",
+      "cluster": 40,
+      "seat": {
+        "x": -47.36,
+        "y": 39.649
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.25,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "121",
+      "franchise_rollup": "Hades",
+      "islet": "U-21",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "hades1-merciful-end",
+      "cluster": 5,
+      "seat": {
+        "x": 85.687,
+        "y": -2.079
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 2.383,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "89",
+      "franchise_rollup": "Hades",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "hades1-zeus-chain",
+      "cluster": 49,
+      "seat": {
+        "x": -63.728,
+        "y": 21.09
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "10",
+      "franchise_rollup": "Hades",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "hades2-glorious-disaster",
+      "cluster": 10,
+      "seat": {
+        "x": 18.051,
+        "y": 29.952
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.106,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "122",
+      "franchise_rollup": "Hades",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "hades2-hail-storm",
+      "cluster": 22,
+      "seat": {
+        "x": 18.729,
+        "y": -66.956
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.308,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "41",
+      "franchise_rollup": "Hades",
+      "islet": "U-9",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "hades2-hephaestus-blast",
+      "cluster": 11,
+      "seat": {
+        "x": -12.841,
+        "y": 81.158
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.324,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "83",
+      "franchise_rollup": "Hades",
+      "islet": "U-4",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "hades2-medea-skull-cast",
+      "cluster": 11,
+      "seat": {
+        "x": -16.16,
+        "y": 78.355
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.774,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "123",
+      "franchise_rollup": "Hades",
+      "islet": "U-4",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "hot-archer",
+      "cluster": 1,
+      "seat": {
+        "x": -22.278,
+        "y": -14.626
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.41,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "4",
+      "franchise_rollup": "hot",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "hot-astronomer-orbs",
+      "cluster": 15,
+      "seat": {
+        "x": -41.041,
+        "y": -10.742
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.922,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "124",
+      "franchise_rollup": "hot",
+      "islet": "U-7",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "hot-cleric-radiant",
+      "cluster": 14,
+      "seat": {
+        "x": 43.671,
+        "y": -62.904
+      },
+      "stratum": "core",
+      "family": "AURA",
+      "affinity": 0.0,
+      "e1_gateA_group": "AURA",
+      "e1_leiden_cluster": "5",
+      "franchise_rollup": "hot",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "hot-dragons-breath",
+      "cluster": 27,
+      "seat": {
+        "x": -62.128,
+        "y": -57.39
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.796,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "90",
+      "franchise_rollup": "hot",
+      "islet": "U-12",
+      "nearest_family": "CHANNELED-BEAM"
+    },
+    {
+      "kit_id": "hot-exterminator-burn",
+      "cluster": 27,
+      "seat": {
+        "x": -64.64,
+        "y": -58.143
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.451,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "90",
+      "franchise_rollup": "hot",
+      "islet": "U-12",
+      "nearest_family": "CHANNELED-BEAM"
+    },
+    {
+      "kit_id": "hot-kugelblitz",
+      "cluster": 28,
+      "seat": {
+        "x": 12.72,
+        "y": -26.938
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.749,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "42",
+      "franchise_rollup": "hot",
+      "islet": "U-13",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "hot-landsknecht-grenades",
+      "cluster": 25,
+      "seat": {
+        "x": 27.384,
+        "y": -33.329
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "125",
+      "franchise_rollup": "hot",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "hot-meteor-strike",
+      "cluster": 8,
+      "seat": {
+        "x": 27.566,
+        "y": 21.32
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.197,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "48",
+      "franchise_rollup": "hot",
+      "islet": "U-3",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "hot-norseman-frost-avalanche",
+      "cluster": 22,
+      "seat": {
+        "x": 17.019,
+        "y": -62.913
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.534,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "41",
+      "franchise_rollup": "hot",
+      "islet": "U-9",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "hot-phantom-needles",
+      "cluster": 15,
+      "seat": {
+        "x": -46.978,
+        "y": -17.509
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.175,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "10",
+      "franchise_rollup": "hot",
+      "islet": "U-7",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "hot-sage-ring-blades",
+      "cluster": 15,
+      "seat": {
+        "x": -41.5,
+        "y": -14.469
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.333,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "7",
+      "franchise_rollup": "hot",
+      "islet": "U-7",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "hot-shieldmaiden-block",
+      "cluster": 25,
+      "seat": {
+        "x": 31.657,
+        "y": -33.653
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "72",
+      "franchise_rollup": "hot",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "hot-sorceress-splinters",
+      "cluster": 1,
+      "seat": {
+        "x": -22.278,
+        "y": -14.626
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.41,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "4",
+      "franchise_rollup": "hot",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "hot-spirit-warrior",
+      "cluster": 8,
+      "seat": {
+        "x": 24.195,
+        "y": 23.232
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.017,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "42",
+      "franchise_rollup": "hot",
+      "islet": "U-3",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "hot-swordsman",
+      "cluster": 6,
+      "seat": {
+        "x": 24.516,
+        "y": -25.811
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.997,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "2",
+      "franchise_rollup": "hot",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "hot-warlock",
+      "cluster": 21,
+      "seat": {
+        "x": -10.334,
+        "y": 16.563
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.077,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "42",
+      "franchise_rollup": "hot",
+      "islet": "U-8",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "le-bladestorm-bd",
+      "cluster": 50,
+      "seat": {
+        "x": -43.694,
+        "y": 23.307
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.325,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "76",
+      "franchise_rollup": "le",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "le-bomb-lance-falconer",
+      "cluster": 12,
+      "seat": {
+        "x": -3.972,
+        "y": -19.75
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.115,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "52",
+      "franchise_rollup": "le",
+      "islet": "U-5",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "le-chthonic-fissure-warlock",
+      "cluster": 28,
+      "seat": {
+        "x": 18.303,
+        "y": -32.511
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.427,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "126",
+      "franchise_rollup": "le",
+      "islet": "U-13",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "le-detonating-arrow-mm",
+      "cluster": 12,
+      "seat": {
+        "x": -10.614,
+        "y": -21.927
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.309,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "59",
+      "franchise_rollup": "le",
+      "islet": "U-5",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "le-dive-bomb-falconer",
+      "cluster": 29,
+      "seat": {
+        "x": 65.359,
+        "y": 30.54
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 2.437,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "51",
+      "franchise_rollup": "le",
+      "islet": "U-14",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "le-erasing-strike-vk",
+      "cluster": 11,
+      "seat": {
+        "x": -13.925,
+        "y": 87.327
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.58,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "39",
+      "franchise_rollup": "le",
+      "islet": "U-4",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "le-explosive-trap-falconer",
+      "cluster": 10,
+      "seat": {
+        "x": 13.81,
+        "y": 37.073
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.42,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "27",
+      "franchise_rollup": "le"
+    },
+    {
+      "kit_id": "le-fire-aura-spellblade",
+      "cluster": 14,
+      "seat": {
+        "x": 39.756,
+        "y": -62.284
+      },
+      "stratum": "core",
+      "family": "AURA",
+      "affinity": 0.0,
+      "e1_gateA_group": "AURA",
+      "e1_leiden_cluster": "5",
+      "franchise_rollup": "le",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "le-flame-reave-spellblade",
+      "cluster": 2,
+      "seat": {
+        "x": 13.903,
+        "y": 12.165
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.013,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "74",
+      "franchise_rollup": "le",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "le-frost-claw",
+      "cluster": 48,
+      "seat": {
+        "x": -41.703,
+        "y": -60.056
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 2.087,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "32",
+      "franchise_rollup": "le",
+      "islet": "U-27",
+      "nearest_family": "CHANNELED-BEAM"
+    },
+    {
+      "kit_id": "le-frost-wall-rm",
+      "cluster": 22,
+      "seat": {
+        "x": 23.756,
+        "y": -59.176
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.44,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "62",
+      "franchise_rollup": "le",
+      "islet": "U-9",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "le-ghostflame-warlock",
+      "cluster": 16,
+      "seat": {
+        "x": -71.328,
+        "y": -54.679
+      },
+      "stratum": "core",
+      "family": "CHANNELED-BEAM",
+      "affinity": 0.0,
+      "e1_gateA_group": "CHANNELED-BEAM",
+      "e1_leiden_cluster": "22",
+      "franchise_rollup": "le",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "le-hammer-throw-paladin",
+      "cluster": 50,
+      "seat": {
+        "x": -44.526,
+        "y": 25.056
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.253,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "63",
+      "franchise_rollup": "le",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "le-harvest-lich",
+      "cluster": 29,
+      "seat": {
+        "x": 71.764,
+        "y": 28.21
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.589,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "28",
+      "franchise_rollup": "le",
+      "islet": "U-14",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "le-healing-hands-paladin",
+      "cluster": 35,
+      "seat": {
+        "x": -2.699,
+        "y": 34.673
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "46",
+      "franchise_rollup": "le",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "le-judgement-paladin",
+      "cluster": 2,
+      "seat": {
+        "x": 13.458,
+        "y": 9.822
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.964,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "15",
+      "franchise_rollup": "le",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "le-lightning-blast",
+      "cluster": 48,
+      "seat": {
+        "x": -38.421,
+        "y": -68.007
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.521,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "32",
+      "franchise_rollup": "le",
+      "islet": "U-27",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "le-low-life-ward",
+      "cluster": 29,
+      "seat": {
+        "x": 74.784,
+        "y": 28.633
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.224,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "28",
+      "franchise_rollup": "le",
+      "islet": "U-14",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "le-manifest-armor",
+      "cluster": 8,
+      "seat": {
+        "x": 28.058,
+        "y": 16.603
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.06,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "127",
+      "franchise_rollup": "le",
+      "islet": "U-3",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "le-reaper-form-lich",
+      "cluster": 29,
+      "seat": {
+        "x": 73.034,
+        "y": 25.188
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.402,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "2",
+      "franchise_rollup": "le",
+      "islet": "U-14",
+      "nearest_family": "WHIRLWIND"
+    },
+    {
+      "kit_id": "le-ring-of-shields",
+      "cluster": 45,
+      "seat": {
+        "x": 27.772,
+        "y": 34.574
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.703,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "30",
+      "franchise_rollup": "le"
+    },
+    {
+      "kit_id": "le-runic-invocation",
+      "cluster": 12,
+      "seat": {
+        "x": -8.103,
+        "y": -27.516
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.094,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "26",
+      "franchise_rollup": "le",
+      "islet": "U-5",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "le-shadow-bladedancer",
+      "cluster": 10,
+      "seat": {
+        "x": 15.937,
+        "y": 34.057
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.647,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "54",
+      "franchise_rollup": "le"
+    },
+    {
+      "kit_id": "le-shield-throw-time-rot-vk",
+      "cluster": 48,
+      "seat": {
+        "x": -43.055,
+        "y": -70.105
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.038,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "63",
+      "franchise_rollup": "le",
+      "islet": "U-27",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "le-shift-bladedancer",
+      "cluster": 5,
+      "seat": {
+        "x": 92.928,
+        "y": -3.921
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 2.724,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "36",
+      "franchise_rollup": "le",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "le-skeleton-necro",
+      "cluster": 9,
+      "seat": {
+        "x": 40.836,
+        "y": 37.362
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "25",
+      "franchise_rollup": "le",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "le-smite-paladin",
+      "cluster": 34,
+      "seat": {
+        "x": -32.459,
+        "y": 62.087
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "46",
+      "franchise_rollup": "le",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "le-squirrel-bm",
+      "cluster": 9,
+      "seat": {
+        "x": 39.795,
+        "y": 37.327
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "25",
+      "franchise_rollup": "le",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "le-storm-totem-shaman",
+      "cluster": 3,
+      "seat": {
+        "x": 37.282,
+        "y": 63.354
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "1",
+      "franchise_rollup": "le",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "le-swarmblade-druid",
+      "cluster": 6,
+      "seat": {
+        "x": 27.217,
+        "y": -23.598
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.099,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "128",
+      "franchise_rollup": "le",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "le-umbral-blades",
+      "cluster": 1,
+      "seat": {
+        "x": -16.806,
+        "y": -7.087
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.151,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "129",
+      "franchise_rollup": "le",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "le-warpath-vk",
+      "cluster": 7,
+      "seat": {
+        "x": 21.021,
+        "y": -91.462
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "0",
+      "franchise_rollup": "le",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "le-werebear-druid",
+      "cluster": 6,
+      "seat": {
+        "x": 27.173,
+        "y": -21.317
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.017,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "91",
+      "franchise_rollup": "le",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "le-wraithlord-necro",
+      "cluster": 59,
+      "seat": {
+        "x": 20.018,
+        "y": 73.857
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "6",
+      "franchise_rollup": "le",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-aegis-max-block",
+      "cluster": 35,
+      "seat": {
+        "x": -5.354,
+        "y": 39.374
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "81",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-animate-weapon",
+      "cluster": 23,
+      "seat": {
+        "x": 33.381,
+        "y": -2.462
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.95,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "12",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-arc",
+      "cluster": 4,
+      "seat": {
+        "x": -37.05,
+        "y": 3.789
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.18,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "23",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-archmage",
+      "cluster": 26,
+      "seat": {
+        "x": 3.813,
+        "y": -19.999
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.509,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "23",
+      "franchise_rollup": "PoE",
+      "islet": "U-11",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-armageddon-brand",
+      "cluster": 10,
+      "seat": {
+        "x": 17.73,
+        "y": 36.593
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.5,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "130",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe1-aurabot",
+      "cluster": 14,
+      "seat": {
+        "x": 37.828,
+        "y": -65.894
+      },
+      "stratum": "core",
+      "family": "AURA",
+      "affinity": 0.0,
+      "e1_gateA_group": "AURA",
+      "e1_leiden_cluster": "5",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-aurastacker",
+      "cluster": 14,
+      "seat": {
+        "x": 41.508,
+        "y": -65.622
+      },
+      "stratum": "core",
+      "family": "AURA",
+      "affinity": 0.609,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "5",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe1-autobomber",
+      "cluster": 37,
+      "seat": {
+        "x": -31.315,
+        "y": 22.663
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "72",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-ball-lightning",
+      "cluster": 26,
+      "seat": {
+        "x": 3.813,
+        "y": -19.999
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.509,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "23",
+      "franchise_rollup": "PoE",
+      "islet": "U-11",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-bane",
+      "cluster": 42,
+      "seat": {
+        "x": 28.837,
+        "y": -17.149
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.07,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "24",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-baron-zombies",
+      "cluster": 23,
+      "seat": {
+        "x": 36.846,
+        "y": -1.695
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.887,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "70",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-blade-flurry",
+      "cluster": 43,
+      "seat": {
+        "x": 0.57,
+        "y": -59.364
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.526,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "33",
+      "franchise_rollup": "PoE",
+      "islet": "U-23",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-bladefall-bladeblast",
+      "cluster": 17,
+      "seat": {
+        "x": -0.551,
+        "y": 35.042
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "38",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-boneshatter",
+      "cluster": 36,
+      "seat": {
+        "x": 61.099,
+        "y": 14.501
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.183,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "17",
+      "franchise_rollup": "PoE",
+      "islet": "U-18",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-caustic-arrow",
+      "cluster": 60,
+      "seat": {
+        "x": -14.897,
+        "y": -34.035
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.918,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "47",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-coc-ice-nova",
+      "cluster": 25,
+      "seat": {
+        "x": 24.425,
+        "y": -40.696
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.105,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "72",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-cold-dot-occ",
+      "cluster": 21,
+      "seat": {
+        "x": -4.484,
+        "y": 17.635
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.108,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "81",
+      "franchise_rollup": "PoE",
+      "islet": "U-8",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-crackling-lance",
+      "cluster": 16,
+      "seat": {
+        "x": -78.15,
+        "y": -48.204
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.139,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "131",
+      "franchise_rollup": "PoE",
+      "nearest_family": "CHANNELED-BEAM"
+    },
+    {
+      "kit_id": "poe1-cwdt-loop",
+      "cluster": 25,
+      "seat": {
+        "x": 29.154,
+        "y": -42.769
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "132",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-cyclone",
+      "cluster": 7,
+      "seat": {
+        "x": 18.419,
+        "y": -90.967
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "0",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-dark-pact",
+      "cluster": 42,
+      "seat": {
+        "x": 21.004,
+        "y": -23.886
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.188,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "11",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-deaths-oath",
+      "cluster": 14,
+      "seat": {
+        "x": 38.218,
+        "y": -67.556
+      },
+      "stratum": "core",
+      "family": "AURA",
+      "affinity": 0.0,
+      "e1_gateA_group": "AURA",
+      "e1_leiden_cluster": "5",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-detonate-dead",
+      "cluster": 17,
+      "seat": {
+        "x": 6.763,
+        "y": 33.487
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "38",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-discharge",
+      "cluster": 6,
+      "seat": {
+        "x": 32.132,
+        "y": -24.474
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.247,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "133",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-divine-ire",
+      "cluster": 16,
+      "seat": {
+        "x": -74.446,
+        "y": -52.258
+      },
+      "stratum": "core",
+      "family": "CHANNELED-BEAM",
+      "affinity": 0.0,
+      "e1_gateA_group": "CHANNELED-BEAM",
+      "e1_leiden_cluster": "134",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-ea-ballista",
+      "cluster": 3,
+      "seat": {
+        "x": 38.797,
+        "y": 65.146
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "1",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-earthquake",
+      "cluster": 11,
+      "seat": {
+        "x": -19.572,
+        "y": 82.278
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.575,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "33",
+      "franchise_rollup": "PoE",
+      "islet": "U-4",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-earthshatter",
+      "cluster": 11,
+      "seat": {
+        "x": -18.451,
+        "y": 81.5
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.355,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "33",
+      "franchise_rollup": "PoE",
+      "islet": "U-4",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-edc",
+      "cluster": 4,
+      "seat": {
+        "x": -39.081,
+        "y": 12.387
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.88,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "47",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-elemental-hit",
+      "cluster": 12,
+      "seat": {
+        "x": -6.926,
+        "y": -22.543
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.175,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "44",
+      "franchise_rollup": "PoE",
+      "islet": "U-5",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-facebreaker",
+      "cluster": 2,
+      "seat": {
+        "x": 13.555,
+        "y": 5.857
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.002,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "17",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-fire-trap",
+      "cluster": 3,
+      "seat": {
+        "x": 38.797,
+        "y": 65.146
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "1",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-flameblast",
+      "cluster": 43,
+      "seat": {
+        "x": -2.572,
+        "y": -61.415
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.549,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "33",
+      "franchise_rollup": "PoE",
+      "islet": "U-23",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-flicker",
+      "cluster": 5,
+      "seat": {
+        "x": 90.764,
+        "y": -10.769
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.667,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "36",
+      "franchise_rollup": "PoE",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-forbidden-rite",
+      "cluster": 3,
+      "seat": {
+        "x": 32.91,
+        "y": 67.838
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "50",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-freezing-pulse",
+      "cluster": 31,
+      "seat": {
+        "x": -26.57,
+        "y": -5.697
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.297,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "23",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-frost-blades",
+      "cluster": 1,
+      "seat": {
+        "x": -23.827,
+        "y": -5.05
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.131,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "55",
+      "franchise_rollup": "PoE",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-generals-cry",
+      "cluster": 9,
+      "seat": {
+        "x": 38.762,
+        "y": 35.117
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.601,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "12",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe1-glacial-cascade-mines",
+      "cluster": 3,
+      "seat": {
+        "x": 39.665,
+        "y": 63.32
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "1",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-golementalist",
+      "cluster": 9,
+      "seat": {
+        "x": 40.481,
+        "y": 33.517
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.768,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "12",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe1-heavy-strike-stun",
+      "cluster": 20,
+      "seat": {
+        "x": 9.48,
+        "y": 42.675
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.667,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "69",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe1-hexblast-mines",
+      "cluster": 17,
+      "seat": {
+        "x": 4.244,
+        "y": 35.286
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.645,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "50",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe1-hoag",
+      "cluster": 17,
+      "seat": {
+        "x": 8.485,
+        "y": 42.239
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.941,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "135",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-ice-shot",
+      "cluster": 26,
+      "seat": {
+        "x": 1.397,
+        "y": -24.6
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.276,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "14",
+      "franchise_rollup": "PoE",
+      "islet": "U-11",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-icicle-mines",
+      "cluster": 10,
+      "seat": {
+        "x": 20.167,
+        "y": 39.321
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.67,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "50",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe1-incinerate",
+      "cluster": 16,
+      "seat": {
+        "x": -81.553,
+        "y": -57.801
+      },
+      "stratum": "core",
+      "family": "CHANNELED-BEAM",
+      "affinity": 0.0,
+      "e1_gateA_group": "CHANNELED-BEAM",
+      "e1_leiden_cluster": "22",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-kinetic-fusillade",
+      "cluster": 1,
+      "seat": {
+        "x": -24.168,
+        "y": -10.042
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.386,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "58",
+      "franchise_rollup": "PoE",
+      "islet": "U-1",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-lacerate-glad",
+      "cluster": 2,
+      "seat": {
+        "x": 15.593,
+        "y": 4.719
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.809,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "84",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-lightning-arrow",
+      "cluster": 4,
+      "seat": {
+        "x": -38.984,
+        "y": 6.567
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.229,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "4",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-lightning-conduit",
+      "cluster": 35,
+      "seat": {
+        "x": -8.61,
+        "y": 34.001
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "38",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-lightning-strike",
+      "cluster": 1,
+      "seat": {
+        "x": -22.386,
+        "y": -6.781
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.166,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "55",
+      "franchise_rollup": "PoE",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-low-life-shavs",
+      "cluster": 24,
+      "seat": {
+        "x": 16.271,
+        "y": 5.736
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.187,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "8",
+      "franchise_rollup": "PoE",
+      "islet": "U-10",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-minion-pact-bv",
+      "cluster": 33,
+      "seat": {
+        "x": -13.452,
+        "y": 7.597
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.529,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "61",
+      "franchise_rollup": "PoE",
+      "islet": "U-17",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-mjolner",
+      "cluster": 37,
+      "seat": {
+        "x": -26.017,
+        "y": 23.383
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "61",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-molten-strike",
+      "cluster": 1,
+      "seat": {
+        "x": -21.768,
+        "y": -5.01
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.263,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "74",
+      "franchise_rollup": "PoE",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-pconc",
+      "cluster": 38,
+      "seat": {
+        "x": 0.04,
+        "y": -40.906
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.108,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "92",
+      "franchise_rollup": "PoE",
+      "islet": "U-19",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-pizza-sticks",
+      "cluster": 3,
+      "seat": {
+        "x": 38.797,
+        "y": 65.146
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "1",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-poets-pen-vd",
+      "cluster": 37,
+      "seat": {
+        "x": -29.702,
+        "y": 31.982
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.844,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "96",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-poison-bv",
+      "cluster": 33,
+      "seat": {
+        "x": -4.933,
+        "y": 4.576
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.6,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "136",
+      "franchise_rollup": "PoE",
+      "islet": "U-17",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-righteous-fire",
+      "cluster": 14,
+      "seat": {
+        "x": 35.209,
+        "y": -69.105
+      },
+      "stratum": "core",
+      "family": "AURA",
+      "affinity": 0.0,
+      "e1_gateA_group": "AURA",
+      "e1_leiden_cluster": "5",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-scourge-arrow",
+      "cluster": 32,
+      "seat": {
+        "x": -14.456,
+        "y": -19.974
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.575,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "137",
+      "franchise_rollup": "PoE",
+      "islet": "U-16",
+      "nearest_family": "CHANNELED-BEAM"
+    },
+    {
+      "kit_id": "poe1-seismic-trap",
+      "cluster": 3,
+      "seat": {
+        "x": 38.364,
+        "y": 64.345
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "1",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-siege-ballista",
+      "cluster": 9,
+      "seat": {
+        "x": 41.588,
+        "y": 38.496
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "6",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-skeleton-mages",
+      "cluster": 46,
+      "seat": {
+        "x": 49.496,
+        "y": 12.017
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.945,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "12",
+      "franchise_rollup": "PoE",
+      "islet": "U-25",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-soulrend",
+      "cluster": 19,
+      "seat": {
+        "x": -53.009,
+        "y": -13.356
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.0,
+      "e1_gateA_group": "TRAP-MINE",
+      "e1_leiden_cluster": "47",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-spark",
+      "cluster": 1,
+      "seat": {
+        "x": -25.312,
+        "y": -11.209
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.482,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "4",
+      "franchise_rollup": "PoE",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-spectral-helix",
+      "cluster": 26,
+      "seat": {
+        "x": 0.51,
+        "y": -22.008
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.286,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "56",
+      "franchise_rollup": "PoE",
+      "islet": "U-11",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-spectral-throw",
+      "cluster": 31,
+      "seat": {
+        "x": -26.297,
+        "y": -12.288
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.129,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "23",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-spectres",
+      "cluster": 19,
+      "seat": {
+        "x": -51.799,
+        "y": -21.207
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.774,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "12",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe1-split-arrow-bleed",
+      "cluster": 1,
+      "seat": {
+        "x": -22.581,
+        "y": -10.393
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.367,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "4",
+      "franchise_rollup": "PoE",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-srs",
+      "cluster": 19,
+      "seat": {
+        "x": -54.367,
+        "y": -19.848
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.639,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "20",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe1-sst",
+      "cluster": 1,
+      "seat": {
+        "x": -26.808,
+        "y": -8.13
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.357,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "23",
+      "franchise_rollup": "PoE",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-storm-brand",
+      "cluster": 10,
+      "seat": {
+        "x": 18.132,
+        "y": 37.412
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.571,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "60",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe1-tectonic-slam",
+      "cluster": 30,
+      "seat": {
+        "x": 44.93,
+        "y": -4.296
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.186,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "138",
+      "franchise_rollup": "PoE",
+      "islet": "U-15",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-tornado-shot",
+      "cluster": 1,
+      "seat": {
+        "x": -22.911,
+        "y": -11.171
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.426,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "4",
+      "franchise_rollup": "PoE",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-totem-hierophant",
+      "cluster": 3,
+      "seat": {
+        "x": 40.988,
+        "y": 59.417
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.855,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "25",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-toxic-rain",
+      "cluster": 42,
+      "seat": {
+        "x": 26.025,
+        "y": -13.181
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.767,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "47",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe1-vaal-blade-vortex",
+      "cluster": 33,
+      "seat": {
+        "x": -9.755,
+        "y": -3.401
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.042,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "36",
+      "franchise_rollup": "PoE",
+      "islet": "U-17",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-venom-gyre",
+      "cluster": 5,
+      "seat": {
+        "x": 89.824,
+        "y": -12.61
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.881,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "92",
+      "franchise_rollup": "PoE",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-viper-poison",
+      "cluster": 2,
+      "seat": {
+        "x": 15.155,
+        "y": 3.087
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.913,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "55",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-wander",
+      "cluster": 1,
+      "seat": {
+        "x": -22.911,
+        "y": -11.171
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.426,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "4",
+      "franchise_rollup": "PoE",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-warchief",
+      "cluster": 3,
+      "seat": {
+        "x": 37.818,
+        "y": 62.104
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "35",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe1-ward-loop",
+      "cluster": 42,
+      "seat": {
+        "x": 17.904,
+        "y": -17.328
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.298,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "37",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-whispering-ice",
+      "cluster": 24,
+      "seat": {
+        "x": 22.842,
+        "y": 13.351
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.161,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "8",
+      "franchise_rollup": "PoE",
+      "islet": "U-10",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-winter-orb",
+      "cluster": 32,
+      "seat": {
+        "x": -13.816,
+        "y": -30.452
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.73,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "139",
+      "franchise_rollup": "PoE",
+      "islet": "U-16",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe1-woc-ignite",
+      "cluster": 26,
+      "seat": {
+        "x": -0.401,
+        "y": -19.716
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.027,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "93",
+      "franchise_rollup": "PoE",
+      "islet": "U-11",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe1-wormblaster",
+      "cluster": 31,
+      "seat": {
+        "x": -28.621,
+        "y": -16.327
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.093,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "58",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe2-acolyte-darkness",
+      "cluster": 22,
+      "seat": {
+        "x": 13.219,
+        "y": -60.701
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.415,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "28",
+      "franchise_rollup": "PoE",
+      "islet": "U-9",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe2-archmage-totems",
+      "cluster": 3,
+      "seat": {
+        "x": 41.499,
+        "y": 64.107
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.492,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "1",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe2-blood-mage",
+      "cluster": 11,
+      "seat": {
+        "x": -21.153,
+        "y": 89.464
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 2.242,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "59",
+      "franchise_rollup": "PoE",
+      "islet": "U-4",
+      "nearest_family": "CHANNELED-BEAM"
+    },
+    {
+      "kit_id": "poe2-bonestorm",
+      "cluster": 11,
+      "seat": {
+        "x": -20.853,
+        "y": 84.694
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 2.021,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "59",
+      "franchise_rollup": "PoE",
+      "islet": "U-4",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe2-cof-comet",
+      "cluster": 22,
+      "seat": {
+        "x": 16.846,
+        "y": -67.022
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.441,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "32",
+      "franchise_rollup": "PoE",
+      "islet": "U-9",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe2-demon-form",
+      "cluster": 47,
+      "seat": {
+        "x": 57.6,
+        "y": -42.089
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.361,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "140",
+      "franchise_rollup": "PoE",
+      "islet": "U-26",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe2-erasure-edc-lich",
+      "cluster": 4,
+      "seat": {
+        "x": -45.431,
+        "y": 12.675
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.7,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "141",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe2-galvanic-shards",
+      "cluster": 27,
+      "seat": {
+        "x": -70.614,
+        "y": -64.138
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 2.648,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "45",
+      "franchise_rollup": "PoE",
+      "islet": "U-12",
+      "nearest_family": "CHANNELED-BEAM"
+    },
+    {
+      "kit_id": "poe2-gas-arrow-ignite",
+      "cluster": 12,
+      "seat": {
+        "x": -0.139,
+        "y": -26.59
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.154,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "44",
+      "franchise_rollup": "PoE",
+      "islet": "U-5",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe2-gemling-stacker",
+      "cluster": 2,
+      "seat": {
+        "x": 11.578,
+        "y": 7.736
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.987,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "94",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe2-grim-feast",
+      "cluster": 14,
+      "seat": {
+        "x": 37.691,
+        "y": -59.604
+      },
+      "stratum": "core",
+      "family": "AURA",
+      "affinity": 0.791,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "142",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe2-howa-invoker",
+      "cluster": 2,
+      "seat": {
+        "x": 9.5,
+        "y": 10.512
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.943,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "94",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe2-ice-strike-invoker",
+      "cluster": 22,
+      "seat": {
+        "x": 13.516,
+        "y": -62.157
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.495,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "28",
+      "franchise_rollup": "PoE",
+      "islet": "U-9",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe2-infernal-legion",
+      "cluster": 9,
+      "seat": {
+        "x": 43.435,
+        "y": 36.697
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "35",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe2-lightning-arrow-deadeye",
+      "cluster": 4,
+      "seat": {
+        "x": -41.152,
+        "y": 5.373
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.281,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "16",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe2-lightning-spear-amazon",
+      "cluster": 4,
+      "seat": {
+        "x": -39.735,
+        "y": 3.869
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.354,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "56",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe2-minion-infernalist",
+      "cluster": 9,
+      "seat": {
+        "x": 43.488,
+        "y": 37.468
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "6",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe2-poison-pathfinder",
+      "cluster": 39,
+      "seat": {
+        "x": -23.159,
+        "y": -76.993
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.502,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "16",
+      "franchise_rollup": "PoE",
+      "islet": "U-20",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe2-rake-ritualist",
+      "cluster": 0,
+      "seat": {
+        "x": -11.148,
+        "y": 38.097
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.423,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "85",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe2-shaman-bear",
+      "cluster": 6,
+      "seat": {
+        "x": 28.441,
+        "y": -25.154
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.985,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "2",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe2-smith-ignite",
+      "cluster": 11,
+      "seat": {
+        "x": -11.927,
+        "y": 86.202
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.71,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "39",
+      "franchise_rollup": "PoE",
+      "islet": "U-4",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe2-snipe-mirage-deadeye",
+      "cluster": 0,
+      "seat": {
+        "x": -15.259,
+        "y": 48.421
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.304,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "52",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe2-spark-stormweaver",
+      "cluster": 61,
+      "seat": {
+        "x": -27.993,
+        "y": -34.636
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.377,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "143",
+      "franchise_rollup": "PoE",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "poe2-spiral-volley",
+      "cluster": 1,
+      "seat": {
+        "x": -21.2,
+        "y": -10.024
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.306,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "78",
+      "franchise_rollup": "PoE",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe2-supporting-fire",
+      "cluster": 45,
+      "seat": {
+        "x": 25.637,
+        "y": 23.035
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.652,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "68",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe2-tempest-bell",
+      "cluster": 20,
+      "seat": {
+        "x": 5.082,
+        "y": 38.818
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.066,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "54",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe2-tempest-flurry",
+      "cluster": 62,
+      "seat": {
+        "x": 26.953,
+        "y": 6.961
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.953,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "28",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe2-temporalis-blink",
+      "cluster": 28,
+      "seat": {
+        "x": 13.007,
+        "y": -35.966
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.246,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "7",
+      "franchise_rollup": "PoE",
+      "islet": "U-13",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "poe2-titan-hotg",
+      "cluster": 11,
+      "seat": {
+        "x": -11.048,
+        "y": 83.905
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.97,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "39",
+      "franchise_rollup": "PoE",
+      "islet": "U-4",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "poe2-twister",
+      "cluster": 7,
+      "seat": {
+        "x": 11.353,
+        "y": -97.873
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "144",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe2-walking-calamity",
+      "cluster": 6,
+      "seat": {
+        "x": 21.861,
+        "y": -24.596
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.6,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "2",
+      "franchise_rollup": "PoE"
+    },
+    {
+      "kit_id": "poe2-warbringer-totems",
+      "cluster": 3,
+      "seat": {
+        "x": 35.697,
+        "y": 61.475
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "25",
+      "franchise_rollup": "PoE",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "poe2-whirling-assault-ma",
+      "cluster": 2,
+      "seat": {
+        "x": 9.221,
+        "y": 7.712
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.011,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "11",
+      "franchise_rollup": "PoE",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "poe2-witchhunter-grenades",
+      "cluster": 38,
+      "seat": {
+        "x": -7.401,
+        "y": -38.488
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.399,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "95",
+      "franchise_rollup": "PoE",
+      "islet": "U-19",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tl1-alchemist-summoner",
+      "cluster": 18,
+      "seat": {
+        "x": 62.186,
+        "y": -34.812
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.979,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "30",
+      "franchise_rollup": "Torchlight",
+      "nearest_family": "MINION-PET"
+    },
+    {
+      "kit_id": "tl1-ricochet-vanquisher",
+      "cluster": 4,
+      "seat": {
+        "x": -35.388,
+        "y": 8.585
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.038,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "145",
+      "franchise_rollup": "Torchlight",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tl2-bot-engineer",
+      "cluster": 9,
+      "seat": {
+        "x": 48.285,
+        "y": 36.113
+      },
+      "stratum": "core",
+      "family": "MINION-PET",
+      "affinity": 0.0,
+      "e1_gateA_group": "MINION-PET",
+      "e1_leiden_cluster": "6",
+      "franchise_rollup": "Torchlight",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "tl2-cannon-engineer",
+      "cluster": 6,
+      "seat": {
+        "x": 30.147,
+        "y": -28.79
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.243,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "26",
+      "franchise_rollup": "Torchlight",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tl2-emberquake-engineer",
+      "cluster": 28,
+      "seat": {
+        "x": 7.912,
+        "y": -33.918
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.02,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "30",
+      "franchise_rollup": "Torchlight",
+      "islet": "U-13",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "tl2-flame-hammer-engineer",
+      "cluster": 41,
+      "seat": {
+        "x": 28.878,
+        "y": 13.573
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.155,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "19",
+      "franchise_rollup": "Torchlight",
+      "islet": "U-22",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "tl2-glaive-outlander",
+      "cluster": 4,
+      "seat": {
+        "x": -40.533,
+        "y": 4.87
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.267,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "56",
+      "franchise_rollup": "Torchlight",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tl2-hailstorm-embermage",
+      "cluster": 21,
+      "seat": {
+        "x": -9.823,
+        "y": 17.931
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.979,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "146",
+      "franchise_rollup": "Torchlight",
+      "islet": "U-8",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "tl2-prismatic-embermage",
+      "cluster": 13,
+      "seat": {
+        "x": -28.411,
+        "y": -4.219
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.919,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "4",
+      "franchise_rollup": "Torchlight",
+      "islet": "U-6",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tl2-shadowling-outlander",
+      "cluster": 18,
+      "seat": {
+        "x": 69.09,
+        "y": -38.238
+      },
+      "stratum": "core",
+      "family": "MINION-PET",
+      "affinity": 0.0,
+      "e1_gateA_group": "MINION-PET",
+      "e1_leiden_cluster": "147",
+      "franchise_rollup": "Torchlight",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "tl2-shotgonne-outlander",
+      "cluster": 27,
+      "seat": {
+        "x": -65.362,
+        "y": -62.422
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.907,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "45",
+      "franchise_rollup": "Torchlight",
+      "islet": "U-12",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tl2-wolf-shade-berserker",
+      "cluster": 0,
+      "seat": {
+        "x": -10.547,
+        "y": 42.221
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.124,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "148",
+      "franchise_rollup": "Torchlight",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tli-carino2-lethal-flash",
+      "cluster": 40,
+      "seat": {
+        "x": -46.252,
+        "y": 48.047
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.3,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "149",
+      "franchise_rollup": "Torchlight",
+      "islet": "U-21",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tli-erika3-vendetta",
+      "cluster": 0,
+      "seat": {
+        "x": -12.874,
+        "y": 43.703
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.109,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "18",
+      "franchise_rollup": "Torchlight",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tli-gemma-frost-caster",
+      "cluster": 12,
+      "seat": {
+        "x": -5.88,
+        "y": -18.44
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.029,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "14",
+      "franchise_rollup": "Torchlight",
+      "islet": "U-5",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tli-iris2-thunder-magus",
+      "cluster": 18,
+      "seat": {
+        "x": 69.239,
+        "y": -28.055
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.158,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "3",
+      "franchise_rollup": "Torchlight",
+      "nearest_family": "MINION-PET"
+    },
+    {
+      "kit_id": "tli-moto-bots",
+      "cluster": 9,
+      "seat": {
+        "x": 48.285,
+        "y": 36.113
+      },
+      "stratum": "core",
+      "family": "MINION-PET",
+      "affinity": 0.0,
+      "e1_gateA_group": "MINION-PET",
+      "e1_leiden_cluster": "6",
+      "franchise_rollup": "Torchlight",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "tli-rehan-berserker",
+      "cluster": 41,
+      "seat": {
+        "x": 30.452,
+        "y": 18.163
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.082,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "51",
+      "franchise_rollup": "Torchlight",
+      "islet": "U-22",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "tli-rosa-unsullied",
+      "cluster": 0,
+      "seat": {
+        "x": -14.113,
+        "y": 42.966
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.081,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "57",
+      "franchise_rollup": "Torchlight",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "tli-youga-spirit-magus",
+      "cluster": 14,
+      "seat": {
+        "x": 34.748,
+        "y": -59.987
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.996,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "3",
+      "franchise_rollup": "Torchlight",
+      "nearest_family": "MINION-PET"
+    },
+    {
+      "kit_id": "tq-battlemage-warfare-earth",
+      "cluster": 45,
+      "seat": {
+        "x": 20.226,
+        "y": 29.496
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "82",
+      "franchise_rollup": "TitanQuest",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "tq-brigand-poison",
+      "cluster": 13,
+      "seat": {
+        "x": -30.006,
+        "y": -1.484
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.177,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "44",
+      "franchise_rollup": "TitanQuest",
+      "islet": "U-6",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tq-distortion-templar",
+      "cluster": 44,
+      "seat": {
+        "x": 49.986,
+        "y": -55.097
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.379,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "21",
+      "franchise_rollup": "TitanQuest",
+      "islet": "U-24",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tq-dream-harbinger",
+      "cluster": 0,
+      "seat": {
+        "x": -15.702,
+        "y": 39.146
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.134,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "29",
+      "franchise_rollup": "TitanQuest",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tq-druid-squall-caster",
+      "cluster": 10,
+      "seat": {
+        "x": 19.97,
+        "y": 37.162
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.623,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "93",
+      "franchise_rollup": "TitanQuest"
+    },
+    {
+      "kit_id": "tq-elementalist-volcanic-storm",
+      "cluster": 12,
+      "seat": {
+        "x": -7.834,
+        "y": -24.998
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.099,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "26",
+      "franchise_rollup": "TitanQuest",
+      "islet": "U-5",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tq-ice-shard-oracle",
+      "cluster": 31,
+      "seat": {
+        "x": -29.652,
+        "y": -9.588
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.154,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "14",
+      "franchise_rollup": "TitanQuest",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tq-liche-king-conjurer",
+      "cluster": 47,
+      "seat": {
+        "x": 47.368,
+        "y": -36.074
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.408,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "3",
+      "franchise_rollup": "TitanQuest",
+      "islet": "U-26",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tq-marksmanship-haruspex",
+      "cluster": 13,
+      "seat": {
+        "x": -32.381,
+        "y": -5.642
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.108,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "16",
+      "franchise_rollup": "TitanQuest",
+      "islet": "U-6",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tq-onslaught-assassin",
+      "cluster": 0,
+      "seat": {
+        "x": -11.842,
+        "y": 44.244
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.685,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "18",
+      "franchise_rollup": "TitanQuest"
+    },
+    {
+      "kit_id": "tq-petmaster-summoner",
+      "cluster": 18,
+      "seat": {
+        "x": 66.397,
+        "y": -35.867
+      },
+      "stratum": "core",
+      "family": "MINION-PET",
+      "affinity": 0.0,
+      "e1_gateA_group": "MINION-PET",
+      "e1_leiden_cluster": "30",
+      "franchise_rollup": "TitanQuest",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "tq-phantom-strike-dreamkiller",
+      "cluster": 20,
+      "seat": {
+        "x": 9.7,
+        "y": 49.526
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.104,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "75",
+      "franchise_rollup": "TitanQuest",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "tq-ranger-hunting-nature",
+      "cluster": 0,
+      "seat": {
+        "x": -17.317,
+        "y": 45.184
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.03,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "52",
+      "franchise_rollup": "TitanQuest",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "tq-rune-weapon-thunderer",
+      "cluster": 0,
+      "seat": {
+        "x": -16.01,
+        "y": 40.467
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.998,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "29",
+      "franchise_rollup": "TitanQuest",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "tq-shield-charge-conqueror",
+      "cluster": 5,
+      "seat": {
+        "x": 84.159,
+        "y": -6.631
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.956,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "21",
+      "franchise_rollup": "TitanQuest",
+      "islet": "U-2",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "tq-ternion-bone-charmer",
+      "cluster": 27,
+      "seat": {
+        "x": -62.053,
+        "y": -63.249
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.538,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "65",
+      "franchise_rollup": "TitanQuest",
+      "islet": "U-12",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tq-thane-storm-warfare",
+      "cluster": 0,
+      "seat": {
+        "x": -12.974,
+        "y": 41.658
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.961,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "29",
+      "franchise_rollup": "TitanQuest",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "tq-trap-magician",
+      "cluster": 3,
+      "seat": {
+        "x": 39.959,
+        "y": 67.881
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.328,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "1",
+      "franchise_rollup": "TitanQuest"
+    },
+    {
+      "kit_id": "tq-warlock-poison-vitality",
+      "cluster": 0,
+      "seat": {
+        "x": -14.544,
+        "y": 42.862
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.979,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "57",
+      "franchise_rollup": "TitanQuest",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "tq2-bastion-tank",
+      "cluster": 46,
+      "seat": {
+        "x": 39.378,
+        "y": 9.466
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 0.823,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "82",
+      "franchise_rollup": "TitanQuest",
+      "islet": "U-25",
+      "nearest_family": "MINION-PET"
+    },
+    {
+      "kit_id": "tq2-elementalist",
+      "cluster": 12,
+      "seat": {
+        "x": -10.489,
+        "y": -25.234
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.216,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "26",
+      "franchise_rollup": "TitanQuest",
+      "islet": "U-5",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "tq2-forge-turrets",
+      "cluster": 3,
+      "seat": {
+        "x": 38.684,
+        "y": 67.599
+      },
+      "stratum": "core",
+      "family": "TOTEM-SENTRY",
+      "affinity": 0.0,
+      "e1_gateA_group": "TOTEM-SENTRY",
+      "e1_leiden_cluster": "1",
+      "franchise_rollup": "TitanQuest",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "tq2-stormblade-ice-shards",
+      "cluster": 63,
+      "seat": {
+        "x": -32.247,
+        "y": 10.822
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.242,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "14",
+      "franchise_rollup": "TitanQuest",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "tq2-whirlwind-rogue",
+      "cluster": 7,
+      "seat": {
+        "x": 12.514,
+        "y": -92.366
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "0",
+      "franchise_rollup": "TitanQuest",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "ud-cwc-spin-caster",
+      "cluster": 7,
+      "seat": {
+        "x": 20.658,
+        "y": -88.475
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "0",
+      "franchise_rollup": "undecember",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "ud-flamethrower-channel",
+      "cluster": 16,
+      "seat": {
+        "x": -78.012,
+        "y": -58.784
+      },
+      "stratum": "core",
+      "family": "CHANNELED-BEAM",
+      "affinity": 0.0,
+      "e1_gateA_group": "CHANNELED-BEAM",
+      "e1_leiden_cluster": "22",
+      "franchise_rollup": "undecember",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "ud-ice-crystal-arrow",
+      "cluster": 4,
+      "seat": {
+        "x": -40.37,
+        "y": 2.254
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.356,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "14",
+      "franchise_rollup": "undecember",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "ud-illusion-family",
+      "cluster": 37,
+      "seat": {
+        "x": -25.464,
+        "y": 30.959
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.888,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "96",
+      "franchise_rollup": "undecember",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "ud-lightning-vortex",
+      "cluster": 21,
+      "seat": {
+        "x": -11.425,
+        "y": 9.885
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.431,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "150",
+      "franchise_rollup": "undecember",
+      "islet": "U-8",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "ud-seal-veil-daimonios",
+      "cluster": 8,
+      "seat": {
+        "x": 24.831,
+        "y": 22.19
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.136,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "42",
+      "franchise_rollup": "undecember",
+      "islet": "U-3",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "ud-snowstorm-frost",
+      "cluster": 21,
+      "seat": {
+        "x": -13.537,
+        "y": 17.214
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.152,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "73",
+      "franchise_rollup": "undecember",
+      "islet": "U-8",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "ud-spread-rapid-dex",
+      "cluster": 1,
+      "seat": {
+        "x": -17.361,
+        "y": -11.026
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.355,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "16",
+      "franchise_rollup": "undecember",
+      "islet": "U-1",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "ud-summon-strand",
+      "cluster": 18,
+      "seat": {
+        "x": 67.997,
+        "y": -28.571
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.147,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "3",
+      "franchise_rollup": "undecember",
+      "nearest_family": "MINION-PET"
+    },
+    {
+      "kit_id": "ud-toxic-flame",
+      "cluster": 22,
+      "seat": {
+        "x": 16.439,
+        "y": -60.525
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.32,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "151",
+      "franchise_rollup": "undecember",
+      "islet": "U-9",
+      "nearest_family": "TOTEM-SENTRY"
+    },
+    {
+      "kit_id": "ud-whirlwind-str",
+      "cluster": 7,
+      "seat": {
+        "x": 15.72,
+        "y": -92.521
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "0",
+      "franchise_rollup": "undecember",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "vs-bloody-tear",
+      "cluster": 25,
+      "seat": {
+        "x": 29.059,
+        "y": -35.906
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 0.805,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "2",
+      "franchise_rollup": "vs",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "vs-death-spiral",
+      "cluster": 15,
+      "seat": {
+        "x": -45.855,
+        "y": -14.063
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.529,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "7",
+      "franchise_rollup": "vs",
+      "islet": "U-7",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "vs-fuwalafuwaloo",
+      "cluster": 7,
+      "seat": {
+        "x": 19.06,
+        "y": -98.738
+      },
+      "stratum": "core",
+      "family": "WHIRLWIND",
+      "affinity": 0.0,
+      "e1_gateA_group": "WHIRLWIND",
+      "e1_leiden_cluster": "97",
+      "franchise_rollup": "vs",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "vs-gorgeous-moon",
+      "cluster": 39,
+      "seat": {
+        "x": -28.273,
+        "y": -74.116
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.877,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "48",
+      "franchise_rollup": "vs",
+      "islet": "U-20",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "vs-heaven-sword",
+      "cluster": 15,
+      "seat": {
+        "x": -47.527,
+        "y": -13.987
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.573,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "7",
+      "franchise_rollup": "vs",
+      "islet": "U-7",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "vs-hellfire",
+      "cluster": 15,
+      "seat": {
+        "x": -50.069,
+        "y": -14.72
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.549,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "95",
+      "franchise_rollup": "vs",
+      "islet": "U-7",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "vs-holy-wand",
+      "cluster": 13,
+      "seat": {
+        "x": -25.263,
+        "y": -5.793
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.033,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "10",
+      "franchise_rollup": "vs",
+      "islet": "U-6",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "vs-infinite-corridor-crimson-shroud",
+      "cluster": 39,
+      "seat": {
+        "x": -25.532,
+        "y": -66.301
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.383,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "152",
+      "franchise_rollup": "vs",
+      "islet": "U-20",
+      "nearest_family": "CHANNELED-BEAM"
+    },
+    {
+      "kit_id": "vs-je-ne-viv",
+      "cluster": 21,
+      "seat": {
+        "x": -9.933,
+        "y": 7.6
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.67,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "66",
+      "franchise_rollup": "vs",
+      "islet": "U-8",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "vs-la-borra",
+      "cluster": 38,
+      "seat": {
+        "x": -0.991,
+        "y": -35.342
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.086,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "66",
+      "franchise_rollup": "vs",
+      "islet": "U-19",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "vs-out-of-bounds-freeze",
+      "cluster": 22,
+      "seat": {
+        "x": 20.656,
+        "y": -64.743
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.541,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "41",
+      "franchise_rollup": "vs",
+      "islet": "U-9",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "vs-phieraggi",
+      "cluster": 16,
+      "seat": {
+        "x": -73.171,
+        "y": -48.847
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.076,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "7",
+      "franchise_rollup": "vs",
+      "nearest_family": "CHANNELED-BEAM"
+    },
+    {
+      "kit_id": "vs-queen-sigma",
+      "cluster": 21,
+      "seat": {
+        "x": -8.231,
+        "y": 9.799
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.344,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "97",
+      "franchise_rollup": "vs",
+      "islet": "U-8",
+      "nearest_family": "WHIRLWIND"
+    },
+    {
+      "kit_id": "vs-red-death",
+      "cluster": 15,
+      "seat": {
+        "x": -43.827,
+        "y": -16.191
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.234,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "7",
+      "franchise_rollup": "vs",
+      "islet": "U-7",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "vs-runetracer-no-future",
+      "cluster": 49,
+      "seat": {
+        "x": -65.764,
+        "y": 18.938
+      },
+      "stratum": "core",
+      "family": "TRAP-MINE",
+      "affinity": 0.783,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "10",
+      "franchise_rollup": "vs"
+    },
+    {
+      "kit_id": "vs-soul-eater",
+      "cluster": 14,
+      "seat": {
+        "x": 41.261,
+        "y": -63.321
+      },
+      "stratum": "core",
+      "family": "AURA",
+      "affinity": 0.0,
+      "e1_gateA_group": "AURA",
+      "e1_leiden_cluster": "5",
+      "franchise_rollup": "vs",
+      "gateA_seed": true
+    },
+    {
+      "kit_id": "vs-thousand-edge",
+      "cluster": 64,
+      "seat": {
+        "x": -51.618,
+        "y": -0.613
+      },
+      "stratum": "drifter",
+      "family": null,
+      "affinity": 1.348,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "10",
+      "franchise_rollup": "vs",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "vs-thunder-loop",
+      "cluster": 40,
+      "seat": {
+        "x": -52.419,
+        "y": 43.326
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.528,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "48",
+      "franchise_rollup": "vs",
+      "islet": "U-21",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "vs-unholy-vespers",
+      "cluster": 15,
+      "seat": {
+        "x": -44.368,
+        "y": -8.807
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.496,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "7",
+      "franchise_rollup": "vs",
+      "islet": "U-7",
+      "nearest_family": "AURA"
+    },
+    {
+      "kit_id": "vs-vandalier",
+      "cluster": 38,
+      "seat": {
+        "x": -1.647,
+        "y": -37.154
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.101,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "66",
+      "franchise_rollup": "vs",
+      "islet": "U-19",
+      "nearest_family": "TRAP-MINE"
+    },
+    {
+      "kit_id": "vs-vlad-dracula",
+      "cluster": 8,
+      "seat": {
+        "x": 19.176,
+        "y": 20.326
+      },
+      "stratum": "islet",
+      "family": null,
+      "affinity": 1.032,
+      "e1_gateA_group": null,
+      "e1_leiden_cluster": "41",
+      "franchise_rollup": "vs",
+      "islet": "U-3",
+      "nearest_family": "TRAP-MINE"
+    }
+  ]
+}
