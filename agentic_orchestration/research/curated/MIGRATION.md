@@ -2168,3 +2168,87 @@ ingest the legolas census re-crawl (`legolas/research/census-recrawl-2026-07-14/
 - Auto-committed per project discipline (Matt-authorized cycle work). Push deferred to KR's gate.
 
 ---
+
+## 2026-07-16 — Refit-Candidate-1 R3-ADDENDUM completion: item A axis-sign alignment **HALTED** (rotated/swapped plane)
+
+**Charge:** `agentic_orchestration/gandalf/briefs/2026-07-16-elrond-refit-addendum-completion-brief.md`
+(items A axis-sign alignment · B verbatim EAST-half drill-in · C P-DF-1 · D §10 beyond-horizon census).
+**Baseline:** the Tier-3 refit run at commit a087bfbd emitted `atlas-refit-candidate-1.json` (unratified
+comparison artifact) WITHOUT drill_in / p_df_1 / hull / census; this charge was to complete that layer.
+Item A is FIRST and everything downstream keys on it. **It HALTED. Nothing was emitted; no served or refit
+artifact coordinate was changed.**
+
+### Item A finding — the sign is NOT determinable by the reflection-only corr rule
+- Brief item A commands RAW same-index correlations (E1-frozen `atlas-coordinates-active.csv` vs
+  `refit-candidate-1-coordinates-active.csv`), explicitly NOT Procrustes-transformed. On the 469 shared
+  actives:
+  - `corr(E1_dim1, refit_dim1)` = **+0.0446** — |corr| **< 0.10** (the brief's stated HALT tripwire fires).
+  - `corr(E1_dim2, refit_dim2)` = **+0.4277** — determinable.
+- The full RAW 2×2 correlation matrix is **off-diagonal dominant**: `|E1_d1 × refit_d2|` = **0.6697** (large)
+  vs the same-index diagonal 0.0446. i.e. **refit_dim2 tracks Edition-I dim1** — the axes are effectively
+  **swapped**.
+- The optimal orthogonal transform mapping refit→E1 is a **reflection + ~117° rotation** (det(Ω) = **−1.0**).
+  The refit plane is ROTATED relative to Edition-I, **not merely sign-flipped**.
+- The brief's stated expectation (`dim1 ≈ 0.64, dim2 ≈ 0.27`, "both determinable") is drawn from
+  comparison-report **§2, which reports the POST-PROCRUSTES aligned correlations** (proc dim1 = 0.6364,
+  proc dim2 = 0.2692 — reproduced exactly). Item A forbids that rotation and commands the RAW frame; in the
+  raw frame the axes have **not survived in place**.
+
+### Why HALT (not guess)
+A reflection-only sign alignment — the brief's mandated and only-permitted operation ("Pure reflection, never
+rotation") — **cannot anchor a rotated/swapped plane.** Flipping refit_dim1's sign would only turn its 0.0446
+same-index correlation into −0.0446; its true Edition-I counterpart is refit_dim2. The sign of refit_dim1 is
+genuinely undetermined by the corr rule. Per the brief HALT list ("|corr| < 0.10 either dim") + elrond
+discipline (no silent transformation; surface what the data says; escalate through knight-rider, never
+improvise a transform), item A HALTS.
+
+### Downstream items B/C/D — BLOCKED (not executed)
+The region pin "EAST-half (projected x≥0; PERFORM side)" is meaningful **only on an aligned plane** (brief:
+"Without this, 'EAST-half x≥0 = PERFORM side' can silently mean the opposite side of the refit plane").
+Because the alignment could not be established:
+- **B (drill-in fork):** not run — the EAST-half region would land on an un-anchored plane.
+- **C (P-DF-1 re-score):** the û construction machinery itself is intact (verified: `geometry/whirlwind` and
+  `commit/channel` columns BOTH present in the 628-active refit fit — the verbatim û could run and would NOT
+  HALT on vocabulary), but K_max beyond-horizon membership + the "does EAST-half cover the overshoot" verdict
+  are frame-relative and un-anchored without A.
+- **D (§10 beyond-horizon census):** the coverage verdict vs the EAST-half pin is un-anchored without A. (The
+  hull + beyond-horizon-N quantities themselves are reflection/rotation-invariant and CAN be computed
+  frame-free; but the brief's §10 requires the coverage-vs-pin verdict, which cannot be stated pre-alignment.)
+
+### What was verified in passing (de-risks the resolution pass)
+- **P-DF-1 vocabulary is safe:** the refit fit HAS both û columns (`geometry/whirlwind`, `commit/channel`) —
+  the verbatim Edition-III û construction runs against refit loadings without HALT.
+- **Drill-in vocabulary delta CONFIRMED (as the brief predicted):** the refit's geometry fit-columns are the
+  Edition-III promoted set **plus `aura`** (13 vs 12 levels; `aura` un-fuses at 628, n=8→earns a column).
+  Commit fit-columns unchanged (channel, instant, wind-up). So once A is resolved, B's `promoted_geometry_levels`
+  gains exactly one level (`aura`) vs Edition-III.
+
+### Resolution needed (gandalf's call at the verify gate — routed via knight-rider)
+Two coherent paths, both outside elrond's steward authority to choose (the brief pre-committed to
+reflection-only and did not authorize a rotation):
+1. **Permit an orthogonal-Procrustes alignment** of the refit plane into Edition-I's frame for the
+   region-pinned machinery (rotation, not reflection) — makes "EAST-half = PERFORM side" meaningful in the
+   Edition-I sense but departs from the brief's "never rotation" law; OR
+2. **Re-pin the drill-in region on the refit's OWN axes** (the refit is its own honest fit; its dim1 is its
+   own PERFORM-analog) — keeps within-fit purity but the region is no longer the Edition-I EAST-half, so B/C/D
+   become "refit-native drill-in," not a like-for-like comparison against Edition-III's EAST-half.
+The census's beyond-horizon quantities (N-beyond-meso-hull, N-beyond-charted-hull, per-direction overshoot)
+are frame-invariant and could be emitted independently of the region choice if gandalf wants the numbers
+ahead of the ruling.
+
+### Artifacts (this entry)
+- `scripts/axis_sign_alignment_refit_candidate_1_2026_07_16.py` — reproducible item-A diagnostic (read-only;
+  emits nothing to any artifact). Deterministic; re-run to reproduce every number above.
+- **No change** to `atlas-refit-candidate-1.json`, any refit CSV, `atlas-edition3.json`, `atlas.json`, or any
+  served/frozen artifact. The refit JSON still lacks drill_in/p_df_1/census (unchanged from a087bfbd) —
+  correctly, since the layer keys on the un-resolvable alignment.
+
+### ADR compliance
+- **ADR-004:** no engine-telemetry change; star-lord-side MIGRATION.md unaffected. Cross-seam escalation
+  (alignment-law ruling) routes to gandalf via knight-rider — elrond has no parallel-escalation privilege and
+  does not choose the alignment law.
+- **Reversibility:** trivially satisfied — nothing was written to any data artifact; the diagnostic is a pure
+  read.
+- Auto-committed per project discipline (Matt-authorized charge work). Push deferred to KR's gate.
+
+---
