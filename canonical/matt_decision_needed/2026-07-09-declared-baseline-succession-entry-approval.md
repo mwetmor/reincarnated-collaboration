@@ -1,6 +1,6 @@
 # Matt approval needed — Declared-baseline succession decisions-log entry (PENDING)
 
-**STATUS:** OPEN — waiting on Matt (approval sign-off only). **⚡ LIVE (queue-sweep 2026-07-15, gandalf):** one word ("approved") flips the decisions-log entry PENDING → Active (jack-ryan executes the flip). No code, no gate, no tag moves — the underlying §4 disposition was already Matt-ratified 2026-07-09; this confirms the canonical write records it faithfully.
+**STATUS:** ✅ CLOSED — **already-satisfied (jack-ryan HALT finding, 2026-07-15) + Matt confirmatory sign-off 2026-07-15 (verbatim: "I sign it.")**. The engine entry was ALREADY flipped PENDING → APPROVED on 2026-07-09 in commit `f532cb7` ("Q14/Q15/Q16 RULED — Matt 2026-07-09, Q16") — this collab row was STALE when the 2026-07-15 queue sweep surfaced it. jack-ryan, fired to execute the flip, correctly HALTed rather than overwrite truthful 2026-07-09 provenance with a 2026-07-15 flip claim (Review Principle #4, Discipline #10). Disposition: entry stays Active with its f532cb7 provenance; jack-ryan appends a one-line confirmatory note recording Matt's 2026-07-15 sign-off WITHOUT rewriting the flip lineage. No code, no gate, no tag moves at any point.
 **Surfaced:** 2026-07-09 by jack-ryan (decisions-log write per Review Principle #4; parked here per ADR-002 — architectural entry gets Matt's sign-off).
 **Feeds:** Q12 rolling demo-gate row (this is the "succession decisions-log entry … approval parks HERE" item the Q12 row already anticipates).
 
