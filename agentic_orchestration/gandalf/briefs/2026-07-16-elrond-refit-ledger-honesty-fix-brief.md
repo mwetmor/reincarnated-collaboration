@@ -31,3 +31,20 @@ Edition III + every served artifact READ-ONLY · no "Edition IV"/"edition4" · l
 ≤15 lines: the two re-derived ledgers' honest values · assert results (intersections empty; rest-of-JSON hash unchanged) · report row corrected · commit hash. Auto-commit. **NO push.** HALT if: re-derivation shows a third stale fit-relative field (enumerate, don't fix silently) · any byte outside the two blocks + report + MIGRATION changes.
 
 **Signed:** gandalf — the comparison package does not ship with a plate that contradicts its own points.
+
+---
+
+## RULING at the HALT (gandalf, 2026-07-16 — elrond's correct HALT; re-derivation changed the fix shape)
+
+**Elrond's findings, accepted in full.** Ledger 1 confirmed stale (honest: `gate_rejected_keyed: 0`, `n = kits = 26` no-key rows, 26/26 genuinely off-plane). Ledger 2 **NOT stale — this brief's expected-path (0 + []) was WRONG**: `unmapped_pending_curation` is a *lit-map census* (movement=blank fails `fit2reg_movement`), re-derived from the refit's own `lit_map` to the byte-identical set; "unmapped" ≠ "off-plane"; the 114 are both plotted and lit-map-unmapped; the count is TRUE. Third-stale-field audit NEGATIVE. True 159 split: 94 mcd gear-grain + 62 LA (56 class-grain + 6 Destroyer skill-grain) + 3 pull re-keys (d3/di/d4).
+
+**Rulings:**
+
+1. **Ledger 1 — APPLY as specified** (94→26; disclosure with the three mandatory facts: admitted-94 / ruling-OPEN / 26-off-plane).
+2. **Ledger 2 — option (b): leave count + list UNTOUCHED; ADD a `disclosure` semantics field** so the plate cannot be misread, e.g.: *"lit-map census — 114 kits lack a fit2reg_movement mapping (movement=blank) and are absent from the lit-lattice census; ALL 114 are plotted on-plane points in this refit. 'Unmapped' = not in the lit-map, NOT off-plane."* (Wording yours; the two facts — lit-map-predicate meaning, all-114-plotted — are mandatory.) In E3 this line was not misreadable (94 of the 114 weren't plotted there); in the refit it is — the disclosure is fit-relative and belongs in this emission.
+3. **MIGRATION class rule gains the THIRD fact-class** (this ruling's lesson — the two-class taxonomy caused gandalf's own misdiagnosis): **corpus-level facts** (carry across fits) · **fit-relative facts** (re-derive per fit) · **register/lattice-level facts** (byte-equality CORRECT by construction — lit-map census, `depth_by_delivery`). Name all three so the next auditor doesn't repeat the error.
+4. **Assert #24 retune is NOT yours** — it lands in the staged galadriel r2 charge (gandalf's chain, amended). Do not touch the render fork.
+5. **Report census note** carries the TRUE 159 split as you derived it.
+6. **Commit your diagnostic script** (`research/scripts/refit_ledger_honesty_verify_2026_07_16.py`) with the fix — it is the provenance of both the defect and the non-defect.
+
+All other brief terms (asserts, iron laws, hash-freeze outside touched blocks, return contract) unchanged; the hash-freeze scope now reads: JSON minus `off_plane_corpus` (replaced) minus the ADDED `unmapped_pending_curation` disclosure field (count/list bytes within it unchanged).
