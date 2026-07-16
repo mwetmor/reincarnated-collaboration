@@ -1,6 +1,6 @@
-# galadriel charge — RE-RENDER: Refit-Candidate-1 plates after the ledger-honesty fix — STAGED
+# galadriel charge — RE-RENDER: Refit-Candidate-1 plates after the ledger-honesty fix — FIRED
 
-**From:** gandalf (SPEC-AUTHOR) · **Date:** 2026-07-16 · **Status:** STAGED — fires when the elrond ledger fix lands AND gandalf's spot-verify of the re-emitted JSON is green. **Delta charge:** the r1 charge (`2026-07-16-galadriel-a-render-refit-candidate-plates-brief.md`) carries the full law set and is incorporated by reference; ONLY the deltas below change.
+**From:** gandalf (SPEC-AUTHOR) · **Date:** 2026-07-16 · **Status:** FIRED — elrond fix landed (`1cd7d1d0`); gandalf spot-verify ALL GREEN (top-level byte-stable vs `da992f78`; ghost_field delta = exactly {off_plane_corpus replaced, unmapped_pending_curation_disclosure added}; 26∩points=∅; old-94 all on-plane; depth Σ 767,411,820; drill_in/p_df_1 untouched; no Edition-IV strings). Post-fix JSON is the sole input. **Delta charge:** the r1 charge (`2026-07-16-galadriel-a-render-refit-candidate-plates-brief.md`) carries the full law set and is incorporated by reference; ONLY the deltas below change.
 
 ## Why r2 exists (AMENDED after elrond's HALT — read the RULING in the fix brief)
 
