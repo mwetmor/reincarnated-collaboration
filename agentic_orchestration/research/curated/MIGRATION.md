@@ -7,6 +7,62 @@
 
 ---
 
+## edition-3-2026-07-15 — EDITION III: pull-7 re-insertion + Lost Ark 58 curation + register v1.3 + Edition-III emission (ONE BATCH) — 2026-07-15 — **LANDED (awaiting Matt freeze-ratify)**
+
+### What changed (one line)
+Edition-III is a **census-population edition** (Matt: *"Edition 3: one batch"*): the census-freeze lifted, the 7 pull-tranche rows RE-INSERTED + keyed, the **Lost Ark 58-row class-engraving tranche** curated + keyed, the register re-derived v1.2→v1.3 (lattice UNCHANGED — census grew), and the Edition-III ghost field emitted ALONGSIDE Edition-II. **The FIT layer is byte-frozen vs Edition-I: basis + all 506 point coords + tombstones + axis names untouched; the +65 census rows PROJECT into the frozen basis (not active fit points).** All 24 Edition-III acceptance criteria PASS; P-DF-1 = PASS. Edition-II stays served truth until Matt ratifies the Edition-III freeze.
+
+### Backup
+`corpus.db.pre-edition3-2026-07-15-backup` (644 corpus / 618 engine_key). WAL-checkpointed. Local safety net (gitignored per curation discipline); the committed scripts + logs guarantee byte-identical rebuild.
+
+### Stage A — pull-7 re-insertion + keying completion (the DEFERRED tranche)
+The 7 pull-tranche rows (inserted-then-reverted under the Edition-II census freeze) RE-INSERTED at full completeness. Corpus 644→651; engine_key 618→625.
+- **Ground-truth reconciliation:** brief §0 said corpus=651 (rows "IN, keying deferred"); on-disk truth was **644, rows OUT** (Edition-II revert removed them). Stage A re-inserts + keys.
+- **Survivor-baseline reconciliation (why a new script):** the Stage-1 insert script's hard-coded `SURVIVOR_SHA_BASELINE=ce67bfba…` predates the Edition-II Stage-3 pull re-keys (`d3-zbarb`/`di-cyclone-monk-pvp` #5b→pull), so the current survivor digest is `fdd7fbfa…`. The guard fails BEFORE (correctly). NOT bypassed — the new script (`scripts/corpus_edition3_stageA_pull7_2026_07_15.py`) PROVES the shift is fully accounted (current == pre-edition2 EXCEPT exactly the 2 Stage-3 re-keys, #5b only), guards the post-Stage-3 baseline, reuses the Stage-1 manifest (single source), and asserts all 7 cell_keys byte-exact. The Stage-1 module is left unmutated (reverted-batch artifact).
+- **Hybrid gate:** both proposed hybrids → `damage`/`pull` per `hybrid-assignment-criteria-2026-07-15.md` §4 (gandalf-adopted). Corpus stays **hybrid-EMPTY**.
+- **Four flags:** (a) `la-destroyer-gravity-compression` pull INFERRED → `function=none` (re-verified vs source: "no explicit pull on living enemies"; d4-spiritborn movement source-silent → `mob=blank`); (c) 4 Destroyer SKILL-grain rows distinct + separate grain from the 2 LA engraving-grain rows (grain-of-record adjudicated); (d) `di-cyclone-strike-monk-base` ≠ `di-cyclone-monk-pvp` (distinct cells); (e) Undecember Illusion Hook AFFIRMED EXCLUDED (echo-copy, not pull; bounded to existing evidence).
+- **Committed record:** `corpus-curation-edition3-stageA-pull7-2026-07-15-log.md`.
+
+### Stage B — Lost Ark 58-row class-engraving curation
+58 rows (29 classes × 2 identity paths, `la-` prefix) keyed at full completeness. Corpus 651→709; engine_key 625→683. Script: `scripts/corpus_edition3_stageB_lostark58_2026_07_15.py`. Raw JSONL preserved verbatim in `raw_json`.
+- **Honing-economy confound law (every row):** `amp_val`/`tempo_val` keyed from CLASS-DESIGN cadence (BURST→spiky/high; SUSTAINED→flat/med), NEVER from honing-scaled magnitude prose. Confound carried in `flags` + `mech_note`; never leaks into treatment/function.
+- **Six normalizations (with provenance in flags + mech_note; raw preserved):** (1-2) `group_context` absent→false on destroyer×2 + slayer×2; (3) `pull_carrier` absent→false on slayer×2; (4-5) `la-souleater-*` ×2 `legacy_engraving_system` false→**TRUE** (legacy_engraving_name present + Global Dec 2023 debut; Ark-Passive natives are Valkyrie/Guardianknight/Wildsoul ONLY); (6) `la-sorceress-reflux` `pull_carrier` null→**FALSE** RESOLVED via bounded search ("…Reverse Gravity vacuum pull skill"): Reverse Gravity is a tripod-conditioned lift-and-slam (vertical + vacuum-group side effect, framed push/lift), NOT an intrinsic horizontal pull under the register boundary rule + intrinsic bar. PENDING provenance preserved; raw `pull` token kept.
+- **Pull census EXACT (2 carriers):** `la-destroyer-rage-hammer` + `la-destroyer-gravity-training` key `ctrl_function=pull` (RIDER on damage identity); all 56 others NOT pull (asserted).
+- **Group-support (6, C2):** `la-artist-full-bloom`, `la-bard-desperate-salvation`, `la-bard-true-courage`, `la-gunlancer-combat-readiness`, `la-paladin-blessed-aura`, `la-valkyrie-liberator` keyed **combat-kit with `group_context=true` preserved** (solo-legible identity keyed; NOT dropped/negated). Asserted == index census 6.
+- **Isotope collapse (flag-c verdict):** 58 rows → 43 distinct cells (34 singleton + 6×2 + 1×3 + 1×4 + 1×5). Same-cell coexistence at atlas grain is LEGITIMATE (element-free key); all 58 rows persist distinct with full provenance; the cell carries `kit_count`. Cross-grain: 6 Destroyer rows all distinct (skill-grain `delivery=melee` vs engraving-grain `at-target`).
+- **UPGRADE-OWED conf bands carried in flags** (Valkyrie/Guardianknight ≤0.8, Wildsoul 0.75-0.8, Souleater 0.85, Aeromancer tier-uncited); categorical keys not blocked; backfill = REGISTERED future legolas item.
+- **Naming:** Dragonknight = Guardianknight (index resolution stands).
+- **Treatment×function (58):** damage/knockback 33 · damage/none 18 · damage/stun 3 · damage/expose 2 · damage/pull 2. All damage-primary — no forced hybrid/control.
+- **Committed record:** `corpus-curation-edition3-stageB-lostark58-2026-07-15-log.md`.
+
+### Stage C — register v1.2 → v1.3 (census population; lattice UNCHANGED)
+Generator: `scripts/feasibility_cuts_register_v1_3_2026_07_15.py`. Artifacts: `atlas/feasibility-cuts-register-v1.3.{md,csv,json}` + `atlas_feasibility_ladder_v1_3_2026_07_15` table.
+- **The load-bearing property:** LA class-kits add NO coordinate value → enumeration base + cut ledger UNCHANGED → **feasible-lattice denominators BYTE-IDENTICAL to v1.2** (independently re-derived first-principles): exact **767,411,820** / meso **11,160** / sealed **1,314** (L1′ 756 + L2 558) / pull slice **1,080 feasible + 54 sealed**. Denominators RE-ASSERTED, not superseded (charter §6 frozen-frame/versioned-occupancy).
+- **Census population (the ONLY delta):** corpus 644→709; active 563→628; occupied meso 193→**202** (+9); pull-lit 2→**4** (+2); unmapped 108→**114** (+6 documented: 1 honest-NULL movement d4-spiritborn + 5 MELEE-collapse — delivery=melee has no meso ghost image).
+- **Pull-slice re-vet under larger census:** all 4 lit pull cells FEASIBLE; **`new_law_needed=0`, HALT=False**. No new law needed (asserted). No HALT branches.
+- **Re-keys forced on existing rows: NONE** (batch additive; LA engraving-grain cross-refs skill-grain but does not contradict; Edition-II Stage-3 re-keys stand).
+- **Schema change: NONE** (additive analysis table only; no engine-side migration owed).
+
+### Stage D — Edition-III ghost-field emission (ALONGSIDE Edition-II)
+Emitters: `scripts/ghost_field_edition3.py` + `scripts/build_atlas_json_edition3.py` → `atlas/atlas-edition3.json` (7.49 MB). Acceptance: `scripts/edition3_acceptance_2026_07_15.py` (**24/24 PASS**).
+- **Frozen-basis gate RESPECTED (charter §6):** new rows PROJECT into the frozen Edition-I basis via CA supplementary formula (pull/silence/hybrid/MELEE/SUMMON masked-like — no fit column, cannot bend an axis); basis NOT re-derived. The +65 census rows are NOT active fit points (fit stays 469 active / 506 total, Edition-I-frozen).
+- **FIT layer byte-frozen ASSERTED in-script (receipts, all PASS):** basis block byte-identical to `atlas.json`; all 506 point coords byte-identical; tombstone `death_class` strings byte-identical; active==469; total==506.
+- **Edition-II preserved (never overwritten):** `atlas-edition2.json` asserted present + Edition-II before emit; confirmed byte-untouched vs git HEAD (git-clean on edition2.json + register-v1.2). Edition-II stays SERVED TRUTH until Matt's freeze-ratify + re-vendor.
+- **Lattice + pull integrity (receipts):** depth_sum == **767,411,820** (unchanged); lit reproduces (202); 10 pull kits all intrinsic-evidence; **ZERO mcd-lit**.
+- **Emitted ghost field:** 11,160 feasible + 1,314 sealed; **202 lit** (was 193); **4 pull-lit** (was 2); drill-in 172,312 sub-feasible + 10,136 RED-3- sealed; off-plane N=94; **P-DF-1 PASS**.
+- **Committed record:** `corpus-curation-edition3-stageCD-register-emission-2026-07-15-log.md`.
+
+### Numbers of record (post-Edition-III batch)
+corpus **709** (+65) · engine_key **683** (+65) · active combat-kit **628** (+65) · corpses **38** (0) · system-records **18** (0) · unresolved **39** (0, all pre-existing) · pull-function rows **10** (+8) · hybrid **0** (frontier honest) · occupied meso **202** (+9) · pull-lit **4** (+2) · feasible lattice **767,411,820** exact / **11,160** meso / **1,314** sealed / pull slice **1,080 + 54** (all frozen).
+
+### ADR compliance
+- **ADR-004:** this entry. No engine-telemetry change; star-lord-side MIGRATION.md unaffected. All writes elrond-owned (corpus.db + atlas artifacts). Schema change: NONE (additive analysis table only).
+- **Reversibility:** every corpus.db write is a stated source-anchored ingest; raw JSONL preserved in `raw_json`; every normalization records the original value; register v1/v1.1/v1.2 retained in git as lineage. Ghost projection fully reproducible from version-controlled artifacts (frozen-fit snapshot + register + emitters).
+- **HALT branches: NONE** (no new-law-needed; the one ambiguous evidence call — Sorceress Reverse Gravity — resolved by bounded search under the register boundary rule, not improvised into a law).
+- Auto-committed per project discipline (Matt-authorized cycle work: *"please fire elrond"* / *"Edition 3: one batch"*). **Push deferred** to Matt's gate. gandalf audit-verify + Matt freeze-ratify gate the re-vendor.
+
+---
+
 ## edition-2-2026-07-15 — EDITION II: pull vocabulary + census-freeze revert + EAST-half drill-in + lattice re-emission — 2026-07-15 — **LANDED**
 
 ### What changed (one line)

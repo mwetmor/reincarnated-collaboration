@@ -1,0 +1,81 @@
+{
+  "register_version": "1.3",
+  "edition": "III",
+  "supersedes": "1.2",
+  "lattice_changed": false,
+  "enumeration_base_ref": "coordinate-register-2026-07-13.md \u00a72 + pull (Edition-II) \u2014 UNCHANGED",
+  "cut_ledger": "L1' + L2 + L3 + L4'' + RED-3' + taste-KEEP \u2014 UNCHANGED (inherited from v1.2)",
+  "denominators": {
+    "exact_raw_naive": 990186120,
+    "exact_post_logical": 819439740,
+    "exact_post_red_law": 767411820,
+    "meso_raw": 12474,
+    "meso_feasible": 11160,
+    "meso_sealed": 1314,
+    "byte_identical_vs_v1_2": true,
+    "note": "lattice UNCHANGED at Edition-III (LA class-kits add no coordinate value); v1.2 denominators re-asserted, NOT superseded. Edition-I strings 693146160 / 10080 remain labeled-lineage-only; anti-422445240 carries forward."
+  },
+  "pull_slice": {
+    "meso_feasible": 1080,
+    "meso_sealed": 54,
+    "sealed_by_cut": {
+      "L2-summon-implies-proxy": 54
+    },
+    "new_law_needed": 0,
+    "halt": false
+  },
+  "census_population": {
+    "corpus_pre_batch": 644,
+    "corpus_post_batch": 709,
+    "delta_rows": 65,
+    "occupied_meso_cells_pre": 193,
+    "occupied_meso_cells_post": 202,
+    "occupied_meso_delta": 9,
+    "pull_lit_meso_pre": 2,
+    "pull_lit_meso_post": 4,
+    "pull_lit_tuples_post": [
+      [
+        "FREE-MOVE",
+        "ZONE",
+        "damage",
+        "pull",
+        "solo",
+        "active",
+        "one-shot"
+      ],
+      [
+        "ROOTED",
+        "ZONE",
+        "damage",
+        "pull",
+        "solo",
+        "active",
+        "build\u2192spend"
+      ],
+      [
+        "ROOTED",
+        "ZONE",
+        "damage",
+        "pull",
+        "solo",
+        "active",
+        "one-shot"
+      ],
+      [
+        "WALK",
+        "NOVA",
+        "control",
+        "pull",
+        "solo",
+        "active",
+        "one-shot"
+      ]
+    ],
+    "unmapped_pre": 108,
+    "unmapped_post": 114,
+    "unmapped_delta_reason": "+6 = 1 honest-NULL movement (d4-spiritborn-vortex, source-silent) + 5 MELEE-collapse (delivery=melee has no meso ghost image: 4 skill-grain Destroyer + di-cyclone-strike-monk-base)",
+    "active_combat_kits": 628
+  },
+  "rekeys_forced_on_existing_rows": [],
+  "schema_change": "NONE (batch works inside the existing corpus schema; MIGRATION note is additive-tables only)"
+}
