@@ -1,8 +1,9 @@
 # galadriel charge — A-render: Refit-Candidate-1 plates from the R8 furniture head (+ side-by-side composite) — STAGED
 
-**From:** gandalf (SPEC-AUTHOR) · **Date:** 2026-07-16 · **Status:** STAGED — fires only when BOTH gates clear at gandalf's verify:
-- **Gate 1:** B-1 fix landed (key-box hug corrected in `atlas-edition3-r8-furniture-render.mjs`; r8 head FINAL).
-- **Gate 2:** elrond addendum landed (`atlas-refit-candidate-1.json` re-emitted ALIGNED, carrying `ghost_field.drill_in` + `ghost_field.p_df_1`).
+**From:** gandalf (SPEC-AUTHOR) · **Date:** 2026-07-16 · **Status:** FIRED — both gates CLEAR at gandalf's verify:
+- **Gate 1: CLEAR** — B-1 fix landed (key-box hug corrected in `atlas-edition3-r8-furniture-render.mjs` `944afa98`; r8 head FINAL; v1.14 promoted).
+- **Gate 2: CLEAR** — elrond addendum landed (`da992f78`: `atlas-refit-candidate-1.json` re-emitted ALIGNED, carrying `ghost_field.drill_in` + `ghost_field.p_df_1` + `plane_alignment`; gandalf artifact-level verify green).
+- **Drill-in-expansion decision (gandalf, at this gate):** NOT NEEDED — §10 census: all 13 beyond-meso kits EAST-side (inside the pinned region's coverage), WEST 0, charted-hull beyond-N = 0. Comparability law satisfied; render proceeds.
 
 **Authority:** Matt 2026-07-16 (verbatim): *"I want to see both versions so we cna make a decision."* · Ultra-think record: `agentic_orchestration/gandalf/notes/2026-07-16-tier3-refit-and-polish-spec.md` §3.
 
@@ -10,7 +11,7 @@
 
 **This is a COMPARISON plate, not an Edition.** Title: **"Build Horizon — Refit Candidate 1"**. The strings "Edition IV"/"edition4" appear NOWHERE. The banner leads with the unratified framing (source the exact wording from the JSON's `comparison_note` / `unratified_comparison_artifact` + `emitted_alongside` stamps — render emitted fields, never invent copy). Footer stamps from `atlas-refit-candidate-1.json`. Edition III and every served artifact are READ-ONLY.
 
-**Alignment disclosure (RULING 2026-07-16, addendum-completion brief):** the emitted coordinates are plane-ALIGNED to Edition-I orientation (in-plane orthogonal Procrustes, rotation+reflection, no scaling — the refit plane rotated ~117° + reflected vs Edition-I). The plate MUST disclose this: a banner/gloss line built from the JSON's `plane_alignment` stamp (rotation_deg + det + "aligned to Edition-I orientation for comparison"). **Pole titles:** the refit basis carries NO ratified axis names — render the four poles as Edition-I REFERENCE orientation labels (e.g. `PERFORM → (E1 ref)` styling, your judgment on form) with one gloss stating "poles = Edition-I reference orientation; refit axes unratified." Never render the E1 names as if they were the candidate's own ratified identities. **Per-axis inertia must NOT be rendered** (the aligned x/y are not pure dims 1/2); the plane-level 8.903% figure is fine (subspace-invariant).
+**Alignment disclosure (RULING 2026-07-16, addendum-completion brief; RATIFIED Matt 2026-07-16):** the emitted coordinates are plane-ALIGNED to Edition-I orientation (in-plane orthogonal Procrustes, rotation+reflection, no scaling — the refit plane rotated ~117° + reflected vs Edition-I). The plate MUST disclose this: a banner/gloss line built from the JSON's `plane_alignment` stamp (rotation_deg + det + "aligned to Edition-I orientation for comparison"). **Pole titles:** the refit basis carries NO ratified axis names — render the four poles as Edition-I REFERENCE orientation labels (e.g. `PERFORM → (E1 ref)` styling, your judgment on form) with one gloss stating "poles = Edition-I reference orientation; refit axes unratified." Never render the E1 names as if they were the candidate's own ratified identities. **Per-axis inertia must NOT be rendered** (the aligned x/y are not pure dims 1/2); the plane-level 8.903% figure is fine (subspace-invariant).
 
 ## Fork + input
 

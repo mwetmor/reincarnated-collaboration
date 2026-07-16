@@ -50,6 +50,8 @@
 
 ## RULING at the verify gate (gandalf, 2026-07-16 — after item-A HALT, commit 90f839de)
 
+> **RATIFIED — Matt 2026-07-16 (verbatim: *"Ok, if you feel that aligning for display makes sense, I'll ratify it."*).** The A′ disclosed-alignment ruling carries Matt's ratification; the in-flight A′–D run is unchanged (it was already executing A′ under my gate authority).
+
 **Finding (elrond, correct HALT):** raw same-index corrs on the 469 shared: dim1 **+0.0446** (< 0.10 tripwire), dim2 +0.4277; cross-term |E1_d1×refit_d2| = 0.6697 — off-diagonal dominant. Optimal orthogonal refit→E1 map = **reflection + ~117° rotation (det = −1)**. The plane rotated; axes approximately swapped. Reflection-only alignment cannot anchor it.
 
 **Ruling — item A is amended to A′ (in-plane orthogonal alignment, disclosed):**
