@@ -53,6 +53,15 @@ Fork the ghost-field module (edition3 wraps edition2 — fork at the machinery l
 8. Ghost-field deltas: pull-lit cells masked→honest coordinate shift; unmapped/off-plane count changes.
 9. Six condensation (gateA) centroid shifts.
 
+## R3-ADDENDUM — drill-in + beyond-horizon on the refit plane (gandalf, same day, Matt follow-up: "will this automatically account for live kits beyond the meso horizon and the drill-in?")
+
+What recomputes automatically in your fork: lattice re-projection, lit census, the ghost-horizon hull (computed-not-constant), beyond-horizon membership (all actives vs the NEW hull), P-DF-1 re-scoring (û from refit loadings). What does NOT: the **drill-in region pin.** `build_drill_in` is pinned to "EAST-half (projected x≥0; PERFORM side) — slates #1 ES + #2 EN" — an Edition-I empirical choice, not a general densify-where-kits-overshoot algorithm. Therefore:
+
+1. **Axis-sign alignment (methodology-neutral, MANDATORY before region-pinned machinery):** MCA/SVD axis sign is arbitrary. Align refit dim1/dim2 SIGNS to Edition-I orientation by max-|correlation| (pure reflection; never a rotation of the fit). Report the alignment applied. Without this, "EAST-half x≥0 = PERFORM side" can silently mean the opposite side of the refit plane.
+2. **Drill-in fork runs the pinned EAST-half region VERBATIM** (like-for-like mechanics; promoted vocabulary auto-follows the refit fit's geometry+commit column levels — report any vocabulary delta from fusing changes).
+3. **R5 gains section 10 — beyond-horizon census on the refit plane:** N beyond-horizon kits (Edition-era baseline: 14) + full kit list with positions + per-quadrant/per-direction overshoot breakdown (max overshoot distance + direction) + coverage verdict: does the EAST-half drill-in still cover the û overshoot (P-DF-1 verdict as evidence), and is there overshoot in directions the pinned region does NOT cover (enumerate — this is the input to a possible drill-in-expansion pass).
+4. **Do NOT design new drill-in slates in this pass.** The census report decides whether the candidate plate needs a drill-in-expansion pass before Matt's comparison — gandalf's call at the verify gate.
+
 ## Return contract
 
 - Paths of everything (scripts, JSON, CSV, report, migration log) + a numbers-first summary in your return text (≤40 lines).
