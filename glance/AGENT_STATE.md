@@ -5,9 +5,72 @@
 > (glance lives here, not in loadout/demo). Contract:
 > `agentic_orchestration/operating-procedures/glance-contract-spec-2026-07-03.md`.
 
-## Current version — v1.11 (/atlas leads with Atlas Edition-I ghost-field projection)
+## Current version — v1.12 (/atlas leads with the interactive Build-Horizon instrument @ Edition III)
 
-Tag: `glance/v1.11-atlas-edition1-ghost-1`. Nine pages unchanged.
+Nine pages unchanged. `/atlas` reconverged: the interactive Build-Horizon package (the loadout
+D1–D6 chain) PORTED into `glance/app` and now LEADS `/atlas` at Edition III; the loadout `/atlas`
+retired to a redirect. STOPPED at preview (no PRD deploy, no alias move — gandalf's verify gates the
+two-deploy promotion per contract §7.8 rule 4).
+
+### v1.12 — interactive Build-Horizon re-homes to /atlas @ Edition III; loadout /atlas retires — BUILT + PROBED (preview) 2026-07-16
+
+**Authority:** Matt 2026-07-16 (verbatim: *"It was supposed to be on the glance app. … I do want it on
+glance."* + *"extend the first column width to accomodate the full name size"* + *"Agreed. Ratify
+Edition III"*). Charge: gandalf brief `2026-07-16-drax-v112-atlas-port-brief.md`; contract §7.8.
+
+**What landed (glance/app):**
+- PORTED the interactive package from `reincarnated-loadout`: `src/pages/AtlasInstrument.tsx` (was
+  loadout `pages/Atlas.tsx`, export renamed `Atlas`→`AtlasInstrument`); `src/components/atlas/*` (6);
+  `src/utils/atlas*.ts` (5); `src/hooks/useAtlas{Data,Svg,Stage}.ts`; `src/data/atlasTypes.ts`;
+  `scripts/atlas/{build-atlas-interactive,verify-build-fail-guard,d6-verify-probe,export-engine-key-sidecar}.mjs`
+  + the two corpus sidecars (`kit-provenance-sidecar.json`, `engine-key-sidecar.json`); the 8 atlas
+  unit tests → `src/__tests__/`; `vitest.config.ts` (node env, explicit imports).
+- ROUTER ADAPTATION (mechanical, no component rewrites): glance hash-router. `AtlasInstrument` mounts
+  as the LEAD of `ReferencePage` (App.tsx) when `connective` (atlas); the §7.7 projection-atlas tracker
+  card (title→h2 + TRIPLE-LAW + status + FLOW + sections) moved BELOW it under a divider. The v1.11
+  static Edition-I plate/plane lead (`AtlasEdition1View` + `AtlasPlaneView` + `AtlasInteractivePlane` +
+  `PlanePopover` + their types, ~841 lines) DELETED from App.tsx (git keeps them). Hook fetch paths
+  adapted to `import.meta.env.BASE_URL`; `useAtlasSvg` filenames Edition-II→Edition-III.
+- VENDORED Edition-III (gandalf VERIFY-ACCEPT) via `stage-assets.mjs` (rewritten): byte-copies
+  `atlas-edition3-{instrument,archive}.svg` + `render-provenance.json` from
+  `agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3/` into `public/atlas/`; runs the
+  slim-builder (reads the in-repo 7.5MB `research/curated/atlas/atlas-edition3.json` BUILD-INPUT-ONLY +
+  sidecars → `public/atlas/atlas-interactive.json` ~2.04MB; build-fail guard intact). WIPES the staged
+  atlas dir first (one served truth; the retired Edition-I/plane artifacts no longer staged). SHA256 of
+  the vendored SVGs == source: instrument `77c9baf5…01cebfdf`, archive `8c94ee05…41b3595fa`.
+- NAME-COLUMN FIX (Matt): `atlasColumns.ts` gains a `fixedPx` column field + `computeNameColPx()`
+  (DATA-DERIVED: longest live-build name char-count × mono advance 6.7px + 40px pad → 530px here) +
+  `columnWidthPx()`; `buildLeafColumns` takes an optional `nameColPx`; `AtlasBuildTable` computes it
+  from the live builds; `LeafRow` + `LeafGridHeader` render the name column at the fixed width with
+  `whitespace-nowrap` (no `truncate`), header split to per-column super-header for pixel alignment;
+  `gridMinWidthPx` sums fixedPx so the horizontal-scroll track fits the whole name. **D3-a untouchable
+  on `atlasColumns.ts` LIFTED by Matt's direct order.** Longest live-build name (the receipt): "Crown
+  of Innate Probability (proc-lock archetype) — Chronicon 2020 (1.52)" (73 chars) — renders WHOLE at
+  desktop (probe: renderedText full, whiteSpace nowrap, scrollWidth==clientWidth, notTruncated=true).
+- DEPS ADDED (glance devDeps): `vitest@^3.2.7` + `@types/node@^24.13.3` (the ported suite + node
+  built-ins in the scripts/tests). `build:atlas` + `verify:atlas-guard` + `pretest` (builds the slim
+  JSON) + `test` scripts added.
+
+**Verification (preview):**
+- Build GREEN (parse GREEN w/ 5 pre-existing dangling-gate warnings; stage-assets stages E3 + slim JSON;
+  vite 46 modules, 224KB/68KB gz). Fat 7.5MB JSON absent from dist. `tsc -b` clean.
+- Suite GREEN: 8 atlas test files, 98 tests. axis-inversion guard passes vs the E3 archive SVG (rail
+  geometry FIT-frozen I≡II≡III); sidecar-join passes vs the built E3 slim JSON.
+- PROBE GREEN (d6 v2 occlusion) vs preview: **textOcclusions=0** at 1440-dark/light, 1280-dark,
+  375-dark/light (135 text nodes each). Frame==fit-box-inset-12u, plate==viewBox, svg w/h absent, no
+  page overflow, wiring (chart↔table halo, 0.75px) fires, skin-flip re-verifies 0. Subtitle "Edition-III
+  lattice · 506 builds · 11,160 ghost cells · black copy leads" (verbatim, no hardcoded literal).
+- Preview: `http://localhost:4173` (launch: `cd glance/app && npm run preview -- --port 4173 --strictPort`;
+  probe: `node scripts/atlas/d6-verify-probe.mjs --url http://localhost:4173`).
+
+**Deferred to gandalf verify → Matt PRD auth (NOT done — STOP at preview per charge):** glance PRD deploy
+(the Edition-III instrument to `reincarnated-glance.vercel.app`) + loadout redirect deploy. Current prod
+glance still serves v1.11 Edition-I static — do NOT confuse with this preview.
+
+### Superseded — v1.11 (/atlas led with Atlas Edition-I ghost-field projection)
+
+Tag: `glance/v1.11-atlas-edition1-ghost-1`. (Retired as the /atlas LEAD by v1.12; the Edition-I static
+render lives in git.)
 
 ### Atlas Edition-I r6 (legibility) — RE-SHIPPED to /atlas PRD 2026-07-15
 
