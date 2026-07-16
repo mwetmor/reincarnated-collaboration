@@ -35,11 +35,11 @@
 
 **Source:** Lost Ark Codex filter (lostarkcodex.com/us/engravings/class/) + Maxroll class overview (maxroll.gg/lost-ark/resources/class-overview) + playlostark.com releases pages  
 **Verification date:** 2026-07-15  
-**Total advanced classes:** 30  
-**Total identity-path rows (target):** 60 (2 per class)  
+**Total advanced classes:** 29 (live-sourced; "Dragonknight" per commission brief = official Global name "Guardianknight" — see naming note below)
+**Total identity-path rows:** 58 (29 classes × 2 paths)
 **Note:** Paladin, Bard, Artist — Maxroll class-overview page lists these as "single support role." Prior research confirms Artist has Full Bloom / Recurrence paths. Paladin and Bard paths verified against additional sources (see per-class rows).
 
-### Warriors (6 classes, 12 rows)
+### Warriors (7 classes, 14 rows)
 
 | Class | Path A | Path B | Global Release | System | Row Status |
 |---|---|---|---|---|---|
@@ -90,7 +90,7 @@
 | Reaper | Hunger | Lunar Voice | Oct 2022 | Legacy (converted) | DONE |
 | Souleater | Night's Edge | Full Moon Harvester | Nov 2023 | Legacy (converted) | DONE |
 
-### Specialists (5 classes, 9 rows — note: Wildsoul has 2 paths; Guardianknight moved to Warriors section above)
+### Specialists (3 classes, 6 rows)
 
 | Class | Path A | Path B | Global Release | System | Row Status |
 |---|---|---|---|---|---|
@@ -98,7 +98,7 @@
 | Aeromancer | Wind Fury | Drizzle | Aug 2023 | Legacy (converted) | DONE |
 | Wildsoul | Wild Instincts | Phantom Beast Awakening | Feb 2025 | Ark Passive native | DONE |
 
-**Note on Dragonknight:** Listed in Lost Ark Codex class filter; launched early 2026 per official roadmap. Build guide search returned Guardianknight guides rather than Dragonknight-specific content — possible that global launch of Dragonknight was after full build-guide indexing. Rows flagged `post_cutoff: true, conf: 0.5` where Dragonknight-specific mechanical details could not be live-sourced. See rows/dragonknight.jsonl.
+**Naming resolution — Dragonknight = Guardianknight:** The commission brief listed "Dragonknight" as a separate Specialist class (4th entry). Live source investigation (Maxroll, playlostark.com, Vortex Gaming, MMORPG.com) determined that the February 2026 class released as "Guardianknight" in official Global naming — with identity paths "Dreadful Roar" and "Hellfire Successor." Community sources referencing "Dragonknight" describe identical mechanics (halberd, Manifest/Incarnation skills, head-dealer vs transformation identity fork). The commission brief used an informal naming convention. Rows are filed as `la-guardianknight-dreadful-roar` and `la-guardianknight-hellfire-successor` in the warrior batch (`rows/guardianknight.jsonl`). No separate `rows/dragonknight.jsonl` file exists or is needed.
 
 ---
 
@@ -139,16 +139,17 @@
 Preloaded from the pull-intrinsic class-kit tranche (agentic_orchestration/research/knowledge/mcd-pull-mechanic/2026-07-15-pull-intrinsic-classkit-tranche.md). Destruction is confirmed pull carrier at skill grain. This tranche adds engraving-path grain findings.
 
 **Confirmed LA pull carriers (engraving-path grain):**
-- `la-destroyer-gravity-training`: Gravity Training identity centers on Hypergravity Mode (Vortex Gravity = primary skill; 6m pull radius, stagger=high). Pull is CORE to this path.
-- `la-destroyer-rage-hammer`: Gravity Compression (Gravity Release spender) has pull-to-point behavior at black hole location. Pull is a RIDER on this path (damage is primary). Gravity Impact (builder) has pull-to-self sequence (8× pull). Pull is present but functional-secondary.
+- `la-destroyer-gravity-training`: Gravity Training identity centers on Hypergravity Mode (Vortex Gravity = primary skill; 6m pull radius, stagger=high). Pull is CORE to this path. `pull_carrier: true`
+- `la-destroyer-rage-hammer`: Gravity Compression (Gravity Release spender) has pull-to-point behavior at black hole location. Gravity Impact (builder) has pull-to-self (8× sequence). Pull present as RIDER on DPS identity. `pull_carrier: true`
 
-**Other classes flagged for pull review:**
-- Shadowhunter (Demonic Impulse): transformation skills in demon form include a vacuum-type skill — flagged for review in row mechanics_notes
-- Artillerist: Buckshot has knockback; artillery impacts create displacement — knockback NOT pull, no pull carrier
-- Souleater: Death Orb mechanics — reviewed in row; no confirmed pull-to-self found
-- No other confirmed pull carriers found at engraving-path grain across 30 classes
+**Ruled out after full-tranche review:**
+- All 27 other identity paths across 27 classes: `pull_carrier: false` — no confirmed intrinsic pull at identity level
+- Shadowhunter Demonic Impulse (Blood Vortex): "vortex" name is suggestive; not confirmed as pull from live sources — ruled pull_carrier: false pending live verification
+- Sorceress Reflux (Reverse Gravity): PENDING from prior flag — not resolved in this session; `pull_carrier: null` in row
+- Artillerist: knockback displacement present; NOT pull — ruled false
+- Wildsoul Phantom Beast Awakening: spirit summons; no pull mechanic found
 
-**Empty verdict for 26 of 28 non-Destroyer classes** (no intrinsic pull at kit-identity level)
+**Final census: 2 confirmed pull carriers** (both Destroyer paths), 1 PENDING (Reflux Reverse Gravity), 56 false across 56 identity paths
 
 ### SUPPORT-CONTEXT FINDINGS (C2 support-existence sweep)
 
@@ -208,19 +209,24 @@ Notable gaps between LA vocabulary and current engine vocabulary:
 | Specialist | Artist | DONE | specialist batch |
 | Specialist | Aeromancer | DONE | specialist batch |
 | Specialist | Wildsoul | DONE | specialist batch |
-| Specialist | Dragonknight | DONE | specialist batch |
 
-**Last updated:** 2026-07-15 (initial index + Berserker calibration commit)
-**UPGRADE-OWED:** Empty (backfill list for post-cutoff classes at bottom of this file)
+**Last updated:** 2026-07-15 (TRANCHE COMPLETE — all 29 classes, 58 rows committed)
+**Dragonknight resolution:** "Dragonknight" per commission brief = "Guardianknight" per official Global naming. See Specialists section naming note and `rows/guardianknight.jsonl`.
+**UPGRADE-OWED:** See section below
 
 ---
 
 ## UPGRADE-OWED (post-cutoff backfill targets)
 
-Classes released post-training-cutoff where live-URL sourcing was partial or insufficient:
-- Valkyrie (Liberator / Shining Knight) — Aug 2025 global; Ark Passive native; identity mechanics sourced from maxroll.gg build guides, conf ≤ 0.5 on tripod-level detail
-- Guardianknight (Dreadful Roar / Hellfire Successor) — Feb 2026 global; Ark Passive native; sourced from maxroll.gg build guide summaries
-- Dragonknight — early 2026; Ark Passive native; minimal live sourcing; rows = low-conf placeholders
-- Wildsoul (Wild Instincts / Phantom Beast Awakening) — Feb 2025; borderline; identity mechanic sourced from nexus-guide and playlostark.com releases page
+Classes where live-URL sourcing was partial or insufficient. These rows are in the tranche but carry lower confidence on specific numeric values:
 
-**Backfill recommendation:** Live KR source consultation (theinven.gg translations, namu.wiki via translation) for Dragonknight identity mechanics.
+- **Valkyrie (Liberator / Shining Knight)** — Global Aug 2025; Ark Passive native; identity mechanics sourced from maxroll.gg build guide summaries; conf ≤ 0.8 on specific Enlightenment node numeric values
+- **Guardianknight (Dreadful Roar / Hellfire Successor)** — Global Feb 2026; Ark Passive native; sourced from maxroll.gg build guide summaries; conf ≤ 0.8 on Embereth Orb meter specific fill rates
+- **Wildsoul (Wild Instincts / Phantom Beast Awakening)** — Global Feb 2025; native Ark Passive class; identity mechanic sourced from nexus-guide and playlostark.com; mana drain specifics and exact meter fill values not confirmed; conf 0.75-0.8
+- **Souleater (both paths)** — Global Dec 2023; edge of training cutoff; live sources used as primary; conf 0.85 overall
+- **Aeromancer tier data** — tier standings for both paths not captured from sourced tier lists in this session; community consensus B-tier cited without primary source
+
+**One unresolved flag from this session:**
+- Sorceress Reflux Reverse Gravity: `pull_carrier: null` in row (PENDING). "Reverse Gravity" name and one search result suggest possible pull/vacuum behavior. Not confirmed from live sources. Recommend targeted search: "Lost Ark Sorceress Reflux Reverse Gravity vacuum pull skill" to resolve.
+
+**Backfill recommendation for highest-priority items:** Valkyrie and Guardianknight numeric verification via official patch notes or namu.wiki KR translations.
