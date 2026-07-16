@@ -6,6 +6,57 @@
 
 ---
 
+## grain-law-ratification-2026-07-16 — `grain` column added to `canon_corpus` (kit|gear|class) + THE GRAIN LAW — 2026-07-16 — **APPLIED (Matt-ruled; column ratified)**
+
+### THE GRAIN LAW (ratified — Matt rulings 2026-07-16, verbatim)
+> *corpus grain = emission grain. The engine emits kits; the atlas plots what the engine can emit. **Every future fit-stage predicate MUST include `grain = 'kit'`.***
+
+Two Matt rulings, ONE law. Verbatim:
+1. **mcd:** *"Exclude the Minecraft Dungeons kits entirely."* → the 120 `mcd-` rows are **gear** grain.
+2. **Lost Ark:** *"On Lost Ark, yes we CANNOT emit full classes… I would recommend deleting these entirely rather than decomposing."* → the 56 LA class-engraving rows are **class** grain (excluded from fits). The 6 Destroyer skill-grain rows (`la-destroyer-*`) are **kit** grain and survive. **This is a grain-based reading, not source-based** (gandalf's flagged interpretation — source-based exclusion of the whole `la` source is one predicate change away if Matt prefers; the ruling as written keeps the 6).
+
+Both rulings are recorded in `canonical/matt_decision_needed/2026-07-16-edition3-vs-refit-candidate-1-adoption.md § RULING`. One law implements both and closes the failure class that contaminated Refit-Candidate-1: **manual fit-stage holds do not survive predicate rewrites; a ratified column does.** The 94 mcd gear-grain rows leaked into Refit-Candidate-1 precisely because the exclusion lived only in a hand-written stage predicate, not in the data. A `grain` column that every fit predicate references makes the exclusion structural and un-forgettable.
+
+### What changed (one line)
+Two additive columns on `canon_corpus`: **`grain` (TEXT ∈ {kit, gear, class}, NULL for non-emittable system-records)** and **`grain_note` (TEXT, provenance/flag annotation)**. Backfilled by provenance-anchored derivation. **Zero deletes** — catalogue philosophy: score/filter at consumption, never purge. Rows stay catalogued **INERT**; only the fit-STAGE predicate filters them out (`grain='kit'`, composed with the existing `row_class='combat-kit' ∧ negative=0 ∧ cell_key NOT NULL`).
+
+### Derivation rules (provenance-anchored — derived per row, never assumed)
+Applied in order; the branches are provably disjoint (no `la-destroyer-*` or `mcd` row is a system-record — asserted):
+| Rule | Selector | grain | n |
+|---|---|---|---|
+| Minecraft Dungeons | `game='mcd'` (all `architecture='notable'`) | `gear` | 120 |
+| LA Destroyer skill-grain | `game='la' AND kit_id LIKE 'la-destroyer-%'` | `kit` | 6 |
+| LA class-engraving | `game='la'` (remainder; all `architecture='class-engraving'`) | `class` | 56 |
+| System-record | `row_class='system-record'` (non-mcd/la) | `NULL` | 18 |
+| Default (combat-kit) | everything else | `kit` | 509 |
+
+**GRAIN CENSUS (709 rows):** `kit`=**515** · `gear`=**120** · `class`=**56** · `NULL`(system-record)=**18**. (The 515 kit includes the 6 LA Destroyer + 509 other-game combat-kits.)
+
+### The NULL choice for system-records (deterministic, NOT ambiguous)
+The 18 `row_class='system-record'` rows (loot-economy / progression / mobility-grammar / modifier-grammar cross-game infrastructure records — e.g. `di-inferno-ladder`, `ud-link-rune-grammar`, `poe1-blood-magic-kit`) are **none of kit/gear/class** on the emission axis. The vocabulary is fixed at `kit|gear|class`; forcing any of them onto a system-record would be a silent lie (a loot-economy record is not a "kit"). They are left **NULL with `grain_note`** — a deterministic, reproducible, documented NULL, **not** an ambiguity flag. They are already excluded from every fit by `row_class='combat-kit'`, so the composite GRAIN LAW predicate (`grain='kit' AND row_class='combat-kit'`) never depends on their grain value. Marking them `kit` for tidiness was rejected: honesty over convenience (Discipline #14 spirit — do not encode a value the data does not support).
+
+### FLAG LIST (grain-ambiguous, resolved-per-ruling — 2 rows, under HALT threshold 20)
+Two Destroyer rows carry conflicting provenance signals:
+- `la-destroyer-rage-hammer` ("Rage Hammer Destroyer")
+- `la-destroyer-gravity-training` ("Gravity Training Destroyer")
+
+Their **kit_id prefix** (`la-destroyer-*`) says skill-grain → `kit`; their **architecture column** (`class-engraving`) says `class`; and their **folk_name pattern** (`<Build> Destroyer`, suffix form) matches the 56 class-grain rows, unlike the other 4 Destroyer rows (`Destroyer — <Skill>`, em-dash form, `architecture` empty). Matt's ruling is explicit and authoritative that **all 6 Destroyer rows are kit-grain citizens**, and the kit_id-prefix reading yields exactly the ruled 6/56 split. Both rows are therefore set `grain='kit'` **per the ruling**, each carrying a `grain_note` recording the architecture conflict so the source-vs-grain tension stays visible on inspection. If Matt prefers the architecture-column reading (58 class / 4 kit), it is a one-line re-derivation; the ruling as written (6 kit) is implemented.
+
+### Reversibility + reproducibility
+`grain` is fully re-derivable from provenance columns (`game`, `kit_id`, `architecture`, `canon_engine_key.row_class`) via `../scripts/corpus_grain_ratification_2026_07_16.py`, which is idempotent (re-running re-derives to identical values) and fail-loud (asserts the ruling arithmetic: gear=120, class=56, LA-kit=6, vocab-clean, flags≤20, zero non-system NULLs). No raw value is destroyed; the column is additive.
+
+### Iron laws honored
+- **Edition III + every served artifact READ-ONLY** — untouched.
+- **Refit-Candidate-1 artifacts READ-ONLY** (permanent evidence exhibit; Matt's mcd ruling makes it never-adoptable) — untouched.
+- **No re-fit / no re-emission** of any existing atlas artifact in this migration. The only mutation is the additive `grain`/`grain_note` backfill on `corpus.db`.
+
+### ADR compliance
+- **ADR-004:** this entry. No engine-telemetry change; star-lord-side `MIGRATION.md` unaffected. All work is collab-side curation (elrond data layer).
+- Auto-committed per project discipline (Matt-authorized implementation under the GRAIN LAW rulings). Push deferred to KR's gate.
+- **Consumer note for every future fit author:** the fit-stage predicate is now `grain='kit' AND row_class='combat-kit' AND negative=0 AND cell_key IS NOT NULL`. Do not hand-hold the mcd/LA exclusion in the predicate text — reference the ratified `grain` column. That is the whole point of the law.
+
+---
+
 ## refit-candidate-1-ledger-honesty-2026-07-16 — surgical fit-relative ghost-field ledger correction (emission-side only) — 2026-07-16 — **APPLIED (comparison artifact; Matt adoption still pending)**
 
 ### What changed (one line)
