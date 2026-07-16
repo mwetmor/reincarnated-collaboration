@@ -1,5 +1,8 @@
 {
   "render": "galadriel/pipeline/atlas-refit-candidate-1-render.mjs",
+  "render_revision": "r2",
+  "input_sha256": "758126a8bc55f7eef6254066d4426d2ecb03c9fad1786754d0a42d27eaa9cf09",
+  "input_fix_commit": "1cd7d1d0",
   "edition": "Refit-Candidate-1",
   "display_identity": "Refit Candidate 1",
   "unratified_comparison_artifact": true,
@@ -231,8 +234,16 @@
     ]
   },
   "off_plane_corpus": {
-    "n": 94,
-    "disclosure": "94 gear-grain kits (mcd-) sit in the corpus off-plane — classless gear carries no movement identity at kit grain; admission is a deferred grain ruling."
+    "n": 26,
+    "kits_count": 26,
+    "gate_rejected_keyed": 0,
+    "disclosure": "94 gear-grain kits (mcd-) were ADMITTED at kit grain by this refit's stage predicate (combat-kit ∧ cell_key NOT NULL ∧ negative=0) and are plotted as on-plane points; the E1-era deferred grain ruling is thereby exercised implicitly and remains OPEN for Matt. 26 mcd rows carry no cell key and remain genuinely off-plane — they are the kits listed here."
+  },
+  "unmapped_pending_curation_semantics": {
+    "count": 114,
+    "kits_count": 114,
+    "on_plane": true,
+    "disclosure": "lit-map census — these 114 kits lack a fit2reg_movement mapping (movement=blank) and are therefore absent from the lit-lattice census; ALL 114 are nonetheless plotted as on-plane points in this refit. 'Unmapped' means not present in the lit-map, NOT off-plane."
   },
   "p_df_1": {
     "verdict": "PASS",
@@ -252,8 +263,8 @@
     "consequence_if_falsified": "INTERIOR-1 re-opens with new fuel (§9.4.4 trigger) — SURFACE to Matt, never auto-fire."
   },
   "acceptance": {
-    "pass": 51,
-    "total": 51,
+    "pass": 52,
+    "total": 52,
     "all_pass": true,
     "tests": [
       {
@@ -366,6 +377,10 @@
       },
       {
         "name": "lattice-integrity",
+        "pass": true
+      },
+      {
+        "name": "ledger-vs-points-consistency (standing, r2)",
         "pass": true
       },
       {

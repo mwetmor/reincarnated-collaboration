@@ -1,11 +1,13 @@
-# Build Horizon — Refit Candidate 1 · UNRATIFIED COMPARISON ARTIFACT · verification note
+# Build Horizon — Refit Candidate 1 · UNRATIFIED COMPARISON ARTIFACT · verification note (r2)
 
 > **THIS IS NOT AN EDITION.** It is a comparison plate for Matt's Tier-3 atlas refit **adoption decision**
 > (Refit Candidate 1 — a full re-derivation of the FIT on the 628-active corpus — vs the served **Edition III**).
 > The served truth (`atlas-edition3.json`) is **byte-untouched**; the interactive `/atlas` still serves it.
 > The candidate reaches Matt as **static plates** (interactivity follows adoption, not precedes it). Nothing
 > here is ratified. **Authority:** Matt 2026-07-16 "I want to see both versions so we cna make a decision."
-> · gandalf brief `2026-07-16-galadriel-a-render-refit-candidate-plates-brief.md`.
+> · gandalf briefs `2026-07-16-galadriel-a-render-refit-candidate-plates-brief.md` (r1) +
+> `2026-07-16-galadriel-rerender-refit-plates-ledger-fix-brief.md` (r2, ledger-honesty fix).
+> **r2 input:** post-fix `atlas-refit-candidate-1.json` at elrond commit **1cd7d1d0** (SHA-256 `758126a8bc55f7ee…`).
 
 **emitted alongside:** atlas-edition3.json (served truth; Matt comparison pending)
 **comparison note (emitted):** Full re-derivation of the atlas FIT on the current 628-active corpus (incl. 62 Lost Ark + pull/MELEE as live feature columns). Same pre-registered methodology, same seed 20260714. Edition III served truth is byte-untouched. This is the number surface for Matt's adoption decision (Refit Candidate 1 vs Edition III); see refit-candidate-1-comparison-report.md.
@@ -46,19 +48,30 @@ The head recomputes the hull, the beyond-horizon N, and the P-DF-1 mechanism per
 - **depth Σ = 767,411,820** == `depth_sum_check` **767,411,820** == exact_post_red_law **767,411,820** (byte-equal to Edition-III's — the lattice did not move).
 - **drill-in:** Σmultiplicity **122,544** == `n_sub_feasible` **122,544**; sub-sealed Σ **6,624** == `n_sub_sealed` **6,624**; parent cells **3,312**.
 
+## What changed vs r1 (r2 — ledger-honesty fix)
+
+r1 rendered against `da992f78`; r2 renders against the POST-FIX emission (`1cd7d1d0`, gandalf spot-verify green). The fix (elrond, per gandalf's RULING) touched exactly TWO ghost-field ledgers; everything else about the JSON (points, coords, drill_in, p_df_1, plane_alignment, lattice, depth Σ) is byte-identical to `da992f78` (verified: remainder-hash equal). The render deltas:
+
+1. **Footer ledger re-sourced (2 lines).** `off_plane_corpus` was STALE (byte-carried from Edition III: it declared 94 mcd gear-grain kits off-plane, but those 94 are ADMITTED on-plane in the refit). It now carries honest values (`gate_rejected_keyed 0`, `n = |kits| = 26` — the no-cell-key rows) + a grain-admission `disclosure`. The off-plane ledger line now numbers the truthful **26** and renders that disclosure VERBATIM (hover). `unmapped_pending_curation` (114) was NOT stale — the count is TRUE (lit-map census); a `disclosure` semantics field was added so "unmapped" reads as lit-map-census, not off-plane. Its verbatim disclosure now rides the feasible-line `<title>` + an inline "(lit-map census — on-plane)" gloss.
+2. **Gating assert #24 RETUNED.** The old form hardcoded `offN === offPlaneN && offPlaneN === 94` — the honest emission broke it. Replaced with INTERNAL-consistency form (constants-vs-computed law): `off_plane_corpus.n === |kits|` · `gate_rejected_keyed` present · disclosure rendered verbatim. NO hardcoded census numeral (not re-pinned to 26).
+3. **NEW STANDING acceptance check** (permanent, fail-loud): *ledger-vs-points consistency* — `set(off_plane_corpus.kits) ∩ set(points[].kit_id) == ∅` (off-plane means OFF-plane) · `unmapped_pending_curation` count == list length (NO disjointness assert — its members are legitimately on-plane) · every count field == its list length · every footer census string rendered matches its JSON source. This is the render-side twin of elrond's emission-side assert. A violation die()s — a ledger that contradicts its own points must never reach a plate again.
+4. **r1 tension RESOLVED.** The r1 "mcd on-plane vs off-plane ledger" observation was a TENSION (CHANGED, surfaced for Matt); r2 reports it PASS — the emission was corrected, the 94 are admitted on-plane, the ledger↔coords now agree.
+
+Full r1 re-pointed acceptance set re-ran green (determinism byte-equal, counts 628+37=665, depth Σ 767,411,820, hull/P-DF-1 render-vs-emitted cross-check, anti-stale greps) PLUS the retuned #24 PLUS the new standing check. Everything else on the plate — furniture, bounds, skins, banner, "(E1 ref)" pole labels, per-axis-inertia ban, alignment disclosure — is UNCHANGED from r1.
+
 ## Acceptance tally (re-pointed set)
 
-- **ACCEPTANCE: 41/41 PASS** (0 fail) · **SMOKE (gating): 10/10 PASS** · **gating overall: ALL PASS**.
+- **ACCEPTANCE: 42/42 PASS** (0 fail) · **SMOKE (gating): 10/10 PASS** · **gating overall: ALL PASS**.
 - **Acceptance adaptation (per brief):** frozen-baseline checks **RETIRED** (fit-freeze vs r6/e21; basis==edition2 assert; N==469/506; Edition-III lit/census constants; edition-stamp greps; edition===3). Internal-consistency checks **RE-POINTED** to the candidate's own emitted counts (fail-loud). Hull/census/P-DF-1 **RECOMPUTED + CROSS-CHECKED** vs emitted (mismatch = HALT). Edition-I orientation smokes **DEMOTED** to reported observations (below). Anti-stale greps added.
 
 ## Demoted observations (REPORTED, NOT gating)
 
 These are refit-dependent (the plane was re-derived + Q-aligned). A **CHANGED** flag does NOT fail the run —
-it is comparison evidence. **4 CHANGED** (the refit legitimately moved these).
+it is comparison evidence. **3 CHANGED** (the refit legitimately moved these).
 
 | observation | refit value | Edition-I / Edition-III expectation | flag |
 |---|---|---|---|
-| mcd- gear-grain: on-plane vs emitted off-plane ledger | 94 mcd- kits ON-plane as active points, but off_plane_corpus.disclosure says 94 off-plane — EMISSION TENSION, surfaced for Matt | Edition-III: 0 mcd- on-plane (94 held off-plane, ledger consistent) | **CHANGED** |
+| mcd- gear-grain: on-plane, ledger admits (r2 fixed) | 94 mcd- kits ON-plane as active points; off_plane_corpus.gate_rejected_keyed=0 (none keyed-then-rejected), disclosure ADMITS the 94 on-plane, n=26 no-key rows genuinely off-plane — ledger↔coords CONSISTENT | Edition-III: 0 mcd- on-plane (94 held off-plane); r1: ledger claimed 94 off-plane while coords on-plane (TENSION, now fixed) | **PASS** |
 | WHIRLWIND x>0 (E1 ref PERFORM side) | x=0.6475 | E1-orientation: x>0 | **PASS** |
 | WHIRLWIND y<0 (E1 ref EMBODY side) | y=-0.6274 | E1-orientation: y<0 | **PASS** |
 | TOTEM-SENTRY x<0 (E1 ref DEPLOY side) | x=-0.2760 | E1-orientation: x<0 | **PASS** |
@@ -114,8 +127,9 @@ frozen projection. Content-locked disclosure copy is carried VERBATIM. **atlas_v
 - [PASS] **r5-beyond-horizon** — charted N=0 (indep=0, expected=0); beyond-line-omitted(zero-case)=true; charted-reach-line-present=true; computed-not-constant: added east kit @ (2.5,-2.3): BEYOND_N 0→1; beyond line appears both skins=true; meso-cross-check N=13==emitted-p_df_1(13)=true
 - [PASS] **E2-belowplane-ledger-band** — footer@plane-right(1504.00)=true; zero-occlusion(true) [instrument: below-plane-plaques=0(want 0), max-data-mark-y=1015.3<=1112=true | archive: below-plane-plaques=0(want 0), max-data-mark-y=1015.3<=1112=true]; full-strings-in-title=true
 - [PASS] **register-v1.3-derivation** — denom Σdepth=767,411,820==exact 767,411,820==sum_check 767,411,820 (true); meso 11,160+1,314==raw 12,474 (true); L1 756+L2 558==1314 (true); register=feasibility-cuts-register-v1.3, new_law=0, halt=false
-- [PASS] **lattice-integrity** — depthΣ==exact(true); lit 202==emitted 202(true); off-plane N=94 disclosed(true); unmapped 114 enumerated(true)
-- [PASS] **pull-slice-lit-integrity** — lit-pull-cores==tuples(true); re-keys d3-zbarb+di-cyclone exist & non-mcd(true); doctored HALT(a) mcd-forced=true(code 2); doctored HALT(b) new-law=true(code 2); [mcd-on-plane=94 — see DEMOTED observation for the disclosure tension]
+- [PASS] **lattice-integrity** — depthΣ==exact(true); lit 202==emitted 202(true); off-plane n=26==|kits| 26(true) gate_rejected_keyed=0 present(true) disclosure-verbatim(true); unmapped 114 enumerated(true) semantics-verbatim(true)
+- [PASS] **ledger-vs-points-consistency (standing, r2)** — off-plane∩points=∅ (0 on-plane in off-list; true); unmapped count 114==|kits| 114(true), 114/114 on-plane (correct, NOT asserted disjoint); off n 26==|kits| 26(true); census-strings-verbatim both skins (off true, unmapped true)
+- [PASS] **pull-slice-lit-integrity** — lit-pull-cores==tuples(true); re-keys d3-zbarb+di-cyclone exist & non-mcd(true); doctored HALT(a) mcd-forced=true(code 2); doctored HALT(b) new-law=true(code 2); [mcd-on-plane=94, gate_rejected_keyed=0 — see DEMOTED observation for the ledger↔coords agreement]
 - [PASS] **drill-in-conformance** — EAST-half PARENTS (region "EAST-half (projected x>=0; PERFORM side) — slate #1 ES + #2 EN (one drill-in serves both)"=true, 3,312 parents, projected-x>=0=true); sub-cells overshoot west 4,396/31,451 glyphs (P-DF-1 displacement mechanism — EXPECTED, not gated); sub-sealed Σ6,624==6,624(true); RED-3-@drill-in rendered(true); RED-3-NOT@meso(true); doctored HALT meso-RED3=true(code 2); doctored HALT drill-bogus=true(code 2)
 - [PASS] **P-DF-1-scored** — verdict=PASS (single-source); falsified=false; S_max=1.90823161 > K_max=1.15472813; mechanism-consistent=true; values-match-brief-targets(S=1.90823161,K=1.15472813,n=13)=true
 - [PASS] **refit-identity+anti-stale-greps** — Edition-IV/edition4-absent=true; Edition-III-only-in-emitted_alongside=true; refit-stamps(title+unratified-banner+alignment-disclosure+v1.3)=true; content-locked-strings-verbatim=true

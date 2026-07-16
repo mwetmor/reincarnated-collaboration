@@ -103,7 +103,11 @@
 //         The `drill_in.sub_sealed_ledger` (2 rows, RED-3-movement-damage-carveout, 5,068 each)
 //         joins the chrome ledger — labeled at the PROMOTED grain (RED-3′ surfaces ONLY here, §10.4.2).
 //     (3) OFF-PLANE CORPUS disclosure (§10.4.4, NEW MANDATORY, nonzero-only) — the emitted
-//         `off_plane_corpus.disclosure` sentence + N from `gate_rejected_keyed` (94) in the ledger.
+//         `off_plane_corpus.disclosure` sentence rendered VERBATIM. r2 LEDGER-HONESTY FIX (elrond
+//         1cd7d1d0): the emission was corrected — the 94 mcd gear-grain kits are ADMITTED on-plane
+//         (gate_rejected_keyed 0), and the genuinely-off-plane count is n=26 (the no-cell-key mcd
+//         rows). The visible ledger lead sources n (26) — NOT gate_rejected_keyed — so "held
+//         off-plane" tells the truth; the full grain-admission disclosure rides the <title> verbatim.
 //     (4) DENOMINATOR SUPERSESSION (§10.1.5) — new exact (767,411,820) + meso (11,160) denominators;
 //         the Edition-I strings (693,146,160 / 10,080 / 1,260) appear ONLY in LABELED lineage copy
 //         (a `superseded_edition1` sub-block), same anti-stale grep discipline as "422,445,240".
@@ -231,6 +235,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve, join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';   // r2: input-hash provenance stamp (canonical input, not the doctored override)
 import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -291,6 +296,10 @@ function req(obj, path, ctx) {
 
 // ------------------------------------------------------------------ load + validate
 const atlas = JSON.parse(readFileSync(ATLAS_SRC, 'utf8'));
+// r2 PROVENANCE: SHA-256 of the CANONICAL input file (ATLAS_PATH, not any doctored override) — stamped in
+// render-provenance.json alongside the elrond ledger-honesty fix commit. Deterministic; hashes bytes on disk.
+const INPUT_SHA256 = createHash('sha256').update(readFileSync(ATLAS_PATH)).digest('hex');
+const FIX_COMMIT = '1cd7d1d0';   // elrond ledger-honesty fix (off_plane_corpus 94->26 + unmapped semantics disclosure) per gandalf RULING
 
 // Mandatory basis block (Stage 4 freeze + RIDER-1 badge fields).
 const basis = req(atlas, 'basis', 'basis-block');
@@ -370,7 +379,13 @@ const denomFeasibleExact = req(atlas, 'ghost_field.denominators.exact_post_red_l
 const denomNaiveBox = req(atlas, 'ghost_field.denominators.exact_raw_naive', 'ghost-denom-naive');          // E2: 990,186,120
 const mesoSealed = req(atlas, 'ghost_field.denominators.meso_sealed', 'ghost-meso-sealed');                 // E2: 1,314
 const litCells = req(atlas, 'ghost_field.lit_cells', 'ghost-lit');                                          // E2: 193
-const unmappedPending = req(atlas, 'ghost_field.unmapped_pending_curation', 'ghost-unmapped');              // E2: 108
+const unmappedPending = req(atlas, 'ghost_field.unmapped_pending_curation', 'ghost-unmapped');              // candidate: 114 (TRUE lit-map census)
+// r2 LEDGER-HONESTY FIX (elrond 1cd7d1d0): unmapped_pending_curation (114) is NOT stale — it is a TRUE
+// lit-map census (kits lacking fit2reg_movement mapping), and ALL 114 are nonetheless plotted on-plane.
+// A `disclosure` semantics field was ADDED so the "unmapped" line cannot be misread as "off-plane"; it
+// rides the feasible-line <title> verbatim + a short on-plate gloss ("lit-map census, not off-plane").
+const unmappedDisclosure = req(atlas, 'ghost_field.unmapped_pending_curation_disclosure', 'ghost-unmapped-disclosure');
+const unmappedKits = req(atlas, 'ghost_field.unmapped_pending_curation_kits', 'ghost-unmapped-kits');       // 114 kit_ids (list)
 const depthByDelivery = req(atlas, 'ghost_field.depth_by_delivery', 'ghost-depth');
 const depthSumCheck = req(atlas, 'ghost_field.depth_sum_check', 'ghost-depth-sum');
 const red3Note = req(atlas, 'ghost_field.red3_note', 'ghost-red3-note');
@@ -501,11 +516,17 @@ const subSealedSorted = [...subSealedLedger].sort((a, b) => {
   return ka < kb ? -1 : ka > kb ? 1 : 0;
 });
 
-// --- OFF-PLANE CORPUS (§10.4.4, NEW MANDATORY, nonzero-only). The disclosure sentence + N from
-//     the emitted gate_rejected_keyed. Same honesty class as the clip line / beyond-horizon line.
+// --- OFF-PLANE CORPUS (§10.4.4, NEW MANDATORY, nonzero-only). The disclosure sentence renders
+//     VERBATIM (same honesty class as the clip line / beyond-horizon line). r2 LEDGER-HONESTY FIX
+//     (elrond 1cd7d1d0): after re-derivation the HONEST off-plane count is `off_plane_corpus.n` (26 —
+//     the no-cell-key mcd rows), NOT `gate_rejected_keyed` (now 0 — the 94 mcd gear-grain kits are
+//     ADMITTED on-plane). The visible ledger lead sources `.n` so the "held off-plane" numeral is
+//     truthful; the grain-admission context (94 admitted / ruling OPEN) rides the verbatim <title>.
 const offPlane = req(atlas, 'ghost_field.off_plane_corpus', 'off-plane-block');
 const offPlaneDisclosure = req(atlas, 'ghost_field.off_plane_corpus.disclosure', 'off-plane-disclosure');
-const offPlaneN = req(atlas, 'ghost_field.off_plane_corpus.gate_rejected_keyed', 'off-plane-n');    // 94
+const offPlaneN = req(atlas, 'ghost_field.off_plane_corpus.n', 'off-plane-n');                       // 26 — genuinely off-plane (no cell key)
+const offGateRejectedKeyed = req(atlas, 'ghost_field.off_plane_corpus.gate_rejected_keyed', 'off-plane-gate-rejected');   // 0 — none keyed-then-rejected
+const offPlaneKits = req(atlas, 'ghost_field.off_plane_corpus.kits', 'off-plane-kits');              // the 26 off-plane kit_ids (list)
 
 // --- P-DF-1 (§10.5). The registered prediction scored mechanically at render. We render the
 //     VERDICT from the emitted block into the note + provenance JSON — never renderer-derived (§4c).
@@ -945,9 +966,16 @@ const riderStr = `UNRATIFIED COMPARISON ARTIFACT — refit candidate (frozen=${f
 // All numerals COMPUTED from emitted fields; prose is disclosure copy of the emitted structure.
 // (i) PULL-SLICE ledger line (§10.1) — the new function level, its feasible/lit/sealed accounting.
 const pullSliceLine = `pull slice (new fn level): ${fmtInt(pullMesoFeasible)} feasible · ${fmtInt(pullLitCells)} lit (existing kits re-keyed on intrinsic evidence) · ${fmtInt(pullMesoSealed)} sealed`;
-// (ii) OFF-PLANE CORPUS disclosure (§10.4.4) — rendered VERBATIM from the emitted disclosure field;
-//      N is the emitted gate_rejected_keyed (asserted to equal the disclosure's leading numeral).
+// (ii) OFF-PLANE CORPUS disclosure (§10.4.4) — rendered VERBATIM from the emitted disclosure field
+//      (r2 ledger-honesty fix: it states 94 mcd ADMITTED at kit grain / grain ruling OPEN for Matt /
+//      26 no-key rows off-plane). It rides the ledger row's <title> BYTE-FOR-BYTE. The visible lead
+//      numeral is `off_plane_corpus.n` (26 — the genuinely-off-plane count), NOT gate_rejected_keyed.
 const offPlaneLine = String(offPlaneDisclosure);
+// (ii-b) UNMAPPED-PENDING semantics disclosure (§10.4.4, r2 fix) — the emitted
+//        `unmapped_pending_curation_disclosure` rendered VERBATIM on the feasible-line <title>, so the
+//        visible "N unmapped" token cannot be misread as off-plane. A short on-plate gloss follows the
+//        visible feasible line ("lit-map census — all on-plane") — form mine, copy from the field.
+const unmappedLine = String(unmappedDisclosure);
 // (iii) DRILL-IN ground line (§10.3) — discloses the promoted EAST-half sub-cell ground as an
 //       instrument property (subordinate ground, not data). Numerals from emitted drill_in fields.
 //       The `×` join of the promoted-pair enum ("geometry×commit") is plain text (no HTML-special
@@ -1630,8 +1658,11 @@ function renderSVG(skinKey) {
     P.push(`<text x="${f2(bx)}" y="${f2(by + 32)}" font-size="${FURN.ledgerHl2}" font-weight="${s.titleWeight}" fill="${s.ink}">${esc(HEADLINE_DENSITY)}</text>`);
     P.push(`<text x="${f2(bx)}" y="${f2(by + 46)}" font-size="${FURN.ledgerSub}" font-style="${s.glossStyle}" fill="${s.faint}">${esc(COVERAGE_SECONDARY)}</text>`);
     // one compact ghost accounting line (feasible/lit/unmapped + meso sealed) — the r6 core ledger, one row.
-    const feasStr = `${fmtInt(feasibleCells.length)} feasible meso cells · ${fmtInt(litCells)} lit · ${fmtInt(unmappedPending)} unmapped · ${fmtInt(mesoSealed)} sealed (off-plane)`;
-    P.push(`<text x="${f2(bx)}" y="${f2(by + 60)}" font-size="${FURN.ledgerSub}" fill="${s.faint}">${esc(feasStr)}</text>`);
+    // r2 fix: the VERBATIM unmapped semantics disclosure rides this row's <title> (whole-grep + hover) so the
+    // "N unmapped" token cannot be misread as off-plane. Zero added visual height (title node only) — the
+    // byte-frozen left-column geometry (rows by+1/17/32/46/60, footer census y=1188) is untouched.
+    const feasStr = `${fmtInt(feasibleCells.length)} feasible meso cells · ${fmtInt(litCells)} lit · ${fmtInt(unmappedPending)} unmapped (lit-map census — on-plane) · ${fmtInt(mesoSealed)} sealed (off-plane)`;
+    P.push(`<text x="${f2(bx)}" y="${f2(by + 60)}" font-size="${FURN.ledgerSub}" fill="${s.faint}">${esc(feasStr)}<title>${esc(unmappedLine)}</title></text>`);
     const sealSummary = sealedCutOrder.map((cid) => `${cid} ${fmtInt(sealedByCut[cid])}`).join(' · ');
     // RIGHT COLUMN (x = colR) — the EDITION II lattice ledger, one compact SUMMARY line per entry.
     // Each <text> carries a <title> with the FULL emitted string (whole-grep + hover). The visible
@@ -1677,7 +1708,10 @@ function renderSVG(skinKey) {
     led.push({ s: `${fmtInt(drillSubSealedN)} sub-cells sealed @ drill-in grain — RED-3′ surfaces here`, titles: [subSealedSummary] });   // §10.4.2
     led.push({ s: `${fmtInt(mesoSealed)} meso sealed (off-plane): ${sealSummary}`, titles: [sealSummary] });  // §9.2.4 meso sealed cut ids (visible + title)
     if (clipCombo) led.push({ s: `${clipCombo} (hover for full disclosures)`, titles: clipTitles, gloss: true });  // §9.2.3/§10.3.4 (+ beyond when N>0)
-    led.push({ s: `${fmtInt(offPlaneN)} gear-grain kits (mcd-) held off-plane — deferred grain ruling`, titles: [offPlaneLine], gloss: true });   // §10.4.4
+    // r2 LEDGER-HONESTY FIX: visible lead sources off_plane_corpus.n (26 — the no-cell-key mcd rows
+    // that are genuinely off-plane); the VERBATIM disclosure (94 mcd admitted on-plane / grain ruling
+    // OPEN for Matt / 26 off-plane) rides the <title>. "held off-plane" now numbers the truthful 26.
+    led.push({ s: `${fmtInt(offPlaneN)} mcd- gear-grain kits (no cell key) held off-plane — 94 mcd kits ADMITTED on-plane, grain ruling open (hover)`, titles: [offPlaneLine], gloss: true });   // §10.4.4
     // REFIT: compact VISIBLE lead (short x-extent so the last row clears the footer census); the FULL
     // emitted_alongside provenance line (`supersededLine` slot) rides the <title> — the ONLY on-plate
     // place "Edition III" may appear (the served-truth reference). Acceptance #28 greps it whole.
@@ -2199,21 +2233,76 @@ async function main() {
   }
 
   // (24) lattice-integrity (§10.6.24): depth Σ == new exact denom; lit census reproduces from
-  //      corpus keys; unmapped + off-plane registers enumerated (MCD 94 disclosed per §10.4.4).
+  //      corpus keys; unmapped + off-plane registers enumerated. r2 RETUNE (elrond ledger-honesty fix
+  //      1cd7d1d0): the old form hardcoded `offN === offPlaneN && offPlaneN === 94`; the honest emission
+  //      (gate_rejected_keyed 0; n 26) BREAKS that pin. Replaced with INTERNAL-consistency form
+  //      (constants-vs-computed law) — n == kits.length, gate_rejected_keyed present, disclosure rendered
+  //      VERBATIM. NO hardcoded census numeral anywhere in this assert (not re-pinned to 26 either).
   {
     const depthSum = feasibleCells.reduce((s, c) => s + c.depth, 0);
     const depthOk = depthSum === denomFeasibleExact;
     // lit census reproduces: emitted lit_cells == feasible cells with lit=true == emitted field.
     const litFlagCount = feasibleCells.filter((c) => c.lit).length;
     const litOk = litFlagCount === litCells;
-    // off-plane register enumerated: off_plane_corpus.n == gate_rejected_keyed == 94, disclosure present.
-    const offN = req(atlas, 'ghost_field.off_plane_corpus.n', 'off-plane-n2');
-    const offOk = offN === offPlaneN && offPlaneN === 94 && ['instrument', 'archive'].every((sk) => bodies[sk].includes(esc(offPlaneLine)));
-    // unmapped register enumerated: unmapped_pending_curation rendered in the feasible line.
-    const unmappedOk = ['instrument', 'archive'].every((sk) => bodies[sk].includes(`${fmtInt(unmappedPending)} unmapped`));
+    // off-plane register INTERNAL-consistency: n == |kits| (offPlaneN aliases .n); gate_rejected_keyed
+    // present (a number, honestly 0 here); the VERBATIM disclosure string rendered on both skins. No
+    // hardcoded census constant — the numeral is whatever the emission honestly carries.
+    const offNMatchesKits = offPlaneN === offPlaneKits.length;
+    const gateRejectedPresent = typeof offGateRejectedKeyed === 'number';
+    const offDisclosureRendered = ['instrument', 'archive'].every((sk) => bodies[sk].includes(esc(offPlaneLine)));
+    const offOk = offNMatchesKits && gateRejectedPresent && offDisclosureRendered;
+    // unmapped register enumerated: unmapped_pending_curation rendered in the feasible line; its VERBATIM
+    // semantics disclosure ("lit-map census, NOT off-plane") also present in the SVG body (both skins).
+    const unmappedTokenOk = ['instrument', 'archive'].every((sk) => bodies[sk].includes(`${fmtInt(unmappedPending)} unmapped`));
+    const unmappedDisclosureRendered = ['instrument', 'archive'].every((sk) => bodies[sk].includes(esc(unmappedLine)));
+    const unmappedOk = unmappedTokenOk && unmappedDisclosureRendered;
     const pass24 = depthOk && litOk && offOk && unmappedOk;
     rec('lattice-integrity', pass24,
-      `depthΣ==exact(${depthOk}); lit ${litFlagCount}==emitted ${litCells}(${litOk}); off-plane N=${offPlaneN} disclosed(${offOk}); unmapped ${unmappedPending} enumerated(${unmappedOk})`);
+      `depthΣ==exact(${depthOk}); lit ${litFlagCount}==emitted ${litCells}(${litOk}); off-plane n=${offPlaneN}==|kits| ${offPlaneKits.length}(${offNMatchesKits}) gate_rejected_keyed=${offGateRejectedKeyed} present(${gateRejectedPresent}) disclosure-verbatim(${offDisclosureRendered}); unmapped ${unmappedPending} enumerated(${unmappedTokenOk}) semantics-verbatim(${unmappedDisclosureRendered})`);
+  }
+
+  // (24b) NEW STANDING ACCEPTANCE CHECK — LEDGER-vs-POINTS CONSISTENCY (r2, elrond ledger-honesty fix
+  //       1cd7d1d0). This defect class (a fit-relative census ledger byte-carried into an emission whose
+  //       FIT membership changed → a plate line that contradicts its own points) must NEVER reach a plate
+  //       again. This is the render-side twin of elrond's emission-side assert — belt and braces at BOTH
+  //       seams. FAIL-LOUD: any violation die()s (a stale/contradictory ledger is not a render tolerance,
+  //       it is a HALT-and-surface). Also recorded as an acceptance test for the tally. FOUR sub-checks:
+  //         (i)   set(off_plane_corpus.kits) ∩ set(points[].kit_id) == ∅  — off-plane means OFF-plane.
+  //         (ii)  unmapped_pending_curation count == |unmapped_pending_curation_kits|  — NO disjointness
+  //               assert on this one: its members are legitimately ON-plane (lit-map predicate is orthogonal
+  //               to fit membership; asserting disjointness here would be WRONG).
+  //         (iii) every ghost-field count numeral == its list length (off-plane n / unmapped count).
+  //         (iv)  every footer CENSUS STRING rendered on the plate matches the JSON field it sources
+  //               (the off-plane disclosure + the unmapped semantics disclosure, VERBATIM, both skins).
+  {
+    const ptIds = new Set(all.map((p) => String(p.kit_id)));
+    // (i) off-plane disjointness.
+    const offOnPlane = offPlaneKits.filter((k) => ptIds.has(String(k)));
+    const offDisjoint = offOnPlane.length === 0;
+    // (ii) unmapped count == list length (on-plane membership is CORRECT and NOT asserted disjoint).
+    const unmappedCountMatchesList = unmappedPending === unmappedKits.length;
+    const unmappedAllOnPlane = unmappedKits.filter((k) => ptIds.has(String(k))).length;   // informational: expect all 114
+    // (iii) count fields == list lengths.
+    const offCountMatchesList = offPlaneN === offPlaneKits.length;
+    // (iv) rendered census strings match the sourced JSON fields, VERBATIM, both skins.
+    const offStrRendered = ['instrument', 'archive'].every((sk) => bodies[sk].includes(esc(String(offPlaneDisclosure))));
+    const unmappedStrRendered = ['instrument', 'archive'].every((sk) => bodies[sk].includes(esc(String(unmappedDisclosure))));
+    const censusStringsMatch = offStrRendered && unmappedStrRendered;
+    const pass24b = offDisjoint && unmappedCountMatchesList && offCountMatchesList && censusStringsMatch;
+    // FAIL-LOUD guard (belt-and-braces): a violation here means a genuinely stale/contradictory ledger
+    // reached render — HALT, enumerate, do not ship the plate.
+    if (!pass24b) {
+      const why = [
+        !offDisjoint ? `off_plane_corpus.kits ∩ points != ∅ — ON-PLANE kits falsely listed off-plane: ${JSON.stringify(offOnPlane)}` : null,
+        !unmappedCountMatchesList ? `unmapped_pending_curation ${unmappedPending} != |kits| ${unmappedKits.length}` : null,
+        !offCountMatchesList ? `off_plane_corpus.n ${offPlaneN} != |kits| ${offPlaneKits.length}` : null,
+        !offStrRendered ? `off-plane disclosure NOT rendered verbatim on both skins` : null,
+        !unmappedStrRendered ? `unmapped semantics disclosure NOT rendered verbatim on both skins` : null,
+      ].filter(Boolean).join(' · ');
+      die(`STANDING ledger-vs-points consistency FAILED (r2): ${why}. A ledger contradicting its own points must not reach a plate — HALT + surface (not a tolerance).`);
+    }
+    rec('ledger-vs-points-consistency (standing, r2)', pass24b,
+      `off-plane∩points=∅ (${offOnPlane.length} on-plane in off-list; ${offDisjoint}); unmapped count ${unmappedPending}==|kits| ${unmappedKits.length}(${unmappedCountMatchesList}), ${unmappedAllOnPlane}/${unmappedKits.length} on-plane (correct, NOT asserted disjoint); off n ${offPlaneN}==|kits| ${offPlaneKits.length}(${offCountMatchesList}); census-strings-verbatim both skins (off ${offStrRendered}, unmapped ${unmappedStrRendered})`);
   }
 
   // (25) pull-slice-lit-integrity (§10.6.25): every lit pull cell traces to an EXISTING corpus kit
@@ -2232,17 +2321,20 @@ async function main() {
     const zbarb = active.find((p) => p.kit_id === 'd3-zbarb');
     const cyclone = active.find((p) => p.kit_id === 'di-cyclone-monk-pvp');
     const reKeysExist = Boolean(zbarb) && Boolean(cyclone) && !zbarb.kit_id.startsWith('mcd-') && !cyclone.kit_id.startsWith('mcd-');
-    // (c) REFIT — the Edition-III "ZERO mcd- points on the plane" invariant is DEMOTED (not gated) AND
-    //     a DISCLOSURE TENSION is surfaced. In Edition III the 94 mcd- (gear-grain) kits were held OFF
-    //     the plane (0 in points[]); the candidate carries all 94 mcd- kits AS ACTIVE ON-PLANE POINTS
-    //     (628 active = 534 non-mcd + 94 mcd). YET the emitted off_plane_corpus.disclosure STILL says
-    //     "94 gear-grain kits (mcd-) sit in the corpus off-plane" (gate_rejected_keyed=94). That is an
-    //     INTERNAL TENSION in the candidate emission — the ledger claims off-plane, the coordinates place
-    //     them on-plane. We SURFACE it (never silently tolerate; never hard-HALT — it is not a
-    //     hull/census/P-DF-1 render-vs-emission mismatch, and NOT an enumerated HALT condition). This is
-    //     exactly the kind of thing the plate exists to show Matt for the adoption decision.
+    // (c) REFIT — the Edition-III "ZERO mcd- points on the plane" invariant is DEMOTED (not gated) AND the
+    //     emission's ledger↔coords AGREEMENT is surfaced. In Edition III the 94 mcd- (gear-grain) kits were
+    //     held OFF the plane (0 in points[]); the candidate carries all 94 mcd- kits AS ACTIVE ON-PLANE
+    //     POINTS (628 active = 534 non-mcd + 94 mcd). r2 LEDGER-HONESTY FIX (elrond 1cd7d1d0): the emission
+    //     was CORRECTED — off_plane_corpus.gate_rejected_keyed is now 0 (no kit is keyed-then-rejected), the
+    //     disclosure ADMITS the 94 on-plane (grain ruling exercised implicitly, OPEN for Matt), and the
+    //     genuinely-off-plane count is n=26 (no-cell-key rows, disjoint from points). The prior r1 tension
+    //     (ledger claimed 94 off-plane while coords placed them on-plane) is thereby RESOLVED at the seam.
+    //     We surface the resolution as a comparison observation (mcd un-masked vs E3; ledger now consistent).
     const mcdOnPlane = all.filter((p) => String(p.kit_id).startsWith('mcd-')).length;
-    const mcdDisclosureTension = mcdOnPlane > 0 && Number(offPlaneN) > 0;   // ledger says off-plane; coords say on-plane
+    // AGREEMENT predicate (r2): no on-plane mcd kit is falsely claimed off-plane. gate_rejected_keyed==0
+    // means none were keyed-then-rejected; the off-plane list (n=26) is disjoint from points (checked in
+    // the standing ledger-vs-points check below). Consistent when gate_rejected_keyed is 0.
+    const mcdLedgerConsistent = offGateRejectedKeyed === 0;   // ledger↔coords agree (the 94 admitted on-plane; 26 no-key off-plane)
     // (d) DOCTORED-INPUT HALT (a): an mcd row forced past the gate — inject an mcd- point onto the
     //     plane (as if it lit a cell). The render must HALT (unknown-kit-on-plane / gate violation).
     //     We simulate by adding an mcd- ACTIVE point; the count-conformance gate (active != counts.active)
@@ -2261,12 +2353,12 @@ async function main() {
     // (it CHANGED by design — the refit un-masked gear-grain kits); it is surfaced as an observation.
     const pass25 = coresMatch && reKeysExist && doctorMcd.halted && doctorNewLaw.halted;
     rec('pull-slice-lit-integrity', pass25,
-      `lit-pull-cores==tuples(${coresMatch}); re-keys d3-zbarb+di-cyclone exist & non-mcd(${reKeysExist}); doctored HALT(a) mcd-forced=${doctorMcd.halted}(code ${doctorMcd.code}); doctored HALT(b) new-law=${doctorNewLaw.halted}(code ${doctorNewLaw.code}); [mcd-on-plane=${mcdOnPlane} — see DEMOTED observation for the disclosure tension]`);
-    // SURFACE the mcd disclosure tension as a REPORTED observation (CHANGED — the refit put gear-grain
-    // kits on-plane while the emitted ledger still says off-plane).
-    obs('mcd- gear-grain: on-plane vs emitted off-plane ledger', !mcdDisclosureTension,
-      `${mcdOnPlane} mcd- kits ON-plane as active points, but off_plane_corpus.disclosure says ${offPlaneN} off-plane — EMISSION TENSION, surfaced for Matt`,
-      'Edition-III: 0 mcd- on-plane (94 held off-plane, ledger consistent)');
+      `lit-pull-cores==tuples(${coresMatch}); re-keys d3-zbarb+di-cyclone exist & non-mcd(${reKeysExist}); doctored HALT(a) mcd-forced=${doctorMcd.halted}(code ${doctorMcd.code}); doctored HALT(b) new-law=${doctorNewLaw.halted}(code ${doctorNewLaw.code}); [mcd-on-plane=${mcdOnPlane}, gate_rejected_keyed=${offGateRejectedKeyed} — see DEMOTED observation for the ledger↔coords agreement]`);
+    // SURFACE the mcd ledger↔coords AGREEMENT as a REPORTED observation (r2: PASS — the emission was fixed;
+    // the 94 gear-grain kits are on-plane AND the ledger now admits them; only the 26 no-key rows off-plane).
+    obs('mcd- gear-grain: on-plane, ledger admits (r2 fixed)', mcdLedgerConsistent,
+      `${mcdOnPlane} mcd- kits ON-plane as active points; off_plane_corpus.gate_rejected_keyed=${offGateRejectedKeyed} (none keyed-then-rejected), disclosure ADMITS the 94 on-plane, n=${offPlaneN} no-key rows genuinely off-plane — ledger↔coords CONSISTENT`,
+      'Edition-III: 0 mcd- on-plane (94 held off-plane); r1: ledger claimed 94 off-plane while coords on-plane (TENSION, now fixed)');
   }
 
   // (26) drill-in-conformance (§10.6.26): sub-cells EAST-half only; grain-scoped seal enums per
@@ -2825,6 +2917,9 @@ async function main() {
   };
   const provenance = {
     render: 'galadriel/pipeline/atlas-refit-candidate-1-render.mjs',   // REFIT candidate render head
+    render_revision: 'r2',                                     // r2: post ledger-honesty fix (assert #24 retune + standing ledger-vs-points check)
+    input_sha256: INPUT_SHA256,                               // SHA-256 of the canonical atlas-refit-candidate-1.json (post-fix bytes)
+    input_fix_commit: FIX_COMMIT,                             // elrond ledger-honesty fix 1cd7d1d0 (off_plane_corpus 94->26 + unmapped semantics disclosure)
     edition: editionTag,                                       // "Refit-Candidate-1" (data-derived)
     display_identity: REFIT_DISPLAY,                           // "Refit Candidate 1"
     unratified_comparison_artifact: unratifiedFlag,            // true — NOT an Edition
@@ -2886,7 +2981,10 @@ async function main() {
       sub_glyphs_west_overshoot: subGlyphField.filter((e) => e.x < 0).length, sub_clipped: drillClippedCount,
       sub_sealed_ledger: subSealedSorted,
     },
-    off_plane_corpus: { n: offPlaneN, disclosure: offPlaneDisclosure },
+    // r2 ledger-honesty fix: n=26 (genuinely off-plane no-cell-key mcd rows), gate_rejected_keyed=0 (the 94
+    // mcd gear-grain kits are ADMITTED on-plane), disclosure rendered verbatim. n == |kits| (asserted #24).
+    off_plane_corpus: { n: offPlaneN, kits_count: offPlaneKits.length, gate_rejected_keyed: offGateRejectedKeyed, disclosure: offPlaneDisclosure },
+    unmapped_pending_curation_semantics: { count: unmappedPending, kits_count: unmappedKits.length, on_plane: true, disclosure: unmappedDisclosure },
     // P-DF-1 machine-readable verdict — from the emitted p_df_1 block (single source; no top-level mirror
     // on the candidate). RECOMPUTED + CROSS-CHECKED render-side (see render_vs_emission_crosscheck above).
     p_df_1: {
@@ -2923,14 +3021,16 @@ function buildNote(results, tests, smokes, observations, ptFps, ghFps) {
   const subGlyphMultSum = subGlyphField.reduce((s, e) => s + e.multiplicity, 0);
   const obsChanged = observations.filter((o) => o.flag === 'CHANGED');
   const allPassGating = [...tests, ...smokes].every((t) => t.pass);
-  return `# Build Horizon — ${REFIT_DISPLAY} · UNRATIFIED COMPARISON ARTIFACT · verification note
+  return `# Build Horizon — ${REFIT_DISPLAY} · UNRATIFIED COMPARISON ARTIFACT · verification note (r2)
 
 > **THIS IS NOT AN EDITION.** It is a comparison plate for Matt's Tier-3 atlas refit **adoption decision**
 > (${REFIT_DISPLAY} — a full re-derivation of the FIT on the 628-active corpus — vs the served **Edition III**).
 > The served truth (\`atlas-edition3.json\`) is **byte-untouched**; the interactive \`/atlas\` still serves it.
 > The candidate reaches Matt as **static plates** (interactivity follows adoption, not precedes it). Nothing
 > here is ratified. **Authority:** Matt 2026-07-16 "I want to see both versions so we cna make a decision."
-> · gandalf brief \`2026-07-16-galadriel-a-render-refit-candidate-plates-brief.md\`.
+> · gandalf briefs \`2026-07-16-galadriel-a-render-refit-candidate-plates-brief.md\` (r1) +
+> \`2026-07-16-galadriel-rerender-refit-plates-ledger-fix-brief.md\` (r2, ledger-honesty fix).
+> **r2 input:** post-fix \`atlas-refit-candidate-1.json\` at elrond commit **${FIX_COMMIT}** (SHA-256 \`${INPUT_SHA256.slice(0, 16)}…\`).
 
 **emitted alongside:** ${emittedAlongside}
 **comparison note (emitted):** ${comparisonNote}
@@ -2970,6 +3070,17 @@ The head recomputes the hull, the beyond-horizon N, and the P-DF-1 mechanism per
 - **charted-hull beyond-N (render pass) = ${beyondHorizonCount}** — the charted horizon (meso ∪ drill-in) encloses the whole settled archipelago (§10 census: all overshoot EAST-side, charted-hull beyond-N=0).
 - **depth Σ = ${fmtInt(depthSum)}** == \`depth_sum_check\` **${fmtInt(depthSumCheck)}** == exact_post_red_law **${fmtInt(denomFeasibleExact)}** (byte-equal to Edition-III's — the lattice did not move).
 - **drill-in:** Σmultiplicity **${fmtInt(subGlyphMultSum)}** == \`n_sub_feasible\` **${fmtInt(drillSubFeasibleN)}**; sub-sealed Σ **${fmtInt(subSealedSum)}** == \`n_sub_sealed\` **${fmtInt(drillSubSealedN)}**; parent cells **${fmtInt(drillParentCells)}**.
+
+## What changed vs r1 (r2 — ledger-honesty fix)
+
+r1 rendered against \`da992f78\`; r2 renders against the POST-FIX emission (\`${FIX_COMMIT}\`, gandalf spot-verify green). The fix (elrond, per gandalf's RULING) touched exactly TWO ghost-field ledgers; everything else about the JSON (points, coords, drill_in, p_df_1, plane_alignment, lattice, depth Σ) is byte-identical to \`da992f78\` (verified: remainder-hash equal). The render deltas:
+
+1. **Footer ledger re-sourced (2 lines).** \`off_plane_corpus\` was STALE (byte-carried from Edition III: it declared 94 mcd gear-grain kits off-plane, but those 94 are ADMITTED on-plane in the refit). It now carries honest values (\`gate_rejected_keyed 0\`, \`n = |kits| = 26\` — the no-cell-key rows) + a grain-admission \`disclosure\`. The off-plane ledger line now numbers the truthful **26** and renders that disclosure VERBATIM (hover). \`unmapped_pending_curation\` (114) was NOT stale — the count is TRUE (lit-map census); a \`disclosure\` semantics field was added so "unmapped" reads as lit-map-census, not off-plane. Its verbatim disclosure now rides the feasible-line \`<title>\` + an inline "(lit-map census — on-plane)" gloss.
+2. **Gating assert #24 RETUNED.** The old form hardcoded \`offN === offPlaneN && offPlaneN === 94\` — the honest emission broke it. Replaced with INTERNAL-consistency form (constants-vs-computed law): \`off_plane_corpus.n === |kits|\` · \`gate_rejected_keyed\` present · disclosure rendered verbatim. NO hardcoded census numeral (not re-pinned to 26).
+3. **NEW STANDING acceptance check** (permanent, fail-loud): *ledger-vs-points consistency* — \`set(off_plane_corpus.kits) ∩ set(points[].kit_id) == ∅\` (off-plane means OFF-plane) · \`unmapped_pending_curation\` count == list length (NO disjointness assert — its members are legitimately on-plane) · every count field == its list length · every footer census string rendered matches its JSON source. This is the render-side twin of elrond's emission-side assert. A violation die()s — a ledger that contradicts its own points must never reach a plate again.
+4. **r1 tension RESOLVED.** The r1 "mcd on-plane vs off-plane ledger" observation was a TENSION (CHANGED, surfaced for Matt); r2 reports it PASS — the emission was corrected, the 94 are admitted on-plane, the ledger↔coords now agree.
+
+Full r1 re-pointed acceptance set re-ran green (determinism byte-equal, counts 628+37=665, depth Σ 767,411,820, hull/P-DF-1 render-vs-emitted cross-check, anti-stale greps) PLUS the retuned #24 PLUS the new standing check. Everything else on the plate — furniture, bounds, skins, banner, "(E1 ref)" pole labels, per-axis-inertia ban, alignment disclosure — is UNCHANGED from r1.
 
 ## Acceptance tally (re-pointed set)
 

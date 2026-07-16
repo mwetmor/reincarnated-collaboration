@@ -25,4 +25,4 @@ versions so we cna make a decision." · gandalf brief 2026-07-16-galadriel-a-ren
 - `crop-dense-COMPARE-{instrument,archive}.png` — Edition III vs candidate dense core, side-by-side (the point-texture receipt).
 
 ## Read this alongside
-- The composite is the entry point. The verification-note carries the acceptance tally + the CHANGED observations (mcd- on-plane-vs-ledger tension; density 3.1 vs 2.3; meso-beyond group profile; 1 lit cell just outside the candidate's own frame). gandalf's interpretation section (comparison report) closes the package.
+- The composite is the entry point. The verification-note carries the acceptance tally + the CHANGED observations (density 3.1 vs 2.3; meso-beyond group profile; 1 lit cell just outside the candidate's own frame). r2 (post elrond ledger-honesty fix 1cd7d1d0): the r1 mcd on-plane-vs-ledger tension is RESOLVED — off_plane_corpus admits the 94 mcd kits on-plane (gate_rejected_keyed 0; n=26 no-key rows genuinely off-plane), and the standing ledger-vs-points check now guards this class. gandalf's interpretation section (comparison report) closes the package.

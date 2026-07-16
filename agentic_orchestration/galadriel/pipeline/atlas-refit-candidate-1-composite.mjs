@@ -100,6 +100,26 @@ async function crops(skin) {
     await sharp(j.src).extract(j.region).toFile(out);
     console.log(`[crop] ${out} (${j.region.width}x${j.region.height})`);
   }
+  // dense-COMPARE — the point-texture receipt: Edition III dense LEFT, candidate dense RIGHT, SAME
+  // viewport (DENSE region), side-by-side with a thin divider. Reproducibly built from the SAME two
+  // dense crops above (extract → composite), so the package regenerates deterministically at r2.
+  const c = CHROME[skin];
+  const e3Dense = await sharp(e3Path).extract(DENSE).toBuffer();
+  const rcDense = await sharp(rcPath).extract(DENSE).toBuffer();
+  const cGap = 20;
+  const compW = DENSE.width * 2 + cGap;
+  const compH = DENSE.height;
+  const cDivider = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="4" height="${compH}"><rect width="4" height="${compH}" fill="${c.divider}"/></svg>`);
+  const compOut = join(CROP_DIR, `crop-dense-COMPARE-${skin}.png`);
+  await sharp({ create: { width: compW, height: compH, channels: 4, background: c.bg } })
+    .composite([
+      { input: e3Dense, top: 0, left: 0 },
+      { input: cDivider, top: 0, left: DENSE.width + cGap / 2 - 2 },
+      { input: rcDense, top: 0, left: DENSE.width + cGap },
+    ])
+    .png()
+    .toFile(compOut);
+  console.log(`[crop] ${compOut} (${compW}x${compH}) [Edition III LEFT · candidate RIGHT, same viewport]`);
 }
 
 function writeManifest() {
@@ -130,7 +150,7 @@ versions so we cna make a decision." · gandalf brief 2026-07-16-galadriel-a-ren
 - \`crop-dense-COMPARE-{instrument,archive}.png\` — Edition III vs candidate dense core, side-by-side (the point-texture receipt).
 
 ## Read this alongside
-- The composite is the entry point. The verification-note carries the acceptance tally + the CHANGED observations (mcd- on-plane-vs-ledger tension; density 3.1 vs 2.3; meso-beyond group profile; 1 lit cell just outside the candidate's own frame). gandalf's interpretation section (comparison report) closes the package.
+- The composite is the entry point. The verification-note carries the acceptance tally + the CHANGED observations (density 3.1 vs 2.3; meso-beyond group profile; 1 lit cell just outside the candidate's own frame). r2 (post elrond ledger-honesty fix 1cd7d1d0): the r1 mcd on-plane-vs-ledger tension is RESOLVED — off_plane_corpus admits the 94 mcd kits on-plane (gate_rejected_keyed 0; n=26 no-key rows genuinely off-plane), and the standing ledger-vs-points check now guards this class. gandalf's interpretation section (comparison report) closes the package.
 `;
   const out = join(RC_DIR, 'comparison-package-manifest.md');
   writeFileSync(out, md, 'utf8');
