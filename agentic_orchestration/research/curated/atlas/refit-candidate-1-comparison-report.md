@@ -167,7 +167,7 @@ Levels that FUSE (n<10) per coordinate — the ones that lose an independent fit
 | melee fit column | MASKED (ghost-image collapse) | **HONEST (un-masked)** |
 | melee-lit cells | 0 (no ghost image) | 0 |
 | unmapped_pending_curation | 114 | 114 |
-| off_plane_corpus N | 94 | 94 |
+| off_plane_corpus N | 94 | **26** |
 
 - **Lattice byte-identical** (denominators / feasible / sealed / depth_sum all unchanged — the SPACE did not move; only the FIT projection of it did).
 - **Pull masked→honest:** in Edition-III the pull meso cells projected on their other 6 core coords (masked-like, no `pull` column). In the refit they land at honest coordinates. Example pull-lit tuples and their coordinate shift:
@@ -180,6 +180,8 @@ Levels that FUSE (n<10) per coordinate — the ones that lose an independent fit
 | WALK·NOVA·control·pull·solo·active·one-shot | (-0.562, 0.457) |
 
 - **MELEE un-mask:** delivery=melee had NO meso ghost image in Edition-I/II/III (masked-like). The refit gives MELEE meso cells honest coordinates (1674 feasible MELEE cells now placed). melee-lit = 0 (live corpus MELEE-meso lighting under the refit lit-map). The ghost-image collapse partially closes at the geometry level; the lit census is a separate question.
+
+**Census note — off_plane_corpus honesty correction (fit-relative re-derivation, 2026-07-16).** The `off_plane_corpus N` cell above reads **94 → 26** because the Edition-III-served value (94) was a *carried-over fit-relative fact* that went false when the refit's stage predicate (combat-kit ∧ cell_key NOT NULL ∧ negative=0 → 628) ADMITTED all 94 gear-grain `mcd-` kits as on-plane points. Honest refit off-plane N = **26** — the mcd rows that carry no cell key and thus never entered the fit (0/26 overlap with points). The emitted `off_plane_corpus.disclosure` now states the grain fact for Matt's eyes: **the 94 gear-grain mcd kits are ADMITTED at kit grain by this refit's stage predicate — the E1-era deferred grain ruling is thereby exercised implicitly and remains OPEN for Matt; 26 mcd rows remain off-plane.** By contrast `unmapped_pending_curation` (114) is NOT stale — it is a *lit-map census* (kits lacking a `fit2reg_movement` mapping, movement=blank, absent from the lit-lattice census) re-derived from the refit's own lit_map to the byte-identical 114; all 114 are nonetheless plotted on-plane points ("unmapped" = not in the lit-map, NOT off-plane), and the emission now carries an `unmapped_pending_curation_disclosure` field saying exactly that so the plate cannot be misread. The **TRUE 159 new-actives split** (refit 628 vs Edition-I 469; 0 dropped): **94 mcd gear-grain + 62 Lost Ark (56 class-grain + 6 Destroyer skill-grain) + 3 pull re-keys (d3/di/d4)**.
 
 ## §9 — Six condensation (gateA) centroid shifts (Edition-I → refit)
 
