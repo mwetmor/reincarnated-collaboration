@@ -6,6 +6,80 @@
 
 ---
 
+## dual-hard-delete-2026-07-16 — IMMEDIATE hard-delete of all 182 spec-orphaned rows (62 LA + 120 mcd) from `corpus.db` + ingest-provenance census + THE STAGING LAW — 2026-07-16 — **APPLIED (Matt-ruled; never-purge carve-out EXERCISED — real DELETE)**
+
+### THE STAGING LAW (ratified — recorded alongside THE GRAIN LAW below)
+> *The real archipelago derivation builds on the post-deletion kit-grain corpus WITHOUT LA/MCD. Re-harvested LA/MCD corpora land **catalogued-only** and enter atlas fits ONLY AFTER the archipelago passes its pre-registered hold-out gates; admission then = **new-Edition refit**.*
+
+Spec cross-ref: `claude-mobile-session-docs/ARPG-canonical-kit-research/final-docs-v3/canon-harvest-pipeline-spec-v2.md` §9.19.5. This law composes with THE GRAIN LAW (below): grain made the exclusion *structural* (a predicate cannot forget it); the STAGING LAW makes the *re-admission path* explicit (no LA/MCD re-entry without passing the gates and a new-Edition refit). Together they close the failure class that contaminated Refit-Candidate-1 — manual fit-stage holds do not survive predicate rewrites, and re-harvested data must not silently re-leak.
+
+### Authority (Matt rulings 2026-07-16, verbatim)
+- **Wave-3:** *"I also recommend the immediate deletion of the old MCD and Lost Ark data."*
+- **Wave-2 (composed):** *"I recommend that we delete the entire Lost Ark corpus."*
+
+Both logged in `canonical/matt_decision_needed/2026-07-16-edition3-vs-refit-candidate-1-adoption.md § RULING + WAVE 3`. The catalogue never-purge philosophy's **Matt's-word carve-out is hereby EXERCISED** — this is a real `DELETE`, not an inert `grain` flag. The GRAIN LAW's INERT-catalogue reading (score/filter at consumption, never purge) held until Matt's word arrived; the word arrived, and the carve-out fires once, on the record.
+
+### What was deleted (the permanent record — these rows no longer exist)
+**182 rows from `canon_corpus`** + **156 cascade children from `canon_engine_key`** (FK enforcement was OFF, `PRAGMA foreign_keys=0`; children deleted explicitly to honor the never-orphan discipline — a parent-only delete would have left 156 dangling engine-key rows). No `canon_probe_facts` (0 for the set), no `roster_atlas`/`roster_lineage_enrichment` (0 for the set), no `atlas_gateA_labels*` (0 for the set — consistent with zero-E1-membership). Views are derived; nothing stored to delete.
+
+**Delete-set composition (asserted EXACT before delete — HALT if mismatch):**
+
+| game | grain | n | provenance_tag (ingest path) | engine-key child |
+|---|---|---|---|---|
+| la | class | 56 | `lost-ark-classkit-edition3-2026-07-15` | all keyed |
+| la | kit | 2 | `lost-ark-classkit-edition3-2026-07-15` (engraving-grain Destroyer) | all keyed |
+| la | kit | 4 | `pull-tranche-edition2-2026-07-15` (skill-grain Destroyer) | all keyed |
+| mcd | gear | 94 | `mcd-mode-b-2026-07-15` (keyed) | all keyed |
+| mcd | gear | 26 | `mcd-mode-b-2026-07-15` (no-key / `unresolved=1`) | none |
+| **TOTAL** | | **182** | | **156** |
+
+All 182: `source='canon'`, `source_date='2026-07-15'`, `lineage=NULL`, `gx=NULL`. Provenance/grain split cross-cuts: the 62 LA = 56 class + 6 Destroyer kit **by grain** = 58 Stage-B + 4 pull-tranche **by ingest**; the 2 engraving-grain Destroyers (`la-destroyer-rage-hammer`, `la-destroyer-gravity-training`) rode the Stage-B 58-batch. The 6 Destroyer kit-grain rows that the GRAIN LAW *kept* under the grain reading are deleted here under Matt's wave-2/3 *whole-corpus* word — the ruling escalated from grain-exclusion to full deletion.
+
+#### Per-row archive — 62 Lost Ark (kit_id | folk_name | grain)
+**6 Destroyer (kit):** `la-destroyer-gravity-training` (Gravity Training Destroyer) · `la-destroyer-rage-hammer` (Rage Hammer Destroyer) · `la-destroyer-gravity-compression` (Destroyer — Gravity Compression) · `la-destroyer-gravity-force` (Destroyer — Gravity Force) · `la-destroyer-gravity-impact` (Destroyer — Gravity Impact) · `la-destroyer-vortex-gravity` (Destroyer — Vortex Gravity).
+**56 class-engraving (class), 29 classes × 2 identity paths:** `la-aeromancer-drizzle` (Drizzle Aeromancer) · `la-aeromancer-wind-fury` (Wind Fury Aeromancer) · `la-arcanist-empresss-grace` (Empress's Grace Arcanist) · `la-arcanist-order-of-the-emperor` (Order of the Emperor Arcanist) · `la-artillerist-barrage-enhancement` · `la-artillerist-firepower-enhancement` · `la-artist-full-bloom` · `la-artist-recurrence` · `la-bard-desperate-salvation` · `la-bard-true-courage` · `la-berserker-berserkers-technique` · `la-berserker-mayhem` · `la-breaker-asuras-path` · `la-breaker-kingfist` · `la-deadeye-enhanced-weapon` · `la-deadeye-pistoleer` · `la-deathblade-remaining-energy` · `la-deathblade-surge` · `la-glaivier-control` · `la-glaivier-pinnacle` · `la-guardianknight-dreadful-roar` · `la-guardianknight-hellfire-successor` · `la-gunlancer-combat-readiness` · `la-gunlancer-lone-knight` · `la-gunslinger-peacemaker` · `la-gunslinger-time-to-hunt` · `la-machinist-arthetinean-skill` · `la-machinist-evolutionary-legacy` · `la-paladin-blessed-aura` · `la-paladin-judgment` · `la-reaper-hunger` · `la-reaper-lunar-voice` · `la-scrapper-shock-training` · `la-scrapper-ultimate-skill-taijutsu` · `la-shadowhunter-demonic-impulse` · `la-shadowhunter-perfect-suppression` · `la-sharpshooter-death-strike` · `la-sharpshooter-loyal-companion` · `la-slayer-predator` · `la-slayer-punisher` · `la-sorceress-igniter` · `la-sorceress-reflux` · `la-souleater-full-moon-harvester` · `la-souleater-nights-edge` · `la-soulfist-energy-overflow` · `la-soulfist-robust-spirit` · `la-striker-deathblow` · `la-striker-esoteric-flurry` · `la-summoner-communication-overflow` · `la-summoner-master-summoner` · `la-valkyrie-liberator` · `la-valkyrie-shining-knight` · `la-wardancer-esoteric-skill-enhancement` · `la-wardancer-first-intention` · `la-wildsoul-phantom-beast-awakening` · `la-wildsoul-wild-instincts`.
+
+#### Per-row archive — 120 Minecraft Dungeons (all `grain=gear`, `mcd-mode-b-2026-07-15`)
+**94 keyed (had `canon_engine_key` child + cell_key):** mcd-ancient-bow, mcd-art-blast-fungus, mcd-art-buzzy-nest, mcd-art-corrupted-beacon, mcd-art-corrupted-seeds, mcd-art-enchanted-grass, mcd-art-eye-of-the-guardian, mcd-art-fishing-rod, mcd-art-ghost-cloak, mcd-art-golem-kit, mcd-art-harvester, mcd-art-ice-wand, mcd-art-iron-hide-amulet, mcd-art-lightning-rod, mcd-art-love-medallion, mcd-art-scatter-mines, mcd-art-shadow-shifter, mcd-art-shock-powder, mcd-art-soul-lantern, mcd-art-spinblade, mcd-art-tasty-bone, mcd-art-totem-of-shielding, mcd-art-vexing-chant, mcd-art-wind-horn, mcd-art-wonderful-wheat, mcd-auto-crossbow, mcd-azure-seeker, mcd-baby-crossbows, mcd-battlestaff-of-terror, mcd-bone-cudgel, mcd-bonebow, mcd-bow-of-lost-souls, mcd-broadsword, mcd-bubble-burster, mcd-butterfly-crossbow, mcd-call-of-the-void, mcd-corrupted-crossbow, mcd-dancers-sword, mcd-diamond-pickaxe, mcd-doom-crossbow, mcd-elite-power-bow, mcd-fangs-of-frost, mcd-feral-soul-crossbow, mcd-fighters-bindings, mcd-firebolt-thrower, mcd-firebrand, mcd-flail, mcd-gloopy-bow, mcd-grave-bane, mcd-great-axeblade, mcd-growing-staff, mcd-guardian-bow, mcd-harp-crossbow, mcd-haunted-bow, mcd-heartstealer, mcd-highland-axe, mcd-hunters-promise, mcd-lightning-harp-crossbow, mcd-love-spell-bow, mcd-masters-bow, mcd-mechanical-shortbow, mcd-mechanized-sawblade, mcd-moon-daggers, mcd-nameless-blade, mcd-nautical-crossbow, mcd-nightmare-bite, mcd-nocturnal-bow, mcd-phantom-bow, mcd-pride-of-the-piglins, mcd-purple-storm, mcd-red-snake, mcd-sabrewing, mcd-sheer-daggers, mcd-shivering-bow, mcd-shrieking-crossbow, mcd-slayer-crossbow, mcd-soul-hunter-crossbow, mcd-spellbound-crossbows, mcd-sponge-striker, mcd-stormlander, mcd-sugar-rush, mcd-suns-grace, mcd-swift-striker, mcd-the-green-menace, mcd-the-last-laugh, mcd-the-pink-scoundrel, mcd-the-slicer, mcd-the-starless-night, mcd-twin-bow, mcd-veiled-crossbow, mcd-venom-glaive, mcd-webbed-bow, mcd-weeping-vine-bow, mcd-winters-touch.
+**26 no-key (`unresolved=1`, no engine-key child — the brief's "26 no-key"):** mcd-art-boots-of-swiftness, mcd-art-death-cap-mushroom, mcd-art-enchanters-tome, mcd-art-fireworks-arrow, mcd-art-flaming-quiver, mcd-art-gong-of-weakening, mcd-art-harpoon-quiver, mcd-art-light-feather, mcd-art-powershaker, mcd-art-satchel-of-elements, mcd-art-satchel-of-elixirs, mcd-art-satchel-of-snacks, mcd-art-soul-healer, mcd-art-thundering-quiver, mcd-art-tome-of-duplication, mcd-art-torment-quiver, mcd-art-totem-of-casting, mcd-art-totem-of-regeneration, mcd-art-updraft-tome, mcd-art-void-quiver, mcd-burst-gale-bow, mcd-echo-of-the-valley, mcd-encrusted-anchor, mcd-hammer-of-gravity, mcd-imploding-crossbow, mcd-voidcaller.
+
+### THE 182-ROW INGEST-PROVENANCE CENSUS (owed since wave-2 — *how did 182 spec-orphaned rows enter?*)
+Facts only. Root-cause ruling (spec-stewardship failure; Legolas exonerated) is already canon; this census answers only the mechanical *how*. Three ingest paths, all elrond-run curation scripts on 2026-07-15, all confirmed against the §9.19.1 breach record (no §2 seating, no §4 sources row, no five-stage pipeline — these entered as direct curation inserts, not through the canon-harvest pipeline):
+
+1. **mcd 120 (gear)** — `../scripts/corpus_ingest_mcd_2026_07_15.py` (base MCD Mode-B ingest; 120 inserted, 2 dropped as base-rarity unique-weapon-grain) + `../scripts/corpus_curation_mcd_complete_2026_07_15.py` (finished the timed-out run; promoted `architecture='notable'` + `pull_pending_vocab` to first-class columns). MIGRATION anchors: `mcd-ingest-2026-07-15`, `mcd-curation-complete-2026-07-15` (top-level `../MIGRATION.md`). 94 keyed via `canon_engine_key` combat-kit + cell_key; 26 unresolved (20 thin-artifact + 6 pull_pending_vocab). Coords steward-derived from tranche prose (MCD lacks `canon_probe_facts`).
+2. **LA 56 class + 2 engraving-Destroyer kit (58)** — `../scripts/corpus_edition3_stageB_lostark58_2026_07_15.py` (Edition-III Stage B; 29 classes × 2 identity paths; HONING-ECONOMY CONFOUND LAW on every row). MIGRATION anchor: `edition3-stageB-lostark58-2026-07-15`.
+3. **LA 4 skill-Destroyer kit** — `../scripts/corpus_ingest_pull_tranche_2026_07_15.py` (pull-tranche edition-2 ingest) → re-inserted/keyed at full completeness by `../scripts/corpus_edition3_stageA_pull7_2026_07_15.py` (Edition-III Stage A pull-7, `function=pull` register v1.2). MIGRATION anchor: `edition3-stageA-pull7-2026-07-15`.
+
+Grain labels for all 182 were assigned later by `../scripts/corpus_grain_ratification_2026_07_16.py` (commit `6d742c7e`; the GRAIN LAW entry below). **§9.19.1 breach confirmed:** none of the three paths ran through the canon-harvest five-stage pipeline; all were direct additive curation inserts against `canon_corpus`. That is the mechanical reason 182 rows existed in the corpus without spec seating — and precisely why the STAGING LAW now routes any future LA/MCD re-harvest through catalogued-only staging + gate-passing + new-Edition refit before atlas admission.
+
+### Pre-delete integrity gate (all asserted BEFORE the DELETE — HALT on any failure; all PASSED)
+- **Delete-set counts EXACT:** LA=62 (56 class + 6 kit), mcd=120 (all gear), total=182. ✓
+- **Zero E1-469 members in the delete set** — asserted two ways against `atlas-frozen-fit-cellkeys-edition1.csv` (the 469 frozen-fit members): `grep` for `la-`/`mcd-` prefixes = **0**, and `comm -12` of the 182 delete-set kit_ids vs the 469 E1 members = **empty intersection**. All 182 carry `source_date='2026-07-15'`, i.e. post-E1 growth. This is the archipelago-mock step-0 assertion (*"LA composition 0; 0 mcd; post-E1 growth"*) discharged at delete time. ✓
+- **Provenance fully archivable** — every provenance column (`kit_id`, `folk_name`, `game`, `source`, `grain`, `provenance_tag`, `source_date`, engine-key child state) captured above for all 182. No un-archivable column. ✓
+- **Pre-delete backup:** `../corpus.db.pre-dual-hard-delete-2026-07-16-backup` (709 rows, `integrity_check=ok`, sha256 `a47e6cf8…`). Deletion fully reversible from this snapshot + the archive above.
+
+### Post-delete asserts (fail-loud; numbers recorded)
+- **Grain census:** `kit`=**509** · NULL=**18** · `gear`=**0** · `class`=**0** · total=**527**. ✓ (509 kit = prior 515 − 6 Destroyer.)
+- **`canon_engine_key`:** 683 − 156 = **527** rows; clean 1:1 with `canon_corpus` (every surviving corpus row has exactly one engine-key child; zero orphans). ✓
+- **`canon_corpus` total:** 709 − 182 = **527**. ✓
+- **Zero `la`/`mcd` rows remain** in `canon_corpus` (and zero in `canon_engine_key`). ✓
+- **Served + evidence artifacts byte-untouched** (sha256 verified identical pre/post): `atlas-edition3.json` `38c3bc00…` · `atlas-refit-candidate-1.json` `758126a8…` · `atlas-archipelago-mock.json` `141153bf…` · `atlas-frozen-fit-cellkeys-edition1.csv` `e79042441…`. ✓
+
+### Iron laws honored
+- **Edition III + every served artifact READ-ONLY** — byte-verified untouched.
+- **Refit-Candidate-1 artifacts READ-ONLY** (permanent evidence exhibit) — byte-verified untouched.
+- **archipelago-mock artifacts READ-ONLY** — byte-verified untouched.
+- **corpus.db was the ONLY mutation surface.** No re-fit, no re-emission, no atlas artifact touch. The only mutations: `DELETE` of 182 `canon_corpus` + 156 `canon_engine_key` rows.
+
+### Reversibility + reproducibility
+Executed by `../scripts/corpus_dual_hard_delete_2026_07_16.py` (fail-loud: asserts the 62/120 counts + zero-E1-membership + provenance-archivable BEFORE deleting; asserts the 527/509/18/0/0 census + 1:1 engine-key + served-artifact byte-equality AFTER; HALTs and rolls back on any mismatch). Fully reversible from `../corpus.db.pre-dual-hard-delete-2026-07-16-backup` + this per-row archive. Deletion is a real state change (carve-out); the archive above is the permanent record that lets the deleted set be reconstructed or re-harvested under the STAGING LAW.
+
+### ADR compliance
+- **ADR-004:** this entry. No engine-telemetry change; star-lord-side `MIGRATION.md` unaffected. Collab-side curation only (elrond data layer).
+- Auto-committed per project discipline (Matt-authorized deletion under the wave-2/3 rulings). **Push deferred to gandalf's verify-then-push gate.**
+
+---
+
 ## archipelago-mock-2026-07-16 — throwaway census/shape exhibit on E1-469 — 2026-07-16 — **MOCK (ratified:false; nothing served, nothing vendored)**
 
 ### What it is (one line)
