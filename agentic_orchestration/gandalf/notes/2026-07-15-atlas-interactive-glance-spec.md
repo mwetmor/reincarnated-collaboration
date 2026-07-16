@@ -302,6 +302,16 @@ While any zoom/pan state is active, the page sets the `planeClip` rect to the cu
 
 **PRD receipts:** alias serves `index-DDGMWJxn.js` (byte-same as verified local build); PRD smoke @2560: main 2545/2560, game select 20 options, occlusion 0, no overflow, Edition-III subtitle (`/tmp/gandalf-d7-verify/gandalf-prd-2560.png`).
 
+## 9.9 B-1/B-2 closure — furniture rescale + legend top-left + BUILD FAMILIES VERIFIED + PROMOTED (2026-07-16)
+
+**Authority:** Matt 2026-07-16 (in the Tier-3 directive, verbatim: *"the legends/descriptive sections/title/axis-title/axis itself are all still set to fill the 'box' that has now grown … the clickable legend should fit inside the box on the upper-left-hand side, opposite to the 'Condensations' box (and the condensations box should be re-named to 'Build Families'"*). Ultra-think record: `gandalf/notes/2026-07-16-tier3-refit-and-polish-spec.md` §4.
+
+- **B-1 (galadriel `803cef1f` + `944afa98`):** r8-furniture render pass — every in-SVG furniture class rescaled (global factor ≈0.6–0.65 with per-class judgment: title 26→~16.5, rows/glosses/poles/plaque/ledger/footer proportionally), **data marks byte-frozen** (mark-layer hash == r6/e21, † tombstones untouched at font-16); key header `CONDENSATIONS`→`BUILD FAMILIES`; boxes re-hug shrunken text. **Gate catch (gandalf independent containment audit):** key-box bottom 250.5 < 2nd gloss baseline 253 both skins — galadriel's 42-check suite passed but had no text-in-box containment law; root cause `glossBlockH` under-counting the wrapped gloss line; fixed by deriving box height from the draw-loop accumulator (h 129, bottom 263) + gloss 6.5→7 for 1440 legibility; audit re-run 0 overflows both skins. **Law for future render heads: box heights derive from draw-loop accumulators, never parallel arithmetic.**
+- **B-2 (drax `9579f7e4`):** re-vendor (stage-assets + .vercelignore re-pointed to the r8-furniture capture folder, basenames unchanged so hooks/tests hold); `AtlasLegend` v3 seat top-left (`left-2 · sm:top-[12%] · top-[15%]@375 · sm:max-w-[14.5%]`, probe-derived: title band bottom ≈10.5–11.1%, rail titles 40.7–50.5%, interior column L≈23.4%; `top-[13%]` HALT-rejected at 1280 where the band runs deeper) — mirror-opposite the in-plate top-right key per Matt's order; legend display string `Condensations`→`Build Families` (LegendClass ids, data keys, `condensation` field names, test ids UNTOUCHED — internal/community split, §9 D1-i law); v2 occlusion law re-verified 10/10 surfaces occ=0; suite 108/108.
+- **PROMOTED (standing chain, contract §7.8 rule 4):** build → rsync dist → ROOT `.vercel/output/static/` → `npx vercel deploy --prebuilt --prod --yes` → deployment `reincarnated-glance-8asaxolii` READY/production auto-aliased. Post-promotion smoke: 200; served provenance carries `r8_furniture`+`r8_fix`; **served SVG SHA-256 == r8 capture source both skins** (instrument `9d4d633d…`, archive `882b9a5a…`).
+- **Sequencing note (Tier-3 comparability law):** the r8 head is now FINAL — Gate 1 of the staged A-render brief (refit-candidate plates fork THIS head so Matt compares structure, not presentation) is CLEAR. Gate 2 (elrond aligned re-emission) pending.
+- Parked: 44px touch-target CSS never ported into glance (AtlasLegend comment references it) — a11y charge when taken; display-name map upgrade unchanged (Matt's call).
+
 ---
 
 ## Cross-references
@@ -321,6 +331,8 @@ Tracker-delta (v1.4 D3 amendment): new gap — D3 UX pass specced on Matt's pivo
 Tracker-delta (v1.5 D6 amendment): new gap — D6 specced on Matt's ninth message (frame joins the write-set — §9.5's plate-only "screen box" reading corrected; legend into the box, D1-a law superseded; subtitle de-dupe; E2.2 relabel UN-GATED at Edition-II by Matt's direct order and re-vendored), galadriel + drax fired, promotion gandalf-verify-gated → current-to-end-state-engine, SESSION-DELTA -ab.
 
 Tracker-delta (D7 closure): closed gap — Matt's live-PRD width report + SOURCE GAME slicer order VERIFIED + PROMOTED (§9.8; probe-hardening owed-row §9.7 CLOSED; .vercelignore latent-break fixed) → current-to-end-state-engine, SESSION-DELTA 2026-07-16-b.
+
+Tracker-delta (B-1/B-2 closure): closed gap — Edition-III furniture rescale + legend top-left seat + BUILD FAMILIES rename VERIFIED + PROMOTED (§9.9; A-render Gate 1 CLEAR; containment-audit law recorded) → current-to-end-state-engine, SESSION-DELTA 2026-07-16-c.
 
 ---
 

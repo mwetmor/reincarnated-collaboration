@@ -5,7 +5,30 @@
 > (glance lives here, not in loadout/demo). Contract:
 > `agentic_orchestration/operating-procedures/glance-contract-spec-2026-07-03.md`.
 
-## Current version — v1.13 (D7: /atlas fluid width + SOURCE GAME slicer — LIVE on PRD)
+## Current version — v1.14 (B-1+B-2: Edition-III furniture rescale + legend top-left + BUILD FAMILIES — LIVE on PRD)
+
+Matt's polish order (2026-07-16, in the Tier-3 directive): furniture had been left sized for the
+pre-D7 fixed box; legend belonged top-left opposite the key; "Condensations" renamed "Build Families".
+**B-1 (galadriel `803cef1f` + key-box hug fix `944afa98`):** r8-furniture pass — in-SVG furniture
+(title/banner/axis titles+glosses/legends/ledger/footer/key boxes) rescaled for the post-D7 fluid
+width, DATA GEOMETRY BYTE-FROZEN (mark-layer hash-verified vs r6/e21); key header
+`CONDENSATIONS`→`BUILD FAMILIES`; key box re-hugged (h 116.5→129 — gandalf gate catch: gloss baseline
+253 > old box bottom 250.5); 42 acceptance + 17 smoke green. **B-2 (drax `9579f7e4`):** re-vendored
+r8 plates (`stage-assets.mjs` EDITION3_DIR_REL + `.vercelignore` → `2026-07-16-atlas-edition3-r8-furniture/`,
+basenames unchanged); `AtlasLegend` moved to TOP-LEFT plane seat (`left-2 · sm:top-[12%] ·
+top-[15%]@375 · sm:max-w-[14.5%]` — fraction-anchored below the title band, clear of rail titles;
+`top-[13%]` HALT-rejected at 1280), mirror-opposite the in-plate top-right key; legend entry
+`Condensations`→`Build Families` (display string only, ids/data/types untouched); occlusion ACC 67 v2
+PASS 10/10 (2560/1920/1440/1280/375 × both skins, occ=0); suite 108/108; d6-probe regexes
+`Live Kits|Condensations`→`Build Families|Live Builds`.
+**PROMOTED 2026-07-16 (gandalf verify ACCEPT → gandalf two-deploy per standing chain):** deployment
+`reincarnated-glance-8asaxolii` READY/production, auto-aliased; post-promotion smoke: `/atlas` 200;
+served `render-provenance.json` carries `r8_furniture` + `r8_fix`; served SVG SHA-256 == r8 capture
+sources BOTH skins (instrument `9d4d633d…`, archive `882b9a5a…`). Closure record: spec §9.9. Parked
+(drax note): AtlasLegend comment references a 44px touch-target CSS rule never ported into glance —
+separate a11y charge when taken.
+
+## Prior version — v1.13 (D7: /atlas fluid width + SOURCE GAME slicer)
 
 `/atlas` host clamp lifted route-conditionally (Matt live-PRD width report 2026-07-16): `<main>` +
 header-band inner container go `w-full` on `/atlas` ONLY; every other page keeps `max-w-5xl`
