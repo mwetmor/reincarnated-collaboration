@@ -45,3 +45,22 @@
 - HALT conditions: |corr| < 0.10 either dim · û construction breaks on refit vocabulary · any write to a served/edition3 artifact · lattice denominator drift.
 
 **Signed:** gandalf — addendum enforcement at the verify gate, as recorded in the ultra-think note §3.
+
+---
+
+## RULING at the verify gate (gandalf, 2026-07-16 — after item-A HALT, commit 90f839de)
+
+**Finding (elrond, correct HALT):** raw same-index corrs on the 469 shared: dim1 **+0.0446** (< 0.10 tripwire), dim2 +0.4277; cross-term |E1_d1×refit_d2| = 0.6697 — off-diagonal dominant. Optimal orthogonal refit→E1 map = **reflection + ~117° rotation (det = −1)**. The plane rotated; axes approximately swapped. Reflection-only alignment cannot anchor it.
+
+**Ruling — item A is amended to A′ (in-plane orthogonal alignment, disclosed):**
+
+1. Compute the optimal **orthogonal 2×2 map Q (det ±1, NO scaling, NO translation** — both fits are barycenter-origin) minimizing ‖E1 − refit·Q‖² over the 469 shared actives.
+2. Apply Q to EVERY plane coordinate in the emitted artifacts: all 665 point coords, the plane coords of every loadings column category, all ghost-cell projected coords (feasible + sealed), pull/melee honest-coord tables, tombstones, every CSV. One transform, everywhere, atomically.
+3. Post-alignment sanity assert: the same-index corr matrix becomes diagonal-dominant (report before/after matrices).
+4. Stamp the JSON `plane_alignment: {method: "in-plane orthogonal Procrustes (rotation+reflection), no scaling", Q, rotation_deg, det, raw_corr_before, corr_after, rationale: "refit plane rotated ~117°+reflected vs Edition-I; reflection-only insufficient (raw dim1 corr 0.045); aligned for plate comparability; disclosed on-plate + reported as headline structure evidence"}`. (Replaces the `axis_sign_alignment` stamp.)
+5. Items B/C/D then run VERBATIM in the aligned frame (EAST-half x≥0 pin, P-DF-1 û from aligned loadings, census in aligned frame + the frame-invariant Ns stated as such).
+6. Report §2 gains the raw corr matrix + rotation angle + det as explicit numbers; §10 census unchanged in scope.
+
+**Why this does not violate the no-rotation principle's purpose:** the law existed to prevent disguising the fit's own structure to force agreement. Distances, spreads, congruence, gates, inertia-of-plane are ALL invariant under Q; only the orientation convention (already arbitrary in MCA) changes; the rotation is disclosed on the plate and headlined in the report. Raw-axes plates would hide the geography comparison Matt ordered. Alignment here EXPOSES the rotation finding; it does not bury it.
+
+**Invariance notes (assert, don't assume):** plane corrected-inertia 8.903% is a subspace property — invariant under Q; the per-dim split (5.15/3.75) does NOT apply to the aligned x/y and must not be rendered per-axis. P-DF-1 is internally consistent iff points, loadings, hull all carry the SAME Q.

@@ -10,6 +10,8 @@
 
 **This is a COMPARISON plate, not an Edition.** Title: **"Build Horizon — Refit Candidate 1"**. The strings "Edition IV"/"edition4" appear NOWHERE. The banner leads with the unratified framing (source the exact wording from the JSON's `comparison_note` / `unratified_comparison_artifact` + `emitted_alongside` stamps — render emitted fields, never invent copy). Footer stamps from `atlas-refit-candidate-1.json`. Edition III and every served artifact are READ-ONLY.
 
+**Alignment disclosure (RULING 2026-07-16, addendum-completion brief):** the emitted coordinates are plane-ALIGNED to Edition-I orientation (in-plane orthogonal Procrustes, rotation+reflection, no scaling — the refit plane rotated ~117° + reflected vs Edition-I). The plate MUST disclose this: a banner/gloss line built from the JSON's `plane_alignment` stamp (rotation_deg + det + "aligned to Edition-I orientation for comparison"). **Pole titles:** the refit basis carries NO ratified axis names — render the four poles as Edition-I REFERENCE orientation labels (e.g. `PERFORM → (E1 ref)` styling, your judgment on form) with one gloss stating "poles = Edition-I reference orientation; refit axes unratified." Never render the E1 names as if they were the candidate's own ratified identities. **Per-axis inertia must NOT be rendered** (the aligned x/y are not pure dims 1/2); the plane-level 8.903% figure is fine (subspace-invariant).
+
 ## Fork + input
 
 - Fork the FINAL fixed `agentic_orchestration/galadriel/pipeline/atlas-edition3-r8-furniture-render.mjs` → `atlas-refit-candidate-1-render.mjs`.
@@ -39,6 +41,6 @@ The edition3 head's acceptance/smoke machinery encodes Edition-I/III expectation
 
 ## HALT conditions
 
-Input JSON missing `drill_in`/`p_df_1`/`axis_sign_alignment` (Gate 2 not actually met) · counts ≠ 628/37/665 · depth Σ ≠ 767,411,820 · render-vs-emission cross-check mismatch · any write to a served/edition3 artifact.
+Input JSON missing `drill_in`/`p_df_1`/`plane_alignment` (Gate 2 not actually met) · counts ≠ 628/37/665 · depth Σ ≠ 767,411,820 · render-vs-emission cross-check mismatch · any write to a served/edition3 artifact.
 
 **Signed:** gandalf — my verify gates the comparison package.
