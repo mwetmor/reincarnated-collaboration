@@ -1,0 +1,430 @@
+{
+  "render": "galadriel/pipeline/atlas-refit-candidate-1-render.mjs",
+  "edition": "Refit-Candidate-1",
+  "display_identity": "Refit Candidate 1",
+  "unratified_comparison_artifact": true,
+  "comparison_note": "Full re-derivation of the atlas FIT on the current 628-active corpus (incl. 62 Lost Ark + pull/MELEE as live feature columns). Same pre-registered methodology, same seed 20260714. Edition III served truth is byte-untouched. This is the number surface for Matt's adoption decision (Refit Candidate 1 vs Edition III); see refit-candidate-1-comparison-report.md.",
+  "emitted_alongside": "atlas-edition3.json (served truth; Matt comparison pending)",
+  "authority": "Matt 2026-07-16 verbatim: \"I want to see both versions so we cna make a decision.\" · gandalf brief 2026-07-16-galadriel-a-render-refit-candidate-plates-brief.md · ultra-think record agentic_orchestration/gandalf/notes/2026-07-16-tier3-refit-and-polish-spec.md §3.",
+  "what_this_is": "A COMPARISON plate (NOT an Edition) for Matt's Tier-3 atlas refit adoption decision: Refit Candidate 1 (full re-derivation of the FIT on the 628-active corpus) vs served Edition III. FURNITURE is byte-verbatim from the FINAL FIXED r8-furniture head (944afa98) — Matt compares STRUCTURE, not presentation. The strings \"Edition IV\"/\"edition4\" appear NOWHERE; \"Edition III\" appears ONLY in the emitted_alongside provenance line.",
+  "forked_from": "atlas-edition3-r8-furniture-render.mjs (944afa98) — FURN table + key/ledger forms + skins carried byte-verbatim; identity + acceptance-adaptation seams differ per the brief.",
+  "plane_alignment": {
+    "disclosed_on_plate": true,
+    "method": "in-plane orthogonal Procrustes (rotation+reflection), no scaling, no translation",
+    "rotation_deg": -117.3477,
+    "det": -1,
+    "headline": "Every plane coordinate in this artifact (points, ghost cells, drill-in, hull, p_df_1) is Q-ALIGNED to Edition-I orientation: an in-plane orthogonal Procrustes map (rotation+reflection, NO scaling, NO translation; det=-1.0, rotation=-117.3477 deg) fit on the 469 shared actives. The refit plane rotated ~117deg + reflected vs Edition-I; reflection-only alignment was insufficient (raw dim1 same-index corr 0.045). Distances/spreads/congruence/gates/plane-inertia are Q-invariant; only the arbitrary MCA/SVD orientation convention changes. Full stamp: ghost_field.plane_alignment. Disclosed + headlined per the verify-gate ruling.",
+    "Q": [
+      [
+        -0.4593885522462649,
+        -0.8882354181550526
+      ],
+      [
+        -0.8882354181550524,
+        0.45938855224626507
+      ]
+    ],
+    "raw_corr_before": [
+      [
+        0.044576,
+        -0.669659
+      ],
+      [
+        -0.045169,
+        0.4277
+      ]
+    ],
+    "corr_after": [
+      [
+        0.63637,
+        -0.401184
+      ],
+      [
+        -0.400286,
+        0.26915
+      ]
+    ],
+    "note": "Emitted coordinates are plane-ALIGNED to Edition-I orientation (in-plane orthogonal Procrustes, rotation+reflection, no scaling). Distances/spreads/congruence/gates/plane-inertia are Q-invariant; only the arbitrary MCA/SVD orientation convention changes. Per-axis inertia NOT rendered (aligned x/y are not pure dims 1/2); plane-level 8.903% is subspace-invariant and rendered."
+  },
+  "pole_labels": "Edition-I REFERENCE orientation labels (PERFORM/DEPLOY/LAUNCH/EMBODY marked \"(E1 ref)\") + gloss \"poles = Edition-I reference orientation; refit axes unratified\". The refit basis carries NO ratified axis names (basis.axis_names is a {note} object).",
+  "acceptance_adaptation": "Per brief §ACCEPTANCE ADAPTATION: frozen-baseline checks RETIRED (fit-freeze vs r6/e21, basis==edition2 assert, N==469/506, edition-stamp greps, edition===3); internal-consistency checks RE-POINTED to the candidate's own emitted counts (fail-loud); hull/census/P-DF-1 RECOMPUTED + CROSS-CHECKED vs emitted p_df_1 (mismatch = HALT); Edition-I orientation smokes DEMOTED to REPORTED observations (print refit value + old expectation + PASS/CHANGED; not gating); anti-stale greps for Edition IV absence + Edition III only-in-emitted_alongside.",
+  "render_vs_emission_crosscheck": {
+    "meso_beyond_render": 13,
+    "p_df_1_n_beyond_horizon_emitted": 13,
+    "match": true,
+    "charted_beyond_render": 0,
+    "note": "render pass beyond-MESO-hull N MUST equal emitted ghost_field.p_df_1.n_beyond_horizon_kits (HALT-guarded at module load). charted-hull beyond-N is a computed consequence."
+  },
+  "furniture_factor_table": {
+    "title": 17.5,
+    "banner": 8.5,
+    "bannerBandH": 20,
+    "deriv": 7.5,
+    "poleTitle": 9.5,
+    "poleTitleLS": 1,
+    "poleGloss": 7,
+    "launchEmbody": 9.5,
+    "horizonLabel": 7,
+    "horizonRowH": 9,
+    "keyHeader": 8,
+    "keyRow": 8,
+    "keyGloss": 7,
+    "keyRowH": 13,
+    "keySwatchR": 3.4,
+    "keyBandGloss": 7,
+    "centroid": 8.5,
+    "centroidBandH": 13,
+    "centroidCW": 5.8,
+    "graveHeader": 7.5,
+    "graveRow": 7,
+    "graveRowH": 10.5,
+    "ledgerCensus": 7,
+    "ledgerHeadline": 8.5,
+    "ledgerHl2": 7.5,
+    "ledgerSub": 6.5,
+    "ledgerRight": 6.5,
+    "ledgerRow": 6,
+    "ledgerRowH": 6,
+    "footer": 7
+  },
+  "atlas_version": "Refit-Candidate-1",
+  "register_ref": "feasibility-cuts-register-v1.3",
+  "input": "agentic_orchestration/research/curated/atlas/atlas-refit-candidate-1.json",
+  "emitted_at": "2026-07-16T16:33:42.447042+00:00",
+  "emitter_script": "agentic_orchestration/research/scripts/build_atlas_refit_candidate_1_json.py",
+  "hook_reconciliation": {
+    "live": 542,
+    "condensation": 86,
+    "graveyard": 37,
+    "ghost": 41531,
+    "points_classed": 665,
+    "meso_ghost_glyphs": 10080,
+    "drill_glyphs": 31451,
+    "emitted": {
+      "neutral_single": 542,
+      "grouped_condensation": 86,
+      "supplementary": 37,
+      "total_points": 665,
+      "meso_glyph_positions": 10080,
+      "drill_glyph_field_entries": 31451
+    },
+    "live_single_hue": {
+      "instrument": "#50991f",
+      "archive": "#7cd143"
+    }
+  },
+  "skin_canvas_map": {
+    "instrument": {
+      "canvas": "light",
+      "hex": "#f7f8fa"
+    },
+    "archive": {
+      "canvas": "dark",
+      "hex": "#0e1016"
+    }
+  },
+  "basis": {
+    "frozen": false,
+    "inertia_pct": 8.903,
+    "retained_dims": 17,
+    "axis_names": {
+      "note": "axis names NOT ratified for the refit — this is a comparison artifact. The R5 report gives the post-alignment axis-identity correlations vs Edition-I PERFORM<->DEPLOY / EMBODY<->LAUNCH."
+    }
+  },
+  "counts": {
+    "active": 628,
+    "supplementary": 37,
+    "total": 665,
+    "grouped": 86
+  },
+  "lattice": {
+    "meso_feasible": 11160,
+    "meso_sealed": 1314,
+    "lit_cells": 202,
+    "unmapped_pending_curation": 114,
+    "exact_post_red_law": 767411820,
+    "depth_sum_check": 767411820,
+    "ghost_glyph_positions": 10080,
+    "ghost_clipped": 287,
+    "charted_hull_vertex_count": 25,
+    "hull_vertex_count": 25,
+    "beyond_horizon_n": 0,
+    "beyond_horizon_n_meso_only": 13,
+    "charted_hull_east_world_x": 2,
+    "meso_hull_east_world_x": 1.33945293,
+    "settled_active_east_world_x": 1.2035463,
+    "drill_min_radius_px": 1.37,
+    "drill_radius_floor_px": 1.25,
+    "drill_radius_step": 0.12
+  },
+  "pull_slice": {
+    "meso_feasible": 1080,
+    "meso_sealed": 54,
+    "lit_cells": 4,
+    "new_law_needed": 0,
+    "halt": false,
+    "lit_core_tuples": [
+      [
+        "FREE-MOVE",
+        "ZONE",
+        "damage",
+        "pull",
+        "solo",
+        "active",
+        "one-shot"
+      ],
+      [
+        "ROOTED",
+        "ZONE",
+        "damage",
+        "pull",
+        "solo",
+        "active",
+        "build→spend"
+      ],
+      [
+        "ROOTED",
+        "ZONE",
+        "damage",
+        "pull",
+        "solo",
+        "active",
+        "one-shot"
+      ],
+      [
+        "WALK",
+        "NOVA",
+        "control",
+        "pull",
+        "solo",
+        "active",
+        "one-shot"
+      ]
+    ]
+  },
+  "drill_in": {
+    "region": "EAST-half (projected x>=0; PERFORM side) — slate #1 ES + #2 EN (one drill-in serves both)",
+    "promoted_pair": [
+      "geometry",
+      "commit"
+    ],
+    "n_east_parent_cells": 3312,
+    "n_sub_feasible": 122544,
+    "n_sub_sealed": 6624,
+    "sub_glyph_field_entries": 31451,
+    "sub_glyphs_rendered": 31451,
+    "sub_glyphs_west_overshoot": 4396,
+    "sub_clipped": 1610,
+    "sub_sealed_ledger": [
+      {
+        "commit": "channel",
+        "count": 3312,
+        "cut_id": "RED-3-movement-damage-carveout",
+        "geometry": "dash_attack"
+      },
+      {
+        "commit": "wind-up",
+        "count": 3312,
+        "cut_id": "RED-3-movement-damage-carveout",
+        "geometry": "dash_attack"
+      }
+    ]
+  },
+  "off_plane_corpus": {
+    "n": 94,
+    "disclosure": "94 gear-grain kits (mcd-) sit in the corpus off-plane — classless gear carries no movement identity at kit grain; admission is a deferred grain ruling."
+  },
+  "p_df_1": {
+    "verdict": "PASS",
+    "falsified": false,
+    "S_max": 1.90823161,
+    "K_max_beyond_horizon": 1.15472813,
+    "S_argmax": {
+      "x": 1.54821607,
+      "y": -1.12146539
+    },
+    "u_direction": [
+      0.843782415565718,
+      -0.5366854154736107
+    ],
+    "n_beyond_horizon_kits": 13,
+    "statement": "EAST drill-in (geometry×commit) extends the dark BEYOND the whirlwind/beam kits along û=normalize(mean(c_whirlwind, c_channel)).",
+    "consequence_if_falsified": "INTERIOR-1 re-opens with new fuel (§9.4.4 trigger) — SURFACE to Matt, never auto-fire."
+  },
+  "acceptance": {
+    "pass": 51,
+    "total": 51,
+    "all_pass": true,
+    "tests": [
+      {
+        "name": "point-counts",
+        "pass": true
+      },
+      {
+        "name": "grouped-count",
+        "pass": true
+      },
+      {
+        "name": "ghost-counts",
+        "pass": true
+      },
+      {
+        "name": "ghost-lit-conformance",
+        "pass": true
+      },
+      {
+        "name": "ghost-depth-sum",
+        "pass": true
+      },
+      {
+        "name": "sealed-cut_id-conformance",
+        "pass": true
+      },
+      {
+        "name": "point-layout-equality",
+        "pass": true
+      },
+      {
+        "name": "ghost-layout-equality",
+        "pass": true
+      },
+      {
+        "name": "determinism",
+        "pass": true
+      },
+      {
+        "name": "R2-no-2.57-numeral",
+        "pass": true
+      },
+      {
+        "name": "R2ext-no-422445240",
+        "pass": true
+      },
+      {
+        "name": "R3-no-season-N",
+        "pass": true
+      },
+      {
+        "name": "RIDER-1-badge",
+        "pass": true
+      },
+      {
+        "name": "r2-pole-glosses",
+        "pass": true
+      },
+      {
+        "name": "r2-density-legend-line",
+        "pass": true
+      },
+      {
+        "name": "r2-derivation-gloss",
+        "pass": true
+      },
+      {
+        "name": "r3-census-line",
+        "pass": true
+      },
+      {
+        "name": "r3.2-clip-disclosure",
+        "pass": true
+      },
+      {
+        "name": "r3-coverage-callout",
+        "pass": true
+      },
+      {
+        "name": "r3-sealed-ledger",
+        "pass": true
+      },
+      {
+        "name": "ghost-glyphs-not-regions",
+        "pass": true
+      },
+      {
+        "name": "fit-layer-internal-consistency",
+        "pass": true
+      },
+      {
+        "name": "r4-horizon",
+        "pass": true
+      },
+      {
+        "name": "r4-headline-pair",
+        "pass": true
+      },
+      {
+        "name": "r5-beyond-horizon",
+        "pass": true
+      },
+      {
+        "name": "E2-belowplane-ledger-band",
+        "pass": true
+      },
+      {
+        "name": "register-v1.3-derivation",
+        "pass": true
+      },
+      {
+        "name": "lattice-integrity",
+        "pass": true
+      },
+      {
+        "name": "pull-slice-lit-integrity",
+        "pass": true
+      },
+      {
+        "name": "drill-in-conformance",
+        "pass": true
+      },
+      {
+        "name": "P-DF-1-scored",
+        "pass": true
+      },
+      {
+        "name": "refit-identity+anti-stale-greps",
+        "pass": true
+      },
+      {
+        "name": "E2.1-b-drill-prominence-floor",
+        "pass": true
+      },
+      {
+        "name": "refit-banner-lead",
+        "pass": true
+      },
+      {
+        "name": "refit-provenance-dedupe",
+        "pass": true
+      },
+      {
+        "name": "E2.1-e-skin-canvas-map",
+        "pass": true
+      },
+      {
+        "name": "E2.1-f-chrome-uniqueness+bottom-band-overlap",
+        "pass": true
+      },
+      {
+        "name": "geometry-skin-invariance",
+        "pass": true
+      },
+      {
+        "name": "r7-overlap-zero",
+        "pass": true
+      },
+      {
+        "name": "r7-hooks-integrity",
+        "pass": true
+      },
+      {
+        "name": "r7-hooks-doctored-halt",
+        "pass": true
+      }
+    ]
+  },
+  "skins": [
+    "instrument",
+    "archive"
+  ],
+  "determinism": "byte-identical double-render (both skins); sorted iteration; no RNG; no wall-clock"
+}
