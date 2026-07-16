@@ -9,8 +9,15 @@
 
 Nine pages unchanged. `/atlas` reconverged: the interactive Build-Horizon package (the loadout
 D1–D6 chain) PORTED into `glance/app` and now LEADS `/atlas` at Edition III; the loadout `/atlas`
-retired to a redirect. STOPPED at preview (no PRD deploy, no alias move — gandalf's verify gates the
-two-deploy promotion per contract §7.8 rule 4).
+retired to a redirect. ~~STOPPED at preview~~ **PROMOTED to PRD 2026-07-16 (gandalf verify ACCEPT →
+gandalf executed the two-deploy promotion per contract §7.8 rule 4):** glance deployment
+`reincarnated-glance-4b2w8kqxj` READY/production, auto-aliased `https://reincarnated-glance.vercel.app`
+(mechanism: fresh `npm run build` in glance/app → rsync --delete dist → ROOT `.vercel/output/static/` →
+`npx vercel deploy --prebuilt --prod --yes` from collab root). PRD receipts: instrument SVG sha
+`77c9baf5…` == ratified Edition-III; bundle `index-BuIFCfU0.js`; slim JSON 200/2,135,262B; PRD render
+shows "Build Horizon — Edition III". Verify closure incl. the 1440-light occlusion cell the ported
+probe's flip-wait missed (wait-for-existence bug — hardening owed, spec §9.7). Loadout redirect deploy
+fired in the same move (see loadout AGENT_STATE).
 
 ### v1.12 — interactive Build-Horizon re-homes to /atlas @ Edition III; loadout /atlas retires — BUILT + PROBED (preview) 2026-07-16
 
