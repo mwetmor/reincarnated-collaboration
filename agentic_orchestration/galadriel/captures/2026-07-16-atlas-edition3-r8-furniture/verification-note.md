@@ -16,6 +16,12 @@ the Edition-III head's, carried VERBATIM. The Edition-III artifacts + capture di
 both skins. Furniture factors chosen per-class BY EYE against crop receipts at 2560 + 1440 display scales
 (see the crop set in `crops/`). The carried Edition-III census header follows verbatim.
 
+**r8-fix (2026-07-16 — containment):** the BUILD FAMILIES key box did not contain its 2nd gloss line
+(pre-fix box bottom 250.5 vs line-2 baseline 253.0 → straddled the border, both skins). Fix: box height
+RE-DERIVED FROM CONTENT (last gloss baseline + descender + bottom pad, from the same accumulator the draw
+loop walks) → box bottom 263, line-2 baseline 253 sits 10px inside. Key gloss font 6.5→7 (1440-legibility
+floor; box re-derives from the new pitch, still hugs). Data geometry stayed byte-frozen (acc-23/29 PASS).
+
 ## Carried Edition-III context (verbatim)
 
 **EDITION III (2026-07-16, gandalf brief `2026-07-16-galadriel-edition3-render-brief.md`;

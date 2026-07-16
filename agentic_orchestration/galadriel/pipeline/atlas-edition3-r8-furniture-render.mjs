@@ -1162,7 +1162,9 @@ const FURN = {
   horizonRowH:   9,    // wrapped-row pitch 12.5→9 (scales with the 7px label; rows stay disjoint)
   keyHeader:     8,    // 11 → 8  (f0.727): ≈12.6px@2560 — BUILD FAMILIES key header
   keyRow:        8,    // 11 → 8  (f0.727): ≈12.6px@2560 — key group rows
-  keyGloss:      6.5,  // 9.5→6.5 (f0.684): ≈10.3px@2560 — key density gloss (2 rows)
+  keyGloss:      7,    // 9.5→7 (f0.737): ≈11.1px@2560 — key density gloss (2 rows). r8-fix: 6.5→7 for
+                       // the 1440-viewport legibility floor (6.5 rendered ≈5.7px @0.88 — below floor);
+                       // inter-gloss pitch 11 > glyph 7 stays disjoint; box height re-derives from content.
   keyRowH:      13,    // key row pitch 18→13 hugs the 8px rows (box height re-derives from this)
   keySwatchR:    3.4,  // key swatch radius 4.6→3.4 scales with the 8px row
   keyBandGloss:  7,    // key density-swatch box 10→7px scales with the gloss block
@@ -1456,14 +1458,29 @@ function renderSVG(skinKey) {
 
   // ---- BUILD FAMILIES legend (top-right of plane) [r2 layout; density line preserved]
   //      Matt 2026-07-16: header renamed CONDENSATIONS → BUILD FAMILIES. r8: header/rows 11→8,
-  //      gloss 9.5→6.5, swatch r4.6→3.4, row pitch 18→13, box width 196→158 hugging the shrunken
-  //      content, box height re-derived from the row pitch. Top-right anchor (lx, ly) UNCHANGED —
-  //      the box hugs its text; it does not move. The swatch circles carry `fill` (not a data mark;
-  //      no <title>, no data-*) so the acc-29 ground-geometry regex never matches them.
+  //      gloss 9.5→7 (r8-fix bump; was 6.5), swatch r4.6→3.4, row pitch 18→13, box width 196→158
+  //      hugging the shrunken content, box height RE-DERIVED FROM CONTENT (last gloss baseline +
+  //      descender + bottom pad — see the derivation block below). r8-fix: the pre-fix height under-
+  //      counted gloss line 2 (baseline landed 2.5px past the border); now the box contains it.
+  //      Top-right anchor (lx, ly) UNCHANGED — the box hugs its text; it does not move. The swatch
+  //      circles carry `fill` (not a data mark; no <title>, no data-*) so the acc-29 ground-geometry
+  //      regex never matches them.
   {
     const lx = M.left + PW - 152, ly = M.top + 14;
-    const glossBlockH = FURN.keyGloss + 12 + 4;   // 2 gloss rows + the density swatch pad
-    const boxH = FURN.keyRowH * GROUP_ORDER.length + (FURN.keyHeader + 8) + glossBlockH;
+    // r8-fix (2026-07-16): box height RE-DERIVED FROM CONTENT so the LAST gloss baseline + its
+    // descender sit INSIDE with matching bottom padding. The pre-fix `glossBlockH` under-counted the
+    // second gloss line (budgeted keyGloss+12+4 but the inter-gloss pitch is 11 and line-2 baseline
+    // landed 2.5px PAST the border → text straddled it in the crop receipts, both skins). Now the box
+    // bottom is computed from the SAME accumulator the draw loop walks below, so they cannot diverge.
+    //   Top structural pad  = firstBaseline(ly+2) − boxTop(ly−12) = 14  (14px baseline-to-top-edge).
+    //   Row block baseline   = ly + (keyHeader+8) + keyRowH·N.
+    //   Gloss line-1 baseline= +2   (the `yy += 2` swatch-pad step).
+    //   Gloss line-2 baseline= +11  (inter-gloss pitch; stays disjoint at fs7).
+    //   Bottom pad           = GLOSS_DESC (descender, ~0.28·fs7≈2) + BOTTOM_PAD (8, matches the
+    //                          whitespace above the header cap) → box bottom clears the descender.
+    const GLOSS_DESC = 2, BOTTOM_PAD = 8;
+    const lastGlossBaselineRel = (FURN.keyHeader + 8) + FURN.keyRowH * GROUP_ORDER.length + 2 + 11;
+    const boxH = (lastGlossBaselineRel + 12) + GLOSS_DESC + BOTTOM_PAD;  // +12: boxTop is ly−12
     P.push(`<g font-family="${s.fontStack}" font-size="${FURN.keyRow}" fill="${s.ink}">`);
     P.push(`<rect x="${f2(lx - 12)}" y="${f2(ly - 12)}" width="158" height="${f2(boxH)}" rx="4" fill="${s.plaque}" fill-opacity="0.9" stroke="${s.plaqueStroke}"/>`);
     P.push(`<text x="${f2(lx)}" y="${f2(ly + 2)}" font-weight="${s.titleWeight}" font-size="${FURN.keyHeader}" letter-spacing="0.5">BUILD FAMILIES</text>`);
@@ -2767,6 +2784,7 @@ async function main() {
       key_rename: 'CONDENSATIONS → BUILD FAMILIES (top-right key header). Sole user-visible "condensation" chrome string on the plate; machine metadata (data-el, provenance vocab) unchanged.',
       furniture_factor_table: FURN,
       renamed_from: 'atlas-edition3-render.mjs (Edition-III head) — this fork changes the render head chrome sizing ONLY; the census/lattice + all acceptance logic are the Edition-III head\'s, carried verbatim.',
+      r8_fix: 'CONTAINMENT FIX (gandalf verify-gate defect, both skins, one root cause). The BUILD FAMILIES key box did NOT contain its 2nd gloss line "(settled territory — not a boundary)": pre-fix box bottom 250.5, line-2 baseline 253.0 → 2.5px PAST the border, text straddled it. Root: box height was budgeted from a `glossBlockH` that under-counted line 2 (allowed keyGloss+12+4 while the inter-gloss pitch is 11). Fix: box height RE-DERIVED FROM CONTENT — last gloss baseline + descender(2) + bottom pad(8), from the SAME accumulator the draw loop walks. New box bottom 263 (≥261 floor); line-2 baseline 253 sits 10px inside (8px clear below the descender). Also (galadriel call): key gloss font 6.5→7 for the 1440-viewport legibility floor — box re-derives from the new pitch automatically, still hugs. Data geometry BYTE-FROZEN (only chrome text + the box that hugs it moved; zero data-mark bytes changed — acc-23/29 fit-freeze checks stay PASS).',
     },
     iteration_authority: 'gandalf brief 2026-07-16-galadriel-edition3-render-brief.md (Matt 2026-07-16 verbatim: "(a) - ratify Edition III now" + "Agreed. Ratify Edition III"). The public Build-Horizon atlas re-vendors from Edition-II to Edition-III data; this render is the artifact drax vendors. Byte-copy of the E2.3 head (atlas-edition2-e23-render.mjs) with ONLY the enumerated edition-boundary diff. The E2.3 rail arrows (↑ DEPLOY / PERFORM ↓, OUTWARD under rotate(-90)) are carried VERBATIM.',
     edition3_change: 'CENSUS-POPULATION edition: +65 corpus rows (Stage A pull-7 re-insertion + Stage B Lost Ark 58 at class-engraving grain) PROJECT into the frozen basis. Lattice UNCHANGED (register v1.3 denominators byte-identical to v1.2); FIT basis + 506 points frozen. Lit occupancy grew: occupied meso 193→202, pull-lit 2→4 (9 ROOTED cells + 2 pull cells newly lit).',
@@ -2872,6 +2890,12 @@ the Edition-III head's, carried VERBATIM. The Edition-III artifacts + capture di
 (this fork writes to \`2026-07-16-atlas-edition3-r8-furniture/\`). Determinism: double-render byte-equal,
 both skins. Furniture factors chosen per-class BY EYE against crop receipts at 2560 + 1440 display scales
 (see the crop set in \`crops/\`). The carried Edition-III census header follows verbatim.
+
+**r8-fix (2026-07-16 — containment):** the BUILD FAMILIES key box did not contain its 2nd gloss line
+(pre-fix box bottom 250.5 vs line-2 baseline 253.0 → straddled the border, both skins). Fix: box height
+RE-DERIVED FROM CONTENT (last gloss baseline + descender + bottom pad, from the same accumulator the draw
+loop walks) → box bottom 263, line-2 baseline 253 sits 10px inside. Key gloss font 6.5→7 (1440-legibility
+floor; box re-derives from the new pitch, still hugs). Data geometry stayed byte-frozen (acc-23/29 PASS).
 
 ## Carried Edition-III context (verbatim)
 

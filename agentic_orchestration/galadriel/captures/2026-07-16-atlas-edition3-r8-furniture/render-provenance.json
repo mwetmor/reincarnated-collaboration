@@ -20,7 +20,7 @@
       "horizonRowH": 9,
       "keyHeader": 8,
       "keyRow": 8,
-      "keyGloss": 6.5,
+      "keyGloss": 7,
       "keyRowH": 13,
       "keySwatchR": 3.4,
       "keyBandGloss": 7,
@@ -39,7 +39,8 @@
       "ledgerRowH": 6,
       "footer": 7
     },
-    "renamed_from": "atlas-edition3-render.mjs (Edition-III head) — this fork changes the render head chrome sizing ONLY; the census/lattice + all acceptance logic are the Edition-III head's, carried verbatim."
+    "renamed_from": "atlas-edition3-render.mjs (Edition-III head) — this fork changes the render head chrome sizing ONLY; the census/lattice + all acceptance logic are the Edition-III head's, carried verbatim.",
+    "r8_fix": "CONTAINMENT FIX (gandalf verify-gate defect, both skins, one root cause). The BUILD FAMILIES key box did NOT contain its 2nd gloss line \"(settled territory — not a boundary)\": pre-fix box bottom 250.5, line-2 baseline 253.0 → 2.5px PAST the border, text straddled it. Root: box height was budgeted from a `glossBlockH` that under-counted line 2 (allowed keyGloss+12+4 while the inter-gloss pitch is 11). Fix: box height RE-DERIVED FROM CONTENT — last gloss baseline + descender(2) + bottom pad(8), from the SAME accumulator the draw loop walks. New box bottom 263 (≥261 floor); line-2 baseline 253 sits 10px inside (8px clear below the descender). Also (galadriel call): key gloss font 6.5→7 for the 1440-viewport legibility floor — box re-derives from the new pitch automatically, still hugs. Data geometry BYTE-FROZEN (only chrome text + the box that hugs it moved; zero data-mark bytes changed — acc-23/29 fit-freeze checks stay PASS)."
   },
   "iteration_authority": "gandalf brief 2026-07-16-galadriel-edition3-render-brief.md (Matt 2026-07-16 verbatim: \"(a) - ratify Edition III now\" + \"Agreed. Ratify Edition III\"). The public Build-Horizon atlas re-vendors from Edition-II to Edition-III data; this render is the artifact drax vendors. Byte-copy of the E2.3 head (atlas-edition2-e23-render.mjs) with ONLY the enumerated edition-boundary diff. The E2.3 rail arrows (↑ DEPLOY / PERFORM ↓, OUTWARD under rotate(-90)) are carried VERBATIM.",
   "edition3_change": "CENSUS-POPULATION edition: +65 corpus rows (Stage A pull-7 re-insertion + Stage B Lost Ark 58 at class-engraving grain) PROJECT into the frozen basis. Lattice UNCHANGED (register v1.3 denominators byte-identical to v1.2); FIT basis + 506 points frozen. Lit occupancy grew: occupied meso 193→202, pull-lit 2→4 (9 ROOTED cells + 2 pull cells newly lit).",
