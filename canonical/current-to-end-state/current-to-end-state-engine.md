@@ -33,6 +33,11 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-15-x (D3 LANDED + verified ACCEPT · PROMOTED — filters + fixed-zoom LIVE on the Build Horizon)
+
+- **D3 pass LANDED** (loadout `0a09713`, 16 files +1277/−2310) — **gandalf verify ACCEPT with independent receipts:** 178/178 tests (my run; +19 filter tests, +7 fixed-mount nav tests), build clean, both frozen SVG sha256 match (my shasum), frozen JSON inputs zero-diff. **Strongest receipts (mine):** all five filter hand-counts reconstruct EXACTLY from the emitted JSON (DEPLOY·W 248b·6,092g · W∧S 121b·3,656g · graveyard 37 · ghosts 11,160 · families = the six emitted condensations, WHIRLWIND live 15); scale-literal grep = comment-only (S_max derived at runtime via `deriveBounds` on the markup — doctored-radius probe test in suite); ZERO `setAttribute` in the stage path (emitted viewBox + planeClip serve VERBATIM — the clip-tracks-view "screen square" machinery is gone, stronger than the old reset law); filter-reset-then-scroll wiring present (`setFilters(DEFAULT_FILTERS)` on filtered-out chart drills). Pivot apparatus deleted (`AtlasPivotTable`/`PivotLevelBar`/`AtlasZoomControls`/`useAtlasLens` gone; new `AtlasBuildTable` + `useAtlasStage`); retired tests carry §9.3 supersession notes; inversion-guard + derivation + sidecar-join + community-vocab suites kept green. Scroll ≈59fps at the fixed 8.276× surface; 375px mobile no page h-scroll. Two harmless recorded deviations (raw-strings field retained; fresh-file table rather than in-place rewrite).
+- **PROMOTED** (gandalf, same single-alias law): `vercel alias set …-8lf28zrle… → reincarnated-loadout.vercel.app`. Live receipts: new bundle serves ("Clear filters" ×3), zoom aria-string absent, served SVG sha256 == frozen `29dc29f3…`. **Matt's pivots→filters + fixed-zoom-at-S_max rulings are LIVE on PRD.**
+
 ### 2026-07-15-w (D3 UX pass SPECCED + FIRED — Matt's pivots→filters + fixed-zoom rulings on the live Build Horizon)
 
 - **Matt rulings (verbatim, sixth message):** *"change the pivots to simple filters? The table looks nice but the pivots are getting in the way"* + *"remove the zoom function and just have the zoom auto-set to the max zoom parameter available now. I like that zoom ratio, but the zoom functionality is awkward on the browser and the screen square doesn't work right."*
