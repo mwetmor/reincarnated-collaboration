@@ -7,6 +7,39 @@
 
 ---
 
+## refit-candidate-1-2026-07-16 — REFIT CANDIDATE 1: game-code normalization (R0) + full re-derivation on the 628-active corpus (Lost Ark + pull/MELEE live) — 2026-07-16 — **EMITTED (comparison artifact; Matt adoption pending)**
+
+### What changed (one line)
+A **comparison EXPERIMENT, not an Edition** (Matt 2026-07-16: *"run the full Tier 3 with Last Ark and Pull/Gravity … I want to see both versions so we can make a decision."*). The atlas FIT is fully RE-DERIVED on the CURRENT 628-active corpus (incl. 62 Lost Ark + pull as a live feature column), emitted ALONGSIDE Edition III as **`Refit-Candidate-1`**. The string "Edition IV" appears NOWHERE. Same pre-registered methodology, same SEED 20260714, FUSE_MIN=10 unchanged. **Edition III and every served artifact are READ-ONLY — git confirms all served atlas files byte-unchanged.** Register v1.3 lattice byte-identical (the SPACE did not move; only the FIT projection did). Gates A–D re-run as EVIDENCE (not emission blockers): **A FAIL 0.451 · B FAIL k=12 · C gandalf-rules R²=0.168 PERMDISP-sig · D PASS 2.26%.**
+
+### R0 — game-code normalization (elrond's parked to-do, now load-bearing)
+The active set carried long-form `canon_corpus.game` codes that orphan the derivation's `FRANCHISE_ROLLUP` (stage-0 HALTs on them). Normalized full-table (idempotent): `lost-ark`→`la` (62), `diablo-4`→`d4` (1), `diablo-3`→`d3` (1), `diablo-immortal`→`di` (1) = **65 rows updated**. `mcd` (already short) left. No `cell_key`/`kit_id` touched (game absent from cell_key → frozen Edition-I fit unaffected; served Edition-III reconstruction unperturbed). Post-asserts (no long form survives; every active game short-code; merge accounting balances) PASSED. Schema-meta marker `gamecode-normalize-2026-07-16` stamped.
+- **Script:** `scripts/corpus_gamecode_normalize_2026_07_16.py` · **Log:** `corpus-curation-gamecode-normalize-2026-07-16-log.md` · **Backup:** `corpus.db.pre-gamecode-normalize-2026-07-16-backup` (gitignored safety net; the LOG is the record).
+
+### R1 — the derivation fork (surgical deltas only)
+`scripts/atlas_refit_candidate_2026_07_16.py` forks `atlas_derivation_2026_07_14.py`. ONLY changes: N re-derived from predicate (628, fetch==COUNT asserted); `FRANCHISE_ROLLUP += la→"LostArk", mcd→"mcd"` (13 franchises, zero orphans); **PULL pre-assert** (function=pull active=**10 = FUSE_MIN exactly**, zero margin → survives Greenacre fusing, earns a fit column; would HALT if it fused — FUSE_MIN never lowered); **MELEE per-field parse** (delivery=melee=**31** earns a column; naive `LIKE '%|melee|%'`=271 confirmed as the range=melee collision — NOT used); Gate-A 86 labels asserted present; output paths → refit-candidate names (served CSVs never over); Gate-A/B/C/D re-run+report as evidence; durable `refit-candidate-1-fit-cellkeys.csv` (628 keys) emitted for the ghost-field rebuild. DB tables written refit-suffixed (`atlas_gateA_labels_refit_candidate_1`, `atlas_franchise_rollup_refit_candidate_1` — Edition-I's tables untouched).
+- **Key derivation findings:** retained dims **17** (vs Edition-I 14); plane corrected-inertia **8.903%** (vs 8.36%); plane diameter 5.295. Gate report: `refit-candidate-1-gate-report.md`; full stdout: `refit-candidate-1-derivation-run.log`.
+
+### R2 — supplementary graveyard projection
+The **37** projectable negatives (unchanged; re-asserted) projected into the NEW 17-dim retained space via the same CA supplementary transition formula → `refit-candidate-1-coordinates-supplementary.csv`. Gate-B intrinsic-red pool grew 5→12 (more corpses project cleanly in the larger space).
+
+### R3 — ghost field, refit basis (pull + MELEE UN-MASKED)
+`scripts/ghost_field_refit_candidate_1.py` forks the ghost-field machinery at the module level: builds the fit from the 628 snapshot (NOT the frozen 469), projects the SAME register v1.3 lattice through the NEW basis. **`REG2FIT["function"]["pull"]="pull"`** (un-masked — pull now has a real fit column) and **`REG2FIT["delivery"]["MELEE"]="melee"`** (un-masked — MELEE ghost-image collapse partially closes). **Denominators asserted BYTE-IDENTICAL to v1.3:** meso feasible **11,160** / sealed **1,314** (L1 756 + L2 558) / depth_sum **767,411,820** / pull slice 1,080+54. Un-masking relocates WHERE pull/MELEE cells land (honest coords for 1,080 pull + 1,674 MELEE feasible cells), not HOW MANY exist. Lit census read live: 202 lit / 4 pull-lit / 0 melee-lit / 114 unmapped / 94 off-plane — all identical to Edition-III (same corpus).
+
+### R4 — emission
+`scripts/build_atlas_refit_candidate_1_json.py` (forks the edition3 emitter but does NOT freeze-against-E1 — the fit MOVED). Emits `atlas-refit-candidate-1.json` (4.25 MB, schema-compatible with `atlas-edition3.json`: basis/counts/loadings/points/ghost_field/register_ref + stamps; `atlas_version="Refit-Candidate-1"`, `ghost_field.edition="Refit-Candidate-1"`, `unratified_comparison_artifact=true`, `emitted_alongside="atlas-edition3.json (served truth; Matt comparison pending)"`; counts **628/37/665**) + `refit-candidate-1-coordinates.csv` (slim diff). Fail-loud guards: refuses to write any served artifact path; depth_sum must equal v1.3 exact.
+
+### R5 — comparison report (THE decision surface)
+`atlas/refit-candidate-1-comparison-report.md` — numbers only (gandalf synthesizes). Headlines: **plane (dim1×dim2) Procrustes congruence 0.468** (RMS displacement **19.94% of plane diameter** on the 469 shared actives — the 2D plane moved substantially) BUT **full 14-dim congruence 0.860** (the high-dim structure is far more preserved than the plane); axis-identity correlations E1-dim1↔refit-dim1=0.64 with off-diagonals ~−0.40 (axes rotated/mixed); 6 gateA centroid shifts (WHIRLWIND 33% / CHANNELED-BEAM 31% highest, TRAP-MINE 5.6% lowest); LA landings (6 Destroyer skill-grain w/ 5 nearest neighbors each — the recon's "4" was an estimate; 56 class-grain centroid (−1.24,−0.19) spread 8.6%); the 10 pull kits mean pairwise 12.6% of diameter, 23.8th percentile of a random-10 null (modestly cohesive); fuse-table delta (geometry=aura un-fuses; pull absent from E1's 469 vocabulary now earns a column); gates old-vs-new; ghost-field deltas.
+
+### ADR compliance
+- **ADR-004:** this entry. No engine-telemetry change; star-lord-side MIGRATION.md unaffected. All work is collab-side curation (elrond research tree). Read-only on every served artifact — **git status confirms zero modification** to atlas.json / atlas-edition2.json / atlas-edition3.json / atlas-coordinates-*.csv / atlas-loadings.csv / atlas-frozen-fit-cellkeys-edition1.csv / 2026-07-14-gate-report.md.
+- **Reversibility:** the refit is fully reproducible from version-controlled scripts + the fit-cellkeys snapshot; R0 preserves original long forms in this log + the migration script (idempotent); corpus.db backup is a local safety net (gitignored — scripts+logs guarantee rebuild).
+- **Naming discipline:** "Edition IV"/"edition4" appears in NO code/artifact/stamp/log. If Matt adopts after comparison, adoption ratifies Refit-Candidate-1 as Edition IV by Matt's authority (separately scoped; §7 sim-falsification waiver recorded at that time per gandalf's spec).
+- Auto-committed per project discipline (Matt-authorized Tier-3 comparison work). Push deferred to KR's gate.
+
+---
+
 ## edition-3-2026-07-15 — EDITION III: pull-7 re-insertion + Lost Ark 58 curation + register v1.3 + Edition-III emission (ONE BATCH) — 2026-07-15 — **LANDED (awaiting Matt freeze-ratify)**
 
 ### What changed (one line)
