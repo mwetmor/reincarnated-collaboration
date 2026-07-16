@@ -255,3 +255,65 @@ Centroids computed over each group's LABELLED kits. E1 = E1's served raw plane; 
 ---
 
 **Provenance:** all numbers computed by `refit_candidate_1_comparison_2026_07_16.py` from `atlas-coordinates-active.csv` (Edition-I frozen, 469), `refit-candidate-1-coordinates-active.csv` (refit, 628), `atlas-refit-candidate-1.json`, `atlas-edition3.json`, and `refit-candidate-1-basis-draft.json`. Gate values quoted from the respective gate reports. Edition III and every served artifact were READ-ONLY throughout.
+
+---
+
+## §11 — Interpretation + the adoption fork (gandalf closes the package — ELICITOR: options + tradeoffs + lean stated; **Matt rules**)
+
+*Everything above this section is numbers (elrond). Everything below is synthesis (gandalf). Where a number is cited, the section that computed it is named.*
+
+### 11.1 What is actually being decided
+
+Not "which plate looks better." The fork is: **does the served fit track the corpus, and on what terms?** Edition III fits the 469-active corpus frozen at Edition I; the corpus is now 628 actives. The 159 new: **94 mcd gear-grain + 62 Last Ark (56 class-grain + 6 Destroyer skill-grain) + 3 pull re-keys d3/di/d4** (§8 census note; corpus.db-derived, 0 dropped). The lattice is byte-identical both sides (depth Σ 767,411,820). Only the FIT moved — so every difference on the candidate plate is exactly one of: (a) orientation convention, (b) new citizens, (c) genuine rearrangement of shared citizens.
+
+### 11.2 Two effects, decomposed (why the plates are comparable at all)
+
+- **(a) is removed by construction.** The refit plane came out rotated −117.35° + reflected vs Edition-I orientation (§2; raw same-index corr 0.045). The Q-alignment (in-plane orthogonal Procrustes, no scaling/translation — RATIFIED Matt 2026-07-16) strips the maximal convention-attributable difference and is disclosed on-plate. What remains after Q is **irreducible real change**.
+- **(b)+(c) quantified:** plane congruence **0.468** vs full-14-dim congruence **0.860** (§1). Read together: *the deep structure mostly held; the 2-D camera angle and the passenger manifest changed.* Corroboration: P-DF-1 — the drill-in doctrine's falsifiable east-frontier prediction — **passes in both frames** (refit S 1.908 > K 1.155, n=13; E3 S 2.841 > K 1.874, n=14). The frontier direction is fit-stable.
+- **Disclosed caveat:** aligned dim2 tracks E1's dim2 only weakly (+0.269 vs cross-term −0.400, §2) because the refit's dims 2/3 are a near-tie (3.749% vs 3.70%, §3) — **eigen-fragility**. The candidate's N–S reading is softer than E1's was. Adoption inherits that.
+
+### 11.3 The honesty ledger (what the refit fixes)
+
+Edition III, as served, renders a corpus that no longer exists: (1) **159 real corpus rows appear nowhere on it** — the refit plots every stage-admitted row; (2) **pull=10 survives FUSE_MIN natively; delivery-melee=31 is a real column** (§5, §6) — E3 carries both as bolted-on honest-coordinate glosses; (3) **aura un-fuses** — a 13th promoted geometry level at drill-in grain (§6); (4) **self-consistency** — census, frontier, hulls, drill-in all re-derive from the refit's own fit. Where a carried census ledger silently violated that (`off_plane_corpus`), the verify gate caught it, the honest re-derivation landed (§8 census note), and the three-class fact rule (atlas MIGRATION) + standing asserts at both emission and render seams now pin the class.
+
+### 11.4 The contamination ledger (what adoption would ratify) — including the Gate-C ruling §7 assigns
+
+1. **The refit does not clear the Edition-I freeze bar on its own gate profile** (§7): A **FAIL** (ARI 0.451 vs E1's 0.668 — group-recovery floor broken) · B **FAIL, worsened within FAIL** (intrinsic-red k 5→12: the 37 negatives are unchanged, but more of them project *cleanly* into the 17-dim refit space — Finding F-1, "kit death is not geography," erodes further) · C **not clean** (ruled below) · D **PASS, tighter than E1** (2.26% vs 3.60%). Stability is not the problem; **identity is.**
+2. **Gate-C ruling (gandalf, as §7 assigns):** R² doubled (0.0757→0.1683) AND PERMDISP went significant (p=0.004 — dispersion heterogeneity), so R² is no longer self-interpreting as a pure location effect: part of the franchise signal may be "new franchises spread differently" rather than "new franchises sit elsewhere." **Ruled: C = NOT CLEAN for adoption purposes under either reading** — location effect and dispersion effect BOTH trace to the same root, the grain composition: gear-grain rows condense tight (the mcd southeast cluster is visible on the plate), class-grain rows spread wide. Whether franchise identity structures the map's positions or its variances, it now structures the map.
+3. **The root — grain:** 150/159 (94.3%) of the corpus growth is grain-questionable (94 gear-grain + 56 class-grain; the clean 9 are the 6 Destroyer skill-grain rows ≈ kit grain + 3 pull re-keys). The refit is a *faithful fit of a corpus whose grain ruling was never made*. Gate degradation is the statistical shadow of exactly that.
+4. **The grain ruling is now exercised-but-open.** E1-era deferred the mcd ruling; the refit's stage predicate admitted all 94 mechanically; the emission discloses this on-plate (`off_plane_corpus.disclosure`). Adopting the candidate as-is would **launder an unmade ruling into served truth.**
+
+### 11.5 The entanglement (the load-bearing insight)
+
+The adoption fork is two questions wearing one coat. **Q-grain (upstream):** are gear-grain mcd rows and class-grain LA rows legitimate atlas citizens at kit grain — admit, exclude, or re-grain (decompose LA classes toward kit grain; roll mcd gear-skills up)? **Q-fit (downstream):** should the served fit refresh to the current corpus? Q-fit cannot be answered ahead of Q-grain: if the ruling re-grains or excludes, the 628-corpus is not the corpus, and this candidate is a fit of an intermediate state — adopting it buys a second refit and a second serving cutover. If the ruling admits as-is, the gate degradation stops being "contamination" and becomes **the true shape of the grown domain** — and E3 becomes a nostalgic map of a smaller world.
+
+**Genre precedent:** this is the Diablo III auction-house lesson and PoE's league-to-core ratification discipline in miniature. D3 served an undecided economy ruling and had to amputate served truth later, at full price. GGG gates league mechanics through explicit ratification into core precisely so the served game never embodies a ruling nobody made. When an unresolved content ruling leaks into the served surface, unwinding it costs more than deciding it up front ever would.
+
+### 11.6 The fork, decision-shaped (**Matt rules**)
+
+**Option 1 — ADOPT as Edition IV now.** Honest to corpus-as-is; every admitted row on-plane; pull/melee/aura native. Requires: §7 sim-falsification WAIVER (E1 froze with sim evidence; the candidate has none), display-name map, serving cutover, glance re-vendor. Cost: a gate profile below the E1 freeze bar becomes the served baseline; the franchise-shadowed geography is what design reads; the grain ruling gets made implicitly, by default.
+
+**Option 2 — KEEP E3 SERVED · RULE GRAIN · REFIT ONCE (gandalf's lean).** The candidate's highest value is as the **grain ruling's evidence exhibit**, not as Edition IV. It is the empirical demonstration of what admission does to the map — gate profile below the freeze bar, franchise effect, density 3.1 vs 2.3 pts/u² — which is precisely the substrate evidence the ruling needs (substrate-led discipline: recognize → validate against substrate evidence → commit; the candidate IS the validation instrument). Sequence: Matt rules mcd grain + LA grain → corpus re-staged per ruling → ONE refit on the ruled corpus → that candidate faces adoption with clean provenance AND a planned sim-falsification pass, so Edition IV needs no waiver. Cost: E3 stays stale a while longer (mitigable with one honest "corpus has grown; refit pending grain ruling" gloss on the served plate); a second refit's compute is trivial.
+
+**Option 3 — ADOPT NOW, RULE LATER.** Staleness is the worse sin; serve the honest-to-corpus map today, correct grain in a v-next. Risk: TWO serving cutovers (E3→E4→E4′), and in the interim every downstream consumer calibrates against the franchise-shadowed geography. Unwinding served truth is costlier than never serving the undecided.
+
+**Lean: Option 2.** One sentence of why: **adoption should ratify a ruling, not substitute for one.** Flip condition: if Matt rules Q-grain = "admit as-is," the candidate already IS the fit of the ruled corpus, the gate profile is the domain's true shape rather than contamination, and re-deriving would be ceremony — adopt (with the §7 waiver explicit, or a fast sim-falsification pass to retire it).
+
+**Standing-directive note:** *"run the full Tier 3 with Last Ark and Pull/Gravity"* is SATISFIED by this experiment — LA + pull/gravity are in the candidate. The directive ordered the comparison; it did not pre-decide adoption or grain. At the grain ruling, the live LA question is narrower than in/out: class-grain rows as-is vs decomposed toward kit grain.
+
+### 11.7 If adoption fires (Option 1 or 3) — mechanical checklist
+
+§7 waiver recorded in decisions-log · display-name map (Refit-Candidate-1 → Edition IV) · serving cutover + glance re-vendor (separate wave, gandalf's verify gate) · eigen-fragility caveat (11.2) carried into the Edition-IV banner · MELEE v1.4 register gap remains Matt-gated (unchanged by adoption) · any hull-law refinement (alpha-shape / occupancy gloss) lands on BOTH plates or neither.
+
+### 11.8 Render CHANGED-observations, dispositions (closes galadriel's demoted-smoke table)
+
+| Observation | Disposition |
+|---|---|
+| mcd- emission tension | **RESOLVED — emission defect** (stale E3 `off_plane_corpus` carryover; honest 26 + grain-admission disclosure emitted; three-class fact rule in MIGRATION; standing asserts both seams) |
+| density 3.1 vs 2.3 pts/u² | **REAL** — 159 new actives; dense-clustered, not wide-ranging (charted hull −24%; r50 0.502 vs 0.656) |
+| meso-beyond profile NEUTRAL:10+WW:3 (was WW:10+CB:3+N:1) | **REAL** — frontier composition shift; NE overshoot all-LA; charted-hull beyond-N = 0 (§10); drill-in expansion NOT NEEDED |
+| 1 lit cell outside points frame | **DISCLOSED BY DESIGN** — points-only bounds law; clip line renders 287 = 1 lit + 286 unlit; the cell (x=−1.658) sits west of live mass |
+
+---
+
+**Signed:** gandalf — the map serves the ruling; the ruling does not hide inside the map.
