@@ -98,12 +98,28 @@ export default function App() {
     return <div className="p-8 text-slate-500">Loading canon…</div>;
   }
 
+  // D7-a (Matt 2026-07-16 live-PRD width report): the /atlas route goes FLUID — the
+  // ported Build-Horizon instrument is internally fluid (D1-f) but the glance HOST
+  // clamped every page at max-w-5xl (≈50% of Matt's monitor). This is ROUTE-CONDITIONAL:
+  // /atlas fills the browser width (with sensible gutters); EVERY OTHER page keeps
+  // max-w-5xl exactly as before. The clamp only binds ≥1024px, so 375/mobile is
+  // unchanged. Scope: this one route (the D1-f law is route-scoped).
+  const isAtlas = route.kind === 'page' && route.page === 'atlas';
+
   return (
     <div className="min-h-full">
       {/* the global header strip + five-tab nav ride on EVERY page (§7.4.1 — the
-          one-screen glance survives the split). */}
-      <HeaderStrip state={state} route={route} />
-      <main className="mx-auto max-w-5xl px-3 pb-24 pt-4 sm:px-4">
+          one-screen glance survives the split). D7-a: the header band tracks the same
+          route-conditional width so /atlas reads as ONE full-width surface (header edges
+          align with the fluid content edges). */}
+      <HeaderStrip state={state} route={route} fluid={isAtlas} />
+      <main
+        className={
+          isAtlas
+            ? 'mx-auto w-full px-3 pb-24 pt-4 sm:px-4'
+            : 'mx-auto max-w-5xl px-3 pb-24 pt-4 sm:px-4'
+        }
+      >
         {route.kind === 'landing' ? (
           <Landing state={state} watermark={watermark} />
         ) : (
@@ -119,7 +135,7 @@ export default function App() {
 // Global header strip — the your-move number + counters + five-tab nav + the
 // surface-ledger drawer. Present on landing AND every domain page (§7.4.1).
 // ---------------------------------------------------------------------------
-function HeaderStrip({ state, route }: { state: State; route: Route }) {
+function HeaderStrip({ state, route, fluid = false }: { state: State; route: Route; fluid?: boolean }) {
   const [ledgerOpen, setLedgerOpen] = useState(false);
   const openDecisions = state.matt_decision_needed.filter((x) => !x.resolved);
   const openTodos = state.matt_to_do.filter((x) => !x.resolved);
@@ -129,8 +145,12 @@ function HeaderStrip({ state, route }: { state: State; route: Route }) {
   const activePage = route.kind === 'page' ? route.page : null;
 
   return (
+    // The <header> band (border + bg) ALWAYS spans full width; only the inner content
+    // container is width-managed. D7-a: on /atlas the inner container goes fluid too so
+    // the header content edges align with the fluid atlas content below (one surface);
+    // every other page keeps the centered max-w-5xl inner container unchanged.
     <header className="sticky top-0 z-20 border-b border-slate-800 bg-slate-950/95 backdrop-blur">
-      <div className="mx-auto max-w-5xl px-3 py-2 sm:px-4">
+      <div className={fluid ? 'mx-auto w-full px-3 py-2 sm:px-4' : 'mx-auto max-w-5xl px-3 py-2 sm:px-4'}>
         {/* title row */}
         <div className="flex items-center justify-between">
           <button onClick={() => go(null)} className="flex items-baseline gap-2 text-left">

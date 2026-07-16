@@ -16,6 +16,7 @@ import { describe, it, expect } from 'vitest';
 import {
   makeFilterPredicate,
   familyOptions,
+  gameOptions,
   countShown,
   filtersAreDefault,
   DEFAULT_FILTERS,
@@ -64,11 +65,15 @@ function ghost(partial: Partial<AtlasGhostRow>): AtlasGhostRow {
  *   - ghost          WN (x- y+)
  *   - ghost          WS (x- y-)
  */
+// D7-b: `game` slugs added so the SOURCE GAME predicate + gameOptions are covered.
+// d2 carries TWO live kits (single + aura) so a game filter can keep >1; poe1 is a
+// single live kit; d3 is carried by the GRAVEYARD kit ONLY — proving SOURCE GAME binds
+// live AND graveyard (it is NOT live-only like Family).
 const KITS: AtlasKitRow[] = [
-  kit({ kit_id: 'live-single-EN', cls: 'live', condensation: null, x: 5, y: 5 }),
-  kit({ kit_id: 'live-whirl-WS', cls: 'live', condensation: 'WHIRLWIND', x: -3, y: -2 }),
-  kit({ kit_id: 'live-aura-EN', cls: 'live', condensation: 'AURA', x: 4, y: 6 }),
-  kit({ kit_id: 'grave-ES', cls: 'graveyard', death_class: 'intrinsic-red', x: 2, y: -7 }),
+  kit({ kit_id: 'live-single-EN', cls: 'live', condensation: null, x: 5, y: 5, game: 'd2' }),
+  kit({ kit_id: 'live-whirl-WS', cls: 'live', condensation: 'WHIRLWIND', x: -3, y: -2, game: 'poe1' }),
+  kit({ kit_id: 'live-aura-EN', cls: 'live', condensation: 'AURA', x: 4, y: 6, game: 'd2' }),
+  kit({ kit_id: 'grave-ES', cls: 'graveyard', death_class: 'intrinsic-red', x: 2, y: -7, game: 'd3' }),
 ];
 const GHOSTS: AtlasGhostRow[] = [
   ghost({ x: 1, y: 1 }), // EN
@@ -152,6 +157,56 @@ describe('D3-a NON-APPLICABLE-FAILS composition law (spec §9.3)', () => {
   });
 });
 
+describe('D7-b SOURCE GAME predicate — matches by slug, kits only (spec §D7-b)', () => {
+  it('game=d2 ⇒ the 2 d2 builds (single + aura), 0 ghosts (ghosts have no game)', () => {
+    const r = apply({ ...DEFAULT_FILTERS, game: 'd2' });
+    expect(countShown(r)).toEqual({ builds: 2, ghosts: 0 });
+    const ids = r.map((it) => (it as { row: AtlasKitRow }).row.kit_id);
+    expect(ids).toEqual(['live-single-EN', 'live-aura-EN']);
+  });
+  it('game=poe1 ⇒ exactly the 1 poe1 build (whirl)', () => {
+    const r = apply({ ...DEFAULT_FILTERS, game: 'poe1' });
+    expect(countShown(r)).toEqual({ builds: 1, ghosts: 0 });
+    expect(r[0].kind === 'kit' && r[0].row.kit_id).toBe('live-whirl-WS');
+  });
+  it('game binds GRAVEYARD too (NOT live-only like Family): game=d3 ⇒ the 1 graveyard kit', () => {
+    const r = apply({ ...DEFAULT_FILTERS, game: 'd3' });
+    expect(countShown(r)).toEqual({ builds: 1, ghosts: 0 });
+    expect(r[0].kind === 'kit' && r[0].row.kit_id).toBe('grave-ES');
+  });
+  it('a game with no rows ⇒ zero results (honest empty)', () => {
+    expect(apply({ ...DEFAULT_FILTERS, game: 'nonexistent-slug' })).toHaveLength(0);
+  });
+  it('INERT with ENTITY=Ghosts: any non-All game drops ALL ghosts (they carry no game)', () => {
+    // Every non-All game setting fails ghosts; combined with Entity=Ghosts → empty.
+    for (const g of ['d2', 'poe1', 'd3']) {
+      const r = apply({ ...DEFAULT_FILTERS, entity: 'ghosts', game: g });
+      expect(r).toHaveLength(0);
+    }
+    // And game='all' + Entity=Ghosts is the ordinary all-ghosts case (slicer inert).
+    expect(countShown(apply({ ...DEFAULT_FILTERS, entity: 'ghosts', game: 'all' }))).toEqual({
+      builds: 0,
+      ghosts: 3,
+    });
+  });
+  it('composes AND with other controls: game=d2 AND Axis-Y=LAUNCH·N ⇒ both d2 builds (both north)', () => {
+    expect(countShown(apply({ ...DEFAULT_FILTERS, game: 'd2', axisY: 'north' }))).toEqual({
+      builds: 2,
+      ghosts: 0,
+    });
+    // game=d2 AND Family=AURA ⇒ only the aura d2 build (single is d2 but not AURA).
+    const r = apply({ ...DEFAULT_FILTERS, game: 'd2', family: 'AURA' });
+    expect(countShown(r)).toEqual({ builds: 1, ghosts: 0 });
+    expect(r[0].kind === 'kit' && r[0].row.kit_id).toBe('live-aura-EN');
+    // game=poe1 AND Axis-Y=LAUNCH·N ⇒ 0 (the poe1 whirl build is south).
+    expect(apply({ ...DEFAULT_FILTERS, game: 'poe1', axisY: 'north' })).toHaveLength(0);
+  });
+  it('any non-All game makes filtersAreDefault false', () => {
+    expect(filtersAreDefault({ ...DEFAULT_FILTERS, game: 'd2' })).toBe(false);
+    expect(filtersAreDefault({ ...DEFAULT_FILTERS, game: 'all' })).toBe(true);
+  });
+});
+
 describe('D3-a AND composition — combined-filter spot checks (hand-counted)', () => {
   it('Axis-X=PERFORM·E AND Entity=Builds: single,aura,grave (x>=0 builds) = 3', () => {
     const r = apply({ ...DEFAULT_FILTERS, axisX: 'east', entity: 'builds' });
@@ -188,6 +243,33 @@ describe('D3-a familyOptions — enumerated from the data (spec §9.3)', () => {
       kits: [kit({ cls: 'graveyard', condensation: 'DEAD-FAM', death_class: 'x' })],
     } as unknown as AtlasInteractiveData;
     expect(familyOptions(data)).toEqual([]);
+  });
+});
+
+describe('D7-b gameOptions — enumerated from data, display via displayGame, sorted (spec §D7-b)', () => {
+  it('distinct game slugs (live + graveyard), display names + counts, sorted by display', () => {
+    const data = { kits: KITS } as unknown as AtlasInteractiveData;
+    // Slugs present: d2 (x2: single+aura), poe1 (x1), d3 (x1, graveyard). Display names via
+    // displayGame (first-char upper): D2, D3, Poe1. Sorted by display: D2, D3, Poe1.
+    expect(gameOptions(data)).toEqual([
+      { slug: 'd2', display: 'D2', count: 2 },
+      { slug: 'd3', display: 'D3', count: 1 },
+      { slug: 'poe1', display: 'Poe1', count: 1 },
+    ]);
+  });
+
+  it('a null/empty game is skipped (no invented slug)', () => {
+    const data = {
+      kits: [kit({ game: null }), kit({ game: '' }), kit({ game: 'gd' })],
+    } as unknown as AtlasInteractiveData;
+    expect(gameOptions(data)).toEqual([{ slug: 'gd', display: 'Gd', count: 1 }]);
+  });
+
+  it('display names come from the SAME formatter the leaf rows use (no second mapping)', () => {
+    // gameOptions must NOT fabricate 'poe1'->'Path of Exile'; it title-cases only, exactly
+    // like buildProvenanceName's game tail. This guards against a divergent second mapping.
+    const data = { kits: [kit({ game: 'poe1' })] } as unknown as AtlasInteractiveData;
+    expect(gameOptions(data)[0].display).toBe('Poe1');
   });
 });
 

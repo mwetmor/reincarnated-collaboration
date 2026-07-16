@@ -26,6 +26,7 @@ import {
   leafSelectionKey,
   makeFilterPredicate,
   familyOptions,
+  gameOptions,
   countShown,
   filtersAreDefault,
   DEFAULT_FILTERS,
@@ -105,6 +106,12 @@ export function AtlasBuildTable({
   // Family control options — ENUMERATED FROM THE DATA (distinct emitted condensations
   // among live kits, sorted); never a hand-typed list (§9.3 D3-a).
   const families = useMemo(() => familyOptions(data), [data]);
+
+  // SOURCE GAME control options (D7-b, Matt 2026-07-16) — ENUMERATED FROM THE DATA
+  // (distinct emitted `game` slugs among kits, display names via the SAME `displayGame`
+  // formatter the leaf rows use, sorted by display name, with per-slug counts); never a
+  // hand-typed list.
+  const games = useMemo(() => gameOptions(data), [data]);
 
   // Root items = all builds THEN all ghosts, each in emitted order (§9.3: builds first).
   const rootItems: PivotItem[] = useMemo(() => {
@@ -232,6 +239,30 @@ export function AtlasBuildTable({
             {families.map((fam) => (
               <option key={fam} value={fam}>
                 {fam}
+              </option>
+            ))}
+          </select>
+        </label>
+        {/* SOURCE GAME (D7-b, Matt 2026-07-16) — a dropdown (FAMILY precedent, cardinality
+            19). The filter VALUE is the raw slug; the LABEL is the display name via the same
+            displayGame formatter the leaf rows use (no second mapping). Count badges added
+            (drax judgment call: high-cardinality dropdown, per-game counts are free from the
+            enumeration and read as useful navigational signal). Composes AND with the other
+            controls; inert with ENTITY=Ghosts (ghosts carry no `game`). */}
+        <label className="flex items-center gap-1.5">
+          <span className="font-mono text-[10px] uppercase tracking-wider text-gray-500">
+            Source Game
+          </span>
+          <select
+            value={filters.game}
+            onChange={(e) => onFiltersChange({ ...filters, game: e.target.value })}
+            data-testid="atlas-filter-game"
+            className="rounded border border-gray-700 bg-gray-800/70 px-1.5 py-1 font-mono text-[11px] text-gray-200 hover:border-gray-500 focus:border-indigo-500 focus:outline-none"
+          >
+            <option value="all">All</option>
+            {games.map((g) => (
+              <option key={g.slug} value={g.slug}>
+                {g.display} ({g.count})
               </option>
             ))}
           </select>

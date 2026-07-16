@@ -85,6 +85,8 @@ export type EntityFilter = 'all' | 'builds' | 'ghosts';
 export type LivenessFilter = 'all' | 'live' | 'graveyard';
 /** 'all' | 'single' | a specific family name (enumerated from emitted condensations). */
 export type FamilyFilter = string;
+/** 'all' | a specific corpus game SLUG (enumerated from emitted `kits[].game`). D7-b. */
+export type GameFilter = string;
 
 export interface AtlasFilterState {
   axisX: AxisXFilter;
@@ -92,6 +94,8 @@ export interface AtlasFilterState {
   entity: EntityFilter;
   liveness: LivenessFilter;
   family: FamilyFilter;
+  /** D7-b (Matt 2026-07-16) SOURCE GAME: the row's corpus `game` slug, or 'all'. */
+  game: GameFilter;
 }
 
 /** The all-pass default (every control 'all'). */
@@ -101,6 +105,7 @@ export const DEFAULT_FILTERS: AtlasFilterState = {
   entity: 'all',
   liveness: 'all',
   family: 'all',
+  game: 'all',
 };
 
 /** True iff no filter is narrowing (used to short-circuit + drive the Clear button). */
@@ -110,7 +115,8 @@ export function filtersAreDefault(f: AtlasFilterState): boolean {
     f.axisY === 'all' &&
     f.entity === 'all' &&
     f.liveness === 'all' &&
-    f.family === 'all'
+    f.family === 'all' &&
+    f.game === 'all'
   );
 }
 
@@ -124,6 +130,39 @@ export function familyOptions(data: AtlasInteractiveData): string[] {
     if (k.cls === 'live' && k.condensation != null) set.add(k.condensation);
   }
   return [...set].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+}
+
+/** One SOURCE GAME dropdown option: the raw slug (filter value), its display name
+ *  (via the SAME `displayGame` formatter the leaf rows use — no second mapping), and
+ *  the row count carrying that slug. */
+export interface GameOption {
+  slug: string;
+  display: string;
+  count: number;
+}
+
+/**
+ * D7-b (Matt 2026-07-16): the SOURCE GAME control's options — ENUMERATED FROM THE
+ * DATA (distinct emitted `game` slugs among ALL kits: live + graveyard both carry a
+ * `game`; ghosts do not and are governed by the inert law in makeFilterPredicate).
+ * Never a hand-typed list. Display names come from `displayGame` — the SAME formatter
+ * `buildProvenanceName` (the leaf rows) uses, so the dropdown and the rows never drift.
+ * Sorted ALPHABETICAL BY DISPLAY NAME (spec §D7-b). A null/empty slug is skipped.
+ */
+export function gameOptions(data: AtlasInteractiveData): GameOption[] {
+  const counts = new Map<string, number>();
+  for (const k of data.kits) {
+    if (k.game == null || k.game === '') continue;
+    counts.set(k.game, (counts.get(k.game) ?? 0) + 1);
+  }
+  const out: GameOption[] = [];
+  for (const [slug, count] of counts) {
+    const display = displayGame(slug);
+    if (display == null) continue; // defensive; skipped-slug guard above already covers null
+    out.push({ slug, display, count });
+  }
+  out.sort((a, b) => a.display.localeCompare(b.display, undefined, { numeric: true }));
+  return out;
 }
 
 /**
@@ -158,6 +197,14 @@ export function makeFilterPredicate(f: AtlasFilterState): (item: PivotItem) => b
         // A specific family name.
         if (item.row.condensation !== f.family) return false;
       }
+    }
+    // SOURCE GAME (D7-b): applies to KITS (live AND graveyard both carry a `game`) —
+    // ghosts carry NO `game`, so a ghost FAILS any non-All game setting (this is the
+    // "inert with ENTITY=Ghosts" law: the slicer binds build-class rows only). Matches
+    // by raw SLUG (the filter value is the slug; the display name is only for the UI).
+    if (f.game !== 'all') {
+      if (item.kind !== 'kit') return false;
+      if (item.row.game !== f.game) return false;
     }
     return true;
   };

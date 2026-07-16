@@ -38,6 +38,27 @@
 !agentic_orchestration/gandalf/views/v1-plane/plane_view_v1_2_stratified.svg
 !agentic_orchestration/gandalf/views/v1-plane/plane_dots_v1_2.json
 
+# v1.12 RE-HOME (drax, Matt-ruled 2026-07-16 · surfaced by the D7 preview-deploy 2026-07-16):
+# the interactive Build-Horizon instrument now leads /atlas at EDITION III. Its build INPUTS
+# live OUTSIDE glance/ and MUST be un-ignored or the CLI/git deploy build fails at stage-assets
+# (the `*` above drops them; the local `npm run build` is unaffected — .vercelignore is inert
+# locally, which is why v1.12 verified green but the deploy could not see these files). Two seams:
+#   (1) galadriel's VERIFY-ACCEPTED Edition-III render (2 skins + provenance) — byte-copied
+#       onto /atlas by scripts/stage-assets.mjs (served UNMODIFIED).
+#   (2) the 7.5MB curated Edition-III emission — BUILD INPUT ONLY (never client-shipped) that
+#       scripts/atlas/build-atlas-interactive.mjs reads to derive the ~2MB slim JSON.
+# Un-ignore ONLY the exact files the build reads (the check-crops/*.png eyes-refs stay ignored).
+!agentic_orchestration/galadriel
+!agentic_orchestration/galadriel/captures
+!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3
+!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3/atlas-edition3-instrument.svg
+!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3/atlas-edition3-archive.svg
+!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3/render-provenance.json
+!agentic_orchestration/research
+!agentic_orchestration/research/curated
+!agentic_orchestration/research/curated/atlas
+!agentic_orchestration/research/curated/atlas/atlas-edition3.json
+
 # Within the two kept trees, still drop derived/heavy artifacts:
 glance/app/node_modules
 glance/app/dist
