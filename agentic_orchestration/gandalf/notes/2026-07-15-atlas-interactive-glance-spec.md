@@ -240,6 +240,26 @@ While any zoom/pan state is active, the page sets the `planeClip` rect to the cu
 
 ---
 
+## 9.5 D5 — the SCREEN BOX resizes to the mount geometry (Matt 2026-07-15 eighth message)
+
+**Authority (verbatim):** *"Ok the zoom is perfect, but the 'screen box' now needs to be resized to fit the current zoom."* The zoom (D4 fit mount) is RATIFIED; only the frame resizes.
+
+**Defect (ground-truthed on PRD by gandalf playwright probe before this cut):** D4 wrote viewBox + planeClip to the fit box (`-79.2367 -25.74 1884.0133 1413.01`) but left TWO frame elements at the emitted canvas geometry:
+1. **The canvas PLATE rect** — direct child of the svg, `x=0 y=0 w=1600 h=1200 fill=#0e1016`. The visible dark plate ends at the canvas edge while content renders past it on the page background (hull marks to x≈1725.5/y≈1363.3, pole-rail glosses, footer denominator strings — confirmed off-plate in the probe's corner crop). Asymmetric page-background bands sit inside the frame: left 79.24u · top 25.74u · right 204.78u · bottom 187.27u.
+2. **The svg element's width/height presentation attrs** (`1600`/`1200`) — the inlined svg renders at fixed 1600×1200 CSS px regardless of container (probe: rendered bbox w=1600 at a 1440px viewport → horizontal page overflow).
+
+- **D5-a Plate follows the mount box.** The §9.4 D4-a mount-time write EXTENDS to the canvas plate rect: same moment (initial mount + each skin flip), same derived fit box, x/y/w/h set alongside viewBox + planeClip. Identification is STRUCTURAL and fail-loud: *the direct-child `rect` of the svg whose width/height equal the parsed native canvas dims (already available as `bounds.native` from `deriveBounds`) and which carries a fill* — that is the plate. Zero candidates or >1 candidates → loud error (no guess, no fill-literal matching, no positional index). After the write: every mark/rail/dash/banner/footer sits ON the plate; plate edge == clip edge == frame edge — the screen box fits the current zoom.
+- **D5-b The svg element sizes to its container.** In the same write-set, the inlined svg's `width`/`height` presentation attrs are removed (CSS `w-full h-auto` block flow + the viewBox's 4:3 aspect govern rendered size — D4-b's page-flow model, now actually responsive). No fixed-px rendering; no horizontal page overflow at ANY viewport width. The FROZEN source SVGs stay byte-untouched — all writes are DOM-side at mount, exactly D4's mechanism.
+- **D5-c Law + tests.** §9.4 D4-c's "one mount-time configuration write" amends to **one mount-time configuration WRITE-SET** (viewBox · planeClip · plate rect · svg sizing) — still static after mount, still ZERO literals: the doctored-hull probe extends to the plate (enlarged hull vertex in the source → wider fit box → plate follows, zero code change). D3-a remains untouchable: zero diffs to `AtlasBuildTable.tsx` / filter model / column model.
+
+### Acceptance additions (D5)
+
+63. **plate==box:** DOM plate rect x/y/w/h == planeClip == viewBox == the derived fit box (receipt: the four attr sets + the structural-identification path); NO page-background band inside the frame; NO mark/rail/footer renders off-plate (corner-crop screenshot receipt); re-applied identically on skin flip.
+64. **no-fixed-px:** svg width/height attrs absent after mount; rendered width tracks the container with 4:3 held (receipts at 1440 / 1280 / 375 — zero horizontal page overflow at every width); both frozen SVG sha256 UNCHANGED.
+65. **supersession + no-regression:** §9.4 write-set comments/tests cite §9.5; doctored-hull probe extended to the plate; fail-loud plate-identification test present (ambiguous-candidate fixture RAISES); full suite green; table/filter/column files ABSENT from the diff; both wiring directions (halo + filter-reset drill + chart-region scrollIntoView) re-demonstrated on the resized frame.
+
+---
+
 ## Cross-references
 
 `2026-07-11-atlas-chart-renderer-spec.md` §§7–10 (render law; r7 amends presentation) · `atlas-edition2.json` ghost_field (core_order, drill_in, denominators) · tracker SESSION-DELTA -l (Edition-II audit) · Matt directive message 2026-07-15 (this package's authority).
