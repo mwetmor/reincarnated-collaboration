@@ -1,6 +1,8 @@
 # Q28 — IP-clearance gate: player-facing dev-log Atlas + primary hook
 
-**Surfaced:** gandalf (ARCHITECT/ELICITOR), 2026-07-13 · **Ruled by:** Matt · **Status:** RULED 2026-07-13 except one deliberately-PARKED residual (queue-sweep 2026-07-15: NOT STALE, NOT awaiting action now) — rulings 2/3/4 landed (two mandatory conditions RATIFIED · surgical-transposition scope RATIFIED · hook confirmed safe, kept); ruling 1 (prong-3 residual: risk-accept vs narrow counsel) **PARKED — blocks ONLY the Steam dev-log publish** (§ Scope boundary). Open deliverable: **gandalf owes the surgical-transposition token adjudication draft** (candidate high-distinctiveness tokens + keep/transpose call each) before that surface ships.
+**Surfaced:** gandalf (ARCHITECT/ELICITOR), 2026-07-13 · **Ruled by:** Matt · **Status:** RULED 2026-07-13 except one deliberately-PARKED residual — rulings 2/3/4 landed (two mandatory conditions RATIFIED · surgical-transposition scope RATIFIED · hook confirmed safe, kept); ruling 1 (prong-3 residual: risk-accept vs narrow counsel) **PARKED — blocks ONLY the Steam dev-log publish** (§ Scope boundary).
+
+> **🔒 PARKED-UNTIL-DEVLOG — DO NOT RE-ASK (Matt 2026-07-15, verbatim):** *"Leave this parked until I launch the devlog. Don't ask me about this again until I say I want to go live with the devlog."* **Re-open trigger = Matt states he wants the devlog live — nothing else re-opens this row.** No queue sweep surfaces it; no session brings it to him. The gandalf-owed **surgical-transposition token adjudication draft** (candidate high-distinctiveness tokens + keep/transpose call each) parks to the SAME trigger — authored when the trigger fires, before the surface ships.
 **Gates:** any *player-facing* publish of (a) the Atlas / dev-log with retained game titles, and (b) the primary store-page hook.
 
 ---
