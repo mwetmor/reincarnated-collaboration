@@ -190,6 +190,37 @@ While any zoom/pan state is active, the page sets the `planeClip` rect to the cu
 
 ---
 
+## 9.3 D3 UX pass — simple filters replace pivots · fixed zoom at derived S_max (Matt 2026-07-15 sixth message)
+
+**Authority (verbatim):** *"can you please change the pivots to simple filters? The table looks nice but the pivots are getting in the way."* + *"we should remove the zoom function and just have the zoom auto-set to the max zoom parameter available now. I like that zoom ratio, but the zoom functionality is awkward on the browser and the screen square doesn't work right, so just adjust to that level of zoom."*
+
+**Sequencing:** fires AFTER D2 verify + promotion (both done — PRD serves D2). Same files; single-variable UX pass. PREVIEW only; promotion by alias after gandalf verify, per standing law.
+
+**This pass SUPERSEDES:** §5's hierarchical-pivot interaction model (drag-reorder levels, progressive-disclosure tree, condensations-above-axes) and §8's v1 zoom interaction grammar (wheel/pinch/double-click zoom, drag-pan, ±/reset controls, clip-tracks-view runtime mutation). **This ruling is the spec-supersession authority for retiring their interaction tests.** What it does NOT touch: the D2 union leaf grid (Matt: "the table looks nice" — grouped header, grain tints, shared-5/meso-2/kit-9 law, `unknown` vs `—`, tooltips all stand verbatim), the legend + class-highlight CSS, selection summary, provenance panel, skin toggle, chart↔table wiring intent, and §8.2's BOUND DERIVATION (S_max stays load-bearing — see D3-b).
+
+- **D3-a Filters replace pivots.** The pivot apparatus retires from the page: `PivotLevelBar` (drag-reorder), the `PivotBranch`/`PivotRow` expansion tree, `buildDefaultLevels`/`PivotGrouper` grouping engine, Reset order / Collapse all. In its place: a **filter bar** — one simple control per STRUCTURAL dimension, exactly the five that were pivot levels:
+  1. **Axis-X pole** — All | `DEPLOY · W` | `PERFORM · E` (predicate: x sign; labels from the inversion-guarded `AXIS_POLES`, never retyped)
+  2. **Axis-Y pole** — All | `LAUNCH · N` | `EMBODY · S` (world-y sign; screen-y inversion already baked into emitted y)
+  3. **Entity** — All | Builds | Ghosts
+  4. **Liveness** — All | Live Builds | Graveyard
+  5. **Family** — All | Single | one entry per distinct `condensation` value ENUMERATED FROM THE EMITTED ROWS (sorted; never a hand-typed list)
+  **Composition law:** AND across controls; a row that a non-All filter does not apply to FAILS that filter (picking Graveyard shows graveyard builds only — ghosts drop; picking a Family shows that live family only). Default = All on every control. A result-count readout updates live (`N builds · M ghost cells shown`), and the zero-result state is HONEST: an empty-state line + one-click **Clear filters** (no fake rows, no silent fallback).
+  **The body becomes ONE flat table:** the SAME D2 union grid (LeafGridHeader + LeafRow + VirtualizedLeafList, untouched cell semantics) over the filtered items — builds first, then ghosts, each in emitted order (no invented ranking). The table heading drops the word "pivot" (community vocab: builds/ghost cells; exact string drax latitude). Dead grouping code + its tests are REMOVED with an in-repo supersession note citing this section (do not leave the engine orphaned); `AXIS_POLES`/`pivotPoleMapping` + the inversion guard + `buildProvenanceName`/`leafKey`/column model all SURVIVE (filters + grid consume them).
+- **D3-b Fixed zoom at the derived S_max; zoom UI removed.** All zoom interaction goes: `AtlasZoomControls`, wheel/pinch/double-click zoom, drag-pan gesture code, gesture-transform runtime, reset, and the clip-tracks-view runtime mutation (the "screen square" behavior Matt flagged). The chart mounts at a FIXED scale = **S_max, still DERIVED from the mounted artifact bytes at runtime** (`TARGET_D / (2 · r_min_selectable)` via `deriveBounds` on the fetched markup — §8.2's derivation law holds; **no hardcoded scale constant anywhere**; a doctored radius in the source shifts the mount scale with zero code change). At S_max every selection-wirable mark renders at ≥ TARGET_D by construction, so no ease-scale logic survives — table→chart becomes pan-only.
+  **Navigation = NATIVE browser scrolling.** The inlined SVG renders at (stage width × S_max) inside a bounded-height, `overflow-auto` two-axis scroll stage (stage height ≈ viewport-proportioned; drax latitude; `overscroll-behavior: contain`). The SVG's emitted `viewBox` + `planeClip` serve **VERBATIM and are never mutated at runtime** (byte-equal in DOM to the vendored artifact — stronger than §8.3's reset-restores-verbatim). `touch-action` restored to normal so touch/trackpad scroll the stage natively. Initial scroll position = plane-rect center. Highlight CSS + click delegation are unchanged (same inlined DOM, same hooks).
+  **Wiring under the new model:** table→chart row click = selection halo + `scrollTo` arithmetic centering the mark (canvas coords → rendered px; pure, testable). Chart→table mark click = selection + reveal the row in the flat table — **if the item fails the active filters, the filters RESET to All (deterministic), then scroll** (no silent non-reveal).
+
+### Acceptance additions (D3)
+
+54. **filters-replace-pivots:** level bar / drag-reorder / expansion tree GONE; five filter controls render with values enumerated from emitted data only (pole labels === `AXIS_POLES` receipts; Family options === distinct emitted `condensation` values + Single); AND composition demonstrated (≥3 combined-filter spot checks with hand-counted expected Ns); zero-result state + Clear filters demonstrated.
+55. **flat-table-keeps-D2-grid:** the filtered body is the SAME D2 union grid (shared-5/meso-2/kit-9 columns, grain tints, tooltips, `unknown` vs `—`) — acceptance 50–52 spot re-demonstrated on the flat surface; virtualization holds with All/All (11,666 rows) at ≥50fps.
+56. **wiring-survives:** table→chart click halos + centers the mark at fixed S; chart→table click reveals + scrolls the row, resetting filters to All first iff the item was filtered out; selection ring + aggregate-cells caption unchanged.
+57. **fixed-zoom-at-S_max:** zero zoom UI on the page (controls, wheel/pinch/dblclick zoom, drag-pan, reset); mount scale receipt in the return shows S_max derived at runtime from the artifact (`r_min_selectable` + formula), no scale literal in source; initial position = plane center.
+58. **native-scroll + verbatim-artifact:** the stage scrolls natively on both axes (wheel, trackpad, touch); DOM `viewBox` + `planeClip` byte-equal to the vendored SVG at all times (no runtime mutation); highlight + click delegation function while scrolled.
+59. **test-supersession + no-regression:** lens-INTERACTION + pivot-GROUPING tests retired citing §9.3 (this Matt ruling); bound-DERIVATION tests (`parseViewBox`/`parsePlaneClipRect`/`parseHullBbox`/`minSelectableRadius`/`deriveBounds`/S_max formula) + axis-inversion guard + sidecar-join + community-vocabulary + highlight tests KEPT green; full suite green; D1-d budgets hold (scroll-fps on the ~8× surface reported).
+
+---
+
 ## Cross-references
 
 `2026-07-11-atlas-chart-renderer-spec.md` §§7–10 (render law; r7 amends presentation) · `atlas-edition2.json` ghost_field (core_order, drill_in, denominators) · tracker SESSION-DELTA -l (Edition-II audit) · Matt directive message 2026-07-15 (this package's authority).
@@ -201,6 +232,8 @@ Tracker-delta (v1.1 zoom amendment): new gap — v1 zoom (§8) specced on Matt's
 Tracker-delta (v1.2 D1 amendment): new gaps — D1 defect pass specced (D1-a…D1-i: legend band, highlight-cost law, pivot memoization, budgets, axis-pole vocab, fluid width, ghost-axes-as-columns, build provenance names w/ corpus sidecar, community vocabulary builds/build-families) + two registered follow-ups (E2.2 plate-vocabulary relabel — galadriel; stabilization_patch back-fill 17/606 — elrond curation queue) → current-to-end-state-engine, SESSION-DELTA -s.
 
 Tracker-delta (naming ruling): closed decision — community-facing surface name RULED "Build Horizon" (Matt 2026-07-15); D2-d one-string title swap + E2.2 plate adoption → current-to-end-state-engine, SESSION-DELTA -s addendum.
+
+Tracker-delta (v1.4 D3 amendment): new gap — D3 UX pass specced on Matt's pivots→filters + fixed-zoom rulings (§9.3; supersedes §5 pivot interaction + §8 zoom grammar; D2 grid untouched), build fired to drax, PREVIEW-gated → current-to-end-state-engine, SESSION-DELTA -w.
 
 ---
 
