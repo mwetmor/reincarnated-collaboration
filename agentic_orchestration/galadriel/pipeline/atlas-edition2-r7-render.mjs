@@ -174,7 +174,7 @@ const ATLAS_PATH = resolve(__dirname, '../../research/curated/atlas/atlas-editio
 // EDITION II r7 RESTYLE + SEMANTIC-HOOKS PASS (spec 2026-07-15-atlas-interactive-glance-spec §§1-3,
 // §7 acc 29-31): output to the r7 capture dir. The E2.1 captures (2026-07-15-atlas-edition2-e21/)
 // are preserved UNTOUCHED as the FREEZE RECORD (r7's geometry-byte-freeze baseline, acceptance-29).
-const DEFAULT_OUT_DIR = resolve(__dirname, '../captures/2026-07-15-atlas-edition2-r7');
+const DEFAULT_OUT_DIR = resolve(__dirname, '../captures/2026-07-15-atlas-edition2-e22');
 // The Edition-I r6 SVGs — FIT-layer COORDINATE-regression baseline (points + tombstones geometry
 // byte-frozen; r7 whitelists fill + hook-attributes, so the FIT test compares coord+title tuples).
 const FIT_BASE_DIR = resolve(__dirname, '../captures/2026-07-15-atlas-edition1-r6-legibility');
@@ -1295,7 +1295,14 @@ function renderSVG(skinKey) {
   // CHART's own edition (editionTag = "II"); the basis edition is DEMOTED to an attribute. Every
   // locked substring survives VERBATIM; only the leading edition token + basis demotion change.
   P.push(`<g font-family="${s.fontStack}" fill="${s.ink}">`);
-  P.push(`<text x="${f2(M.left)}" y="42" font-size="26" font-weight="${s.titleWeight}" letter-spacing="0.5">The Atlas of Kits — ${esc(String(atlasVersion))}</text>`);
+  // E2.2 PLATE RELABEL (Matt 2026-07-15 ninth-message directive; interactive spec §9.6 D6-d): the
+  // chart title reads "Build Horizon — Edition II". Presentation-TEXT-ONLY on frozen data — the E2.1
+  // fix-pass class. The TITLE composes the human-form edition token "Edition ${editionTag}" ("Edition
+  // II", SPACE form, exactly as Matt typed) — NOT `atlasVersion` ("Edition-II", the hyphenated
+  // machine form), which is DEDICATED to the footer provenance strip (line ~1458) + JSON fields and
+  // stays UNTOUCHED. editionTag ("II") is the emitted ghost_field.edition — data-derived, never a
+  // renderer literal (§4c). Only the title STRING changes; geometry/positions/data byte-logic frozen.
+  P.push(`<text x="${f2(M.left)}" y="42" font-size="26" font-weight="${s.titleWeight}" letter-spacing="0.5">Build Horizon — Edition ${esc(String(editionTag))}</text>`);
   P.push(`<rect x="${f2(M.left)}" y="58" width="${f2(PW)}" height="30" rx="4" fill="${s.badgeBg}" stroke="${s.plaqueStroke}" stroke-width="1"/>`);
   P.push(`<text x="${f2(M.left + 12)}" y="78" font-size="13" fill="${s.badgeInk}" letter-spacing="0.3">${esc(riderStr)}</text>`);
   P.push(`<text x="${f2(M.left + 12)}" y="102" font-size="11" font-style="${s.glossStyle}" fill="${s.faint}" letter-spacing="0.2">${esc(DERIVATION_GLOSS)}</text>`);
