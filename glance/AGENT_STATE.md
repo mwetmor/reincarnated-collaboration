@@ -5,7 +5,26 @@
 > (glance lives here, not in loadout/demo). Contract:
 > `agentic_orchestration/operating-procedures/glance-contract-spec-2026-07-03.md`.
 
-## Current version — v1.12 (/atlas leads with the interactive Build-Horizon instrument @ Edition III)
+## Current version — v1.13 (D7: /atlas fluid width + SOURCE GAME slicer — LIVE on PRD)
+
+`/atlas` host clamp lifted route-conditionally (Matt live-PRD width report 2026-07-16): `<main>` +
+header-band inner container go `w-full` on `/atlas` ONLY; every other page keeps `max-w-5xl`
+(eyes-proof: engine page centered 1024 @ 2560). NEW SOURCE GAME slicer after FAMILY: options
+enumerated from `kits[].game` (19 games + All), display via the shared `displayGame` formatter
+(slug-caps, same as leaf rows), count badges `Display (N)`, AND-composition drives table + lens/halo,
+ghost-inert (D2+Ghosts → 0 builds + empty state). D7-c: d6 probe hardened per spec §9.7 (canvas-label
++ aria-pressed selection; plate-fill wait-for-CHANGE fail-loud) + matrix extended to 2560+1920 —
+acc-67-v2 PASS 10/10 surfaces (occ=0). `.vercelignore` un-ignores the 4 Edition-III build inputs
+(v1.12 latent break — remote/CLI builds failed at stage-assets; prebuilt promotions had masked it).
+Suite 98→108. Build drax `3b4069cf`; brief `2026-07-16-drax-d7-fluid-width-source-game-slicer-brief.md`.
+**PROMOTED 2026-07-16 (gandalf verify ACCEPT → gandalf two-deploy per standing chain):** deployment
+`reincarnated-glance-82io0kvew` READY/production, auto-aliased; alias serves `index-DDGMWJxn.js`
+(byte-same as verified local build); post-promotion PRD smoke @2560: main 2545/2560 fluid, game select
+20 options, occlusion 0, no overflow, Edition-III subtitle. Closure record: spec §9.8. Design note
+parked for Matt: full display-name map ("Grim Dawn" vs "Gd") = shared-formatter upgrade touching
+rows + dropdown together.
+
+## Prior version — v1.12 (/atlas leads with the interactive Build-Horizon instrument @ Edition III)
 
 Nine pages unchanged. `/atlas` reconverged: the interactive Build-Horizon package (the loadout
 D1–D6 chain) PORTED into `glance/app` and now LEADS `/atlas` at Edition III; the loadout `/atlas`

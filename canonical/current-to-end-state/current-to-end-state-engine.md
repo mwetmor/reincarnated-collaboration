@@ -33,6 +33,19 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-16-b (D7 VERIFIED + PROMOTED — `/atlas` fluid width + SOURCE GAME slicer LIVE on PRD · §9.7 probe-hardening owed-row CLOSED · v1.12 `.vercelignore` latent break caught + fixed)
+
+- **D7 (Matt's live-PRD report) VERIFIED + PROMOTED.** drax `3b4069cf` (6 files, +331/−29); gandalf verify ACCEPT — independent re-derivation at every layer: tsc clean + **108/108** re-run (was 98; +10 slicer tests incl. inert-with-Ghosts + graveyard-binding), build re-run byte-matches drax's preview (`index-DDGMWJxn.js`), hardened probe re-run **acc-67-v2 PASS 10/10 surfaces** (2560/1920/1440/1280/375 × dark+light, occ=0/135, real flips `#0e1016→#f7f8fa` at every width, zero overflow), eyes (2560 fluid full-page · engine-page clamp held at 1024 · slicer receipts), live-DOM slicer probe (20 options w/ `Display (N)`; **D2→59 builds**; D2+Ghosts→"0 builds · 0 ghost cells" + empty state).
+- **D7-a:** host `<main>` route-conditional — `/atlas` `w-full`, all other pages keep `max-w-5xl`; header band tracks the same width (**one full-width surface** — drax judgment ACCEPTED over centered-narrow-under-fluid). Mobile/375 unchanged.
+- **D7-b:** SOURCE GAME dropdown after FAMILY — options enumerated from `kits[].game` (never hand-typed), display via the SAME `displayGame` formatter the rows use (one-formatter law; emits slug-caps "D2/Gd/Poe1" — full-name upgrade = shared-formatter enhancement, Matt's call, queued as design note), count badges (deliberate divergence from FAMILY at cardinality 19), AND-composition drives table + lens/halo, ghost-inert law implemented + tested + live-verified.
+- **D7-c:** §9.7's owed probe hardening **CLOSED** — canvas-label + `aria-pressed` selection (case-sensitive `Light`; `\bLight\b` fails on "Lightinstrument"), plate-fill wait-for-CHANGE w/ fail-loud timeout; matrix extended to 2560+1920.
+- **Latent-break catch (v1.12 miss, mine to own):** `.vercelignore` never un-ignored the Edition-III build inputs — my rsync+prebuilt promotion bypassed the remote build and masked it; any git-integration/CLI build would have failed at stage-assets. drax fixed minimal (4 files + parents; check-crops stay ignored). ACCEPTED as in-seam deploy config.
+- **PRD receipts:** `reincarnated-glance-82io0kvew` auto-aliased; alias serves `index-DDGMWJxn.js`; post-promotion PRD smoke @2560: main 2545/2560 (fluid), game select 20 options, occlusion 0, Edition-III subtitle, no overflow. Spec §9.8 is the closure record.
+- **Probe-technique note:** two buttons carry exact text "Ghosts" (ENTITY pill + legend row) — my first ghost-inert probe clicked the legend and silently no-op'd; entity-filter probes must scope to the filter bar (recorded §9.8).
+- Residues: batch-push list grows (collab now through D7 closure commits; loadout `b5d0a3d`; engine `c4e7ba4`) · elrond `corpus_bucket` normalization unchanged · display-name-map upgrade parked as Matt-optional.
+
+**Signed:** gandalf, 2026-07-16-b.
+
 ### 2026-07-16-a (EDITION III LIVE ON PRD — ratified · rendered · re-homed to glance `/atlas` · loadout `/atlas` retired to redirect · Matt END-STATE declaration captured (game tracker) · D7 fix-pass fired: host fluid-width + source-game slicer)
 
 - **E2.3 rail arrows VERIFIED (un-rotate technique) → Edition-III render VERIFIED → Matt RATIFIED Edition III** (*"Agreed. Ratify Edition III"*). galadriel new head `atlas-edition3-render.mjs` (`f3b823c7`): FIT layer independently re-asserted BYTE-FROZEN (basis+506 points ≡ Edition-II, my own data-level compare), census overlay re-emitted (corpus **709** · occupied meso **202** · pull-lit **4** · denominators BYTE-IDENTICAL 767,411,820 / 11,160 / 1,314 / 1,080+54 · register v1.3), lit-fraction smoke honestly RE-DERIVED (1.7→1.8%), anti-stale greps clean. Shas: instrument `77c9baf5…` · archive `8c94ee05…`. Eyes: plate **Build Horizon — Edition III**, footer stamp, un-rotated rail crops, new ROOTED/ZONE pull cells.
