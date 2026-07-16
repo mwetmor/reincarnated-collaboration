@@ -260,6 +260,26 @@ While any zoom/pan state is active, the page sets the `planeClip` rect to the cu
 
 ---
 
+## 9.6 D6 — the FRAME rect joins the write-set · legend INTO the box · subtitle de-dupe · E2.2 relabel re-vendor (Matt 2026-07-15 ninth message)
+
+**Authority (verbatim):** *"I don't think Drax's changes have reached PRD yet as I still see the box is too small on the Atlas. Also, I have a couple of other alterations to fold in for Drax. The legend needs to be moved into the Atlas box (not above the Atlas itself). Also, the Atlas' name should be Build Horizon - Edition II (not Atlas of Kits). And in the top-left under Build Horizon, it says Edition-Edition-II but we should remove one of the 'Edition' words as it is redundant."*
+
+**Ground truth (gandalf PRD probe `tmp-loadout-atlas-prd-eyescheck.mjs`, cache-busted fresh context, before this cut):** D5 **IS on PRD** — bundle `index-ylVnWeU_.js`; plate rect == viewBox == fit box `-79.2367 -25.74 1884.0133 1413.01`; svg w/h attrs absent. The deploy reached production; the reported gap is a **spec-cut miss, not a deploy miss**. Matt's "box" is the remaining frame element §9.5 explicitly recorded as inside-artifact/untouched: the **decorative FRAME rect** (direct child, `x=96 y=132 w=1408 h=972 fill="none" stroke #3a3d33`) — the drawn plot-area boundary the eye reads as "the screen box." Under the D4 full-horizon mount, hull/ghost content renders outside it by design, so the drawn box no longer contains the chart. §9.5's plate-only reading of "screen box" was wrong against Matt's referent; D6-a corrects it.
+
+- **D6-a The FRAME rect joins the mount write-set.** Same moment (initial mount + each skin flip), same derived fit box: the frame rect's x/y/w/h are set to the **fit box inset by 12 canvas units** on all sides (the stroke stays fully on-plate and reads as a boundary, not an edge-clip). Identification is STRUCTURAL + fail-loud — the exact complement of D5-a's plate law: *the direct-child `rect` of the svg with `fill="none"` and a stroke present*; 0 or >1 candidates → loud error (no stroke-literal matching, no positional index). Write-set is now **viewBox · planeClip · plate · svg-sizing · frame**. The doctored-hull probe extends to the frame (wider fit box → frame follows, zero code change). Frozen source SVGs stay byte-untouched — DOM-side at mount, D4's mechanism. *Permitted adjustment:* with the artifact frame now at the view edge, the region div's own `border-gray-800` may double the boundary — drax may drop the region border to transparent if the doubled line reads muddy (galadriel eyes-verify decides).
+- **D6-b The legend moves INSIDE the box.** The D1-a normal-flow legend band RETIRES — its "NEVER overlays the SVG" law is **superseded by Matt's order** (this is the authorized supersession record). `AtlasLegend` becomes an in-region overlay: absolutely positioned inside the chart region, **bottom-left preferred** (top-left carries the artifact title/provenance block; top-right carries the condensation key), with a margin keeping it inside the drawn frame; translucent plate-toned backdrop; `pointer-events` scoped so chart clicks pass everywhere outside the legend's own bounds. Placement law (binding, corner is drax's pick within it): zero occlusion of the title block, axis-pole labels, condensation key, or drill-in dots. Mobile (375): same overlay, collapsed-by-default if expanded width would cover >25% of the region.
+- **D6-c Subtitle de-dupe (one string).** `Atlas.tsx` renders `Edition-{data.derived_from.atlas_version}` where the value already reads `Edition-II` → "Edition-Edition-II". Fix: render the value verbatim (`{atlas_version} lattice · …`). Zero hardcoded edition literals — the string keeps sourcing from atlas.json only.
+- **D6-d Re-vendor the E2.2-relabeled artifact.** galadriel's E2.2 relabel (separate charge, fires in parallel; brief `agentic_orchestration/gandalf/briefs/2026-07-15-galadriel-e22-plate-relabel-brief.md`) changes the plate title `The Atlas of Kits — Edition-II` → **`Build Horizon — Edition II`** on BOTH skins — presentation-text-only on frozen data (the E2.1 fix-pass class; positions/geometry/data untouched; provenance JSON re-emitted with the render receipt). drax re-vendors the three files (instrument svg · archive svg · provenance json) into `public/atlas/` when they land. Sequencing: galadriel fires first; drax's charge receives the landed paths. **ONE production promotion at the end** — preview deploy + STOP; alias moves only on gandalf verify (standing law).
+
+### Acceptance additions (D6)
+
+66. **box==zoom:** frame rect == fit box inset 12u on all sides (receipt: attrs + the structural-identification path); ALL rendered content (hull dots, dotted horizon, rails, footer strings) sits INSIDE the drawn frame at mount and after skin flip; fail-loud frame-identification test present (ambiguous-candidate fixture RAISES).
+67. **legend-in-box:** legend node renders INSIDE the chart region (DOM containment receipt) with zero occlusion per the D6-b placement law (galadriel eyes-verify receipts at 1440 + 375); the normal-flow band between header and region is GONE.
+68. **subtitle:** header subtitle reads `Edition-II lattice · …` exactly once — no "Edition-Edition"; receipt shows the string sourced from atlas.json with no edition literal in the component.
+69. **vendor+promotion:** vendored file sha256s == galadriel E2.2 emission receipts; plate title reads **Build Horizon — Edition II** on both skins; full suite green; D3-a untouchable holds (table/filter/column files absent from the diff); ONE promotion, alias-move only after gandalf verify.
+
+---
+
 ## Cross-references
 
 `2026-07-11-atlas-chart-renderer-spec.md` §§7–10 (render law; r7 amends presentation) · `atlas-edition2.json` ghost_field (core_order, drill_in, denominators) · tracker SESSION-DELTA -l (Edition-II audit) · Matt directive message 2026-07-15 (this package's authority).
@@ -273,6 +293,8 @@ Tracker-delta (v1.2 D1 amendment): new gaps — D1 defect pass specced (D1-a…D
 Tracker-delta (naming ruling): closed decision — community-facing surface name RULED "Build Horizon" (Matt 2026-07-15); D2-d one-string title swap + E2.2 plate adoption → current-to-end-state-engine, SESSION-DELTA -s addendum.
 
 Tracker-delta (v1.4 D3 amendment): new gap — D3 UX pass specced on Matt's pivots→filters + fixed-zoom rulings (§9.3; supersedes §5 pivot interaction + §8 zoom grammar; D2 grid untouched), build fired to drax, PREVIEW-gated → current-to-end-state-engine, SESSION-DELTA -w.
+
+Tracker-delta (v1.5 D6 amendment): new gap — D6 specced on Matt's ninth message (frame joins the write-set — §9.5's plate-only "screen box" reading corrected; legend into the box, D1-a law superseded; subtitle de-dupe; E2.2 relabel UN-GATED at Edition-II by Matt's direct order and re-vendored), galadriel + drax fired, promotion gandalf-verify-gated → current-to-end-state-engine, SESSION-DELTA -ab.
 
 ---
 
