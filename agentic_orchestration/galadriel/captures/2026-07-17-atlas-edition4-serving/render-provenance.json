@@ -1,0 +1,519 @@
+{
+  "render": "galadriel/pipeline/atlas-edition4-render.mjs",
+  "edition": "IV",
+  "iteration": "edition4-serving",
+  "iteration_authority": "Matt 2026-07-17 ratification recorded in canonical/matt_decision_needed/2026-07-16-edition3-vs-refit-candidate-1-adoption.md § WAVE 5 (verbatim: \"Agreed, path A\" — following the \"publish Edition IV\" adoption directive). Serving cutover to the Glance Vercel app authorized.",
+  "path_A_law": "E4 is Path-A SUPPLEMENTARY ADMISSION into Edition-I's frozen basis: basis.edition===1, basis.frozen===true, the 506 E3 point coords + 37 legacy tombstones are byte-identical to E3, and the 56 new supplementary points project into the frozen basis (no basis re-derivation).",
+  "hard_asserts": {
+    "H-1_edition_and_version": "edition===4 && atlas_version===\"Edition-IV\"",
+    "H-2_path_A_basis": "basis.edition===1 && basis.frozen===true (this is CORRECT per Path-A, not a defect)",
+    "H-3_G_3_anchoring": {
+      "result": "PASS (0 moved, 0 missing)",
+      "method": "JSON-value equality on (kit_id, x, y) triples",
+      "prior_edition": "atlas-edition3.json",
+      "e3_kit_ids_checked": 506,
+      "moved": 0,
+      "missing": 0,
+      "verdict": "The 506 E3 kit_ids appear in E4 with byte-identical x/y — the FIT anchor holds under Path-A supplementary admission."
+    },
+    "H-4_counts": "counts.total=562===points.length=562===counts.active(469)+counts.supplementary(93)"
+  },
+  "enumerated_edition_boundary_diff": [
+    "D1: input file → atlas-edition4.json (was atlas-edition3.json)",
+    "D2: output dir → captures/2026-07-17-atlas-edition4-serving/",
+    "D3: output filenames → atlas-edition4-<skin>.svg / .png",
+    "D4: title plate → \"Build Horizon — Edition IV\" (editionTag data-derived)",
+    "D5: top-level edition===4 gate",
+    "D6: PATH-A basis gate: basis.edition===1 && basis.frozen===true (fail-loud)",
+    "D7: G-3 anchoring re-assert vs atlas-edition3.json (0/506 moved required; replaces the E3 head's vs-E2 fit-freeze compare)",
+    "D8: point discriminator — new supplementary marks classify via prior-atlas kit_id set + death_class field presence (56 new: 50 positives + 6 tombstones)",
+    "D9: NEW POSITIVE glyph — filled sat-blue dot r=3.7, no halo; data-el=\"positive\"; layer id layer-positives",
+    "D10: NEW TOMBSTONE glyph — SAME † text mark grammar as legacy (43 total daggers = 37 legacy + 6 new; graveyard layer holds all 43)",
+    "D11: BUILD FAMILIES key — driven by gateA_group; ratified-members-only coloring; family counts byte-identical to E3 (Wave-4 law: families grow only by ratification waves, never by tau)",
+    "D12: FUTURE-PROOFING — reserved empty <g id=\"layer-family-candidates\"> between layer-positives and layer-chrome (additive annotation-layer module can populate without touching data marks)",
+    "D13: provenance.iteration → \"edition4-serving\"",
+    "D14: iteration_authority cites Matt 2026-07-17 ratification via adoption-doc WAVE 5",
+    "D15: this enumerated_edition_boundary_diff list emitted in provenance",
+    "D16: freeze_baseline → 2026-07-16-atlas-edition3-r8-furniture (the served E3 head's capture dir)",
+    "D17: fit-layer-regression re-instates against E3 r8 baseline — 506 point circles + 37 legacy tombstones + hull polyline + ghost/drill geometry byte-identical; the 56 new marks are the only additive geometry",
+    "D18: gateA_group colors byte-carried from E3 (no new family colors)",
+    "D19: below-plane ledger header edition literal → \"Edition IV\" (editionTag data-derived)",
+    "D20: register_ref === feasibility-cuts-register-v1.3 (Path-A: register did not move; E4 RE-ASSERTS byte-identical denominators)"
+  ],
+  "e4_change": "SUPPLEMENTARY-ADMISSION edition (Path A): 56 new supplementary points (47 D1-derived LA/MCD positives + 3 R-1 pull re-keys + 6 tombstones). Lattice UNCHANGED (denominators byte-identical; depth_sum 767,411,820). Frozen basis UNCHANGED (all 506 E3 coords byte-identical). Lit occupancy grows with the newly-keyed rows (read live). New points PROJECT into the frozen basis — no basis re-derivation. off_plane_corpus / unmapped are fit-relative facts RE-DERIVED live by the ghost machinery for the E4 membership (THREE-CLASS FACT RULE, atlas MIGRATION).",
+  "prior_edition": "atlas-edition3.json (Edition-III census-population) — the FIT anchor; byte-identical 506 point coords + 37 legacy tombstones",
+  "freeze_baseline": "2026-07-16-atlas-edition3-r8-furniture (the served E3 head's capture dir; r8 furniture + r8-fix key-box content-derived height carried VERBATIM)",
+  "e23_source_vs_onscreen_map": "rotate(-90) SVG y-down: source `↓`→screen-RIGHT, source `↑`→screen-LEFT. East/PERFORM reads → (source ↓); west/DEPLOY reads ← (source ↑). SOURCE GLYPH ≠ ON-SCREEN DIRECTION by design (carried from E2.3 lineage through E3 r8).",
+  "atlas_version": "Edition-IV",
+  "register_ref": "feasibility-cuts-register-v1.3",
+  "input": "agentic_orchestration/research/curated/atlas/atlas-edition4.json",
+  "emitted_at": "2026-07-17T02:42:46.614907+00:00",
+  "emitter_script": "agentic_orchestration/research/scripts/build_atlas_json_edition4.py",
+  "hook_reconciliation": {
+    "live": 383,
+    "condensation": 86,
+    "graveyard": 43,
+    "positive": 50,
+    "ghost": 46006,
+    "points_classed": 562,
+    "meso_ghost_glyphs": 7128,
+    "drill_glyphs": 38878,
+    "emitted": {
+      "neutral_single": 383,
+      "grouped_condensation": 86,
+      "legacy_tombstones": 37,
+      "new_tombstones": 6,
+      "new_positives": 50,
+      "total_points": 562,
+      "meso_glyph_positions": 7128,
+      "drill_glyph_field_entries": 38878
+    },
+    "live_single_hue": {
+      "instrument": "#50991f",
+      "archive": "#7cd143"
+    },
+    "positive_hue": {
+      "instrument": "#4fa3ff",
+      "archive": "#7fbdff"
+    }
+  },
+  "fit_layer_frozen_vs": "Edition-I (atlas.json) — basis + 506 point coords + tombstones byte-identical (G-3)",
+  "skin_canvas_map": {
+    "instrument": {
+      "canvas": "light",
+      "hex": "#f7f8fa"
+    },
+    "archive": {
+      "canvas": "dark",
+      "hex": "#0e1016"
+    }
+  },
+  "basis": {
+    "edition": 1,
+    "frozen": true,
+    "ratified": "2026-07-14",
+    "inertia_pct": 8.36,
+    "retained_dims": 14,
+    "axis_names": {
+      "dim1": "PERFORM <-> DEPLOY",
+      "dim2": "EMBODY <-> LAUNCH"
+    }
+  },
+  "counts": {
+    "active": 469,
+    "supplementary": 93,
+    "legacy_tombstones": 37,
+    "new_tombstones": 6,
+    "new_positives": 50,
+    "total": 562,
+    "grouped": 86
+  },
+  "lattice": {
+    "meso_feasible": 11160,
+    "meso_sealed": 1314,
+    "lit_cells": 198,
+    "unmapped_pending_curation": 16,
+    "exact_post_red_law": 767411820,
+    "depth_sum_check": 767411820,
+    "ghost_glyph_positions": 7128,
+    "ghost_clipped": 27,
+    "charted_hull_vertex_count": 23,
+    "beyond_horizon_n": 0,
+    "beyond_horizon_n_meso_only": 14,
+    "charted_hull_east_world_x": 2.31,
+    "meso_hull_east_world_x": 1.25805961,
+    "settled_active_east_world_x": 1.3902523,
+    "drill_min_radius_px": 1.37,
+    "drill_radius_floor_px": 1.25,
+    "drill_radius_step": 0.12
+  },
+  "pull_slice": {
+    "meso_feasible": 1080,
+    "meso_sealed": 54,
+    "lit_cells": 5,
+    "new_law_needed": 0,
+    "halt": false,
+    "lit_core_tuples": [
+      [
+        "FREE-MOVE",
+        "ZONE",
+        "damage",
+        "pull",
+        "solo",
+        "active",
+        "one-shot"
+      ],
+      [
+        "ROOTED",
+        "ZONE",
+        "damage",
+        "pull",
+        "solo",
+        "active",
+        "build→spend"
+      ],
+      [
+        "ROOTED",
+        "ZONE",
+        "damage",
+        "pull",
+        "solo",
+        "active",
+        "one-shot"
+      ],
+      [
+        "WALK",
+        "NOVA",
+        "control",
+        "pull",
+        "solo",
+        "active",
+        "one-shot"
+      ],
+      [
+        "WALK",
+        "ZONE",
+        "damage",
+        "pull",
+        "solo",
+        "active",
+        "build→spend"
+      ]
+    ]
+  },
+  "drill_in": {
+    "region": "EAST-half (projected x>=0; PERFORM side) — slate #1 ES + #2 EN (one drill-in serves both)",
+    "promoted_pair": [
+      "geometry",
+      "commit"
+    ],
+    "n_east_parent_cells": 5068,
+    "n_sub_feasible": 172312,
+    "n_sub_sealed": 10136,
+    "sub_glyph_field_entries": 38878,
+    "sub_glyphs_rendered": 38878,
+    "sub_glyphs_west_overshoot": 10232,
+    "sub_clipped": 1130,
+    "sub_sealed_ledger": [
+      {
+        "commit": "channel",
+        "count": 5068,
+        "cut_id": "RED-3-movement-damage-carveout",
+        "geometry": "dash_attack"
+      },
+      {
+        "commit": "wind-up",
+        "count": 5068,
+        "cut_id": "RED-3-movement-damage-carveout",
+        "geometry": "dash_attack"
+      }
+    ]
+  },
+  "off_plane_corpus": {
+    "n": 0,
+    "disclosure": "0 gear-grain kits (mcd-) sit in the corpus off-plane — classless gear carries no movement identity at kit grain; admission is a deferred grain ruling."
+  },
+  "superseded_edition1": {
+    "exact_post_red_law": 693146160,
+    "meso_feasible": 10080,
+    "meso_sealed": 1260
+  },
+  "p_df_1": {
+    "verdict": "PASS",
+    "verdict_top_level": "PASS",
+    "falsified": false,
+    "S_max": 2.84105203,
+    "K_max_beyond_horizon": 1.87424756,
+    "S_argmax": {
+      "x": 1.85239877,
+      "y": -2.15412247
+    },
+    "u_direction": [
+      0.6501557402629432,
+      -0.7598009695987128
+    ],
+    "n_beyond_horizon_kits": 14,
+    "statement": "EAST drill-in (geometry×commit) extends the dark BEYOND the whirlwind/beam kits along û=normalize(mean(c_whirlwind, c_channel)).",
+    "consequence_if_falsified": "INTERIOR-1 re-opens with new fuel (§9.4.4 trigger) — SURFACE to Matt, never auto-fire."
+  },
+  "p_df_1_verdict": "PASS",
+  "layer_family_candidates": {
+    "reserved": true,
+    "populated": false,
+    "note": "Reserved empty group. Elrond candidates JSON currently in flight; a pass-2 additive annotation-layer module will populate this WITHOUT touching data-mark emission."
+  },
+  "acceptance": {
+    "pass": 52,
+    "total": 52,
+    "all_pass": true,
+    "tests": [
+      {
+        "name": "H-1-edition-and-version",
+        "pass": true,
+        "detail": "edition=4, atlas_version=Edition-IV"
+      },
+      {
+        "name": "H-2-path-A-basis",
+        "pass": true,
+        "detail": "basis.edition=1 (Path-A), basis.frozen=true"
+      },
+      {
+        "name": "H-3-G-3-anchoring",
+        "pass": true,
+        "detail": "506 E3 kit_ids checked; moved=0, missing=0"
+      },
+      {
+        "name": "H-4-counts",
+        "pass": true,
+        "detail": "counts.total=562==points.length=562==active+supp=469+93"
+      },
+      {
+        "name": "point-counts",
+        "pass": true,
+        "detail": "active=469 (exp 469), supp=93 (exp 93), total=562 (exp 562)"
+      },
+      {
+        "name": "new-mark-split",
+        "pass": true,
+        "detail": "newPositives=50(exp 50); newTombs=6(exp 6); legacyTombs=37(exp 37)"
+      },
+      {
+        "name": "grouped-count",
+        "pass": true,
+        "detail": "grouped=86 (exp 86; Wave-4 law: families grow only by ratification waves, never by tau; E4 admits 0 new gateA_group members)"
+      },
+      {
+        "name": "ghost-counts",
+        "pass": true,
+        "detail": "feasible=11160 (== 11160), sealed=1314 (== 1314)"
+      },
+      {
+        "name": "ghost-lit-conformance",
+        "pass": true,
+        "detail": "feasible lit=true 198 == emitted lit_cells 198"
+      },
+      {
+        "name": "ghost-depth-sum",
+        "pass": true,
+        "detail": "Σdepth=767,411,820 == 767,411,820 == 767,411,820"
+      },
+      {
+        "name": "sealed-cut_id-conformance",
+        "pass": true,
+        "detail": "all 1314 sealed cut_ids in {L1-,L2-}: L1-treatment-function-coherence, L2-summon-implies-proxy"
+      },
+      {
+        "name": "point-layout-equality",
+        "pass": true,
+        "detail": "identical fingerprint"
+      },
+      {
+        "name": "ghost-layout-equality",
+        "pass": true,
+        "detail": "identical fingerprint"
+      },
+      {
+        "name": "determinism",
+        "pass": true,
+        "detail": "instrument:byte-equal, archive:byte-equal"
+      },
+      {
+        "name": "R2-no-2.57-numeral",
+        "pass": true,
+        "detail": "clean (naive-box 2.57 absent as content)"
+      },
+      {
+        "name": "no-superseded-422M",
+        "pass": true,
+        "detail": "clean"
+      },
+      {
+        "name": "no-exact_post_logical-raw",
+        "pass": true,
+        "detail": "clean (819,439,740 absent)"
+      },
+      {
+        "name": "no-season-N",
+        "pass": true,
+        "detail": "clean"
+      },
+      {
+        "name": "RIDER-1-badge",
+        "pass": true,
+        "detail": "inertia=8.36 + retained=14 + structure statement present both skins"
+      },
+      {
+        "name": "pole-glosses",
+        "pass": true,
+        "detail": "all 4 pole glosses present both skins"
+      },
+      {
+        "name": "density-legend-line",
+        "pass": true,
+        "detail": "present both skins"
+      },
+      {
+        "name": "derivation-gloss",
+        "pass": true,
+        "detail": "present both skins"
+      },
+      {
+        "name": "census-line",
+        "pass": true,
+        "detail": "present both skins"
+      },
+      {
+        "name": "horizon-label",
+        "pass": true,
+        "detail": "present both skins"
+      },
+      {
+        "name": "clip-disclosure",
+        "pass": true,
+        "detail": "clip line present (count=27, all unlit=true)"
+      },
+      {
+        "name": "coverage-callout",
+        "pass": true,
+        "detail": "469 + 767,411,820 present both skins"
+      },
+      {
+        "name": "sealed-ledger",
+        "pass": true,
+        "detail": "sealed 1,314 + cut ids present both skins"
+      },
+      {
+        "name": "ghost-glyphs-not-regions",
+        "pass": true,
+        "detail": "clean"
+      },
+      {
+        "name": "edition-IV-stamp+v1.3",
+        "pass": true,
+        "detail": "both present in both skins"
+      },
+      {
+        "name": "title-plate",
+        "pass": true,
+        "detail": "\"Build Horizon — Edition IV\" present both skins"
+      },
+      {
+        "name": "E4-new-marks-rendered",
+        "pass": true,
+        "detail": "data-el=\"positive\"×50 both skins; data-el=\"graveyard\"×43 both skins"
+      },
+      {
+        "name": "D12-family-candidates-layer-reserved",
+        "pass": true,
+        "detail": "reserved empty group present both skins"
+      },
+      {
+        "name": "BUILD-FAMILIES-key-rename",
+        "pass": true,
+        "detail": "BUILD FAMILIES header both skins (no CONDENSATIONS)"
+      },
+      {
+        "name": "family-counts-rendered-per-emission",
+        "pass": true,
+        "detail": "all six family rows rendered with per-emission counts: WHIRLWIND:15, TOTEM-SENTRY:24, TRAP-MINE:23, CHANNELED-BEAM:9, AURA:8, MINION-PET:7"
+      },
+      {
+        "name": "fit-layer-regression-vs-E3-r8",
+        "pass": true,
+        "detail": "instrument: legacy-active-circles BYTE-FROZEN-SUBSET (469→519, added=50(exp 50)); legacy-tombs BYTE-FROZEN-SUBSET (37→43, added=6(exp 6)); hull BYTE-FROZEN | archive: legacy-active-circles BYTE-FROZEN-SUBSET (469→519, added=50(exp 50)); legacy-tombs BYTE-FROZEN-SUBSET (37→43, added=6(exp 6)); hull BYTE-FROZEN"
+      },
+      {
+        "name": "r8-furniture-sizes-applied",
+        "pass": true,
+        "detail": "FURN sizes literal in SVG both skins (title=17.5, banner=8.5, keyHeader=8, footer=7)"
+      },
+      {
+        "name": "footer-census",
+        "pass": true,
+        "detail": "census \"points: 469 active + 93 corpse = 562 · ghost: 11160 feasible + 1314 sealed\" at x=1504.00 both skins"
+      },
+      {
+        "name": "all-tombstone-titles-present",
+        "pass": true,
+        "detail": "43 tombstone titles present both skins"
+      },
+      {
+        "name": "all-new-positive-titles-present",
+        "pass": true,
+        "detail": "50 positive-mark titles present both skins"
+      },
+      {
+        "name": "hooks-integrity-E4",
+        "pass": true,
+        "detail": "instrument: live 383/383=true cond 86/86=true grave 43/43=true pos 50/50=true classed 562/562=true ghost 46006/46006=true layers-missing=none badKit=none badCore=none badMember=none | archive: live 383/383=true cond 86/86=true grave 43/43=true pos 50/50=true classed 562/562=true ghost 46006/46006=true layers-missing=none badKit=none badCore=none badMember=none"
+      },
+      {
+        "name": "CHARTED-hull-beyond-N-zero",
+        "pass": true,
+        "detail": "charted-hull N=0"
+      },
+      {
+        "name": "meso-hull-beyond-N-14",
+        "pass": true,
+        "detail": "meso-hull N=14"
+      },
+      {
+        "name": "P-DF-1-scored",
+        "pass": true,
+        "detail": "verdict=PASS, top-level=PASS, falsified=false"
+      }
+    ],
+    "smokes": [
+      {
+        "name": "WHIRLWIND x>0 (PERFORM)",
+        "pass": true,
+        "detail": "x=0.8191"
+      },
+      {
+        "name": "WHIRLWIND y<0 (EMBODY)",
+        "pass": true,
+        "detail": "y=-1.0816"
+      },
+      {
+        "name": "TOTEM-SENTRY x<0 (DEPLOY)",
+        "pass": true,
+        "detail": "x=-0.7307"
+      },
+      {
+        "name": "all lit ghost glyphs inside plane frame",
+        "pass": true,
+        "detail": "197 lit glyphs, all in-frame=true"
+      },
+      {
+        "name": "coincident-projection aggregation active",
+        "pass": true,
+        "detail": "max multiplicity=8 (aggregated 11160 cells -> 7128 glyph positions)"
+      },
+      {
+        "name": "ghost hull is a small polygon",
+        "pass": true,
+        "detail": "hull vertex count=23"
+      },
+      {
+        "name": "CHARTED horizon east EXCEEDS settled kits",
+        "pass": true,
+        "detail": "charted east=2.3100 > settled east=1.3903"
+      },
+      {
+        "name": "Lost-Ark-wing (WN cluster of new positives)",
+        "pass": true,
+        "detail": "40/50 new positives in WN quadrant (expected ≥40 per ratification plate)"
+      },
+      {
+        "name": "3 pull re-keys among new positives",
+        "pass": true,
+        "detail": "d3-wizard-black-hole/d4-spiritborn-vortex/di-cyclone-strike-monk-base all in newPositives: true"
+      }
+    ]
+  },
+  "skins": [
+    "instrument",
+    "archive"
+  ],
+  "determinism": "byte-identical double-render (both skins); sorted iteration; no RNG; no wall-clock"
+}
