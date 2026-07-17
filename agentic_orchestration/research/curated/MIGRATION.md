@@ -2583,3 +2583,106 @@ deterministic + ledger-aware idempotent (re-run = verified no-op). `corpus_schem
 charge). **NO push — gandalf pushes.**
 
 ---
+
+## 2026-07-16 — S2 census V9 + ruling-11 IT/UT reclassification (post-Wave-B rerun)
+
+**Author:** elrond (autonomous atlas-parity run, cycle 3, CENSUS V9 charge)
+**Commissioner:** gandalf-prime (Matt authorization 2026-07-16)
+**Charge:** Two-part — (1) execute ruling-11 IT/UT → `system-record` reclassification at V9 per the
+ruling's own timing clause (delegated ruling ratified into engine at Gate-2 `b850800`, decisions-log
+entry ~5910); (2) run V9 census on the post-Wave-B, post-reclass DB.
+
+**Wave-B closed:** rocket `4f2548e`+`33ffc86`+`176f353` + gamora `1a0e5e4`+`e81f3f9`+`c037c5b`+`41e45f6`
+→ jack-ryan Gate-2 PASS-WITH-AMENDMENTS (`agentic_orchestration/jack-ryan/reviews/2026-07-16-wave-b-
+economy-gate2.md`) → engine push `b850800`. Wave-B econ-family gates BUILT: econ:PC, econ:RS, econ:AM,
+econ:RC blocked-buckets flip to expressible engine truth.
+
+### PART 1: Ruling-11 reclassification (WRITE)
+
+3 rows reclassified from `combat-kit` (grain='kit') to `system-record` (grain=NULL) — their "economy" is
+build-construction / account-progression, not per-fight resource operation; no combat bin exists for them.
+
+| kit_id | folk_name | game | route | reclass flag |
+|---|---|---|---|---|
+| `d3-lod-archetype` | Legacy of Dreams (setless archetype) | d3 | `itemization-meta` | `ruling-11-reclass-2026-07-16` |
+| `vs-red-death` | Red Death / Mask of the Red Death | vs | `unlock-meta` | `ruling-11-reclass-2026-07-16` |
+| `vs-vlad-dracula` | Vlad Tepes Dracula | vs | `unlock-meta` | `ruling-11-reclass-2026-07-16` |
+
+**Convention followed:** identical to the existing 19 system-records — `grain=NULL`, `grain_note`
+stamped ("system-record: not kit/gear/class emittable; excluded from fits by row_class (ruling-11 …
+reclass)"), populated `route`, `flags` = `["resolved:system-record", "ruling-11-reclass-2026-07-16"]`.
+The reclass flag makes reversal trivial (one SQL UPDATE per row).
+
+**Denominator arithmetic (V9):**
+- pool 568→565 · corpus positives 523→520 · kit_grain 566→563 · null_grain 19→22
+- row_class combat-kit 566→563 · row_class system-record 19→22
+- Total 585 UNCHANGED · engine_key 1:1 585 UNCHANGED · dossier_owed 4 UNTOUCHED
+
+### PART 2: S2 census V9 (READ)
+
+**Artifact:** `atlas/s2-readiness-census-v9-2026-07-16.md`
+
+**Headline:**
+
+| Metric | V8 published | V9 (this run) | Δ |
+|---|---|---|---|
+| Pool expressible | 385/568 (67.8%) | **509/565 (90.1%)** | **+124 / +22.29pp** |
+| Corpus expressible | 340/523 | **464/520** | +124 |
+| Roster expressible | 45/45 | 45/45 | 0 (verified UNCHANGED) |
+
+Delta decomposition (iron law 4 — do NOT conflate levers):
+- **Denominator effect** (ruling-11 reclass): +0.34pp (mechanical — 3 UNKNOWN-blocked rows left the
+  frame; no expressibility gained, just smaller denominator).
+- **Wave-B flip** (real gain): +21.95pp = +124 kits flipped.
+
+**Wave-B multi-blocker honesty:**
+- Cohort (distinct kits carrying ≥1 now-landed Wave-B econ token): **125**
+- Flipped (Wave-B was sole remaining blocker): **113**
+- Multi-blocker residue (still blocked on non-Wave-B gate): **12**
+- Cross-check: net corpus flip V8-rule → V9-rule = 113 == wb_flipped 113 — OK
+
+**Residue re-block ranking** (12 kits, some with >1 token):
+- `econ:BT` = 3 · `ailment-wave-c+:blind` = 3 · `ailment-wave-c+:fear` = 2 ·
+  `ailment-wave-c+:curse/hex` = 2 · `mechanic:shapeshift` = 1 · `econ:LC` = 1
+
+**Residual blocked buckets ranked** (post-Wave-B; new tail):
+1. `econ:UNKNOWN` = 13 (was 16 at V8; −3 via ruling-11 reclass)
+2. `ailment-wave-c+:blind` = 8
+3. `econ:BT` = 8
+4. `geometry:orbit` = 6
+5. `ailment-wave-c+:curse/hex` = 4
+6. `ailment-wave-c+:fear` = 4
+7. `econ:LC` = 3 · `geometry:walls-placed-lane` = 3 · `mechanic:shapeshift` = 3
+8. `ailment-wave-c+:deflect` = 2 · `econ:DR` = 2
+9. `ailment-wave-c+:instant-kill` = 1 · `ailment-wave-c+:unknown-ailment` = 1
+
+Total ailment-wave-c+ = **20 token-touches** (blind 8 / curse-hex 4 / fear 4 / deflect 2 / unknown 1 /
+instant-kill 1). NOTE: V8 headline said 21; verified via V8-rule re-execution on current DB that
+actual state was already 20. Corrected in V9 per corpus-hygiene (see V9 §5 note); no data change.
+
+### Iron-law asserts (held PRE V8-state + POST V9-state)
+
+PRE (V8): total 585 · engine_key 585 · kit_grain 566 · null_grain 19 · dossier_owed 4 · orphans 0/0 ·
+combat-kit_rc 566 · system-record_rc 19 · cell_key_resolved 562 · bt_sentinel 1 — **ALL OK**.
+
+POST (V9): total 585 · engine_key 585 · kit_grain 563 · null_grain 22 · dossier_owed 4 · orphans 0/0 ·
+combat-kit_rc 563 · system-record_rc 22 · cell_key_resolved 562 · bt_sentinel 1 — **ALL OK**.
+
+Cross-check: net_flip==wb_flipped (113==113 OK); ailment_wave_c_touches==20 OK; roster_expressible==45 OK.
+
+### ADR-004 + reversibility
+
+No engine-telemetry change; star-lord-side MIGRATION.md unaffected (row_class + census are corpus-
+curation, my seam). Reversible: `corpus.db.pre-v9-2026-07-16-backup` restores exact PRE state
+(integrity_check=ok); ruling-11 reclass is reversible via the `ruling-11-reclass-2026-07-16` flag
+(one SQL UPDATE per row). Script is transactional + idempotent (re-run = verified no-op via flag
+detection; PRE-state asserts adaptively match V8-or-V9 depending on flag presence). Matt-veto-open
+per ruling-11 ratification clause. Auto-committed per project discipline (Matt-authorized charge).
+**NO push — gandalf pushes.**
+
+### Script
+
+`../scripts/corpus_s2_census_v9_2026_07_16.py` — writes PART 1 (transactional reclass) + reads
+PART 2 (pure census on post-reclass state) + writes V9 artifact.
+
+---
