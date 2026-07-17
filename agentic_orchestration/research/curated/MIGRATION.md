@@ -7,6 +7,125 @@
 
 ---
 
+## econ-unknown-audit-2026-07-16 — econ:UNKNOWN bucket audit (38 kits classified; 5 fills applied; scoreboard bucket UNKNOWN drops 38 → 33) — 2026-07-16 — **APPLIED**
+
+### What changed (one line)
+Audit of the **38-kit econ:UNKNOWN bucket** identified in S2 census V7 §2/§3 (gandalf-prime charge, dc295719). Each of the 38 kit-grain positive UNKNOWN rows was re-read against raw_json (probe.economy + geo_text + mechanics_notes + delivery.evidence + corpus.mech_note) and classified into **(a) DERIVABLE with existing rules — 5 fills**, **(b) needs a NEW mapping rule — 15 kits (rule NOT minted; iron law: no new rules mid-run)**, or **(c) evidence-thin / re-crawl candidate — 18 kits**. WRITE SCOPE strictly limited to the 38 UNKNOWN rows' cell_key economy slot + canon_corpus.flags per iron law 2 — the parallel gandalf Wave-B spec drafter reads PC/RS/AM/RC/LC/DR rows in this same window, and those rows were NOT touched (verified: PC=44, RS=42, AM=16, RC=16, LC=3, DR=2 all unchanged, matching S2 census exactly). Total corpus / kit_grain / cell_key_resolved / dossier_owed all held identical PRE + POST. Post-audit: bucket UNKNOWN=33 (5 kits flipped to expressible — 2 native spend + 3 SU-family which are Wave-A landed).
+
+### Class (a) — 5 fills applied using EXISTING bin vocabulary only
+
+Every fill cites the specific existing rule + evidence phrase. No new bin symbols minted (all target bins already present in `canon_engine_key.economy_model`: `spend` 183-kit precedent; `summon-uptime` 2-kit precedent; SU gap-ledger has 6 prior precedents — 1 solo + 4 RS+SU + 1 HV+SU).
+
+| # | kit_id | new economy_model | new status | new econ_gaps | rule cited | evidence phrase (verbatim from raw) |
+|---|---|---|---|---|---|---|
+| 1 | `chr-bleed-berserker` | `spend` | native | `[]` | `apply-rules-v1.0.py §4 line 444: if sub in ('spend','cooldown','self-cost'): status='native'` | probe.plain_text: **"Rage spend to activate bleed-strike skills"**; resource_verbatim=`Rage` |
+| 2 | `chr-high-ranger-warden` | `spend` | native | `[]` | `apply-rules-v1.0.py §4 line 444` (same rule) | probe.plain_text: **"Focus spent on arrow activation; bleed sustains between shots. Hybrid spend+drain model"**; resource_verbatim=`Focus` |
+| 3 | `poe1-baron-zombies` | `summon-uptime` | gap | `["SU"]` | `apply-rules-v1.0.py §4 line 505: SU-mapping (model=summon OR 'minion' in bs_lower OR is_jsum)` + §1 R0b summon_verbs (includes 'zombie'/'minion') + army_horde ('army') | probe.mechanics_notes: **"The Baron helm feeds the caster's stacked STRENGTH into zombie power and life-leech-per-minion — a gear stat on YOUR sheet becomes the ARMY"**; resource_verbatim=`stat→army` |
+| 4 | `poe1-siege-ballista` | `summon-uptime` | gap | `["SU"]` | `apply-rules-v1.0.py §1 R0b line 620 is_totem_trap ('turret' keyword)` + §4 SU rule spirit (totem/turret-summons); corroborated by census §5 board 1 (`SU mechanics-demand = 48 (totem-keyed + J-SUM-resolved)`) | probe.mechanics_notes: **"Iron Commander grants +1 ballista per 200 DEX — the attribute stack literally COUNTS your turret army; stat-as-army-size"**; geom=totem (R0b already fired) |
+| 5 | `gd-pet-conjurer` | `summon-uptime` | gap | `["SU"]` | `apply-rules-v1.0.py §4 line 505 SU-mapping (summon keyword in delivery.evidence)` + §1 R0b summon_verbs (includes 'summon') | probe.delivery.evidence: **"Full pet menagerie summoned at various positions; fight independently"**; probe.mechanics_notes: "Bysmiel devotion beasts under pet-scaled gear where YOUR stats mean nothing and THEIRS mean everything"; resource_verbatim=`pet-stat` |
+
+**Interpretation of "under-derived at mapping time":** the raw evidence (mech prose, delivery.evidence, or probe.plain_text) contains one of the existing rule's TOKENS or KEYWORDS in an unambiguous economy-context; the probe encoder set `model='other'` (or `model='unknown'`), which triggered §4 line 480 (`elif sub in ('other','unknown'): gaps.append('UNKNOWN')`). The rule itself was correct — the probe was under-derived. Fills apply the rule token that the evidence supports. **No new bin values introduced.**
+
+### Class (b) — 15 kits blocked pending SPEC AMENDMENT (rules NOT minted this pass)
+
+Per iron law "no new mapping rules mid-run", the following kits stay UNKNOWN. They are queued as **amendment-candidate rule sketches** for a future gandalf spec pass:
+
+| # | kit_id | resource_verbatim | proposed rule sketch |
+|---|---|---|---|
+| 1 | `d2-fireclaw-wolf` | `form lock` | New rule: shapeshift-form-lock economy → SS bin (form-lock as identity) OR native (spend on mana beneath form). Cross-cuts `mechanic:shapeshift` (GX-02 docket). |
+| 2 | `d2-fury-wolf` | `form lock` | Same as #1 (shapeshift-form-lock family). |
+| 3 | `d2-rabies-wolf` | `form lock` | Same as #1. |
+| 4 | `d3-invoker-thorns` | `stat→damage` | New rule: retaliation-thorns economy (aura-pulse delivery + `stat→damage` resource_verbatim + damage-BY-being-hit prose) → TH bin (thorns-retaliation, novel bin). |
+| 5 | `d3-lod-archetype` | `item-count` | New rule: itemization-multiplier meta-economy (per-ancient-legendary scaling) → IT bin (itemization-meta, novel). Really a meta-progression economy. |
+| 6 | `d4-thorns-barb` | `stat→damage` | Same as #4 (thorns-retaliation family). |
+| 7 | `gd-retaliation-warlord` | `stat→damage` | Same as #4. |
+| 8 | `poe1-whispering-ice` | `stat→damage` | New rule: item-granted stat-scaled auto-cast (Icestorm autocast at INT threshold; staff-borne skill) → SC bin (stat-scaled auto-cast). Different from #4 (offensive, not retaliation). |
+| 9 | `vs-phieraggi` | `revive-stock-as-power` | New rule (vs-specific): revive-stock-as-power (unspent extra lives = damage multiplier) → RV bin (revive-multiplier). |
+| 10 | `vs-red-death` | `unlock-trophy` | New rule (vs-specific): unlock-trophy character (meta-economy: unlock requirement is the "investment"; per-run is SP-base auto-fire) → UT bin. |
+| 11 | `vs-vlad-dracula` | `unlock-trophy` (Castlevania DLC) | Same as #10. |
+| 12 | `d2-bowazon` | `stamina/none` | New rule: no-separate-resource weapon kit (probe encoded 'none'; underlying is mana-spend on Multishot/Strafe) → NR bin (no-resource; weapon-only cadence) OR reclassify as native spend on mana. |
+| 13 | `d2-kicksin` | `none` | Same as #12 (Dragon Talon has mana cost). |
+| 14 | `d2-smiter` | `none` | Same as #12 (Smite has mana cost). |
+| 15 | `d2-zealot` | `none` | Same as #12 (Zeal has mana cost). |
+
+**Spec-amendment sketch families identified:**
+
+- **SS (shapeshift-form-lock)** — 3 kits (d2 wolves); cross-cuts mechanic:shapeshift (GX-02 docket). Rule sketch: `resource_verbatim='form lock' → SS OR native (mana beneath form)`.
+- **TH (thorns-retaliation)** — 3 kits (d3-invoker-thorns, d4-thorns-barb, gd-retaliation-warlord). Rule sketch: `aura-pulse delivery + stat→damage resource + "damage BY being hit" / "retaliation" prose → TH`.
+- **SC (stat-scaled auto-cast)** — 1 kit (poe1-whispering-ice). Rule sketch: `item-granted skill + stat→damage resource + auto-cast prose → SC`.
+- **IT (itemization-meta)** — 1 kit (d3-lod-archetype). Rule sketch: `item-count resource_verbatim (per-legendary scaling) → IT meta-bin`.
+- **RV (revive-multiplier)** — 1 kit (vs-phieraggi). Rule sketch: vs-specific `revive-stock resource → RV`.
+- **UT (unlock-trophy)** — 2 kits (vs-red-death, vs-vlad-dracula). Rule sketch: vs-specific `unlock-trophy resource → UT meta-bin (per-run underlying is SP-base auto-fire)`.
+- **NR (no-resource weapon)** — 4 kits (d2-bowazon, d2-kicksin, d2-smiter, d2-zealot). Rule sketch: `resource_verbatim in ('none','stamina/none') + weapon-attack kit → NR (accept 'free' bin already in cell_key precedent, 48 kits) OR reclassify as native spend on mana`. Note: cell_key economy slot for these 4 kits already reads `free` (a legacy artifact from a different pipeline) — the econ_gaps ledger conflicts. Amendment should ratify `free` as an accepted native bin OR redirect these to spend.
+
+**No new bin symbol minted in this pass.** Gandalf-side spec author reviews and rules on which sketches to promote (each of SS/TH/SC/IT/RV/UT/NR would require rule-table extension in `apply-rules-v1.0.py §4`).
+
+### Class (c) — 18 evidence-thin kits (flagged `econ-audit-ambiguous-2026-07-16`)
+
+The following kits carry conf<0.5 economy probes OR explicit dossier-owed / SEARCH-DERIVED / POST-CUTOFF language in mech_note. Evidence at rule-time was insufficient to derive economy; a re-crawl is the resolution path.
+
+All 18 kits received `flags += 'econ-audit-ambiguous-2026-07-16'` on canon_corpus.
+
+**Re-crawl candidates for a future Legolas batch (18 econ-audit + 2 unknown-ailment = 20 total):**
+
+Econ-audit (18):
+- `d2-wl-abyss` — Warlock magic-school (RotW post-cutoff)
+- `d2-wl-echoing-strike` — Warlock flagship melee (RotW post-cutoff)
+- `d2-wl-fire` — Warlock fire-school (RotW post-cutoff)
+- `d2-wl-void-rift` — Warlock void-rift (RotW post-cutoff; mechanics unharvested)
+- `d4-blazing-abyss-warlock` — Warlock caster path (fire zones + Hell Fracture; post-cutoff)
+- `d4-dread-claws-warlock` — Warlock melee-caster (hatred/abyss resource fantasy; post-cutoff)
+- `d4-hammerdin-paladin` — Blessed Hammer (post-cutoff; details thin)
+- `d4-rabies-lacerate` — Rabies+Lacerate druid (post-cutoff; also shapeshift-adjacent)
+- `gd-berserker-wereforms` — FoA mastery (post-cutoff; also shapeshift GX-02 docket)
+- `poe1-heavy-strike-stun` — 3.28 stun-scaling (post-cutoff; details thin)
+- `poe1-kinetic-fusillade` — 3.27 wand-rework build (post-cutoff; dossier owed)
+- `poe2-archmage-totems` — PoE2 mana-scaled totems ("no cost" reference; post-cutoff)
+- `poe2-shaman-bear` — PoE2 druid bear-shapeshift (post-cutoff)
+- `poe2-snipe-mirage-deadeye` — PoE2 channeled sniper ("channeled" in tertiary cite; post-cutoff)
+- `poe2-spiral-volley` — PoE2 spear archetype (post-cutoff)
+- `poe2-walking-calamity` — PoE2 autobomber (post-cutoff)
+- `poe2-whirling-assault-ma` — PoE2 martial-artist (post-cutoff)
+- `vs-out-of-bounds-freeze` — VS 1.13+ arcana-slot investment (post-cutoff era caveat)
+
+Unknown-ailment companion list (2, per charge — no action this pass; listed for the same future batch):
+- `di-warlock-launch` — Warlock (launch state)
+- `di-spiritform-druid-pvp` — Spirit-Form Druid (complaint-tier)
+
+### Bucket-count deltas vs S2 census V7 (baseline dc295719)
+
+| Bucket | V7 (pre-audit) | Post-audit | Δ | Status |
+|---|---|---|---|---|
+| econ:UNKNOWN | 38 | **33** | **−5** | 5 kits fill/unblock |
+| econ:SU | 6 | 9 | +3 | 3 SU-fills (Wave-A landed → expressible-now) |
+| econ:PC | 44 | 44 | 0 | FROZEN per iron law 2 (unchanged, verified) |
+| econ:RS | 42 | 42 | 0 | FROZEN (unchanged, verified) |
+| econ:AM | 16 | 16 | 0 | FROZEN (unchanged, verified) |
+| econ:RC | 16 | 16 | 0 | FROZEN (unchanged, verified) |
+| econ:LC | 3 | 3 | 0 | FROZEN (unchanged, verified) |
+| econ:DR | 2 | 2 | 0 | FROZEN (unchanged, verified) |
+| econ:HV | 4 | 4 | 0 | Wave-A landed (unchanged) |
+| econ:BT | 8 | 8 | 0 | Unchanged (small-add bucket) |
+
+**Scoreboard impact (V8 rerun projection):** 2 kits flip to expressible-now (chr-bleed-berserker, chr-high-ranger-warden = spend/native); 3 kits flip to expressible-now (poe1-baron-zombies, poe1-siege-ballista, gd-pet-conjurer = SU / Wave-A landed). Corpus expressible: 213/523 → 218/523 (+5 → 41.7%). Total expressible: 258/568 → 263/568 (46.3%).
+
+### Iron-law + HALT compliance
+- **Backup filename:** `corpus.db.pre-econ-audit-2026-07-16-backup` (integrity_check=ok verified pre-run).
+- **PRE + POST asserts held identical:** total_corpus=585, total_engine_key=585, kit_grain=566, null_grain=19, cell_key_resolved=562, bt_sentinel=1, orphans=0/0, dossier_owed=4. Transactional; rollback on any breach.
+- **Write scope strictly limited:** 5 canon_engine_key rows (cell_key economy slot + economy_model + econ_status + econ_gaps) + 18 canon_corpus.flags appends. Nothing else touched. The parallel gandalf Wave-B PC/RS/AM/RC/LC/DR reader window is preserved (bucket counts verified unchanged).
+- **No new mapping rules minted.** 15 amendment-candidate sketches queued for gandalf spec drafter (list above).
+- **Every fill carries evidence citation** (verbatim raw text quoted in the table above; rule citations point to specific line numbers in `apply-rules-v1.0.py §4`).
+- **Auditability:** every affected kit has `corpus_schema_meta` marker `econ-unknown-audit-2026-07-16`; ambiguous-class kits carry a `flags`-column trail; class (a) fills reproducible via the (rule, evidence) pair.
+- **ADR-004:** no engine-telemetry change; star-lord-side MIGRATION.md unaffected. Push deferred to gandalf's verify-gate per charge terms.
+
+### Artifacts (this entry)
+- **Script:** `scripts/corpus_econ_unknown_audit_2026_07_16.py`
+- **Backup:** `corpus.db.pre-econ-audit-2026-07-16-backup` (integrity_check=ok)
+- **Schema-meta marker:** `econ-unknown-audit-2026-07-16` in `corpus_schema_meta`
+- **Flags trail:** `econ-audit-ambiguous-2026-07-16` on 18 canon_corpus rows (class c)
+
+---
+
 ## refit-candidate-1-2026-07-16 — REFIT CANDIDATE 1: game-code normalization (R0) + full re-derivation on the 628-active corpus (Lost Ark + pull/MELEE live) — 2026-07-16 — **EMITTED (comparison artifact; Matt adoption pending)**
 
 ### What changed (one line)
