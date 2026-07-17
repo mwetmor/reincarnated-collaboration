@@ -97,6 +97,49 @@
 //        (Path-A: register did not move; denominators byte-identical to E3). E4 RE-ASSERTS
 //        v1.3, not supersedes.
 //
+// PASS 2 (iteration=2, 2026-07-17 Matt-ratified directive: "add the potential build-family
+// islands to The Build Horizon"). Populates the reserved <g id="layer-family-candidates">
+// with the PRE-NAMES-REVIEW provisional tier from the elrond candidates artifact. Six
+// dockets, 145 members (138 proposed + 7 ratified-seeds), 3 conflict-flagged. Renders islets
+// per (docket × leiden_subcluster) — NEVER merges across chains (the wave-4 shelving defect
+// is precisely cross-chain merging). Kept visually SUBORDINATE to ratified BUILD FAMILIES
+// via a provisional dusty-plum accent (H≈325°) that exists nowhere else on either plate.
+//
+//   [D21] input file → adds atlas-e4-family-candidates.json (elrond emission 2026-07-17,
+//        committed b137d957). Schema: {dockets[6].members[] with kit_id, status, leiden_subcluster,
+//        conflict_ratified_family (opt), tau_chain, distance_to_nearest_seed}. Provisional
+//        tier — names + membership NOT ratified until Matt's one-sitting names review.
+//   [D22] JOIN LAW: every kit_id in candidates.dockets[].members MUST resolve to a point in
+//        atlas-edition4.json. Fail-loud on any miss (expect 0 misses; 145 joins). Coordinates
+//        NEVER live in the candidates artifact — they come from the atlas + are projected
+//        through the head's own sx/sy so islets live in exactly the plate's coordinate space.
+//   [D23] ISLET GRAIN LAW: one islet per (docket × leiden_subcluster). A docket spanning
+//        multiple Leiden chains renders as MULTIPLE islets — the cross-chain merging defect
+//        that shelved the archipelago mock is EXPLICITLY REJECTED. Working-label placement:
+//        on the docket's largest islet only; sibling islets tagged with Roman-numeral ticks
+//        (·ii, ·iii, …). Per-islet hooks: data-docket + data-chain.
+//   [D24] ISLET SHAPE: single-member (n=1) → dashed circle at padding radius; two-member
+//        (n=2) → capsule (rounded stadium hull); n≥3 → buffered convex hull. All strokes
+//        DASHED in the provisional accent + very low-alpha wash (≤0.10).
+//   [D25] MEMBER MARKS: `proposed` → thin dashed ring around the existing dot (dot itself
+//        UNCHANGED — no recolor of underlying mark); `ratified-seed` (docket-6 MINION-PET's
+//        7) → small seed tick adjacent, NO ring (they're already family-colored — avoid
+//        double-claim); conflict-flagged (3 with conflict_ratified_family) → crossed-ring
+//        glyph. Rings/ticks are the ONLY additive geometry on member marks; base layer
+//        (positives + condensations + neutrals + graveyard) is byte-preserved.
+//   [D26] LABELS: working-label in small-caps with a CANDIDATE: prefix at the largest
+//        islet + per-docket self-scored precision (e.g., "p̂ 0.90") rendered beside the label.
+//   [D27] LEGEND: NEW "CANDIDATE FAMILIES — PRE-NAMES-REVIEW (provisional)" legend block
+//        inside layer-chrome, wrapped in <g data-layer="family-candidates-legend">, clearly
+//        separated from BUILD FAMILIES. Six working labels + member counts (proposed/seed/
+//        conflict) + provisional_layer_disclosure text VERBATIM from the artifact.
+//   [D28] PROVISIONAL ACCENT COLORS (canvas-bound; exist nowhere else on either plate):
+//        instrument → #8a5876 (dusty plum, H≈325° S~0.35 V~0.55); archive → #c69ab5 (soft
+//        mauve, H≈325° S~0.30 V~0.80). Selected to read as pencil-sketch subordinate against
+//        the six saturated family fills + the sat-blue new-positives + the chartreuse
+//        live-single. Provenance iteration → 2. Provisional-layer defaults to VISIBLE (Matt
+//        asked to see them); can be toggled via data-layer hooks.
+//
 // LAW: chart = render(atlas-edition4.json). Layout is COMPUTED; all CONTENT (numbers,
 // labels, coordinates, class strings) originates ONLY in atlas.json fields. No literal
 // atlas numerics live in this source beyond layout geometry. Every ledger/census figure
@@ -128,6 +171,25 @@ const DEFAULT_OUT_DIR = resolve(__dirname, '../captures/2026-07-17-atlas-edition
 //       ghost/drill geometry are byte-frozen vs this baseline (Path-A). The 56 NEW marks
 //       are the only additive geometry.
 const R8_FREEZE_DIR = resolve(__dirname, '../captures/2026-07-16-atlas-edition3-r8-furniture');
+// [D21] candidates input: elrond emission 2026-07-17 (b137d957). Populates the reserved
+// layer-family-candidates group in pass 2.
+const CANDIDATES_PATH = resolve(__dirname, '../../research/curated/atlas/atlas-e4-family-candidates.json');
+// PASS-1 SVG baseline for the byte-containment assertion. We SNAPSHOT the existing SVG
+// output at script start (before overwriting) into memory, then diff base-layer bytes
+// after pass-2 emission. Base layers = everything OUTSIDE layer-family-candidates and
+// outside the family-candidates-legend region added in pass 2.
+//
+// If the snapshot ALREADY contains a populated layer-family-candidates group (i.e., a
+// previous pass-2 run happened), the byte-containment check would degenerate to a self-diff.
+// Detect that case and treat as N/A — deferring to test #23 (fit-layer-regression vs E3 r8)
+// for base-layer anchoring.
+const PASS1_SNAPSHOT = { instrument: null, archive: null, is_pass1: false };
+try {
+  const inst = readFileSync(join(DEFAULT_OUT_DIR, 'atlas-edition4-instrument.svg'), 'utf8');
+  const arch = readFileSync(join(DEFAULT_OUT_DIR, 'atlas-edition4-archive.svg'), 'utf8');
+  const looksLikePass1 = inst.includes('<g id="layer-family-candidates"></g>') && arch.includes('<g id="layer-family-candidates"></g>');
+  if (looksLikePass1) { PASS1_SNAPSHOT.instrument = inst; PASS1_SNAPSHOT.archive = arch; PASS1_SNAPSHOT.is_pass1 = true; }
+} catch { /* no baseline present; byte-containment check will report N/A */ }
 
 // Doctored-input harness env vars (mirrors the E3 head; the E4 head reuses the same
 // mechanics for its own doctored-input acceptance tests).
@@ -277,6 +339,132 @@ const deathClasses = [...new Set(allTombs.map((p) => p.death_class))].sort();
 const GROUP_ORDER = ['WHIRLWIND', 'TOTEM-SENTRY', 'TRAP-MINE', 'CHANNELED-BEAM', 'AURA', 'MINION-PET'];
 const seenGroups = [...new Set(grouped.map((p) => p.gateA_group))].sort();
 for (const g of seenGroups) if (!GROUP_ORDER.includes(g)) die(`unknown gateA_group '${g}' — vocabulary moved without re-ratification (R4 refusal).`);
+
+// ================================================================== CANDIDATES ARTIFACT
+// [D21-D28] Load elrond's PRE-NAMES-REVIEW provisional candidates (six dockets, 138 proposed
+// + 7 ratified-seeds = 145 members, 3 conflict-flagged). Fail-loud on schema drift and on
+// any kit_id that doesn't join back into atlas-edition4.json.
+const candidates = JSON.parse(readFileSync(CANDIDATES_PATH, 'utf8'));
+if (Number(candidates.schema_version) !== 1) die(`[D21] candidates.schema_version=${candidates.schema_version} (want 1) — schema drift; HALT.`);
+if (String(candidates.artifact) !== 'atlas-e4-family-candidates') die(`[D21] candidates.artifact='${candidates.artifact}' — wrong artifact; HALT.`);
+if (candidates.provisional !== true) die(`[D21] candidates.provisional must be true (this tier is PRE-NAMES-REVIEW).`);
+if (candidates.names_review_pending !== true) die(`[D21] candidates.names_review_pending must be true (names review not yet done).`);
+const candTotals = req(candidates, 'totals', 'candidates-totals');
+if (candTotals.proposals !== 138) die(`[D21] candidates.totals.proposals=${candTotals.proposals} != 138 — schema drift; HALT.`);
+if (candTotals.ratified_seeds !== 7) die(`[D21] candidates.totals.ratified_seeds=${candTotals.ratified_seeds} != 7 — schema drift; HALT.`);
+if (candTotals.conflict_flagged !== 3) die(`[D21] candidates.totals.conflict_flagged=${candTotals.conflict_flagged} != 3 — schema drift; HALT.`);
+if (candTotals.dockets !== 6) die(`[D21] candidates.totals.dockets=${candTotals.dockets} != 6 — schema drift; HALT.`);
+const candDockets = req(candidates, 'dockets', 'candidates-dockets');
+if (!Array.isArray(candDockets) || candDockets.length !== 6) die(`[D21] candidates.dockets not a 6-element array; HALT.`);
+const CANDIDATE_DOCKET_ORDER = ['MELEE-STRIKE', 'IDENTITY-GAUGE', 'SHAPESHIFT', 'DOT-AILMENT', 'MULTI-PROJECTILE-VOLLEY', 'MINION-PET'];
+for (let i = 0; i < 6; i++) {
+  const wl = candDockets[i].working_label;
+  if (String(wl) !== CANDIDATE_DOCKET_ORDER[i]) die(`[D21] candidates.dockets[${i}].working_label='${wl}' != '${CANDIDATE_DOCKET_ORDER[i]}' — docket order drift; HALT.`);
+}
+const provisionalDisclosure = req(candidates, 'provisional_layer_disclosure', 'candidates-disclosure');
+
+// [D22] JOIN LAW: every candidate kit_id must resolve to an atlas point. Coordinates NEVER
+// live in the candidates artifact — they come from atlas + are projected through this head's
+// own sx/sy so islets sit in exactly the plate's coordinate space.
+const atlasById = new Map();
+for (const p of all) atlasById.set(p.kit_id, p);
+const candidateMembers = []; // flattened list, decorated with (x,y) + docket_id + working_label
+let joinCounter = { hit: 0, miss: 0 };
+let propCounter = 0, seedCounter = 0, conflictCounter = 0;
+const missingKits = [];
+for (const d of candDockets) {
+  const dm = req(d, 'members', `docket-${d.docket_id}-members`);
+  if (!Array.isArray(dm)) die(`[D21] docket ${d.docket_id} members not an array; HALT.`);
+  for (const m of dm) {
+    const kid = req(m, 'kit_id', `docket-${d.docket_id}-member-kit_id`);
+    const atlasPt = atlasById.get(kid);
+    if (!atlasPt) { joinCounter.miss++; missingKits.push(kid); continue; }
+    joinCounter.hit++;
+    if (m.status === 'proposed') propCounter++;
+    else if (m.status === 'ratified-seed') seedCounter++;
+    if ('conflict_ratified_family' in m) conflictCounter++;
+    candidateMembers.push({
+      kit_id: kid,
+      status: m.status,
+      leiden_subcluster: m.leiden_subcluster,
+      docket_id: d.docket_id,
+      working_label: d.working_label,
+      self_scored_precision: d.self_scored_precision,
+      conflict_ratified_family: m.conflict_ratified_family ?? null,
+      atlas_x: atlasPt.x,
+      atlas_y: atlasPt.y,
+      atlas_supplementary: atlasPt.supplementary === true,
+      atlas_gateA_group: atlasPt.gateA_group ?? null,
+    });
+  }
+}
+if (joinCounter.miss > 0) die(`[D22] JOIN VIOLATION: ${joinCounter.miss} candidate kit_ids do NOT resolve to atlas-edition4.json: ${missingKits.slice(0, 10).join(', ')}${missingKits.length > 10 ? ' …' : ''}. HALT.`);
+if (joinCounter.hit !== 145) die(`[D22] candidate join hits=${joinCounter.hit} != 145 (138 proposed + 7 ratified-seeds); HALT.`);
+if (propCounter !== 138) die(`[D22] proposed-status members=${propCounter} != 138; HALT.`);
+if (seedCounter !== 7) die(`[D22] ratified-seed-status members=${seedCounter} != 7; HALT.`);
+if (conflictCounter !== 3) die(`[D22] conflict_ratified_family members=${conflictCounter} != 3; HALT.`);
+console.error(`[D22 candidate join] 145/145 kit_ids resolved (138 proposed + 7 ratified-seed; 3 conflict-flagged); provisional=true; names_review_pending=true.`);
+
+// [D23] ISLET GRAIN: group members by (docket, leiden_subcluster). This is the exact grain
+// that PREVENTS the wave-4 shelving defect (cross-chain merging producing umbrella swallows
+// for TRAP-MINE / TOTEM-SENTRY). NEVER merge across chains.
+const candidateIslets = []; // { docket_id, working_label, chain, members[], centroid, is_largest }
+const isletsByDocket = new Map();
+for (const d of candDockets) isletsByDocket.set(d.docket_id, []);
+{
+  // Group flattened members by (docket_id, leiden_subcluster).
+  const bucket = new Map();
+  for (const m of candidateMembers) {
+    const k = `${m.docket_id}|${m.leiden_subcluster}`;
+    if (!bucket.has(k)) bucket.set(k, []);
+    bucket.get(k).push(m);
+  }
+  // Sort deterministically by docket_id, then by chain id.
+  const keys = [...bucket.keys()].sort((a, b) => {
+    const [da, ca] = a.split('|'); const [db, cb] = b.split('|');
+    if (Number(da) !== Number(db)) return Number(da) - Number(db);
+    return Number(ca) - Number(cb);
+  });
+  for (const k of keys) {
+    const ms = bucket.get(k);
+    const [dockId, chain] = k.split('|').map(Number);
+    const docket = candDockets.find((d) => d.docket_id === dockId);
+    // World-coord centroid.
+    const cx = ms.reduce((s, m) => s + m.atlas_x, 0) / ms.length;
+    const cy = ms.reduce((s, m) => s + m.atlas_y, 0) / ms.length;
+    const islet = {
+      docket_id: dockId,
+      working_label: docket.working_label,
+      self_scored_precision: docket.self_scored_precision,
+      chain,
+      members: ms.slice().sort((a, b) => (a.kit_id < b.kit_id ? -1 : a.kit_id > b.kit_id ? 1 : 0)),
+      n: ms.length,
+      centroid_world: { x: cx, y: cy },
+    };
+    candidateIslets.push(islet);
+    isletsByDocket.get(dockId).push(islet);
+  }
+  // Per-docket: mark largest islet (host of the working label). Tie-break by lowest chain id.
+  for (const [dockId, arr] of isletsByDocket.entries()) {
+    arr.sort((a, b) => (b.n - a.n) || (a.chain - b.chain));
+    if (arr.length > 0) arr[0].is_largest = true;
+    // Assign per-docket ordinal (1..N) for sibling label ticks (·ii, ·iii, …).
+    arr.forEach((islet, idx) => { islet.docket_ordinal = idx; }); // 0 = largest (labelled), 1..N-1 = siblings
+  }
+}
+// Sanity: total islets = sum of (docket × distinct chains) = 20+4+11+29+10+4 = 78.
+const CANDIDATE_ISLET_EXPECTED_TOTAL = 20 + 4 + 11 + 29 + 10 + 4;
+if (candidateIslets.length !== CANDIDATE_ISLET_EXPECTED_TOTAL) die(`[D23] candidateIslets.length=${candidateIslets.length} != ${CANDIDATE_ISLET_EXPECTED_TOTAL} (docket×distinct-chain grain). HALT.`);
+console.error(`[D23 islets] ${candidateIslets.length} islets across 6 dockets (grain = docket × leiden_subcluster; no cross-chain merges).`);
+
+// Roman-numeral helper for sibling islet index ticks.
+function toRoman(n) {
+  const table = [['M', 1000], ['CM', 900], ['D', 500], ['CD', 400], ['C', 100], ['XC', 90],
+    ['L', 50], ['XL', 40], ['X', 10], ['IX', 9], ['V', 5], ['IV', 4], ['I', 1]];
+  let s = '', v = n;
+  for (const [sym, val] of table) { while (v >= val) { s += sym; v -= val; } }
+  return s;
+}
 
 // ================================================================== GHOST FIELD
 // The E4 emission carries the full ghost_field structure (feasible_cells, sealed_cells,
@@ -697,6 +885,15 @@ const SKINS = {
     horizonLabelStyle: 'normal',
     drillInk: '#c6cdd8',
     drillOp: 0.42,
+    // [D28] provisional candidate-tier accent. Dusty plum, H≈325° S~0.35 V~0.55 — NOT
+    // present anywhere else in the instrument palette (checked vs GROUP_COLORS + positive
+    // + live-single + tomb inks + ghost inks + horizon ink). Reads pencil-sketch subordinate
+    // against the six saturated family fills.
+    candidateAccent: '#8a5876',
+    candidateAccentOp: 0.85,        // stroke opacity for dashed rings + islet outlines
+    candidateWashOp: 0.08,          // very-low-alpha fill wash inside islets (≤0.10 per spec)
+    candidateLabelInk: '#6a3f5b',   // slightly deeper for text legibility
+    candidateLabelOp: 0.92,
   },
   archive: {
     name: 'archive',
@@ -742,6 +939,14 @@ const SKINS = {
     horizonLabelStyle: 'italic',
     drillInk: '#30343e',
     drillOp: 0.72,
+    // [D28] provisional candidate-tier accent. Soft mauve, H≈325° S~0.30 V~0.80 — lifted for
+    // dark-canvas contrast. NOT present anywhere else in the archive palette (checked vs
+    // GROUP_COLORS + positive + live-single + tomb inks + ghost inks + horizon ink).
+    candidateAccent: '#c69ab5',
+    candidateAccentOp: 0.82,
+    candidateWashOp: 0.09,
+    candidateLabelInk: '#d8b5c9',
+    candidateLabelOp: 0.90,
   },
 };
 
@@ -920,10 +1125,163 @@ function renderSVG(skinKey) {
   }
   P.push(`</g>`);
 
-  // ---- LAYER 3.75 ([D12]): future-proofing hook for elrond's candidates JSON. Reserved
-  //      empty group; NO marks emitted now; a pass-2 additive annotation-layer module can
-  //      populate it WITHOUT touching any data-mark emission above.
-  P.push(`<g id="layer-family-candidates"></g>`);
+  // ---- LAYER 3.75 ([D12+D21-D28]): PASS-2 POPULATED family-candidates layer. Renders the
+  //      PRE-NAMES-REVIEW provisional tier from elrond's atlas-e4-family-candidates.json.
+  //      Grain = docket × leiden_subcluster (NEVER cross-chain merge — the wave-4 shelving
+  //      defect). Islet shape by member count: n=1 → dashed circle; n=2 → capsule; n≥3 →
+  //      buffered convex hull. Member marks: proposed → thin dashed ring; ratified-seed →
+  //      small seed tick (no ring; already family-colored); conflict-flagged → crossed ring.
+  //      Working-label placement on largest islet only; siblings tagged ·ii, ·iii, etc.
+  //      Default VISIBLE; sub-groups per docket for App-side toggling. Base marks below are
+  //      NEVER touched — additive geometry only.
+  P.push(`<g id="layer-family-candidates">`);
+  {
+    // Islet marks — per-docket sub-groups; per-islet hooks (data-docket, data-chain).
+    // Group members by docket, deterministic sub-group order.
+    const isletRadiusForSingle = 12;    // radius around a single-member islet in SVG px
+    const isletPad = 8;                  // padding around member marks for multi-member hulls
+    const capsuleWidth = 10;             // capsule visual half-width (perpendicular pad)
+    const ringR = 6.5;                   // proposed-member dashed ring radius (larger than mark)
+    const conflictR = 7.5;               // conflict-flagged ring radius (bigger to hold the X)
+    const seedTickLen = 6;               // ratified-seed tick length
+    // Build a per-docket dashArray so all skins share this rhythm.
+    const DASH_ISLET = '5 4';
+    const DASH_RING = '2.5 2';
+    const CANDIDATE_DOCKET_HOOK = {
+      'MELEE-STRIKE': 'melee-strike',
+      'IDENTITY-GAUGE': 'identity-gauge',
+      'SHAPESHIFT': 'shapeshift',
+      'DOT-AILMENT': 'dot-ailment',
+      'MULTI-PROJECTILE-VOLLEY': 'multi-projectile-volley',
+      'MINION-PET': 'minion-pet',
+    };
+    // Buffered convex hull in SVG-px space (for n≥3 islets). Returns a polygon-friendly
+    // path string with pad = isletPad and rounded joins via SVG stroke-linejoin.
+    const cross2 = (O, A, B) => (A[0] - O[0]) * (B[1] - O[1]) - (A[1] - O[1]) * (B[0] - O[0]);
+    const convexHullPx = (pts) => {
+      const sorted = pts.slice().sort((a, b) => (a[0] === b[0] ? a[1] - b[1] : a[0] - b[0]));
+      const n = sorted.length;
+      if (n < 3) return sorted;
+      const lower = [];
+      for (const p of sorted) {
+        while (lower.length >= 2 && cross2(lower[lower.length - 2], lower[lower.length - 1], p) <= 0) lower.pop();
+        lower.push(p);
+      }
+      const upper = [];
+      for (let i = n - 1; i >= 0; i--) {
+        const p = sorted[i];
+        while (upper.length >= 2 && cross2(upper[upper.length - 2], upper[upper.length - 1], p) <= 0) upper.pop();
+        upper.push(p);
+      }
+      lower.pop(); upper.pop();
+      return lower.concat(upper);
+    };
+    // Iterate islets grouped by docket to keep the DOM per-docket sub-grouped.
+    for (const dockId of [1, 2, 3, 4, 5, 6]) {
+      const dockIslets = isletsByDocket.get(dockId);
+      if (!dockIslets || dockIslets.length === 0) continue;
+      const workingLabel = dockIslets[0].working_label;
+      const dockHook = CANDIDATE_DOCKET_HOOK[workingLabel];
+      P.push(`<g data-docket="${dockHook}">`);
+      // ---- islet shapes (drawn first, so member rings/ticks sit on top)
+      for (const islet of dockIslets) {
+        const membersSvg = islet.members.map((m) => [sx(m.atlas_x), sy(m.atlas_y)]);
+        const chainHook = `data-chain="${islet.chain}"`;
+        if (islet.n === 1) {
+          // Single-member islet: dashed circle.
+          const [px, py] = membersSvg[0];
+          P.push(`<circle cx="${f2(px)}" cy="${f2(py)}" r="${isletRadiusForSingle}" fill="${s.candidateAccent}" fill-opacity="${s.candidateWashOp}" stroke="${s.candidateAccent}" stroke-opacity="${s.candidateAccentOp}" stroke-width="1.1" stroke-dasharray="${DASH_ISLET}" data-el="candidate-islet" ${chainHook} data-islet-n="1"/>`);
+        } else if (islet.n === 2) {
+          // Two-member islet: capsule (rounded stadium hull) = line + two end caps.
+          // Emit a filled+stroked path along the segment with perpendicular offset by capsuleWidth.
+          const [ax, ay] = membersSvg[0], [bx, by] = membersSvg[1];
+          const dx = bx - ax, dy = by - ay;
+          const len = Math.hypot(dx, dy) || 1;
+          const ux = dx / len, uy = dy / len;
+          const nx = -uy, ny = ux; // perpendicular
+          const w = capsuleWidth;
+          // Two side lines + arc caps. Use path arcs.
+          const p1x = ax + nx * w, p1y = ay + ny * w;
+          const p2x = bx + nx * w, p2y = by + ny * w;
+          const p3x = bx - nx * w, p3y = by - ny * w;
+          const p4x = ax - nx * w, p4y = ay - ny * w;
+          const capD = `M${f2(p1x)} ${f2(p1y)} L${f2(p2x)} ${f2(p2y)} A${w} ${w} 0 0 1 ${f2(p3x)} ${f2(p3y)} L${f2(p4x)} ${f2(p4y)} A${w} ${w} 0 0 1 ${f2(p1x)} ${f2(p1y)} Z`;
+          P.push(`<path d="${capD}" fill="${s.candidateAccent}" fill-opacity="${s.candidateWashOp}" stroke="${s.candidateAccent}" stroke-opacity="${s.candidateAccentOp}" stroke-width="1.1" stroke-dasharray="${DASH_ISLET}" data-el="candidate-islet" ${chainHook} data-islet-n="2"/>`);
+        } else {
+          // n≥3: buffered convex hull. Compute the convex hull of member points, then
+          // offset each vertex OUTWARD by isletPad (via vertex-normal average) to inflate
+          // the hull deterministically. Draw with the SAME thin dashed stroke as single/
+          // capsule islets — the buffer creates the "islet body" via geometry, not stroke
+          // width. This keeps the tier reading subordinate (not shouting).
+          const hull = convexHullPx(membersSvg);
+          if (hull.length >= 3) {
+            // Compute centroid for outward direction.
+            const hcx = hull.reduce((s, v) => s + v[0], 0) / hull.length;
+            const hcy = hull.reduce((s, v) => s + v[1], 0) / hull.length;
+            const inflated = hull.map(([x, y]) => {
+              const dx = x - hcx, dy = y - hcy;
+              const d = Math.hypot(dx, dy) || 1;
+              return [x + (dx / d) * isletPad, y + (dy / d) * isletPad];
+            });
+            const d = inflated.map((v, i) => `${i === 0 ? 'M' : 'L'}${f2(v[0])} ${f2(v[1])}`).join(' ') + ' Z';
+            P.push(`<path d="${d}" fill="${s.candidateAccent}" fill-opacity="${s.candidateWashOp}" stroke="${s.candidateAccent}" stroke-opacity="${s.candidateAccentOp}" stroke-width="1.1" stroke-dasharray="${DASH_ISLET}" stroke-linejoin="round" stroke-linecap="round" data-el="candidate-islet" ${chainHook} data-islet-n="${islet.n}"/>`);
+          }
+        }
+      }
+      // ---- member marks: proposed → dashed ring; ratified-seed → tick; conflict → crossed ring
+      for (const islet of dockIslets) {
+        for (const m of islet.members) {
+          const px = sx(m.atlas_x), py = sy(m.atlas_y);
+          const chainHook = `data-chain="${islet.chain}"`;
+          if (m.conflict_ratified_family) {
+            // Conflict-flagged: crossed ring. Slightly larger radius; two diagonals inside.
+            P.push(`<g data-el="candidate-conflict" data-kit="${esc(m.kit_id)}" ${chainHook} data-conflict-with="${esc(m.conflict_ratified_family)}">`);
+            P.push(`<circle cx="${f2(px)}" cy="${f2(py)}" r="${conflictR}" fill="none" stroke="${s.candidateAccent}" stroke-opacity="${s.candidateAccentOp}" stroke-width="1.15" stroke-dasharray="${DASH_RING}"><title>${esc(m.kit_id)} — candidate (docket ${islet.working_label}, chain ${islet.chain}) — conflict-flagged near-hit vs ratified ${m.conflict_ratified_family}; surfaced, not admitted.</title></circle>`);
+            // Diagonal X across the ring.
+            const r45 = conflictR * 0.72;
+            P.push(`<line x1="${f2(px - r45)}" y1="${f2(py - r45)}" x2="${f2(px + r45)}" y2="${f2(py + r45)}" stroke="${s.candidateAccent}" stroke-opacity="${s.candidateAccentOp}" stroke-width="1.1"/>`);
+            P.push(`<line x1="${f2(px - r45)}" y1="${f2(py + r45)}" x2="${f2(px + r45)}" y2="${f2(py - r45)}" stroke="${s.candidateAccent}" stroke-opacity="${s.candidateAccentOp}" stroke-width="1.1"/>`);
+            P.push(`</g>`);
+          } else if (m.status === 'ratified-seed') {
+            // Ratified-seed: small seed tick adjacent, NO ring (mark already family-colored).
+            // Tick sits at 45° NE from the mark.
+            const tx1 = px + 3.6, ty1 = py - 3.6;
+            const tx2 = tx1 + seedTickLen * 0.7, ty2 = ty1 - seedTickLen * 0.7;
+            P.push(`<line x1="${f2(tx1)}" y1="${f2(ty1)}" x2="${f2(tx2)}" y2="${f2(ty2)}" stroke="${s.candidateAccent}" stroke-opacity="${s.candidateAccentOp}" stroke-width="1.4" stroke-linecap="round" data-el="candidate-seed-tick" data-kit="${esc(m.kit_id)}" ${chainHook}><title>${esc(m.kit_id)} — ratified seed for ${esc(islet.working_label)} (docket seed; already admitted to family via ratification wave).</title></line>`);
+          } else {
+            // Proposed (default): thin dashed ring.
+            P.push(`<circle cx="${f2(px)}" cy="${f2(py)}" r="${ringR}" fill="none" stroke="${s.candidateAccent}" stroke-opacity="${s.candidateAccentOp}" stroke-width="1.05" stroke-dasharray="${DASH_RING}" data-el="candidate-ring" data-kit="${esc(m.kit_id)}" ${chainHook}><title>${esc(m.kit_id)} — candidate for ${esc(islet.working_label)} (docket ${islet.docket_id}, chain ${islet.chain}); status=proposed; provisional pending Matt's names review.</title></circle>`);
+          }
+        }
+      }
+      // ---- working-label placement on the LARGEST islet + siblings tagged with Roman ticks.
+      for (const islet of dockIslets) {
+        // Position label at islet centroid (SVG-space), slightly above the highest member.
+        const membersSvg = islet.members.map((m) => [sx(m.atlas_x), sy(m.atlas_y)]);
+        const cxSvg = membersSvg.reduce((s, v) => s + v[0], 0) / membersSvg.length;
+        const cySvg = membersSvg.reduce((s, v) => s + v[1], 0) / membersSvg.length;
+        // Anchor above the topmost member for readability (min y = highest on canvas).
+        const minY = Math.min(...membersSvg.map((v) => v[1]));
+        const labY = minY - (islet.n === 1 ? isletRadiusForSingle + 5 : (islet.n === 2 ? capsuleWidth + 5 : isletPad + 6));
+        if (islet.is_largest) {
+          // Full working-label: "CANDIDATE: <label>" small-caps + precision beside.
+          const labelStr = `CANDIDATE: ${islet.working_label}`;
+          const precStr = `p̂ ${islet.self_scored_precision.toFixed(2)}`;
+          P.push(`<g data-el="candidate-label" ${`data-docket="${dockHook}"`} data-chain="${islet.chain}">`);
+          P.push(`<text x="${f2(cxSvg)}" y="${f2(labY)}" font-family="${s.fontStack}" font-size="8.5" font-weight="600" letter-spacing="0.7" text-anchor="middle" fill="${s.candidateLabelInk}" fill-opacity="${s.candidateLabelOp}">${esc(labelStr)}</text>`);
+          P.push(`<text x="${f2(cxSvg)}" y="${f2(labY + 10)}" font-family="${s.fontStack}" font-size="7" font-style="italic" text-anchor="middle" fill="${s.candidateLabelInk}" fill-opacity="${s.candidateLabelOp}">${esc(precStr)}</text>`);
+          P.push(`</g>`);
+        } else {
+          // Sibling tick: "·ii", "·iii", etc.
+          const roman = toRoman(islet.docket_ordinal + 1); // ordinal 1 → I; but we want ii, iii etc. Use ordinal+1.
+          const tick = `·${roman.toLowerCase()}`;
+          P.push(`<text x="${f2(cxSvg)}" y="${f2(labY)}" font-family="${s.fontStack}" font-size="7" font-style="italic" text-anchor="middle" fill="${s.candidateLabelInk}" fill-opacity="${s.candidateLabelOp * 0.85}" data-el="candidate-sibling-tick" data-docket="${dockHook}" data-chain="${islet.chain}">${esc(tick)}</text>`);
+        }
+      }
+      P.push(`</g>`); // close docket sub-group
+    }
+  }
+  P.push(`</g>`);
 
   // ==================================================================================
   // r8 CHROME LAYER — byte-carried from E3 r8. All content strings are data-derived from
@@ -1019,6 +1377,65 @@ function renderSVG(skinKey) {
     yy += 11;
     P.push(`<text x="${f2(lx + 14)}" y="${f2(yy)}" font-size="${FURN.keyGloss}" font-style="${s.glossStyle}" fill="${s.faint}">(settled territory — not a boundary)</text>`);
     P.push(`<desc>${esc(DENSITY_LEGEND_LINE)}</desc>`);
+    P.push(`</g>`);
+  }
+
+  // ---- [D27] CANDIDATE FAMILIES — PRE-NAMES-REVIEW (provisional) legend, top-right, just
+  //      below BUILD FAMILIES. Wrapped in <g data-layer="family-candidates-legend"> so the
+  //      app can toggle both the layer and the legend together. Per-docket count breakdown
+  //      (proposed / seed / conflict) with candidate accent swatches. Verbatim
+  //      provisional_layer_disclosure text as multi-line italic footer inside the box.
+  {
+    // Position: same top-right column as BUILD FAMILIES key. Reuse geometry for alignment.
+    const lx = M.left + PW - 152;
+    // BUILD FAMILIES box top = M.top + 14 - 12 = M.top + 2; BUILD FAMILIES box height:
+    //   (FURN.keyHeader + 8) + FURN.keyRowH * 6 + 2 + 11 = 8+8 + 13*6 + 2 + 11 = 107
+    //   + 12 + 2 + 8 = 129
+    const buildFamKeyBoxH = ((FURN.keyHeader + 8) + FURN.keyRowH * GROUP_ORDER.length + 2 + 11 + 12 + 2 + 8);
+    // Candidate legend sits below BUILD FAMILIES with a small gap.
+    const ly = M.top + 14 + buildFamKeyBoxH + 8;
+    // Content: header (2 lines) + 6 docket rows + gap + disclosure (multi-line, wrap width).
+    const DISCLOSURE_WRAP_WIDTH = 40;  // wrap character width for disclosure inside 158px-wide box
+    const disclosureLines = wrapByChars(String(provisionalDisclosure), DISCLOSURE_WRAP_WIDTH);
+    const rowH = FURN.keyRowH;
+    const disclosureRowH = 8.5;
+    // Compute box height from content deterministically.
+    const headerBlockH = 8 + 10 + 8; // "CANDIDATE FAMILIES" + subtitle "PRE-NAMES-REVIEW (provisional)"
+    const dockRowsH = rowH * candDockets.length;
+    const gapBeforeDisclosureH = 6;
+    const disclosureBlockH = disclosureLines.length * disclosureRowH + 4;
+    const bottomPad = 8;
+    const boxH = headerBlockH + dockRowsH + gapBeforeDisclosureH + disclosureBlockH + bottomPad;
+    P.push(`<g data-layer="family-candidates-legend" font-family="${s.fontStack}" fill="${s.ink}">`);
+    P.push(`<rect x="${f2(lx - 12)}" y="${f2(ly - 12)}" width="158" height="${f2(boxH)}" rx="4" fill="${s.plaque}" fill-opacity="0.9" stroke="${s.candidateAccent}" stroke-opacity="${s.candidateAccentOp * 0.7}" stroke-width="1" stroke-dasharray="4 3"/>`);
+    // Header line 1: title, small-caps
+    P.push(`<text x="${f2(lx)}" y="${f2(ly + 2)}" font-weight="${s.titleWeight}" font-size="${FURN.keyHeader}" letter-spacing="0.5" fill="${s.candidateLabelInk}">CANDIDATE FAMILIES</text>`);
+    // Header line 2: subtitle (italic)
+    P.push(`<text x="${f2(lx)}" y="${f2(ly + 12)}" font-size="${FURN.keyHeader - 1.5}" font-style="italic" fill="${s.candidateLabelInk}" fill-opacity="${s.candidateLabelOp * 0.9}" letter-spacing="0.3">PRE-NAMES-REVIEW (provisional)</text>`);
+    // Per-docket rows
+    let yy = ly + headerBlockH + 6;
+    for (const d of candDockets) {
+      // Swatch: small dashed circle in the candidate accent.
+      P.push(`<circle cx="${f2(lx + 4)}" cy="${f2(yy - 3)}" r="${FURN.keySwatchR}" fill="none" stroke="${s.candidateAccent}" stroke-opacity="${s.candidateAccentOp}" stroke-width="1.05" stroke-dasharray="2.5 2"/>`);
+      // Count breakdown: proposed / seed / conflict.
+      const nProp = d.members.filter((m) => m.status === 'proposed').length;
+      const nSeed = d.members.filter((m) => m.status === 'ratified-seed').length;
+      const nConf = d.members.filter((m) => 'conflict_ratified_family' in m).length;
+      // Format: LABEL (p:N s:N c:N) or omit z-fields
+      const countParts = [];
+      if (nProp > 0) countParts.push(`p:${nProp}`);
+      if (nSeed > 0) countParts.push(`s:${nSeed}`);
+      if (nConf > 0) countParts.push(`c:${nConf}`);
+      const countStr = countParts.join(' ');
+      P.push(`<text x="${f2(lx + 14)}" y="${f2(yy)}" font-size="${FURN.keyRow}" fill="${s.candidateLabelInk}">${esc(d.working_label)} (${esc(countStr)})</text>`);
+      yy += rowH;
+    }
+    yy += gapBeforeDisclosureH;
+    // Disclosure text (italic, wrapped, verbatim). One <text> per line for wrapping fidelity.
+    for (let i = 0; i < disclosureLines.length; i++) {
+      P.push(`<text x="${f2(lx)}" y="${f2(yy)}" font-size="${FURN.keyGloss - 1}" font-style="italic" fill="${s.faint}" letter-spacing="0.15">${esc(disclosureLines[i])}${i === 0 ? `<title>${esc(String(provisionalDisclosure))}</title>` : ''}</text>`);
+      yy += disclosureRowH;
+    }
     P.push(`</g>`);
   }
 
@@ -1311,9 +1728,10 @@ async function main() {
   rec('E4-new-marks-rendered', nPositiveMarks && nGraveyardMarks,
     `data-el="positive"×${newPositives.length} both skins; data-el="graveyard"×${legacyTombs.length + newTombs.length} both skins`);
 
-  // (20) family-candidates layer reserved
-  const candidateLayerOk = ['instrument', 'archive'].every((sk) => /<g id="layer-family-candidates"><\/g>/.test(bodies[sk]));
-  rec('D12-family-candidates-layer-reserved', candidateLayerOk, candidateLayerOk ? 'reserved empty group present both skins' : 'MISSING');
+  // (20) family-candidates layer POPULATED (pass 2). The layer is now non-empty and holds
+  //      6 docket sub-groups (data-docket="..."). Byte-empty variant is now REJECTED.
+  const candidateLayerOk = ['instrument', 'archive'].every((sk) => /<g id="layer-family-candidates">\s*<g data-docket="/.test(bodies[sk]));
+  rec('D21-family-candidates-layer-populated', candidateLayerOk, candidateLayerOk ? 'populated layer-family-candidates group present both skins (6 docket sub-groups)' : 'MISSING/EMPTY');
 
   // (21) BUILD FAMILIES rename in place (no "CONDENSATIONS" header)
   const familiesKeyOk = ['instrument', 'archive'].every((sk) => bodies[sk].includes('BUILD FAMILIES') && !bodies[sk].includes('>CONDENSATIONS<'));
@@ -1344,14 +1762,36 @@ async function main() {
   //          denominators + drill-in did not move). So the hull points string must be
   //          byte-identical to the E3 baseline.
   let fitPass = true, fitDetail = [];
+  // Helper: extract the balanced body of a named <g id="..."> group.
+  const extractLayerBody = (svg, layerId) => {
+    const openTag = `<g id="${layerId}"`;
+    const s = svg.indexOf(openTag);
+    if (s < 0) return '';
+    const gStart = svg.indexOf('>', s) + 1;
+    let d = 1, i = gStart;
+    while (i < svg.length && d > 0) {
+      const o = svg.indexOf('<g', i);
+      const c = svg.indexOf('</g>', i);
+      if (c < 0) break;
+      if (o >= 0 && o < c) { d++; i = o + 2; }
+      else { d--; if (d === 0) return svg.slice(gStart, c); i = c + 4; }
+    }
+    return '';
+  };
   for (const skin of ['instrument', 'archive']) {
     let baseSvg;
     try { baseSvg = readFileSync(join(R8_FREEZE_DIR, `atlas-edition3-${skin}.svg`), 'utf8'); }
     catch { fitPass = false; fitDetail.push(`${skin}:R8-FREEZE-BASELINE-MISSING`); continue; }
-    // (a) point circles (cx, cy, r, title) — subset containment.
+    // Constrain circle extraction to layer-live + layer-positives (base fit layers) —
+    // candidate rings in layer-family-candidates also match "circle with title", and would
+    // over-count the added set. Under Path-A additive: base fit circles = 469 legacy live/
+    // condensation + 50 new positives = 519; the E3 baseline has 469 legacy only.
+    const curFitBody = extractLayerBody(bodies[skin], 'layer-live') + extractLayerBody(bodies[skin], 'layer-positives');
+    const baseFitBody = extractLayerBody(baseSvg, 'layer-live'); // E3 had no layer-positives
+    // (a) point circles (cx, cy, r, title) — subset containment (scoped to base fit layers).
     const pointTupleRe = /<circle cx="([\d.]+)" cy="([\d.]+)" r="([\d.]+)"[^>]*><title>([^<]*)<\/title><\/circle>/g;
     const extractPtsTupleArr = (svg) => { const set = []; let m; while ((m = pointTupleRe.exec(svg)) !== null) set.push(`${m[1]}|${m[2]}|${m[3]}|${m[4]}`); pointTupleRe.lastIndex = 0; return set; };
-    const basePtsArr = extractPtsTupleArr(baseSvg), curPtsArr = extractPtsTupleArr(bodies[skin]);
+    const basePtsArr = extractPtsTupleArr(baseFitBody), curPtsArr = extractPtsTupleArr(curFitBody);
     const basePtsSet = new Set(basePtsArr), curPtsSet = new Set(curPtsArr);
     const missingLegacyPts = [...basePtsSet].filter((t) => !curPtsSet.has(t));
     const addedPts = [...curPtsSet].filter((t) => !basePtsSet.has(t));
@@ -1422,6 +1862,8 @@ async function main() {
     const posOk = nPos === newPositives.length;
     const classedOk = nClassed === 562 && nClassed === active.length + supplementary.length;
     const ghostOk = nGhost === ghostGlyphs.length + drillGlyphs.length;
+    // data-kit values include base layers (live/cond/grave/pos) AND candidate rings/ticks/
+    // conflict groups + candidate labels. All resolve to atlas kit_ids per [D22] join law.
     const kitVals = [...cur.matchAll(/data-kit="([^"]*)"/g)].map((m) => m[1]);
     const badKit = kitVals.find((v) => !kitIdSet.has(v));
     const coreVals = [...cur.matchAll(/data-core="([^"]*)"/g)].map((m) => m[1]);
@@ -1443,6 +1885,211 @@ async function main() {
   // (31) P-DF-1 verdict PASS + consistent
   const pDf1Ok = String(pDf1Verdict) === 'PASS' && String(pDf1TopLevel) === 'PASS' && pDf1Falsified === false;
   rec('P-DF-1-scored', pDf1Ok, `verdict=${pDf1Verdict}, top-level=${pDf1TopLevel}, falsified=${pDf1Falsified}`);
+
+  // ============ PASS-2 ACCEPTANCE (candidate islands populated in layer-family-candidates) ============
+
+  // (32) join count 145/145 (assertion mirrored from the module-load [D22] check).
+  const joinOk = joinCounter.hit === 145 && joinCounter.miss === 0;
+  rec('P2-join-count-145', joinOk, `hit=${joinCounter.hit}, miss=${joinCounter.miss} (expect 145/0)`);
+
+  // (33) per-docket islet count matches distinct chains carrying members.
+  //      Expected per-docket distinct chain counts: MELEE=20, IDENTITY=4, SHAPE=11, DOT=29, MULTI=10, MINION=4.
+  const P2_ISLETS_EXPECTED = { 1: 20, 2: 4, 3: 11, 4: 29, 5: 10, 6: 4 };
+  const isletsPerDocketOk = Object.entries(P2_ISLETS_EXPECTED).every(([d, n]) => isletsByDocket.get(Number(d)).length === n);
+  const isletCountDetail = Object.entries(P2_ISLETS_EXPECTED).map(([d, exp]) => {
+    const got = isletsByDocket.get(Number(d)).length;
+    return `D${d}:${got}(exp ${exp})`;
+  }).join(' ');
+  rec('P2-islet-count-per-docket', isletsPerDocketOk, isletCountDetail);
+
+  // (34) mark counts (SVG-level): (proposed-and-non-conflict) → dashed ring (138-3=135);
+  //      ratified-seed → seed tick (7); conflict-flagged (a subset of proposed status)
+  //      → crossed-ring group (3). Total member-marks emitted = 135+7+3 = 145 (matches join
+  //      count). Same on both skins.
+  const RING_EXPECTED = 138 - 3;  // proposed minus conflict-flagged (conflicts use their own glyph)
+  const SEED_EXPECTED = 7;
+  const CONFLICT_EXPECTED = 3;
+  const ringCountOk = ['instrument', 'archive'].every((sk) => {
+    const nRing = (bodies[sk].match(/data-el="candidate-ring"/g) || []).length;
+    const nSeed = (bodies[sk].match(/data-el="candidate-seed-tick"/g) || []).length;
+    const nConf = (bodies[sk].match(/data-el="candidate-conflict"/g) || []).length;
+    return nRing === RING_EXPECTED && nSeed === SEED_EXPECTED && nConf === CONFLICT_EXPECTED && (nRing + nSeed + nConf) === 145;
+  });
+  const ringCountDetail = ['instrument', 'archive'].map((sk) => {
+    const nRing = (bodies[sk].match(/data-el="candidate-ring"/g) || []).length;
+    const nSeed = (bodies[sk].match(/data-el="candidate-seed-tick"/g) || []).length;
+    const nConf = (bodies[sk].match(/data-el="candidate-conflict"/g) || []).length;
+    return `${sk}: ring ${nRing}/${RING_EXPECTED} seed ${nSeed}/${SEED_EXPECTED} conflict ${nConf}/${CONFLICT_EXPECTED} total ${nRing + nSeed + nConf}/145`;
+  }).join(' | ');
+  rec('P2-mark-counts', ringCountOk, ringCountDetail);
+
+  // (35) islet-shape counts: single (n=1) islets rendered as candidate-islet circle;
+  //      capsule (n=2) + hull (n≥3) as candidate-islet path. Total = 78 islets = 20+4+11+29+10+4.
+  const singleIsletExpected = candidateIslets.filter((i) => i.n === 1).length;
+  const capsuleExpected = candidateIslets.filter((i) => i.n === 2).length;
+  const hullExpected = candidateIslets.filter((i) => i.n >= 3).length;
+  const isletShapeOk = ['instrument', 'archive'].every((sk) => {
+    const isletCirc = (bodies[sk].match(/data-el="candidate-islet" data-chain="\d+" data-islet-n="1"/g) || []).length;
+    const isletCap = (bodies[sk].match(/data-el="candidate-islet" data-chain="\d+" data-islet-n="2"/g) || []).length;
+    const isletHull = (bodies[sk].match(/data-el="candidate-islet" data-chain="\d+" data-islet-n="([3-9]|\d{2,})"/g) || []).length;
+    return isletCirc === singleIsletExpected && isletCap === capsuleExpected && isletHull === hullExpected;
+  });
+  rec('P2-islet-shape-counts', isletShapeOk, `expected single=${singleIsletExpected}, capsule=${capsuleExpected}, hull=${hullExpected}; total=${candidateIslets.length}`);
+
+  // (36) provisional accent absent from base layers (byte-containment of accent color).
+  //      Base layers = everything OUTSIDE layer-family-candidates and outside the
+  //      family-candidates-legend region. We check that the accent hex appears ONLY inside
+  //      those two regions.
+  const accentContainmentOk = ['instrument', 'archive'].every((sk) => {
+    const accent = SKINS[sk].candidateAccent;
+    // Split SVG into segments: everything up to layer-family-candidates, the candidates layer,
+    // everything between candidates layer end and family-candidates-legend, the legend, and everything after.
+    const b = bodies[sk];
+    const candStart = b.indexOf('<g id="layer-family-candidates">');
+    const candEnd = b.indexOf('</g>', candStart) + '</g>'.length;
+    // Find candidates layer end more carefully: track nested groups.
+    let depth = 0, p = candStart, layerEnd = -1;
+    const openTag = '<g'; const closeTag = '</g>';
+    while (p < b.length) {
+      const openAt = b.indexOf(openTag, p);
+      const closeAt = b.indexOf(closeTag, p);
+      if (closeAt === -1) break;
+      if (openAt !== -1 && openAt < closeAt) { depth++; p = openAt + openTag.length; }
+      else { depth--; if (depth === 0) { layerEnd = closeAt + closeTag.length; break; } p = closeAt + closeTag.length; }
+    }
+    // Now find legend region: <g data-layer="family-candidates-legend">...</g>
+    const legStart = b.indexOf('<g data-layer="family-candidates-legend"');
+    let legEnd = -1;
+    if (legStart !== -1) {
+      let dd = 0, pp = legStart;
+      while (pp < b.length) {
+        const openAt = b.indexOf(openTag, pp);
+        const closeAt = b.indexOf(closeTag, pp);
+        if (closeAt === -1) break;
+        if (openAt !== -1 && openAt < closeAt) { dd++; pp = openAt + openTag.length; }
+        else { dd--; if (dd === 0) { legEnd = closeAt + closeTag.length; break; } pp = closeAt + closeTag.length; }
+      }
+    }
+    // Segments outside the two allowed regions.
+    const before = b.slice(0, candStart);
+    const between = b.slice(layerEnd, legStart);
+    const after = b.slice(legEnd);
+    // Assert accent hex NOT present in any of those segments.
+    return !before.includes(accent) && !between.includes(accent) && !after.includes(accent);
+  });
+  rec('P2-accent-absent-from-base-layers', accentContainmentOk, accentContainmentOk ? `candidate accent hex present ONLY inside layer-family-candidates + family-candidates-legend regions` : 'ACCENT LEAKED into a base-layer region');
+
+  // (37) base-layer byte-containment vs pass-1. Extract each named layer body (drillin,
+  //      ghosts, live, graveyard, positives, chrome) from both pass-1 snapshot and pass-2
+  //      current. Assert byte-identity for every base layer, EXCEPT within the chrome layer
+  //      the new family-candidates-legend region is exempt.
+  let bytePass = true, byteDetail = [];
+  if (PASS1_SNAPSHOT.is_pass1 && PASS1_SNAPSHOT.instrument && PASS1_SNAPSHOT.archive) {
+    for (const skin of ['instrument', 'archive']) {
+      const pass1 = PASS1_SNAPSHOT[skin];
+      const pass2 = bodies[skin];
+      // Extract balanced layer body for a given layer id.
+      const layerBody = (svg, layerId) => {
+        const openTag = `<g id="${layerId}"`;
+        const s = svg.indexOf(openTag);
+        if (s < 0) return null;
+        const gStart = svg.indexOf('>', s) + 1;
+        // Balanced group scan.
+        let d = 1, i = gStart;
+        while (i < svg.length && d > 0) {
+          const o = svg.indexOf('<g', i);
+          const c = svg.indexOf('</g>', i);
+          if (c < 0) break;
+          if (o >= 0 && o < c) { d++; i = o + 2; }
+          else { d--; if (d === 0) return svg.slice(gStart, c); i = c + 4; }
+        }
+        return null;
+      };
+      const layerBodyStripCandidateLegend = (body) => {
+        // Strip <g data-layer="family-candidates-legend"...>...</g> (balanced) from a body,
+        // ALSO consuming the trailing newline immediately following </g> — pass-2 emits the
+        // legend as its own P.push, so the joined output produces `\n<g ...>...</g>\n`. To
+        // recover byte-identity with pass-1 (which lacks the group entirely), we must remove
+        // the group AND one trailing '\n'.
+        const start = body.indexOf('<g data-layer="family-candidates-legend"');
+        if (start < 0) return body;
+        // Find balanced end.
+        let d = 1, i = body.indexOf('>', start) + 1;
+        while (i < body.length && d > 0) {
+          const o = body.indexOf('<g', i);
+          const c = body.indexOf('</g>', i);
+          if (c < 0) break;
+          if (o >= 0 && o < c) { d++; i = o + 2; }
+          else { d--; if (d === 0) {
+            let endAfter = c + 4;
+            // Consume one trailing newline if present (P.join('\n') introduces it).
+            if (body[endAfter] === '\n') endAfter++;
+            return body.slice(0, start) + body.slice(endAfter);
+          } i = c + 4; }
+        }
+        return body;
+      };
+      const layers = ['layer-drillin', 'layer-ghosts', 'layer-live', 'layer-graveyard', 'layer-positives'];
+      const diffs = [];
+      for (const L of layers) {
+        const p1 = layerBody(pass1, L);
+        const p2 = layerBody(pass2, L);
+        if (p1 === null || p2 === null) { diffs.push(`${L}:MISSING`); continue; }
+        if (p1 !== p2) diffs.push(`${L}:DIFFERS(${p1.length}vs${p2.length})`);
+      }
+      // Chrome layer: strip candidate-legend region from pass-2, then compare to pass-1 chrome.
+      const p1Chrome = layerBody(pass1, 'layer-chrome');
+      const p2Chrome = layerBody(pass2, 'layer-chrome');
+      if (p1Chrome === null || p2Chrome === null) diffs.push('layer-chrome:MISSING');
+      else {
+        const p2ChromeStripped = layerBodyStripCandidateLegend(p2Chrome);
+        if (p1Chrome !== p2ChromeStripped) diffs.push(`layer-chrome(stripped):DIFFERS(${p1Chrome.length}vs${p2ChromeStripped.length})`);
+      }
+      if (diffs.length > 0) { bytePass = false; byteDetail.push(`${skin}: ${diffs.join(',')}`); }
+      else byteDetail.push(`${skin}: base-layers BYTE-IDENTICAL vs pass-1 (drillin/ghosts/live/graveyard/positives + chrome-minus-legend)`);
+    }
+  } else {
+    byteDetail.push('N/A — no pass-1 snapshot found (or pre-existing SVG is already pass-2; consult test #23 fit-layer-regression-vs-E3-r8 for base-layer anchoring)');
+  }
+  rec('P2-base-layer-byte-containment-vs-pass1', bytePass, byteDetail.join(' | '));
+
+  // (38) working-label placement on largest islet per docket + Roman sibling ticks.
+  //      Expect exactly 6 CANDIDATE:<label> labels (one per docket). Sibling ticks count =
+  //      totalIslets - 6 = 78 - 6 = 72.
+  const nWorkingLabels = ['instrument', 'archive'].map((sk) => (bodies[sk].match(/data-el="candidate-label"/g) || []).length);
+  const nSiblingTicks = ['instrument', 'archive'].map((sk) => (bodies[sk].match(/data-el="candidate-sibling-tick"/g) || []).length);
+  const labelsOk = nWorkingLabels.every((n) => n === 6) && nSiblingTicks.every((n) => n === candidateIslets.length - 6);
+  rec('P2-label-placement', labelsOk, `working labels=${nWorkingLabels.join('/')} (exp 6/6); sibling ticks=${nSiblingTicks.join('/')} (exp ${candidateIslets.length - 6}/${candidateIslets.length - 6})`);
+
+  // (39) precision annotations present on every working label (p̂ 0.NN, one per docket).
+  const precisionOk = ['instrument', 'archive'].every((sk) => {
+    return candDockets.every((d) => bodies[sk].includes(`p̂ ${d.self_scored_precision.toFixed(2)}`));
+  });
+  rec('P2-precision-annotations', precisionOk, precisionOk ? `all 6 self-scored precision values present both skins (${candDockets.map((d) => `${d.working_label}:${d.self_scored_precision.toFixed(2)}`).join(', ')})` : 'MISSING');
+
+  // (40) legend block present with data-layer hook + verbatim provisional_layer_disclosure text.
+  const legendPresentOk = ['instrument', 'archive'].every((sk) =>
+    bodies[sk].includes('data-layer="family-candidates-legend"') &&
+    bodies[sk].includes('CANDIDATE FAMILIES') &&
+    bodies[sk].includes('PRE-NAMES-REVIEW (provisional)'));
+  rec('P2-legend-block-present', legendPresentOk, legendPresentOk ? 'family-candidates-legend hook + header both skins' : 'MISSING');
+  const disclosureVerbatimOk = ['instrument', 'archive'].every((sk) =>
+    bodies[sk].includes(esc(String(provisionalDisclosure))));
+  rec('P2-legend-disclosure-verbatim', disclosureVerbatimOk, disclosureVerbatimOk ? 'provisional_layer_disclosure rendered VERBATIM (as <title> on wrapped disclosure line 1) both skins' : 'MISSING VERBATIM DISCLOSURE');
+
+  // (41) per-docket sub-group hooks.
+  const CANDIDATE_DOCKET_HOOKS = ['melee-strike', 'identity-gauge', 'shapeshift', 'dot-ailment', 'multi-projectile-volley', 'minion-pet'];
+  const docketHooksOk = ['instrument', 'archive'].every((sk) => CANDIDATE_DOCKET_HOOKS.every((h) => bodies[sk].includes(`<g data-docket="${h}">`)));
+  rec('P2-docket-subgroup-hooks', docketHooksOk, docketHooksOk ? 'all 6 <g data-docket="..."> sub-groups present both skins' : 'MISSING');
+
+  // (42) island-tier accent color present in ONLY the family-candidates layer/legend (i.e.,
+  //      base-layer byte-containment already covers this, but assert accent hex actually
+  //      APPEARS at least once in the candidates region for each skin).
+  const accentAppearsOk = ['instrument', 'archive'].every((sk) => {
+    const accent = SKINS[sk].candidateAccent;
+    return bodies[sk].includes(accent);
+  });
+  rec('P2-accent-appears-in-candidates', accentAppearsOk, accentAppearsOk ? `instrument accent ${SKINS.instrument.candidateAccent}, archive accent ${SKINS.archive.candidateAccent} present in candidates region both skins` : 'MISSING');
 
   // ---- SMOKES ----
   const smokes = [];
@@ -1521,6 +2168,14 @@ async function main() {
     'D18: gateA_group colors byte-carried from E3 (no new family colors)',
     'D19: below-plane ledger header edition literal → "Edition IV" (editionTag data-derived)',
     'D20: register_ref === feasibility-cuts-register-v1.3 (Path-A: register did not move; E4 RE-ASSERTS byte-identical denominators)',
+    'D21: candidates input → atlas-e4-family-candidates.json (elrond emission 2026-07-17 b137d957; six dockets, 145 members = 138 proposed + 7 ratified-seeds, 3 conflict-flagged; provisional=true, names_review_pending=true)',
+    'D22: JOIN LAW — every kit_id in candidates.dockets[].members resolves to an atlas point; fail-loud on any miss (verified 145/145)',
+    'D23: ISLET GRAIN — one islet per (docket × leiden_subcluster); NEVER cross-chain merge (the wave-4 shelving defect is EXPLICITLY REJECTED); working-label placed on largest islet, siblings get Roman-numeral ticks; total islets = 78 (20+4+11+29+10+4)',
+    'D24: ISLET SHAPE — n=1 dashed circle; n=2 capsule; n≥3 buffered convex hull; all strokes dashed in provisional accent + wash fill ≤0.10',
+    'D25: MEMBER MARKS — proposed → dashed ring around unchanged dot; ratified-seed → seed tick (no ring; already family-colored); conflict → crossed ring with X',
+    'D26: LABELS — CANDIDATE:<label> small-caps + per-docket self-scored precision (p̂ 0.NN)',
+    'D27: LEGEND — new "CANDIDATE FAMILIES — PRE-NAMES-REVIEW (provisional)" block inside layer-chrome, wrapped in <g data-layer="family-candidates-legend">; verbatim provisional_layer_disclosure text',
+    'D28: PROVISIONAL ACCENT — instrument #8a5876 (dusty plum H~325°), archive #c69ab5 (soft mauve H~325°); accent absent from all base-layer regions (assertion #36 enforces containment)',
   ];
 
   const g3ReassertResult = {
@@ -1536,8 +2191,9 @@ async function main() {
   const provenance = {
     render: 'galadriel/pipeline/atlas-edition4-render.mjs',
     edition: editionTag,
-    iteration: 'edition4-serving',
-    iteration_authority: 'Matt 2026-07-17 ratification recorded in canonical/matt_decision_needed/2026-07-16-edition3-vs-refit-candidate-1-adoption.md § WAVE 5 (verbatim: "Agreed, path A" — following the "publish Edition IV" adoption directive). Serving cutover to the Glance Vercel app authorized.',
+    iteration: 2,
+    iteration_label: 'edition4-serving-pass2-candidate-islands',
+    iteration_authority: 'Matt 2026-07-17 pass-2 charge (verbatim: "add the potential build-family islands to The Build Horizon" — PRE-NAMES-REVIEW provisional tier, visually distinct from ratified BUILD FAMILIES). Pass 1 (iteration 1 = "edition4-serving") ratified 2026-07-17 § WAVE 5 "Agreed, path A"; pass 2 populates the reserved layer-family-candidates group without touching base-layer bytes. Gandalf-prime orchestrated; galadriel executed.',
     path_A_law: 'E4 is Path-A SUPPLEMENTARY ADMISSION into Edition-I\'s frozen basis: basis.edition===1, basis.frozen===true, the 506 E3 point coords + 37 legacy tombstones are byte-identical to E3, and the 56 new supplementary points project into the frozen basis (no basis re-derivation).',
     hard_asserts: {
       'H-1_edition_and_version': 'edition===4 && atlas_version==="Edition-IV"',
@@ -1617,12 +2273,47 @@ async function main() {
     },
     // Carry emission's p_df_1_verdict at top level too (per invocation).
     p_df_1_verdict: pDf1TopLevel,
-    // [D12] future-proofing: layer id declared but empty; a follow-on additive layer
-    // module can populate it without touching data-mark emission.
+    // [D21-D28] Pass 2: POPULATED. The layer-family-candidates group now holds 6 docket
+    // sub-groups + all islet shapes + all member marks + label placements. The
+    // family-candidates-legend sits in layer-chrome with its own data-layer hook.
     layer_family_candidates: {
       reserved: true,
-      populated: false,
-      note: 'Reserved empty group. Elrond candidates JSON currently in flight; a pass-2 additive annotation-layer module will populate this WITHOUT touching data-mark emission.',
+      populated: true,
+      pass: 2,
+      candidates_source: 'agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json (elrond emission 2026-07-17 b137d957; schema_version 1)',
+      totals: {
+        proposals: candTotals.proposals,
+        ratified_seeds: candTotals.ratified_seeds,
+        conflict_flagged: candTotals.conflict_flagged,
+        dockets: candTotals.dockets,
+        joins_verified: joinCounter.hit,
+        joins_missing: joinCounter.miss,
+      },
+      dockets: candDockets.map((d) => ({
+        docket_id: d.docket_id,
+        working_label: d.working_label,
+        self_scored_precision: d.self_scored_precision,
+        member_count: d.member_count,
+        chains: Object.keys(d.chains).length,
+        proposed: d.members.filter((m) => m.status === 'proposed').length,
+        ratified_seed: d.members.filter((m) => m.status === 'ratified-seed').length,
+        conflict_flagged: d.members.filter((m) => 'conflict_ratified_family' in m).length,
+      })),
+      islet_grain: 'docket × leiden_subcluster (NEVER cross-chain merge — wave-4 shelving defect rejected)',
+      islet_total: candidateIslets.length,
+      islet_shapes: {
+        single_member_dashed_circle: candidateIslets.filter((i) => i.n === 1).length,
+        two_member_capsule: candidateIslets.filter((i) => i.n === 2).length,
+        multi_member_buffered_hull: candidateIslets.filter((i) => i.n >= 3).length,
+      },
+      provisional_accent: {
+        instrument: SKINS.instrument.candidateAccent,
+        archive: SKINS.archive.candidateAccent,
+        note: 'Dusty plum / soft mauve H~325°; selected via canvas-bound discipline to sit outside all base-plate hues (six family colors + sat-blue positives + chartreuse live-single + grey neutral + tomb inks + ghost inks + horizon ink) — reads pencil-sketch subordinate against ratified family fills.',
+      },
+      provisional_layer_disclosure_verbatim: String(provisionalDisclosure),
+      default_visibility: 'VISIBLE (Matt asked to see them; toggleable via data-docket / data-layer hooks)',
+      base_layer_byte_containment: PASS1_SNAPSHOT.is_pass1 ? 'ASSERTED via test #37 (P2-base-layer-byte-containment-vs-pass1)' : 'DEFERRED — no pass-1 snapshot at run start; base-layer anchoring covered by test #23 (fit-layer-regression-vs-E3-r8)',
     },
     acceptance: { pass: [...tests, ...smokes].filter((t) => t.pass).length, total: tests.length + smokes.length, all_pass: allPass, tests: tests.map((t) => ({ name: t.name, pass: t.pass, detail: t.detail })), smokes: smokes.map((t) => ({ name: t.name, pass: t.pass, detail: t.detail })) },
     skins: ['instrument', 'archive'],

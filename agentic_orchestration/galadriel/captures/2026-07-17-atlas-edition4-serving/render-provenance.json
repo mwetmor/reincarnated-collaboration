@@ -1,8 +1,9 @@
 {
   "render": "galadriel/pipeline/atlas-edition4-render.mjs",
   "edition": "IV",
-  "iteration": "edition4-serving",
-  "iteration_authority": "Matt 2026-07-17 ratification recorded in canonical/matt_decision_needed/2026-07-16-edition3-vs-refit-candidate-1-adoption.md § WAVE 5 (verbatim: \"Agreed, path A\" — following the \"publish Edition IV\" adoption directive). Serving cutover to the Glance Vercel app authorized.",
+  "iteration": 2,
+  "iteration_label": "edition4-serving-pass2-candidate-islands",
+  "iteration_authority": "Matt 2026-07-17 pass-2 charge (verbatim: \"add the potential build-family islands to The Build Horizon\" — PRE-NAMES-REVIEW provisional tier, visually distinct from ratified BUILD FAMILIES). Pass 1 (iteration 1 = \"edition4-serving\") ratified 2026-07-17 § WAVE 5 \"Agreed, path A\"; pass 2 populates the reserved layer-family-candidates group without touching base-layer bytes. Gandalf-prime orchestrated; galadriel executed.",
   "path_A_law": "E4 is Path-A SUPPLEMENTARY ADMISSION into Edition-I's frozen basis: basis.edition===1, basis.frozen===true, the 506 E3 point coords + 37 legacy tombstones are byte-identical to E3, and the 56 new supplementary points project into the frozen basis (no basis re-derivation).",
   "hard_asserts": {
     "H-1_edition_and_version": "edition===4 && atlas_version===\"Edition-IV\"",
@@ -38,7 +39,15 @@
     "D17: fit-layer-regression re-instates against E3 r8 baseline — 506 point circles + 37 legacy tombstones + hull polyline + ghost/drill geometry byte-identical; the 56 new marks are the only additive geometry",
     "D18: gateA_group colors byte-carried from E3 (no new family colors)",
     "D19: below-plane ledger header edition literal → \"Edition IV\" (editionTag data-derived)",
-    "D20: register_ref === feasibility-cuts-register-v1.3 (Path-A: register did not move; E4 RE-ASSERTS byte-identical denominators)"
+    "D20: register_ref === feasibility-cuts-register-v1.3 (Path-A: register did not move; E4 RE-ASSERTS byte-identical denominators)",
+    "D21: candidates input → atlas-e4-family-candidates.json (elrond emission 2026-07-17 b137d957; six dockets, 145 members = 138 proposed + 7 ratified-seeds, 3 conflict-flagged; provisional=true, names_review_pending=true)",
+    "D22: JOIN LAW — every kit_id in candidates.dockets[].members resolves to an atlas point; fail-loud on any miss (verified 145/145)",
+    "D23: ISLET GRAIN — one islet per (docket × leiden_subcluster); NEVER cross-chain merge (the wave-4 shelving defect is EXPLICITLY REJECTED); working-label placed on largest islet, siblings get Roman-numeral ticks; total islets = 78 (20+4+11+29+10+4)",
+    "D24: ISLET SHAPE — n=1 dashed circle; n=2 capsule; n≥3 buffered convex hull; all strokes dashed in provisional accent + wash fill ≤0.10",
+    "D25: MEMBER MARKS — proposed → dashed ring around unchanged dot; ratified-seed → seed tick (no ring; already family-colored); conflict → crossed ring with X",
+    "D26: LABELS — CANDIDATE:<label> small-caps + per-docket self-scored precision (p̂ 0.NN)",
+    "D27: LEGEND — new \"CANDIDATE FAMILIES — PRE-NAMES-REVIEW (provisional)\" block inside layer-chrome, wrapped in <g data-layer=\"family-candidates-legend\">; verbatim provisional_layer_disclosure text",
+    "D28: PROVISIONAL ACCENT — instrument #8a5876 (dusty plum H~325°), archive #c69ab5 (soft mauve H~325°); accent absent from all base-layer regions (assertion #36 enforces containment)"
   ],
   "e4_change": "SUPPLEMENTARY-ADMISSION edition (Path A): 56 new supplementary points (47 D1-derived LA/MCD positives + 3 R-1 pull re-keys + 6 tombstones). Lattice UNCHANGED (denominators byte-identical; depth_sum 767,411,820). Frozen basis UNCHANGED (all 506 E3 coords byte-identical). Lit occupancy grows with the newly-keyed rows (read live). New points PROJECT into the frozen basis — no basis re-derivation. off_plane_corpus / unmapped are fit-relative facts RE-DERIVED live by the ghost machinery for the E4 membership (THREE-CLASS FACT RULE, atlas MIGRATION).",
   "prior_edition": "atlas-edition3.json (Edition-III census-population) — the FIT anchor; byte-identical 506 point coords + 37 legacy tombstones",
@@ -239,12 +248,98 @@
   "p_df_1_verdict": "PASS",
   "layer_family_candidates": {
     "reserved": true,
-    "populated": false,
-    "note": "Reserved empty group. Elrond candidates JSON currently in flight; a pass-2 additive annotation-layer module will populate this WITHOUT touching data-mark emission."
+    "populated": true,
+    "pass": 2,
+    "candidates_source": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json (elrond emission 2026-07-17 b137d957; schema_version 1)",
+    "totals": {
+      "proposals": 138,
+      "ratified_seeds": 7,
+      "conflict_flagged": 3,
+      "dockets": 6,
+      "joins_verified": 145,
+      "joins_missing": 0
+    },
+    "dockets": [
+      {
+        "docket_id": 1,
+        "working_label": "MELEE-STRIKE",
+        "self_scored_precision": 0.899,
+        "member_count": 36,
+        "chains": 20,
+        "proposed": 36,
+        "ratified_seed": 0,
+        "conflict_flagged": 2
+      },
+      {
+        "docket_id": 2,
+        "working_label": "IDENTITY-GAUGE",
+        "self_scored_precision": 0.967,
+        "member_count": 31,
+        "chains": 4,
+        "proposed": 31,
+        "ratified_seed": 0,
+        "conflict_flagged": 0
+      },
+      {
+        "docket_id": 3,
+        "working_label": "SHAPESHIFT",
+        "self_scored_precision": 0.8,
+        "member_count": 14,
+        "chains": 11,
+        "proposed": 14,
+        "ratified_seed": 0,
+        "conflict_flagged": 0
+      },
+      {
+        "docket_id": 4,
+        "working_label": "DOT-AILMENT",
+        "self_scored_precision": 0.972,
+        "member_count": 36,
+        "chains": 29,
+        "proposed": 36,
+        "ratified_seed": 0,
+        "conflict_flagged": 1
+      },
+      {
+        "docket_id": 5,
+        "working_label": "MULTI-PROJECTILE-VOLLEY",
+        "self_scored_precision": 1,
+        "member_count": 20,
+        "chains": 10,
+        "proposed": 20,
+        "ratified_seed": 0,
+        "conflict_flagged": 0
+      },
+      {
+        "docket_id": 6,
+        "working_label": "MINION-PET",
+        "self_scored_precision": 0.8,
+        "member_count": 8,
+        "chains": 4,
+        "proposed": 1,
+        "ratified_seed": 7,
+        "conflict_flagged": 0
+      }
+    ],
+    "islet_grain": "docket × leiden_subcluster (NEVER cross-chain merge — wave-4 shelving defect rejected)",
+    "islet_total": 78,
+    "islet_shapes": {
+      "single_member_dashed_circle": 51,
+      "two_member_capsule": 16,
+      "multi_member_buffered_hull": 11
+    },
+    "provisional_accent": {
+      "instrument": "#8a5876",
+      "archive": "#c69ab5",
+      "note": "Dusty plum / soft mauve H~325°; selected via canvas-bound discipline to sit outside all base-plate hues (six family colors + sat-blue positives + chartreuse live-single + grey neutral + tomb inks + ghost inks + horizon ink) — reads pencil-sketch subordinate against ratified family fills."
+    },
+    "provisional_layer_disclosure_verbatim": "Provisional families derived by per-sub-cluster tau propagation on ratified corpus mech-axis fingerprints. NAMES are working labels pending Matt's one-sitting names review. Members carry status in {ratified-seed | proposed}. Kits already ratified in a different gateA family are NEVER re-proposed; near-hits are conflict-flagged.",
+    "default_visibility": "VISIBLE (Matt asked to see them; toggleable via data-docket / data-layer hooks)",
+    "base_layer_byte_containment": "ASSERTED via test #37 (P2-base-layer-byte-containment-vs-pass1)"
   },
   "acceptance": {
-    "pass": 52,
-    "total": 52,
+    "pass": 64,
+    "total": 64,
     "all_pass": true,
     "tests": [
       {
@@ -403,9 +498,9 @@
         "detail": "data-el=\"positive\"×50 both skins; data-el=\"graveyard\"×43 both skins"
       },
       {
-        "name": "D12-family-candidates-layer-reserved",
+        "name": "D21-family-candidates-layer-populated",
         "pass": true,
-        "detail": "reserved empty group present both skins"
+        "detail": "populated layer-family-candidates group present both skins (6 docket sub-groups)"
       },
       {
         "name": "BUILD-FAMILIES-key-rename",
@@ -461,6 +556,66 @@
         "name": "P-DF-1-scored",
         "pass": true,
         "detail": "verdict=PASS, top-level=PASS, falsified=false"
+      },
+      {
+        "name": "P2-join-count-145",
+        "pass": true,
+        "detail": "hit=145, miss=0 (expect 145/0)"
+      },
+      {
+        "name": "P2-islet-count-per-docket",
+        "pass": true,
+        "detail": "D1:20(exp 20) D2:4(exp 4) D3:11(exp 11) D4:29(exp 29) D5:10(exp 10) D6:4(exp 4)"
+      },
+      {
+        "name": "P2-mark-counts",
+        "pass": true,
+        "detail": "instrument: ring 135/135 seed 7/7 conflict 3/3 total 145/145 | archive: ring 135/135 seed 7/7 conflict 3/3 total 145/145"
+      },
+      {
+        "name": "P2-islet-shape-counts",
+        "pass": true,
+        "detail": "expected single=51, capsule=16, hull=11; total=78"
+      },
+      {
+        "name": "P2-accent-absent-from-base-layers",
+        "pass": true,
+        "detail": "candidate accent hex present ONLY inside layer-family-candidates + family-candidates-legend regions"
+      },
+      {
+        "name": "P2-base-layer-byte-containment-vs-pass1",
+        "pass": true,
+        "detail": "instrument: base-layers BYTE-IDENTICAL vs pass-1 (drillin/ghosts/live/graveyard/positives + chrome-minus-legend) | archive: base-layers BYTE-IDENTICAL vs pass-1 (drillin/ghosts/live/graveyard/positives + chrome-minus-legend)"
+      },
+      {
+        "name": "P2-label-placement",
+        "pass": true,
+        "detail": "working labels=6/6 (exp 6/6); sibling ticks=72/72 (exp 72/72)"
+      },
+      {
+        "name": "P2-precision-annotations",
+        "pass": true,
+        "detail": "all 6 self-scored precision values present both skins (MELEE-STRIKE:0.90, IDENTITY-GAUGE:0.97, SHAPESHIFT:0.80, DOT-AILMENT:0.97, MULTI-PROJECTILE-VOLLEY:1.00, MINION-PET:0.80)"
+      },
+      {
+        "name": "P2-legend-block-present",
+        "pass": true,
+        "detail": "family-candidates-legend hook + header both skins"
+      },
+      {
+        "name": "P2-legend-disclosure-verbatim",
+        "pass": true,
+        "detail": "provisional_layer_disclosure rendered VERBATIM (as <title> on wrapped disclosure line 1) both skins"
+      },
+      {
+        "name": "P2-docket-subgroup-hooks",
+        "pass": true,
+        "detail": "all 6 <g data-docket=\"...\"> sub-groups present both skins"
+      },
+      {
+        "name": "P2-accent-appears-in-candidates",
+        "pass": true,
+        "detail": "instrument accent #8a5876, archive accent #c69ab5 present in candidates region both skins"
       }
     ],
     "smokes": [
