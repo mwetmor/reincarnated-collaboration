@@ -162,6 +162,8 @@ proc_trigger_condition:      # NEW — for shape="proc-loop" only
 
 Rocket authorship touchpoint: `element_biases.py` gets a NEW `PERSISTENT_CONDITION_BIAS` map; `substrate_templates.py` gets new templates `paladin_aura_of_X`, `barbarian_frenzy_state`, `proc_loop_trigger`.
 
+> **⚑ AC-2 FLAG (rocket v2.10 slice, 2026-07-16 — DEFERRED-UNBUILT, Gate-2 adjudicates):** the econ-keyed bias maps here and in §3.5 (`PERSISTENT_CONDITION_BIAS` / `RESERVATION_BIAS`) are **non-load-bearing as drafted** — grep confirms zero engine consumers of econ-keyed bias maps (`element_biases.py` is an ailment/scaling module; nothing in composition samples from an econ bias). Rocket correctly deferred rather than land dead code. The live emission surface is `bc_target_composer`'s map + `resource_economy` fields. **If element-biased PC/RS composition is INTENDED, it needs its own spec section (a `bc_target_composer` sampling-weight change), likely Wave-B.1/C.** The new substrate templates named here are bundled in the same flag — Gate-2 verifies whether template absence blocks kit-grain emission (S5) or is content-stage work. gandalf lean: bias maps = strike-or-respec (drafter speculation); templates = verify-at-gate.
+
 ### 2.6 Commitment-state extension (ESCALATION e — proc-loop split question)
 
 **Options:**
