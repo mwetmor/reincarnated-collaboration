@@ -22,8 +22,9 @@ export type PivotItem =
   | { kind: 'ghost'; row: AtlasGhostRow };
 
 // ---- Axis-pole vocabulary (D1-e) ----
-// The pivot's compass labels ARE the pole names. Ground truth = the Edition-III SVG rails
-// (verified against public/atlas/atlas-edition3-archive.svg, inversion-guarded):
+// The pivot's compass labels ARE the pole names. Ground truth = the Edition-IV SVG rails
+// (verified against public/atlas/atlas-edition4-archive.svg, inversion-guarded — the E4
+// plates preserve the E3 rail geometry byte-for-byte inside the pole layer per G-3):
 //   right-rail  "PERFORM →" @ x=1546 (high x)  => positive-x pole = PERFORM (EAST)
 //   left-rail   "← DEPLOY"  @ x=54   (low x)   => negative-x pole = DEPLOY  (WEST)
 //   top-strip   "↑ LAUNCH"  @ y=120  (low  screen-y) => positive world-y = LAUNCH (NORTH)
@@ -259,7 +260,7 @@ export function displayGame(game: string | null): string | null {
  * with patch appended only when present, year omitted when absent (then just
  * `folk_name — game`). Every string is a copy of a corpus field; a missing field
  * renders nothing (never a guess). folk_name is guaranteed present on the atlas set
- * (build-fail floor 506/506); if somehow absent, fall back to the kit_id slug so the
+ * (build-fail floor 562/562 on E4); if somehow absent, fall back to the kit_id slug so the
  * row is never blank.
  */
 export function buildProvenanceName(row: AtlasKitRow): string {

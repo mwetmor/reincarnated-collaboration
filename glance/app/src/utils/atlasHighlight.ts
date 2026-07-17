@@ -11,15 +11,19 @@
 //   - Dark canvas (archive): pale luminous stroke. Light canvas (instrument):
 //     dark ink stroke. Bound by CANVAS, never by skin name.
 //
-// SEMANTICS (spec §1 basic-legend vocabulary, verified against r7 hooks):
+// SEMANTICS (spec §1 basic-legend vocabulary, verified against r7 hooks; v1.13 E4):
 //   - "Live Builds"  = ALL live marks = singles + condensation members
 //                      = [data-el="live"], [data-el="condensation"]  (383+86 marks)
 //   - "Build Families"= the six groups' members = [data-el="condensation"]  (86)
-//   - "Graveyard"    = the †s = [data-el="graveyard"]  (37)
+//   - "Graveyard"    = the †s = [data-el="graveyard"]  (43 on E4 = 37 legacy + 6 new)
 //   - "Ghosts"       = meso + drill-in ground  (46,006 marks) — highlighted by
 //                      LAYER GROUP (#layer-ghosts, #layer-drillin) with ONE filter,
 //                      NEVER per-mark (D1-b highlight-cost law). The three small
 //                      classes above stay per-mark (cheap at ≤600 marks).
+//   - E4 addition: [data-el="positive"] (50 new sat-blue Path-A marks) is INERT at
+//                  this cutover — no per-mark rule targets it, so the highlight CSS
+//                  never touches those nodes. Wiring a "Positive" legend class /
+//                  islands-toggle is a separate gated charge (post-cutover).
 // (D1-i: community vocabulary in this comment; the CSS SELECTORS still target the
 //  internal data-el values, which are unchanged.)
 //

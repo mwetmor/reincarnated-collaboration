@@ -6,7 +6,10 @@
 // asserts the pivot's mapping (pivotPoleMapping) against it. It also PROVES a
 // deliberately flipped mapping FAILS, so the guard has teeth.
 //
-// Ground truth (parsed live from public/atlas/atlas-edition3-archive.svg):
+// Ground truth (parsed live from public/atlas/atlas-edition4-archive.svg — the E4
+// serving plate; v1.13 E4 cutover 2026-07-17. The pole rails carry byte-identical
+// geometry across E3→E4 per G-3 anchoring, so the mapping is preserved; asserting
+// against the SERVED plate keeps this test bound to the artifact being shipped):
 //   right-rail text "PERFORM →" @ high x  => positive-x pole = PERFORM (EAST)
 //   left-rail  text "← DEPLOY"  @ low  x  => negative-x pole = DEPLOY  (WEST)
 //   top-strip  text "↑ LAUNCH"  @ low  screen-y => positive world-y = LAUNCH (NORTH)
@@ -21,7 +24,7 @@ import { pivotPoleMapping } from '../utils/atlasPivot';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, '..', '..');
-const SVG_PATH = resolve(REPO_ROOT, 'public/atlas/atlas-edition3-archive.svg');
+const SVG_PATH = resolve(REPO_ROOT, 'public/atlas/atlas-edition4-archive.svg');
 
 /** One rail text element: its pole word + its (x, y) anchor. */
 interface RailText {

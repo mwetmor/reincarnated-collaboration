@@ -38,24 +38,28 @@ describe('D1-h sidecar carries a provenance header (#48)', () => {
   });
 });
 
-describe('D1-h join coverage on the atlas 506 (#48)', () => {
-  it('every atlas kit carries a folk_name (HARD floor 506/506)', () => {
-    expect(data.kits.length).toBe(506);
+describe('D1-h join coverage on the atlas 562 (#48; v1.13 E4 cutover 2026-07-17)', () => {
+  it('every atlas kit carries a folk_name (HARD floor 562/562)', () => {
+    // v1.13 E4: the atlas widened from 506 (E3) to 562 (E4 = 506 carried + 56 new).
+    expect(data.kits.length).toBe(562);
     const missing = data.kits.filter((k) => !k.folk_name);
     expect(missing.length).toBe(0);
   });
 
-  it('coverage matches the probed numbers (folk 506, game 506, year 506, patch 15)', () => {
+  it('coverage matches the probed numbers (folk 562, game 562, year 562, patch 15)', () => {
+    // v1.13 E4: folk/game/year at 562/562 (the 56 new admissions all carry corpus names
+    // — the LA-admission ruling requires it). Patch stays at 15 (patch-tagged rows in
+    // the corpus are a small curated subset; no new patch-tagging in the E4 admission).
     const cov = (pred: (k: (typeof data.kits)[number]) => boolean) =>
       data.kits.filter(pred).length;
-    expect(cov((k) => !!k.folk_name)).toBe(506);
-    expect(cov((k) => !!k.game)).toBe(506);
-    expect(cov((k) => k.era_year != null)).toBe(506);
+    expect(cov((k) => !!k.folk_name)).toBe(562);
+    expect(cov((k) => !!k.game)).toBe(562);
+    expect(cov((k) => k.era_year != null)).toBe(562);
     expect(cov((k) => !!k.stabilization_patch)).toBe(15);
     // The build script also stamps the same counts.
     if (data.provenance_coverage) {
-      expect(data.provenance_coverage.folk_name).toBe(506);
-      expect(data.provenance_coverage.era_year).toBe(506);
+      expect(data.provenance_coverage.folk_name).toBe(562);
+      expect(data.provenance_coverage.era_year).toBe(562);
       expect(data.provenance_coverage.stabilization_patch).toBe(15);
     }
   });

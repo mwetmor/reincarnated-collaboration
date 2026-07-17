@@ -2,9 +2,18 @@
 // verify-build-fail-guard.mjs
 // Reproducible demonstration of the atlas-interactive build-fail guard (spec §7 #33).
 //
-// Doctors the vendored atlas source three ways (each a field RENAME of a
-// load-bearing emitted field) and asserts the build script HALTS (non-zero exit)
-// on each — then asserts the CLEAN source still builds (exit 0).
+// Doctors the vendored atlas source several ways (each a field RENAME or a Path-A
+// invariant violation) and asserts the build script HALTS (non-zero exit) on each —
+// then asserts the CLEAN source still builds (exit 0).
+//
+// v1.13 E4 CUTOVER (drax, Matt-ruled 2026-07-17): retargeted at the Edition-IV
+// emission + the E3 prior-edition cross-check. Added TWO E4 invariant cases:
+//   - edition!==4 (guard fires when the emission is not the ratified E4)
+//   - Path-A basis violated (basis.edition!==1 or basis.frozen!==true — a re-fit
+//     hiding as a supplementary admission)
+// Kept: point-field renames (x, gateA_group, ghost core, death_class), the
+// sidecar-drop-folk_name floor, the engine-key axes-schema rename, and the two
+// exporter derivation-guard swaps.
 //
 // Run: node scripts/atlas/verify-build-fail-guard.mjs
 // Exits 0 iff all guard cases fire AND the clean source builds; else 1.
@@ -17,9 +26,12 @@ import { tmpdir } from 'node:os';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, '..', '..');
+const COLLAB_ROOT = resolve(__dirname, '..', '..', '..', '..');
 const BUILD = resolve(__dirname, 'build-atlas-interactive.mjs');
 const EXPORT_EK = resolve(__dirname, 'export-engine-key-sidecar.mjs');
-const SOURCE = resolve(REPO_ROOT, 'data-src/atlas/atlas-edition2.json');
+// v1.13 E4: the atlas source now lives in-repo at research/curated/ (not data-src/).
+const SOURCE = resolve(COLLAB_ROOT, 'agentic_orchestration/research/curated/atlas/atlas-edition4.json');
+const PRIOR_SOURCE = resolve(COLLAB_ROOT, 'agentic_orchestration/research/curated/atlas/atlas-edition3.json');
 const SIDECAR = resolve(__dirname, 'kit-provenance-sidecar.json');
 const ENGINE_KEY_SIDECAR = resolve(__dirname, 'engine-key-sidecar.json');
 
@@ -38,7 +50,9 @@ function clone(o) {
 function buildHalts(label, srcObj, sidecarObj, engineKeyObj) {
   const p = join(tmp, `doctored-${label}.json`);
   writeFileSync(p, JSON.stringify(srcObj));
-  const args = [BUILD, p, '--out', OUT];
+  // v1.13 E4: pass the PRIOR (E3) source explicitly so the doctored E4 file still has a
+  // valid Path-A additive cross-check partner (we're doctoring the E4 file, not the E3).
+  const args = [BUILD, p, '--prior', PRIOR_SOURCE, '--out', OUT];
   if (sidecarObj) {
     const sp = join(tmp, `doctored-sidecar-${label}.json`);
     writeFileSync(sp, JSON.stringify(sidecarObj));
@@ -82,9 +96,6 @@ const cases = [
   {
     label: 'rename-point-x',
     make: () => {
-      const d = clone(atlas);
-      for (const pt of d.points) if ('x' in pt) pt.x_coord = (delete pt.x, pt.x_coord ?? 0);
-      // (rewrite value properly)
       const d2 = clone(atlas);
       for (const pt of d2.points) if ('x' in pt) { pt.x_coord = pt.x; delete pt.x; }
       return d2;
@@ -111,6 +122,31 @@ const cases = [
     make: () => {
       const d = clone(atlas);
       for (const pt of d.points) if ('death_class' in pt) { pt.class_of_death = pt.death_class; delete pt.death_class; }
+      return d;
+    },
+  },
+  // v1.13 E4: NEW invariant cases — edition + Path-A basis.
+  {
+    label: 'edition-not-4',
+    make: () => {
+      const d = clone(atlas);
+      d.edition = 3; // pretend E3 (must halt: cutover is E4)
+      return d;
+    },
+  },
+  {
+    label: 'path-A-basis-frozen-false',
+    make: () => {
+      const d = clone(atlas);
+      d.basis.frozen = false; // pretend a re-fit hiding as supplementary admission
+      return d;
+    },
+  },
+  {
+    label: 'path-A-basis-edition-shifted',
+    make: () => {
+      const d = clone(atlas);
+      d.basis.edition = 4; // pretend basis moved to E4 (must halt: Path-A requires E1)
       return d;
     },
   },
@@ -178,7 +214,7 @@ for (const c of cases) {
 // Clean source must still build.
 let cleanBuilds = false;
 try {
-  execFileSync('node', [BUILD, SOURCE, '--out', OUT], { stdio: 'pipe' });
+  execFileSync('node', [BUILD, SOURCE, '--prior', PRIOR_SOURCE, '--out', OUT], { stdio: 'pipe' });
   cleanBuilds = true;
 } catch {
   cleanBuilds = false;

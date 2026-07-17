@@ -2,18 +2,38 @@
 //
 // These mirror the build-time derivative `public/atlas/atlas-interactive.json`
 // produced by scripts/atlas/build-atlas-interactive.mjs. Every field is a copy
-// (or mechanical derivation) of an EMITTED atlas-edition2.json field — no
+// (or mechanical derivation) of an EMITTED atlas-edition4.json field — no
 // invention on the render side (drax render-faithfully discipline).
+//
+// v1.13 E4 SERVING CUTOVER (drax, Matt-ruled 2026-07-17): the source is now
+// Edition-IV (Path-A supplementary admission into Edition-I's frozen basis).
+// Point counts widen: 469 active + 93 supplementary = 562 total; the 93 supp
+// split into 43 tombstones (37 legacy + 6 new; carry death_class) and 50 new
+// POSITIVES (no death_class — Path-A admissions into the frozen basis but not
+// death-classed). E4 emission points do NOT carry `cls`/`condensation`/
+// `death_class` — those are DERIVED at slim-build time (never invented).
 //
 // Spec: agentic_orchestration/gandalf/notes/2026-07-15-atlas-interactive-glance-spec.md §5
 
 /** Quadrant = sign pair of (x, y): EN / ES / WN / WS (region names, spec §5). */
 export type Quadrant = 'EN' | 'ES' | 'WN' | 'WS';
 
-/** Kit class: live (active 469) | graveyard (supplementary 37, death-class marked). */
-export type KitClass = 'live' | 'graveyard';
+/**
+ * Kit class — E4 3-class model (spec E4 D8/D9/D10/D11):
+ *   live (active 469; supplementary=false)
+ *   graveyard (supplementary=true AND death_class != null; 43 = 37 legacy + 6 new)
+ *   positive (supplementary=true AND death_class == null; 50 new — Path-A admissions
+ *             into the frozen basis, not death-classed)
+ * Derivation is honest: `supplementary` + `death_class` presence off the emission
+ * are the sole discriminators (no invention). Legacy consumers only touching 'live'
+ * and 'graveyard' work unchanged; 'positive' kits render as no-family/no-death rows.
+ */
+export type KitClass = 'live' | 'graveyard' | 'positive';
 
-/** The four legend classes in Matt's vocabulary (spec §4). */
+/** The four legend classes in Matt's vocabulary (spec §4). NOTE: the E4 render adds a
+ *  `data-el="positive"` mark class (50 sat-blue dots) — highlighting them from the legend
+ *  is a SEPARATE gated charge (islands-toggle wiring). Unknown data-el values are inert
+ *  in the current highlight CSS (no per-mark rule = no touch). */
 export type LegendClass = 'condensations' | 'live' | 'graveyard' | 'ghosts';
 
 /** One live-or-graveyard kit row (INTERNAL id stays kit_id per Matt's split). */
@@ -84,9 +104,17 @@ export interface AtlasInteractiveCounts {
   kits: number;
   kits_live: number;
   kits_graveyard: number;
+  /** v1.13 E4: the 50 new-positive kits (Path-A supplementary admissions into the frozen
+   *  basis, not death-classed). Optional so pre-E4 JSON still type-checks; a null/absent
+   *  value is treated as 0 by the (few) consumers that read this field. */
+  kits_positive?: number;
   kits_condensation_members: number;
   ghosts: number;
   ghosts_lit: number;
+  /** v1.13 E4: the emitted tombstone + positive split, surfaced for the provenance panel. */
+  legacy_tombstones?: number;
+  new_tombstones?: number;
+  new_positives?: number;
 }
 
 /** D2-a: engine-key join coverage receipt (surfaced in the provenance panel). */
@@ -102,11 +130,20 @@ export interface AtlasInteractiveData {
   schema_version: string;
   derived_from: {
     atlas_version: string;
+    /** v1.13 E4: the emitted edition number (4 for the E4 cutover). Optional so pre-E4
+     *  JSON still type-checks. */
+    edition?: number;
     emitted_at: string;
     emitter_script: string;
     source_bytes: number;
+    /** v1.13 E4: the Path-A basis stamp (edition + frozen flag), copied from the fat
+     *  emission so consumers can cite the basis without opening the source. */
+    basis?: { edition: number; frozen: boolean };
   };
   counts: AtlasInteractiveCounts;
+  /** v1.13 E4: E3-carried Path-A additive floor receipt. Optional so pre-E4 JSON still
+   *  type-checks; when present, `mismatches` MUST be 0 (asserted at build time). */
+  e3_carried_check?: { checked: number; mismatches: number };
   /** D1-h provenance-join coverage (optional; pre-D1-h JSON omits it). */
   provenance_coverage?: Record<string, number>;
   /** D2-a engine-key join coverage (optional; pre-D2 JSON omits it). */

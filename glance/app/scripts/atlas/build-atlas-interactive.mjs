@@ -3,19 +3,39 @@
 // Build-time data-slim script for the interactive-atlas Glance package.
 //
 // PURPOSE: produce `public/atlas/atlas-interactive.json` FROM the in-repo
-// `agentic_orchestration/research/curated/atlas/atlas-edition3.json` by COPY / GROUP
+// `agentic_orchestration/research/curated/atlas/atlas-edition4.json` by COPY / GROUP
 // of emitted fields ONLY. No invention. Every field emitted here is a direct copy (or
-// a mechanical derivation — quadrant sign-pair) of an EMITTED atlas field.
+// a mechanical derivation — quadrant sign-pair, or the E4 3-class cls derived from
+// `supplementary` + `death_class` presence per the E4 renderer's own discriminator) of
+// an EMITTED atlas field.
 //
 // The full 7.5MB atlas JSON must NEVER ship to the client bundle. This script is the
 // seam: the fat source stays in `research/curated/` (never imported, never in
 // `public/`), and only the ~1.9MB derivative lands in `public/atlas/`.
 //
-// v1.12 RE-HOME (drax, Matt-ruled 2026-07-16): ported from reincarnated-loadout into
-// glance/app. glance lives IN the collab meta-repo, so the fat source is read
-// directly from `research/curated/` (no `data-src/` vendor duplication of 7.5MB — the
-// source is in-repo, just build-input-only, never client-shipped). The build target
-// is now Edition-III. Same build-fail-guard contract as Edition-II (below).
+// v1.13 E4 SERVING CUTOVER (drax, Matt-ruled 2026-07-17): flipped to Edition-IV.
+// Key schema differences from E3 (adapted mechanically here):
+//   (1) E4 points do NOT carry `cls`/`condensation`/`death_class` — those were
+//       derived-at-render for E3 too, but the render head had access to E3-carried
+//       classification. Here we derive the SAME way galadriel's render head did:
+//       cls = supplementary=false ? 'live'
+//           : death_class!=null   ? 'graveyard'
+//           : 'positive'
+//       (43 tombstones = 37 legacy + 6 new; 50 positives; 469 live active.)
+//   (2) supplementary=true is NOT synonymous with graveyard in E4 (positives are
+//       supplementary=true with no death_class). This is a Path-A distinction, not a
+//       bug; we CANNOT collapse it. counts.supplementary=93 splits into 43+50.
+//   (3) basis.edition===1 && basis.frozen===true (Path-A supplementary admission
+//       into the FROZEN Edition-I basis). This is CORRECT per Matt-ratified law —
+//       we ASSERT on it (do NOT "fix").
+//   (4) A new `data-el="positive"` mark class appears in the plate SVGs (50 marks)
+//       + a reserved empty <g id="layer-family-candidates"> — those are RENDER-side
+//       artifacts; the interactive JSON's job is to expose the 50 as cls='positive'
+//       kits + the 6 new tombstones as cls='graveyard'.
+//   (5) E4 points may carry OPTIONAL new fields: `franchise`, `cos2`,
+//       `edition_admitted`, `level_flattened`. None are read here (we render
+//       faithfully off the emitted x/y/kit_id + derived cls); unknown-key inertness
+//       preserves the never-invent floor.
 //
 // BUILD-FAIL GUARD: if any expected emitted field is missing or renamed in the
 // source atlas, this script FAILS LOUDLY (non-zero exit) rather than emitting a
@@ -23,7 +43,8 @@
 // (spec §5). Demonstrate with a doctored field-rename: the guard fires.
 //
 // Spec: agentic_orchestration/operating-procedures/glance-contract-spec-2026-07-03.md §7.8
-// Data of record: atlas-edition3.json (Edition-III, emitted 2026-07-16T02:12:43Z)
+// Data of record: atlas-edition4.json (Edition-IV, emitted 2026-07-17T02:42:46Z;
+// galadriel-verified 52/52 acceptance, G-3 anchoring PASS 0-moved/0-missing.)
 //
 // Run: node scripts/atlas/build-atlas-interactive.mjs
 //   Optional first arg: alternate source path (used by the doctored-field test).
@@ -38,8 +59,19 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, '..', '..');
 const COLLAB_ROOT = resolve(__dirname, '..', '..', '..', '..');
 
-// The fat Edition-III emission — in-repo BUILD INPUT ONLY (never client-shipped).
+// The fat Edition-IV emission — in-repo BUILD INPUT ONLY (never client-shipped).
 const DEFAULT_SOURCE = resolve(
+  COLLAB_ROOT,
+  'agentic_orchestration/research/curated/atlas/atlas-edition4.json'
+);
+// v1.13: the prior-edition E3 emission — READ-ONLY SECONDARY INPUT. E4 points don't
+// carry `cls`/`condensation`/`death_class`; galadriel's render head discriminated new-
+// vs-carried marks via the E3 kit_id set + death_class presence. For carried E3 rows
+// we cross-reference E3 to validate our derivation (the classification is derivable
+// from E4 alone — supplementary + death_class + gateA_group — but the E3 file gives
+// us a byte-level assert that we haven't drifted the 506 carried classifications).
+// Fail-loud if absent (the guard is: E3 must be reachable at the ratified path).
+const DEFAULT_PRIOR_SOURCE = resolve(
   COLLAB_ROOT,
   'agentic_orchestration/research/curated/atlas/atlas-edition3.json'
 );
@@ -48,8 +80,9 @@ const DEFAULT_OUT = resolve(REPO_ROOT, 'public/atlas/atlas-interactive.json');
 // D1-h: the READ-ONLY corpus provenance sidecar, vendored as a build input. Joined
 // on kit_id to add folk_name/game/era_year/stabilization_patch to kit rows so the
 // pivot's build leaf rows read `folk_name — game year (patch)` instead of the slug.
-// Exported one-shot from corpus.db canon_corpus; carries its own provenance header.
-// The FROZEN atlas-edition3.json is UNTOUCHED — this join happens at slim-build time.
+// Exported by scripts/atlas/export-kit-provenance-sidecar.mjs; carries its own
+// provenance header. The FROZEN atlas-edition4.json is UNTOUCHED — this join happens
+// at slim-build time.
 const DEFAULT_SIDECAR = resolve(__dirname, 'kit-provenance-sidecar.json');
 
 // D2-a: the READ-ONLY 14-axis ENGINE-KEY sidecar, vendored as a build input. Joined on
@@ -57,12 +90,13 @@ const DEFAULT_SIDECAR = resolve(__dirname, 'kit-provenance-sidecar.json');
 // grid shows real per-build axis codes (not `—`, which D1-g emitted before this pass
 // superseded it). Exported one-shot from corpus.db canon_engine_key (+ canon_corpus
 // naming columns) by scripts/atlas/export-engine-key-sidecar.mjs; carries its own
-// provenance + derivation-receipt header. The FROZEN atlas-edition3.json is UNTOUCHED.
+// provenance + derivation-receipt header. The FROZEN atlas-edition4.json is UNTOUCHED.
 const DEFAULT_ENGINE_KEY_SIDECAR = resolve(__dirname, 'engine-key-sidecar.json');
 
 // ---- CLI ----
 const argv = process.argv.slice(2);
 let sourcePath = DEFAULT_SOURCE;
+let priorSourcePath = DEFAULT_PRIOR_SOURCE;
 let outPath = DEFAULT_OUT;
 let sidecarPath = DEFAULT_SIDECAR;
 let engineKeySidecarPath = DEFAULT_ENGINE_KEY_SIDECAR;
@@ -74,6 +108,8 @@ for (let i = 0; i < argv.length; i++) {
     sidecarPath = resolve(argv[++i]);
   } else if (a === '--engine-key-sidecar') {
     engineKeySidecarPath = resolve(argv[++i]);
+  } else if (a === '--prior') {
+    priorSourcePath = resolve(argv[++i]);
   } else if (!a.startsWith('--')) {
     sourcePath = resolve(argv[i]);
   }
@@ -188,13 +224,57 @@ function loadEngineKeyIndex(sidecar) {
   return { axes, index, provenance };
 }
 
-function build(source, provenanceIndex, engineKey) {
+/**
+ * Build a kit_id -> E3-point map for the E3-carried classification cross-reference.
+ * Only used to validate the derived cls for the 506 carried E3 kit_ids (byte-level
+ * floor: E3 marked N as supplementary => E4 must mark the SAME N as supplementary
+ * WITH the same death_class). Ghost/basis fields are ignored — only per-point
+ * (supplementary, death_class, gateA_group) are compared.
+ */
+function loadE3Index(source) {
+  const pts = requireArray(source, 'points', 'atlas-edition3 root');
+  const idx = new Map();
+  for (const p of pts) {
+    idx.set(p.kit_id, {
+      supplementary: p.supplementary === true,
+      death_class: readOptional(p, 'death_class'),
+      gateA_group: readOptional(p, 'gateA_group'),
+    });
+  }
+  return idx;
+}
+
+function build(source, provenanceIndex, engineKey, e3Index) {
   // --- Top-level fields we depend on (copy, never invent) ---
+  // v1.13 E4: assert edition + Path-A basis at the top of build (guard trip HALTs).
+  const edition = requireField(source, 'edition', 'atlas root');
+  if (edition !== 4) {
+    throw new BuildFailError(
+      `BUILD-FAIL GUARD: expected edition===4 (Edition-IV serving), got ${edition}. ` +
+        `The source is not the ratified E4 emission — HALT.`
+    );
+  }
   const atlasVersion = requireField(source, 'atlas_version', 'atlas root');
+  if (atlasVersion !== 'Edition-IV') {
+    throw new BuildFailError(
+      `BUILD-FAIL GUARD: expected atlas_version==="Edition-IV", got "${atlasVersion}". HALT.`
+    );
+  }
   const emittedAt = requireField(source, 'emitted_at', 'atlas root');
   const emitterScript = requireField(source, 'emitter_script', 'atlas root');
   const counts = requireField(source, 'counts', 'atlas root');
   const basis = requireField(source, 'basis', 'atlas root');
+  // Path-A guard: E4 admits new points into E1's FROZEN basis; asserting this is the
+  // whole point of the Path-A ratification. A shift here would falsify the E4 story
+  // (a re-fit hiding as a supplementary admission) and MUST HALT.
+  const basisEdition = requireField(basis, 'edition', 'atlas.basis');
+  const basisFrozen = requireField(basis, 'frozen', 'atlas.basis');
+  if (basisEdition !== 1 || basisFrozen !== true) {
+    throw new BuildFailError(
+      `BUILD-FAIL GUARD: Path-A basis violated. Expected basis.edition===1 && basis.frozen===true ` +
+        `(E4 admits into E1's frozen basis), got basis.edition=${basisEdition}, basis.frozen=${basisFrozen}. HALT.`
+    );
+  }
   const axisNames = requireField(basis, 'axis_names', 'atlas.basis');
   const points = requireArray(source, 'points', 'atlas root');
   const ghostField = requireField(source, 'ghost_field', 'atlas root');
@@ -204,18 +284,25 @@ function build(source, provenanceIndex, engineKey) {
   const feasibleCells = requireArray(ghostField, 'feasible_cells', 'atlas.ghost_field');
 
   // --- Emitted counts we reconcile against (fail-fast on drift) ---
-  // NOTE: `grouped` (=86) lives in render-provenance.json, NOT in atlas.counts.
-  // atlas.counts carries {active, supplementary, total, null_death_class_sentineled}.
-  // Grouped-member count is reconciled internally (derived gateA_group scan).
+  // E4 counts: {active, supplementary, total, legacy_tombstones, new_tombstones,
+  //             new_positives, held_out_dossier_owed, new_supplementary_edition4,
+  //             null_death_class_sentineled}. We reconcile against the four we USE.
   const nActive = requireField(counts, 'active', 'atlas.counts');
   const nSupplementary = requireField(counts, 'supplementary', 'atlas.counts');
   const nTotal = requireField(counts, 'total', 'atlas.counts');
+  const nLegacyTombstones = requireField(counts, 'legacy_tombstones', 'atlas.counts');
+  const nNewTombstones = requireField(counts, 'new_tombstones', 'atlas.counts');
+  const nNewPositives = requireField(counts, 'new_positives', 'atlas.counts');
 
   // ============================================================
-  // PER-KIT ROWS
-  //   class: live | graveyard   (graveyard = supplementary marks,
-  //     each carrying a death_class; live = the active 469, death_class == null)
-  //   condensation membership: gateA_group (one of 6 named groups) or null
+  // PER-KIT ROWS — E4 3-class derivation (spec E4 D8/D9/D10):
+  //   class: live | graveyard | positive  (see AtlasKitRow docs; derived here)
+  //     live       = supplementary=false                (469 active)
+  //     graveyard  = supplementary=true  && death_class != null  (37 legacy + 6 new = 43)
+  //     positive   = supplementary=true  && death_class == null  (50 new — Path-A
+  //                                                                admissions, not death-classed)
+  //   condensation membership: gateA_group (one of 6 named groups) or null (LIVE ONLY —
+  //     positives + graveyard rows do not carry a family in E4).
   //   x, y: emitted point coords (signed, origin-centred projection space)
   //   quadrant: derived sign-pair
   // ============================================================
@@ -224,6 +311,12 @@ function build(source, provenanceIndex, engineKey) {
   let seenSupplementary = 0;
   let seenGrouped = 0;
   let seenGraveyardWithDeathClass = 0;
+  let seenPositives = 0;
+  let seenGraveyardTotal = 0;
+  // E3-cross-check counters: for the 506 E3-carried kit_ids, our derived cls MUST match
+  // E3's supplementary flag (E4 never re-classes a carried E3 point; Path-A is additive).
+  let e3CarriedChecked = 0;
+  const e3ClsMismatch = [];
   // D1-h provenance-join coverage counters (reported; folk_name is a HARD floor).
   let covFolkName = 0;
   let covGame = 0;
@@ -247,17 +340,49 @@ function build(source, provenanceIndex, engineKey) {
     const gateAGroup = readOptional(p, 'gateA_group'); // live points only
     const deathClass = readOptional(p, 'death_class'); // graveyard points only
 
-    const cls = supplementary ? 'graveyard' : 'live';
-    if (supplementary) {
-      seenSupplementary++;
-      if (deathClass != null) seenGraveyardWithDeathClass++;
-    } else {
+    // v1.13 E4: 3-class derivation. supplementary=false => live; supplementary=true
+    // splits on death_class presence (graveyard vs positive). This mirrors galadriel's
+    // render-head discriminator (D8: "new supplementary marks classify via prior-atlas
+    // kit_id set + death_class field presence"). We do NOT need the E3-carried set to
+    // classify — the two E4 fields alone are sufficient — but we cross-check the 506
+    // carried rows against E3 as an integrity floor (below).
+    let cls;
+    if (!supplementary) {
+      cls = 'live';
       seenActive++;
+    } else if (deathClass != null) {
+      cls = 'graveyard';
+      seenSupplementary++;
+      seenGraveyardWithDeathClass++;
+      seenGraveyardTotal++;
+    } else {
+      cls = 'positive';
+      seenSupplementary++;
+      seenPositives++;
     }
     if (gateAGroup != null) seenGrouped++;
 
+    // E3 cross-check: any kit_id present in E3 must have the SAME supplementary +
+    // death_class in E4 (Path-A additive law). This is a byte-level floor on the 506
+    // carried rows — a mismatch here means E4 re-classed an E3-carried point, which
+    // would falsify the Path-A story. HALT on ANY drift.
+    if (e3Index && e3Index.has(kitId)) {
+      e3CarriedChecked++;
+      const e3 = e3Index.get(kitId);
+      if (
+        e3.supplementary !== supplementary ||
+        (e3.death_class ?? null) !== (deathClass ?? null)
+      ) {
+        e3ClsMismatch.push({
+          kit_id: kitId,
+          e3: { supplementary: e3.supplementary, death_class: e3.death_class },
+          e4: { supplementary, death_class: deathClass },
+        });
+      }
+    }
+
     // D1-h: JOIN the corpus provenance row on kit_id. folk_name is MANDATORY per the
-    // atlas coverage floor (probed 506/506); a missing folk_name => build HALT.
+    // atlas coverage floor (probed 562/562 on E4); a missing folk_name => build HALT.
     const prov = provenanceIndex.get(kitId) ?? null;
     const folkName = prov?.folk_name ?? null;
     if (folkName != null && folkName !== '') covFolkName++;
@@ -284,9 +409,9 @@ function build(source, provenanceIndex, engineKey) {
 
     kits.push({
       kit_id: kitId,
-      cls,
-      condensation: gateAGroup, // null for Single live kits
-      death_class: deathClass, // null for live; a death-class string for graveyard
+      cls, // 'live' | 'graveyard' | 'positive'  (E4 3-class derivation)
+      condensation: gateAGroup, // null for Single live + positives + graveyard rows
+      death_class: deathClass, // string for graveyard; null for live + positives
       x,
       y,
       quadrant: quadrant(x, y),
@@ -302,7 +427,7 @@ function build(source, provenanceIndex, engineKey) {
     });
   }
 
-  // D1-h HARD FLOOR: every atlas kit must resolve a sidecar folk_name (probed 506/506).
+  // D1-h HARD FLOOR: every atlas kit must resolve a sidecar folk_name (E4: 562/562).
   // A miss means the sidecar is stale vs the atlas point set — HALT rather than ship
   // slug fallbacks (extends the verify:atlas-guard never-degrade contract).
   if (missingFolkName.length > 0) {
@@ -310,7 +435,19 @@ function build(source, provenanceIndex, engineKey) {
       `BUILD-FAIL GUARD: ${missingFolkName.length} atlas kit_id(s) resolved NO folk_name in the ` +
         `corpus provenance sidecar (e.g. ${missingFolkName.slice(0, 5).join(', ')}). ` +
         `The sidecar is stale vs the atlas point set. Re-export ` +
-        `scripts/atlas/kit-provenance-sidecar.json from corpus.db, then re-run. HALT.`
+        `scripts/atlas/kit-provenance-sidecar.json from corpus.db (via export-kit-provenance-sidecar.mjs), ` +
+        `then re-run. HALT.`
+    );
+  }
+
+  // E3 CARRIED-CLASSIFICATION FLOOR: the 506 E3-carried kit_ids MUST retain their E3
+  // supplementary+death_class in E4 (Path-A additive law — this is the derivation
+  // guard for the render-side discriminator). HALT on ANY drift.
+  if (e3ClsMismatch.length > 0) {
+    throw new BuildFailError(
+      `BUILD-FAIL GUARD: ${e3ClsMismatch.length} E3-carried kit_id(s) have DRIFTED supplementary/death_class ` +
+        `between E3 and E4 (Path-A violated: E4 must be additive, never re-class carried rows). ` +
+        `First 3: ${JSON.stringify(e3ClsMismatch.slice(0, 3))}. HALT.`
     );
   }
 
@@ -322,12 +459,28 @@ function build(source, provenanceIndex, engineKey) {
   }
   if (seenSupplementary !== nSupplementary) {
     throw new BuildFailError(
-      `BUILD-FAIL GUARD: derived graveyard-kit count ${seenSupplementary} != emitted counts.supplementary ${nSupplementary}.`
+      `BUILD-FAIL GUARD: derived supplementary-kit count ${seenSupplementary} != emitted counts.supplementary ${nSupplementary}.`
     );
   }
   if (kits.length !== nTotal) {
     throw new BuildFailError(
       `BUILD-FAIL GUARD: kit row count ${kits.length} != emitted counts.total ${nTotal}.`
+    );
+  }
+  // E4-specific: the 43 graveyard split (37 legacy + 6 new) and the 50 positives must
+  // both reconcile against emitted counts. The split isn't discoverable from a single
+  // point (we can't tell "legacy" from "new" without the E3 set, which we DO have) —
+  // but the TOTAL graveyard count and the TOTAL positives are direct derivations.
+  const nGraveyardExpected = nLegacyTombstones + nNewTombstones;
+  if (seenGraveyardTotal !== nGraveyardExpected) {
+    throw new BuildFailError(
+      `BUILD-FAIL GUARD: derived graveyard count ${seenGraveyardTotal} != emitted ` +
+        `counts.legacy_tombstones(${nLegacyTombstones})+counts.new_tombstones(${nNewTombstones})=${nGraveyardExpected}. HALT.`
+    );
+  }
+  if (seenPositives !== nNewPositives) {
+    throw new BuildFailError(
+      `BUILD-FAIL GUARD: derived positives count ${seenPositives} != emitted counts.new_positives ${nNewPositives}. HALT.`
     );
   }
 
@@ -350,9 +503,13 @@ function build(source, provenanceIndex, engineKey) {
         `(${[...distinctGroups].join(', ')}), expected 6. Group vocabulary drift — HALT.`
     );
   }
-  if (seenGraveyardWithDeathClass !== seenSupplementary) {
+  // E4: graveyard is a STRICT SUBSET of supplementary now (positives share the flag),
+  // so the presence-floor for death_class shifts: every GRAVEYARD row carries a
+  // death_class, but supplementary rows split (43 with, 50 without). Assert the "with"
+  // count matches the graveyard total (== 43). A total rename would collapse this to 0.
+  if (seenGraveyardWithDeathClass !== seenGraveyardTotal) {
     throw new BuildFailError(
-      `BUILD-FAIL GUARD: ${seenGraveyardWithDeathClass}/${seenSupplementary} graveyard kits ` +
+      `BUILD-FAIL GUARD: ${seenGraveyardWithDeathClass}/${seenGraveyardTotal} graveyard kits ` +
         `carry a death_class — the 'death_class' field appears renamed or dropped. HALT.`
     );
   }
@@ -445,20 +602,34 @@ function build(source, provenanceIndex, engineKey) {
 
   return {
     // --- provenance stamp: this derivative's lineage back to the fat source ---
-    schema_version: '1.0',
+    schema_version: '1.1', // v1.13 E4: KitClass widened to 3-class ('positive' added)
     derived_from: {
       atlas_version: atlasVersion,
+      edition,
       emitted_at: emittedAt,
       emitter_script: emitterScript,
       source_bytes: null, // filled in by caller (post-read)
+      // Path-A basis stamp — the interactive JSON surfaces the frozen basis so any
+      // client-side receipt (or future audit) can cite it without opening the fat file.
+      basis: {
+        edition: basisEdition,
+        frozen: basisFrozen,
+      },
     },
     counts: {
       kits: kits.length,
       kits_live: seenActive,
-      kits_graveyard: seenSupplementary,
+      kits_graveyard: seenGraveyardTotal, // 43 (37 legacy + 6 new)
+      // v1.13 E4: the 50 new-positive marks (Path-A supplementary admissions, no death).
+      kits_positive: seenPositives,
       kits_condensation_members: seenGrouped,
       ghosts: ghosts.length,
       ghosts_lit: ghosts.reduce((n, g) => n + (g.lit ? 1 : 0), 0),
+      // Provenance-side counts (surface the E4 emitted split so the receipt panel can
+      // cite it verbatim — never hand-typed).
+      legacy_tombstones: nLegacyTombstones,
+      new_tombstones: nNewTombstones,
+      new_positives: nNewPositives,
     },
     // D1-h provenance-join coverage on the atlas kit set (receipts; folk_name is a floor).
     provenance_coverage: {
@@ -470,7 +641,7 @@ function build(source, provenanceIndex, engineKey) {
     },
     // D2-a engine-key join coverage on the atlas kit set (receipts; SOFT join).
     // per_axis = kits with a NON-NULL value on that axis ('unknown' counts; blank/null
-    // does not). Reported for acceptance 50 (per-axis coverage on the atlas 506).
+    // does not). Reported for acceptance 50 (per-axis coverage on the atlas set).
     engine_key_coverage: {
       kits_with_engine_key: covEngineKey,
       per_axis: Object.fromEntries(engineAxes.map((a) => [a.axis, covPerAxis.get(a.axis)])),
@@ -478,6 +649,11 @@ function build(source, provenanceIndex, engineKey) {
       // The derivation receipt from the sidecar (part-order + column correspondence),
       // carried through so the provenance panel + audits can cite it without the corpus.
       derivation: engineKey?.provenance ?? null,
+    },
+    // v1.13 E4: E3 cross-check receipt (the byte-level Path-A additivity floor).
+    e3_carried_check: {
+      checked: e3CarriedChecked, // 506 (all E3 kit_ids re-appear in E4)
+      mismatches: e3ClsMismatch.length, // must be 0 (PASS)
     },
     pole_vocabulary: poleVocabulary,
     kits,
@@ -490,8 +666,8 @@ function main() {
   if (!existsSync(sourcePath)) {
     console.error(
       `BUILD-FAIL: source atlas not found at ${sourcePath}. ` +
-        `Expected the in-repo Edition-III emission at ` +
-        `agentic_orchestration/research/curated/atlas/atlas-edition3.json.`
+        `Expected the in-repo Edition-IV emission at ` +
+        `agentic_orchestration/research/curated/atlas/atlas-edition4.json.`
     );
     process.exit(2);
   }
@@ -505,12 +681,30 @@ function main() {
     process.exit(2);
   }
 
+  // v1.13 E4: load the READ-ONLY prior-edition (E3) atlas for the Path-A additive
+  // cross-check on the 506 carried kit_ids. Absent => HALT (this is the ratified path;
+  // a missing E3 file means the working tree is not on the E4 cutover baseline).
+  if (!existsSync(priorSourcePath)) {
+    console.error(
+      `BUILD-FAIL: prior-edition (E3) atlas not found at ${priorSourcePath}. ` +
+        `E4 build requires it for the Path-A additive floor (E3-carried classification check). HALT.`
+    );
+    process.exit(2);
+  }
+  let priorSource;
+  try {
+    priorSource = JSON.parse(readFileSync(priorSourcePath, 'utf8'));
+  } catch (e) {
+    console.error(`BUILD-FAIL: prior-edition atlas is not valid JSON — ${e.message}`);
+    process.exit(2);
+  }
+
   // D1-h: load the READ-ONLY corpus provenance sidecar (build HALT if absent —
   // the build names depend on it; degrading to slugs is not allowed).
   if (!existsSync(sidecarPath)) {
     console.error(
       `BUILD-FAIL: corpus provenance sidecar not found at ${sidecarPath}. ` +
-        `Export it from corpus.db (scripts/atlas/kit-provenance-sidecar.json) before building.`
+        `Export it from corpus.db (scripts/atlas/export-kit-provenance-sidecar.mjs) before building.`
     );
     process.exit(2);
   }
@@ -545,7 +739,8 @@ function main() {
   try {
     const provenanceIndex = loadProvenanceIndex(sidecar);
     const engineKey = loadEngineKeyIndex(engineKeySidecar);
-    out = build(source, provenanceIndex, engineKey);
+    const e3Index = loadE3Index(priorSource);
+    out = build(source, provenanceIndex, engineKey, e3Index);
   } catch (e) {
     if (e instanceof BuildFailError) {
       console.error(e.message);
@@ -561,10 +756,13 @@ function main() {
 
   const outBytes = Buffer.byteLength(minified, 'utf8');
   const srcBytes = out.derived_from.source_bytes;
-  console.log('atlas-interactive.json built:');
+  console.log('atlas-interactive.json built (Edition-IV):');
   console.log(`  source : ${sourcePath}`);
+  console.log(`  prior  : ${priorSourcePath}  (E3 cross-check: ${out.e3_carried_check.checked} kit_ids, ${out.e3_carried_check.mismatches} mismatches)`);
   console.log(`  out    : ${outPath}`);
-  console.log(`  kits   : ${out.counts.kits} (live ${out.counts.kits_live}, graveyard ${out.counts.kits_graveyard}, condensation-members ${out.counts.kits_condensation_members})`);
+  console.log(
+    `  kits   : ${out.counts.kits} (live ${out.counts.kits_live}, graveyard ${out.counts.kits_graveyard} = ${out.counts.legacy_tombstones}+${out.counts.new_tombstones}, positive ${out.counts.kits_positive}, condensation-members ${out.counts.kits_condensation_members})`
+  );
   console.log(`  ghosts : ${out.counts.ghosts} (lit ${out.counts.ghosts_lit})`);
   const pc = out.provenance_coverage;
   console.log(
