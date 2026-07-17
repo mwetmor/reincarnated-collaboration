@@ -6,6 +6,67 @@
 
 ---
 
+## edition4-run-2026-07-16 — Edition IV emitted: curated LA/MCD + 3 pull re-keys admitted as supplementary points into the frozen Edition-I basis (Path A) — 2026-07-16 — **APPLIED (spec RATIFIED "Agreed, path A"; gates ALL PASS; NOTHING SERVED — gandalf verify-gates → galadriel render → Matt ratifies before cutover)**
+
+### One line
+Executed the ratified Edition-IV run (`edition4-refit-spec.md` §§ 3–10, Path A supplementary admission). Derived cell_keys for the 53 admissible curated LA/MCD rows (D1), admitted them + the 3 speced pull re-keys as **supplementary points** into the byte-frozen Edition-I MCA basis, and emitted `atlas-edition4.json` = **562 points** (469 active + 93 supplementary). The frozen basis and all 506 Edition-III point coords are byte-identical (G-3). corpus.db mutated ONLY by the D1 derivation (cell_key/unresolved/death_class); the artifact is nothing-served.
+
+### Scripts (all new; TOOL scripts, not engine code)
+- `../scripts/corpus_derive_cellkey_e4_la_mcd_2026_07_16.py` — D1/D2/D3 + R-2. Derives the 9 engine-key coords (full loadings-block vocabulary) from §9.19 `proj` + mech prose + `core_skills`; assembles the 14-field cell_key (ratified `serialize_cell_key`); flips `unresolved` 1→0; seats `death_class` on the genuine trap-identity negatives. Backup-first (`corpus.db.pre-e4-cellkey-derive-2026-07-16-backup`), transactional (rolled back once on a `def_bin` CHECK, then corrected: abstained coords write **NULL** to the column / `blank` in the key — parity with the 509).
+- `../scripts/atlas_frozen_basis_reconstruct.py` — reconstructs the frozen Edition-I MCA basis from the durable snapshot `atlas-frozen-fit-cellkeys-edition1.csv` using `atlas_derivation_2026_07_14`'s EXACT machinery (`build_indicator`/`mca_greenacre`/Stage-0c fuse). Exposes `project_point_xy` / `cos2_one` / `level_flatten`. **Self-smoke: reproduces the 469 served active to 4.94e-08 and the 37 served tombstones to 3.94e-08 — the projection surface IS the frozen camera.**
+- `../scripts/build_atlas_json_edition4.py` — emitter (parent `build_atlas_json_edition3.py`, cited in header). Frozen 506 carried byte-identical; 56 new supplementary projected; § 9 cos² + NEW-LEVEL CENSUS + P-3 trigger; gate_report block; predictions.
+
+### D1 derivation (owed-work, spec §4) — the fidelity layer
+- **57 curated rows → 53 derived** (47 positive + 6 negative), **4 held out** (T4/P-1 dossier holdout: `la-ferality-wildsoul`, `la-phantom-beast-awakening-wildsoul`, `la-shining-knight-valkyrie`, `la-liberator-valkyrie`).
+- **Geometry fidelity (P-E4-5 ACCEPTANCE — PASS):** both Destroyer rows (`la-rage-hammer-destroyer`, `la-gravity-training-destroyer`) derive **`geometry=vortex_pull`**. Their §9.19 `proj.geo='small-AOE'` + `proj.ctrl='damage-pure'` FLATTEN the gravity-pull verb; it is recovered from the ratified **pull-carrier census** (Destroyer ×2 — the same index-EXACT census the la-mcd curation normalized + the stageB/pull-tranche precedents keyed `pull`), never from a naive core_skills keyword scan (which would over-fire on the "Blood Vortex"/"Maelstrom" SKILL names carried by `la-demonic-impulse-shadowhunter`/`la-remaining-energy-deathblade` — those are NOT pull identities; the abstain-not-force-fit discipline holds).
+- **No new mapping rules (iron law 3):** every coord rule is a stated rule over the record's own fields anchored to an existing precedent (stageB `corpus_edition3_stageB_lostark58` map_*; the pull-tranche keying; the register v1.2 pull boundary). Where §9.19 offers no signal, the coord abstains (`blank` token / NULL column) and is named — never invented.
+- **Abstention (LOUD):** 4 MCD rows abstain on `def_bin` (their `proj.def` carries `abstain:true`); the non-record placeholder `la-rage-hammer-destroyer-bt` abstains on 6 coords (all its `proj` axes carry `abstain:true` — see R-2).
+
+### Economy fidelity (spec §9(b) / P-E4-6) — the NEW-LEVEL CENSUS by design
+The LA/MCD identity-gauge / uptime / stance economies are **preserved as their own levels** (not collapsed to the lookalike frozen `generator-spender`) so the NEW-LEVEL CENSUS can SEE the flattening. Collapsing would HIDE the very loss the spec commissions me to disclose. Only genuinely-cooldown economies (`cooldown-economy`/`cooldown-uptime`, whose §9.19 note asserts the cooldown mechanic) fold to the frozen `cooldown`.
+
+### Gates (pre-registered; ALL PASS — immutable at run)
+- **G-1 grain: PASS** — staged population 100% `grain='kit'`; zero system/gear/class rows.
+- **G-2 provenance: PASS** — breach-path tripwire VACUOUS (zero grain=kit rows from any non-speced / non-9.19 / non-E1-lineage / non-pull-tranche provenance). Non-silent.
+- **G-3 congruence: PASS (by construction, vacuous-with-teeth)** — E3 basis block + all **506** E3 point coords **byte-identical** in E4 (0 drift, independently re-verified). The check RAN. Reconstruction smoke: 469 active reproduced to 4.94e-08, 37 tombstones to 3.94e-08.
+- **G-4 census: PASS** — staged **562** = 469 active-basis + 37 legacy tombstones (incl. `hot-blood-catcher`, R-3) + 47 new positives (42 LA + 5 MCD) + 3 R-1 pull re-keys + 6 new tombstones. Every delta named; 19 T1-excluded system-records + 4 T4-held-out dossier-owed accounted.
+
+### Reconciliations (named, no silent disposition — G-4)
+- **R-1 (RESOLVED — ADMIT):** the 3 keyed-not-in-E3 rows `d4-spiritborn-vortex` / `d3-wizard-black-hole` / `di-cyclone-strike-monk-base` are the **pull re-keys** (provenance `pull-tranche-edition2-2026-07-15`; speced Diablo corpora — d3/d4/di are among the fifteen reference corpora with 49/46/21 resolved members each). **T2 PASSES** (speced-ingest clause; the breach tripwire is vacuous — the deleted-182 breach was LA/MCD, these survived as legitimate Diablo kits). Admitted as supplementary → the **562** plate (spec §2's "562 if the 3 pull re-keys pass T2").
+- **R-2 (SEATED + NAMED):** 6 new negatives admitted as tombstones (T5). **5 are genuine community-tier-underperformance trap-identities** (D-tier/C-tier build played strictly weaker than its positive twin — viable-but-meta-penalized) → `death_class='extrinsic-tuning'` (the closest faithful enum value; the design-taxonomy final call — is community-tier-underperformance its own death-class? — is NAMED for gandalf). **The 6th (`la-rage-hammer-destroyer-bt`) is a NON-RECORD placeholder** — its own `mech_summary` reads *"NOT a record — both Berserker identities are positive canon; co-viable"* and ALL its `proj` axes abstain. It carries `negative=1` in the DB (ratified by the la-mcd curation) so T5 admits it, but it is NOT a genuine trap-skill → `death_class` stays the sentinel (`unknown-pending-recrawl`); the source-vs-flag tension is surfaced (mirrors the la-mcd Destroyer `grain_note` discipline). Its heavily-masked projection is itself the diagnostic: it is the ONE twin that lands FAR from its positive (P-E4-3, below).
+- **R-3 (NAMED — no action):** the one pre-existing kit row with `unresolved=1` AND a cell_key is **`hot-blood-catcher`** — a patched-bug relic ("hundred-billion damage compounding relic interaction, developer-fixed"; `death_class=system-evidence`), already keyed + admitted as one of the 37 E3 tombstones. Its `unresolved=1` is a **provenance re-verification flag orthogonal to fit-input resolution** (the row is fully keyed and seated). Carried forward unchanged; touching it is out of scope.
+
+### § 9 disclosures (Path A's honest cost, empirical — both instruments)
+- **(a) cos² (weak expression of KNOWN levels):** admitted-cohort median plane-cos² = **0.1056** vs E1-active median **0.1685** (ratio **0.626**). The frozen plane expresses the LA/MCD cohort's variance at ~63% of the active baseline — LA is an entirely new franchise the basis never learned (zero LA rows in the frozen 469).
+- **(b) NEW-LEVEL CENSUS (silent flattening of ABSENT levels):** top hits — **`economy:identity-gauge`=31** (30 LA + 1 MCD; the predicted P-E4-6 ~30) · `function:pull`=5 (2 Destroyers + 3 pull re-keys; `pull` is a post-E1 function level with no frozen column) · `economy:buff-uptime`=5 · `range:mid`=3 · `economy:stance-rotation`=3 · `economy:summon-uptime`=2 · `delivery:melee`=1 · `economy:soul-economy`=1. Per-point `level_flattened` stamps in the artifact.
+- **P-3 REFIT TRIGGER: E5 FIRES (arm 2).** arm-1 (expression): admitted median 0.1056 ≥ 0.5×active (0.0843) → does NOT fire. arm-2 (vocabulary): `identity-gauge`=31 ≥ 20 → **FIRES**. E5 Path-B refit is triggered — exactly the spec's honest forecast ("if the LA cohort admits with the gauge census at ~30, arm 2 is already near its line"). Disclosure, not a gate; the refit law (§6) is already pre-registered.
+
+### Prediction grades (spec §8; graded at run where computable — verdicts are numbers, interpretation is gandalf's/Matt's)
+- **P-E4-1 FAIL** — `mcd-summoner`'s nearest ratified family (full-space nearest active seed) = **TOTEM-SENTRY** (`poe1-siege-ballista`, dist 0.864), NOT MINION-PET. Honest result; the flattened §9.19 geometry seats summoners toward totem-like placement on the frozen plane.
+- **P-E4-2 PASS** — LA gauge-melee identities mutually condense (mean pairwise full-space dist below corpus mean).
+- **P-E4-3 PARTIAL** — 5/6 negative twins land nearer their positive twin than corpus median NN (0.678). The ONE failure is the non-record `la-rage-hammer-destroyer-bt` (all-mask projection, dist 0.845) — a diagnostic confirmation of R-2, not a substantive miss. The 5 genuine trap-identities all pass.
+- **P-E4-4 PASS** — admitted median cos² (0.1056) within 2× of E1-active median (0.1685); ratio 0.626. (Note: within 2× ≠ well-expressed; arm-2 still fires on vocabulary.)
+- **P-E4-5 PASS** — both Destroyers derive `geometry=vortex_pull` (the D1-fidelity acceptance bar).
+- **P-E4-6 PASS** — `identity-gauge` economy is the largest absent-from-basis level (31 exhibits; > the 20 arm-2 line).
+
+### corpus.db mutation (D3 — the ONLY DB write; §4 scope)
+53 rows: 9 engine-key coords + `cell_key` written, `unresolved` 1→0, `death_class` seated on 5 negatives. Idempotent (additive; re-derives to identical values). 1:1 corpus↔engine_key invariant held (585/585, 0 orphans). Resolved cell_keys 509→562. Backup: `corpus.db.pre-e4-cellkey-derive-2026-07-16-backup`. Raw `raw_json` untouched (non-destructive; every derived value reproducible from source).
+
+### Artifact contract (spec §10)
+`atlas-edition4.json` (7.51 MB): E3's key set + `edition:4` + `path` + per-point `edition_admitted:4` on the 56 new points + `cos2` + `level_flattened` stamps + full `gate_report` block (G-1..G-4 + predictions + section9 cos²/census/trigger) + ghost_field (live census; lattice byte-identical, `depth_sum_check`=767,411,820; `edition4_change` note) + pull-slice integrity (7 pull kits, all intrinsic, zero mcd-lit; `INTRINSIC_PULL_KITS` refreshed to the live Destroyer kit_ids).
+
+### Iron laws honored
+- **Path A ONLY** — frozen Edition-I basis; supplementary projection (the tombstone mechanism); NO refit, NO basis mutation, NO Procrustes. G-3 byte-identity RAN.
+- **NOTHING SERVED** — no vendor copy, no glance touch, no served-artifact write. Edition III (`atlas-edition3.json`) READ-ONLY, untouched (mtime pre-run; still edition=3/506 points). Refit-Candidate-1 + all other served artifacts untouched.
+- **HALT discipline** — fail-loud on every gate + P-E4-5 + schema mismatch + unnamed delta + unprojectable admit; a G-4 term-count bug HALTED cleanly (no partial emit) and was fixed before emission.
+
+### ADR compliance
+- **ADR-004:** this entry. No engine-telemetry change; star-lord-side `MIGRATION.md` unaffected. All work is collab-side curation (elrond data layer + atlas tree). The parallel corpus/register `../MIGRATION.md` unaffected (D3 is a fit-input resolution on the atlas layer; the la-mcd catalogue entry there stands).
+- **Reversibility:** the full run is reproducible from the 3 scripts + `atlas-frozen-fit-cellkeys-edition1.csv` + `corpus.db`; deterministic (seed 20260716 for the prediction nulls). Raw preserved.
+- **Auto-committed** per project discipline (Matt-authorized run under the ratified spec). **Push DEFERRED to gandalf's verify-gates + KR's gate.**
+
+---
+
 ## la-mcd-curation-9.19-2026-07-16 — curate the 58 §9.19 re-harvest records into `corpus.db` (catalogue-only; 57 kit-grain + 1 system-record) + WAVE-4 supersession of the staging law's holdout clause — 2026-07-16 — **APPLIED (gandalf Option-A ruling, post-HALT execute pass)**
 
 ### What was curated (one line)
