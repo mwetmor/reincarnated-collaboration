@@ -1,6 +1,6 @@
 # Wave-C Engine Spec — Trigger + Mark-Consume · Ailment-Wave-C+ · Small-Adds (BT · Orbit · Walls · TH · LC/DR)
 
-**STATUS:** **DRAFT-FOR-GATE-1** (SPEC-AUTHOR complete; DRIFT-CRITIC gate + jack-ryan Gate-1 pending).
+**STATUS:** **DRIFT-CRITIC PASSED — AWAITING GATE-1** (SPEC-AUTHOR complete; gandalf-prime DRIFT-CRITIC gate **PASS-WITH-CORRECTIONS** 2026-07-17 — stamp + the nine veto-open escalation rulings at end of doc; jack-ryan Gate-1 pending).
 **Date:** 2026-07-17
 **Author:** gandalf (SPEC-AUTHOR work unit, autonomous atlas-parity run cycle 3)
 **Authority:** Matt autonomous-run delegation 2026-07-16 (sub-agents iterate engine toward 100% atlas mechanical parity) + S2 census V9 THE SCOREBOARD ranking the residue tail after Wave-B economy landed. **The §11 escalation rulings this doc records are gandalf-prime rulings under Matt's autonomous-run authority — veto-open, Matt may overturn on read.**
@@ -80,7 +80,7 @@ Per current engine survey (2026-07-17 pass on Wave-B post-landing state):
 |---|---|---|
 | Wave-B `proc_trigger_condition` enum | `resource_economy.py` PC-block (post-Wave-B) | Single-trigger primitive — `{on-hit-threshold, on-crit, on-cast-linked, on-kill, on-damage-taken}`. Chain-grammar HOOK per Wave-B §2.4 note-#2 (Gate-1 CLEAN — no chain leakage). Wave-C adds mark-apply/consume as NEW events, keeping per-trigger-not-per-chain grammar. |
 | `commitment_bin` enum | `skill_schema.py:222–223` (post-Wave-B enum-widen) | Existing values include `persistent_trigger` (Wave-B §2.6 addition — the deliberate extension hook). Wave-C EXTENDS `persistent_trigger` semantics; does NOT widen the enum further at the commitment layer (Discipline #12 — additive-in-fields, not additive-in-commitment-values). |
-| `_ECON_BIN_COST_TYPE_MAP` | `bc_target_composer.py:~236` | 6 active bins post-Wave-B (`generator-spender`, `starved`, `overflow`, `steady`, `reservation`, `persistent-condition`, `charge-stack`). Wave-C adds `damage-taken-converts` (drops from `_DEFERRED_ECON_BINS` per §7). |
+| `_ECON_BIN_COST_TYPE_MAP` | `bc_target_composer.py:~236` | 7 active bins post-Wave-B (`generator-spender`, `starved`, `overflow`, `steady`, `reservation`, `persistent-condition`, `charge-stack`). Wave-C adds `damage-taken-converts` (drops from `_DEFERRED_ECON_BINS` per §7). |
 | `_DEFERRED_ECON_BINS` | `bc_target_composer.py:~95` | Post-Wave-B: `frozenset({"HP-economy", "damage-taken-converts"})`. Wave-C drops `damage-taken-converts` → `frozenset({"HP-economy"})`. LC/DR (§7) either DROP `HP-economy` at Wave-C or defer LC to pool-content (§11.g). |
 | `resource_economy.py` fields | (22 fields post-Wave-B) | Wave-C extends with trigger-chain fields (§2.6) + `damage_taken_converts_shape`/`conversion_rate`/`conversion_source` (§7) + BT sub-shape fields (§3). No existing field's semantics change. |
 | `ailments.yaml` | 12 canonical names post-ailment-wave | Wave-C adds 4 new: `blind`, `curse` (curse-hex canonical name), `fear`, `execute` (instant-kill canonical name — see §4.7 name choice). Deflect does NOT enter here (§4.5 ruling). |
@@ -329,7 +329,7 @@ The chain grammar of §2 governs BT natively: `commitment_bin = "persistent_trig
 | `hot-shieldmaiden-block` | Block-Stack Shieldmaiden | hot | `["PC", "BT"]` | free | resource-fill (block-stack builds fury for follow-up strike) |
 | `hades1-beowulf-cast` | Beowulf Cast Build | hades1 | `["AM", "BT"]` | finite | mark-apply (block-cast arms retrieve-bash mark on attacker; AM gap resolved Wave-B) |
 
-**Roster verification vs V9 tail:** V9 tail lists `econ:BT` at 8 kits; DB re-verify confirms 8. **No disagreement.** Note that 3 kits (d2-smiter, d2-zealot, hades1-beowulf-cast, chr-thorns-templar, hot-shieldmaiden-block) are multi-blocked; the BT resolution unblocks them only when their other blockers also land (chr-thorns-templar's PC landed Wave-B; hot-shieldmaiden-block's PC landed Wave-B; hades1-beowulf-cast's AM landed Wave-B; d2-smiter/d2-zealot's UNKNOWN sits in the elrond re-crawl lane §NG).
+**Roster verification vs V9 tail:** V9 tail lists `econ:BT` at 8 kits; DB re-verify confirms 8. **No disagreement.** Note that 5 kits (d2-smiter, d2-zealot, hades1-beowulf-cast, chr-thorns-templar, hot-shieldmaiden-block) are multi-blocked; the BT resolution unblocks them only when their other blockers also land (chr-thorns-templar's PC landed Wave-B; hot-shieldmaiden-block's PC landed Wave-B; hades1-beowulf-cast's AM landed Wave-B; d2-smiter/d2-zealot's UNKNOWN sits in the elrond re-crawl lane §NG).
 
 ### 3.4 Sub-shape choice — trigger-family fold vs own bin
 
@@ -1466,7 +1466,7 @@ Wave-C net expressible flip: 42 kits (per §0 TL;DR gate-lift math). On V9 denom
   - dossier_owed 4 held-out (unchanged from V9 §7)
   - **Total residue: ~14 non-held-out + 4 held-out = 18 blocked kits post-Wave-C.**
 
-**Caveat:** projection assumes zero Wave-C-multi-blocker residue (kits carrying multiple Wave-C blockers). Verify at V10 execution: is any Wave-C-scoped kit multi-blocked such that its Wave-C-flip is gated on ANOTHER Wave-C blocker landing? (Cross-inspection at V10 required.)
+**Caveat (DRIFT-CRITIC strengthened 2026-07-17):** the 42-kit gate-lift counts `d2-smiter` + `d2-zealot`, whose `UNKNOWN` co-blocker survives Wave-C (elrond re-crawl lane, §NG) — they flip only when the re-crawl resolves. **Floor: 40 kits → 549/565 = 97.2%; the 97.5% headline is the ceiling contingent on that re-crawl.** Beyond those two named kits, projection assumes zero further Wave-C-multi-blocker residue; cross-inspect at V10 execution.
 
 ---
 
@@ -1489,7 +1489,7 @@ With `accuracy_reduction_percent ∈ [0.20, 0.60]`, at max blind (0.60), a base 
 
 Composition with blind × curse:weaken:
 `effective_hit_chance = base_hit_chance × (1 - blind_reduction) × (1 - weaken_reduction)`
-Multiplicative composition. Cap: `blind + weaken ≤ 0.80` (invariant to prevent 100% miss). Enforced at emission composition.
+Multiplicative composition. Cap: `blind + weaken ≤ 0.80` (invariant to prevent 100% miss). **Enforced SIM-side at ailment aggregation** — the effect resolver clamps the composite when both are active on one defender. (Emission-time enforcement is impossible: blind and curse:weaken can arrive on the same defender from DIFFERENT appliers — cross-kit composition is runtime state, not emission state. DRIFT-CRITIC correction 2026-07-17.)
 
 ### 13.3 Execute-threshold formula (interaction with freeze-shatter niche)
 
@@ -1567,6 +1567,43 @@ LOCKED invariant: `placed_lane_duration ≤ 15s` (prevents perma-wall sim cost +
 - `di-spiritform-druid-pvp`: elrond re-crawl for unknown-ailment resolution (§4.6 brief).
 - V9 census `ailment-wave-c+:deflect=2` count is a corpus-classification artifact; deflect routes to def-bin at Wave-C (§4.5). V10 census should NOT count deflect under ailment-wave-c+.
 - V9 census does NOT surface `TH` as a bucket-token; post-Wave-C V10 should add TH as a bucket (§6.3).
+
+---
+
+## DRIFT-CRITIC GATE STAMP — gandalf-prime, 2026-07-17
+
+▶ ROLE: DRIFT-CRITIC — judging the SPEC-AUTHOR sub-agent's draft (`46ae1b66`) against the charge, the V9 scoreboard, the Wave-B house model, and corpus-DB truth.
+
+**VERDICT: PASS-WITH-CORRECTIONS** (corrections applied in the gate commit; nothing structural). Verify-trail: commit `46ae1b66` touches this file ONLY ✓ · 972-assert live in `bc_target_cell_sampler.py` (`COMMITMENT_BINS` 3-tuple + both asserts — no lattice widen; rides Wave-B `persistent_trigger`) ✓ · DB spot-checks `econ:BT`=8, `blind`=8 exact ✓ · full 1572-line read, three passes ✓ · 42-kit gate-lift arithmetic re-derived ✓ (8+4+4+2+1 +8 +6 +3 +3 +3 = 42).
+
+### Escalation rulings (§11.a–h + §10 depth) — gandalf-prime under Matt's autonomous-run delegation 2026-07-16; ALL VETO-OPEN (one word reverses any row)
+
+| Ruling # | Escalation | RULING | Grounds (compressed) |
+|---|---|---|---|
+| WC-13 (a) | `MAX_CHAIN_DEPTH` 1 vs 2 | **LOCKED AT 1 — CONCUR** | PoE's trigger-cannot-trigger rule is the genre-proven guard; D3 Firebird-era proc-chains showed unbounded chains become the degenerate dominant line AND un-simulatable for balance. §13.1 depth-2 quadratic-runaway math is correct. Depth-1 keeps the mark→detonate beat (Solo Leveling shadow-mark lineage) fully legible. Empirical reopen: ≥3 corpus kits whose canonical identity REQUIRES two-hop chains. |
+| WC-14 (b) | distinct `on-mark-apply`/`on-mark-consume` vs single event + phase flag | **DISTINCT EVENTS — CONCUR** | Disjoint consumer contracts (apply-side arms the applier; consume-side resolves burst on the defender). Flag-collapsing re-creates D2's aura/proc flag opacity — half the corpus behavior implicit behind one enum. Two names = greppable, sim-traceable. |
+| WC-15 (c) | blind `soft_control` vs mixed | **SOFT_CONTROL — CONCUR** | 7/8 corpus kits express blind as accuracy-tax, not action-denial. Hard-class would drag the 8 into control-budget caps and starve their identity. D2 Dim Vision precedent: an AI-blind balanced as soft. |
+| WC-16 (d) | curse = NEW ailment vs sunder-mode-tag | **NEW AILMENT — CONCUR** | Root consumer contracts differ: curse is per-caster-radius persistent (aura-anchored lifecycle); sunder is per-defender-timed. Mode-tagging smuggles a radius-tether lifecycle into a timed-debuff consumer. D2's curse class earned its own system for exactly this reason; variant set {amplify, weaken, decrepify, sap} is the right D2-lineage spread. |
+| WC-17 (e) | fear soft flee-AI vs hard lockout | **SOFT FLEE-AI + fear/taunt EXCLUSIVE — CONCUR** | Hard-lockout fear is stun-with-movement — control-budget double-dip. Flee keeps the defender attackable and the fantasy legible. The EXCLUSIVE law prevents flee+approach AI-verb deadlock (the crowd-control-stack jitter class of bug). |
+| WC-18 (f) | deflect: ailment vs def-bin rider vs new family | **DEF-BIN RIDER — CONCUR** | 2 kits; a 2-kit family is registry noise. Deflection is mitigation-layer posture, not defender-state. Rider preserves the data at zero registry cost. Reopen at corpus ≥5. |
+| WC-19 (g) | LC 3 engine-mech / DR 2 defer | **CONCUR** | LC's 3 are engine-shape (hp-cost + reservation plumbing — PoE Blood Magic / Grim Dawn lineage; `hp_cost_scale ≤ 0.30` LOCK is right). DR's 2 are content-tier drop-rate meta with no engine field owed. `_DEFERRED_ECON_BINS` empties honestly rather than inventing surface for content concerns. |
+| WC-20 (h) | AC-2 bias-map disposition | **DEFER — CONCUR** | No live consumer path + no DB-attested element-conditional economy = speculative surface at the engine seam. The two-part empirical reopen criterion stands as written (§8). |
+| WC-21 (§10) | support-retirement depth: STRIKE vs re-cast docs-only | **STRIKE — RULED (not elevated)** | Docs-only re-cast leaves live code carrying a retired vocabulary — Discipline #13 drift-by-residue. The four touchpoint classes are enumerated, so the strike is bounded, not open surgery. Veto-open; carried in the Matt-gate queue as ruled-not-elevated. |
+
+### Corrections applied at this gate (same commit as this stamp)
+
+1. **§13.2 blind+weaken cap enforcement locus** — draft said "enforced at emission composition"; impossible for cross-kit composition (blind and curse:weaken arriving on ONE defender from DIFFERENT appliers is runtime state). Corrected to SIM-side clamp at ailment aggregation. §4.8 matrix row was already sim-contract-correct. **Gate-1: verify the resolver contract carries this clamp.**
+2. **§1 count typo** — "6 active bins" → 7 (the list enumerates seven).
+3. **§3.3 count typo** — "3 kits multi-blocked" → 5 (the list enumerates five).
+4. **§12.7 projection honesty** — the 42-kit gate-lift counts `d2-smiter` + `d2-zealot`, whose `UNKNOWN` co-blocker survives Wave-C. Floor named in place: **40 kits → 549/565 = 97.2%**; 97.5% is the ceiling contingent on the elrond re-crawl.
+
+### Notes to Gate-1 (no further spec change owed)
+
+- §0 line-49 headline retains the 42/97.5% ceiling with its "barring multi-blocker residue" hedge — acceptable now that §12.7 names the floor and the two kits.
+- §10 strike-plan depth is RULED (strike) — Gate-1 reviews the four touchpoint classes for blast-radius, not for whether-to-strike.
+- decisions-log entries for WC-13…WC-21 draft at Gate-1 per Tracker-delta.
+
+**Signed:** gandalf-prime (DRIFT-CRITIC) — drift-clean against charge + house model; corrections were locus/arithmetic-level, not structural.
 
 ---
 
