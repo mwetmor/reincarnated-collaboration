@@ -1,6 +1,6 @@
 # Wave-C Engine Spec — Trigger + Mark-Consume · Ailment-Wave-C+ · Small-Adds (BT · Orbit · Walls · TH · LC/DR)
 
-**STATUS:** **DRIFT-CRITIC PASSED — AWAITING GATE-1** (SPEC-AUTHOR complete; gandalf-prime DRIFT-CRITIC gate **PASS-WITH-CORRECTIONS** 2026-07-17 — stamp + the nine veto-open escalation rulings at end of doc; jack-ryan Gate-1 pending).
+**STATUS:** **GATE-1 PASSED — BUILD-AUTHORIZED** (SPEC-AUTHOR complete; gandalf-prime DRIFT-CRITIC **PASS-WITH-CORRECTIONS** 2026-07-17 — stamp + nine veto-open rulings WC-13..WC-21 at end of doc; jack-ryan Gate-1 **PASS-WITH-AMENDMENTS** 2026-07-17 — 3 MAJOR + 4 MINOR + NOTE-8 rider **ALL FOLDED IN-PLACE** same day, fold record at end of doc; finding: `agentic_orchestration/jack-ryan/notes/2026-07-17-wave-c-spec-gate1.md`; decisions-log 5961–6111. Implementation may build against this text.)
 **Date:** 2026-07-17
 **Author:** gandalf (SPEC-AUTHOR work unit, autonomous atlas-parity run cycle 3)
 **Authority:** Matt autonomous-run delegation 2026-07-16 (sub-agents iterate engine toward 100% atlas mechanical parity) + S2 census V9 THE SCOREBOARD ranking the residue tail after Wave-B economy landed. **The §11 escalation rulings this doc records are gandalf-prime rulings under Matt's autonomous-run authority — veto-open, Matt may overturn on read.**
@@ -89,7 +89,7 @@ Per current engine survey (2026-07-17 pass on Wave-B post-landing state):
 | Geometry composer | `geometry_derivation.py` | Post-ailment-wave includes 24 geometry values. Wave-C adds `orbit` (25th) + `placed-lane` (26th) via new emission-surface rules. |
 | Substrate templates | `substrate_templates.py` | Post-Wave-B: `W1_4_CHARGE_STACK` exists (Gate-2 amendment 11 confirmed via REUSE via field). Wave-C templates: `mark_apply_verb`, `mark_consume_burst`, `blind_flash`, `curse_of_frailty`, `fear_wail`, `execute_slam`, `orbit_field`, `wall_of_X`, `thorns_reflect_pulse`. Composition is off FIELDS, not templates (Gate-2 AC-2 finding). |
 | `roles.yaml` | 9 canonical roles; `sustain` role carries `"Solo-gated in Phase-1 P1 — support role requires multi-actor context"` (line 142) | This IS the retired-support intent. Wave-C §10 hygiene pass makes the retirement explicit and reconciles `gear_generation.py` role-orientation maps that still carry "support" as an active weight. |
-| `bc_target_composer.resolve_cost_type` | `bc_target_composer.py:270+` | Existing behavior: returns `role_priority[0]` on empty map. Wave-C's `damage-taken-converts` bin (§7) MUST carry non-empty map (`["hp"]` per §7.4 — the sole active bin whose taxed pool IS the HP pool). |
+| `bc_target_composer.resolve_cost_type` | `bc_target_composer.py:270+` | Existing behavior: returns `role_priority[0]` on empty map. Wave-C's `damage-taken-converts` (§6.5) and `HP-economy` (§7.3) bins MUST carry non-empty maps (`["hp"]` both — the two active bins whose taxed pool IS the HP pool). **Gate-1 MAJOR-1:** the lift also widens the `resolve_cost_type` RETURN CONTRACT — docstring enum `mana \| rage \| combo \| focus \| stamina-as-resource` gains `hp`, and any downstream consumer dispatching on cost_type membership must accept `"hp"` (grep-check owed at rocket authoring; Discipline #8 schema-at-boundary; the Wave-B charge-stack LIFT precedent governs). Enumerated in §12.1. |
 
 **Existing extension points (no new subsystems required):**
 - Trigger + mark-consume = new sub-shape fields on `resource_economy` (proc-loop successors) + new `ActiveEffect.params["mark_state"]` on defender + expiry-check consumer at effect_resolver (per ailment §3.6.i shatter-hook precedent).
@@ -218,7 +218,7 @@ consequence_type:                  # NEW — what the mark-consume event fires
 **SPEC-AUTHOR LEAN: (1) LOCKED at 1.** Grounds beyond the runaway argument:
 - The RDR sim is single-actor combat (§NG cross-check via `combatant.py` single-actor state); chain-depth-2 does not gain the multi-caster interaction that makes it interesting in PoE1.
 - LOCKED-at-1 keeps the sim consumer trivially bounded — mark-consume in tick N cannot fire another mark-apply in the same tick. No re-entrancy guard needed; the `active_effects` mutation is safe within `effect_resolver.tick_effects`'s single-pass iteration.
-- Empirical evidence: the 20 ailment-wave-c+ kits + 8 BT kits + 6 orbit kits + 3 TH kits collectively imply single-hop chains. **NO Wave-C-scope kit needs depth-2** at DB-truth (verified via raw_json inspection of the 20 ailment kits — no `mark-of-a-mark` construct present).
+- Empirical evidence: the 20 ailment-wave-c+ kits + 8 BT kits + 6 orbit kits + 3 TH kits collectively imply single-hop chains. **NO Wave-C-scope kit needs depth-2** at DB-truth (verified via raw_json inspection of the 20 ailment kits — no `mark-of-a-mark` construct present). *(Reproducibility rider, Gate-1 NOTE-8: the S6 gauntlet cert includes the corpus query artifact — a re-runnable raw_json scan for chain-of-chain constructs across the Wave-C rosters — so this LOCKED invariant's empirical ground is not anchored to a one-off inspection.)*
 - Genre precedent for uncapping is uniformly cautionary — PoE1 CWDT-loop exploits, Diablo IV Nightmare-mark-chain patches, D3 firebird's-finery infinite-mark iterations — all patched OUT because of runaway sim cost.
 
 **LOCKED INVARIANT:** `MAX_CHAIN_DEPTH = 1` (state as Python constant in `spatial_engine.py` — like `max_amp_cap = 0.50` in ailment §2.4). Sim asserts on any consequence-cast attempting to write to `defender.active_effects` when a mark-consume just fired in the same tick.
@@ -533,7 +533,7 @@ The `def.riders` field carries `"trigger:block"` on d2-charger, chr-thorns-templ
 | Composition | Interaction |
 |---|---|
 | curse:amplify × sunder | ADDITIVE (curse's amplify-magnitude adds to sunder's damage_taken_percent, subject to `max_amp_cap=0.50` — the LOCKED runaway guard from ailment §2.4 applies to the total) |
-| curse:weaken × blind | ADDITIVE (curse's damage-out reduction + blind's hit-chance reduction compose multiplicatively on attacker) |
+| curse:weaken × blind | ADDITIVE-CAPPED (per §4.8 canonical row — composite clamped to 0.80 max, SIM-side at the resolver; curse's damage-out reduction + blind's hit-chance reduction compose multiplicatively on attacker) |
 | curse × freeze | curse PERSISTS through freeze (no action, but debuff remains) |
 | curse:decrepify × chill | ADDITIVE (both slow multipliers compose; cap at 0.90 movement reduction per ailment §chill law) |
 
@@ -1185,8 +1185,8 @@ The re-fire brief noted: "gandalf lean: DEFER — Wave-C is an expressiveness wa
 | §4.5 Deflect | `def.riders += "deflect"` schema-widen | Existing kits' `def.riders` lists unchanged; only 2 new kits (Athena Dash, Merciful End) opt-in. **YES** |
 | §5.1 Orbit | New geometry_value `orbit`; new `orbit_*` fields | 6 kits opt-in; existing kits' `geometry_value` unchanged. **YES** |
 | §5.2 Placed-lane | New geometry_value `placed-lane`; new `placed_lane_*` fields | 3 kits opt-in. Note: `le-frost-wall-rm` moves from `totem` → `placed-lane` (corpus RE-CLASSIFY, not engine default change). Coordinate at Wave-C landing with elrond. **YES** for engine; corpus re-classify flagged. |
-| §6 TH | `damage_taken_converts_shape=null` default; new `reflect_*` fields | 3 TH kits opt-in via non-null shape; existing kits' shape stays null → skip TH branch. **YES** |
-| §7 LC | `hp_cost_scale=0.0` default; `_DEFERRED_ECON_BINS` drops HP-economy | Existing kits' `hp_cost_scale=0.0` means no HP-cost payment path fires; only 3 LC kits opt-in. `_DEFERRED_ECON_BINS` drop for HP-economy has no effect on non-HP-economy kits. **YES** |
+| §6 TH | `damage_taken_converts_shape=null` default; new `reflect_*` fields | 3 TH kits opt-in via non-null shape; existing kits' shape stays null → skip TH branch. **Emission-side clause (Gate-1 MAJOR-3): no existing kit's `econ_bin` field takes the newly-lifted `damage-taken-converts` value at Wave-C landing — the bin value is opt-in per rocket authoring on the 3-kit §6.3 roster only.** **YES** |
+| §7 LC | `hp_cost_scale=0.0` default; `_DEFERRED_ECON_BINS` drops HP-economy | Existing kits' `hp_cost_scale=0.0` means no HP-cost payment path fires; only 3 LC kits opt-in. `_DEFERRED_ECON_BINS` drop for HP-economy has no effect on non-HP-economy kits. **Emission-side clause (Gate-1 MAJOR-3): no existing kit's `econ_bin` field takes the newly-lifted `HP-economy` value at Wave-C landing — opt-in per rocket authoring on the 3-kit §7.2 roster only.** **YES** |
 | §10 Support retirement | Config sweep + strike-plan | Section is a CONFIG-CLEANUP, not new-behavior. Behavior changes only where explicitly stated. **YES** |
 
 **Net theorem holds:** every Wave-C addition is opt-in via non-null non-zero fields; every default = pre-Wave-C behavior.
@@ -1257,6 +1257,8 @@ Grep-verified touchpoints:
 | `src/reincarnated/generation/gear_generation.py` | ~15+ role_orientation maps with `"support"` as active weight (weights range 0.05–0.80) | Code (role-orientation gear affinity weights) |
 | `src/reincarnated/canonical/sidecars/emit_substrate_registry.py:184` | `chain_role` semantic label `"supporting_T3_only_chain"` | Semantic-label (not role_orientation) |
 | `src/reincarnated/output/one_realm_demo_bundle.json` | Multiple `"role": "support"` + `"effect_category": "support"` entries in generated demo bundle | Generated output (regenerated each run — not source-of-truth) |
+| `src/reincarnated/generation/bc_target_composer.py:238` | `_ROLE_COST_TYPE_PRIORITY["support"]` first-class key (**Gate-1 MAJOR-2**) | Code (cost_type tie-break priority list for support role) |
+| `src/reincarnated/generation/gear_generation.py:606` | `_ALL_ROLE_ORIENTATIONS = ["damage", "control", "hybrid", "support"]` — the enum-of-record (**Gate-1 MAJOR-2**) | Code (canonical role_orientation enum; downstream `_normalise` / defaultdict paths at :854, :908) |
 
 **Actual load-bearing sites:** roles.yaml (docs), gear_generation.py (code — the actual `support` weight consumer), sidecars/emit_substrate_registry.py (semantic label; different taxonomy).
 
@@ -1269,6 +1271,10 @@ Grep-verified touchpoints:
 2. `config/roles.yaml` line 156: strike "or other off-damage non-healing support effects"; utility's description keeps buffs + silence + mana-regen if those are still solo-relevant self-directed utility.
 3. `gear_generation.py` role_orientation maps: replace `"support": <weight>` with either (a) STRIKE the key entirely (support no longer a valid role_orientation) OR (b) rename to `"hybrid_support_flavor"` if hybrid-role kits carry support-adjacent effects (SPEC-AUTHOR LEAN: STRIKE — support is retired, and existing `hybrid` role_orientation already captures the concept).
 4. `sidecars/emit_substrate_registry.py:184`: LOUD-FLAG the `supporting_T3_only_chain` naming for rocket review. This is a semantic-label for chain-role positioning ("supporting" here = position in T3 chain, not role_orientation); likely SAFE-TO-KEEP as a distinct concept but should be re-named to avoid confusion (`t3_only_chain` or `secondary_t3_chain`).
+5. **(Gate-1 MAJOR-2)** `bc_target_composer.py:238`: remove the `_ROLE_COST_TYPE_PRIORITY["support"]` key per STRIKE consistency — the composer's `.get(role, _ROLE_COST_TYPE_PRIORITY["damage"])` default-fallback at :270 catches any orphan `role="support"` input; document the fallback in the strike commit.
+6. **(Gate-1 MAJOR-2)** `gear_generation.py:606`: `_ALL_ROLE_ORIENTATIONS` enum reduces 4→3 (`support` removed); downstream `_normalise` / defaultdict role_orientation paths (:854, :908) reduce keyspace accordingly.
+
+**LOUD-FLAG → elrond (Gate-1 MAJOR-2 byte-neutrality knock-on):** query the corpus + demo-bundle sources for kits carrying `role="support"` today. If count > 0, those kits' post-strike re-emission falls through to the damage-default priority list — a byte-DIFFERENT cost_type distribution for exactly those kits. Disposition: scope as a NAMED expected regression at Wave-C landing (kit list in the rocket MIGRATION doc) OR a role-remap step precedes the strike. This is the §9.1 support-hygiene row's "behavior changes only where explicitly stated" clause being made explicit.
 
 **Non-scope:**
 - `output/one_realm_demo_bundle.json` — regenerated automatically; do not touch by hand.
@@ -1372,9 +1378,9 @@ Grep-verified touchpoints:
 | §4.5 Deflect | `def.riders` schema enum-widen +`deflect`; `deflect_condition` field enum |
 | §5.1 Orbit | `geometry_derivation.py` R8-orbit rule-value binding; `geometry_value` +`orbit`; 4 new orbit_* fields on `resource_economy.py` (or a `geometry_config.py` if separated) |
 | §5.2 Placed-lane | `geometry_derivation.py` +R11-placed-lane rule; `geometry_value` +`placed-lane`; 4 new placed_lane_* fields |
-| §6 TH | `bc_target_composer.py` `_DEFERRED_ECON_BINS` drop `damage-taken-converts` + map entry; `resource_economy.py` +4 keys (damage_taken_converts_shape, reflect_damage_fraction, reflect_scaling_stat, conversion_source_element) |
-| §7 LC | `_DEFERRED_ECON_BINS` drop `HP-economy` + `_ECON_BIN_COST_TYPE_MAP["HP-economy"] = ["hp"]`; `resource_economy.py` +2 keys (hp_cost_scale, hp_cost_slope) + `reservation_resource` enum +`hp` |
-| §10 Support hygiene | `roles.yaml` doc edits; `gear_generation.py` STRIKE role_orientation `"support"` weights (per LEAN) |
+| §6 TH | `bc_target_composer.py` `_DEFERRED_ECON_BINS` drop `damage-taken-converts` + map entry `["hp"]`; `resource_economy.py` +4 keys (damage_taken_converts_shape, reflect_damage_fraction, reflect_scaling_stat, conversion_source_element). **Authoring rule (Gate-1 MAJOR-3): set `econ_bin="damage-taken-converts"` ONLY for the 3 kits named in §6.3; no default-shift for any other kit.** |
+| §7 LC | `_DEFERRED_ECON_BINS` drop `HP-economy` + `_ECON_BIN_COST_TYPE_MAP["HP-economy"] = ["hp"]`; `resource_economy.py` +2 keys (hp_cost_scale, hp_cost_slope) + `reservation_resource` enum +`hp`. **(Gate-1 MAJOR-1) Three enumerated sub-changes for the hp lift: (i) the two `_ECON_BIN_COST_TYPE_MAP` entries (§6.5 + §7.3); (ii) `resolve_cost_type` docstring/return-type widen — `mana \| rage \| combo \| focus \| stamina-as-resource` gains `hp` (:267); (iii) grep-check every consumer dispatching on cost_type membership accepts `"hp"` (`_ROLE_COST_TYPE_PRIORITY` lists carry no `hp` — the role-tie-break path is unreachable for hp; the fallback path returns it; document in MIGRATION).** **Authoring rule (Gate-1 MAJOR-3): set `econ_bin="HP-economy"` ONLY for the 3 kits named in §7.2.** |
+| §10 Support hygiene | `roles.yaml` doc edits; `gear_generation.py` STRIKE role_orientation `"support"` weights + `_ALL_ROLE_ORIENTATIONS` 4→3 (:606); `bc_target_composer.py` STRIKE `_ROLE_COST_TYPE_PRIORITY["support"]` key (:238) — per §10.3 bullets 5–6 (Gate-1 MAJOR-2) |
 
 **Rocket net additions: ~16-18 new emission fields + 4 new ailment entries + 2 new geometry values + 1 def.riders enum widen + composer bin changes.** Larger than Wave-B (Wave-B added ~9 fields + 2 new bins).
 
@@ -1410,6 +1416,10 @@ Grep-verified touchpoints:
 [rocket:  geometries] R8-orbit + R11-placed-lane rules + geometry_value bindings (§5)
     ↓
 [gamora: geometries] orbit motion + placed-lane collider primitives (§5)
+    ↓
+[elrond: corpus-align] le-frost-wall-rm totem→placed-lane re-classify + 3 TH kits econ:TH bucket-tag
+    + role="support" kit query (§10.3 LOUD-FLAG, Gate-1 MAJOR-2 knock-on) + V10 census prep
+    — single-writer discipline; runs parallel to the gate steps below; gates V10, not the smokes  (Gate-1 MINOR-6)
     ↓
 [gate: post-slice smoke] rocket-side emit-verify + gamora-side sim-verify
     ↓
@@ -1528,6 +1538,8 @@ At `orbit_anchor="caster"`, `anchor_pos(t)` = caster's current position (orbit-f
 
 LOCKED invariant: `orbit_angular_velocity ≤ 4π` (2 rotations/sec cap; prevents visual/collision aliasing at high tick rates).
 
+*(Gate-1 MINOR-7: the `orbit_projectile_count` default of 4 is D3-canonical — Inarius bone shards; PoE1 Blade Vortex lineage runs N=6 typical. gamora may re-default within the 1–8 band per S6 gauntlet response.)*
+
 ### 13.6 Placed-lane duration + collider params
 
 Placed-lane collider is a static line-segment:
@@ -1604,6 +1616,25 @@ LOCKED invariant: `placed_lane_duration ≤ 15s` (prevents perma-wall sim cost +
 - decisions-log entries for WC-13…WC-21 draft at Gate-1 per Tracker-delta.
 
 **Signed:** gandalf-prime (DRIFT-CRITIC) — drift-clean against charge + house model; corrections were locus/arithmetic-level, not structural.
+
+---
+
+## GATE-1 AMENDMENT FOLD RECORD — gandalf-prime (SPEC-AUTHOR), 2026-07-17
+
+jack-ryan Gate-1 verdict: **PASS-WITH-AMENDMENTS, no BLOCK; WC-13..WC-21 all CONCUR, no dissent** (finding: `agentic_orchestration/jack-ryan/notes/2026-07-17-wave-c-spec-gate1.md` `67e14001`; decisions-log 5961–6111 `2435001`). All amendments folded IN-PLACE (pre-build spec — in-place beats ERRATA blockquote; the Wave-B post-build errata pattern does not apply):
+
+| Amendment | Folded at |
+|---|---|
+| MAJOR-1 cost_type resolver contract widen (+`hp`; 3 sub-changes) | §1 consumer-map row + §12.1 §7-LC row |
+| MAJOR-2 support-STRIKE blast-radius (+2 code sites; elrond `role="support"` query) | §10.2 table +2 rows · §10.3 bullets 5–6 + LOUD-FLAG · §12.1 §10 row |
+| MAJOR-3 byte-neutrality emission-side opt-in clause | §9.1 §6+§7 rows · §12.1 §6+§7 authoring rules |
+| MINOR-4 §1 cross-ref (§7.4 → §6.5/§7.3) | §1 consumer-map row |
+| MINOR-5 §4.2 matrix row cites the 0.80 SIM-side clamp | §4.2 curse:weaken × blind row |
+| MINOR-6 elrond corpus-align rendezvous | §12.3 dependency graph node |
+| MINOR-7 orbit N-default lineage note | §13.5 |
+| NOTE-8 mark-of-a-mark reproducible query artifact at S6 | §2.5 rider |
+
+gandalf-prime verify-trail on the gate itself: finding note read in full · MAJOR-1 + MAJOR-2 re-verified against live code at prime (resolver docstring closed enum confirmed :267; `_ROLE_COST_TYPE_PRIORITY["support"]` :238 + `_ALL_ROLE_ORIENTATIONS` :606 confirmed live) · engine commit `2435001` touches decisions-log only (+152). **STATUS → GATE-1 PASSED — BUILD-AUTHORIZED.**
 
 ---
 
