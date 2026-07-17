@@ -57,15 +57,22 @@
 # path (research/curated/…/atlas-edition3.json, below) is UNCHANGED: B-1 froze data geometry, so
 # the slim derivation reads the same emission. Basenames are unchanged (gandalf ruling: R8 keeps
 # atlas-edition3-{instrument,archive}.svg); only the DIR moved.
+# E4 SERVING CUTOVER (gandalf deploy-lane, 2026-07-17; E4 ratification wave §7 row 6):
+# the un-ignore paths MOVE to the Edition-IV serving capture (galadriel 56ccb83b + pass-2
+# islands 19a496c0) and the E4 emission becomes the builder SOURCE. atlas-edition3.json
+# STAYS un-ignored — the E4 builder reads it as `--prior` for the 506-kit Path-A additive
+# cross-check (drax 85824a46). The E3 r8-furniture capture drops out (no longer read).
+# Same D7 lesson as above: this file is inert locally; only the deploy build sees it.
 !agentic_orchestration/galadriel
 !agentic_orchestration/galadriel/captures
-!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3-r8-furniture
-!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3-r8-furniture/atlas-edition3-instrument.svg
-!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3-r8-furniture/atlas-edition3-archive.svg
-!agentic_orchestration/galadriel/captures/2026-07-16-atlas-edition3-r8-furniture/render-provenance.json
+!agentic_orchestration/galadriel/captures/2026-07-17-atlas-edition4-serving
+!agentic_orchestration/galadriel/captures/2026-07-17-atlas-edition4-serving/atlas-edition4-instrument.svg
+!agentic_orchestration/galadriel/captures/2026-07-17-atlas-edition4-serving/atlas-edition4-archive.svg
+!agentic_orchestration/galadriel/captures/2026-07-17-atlas-edition4-serving/render-provenance.json
 !agentic_orchestration/research
 !agentic_orchestration/research/curated
 !agentic_orchestration/research/curated/atlas
+!agentic_orchestration/research/curated/atlas/atlas-edition4.json
 !agentic_orchestration/research/curated/atlas/atlas-edition3.json
 
 # Within the two kept trees, still drop derived/heavy artifacts:
