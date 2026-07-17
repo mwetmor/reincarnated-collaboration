@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-17
 **Author:** gandalf (prime, autonomous atlas-parity run — Matt authorization 2026-07-16)
-**Status:** GATE-WATCH — the run's non-Matt-gated work is EXHAUSTED; every remaining item below waits on Matt
+**Status:** ~~GATE-WATCH~~ → **E4 RATIFIED 2026-07-17 (§A below) — Glance serving lane ACTIVE**; sections B–E still wait on Matt
 **Run doc (full lineage):** `agentic_orchestration/gandalf/notes/2026-07-16-atlas-parity-autonomous-run-state.md` §3
 
 ## State of the run at GATE-WATCH
@@ -11,11 +11,11 @@
 - **Engine-side atlas parity COMPLETE** — Waves A/B/C/D closed end-to-end, engine pushed through `8d8bd26` (+ all tags). No further engineering waves authorized against this scoreboard (Gate-1 decisions-log ruling).
 - **mh-v3 provenance-audit lane CLOSED** — HIGH-13 re-crawl found **0 phantoms** (`b14f3de6`); systemic-corruption hypothesis DISCONFIRMED; the two known phantoms (void-rift, di-spiritform) are understood outliers. Application pass `a9a68246` (metadata-only; zero census movement, structurally proven).
 
-## A. Ratification gate (armed)
+## A. Ratification gate — ✓ RATIFIED (Matt 2026-07-17)
 
 | Gate | Surface |
 |---|---|
-| **E4 ratification** | `canonical/matt_decision_needed/2026-07-16-edition3-vs-refit-candidate-1-adoption.md` + review plates `agentic_orchestration/galadriel/captures/2026-07-16-e3-vs-e4-ratification/plate-side-by-side.png` / `plate-delta.png`. On ratify: serving cutover + pause-1 dissolves + E-next admission docket (LA 4 **+ the two run-parked candidates below**) + E5 sequencing question (arm-2 fired). |
+| ~~**E4 ratification**~~ **✓ RATIFIED 2026-07-17** — Matt verbatim: *"Would it make sense to finish the edition 4 atlas/buuld horizon and then push it to glance vercel? … If so, please run autonomously to do so and push as you go."* Recorded as the E4 ratification this gate was armed for (veto-open, as all run rulings). Same directive additionally authorizes: **provisional build-family islands on the Build Horizon** (pre-names-review tier — the names one-sitting in §B stays open) + **atlas/coordinates/mechanics Glance-page refresh from run results** + **Vercel production deploy** (ADR-006 satisfied by the verbatim). | Lineage: `canonical/matt_decision_needed/2026-07-16-edition3-vs-refit-candidate-1-adoption.md` (WAVE 5 appended) + review plates `agentic_orchestration/galadriel/captures/2026-07-16-e3-vs-e4-ratification/plate-side-by-side.png` / `plate-delta.png`. **Consequences now LIVE:** serving cutover (vendor json · glance re-vendor · display-name map · render-head fix) EXECUTING; pause-1 DISSOLVES; S3 periodic-table harness UNBLOCKS (parked for its own session); E-next admission docket (LA 4 + the two §D candidates) SURFACES as an open §B-class item — **NOT fired by this directive**; E5 sequencing question OPEN (arm-2 fired). |
 
 ## B. Design forks (open)
 
