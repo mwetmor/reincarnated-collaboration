@@ -1,6 +1,6 @@
 # Wave-D Engine Spec — DR-lift · Wave-C Fidelity Ledger · Slice-0 Vocab-Loader Repoint
 
-**STATUS:** **DRIFT-CRITIC PASSED — CONCUR-WITH-CORRECTIONS (2026-07-17) — GATE-1 FIRED** (SPEC-AUTHOR complete 2026-07-17; DRIFT-CRITIC independent verification + rulings annex at §11 tail; gate corrections folded in-place pre-build per Wave-C precedent; jack-ryan Gate-1 in flight; **all rulings veto-open at Gate-1 + Matt**.)
+**STATUS:** **GATE-1 PASSED — BUILD-AUTHORIZED (2026-07-17)** (SPEC-AUTHOR complete; DRIFT-CRITIC CONCUR-WITH-CORRECTIONS + rulings annex at §11 tail; jack-ryan Gate-1 **PASS-WITH-AMENDMENTS** collab `f80452e3` + engine decisions-log `5ed240a` — **zero dissent on rulings a–g + slice-0 Option A**; amendments M-1 (§6.2 as-drafted-C.1 row struck) + M-2 (`spatial_gauntlet/` path precision) folded at gandalf-prime verify. **Elrond DR re-classify LANDED: NR both kits, corpus commit `29dee75e` — C.1-REFINED data-half COMPLETE; projected V12 560/564 = 99.29%, denominator UNCHANGED; econ:DR bucket now EMPTY in DB.** All rulings veto-open at Matt.)
 **Date:** 2026-07-17
 **Author:** gandalf (SPEC-AUTHOR work unit, autonomous atlas-parity run cycle 4 — the LAST engineering wave)
 **Authority:** Matt autonomous-run delegation 2026-07-16 (sub-agents iterate engine toward 100% atlas mechanical parity) + S2 census V11 THE SCOREBOARD (`agentic_orchestration/research/curated/atlas/s2-readiness-census-v11-2026-07-17.md`) ranking the final residue tail post-Wave-C-landed. **This spec MINTS NO RULINGS; open questions in §11 route to gandalf-prime DRIFT-CRITIC + jack-ryan Gate-1 for veto-open adjudication.**
@@ -16,7 +16,7 @@
 - `/Users/admin/Games/reincarnated-engine/src/reincarnated/foundation/grouping_vocabulary_loader.py` — the vocab-loader whose `_REL_CANDIDATES` seeks the DISSOLVED `canonical/story/` path (Wave-D slice-0 target)
 - `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/bc_target_composer.py` — `_DEFERRED_ECON_BINS` frozenset (currently empty post-Wave-C; Wave-D §4 must NOT re-populate it) + `_ECON_BIN_COST_TYPE_MAP`
 - `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/resource_economy.py` — 44-field surface post-Wave-C; Wave-D §4 extends only if §11.a rules the drain-bin path (not the collapse path)
-- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/spatial_engine.py` — per-tick loop + fear/taunt EXCLUSIVE law (~:1414); §5.a flee-AI steering rides here if landed
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/spatial_gauntlet/spatial_engine.py` — per-tick loop + fear/taunt EXCLUSIVE law (~:1414); §5.a flee-AI steering rides here if landed *(path corrected at Gate-1 M-2: file lives under `spatial_gauntlet/`)*
 - `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/damage_resolver.py` — curse variant applier :97-126 + LC hp_cost payment; §5.b decrepify movement-composition rides here if landed
 - `/Users/admin/Games/reincarnated-engine/config/ailments.yaml` — curse variant enum (:353-390); §5.b extends only at the sim consumer, not the registry
 
@@ -338,7 +338,7 @@ Per V11 census `s2-readiness-census-v11-2026-07-17.md`:
 | (A) LIFT drain bin | +2 (both DR kits) | 560 | 99.29% | +0.35pp |
 | (B) COLLAPSE into LC | +2 (both DR kits) | 560 | 99.29% | +0.35pp |
 | (C) DEFER (SPEC-AUTHOR LEAN) | +0 | 558 | 98.94% | 0.00pp |
-| (C.1) DEFER + elrond re-classify (as-drafted: OUT-lane) | +0 to expressible; -2 from denominator | 558 | 100.00% (of 558) | denominator −2 |
+| ~~(C.1) DEFER + elrond re-classify (as-drafted: OUT-lane)~~ **STRUCK at Gate-1 (M-1)** | ~~+0 to expressible; −2 from denominator~~ | ~~558~~ | ~~mis-stated as "100.00% (of 558)"; correct OUT-lane arithmetic would be 558/562 = 99.29%~~ | superseded by C.1-REFINED row below — real kits stay IN the denominator (void-rift phantom-vs-real distinction) |
 | **(C.1-REFINED, DRIFT-CRITIC 2026-07-17)** DEFER engine build + elrond classifies PER-FIGHT econ in landed vocab (NR candidate per vs-phieraggi precedent) | **+2 via data-truth** | **560** | **99.29%** | **+0.35pp; denominator UNCHANGED at 564** |
 
 **Wave-D fidelity ledger (Thrust 2):** flips **ZERO** census kits under every §11.a ruling.
@@ -623,7 +623,7 @@ Per-tick check (dt in seconds):
 - `src/reincarnated/foundation/grouping_vocabulary_loader.py:190-203` — slice-0 target
 - `src/reincarnated/generation/bc_target_composer.py:108, ~236` — `_DEFERRED_ECON_BINS` + cost_type map
 - `src/reincarnated/generation/resource_economy.py` — emission surface (only touched IF §11.a rules LIFT or COLLAPSE)
-- `src/reincarnated/simulation/spatial_engine.py` — per-tick loop + fear/taunt EXCLUSIVE law + orbit + placed-lane consumers
+- `src/reincarnated/simulation/spatial_gauntlet/spatial_engine.py` — per-tick loop + fear/taunt EXCLUSIVE law + orbit + placed-lane consumers *(path corrected at Gate-1 M-2)*
 - `src/reincarnated/simulation/damage_resolver.py:97-126, :1491-1499, :3447` — curse variant + fear/taunt mutual-eviction + LC hp_cost payment
 - `config/ailments.yaml:353-390` — curse variant enum (Wave-D §5.b extends sim consumer, not registry)
 
