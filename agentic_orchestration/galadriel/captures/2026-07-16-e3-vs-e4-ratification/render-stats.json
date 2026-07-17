@@ -1,0 +1,70 @@
+{
+  "e3_file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/atlas/atlas-edition3.json",
+  "e4_file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/atlas/atlas-edition4.json",
+  "e3_total": 506,
+  "e3_active": 469,
+  "e3_legacy_tombstones": 37,
+  "e4_total": 562,
+  "e4_preexisting": 506,
+  "e4_new_positives": 50,
+  "e4_new_tombstones": 6,
+  "e3_extent": {
+    "x_min": -1.2613521,
+    "x_max": 1.6275578,
+    "y_min": -1.5618569,
+    "y_max": 0.88592663
+  },
+  "e4_extent": {
+    "x_min": -1.2613521,
+    "x_max": 1.6275578,
+    "y_min": -1.5618569,
+    "y_max": 0.88592663
+  },
+  "new_only_extent": {
+    "x_min": -0.62941805,
+    "x_max": 0.6593906,
+    "y_min": -0.10906451,
+    "y_max": 0.48342538
+  },
+  "new_within_e3_bbox": true,
+  "new_positives_franchise_breakdown": {
+    "d3": 1,
+    "d4": 1,
+    "di": 1,
+    "la": 42,
+    "mcd": 5
+  },
+  "new_positives_quadrant": {
+    "EN": 3,
+    "WN": 40,
+    "WS": 6,
+    "ES": 1
+  },
+  "new_tombstones_quadrant": {
+    "WN": 5,
+    "WS": 1
+  },
+  "g3_pixel_diff": {
+    "max_abs": 0,
+    "mean_abs": 0,
+    "nonzero_pct": 0,
+    "verdict": "PIXEL-IDENTICAL"
+  },
+  "projection": {
+    "canvas_w": 1600,
+    "canvas_h": 1200,
+    "margin": {
+      "top": 132,
+      "right": 96,
+      "bottom": 96,
+      "left": 96
+    },
+    "world_bbox": {
+      "min_x": -1.376908496,
+      "max_x": 1.7431141959999998,
+      "min_y": -1.6597682412,
+      "max_y": 0.9838379712
+    },
+    "axes": "PERFORM<->DEPLOY (dim1) · EMBODY<->LAUNCH (dim2)"
+  }
+}
