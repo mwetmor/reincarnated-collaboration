@@ -1,6 +1,6 @@
 # Wave-B Engine Spec — Reservation / Persistent-Cost / Attunement-Meter / Recharge (+ Life-Cost / Drain triage)
 
-**STATUS:** GATE-1 PASS-WITH-AMENDMENTS (jack-ryan 2026-07-16 — verdict stamp below the DRIFT-CRITIC stamp). GATED by gandalf-prime DRIFT-CRITIC 2026-07-16 (PASS-WITH-NOTES); five §10 escalations RULED-veto-open under Matt's autonomous-run authority — Gate-1 audited all five for internal consistency + code-grounding: **all five stand as ruled** (no reversal, no flag). Amendments (10, enumerated in verdict stamp) ride into the rocket/gamora implementation charges — **plus 2 post-Gate-1 SPEC-AUTHOR enum deltas** (legolas `4abe140f`, additive-only: §4.4 `accumulator_fill_trigger` += `on-passive-tick`/`on-resource-overflow`; §3.4 `reservation_resource` += `spirit`). Ready for build-slice dispatch per §12.2 sequencing.
+**STATUS:** **BUILT + GATE-2 PASS-WITH-AMENDMENTS (jack-ryan 2026-07-16; engine pushed `b850800`) — Wave-B economy is REMOTE TRUTH.** Implementation: rocket `4f2548e`/`33ffc86`/`176f353` (v2.10-waveb-1..3) + gamora `1a0e5e4`/`e81f3f9`/`c037c5b`/`41e45f6` (v1.9-waveb-1..3); 391/391 regression + 64/64 + 24/24 smokes at the gate's own re-run. Gate-2 finding: `agentic_orchestration/jack-ryan/reviews/2026-07-16-wave-b-economy-gate2.md`; **ERRATA 11–15 FOLDED in-doc 2026-07-16** (⚑ blockquotes at §2.5 resolution / §3.6 / §3.7 / §4 head + strike-notes on bias-map/template lines). Prior: GATE-1 PASS-WITH-AMENDMENTS (verdict stamp below the DRIFT-CRITIC stamp); five §10 escalations RULED-veto-open under Matt's autonomous-run authority — Gate-1 audited all five: **all five stand as ruled**; 10 Gate-1 amendments honored at Gate-2 (checklist complete); **plus 2 post-Gate-1 SPEC-AUTHOR enum deltas** (legolas `4abe140f`, additive-only: §4.4 `accumulator_fill_trigger` += `on-passive-tick`/`on-resource-overflow`; §3.4 `reservation_resource` += `spirit`).
 **Date:** 2026-07-16
 **Author:** gandalf (SPEC-AUTHOR work unit, autonomous atlas-parity run cycle 2)
 **Authority:** Matt autonomous-run delegation 2026-07-16 (sub-agents iterate engine toward 100% atlas mechanical parity) + S2 census V7 THE SCOREBOARD ranking Wave B the #2 parity lever after in-flight ailment layer. **The five §10 escalation rulings this doc records are gandalf-prime rulings under Matt's autonomous-run authority — veto-open, Matt may overturn on read.** (The four §X.1 bin-family definitions are governed by those rulings, not separately ruled.)
@@ -163,6 +163,8 @@ proc_trigger_condition:      # NEW — for shape="proc-loop" only
 Rocket authorship touchpoint: `element_biases.py` gets a NEW `PERSISTENT_CONDITION_BIAS` map; `substrate_templates.py` gets new templates `paladin_aura_of_X`, `barbarian_frenzy_state`, `proc_loop_trigger`.
 
 > **⚑ AC-2 FLAG (rocket v2.10 slice, 2026-07-16 — DEFERRED-UNBUILT, Gate-2 adjudicates):** the econ-keyed bias maps here and in §3.5 (`PERSISTENT_CONDITION_BIAS` / `RESERVATION_BIAS`) are **non-load-bearing as drafted** — grep confirms zero engine consumers of econ-keyed bias maps (`element_biases.py` is an ailment/scaling module; nothing in composition samples from an econ bias). Rocket correctly deferred rather than land dead code. The live emission surface is `bc_target_composer`'s map + `resource_economy` fields. **If element-biased PC/RS composition is INTENDED, it needs its own spec section (a `bc_target_composer` sampling-weight change), likely Wave-B.1/C.** The new substrate templates named here are bundled in the same flag — Gate-2 verifies whether template absence blocks kit-grain emission (S5) or is content-stage work. gandalf lean: bias maps = strike-or-respec (drafter speculation); templates = verify-at-gate.
+>
+> **✓ GATE-2 RESOLUTION (jack-ryan 2026-07-16, amendment 11 — ADJUDICATED):** (a) **Templates do NOT block S5** — kit-grain emission composes off the `resource_economy` fields + `commitment_bin` + composer cost_type map, not a template registry; charge-stack proved the pattern by REUSING `W1_4_CHARGE_STACK` via the `charge_stack_sub_shape` FIELD. The greenfield-template lines in §2.9/§3.8 are STRUCK (strike-notes in place). (b) **Bias maps STRUCK as drafter speculation** (grep-zero engine consumers; `element_biases.py` is an ailment/scaling module) — RESPEC as an own composer sampling-weight section at Wave-B.1/C if element-biased PC/RS composition is intended. Concurs with the gandalf lean; delegated ruling 12 recorded in decisions-log (`b850800`), Matt-veto-open.
 
 ### 2.6 Commitment-state extension (ESCALATION e — proc-loop split question)
 
@@ -198,7 +200,7 @@ Rocket authorship touchpoint: `element_biases.py` gets a NEW `PERSISTENT_CONDITI
 - **`bc_target_composer._ECON_BIN_COST_TYPE_MAP`** — add entry: `"persistent-condition": ["mana", "focus", "rage"]` (all three primary maintenance-resource families).
 - **`bc_target_composer._DEFERRED_ECON_BINS`** — NO CHANGE for PC (PC is a NEW active bin; drop only applies to `charge-stack` per §4).
 - **`resource_economy.py`** — add 4 new fields per §2.4 (persistent_condition_shape, persistent_tick_cost, activation_cost, proc_trigger_condition).
-- **`substrate_templates.py`** — new templates: `paladin_aura_of_X`, `barbarian_frenzy_state`, `proc_loop_trigger`.
+- ~~**`substrate_templates.py`** — new templates: `paladin_aura_of_X`, `barbarian_frenzy_state`, `proc_loop_trigger`.~~ **[STRUCK at Gate-2 amendment 11 — templates not required for S5 kit-grain emission; composer fields are the emission surface. Content-stage work if wanted later.]**
 - **`commitment_state_machine.py`** — 1 or 2 new commitment states per ESCALATION e.
 
 ### 2.10 DL-03 conformance
@@ -280,7 +282,7 @@ reservation_resource:        # WHICH pool is taxed
 - **NOT ailment DoT skills** (poison, burn own their space; reservation would be economy-double-dipping).
 - **NOT physical melee combo** (rage/combo already handle spend-model).
 
-Rocket authorship: `element_biases.py` gains a `RESERVATION_BIAS` map keyed by element + role_orientation.
+~~Rocket authorship: `element_biases.py` gains a `RESERVATION_BIAS` map keyed by element + role_orientation.~~ **[STRUCK at Gate-2 amendment 11 — zero engine consumers of econ-keyed bias maps; see §2.5 AC-2 resolution. Respec at Wave-B.1/C if intended.]**
 
 ### 3.6 Stacking + composition law
 
@@ -288,19 +290,25 @@ Rocket authorship: `element_biases.py` gains a `RESERVATION_BIAS` map keyed by e
 - **Composition with existing pool regen** — regen_rate multiplied by (1 − Σ reservation_percent). Un-reserved fraction regenerates normally.
 - **Cross-pool** — a mana-reservation aura does not touch focus pool. Reservation is per-resource-pool.
 
+> **⚑ GATE-2 ERRATA (jack-ryan 2026-07-16, amendments 12 + 13):**
+> - **Composed-hybrid floor (12):** the per-shape invariants above do NOT compose safely — at joint maxima (`Σpct→0.90`, `Σflat→0.75·M`) the un-floored cap goes to −0.65·M. The effective floor under HYBRID composition is **`eff_cap = max(0.25·M, M·(1−min(Σpct,0.90)) − Σflat)`** — the 0.25·M term is the tightest single floor honoring both LOCKED per-shape ceilings (gamora math note §2, `waveb-rs-reservation-sim-2026-07-16.md`). The sim (`spatial_engine.py:283`) is authoritative.
+> - **Single-value bind assumption (13):** the current emission surface binds ONE reservation per kit (`Σpct = reservation_percent`), so the per-KIT bound (`reservation_percent ≤ 0.75`, `resource_economy.py:213-220`) trivially satisfies the per-POOL Σ invariant; the sim clamp is genuine belt-and-suspenders. **If multi-reservation-per-kit ever lands, an explicit per-pool Σ check is OWED at emission** (Discipline #8) — the "activation blocked" PoE1 semantics above have no sim site under static per-fight reservations and become live only with in-fight toggling.
+
 ### 3.7 Sim-side resolution point
 
 **Consumer site:** `combatant.py` at pool-regen tick — subtract Σ active reservations from max_pool before regen_rate applies. Existing Wave-A A3 code at `summon_economy.py` regen_cap = max(0, max_pool − reservation_per_proxy × active_count) is the direct precedent; generalize to sum over active reservation-carriers (not just proxies).
 
 **Placement:** at pool-regen tick, BEFORE regen_rate applies.
 
-**gamora scope:** extend Wave-A A3 regen-cap enforcement to non-proxy carriers. NO NEW ALGORITHM — same code path, wider input set.
+**gamora scope:** extend Wave-A A3 regen-cap enforcement to non-proxy carriers. ~~NO NEW ALGORITHM — same code path, wider input set.~~
+
+> **⚑ GATE-2 ERRATA (jack-ryan 2026-07-16, amendment 14 — §3.7 CODE-REFUTED):** the "extend existing / NO NEW ALGORITHM" premise was WRONG — the Wave-A A3 reservation CONSUMER was never wired into the sim (grep `simulation/` for `reservation_per_proxy|ECONOMY_RESERVED|regen_cap` = zero hits pre-slice; only the `summon_economy.py` CONFIG surface shipped Wave-A, consumer explicitly deferred per Wave-A slice-2 guard state). **gamora's `1a0e5e4` is the FIRST regen-cap-tax consumer**, serving BOTH the A3 flat-per-proxy shape (backward-compat via `_sum_reserved_per_proxy_rate`) AND the hybrid % fields. The spec's INTENT (one generalized regen-cap path) was faithfully realized; only the "extension" framing was false.
 
 ### 3.8 Gen-side emission surface
 
 - **`bc_target_composer._ECON_BIN_COST_TYPE_MAP`** — add entry: `"reservation": ["mana", "focus"]` (rage/combo/stamina lack the regen-cap semantics needed).
 - **`resource_economy.py`** — add 2 fields per §3.4.
-- **`substrate_templates.py`** — new templates: `holy_aura_reservation`, `necromancer_slot_reservation`, `ward_reservation`.
+- ~~**`substrate_templates.py`** — new templates: `holy_aura_reservation`, `necromancer_slot_reservation`, `ward_reservation`.~~ **[STRUCK at Gate-2 amendment 11 — templates not required for S5; see §2.5 AC-2 resolution.]**
 
 ### 3.9 DL-03 conformance
 
@@ -317,6 +325,12 @@ Rocket authorship: `element_biases.py` gains a `RESERVATION_BIAS` map keyed by e
 ---
 
 ## §4 — Econ-bin: `charge-stack` (existing bin lift) — sub-shape `accumulator` (AM, 16 kits) + sub-shape `cycle` (RC, 16 kits)
+
+> **⚑ GATE-2 CLARIFICATION (jack-ryan 2026-07-16, amendment 15 — TWO "charge-stack" CONCEPTS, deliberately ORTHOGONAL):** the engine carries two distinct things named "charge-stack" — do NOT merge them:
+> 1. **`energy_type == "charge-stack"`** (pre-existing, `spatial_engine.py:1742-1770`) = the **ROTATION identity / cast-payment vocabulary** — `entity.energy` IS the stack count; build-and-hold-then-release Phase-R model.
+> 2. **`econ_bin == "charge-stack"` with `charge_stack_sub_shape`** (THIS section) = a **SEPARATE accumulator-or-cycle STATE MACHINE** — AM/RC state lives in dedicated fields (`am_current`/`cycle_charges` etc., `spatial_engine.py:742-748`), never perturbing the `energy` pool (smoke C6 verified).
+>
+> A kit MAY carry both. Conflating them would have rebuilt a shipped payment model mid-wave; the orthogonal build is the intended semantics (gandalf DRIFT-CRITIC concur + Gate-2 item 6).
 
 ### 4.1 Delegated ruling recorded (Matt 2026-07-16 autonomous-run, veto-open)
 
@@ -615,8 +629,8 @@ DL-03 explicitly satisfied for the whole spec.
 - `bc_target_composer._DEFERRED_ECON_BINS` — DROP `"charge-stack"`.
 - `bc_target_composer.check_infeasibility` — remove `charge-stack → DEFERRED` branch (implicit once bin dropped).
 - `resource_economy.py` — add 13 new fields (§2.4: 4 for PC; §3.4: 3 for RS; §4.4: 7 for charge-stack sub-shapes − 1 shared = ~13 total).
-- `element_biases.py` — add `PERSISTENT_CONDITION_BIAS`, `RESERVATION_BIAS`, sub-shape routing for charge-stack.
-- `substrate_templates.py` — new templates per §2.9, §3.8, §4.8 (~9 new templates total).
+- ~~`element_biases.py` — add `PERSISTENT_CONDITION_BIAS`, `RESERVATION_BIAS`, sub-shape routing for charge-stack.~~ **[STRUCK at Gate-2 amendment 11 — see §2.5 AC-2 resolution.]**
+- ~~`substrate_templates.py` — new templates per §2.9, §3.8, §4.8 (~9 new templates total).~~ **[STRUCK at Gate-2 amendment 11 for §2.9/§3.8 greenfields; §4.8 resolved as W1_4_CHARGE_STACK REUSE (Gate-1 amendment 8) — shipped that way.]**
 - `commitment_state_machine.py` — add 2 new commitment_states (`persistent_toggle`, `persistent_trigger`) per ESCALATION e ruling (B).
 
 **gamora (sim / resolution / calibration):** *(Gate-1 path-fix: consumer SITE is `spatial_gauntlet/spatial_engine.py`'s per-tick loop + `effect_resolver.tick_effects`; `combatant.py` is state-only, no `tick` method — see §1 EXISTS table.)*
