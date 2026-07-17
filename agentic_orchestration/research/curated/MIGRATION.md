@@ -2467,3 +2467,119 @@ served-artifact write.** Only refit-candidate artifacts + fork scripts touched.
   gandalf's gate.**
 
 ---
+
+## 2026-07-16 — Econ re-crawl sheet APPLIED to corpus.db (elrond; autonomous atlas-parity run, cycle 2)
+
+**Charge:** gandalf-prime (Matt authorization 2026-07-16) — apply the Legolas econ re-crawl application sheet
+to corpus.db. Single-writer slot: elrond (census V8 closed `222b9fdb`; Wave-B Gate-1 roster reads done).
+**Law for this pass (doc-authority):** `../../legolas/research/econ-recrawl-2026-07-16/application-sheet-2026-07-16.md`
+(commit `4abe140f`, 20 rows — row-level `**disposition**` markers are the authority, same rule as the V7 kb-sheet
+pass). 17 classify / 3 unverifiable; row-count audit reconciles.
+**Script (idempotent):** `../scripts/corpus_econ_recrawl_apply_2026_07_16.py` (ledger-aware no-op on re-run).
+**Backup:** `corpus.db.pre-econ-recrawl-2026-07-16-backup` (integrity_check=ok).
+
+### Bin→schema mapping (surveyed pre-run against the DB's OWN established convention — NO new bin minted)
+The sheet's Wave-B bin names map to the DB's `(economy_model, econ_status, econ_gaps)` triple exactly as the
+existing gap-token population is encoded (LIKE-match kit-grain positives, pre-run):
+- **spend** → `spend` / `native` / `[]` (185 precedents). Sub-shape `generator-spender` → `generator-spender`
+  / `native` / `[]` (38 precedents) — the spend family, still native/expressible, still clears UNKNOWN; sub-shape
+  preserved at the grain the schema supports (per charge).
+- **persistent-condition (PC)** → `free` / `gap` / `["PC"]` (44 precedents).
+- **reservation (RS)** → `reserve` / `gap` / `["RS"]` (42 precedents).
+- **charge-stack/accumulator (AM)** → `finite` / `gap` / `["AM"]` (16 precedents: 15 `["AM"]` + 1 `["AM","BT"]`).
+`economy_model` is written into BOTH the `canon_engine_key.economy_model` column AND `cell_key` slot 7 (0-indexed;
+14-part `|`-delimited key) — verified consistent on all 17 econ-resolved rows.
+
+### Writes applied (per-bin)
+**16 econ classifies** (economy_model + status + gaps; ambiguity flag `econ-audit-ambiguous-2026-07-16` cleared;
+`econ-recrawl-applied-2026-07-16:<sub-shape note>` stamped; sheet `source_urls` merged):
+- **spend ×9:** d2-wl-abyss, d2-wl-echoing-strike, d2-wl-fire, poe1-kinetic-fusillade, poe2-spiral-volley,
+  poe2-whirling-assault-ma (→ `spend`); d4-blazing-abyss-warlock, d4-hammerdin-paladin, d4-rabies-lacerate
+  (→ `generator-spender` sub-shape). Note: poe1-kinetic-fusillade is included in the 9 (the crawl-return summary
+  had undercounted it; the sheet rows win per doc-authority).
+- **charge-stack/accumulator (AM) ×3:** d4-dread-claws-warlock (fill=on-passive-tick, Terror Demon 4 stacks/s),
+  poe1-heavy-strike-stun (fill=on-hit-dealt, Rage/Trauma → Berserk), poe2-walking-calamity (fill=on-resource-
+  overflow, Glory-at-max-Rage → 50 Glory discharge).
+- **persistent-condition (PC) ×3:** gd-berserker-wereforms (activation-toggle wereform), poe2-shaman-bear
+  (activation-toggle Bear Form; RS + AM riders subordinate), vs-out-of-bounds-freeze (activation-toggle arcana slot).
+- **reservation (RS) ×1:** poe2-archmage-totems (flat 75-Spirit/totem; resource=spirit).
+
+**1 ailment classify:** di-warlock-launch — `ctrl_ailments_mapped` `[]` → `["bleed","burn","knockback","stun"]`
+(sheet row 19); `GAP-AILMENT:unknown-ailment` dropped from `ctrl_ailment_gaps`. Econ UNTOUCHED (already
+`cooldown`/`native`). All four map to the existing taxonomy (no novel ailment).
+
+**3 unverifiable** (flag `econ-recrawl-unverifiable-2026-07-16`):
+- **d2-wl-void-rift** — no dedicated build guide exists; econ STAYS `unknown`/`gap`/`["UNKNOWN"]` (honest; the
+  prior `econ-audit-ambiguous` flag is retained alongside the unverifiable flag).
+- **di-spiritform-druid-pvp** — no "Spirit Form" skill found in any source; econ already `cooldown`/`native`
+  (never in the econ:UNKNOWN pool); `GAP-AILMENT:unknown-ailment` retained; flag only.
+- **poe2-snipe-mirage-deadeye** — **ELROND editorial single-bin call = `spend`** (see below). Resolved to
+  `spend`/`native`/`[]` AND carries the unverifiable flag (classification is editorial-inferred, not source-
+  confirmed) with the reasoning stamped in the applied-flag note.
+
+**Dedupe rider:** vs-gorgeous-moon — `ctrl_ailment_gaps` `["GAP-AILMENT:instant-kill","GAP-AILMENT:instant-kill"]`
+→ `["GAP-AILMENT:instant-kill"]` (census V8 honesty note). Flag `dedupe-2026-07-16`. Econ (`finite`/`gap`/`["HV"]`)
+untouched; instant-kill is Wave-C+ → stays a gap, only the duplicate removed.
+
+### ELROND editorial call — poe2-snipe-mirage-deadeye → spend
+Row 14 flags a two-mechanism build (Snipe channel = spend, 17–118 mana/s; Mirage Deadeye = PC activation-toggle
+buff) and asks for an editorial single-bin call if the row's evidence supports one. `raw_json` carries NO captured-
+primary-mechanism signal (no mech prose / core_skills / resource_verbatim — only delivery=projectile, low-conf
+geometry, `resolved:dossier-deferred`). RESOLVED to **spend** by structural analogy to three in-batch precedents
+the sheet itself resolves the same way — poe1-kinetic-fusillade (spend-core + RS aura rider → spend),
+poe2-whirling-assault-ma (spend-core + power-charge damage-layer + RS rider → spend), poe2-spiral-volley (spend-core
++ frenzy-charge damage-layer + spirit-reservation → spend). In every case the resource-consuming delivery skill
+(spend) is primary and the persistent buff/charge layer is the rider. Snipe/Mirage is the same shape: Snipe is the
+damage-delivery skill carrying the per-activation operating cost; Mirage Deadeye is the 10s-cadence buff rider with
+no independent operating cost (adds mirage copies = a damage-multiplier layer). Under the §5.3 single-bin contract,
+the layer that consumes the operating resource is primary → **spend**. Row-14's own text: "Snipe's own economy is
+`spend` (mana/second channeled)." Honestly recorded as editorial-inferred (unverifiable-flagged).
+
+### IT/UT row-class ASSESSMENT (data-steward opinion only — NO writes this pass; gandalf concurs/defers; V9 acts)
+Ruling-10 parked three rows for row-class review — d3-LoD itemization-meta (IT ×1) and VS unlock-trophy (UT ×2):
+are they combat-econ rows at all, or build-definition / unlock-meta that belongs OUTSIDE the econ scoreboard?
+**Data-steward read: reclassify all three to `system-record` (route them out of the combat denominator).** Rationale:
+the econ scoreboard measures *how a kit pays to act in a fight* (spend / reserve / accumulate / persist). An
+**itemization-meta** row (d3-LoD Legacy-of-Dreams — a build-defining set-item scaling framework) and **unlock-trophy**
+rows (VS meta-progression unlock gates) have no per-fight resource-operation to classify — their "economy" is a
+*build-construction / account-progression* economy, a different axis entirely. Forcing them onto the combat-econ
+scoreboard would inflate the UNKNOWN/ambiguous residue with rows that are categorically un-classifiable in the
+combat frame (the map has no bin for "you paid gold/time out-of-combat to unlock this"). This parallels the existing
+`row_class='system-record'` route already used for loot-economy / progression rows (61 economy_model-blank system
+rows exist). **Recommendation: at V9, set `row_class='system-record'`, `route='itemization-meta'` (d3-LoD) /
+`route='unlock-meta'` (2 VS), removing all three from the §F.5(1) combat candidate pool.** This is a scoreboard-
+denominator change (Tier-C, my seam), so it is a *recommendation* here, executed only after gandalf concurs; NOT
+done this pass. If gandalf instead reads them as genuinely combat-relevant, the fallback is to leave them in and
+flag `econ-row-class-contested-2026-07-16` for a targeted crawl — but the steward view is that they are meta-economy,
+not combat-economy.
+
+### Spec-amendment candidates (flagged, NOT minted — iron law: no schema change mid-run)
+Three Wave-B sub-field enum gaps surfaced by the batch (bin classifications remain correct; only sub-fields lack a
+value). These are gandalf/rocket spec-author calls, NOT elrond writes:
+1. AM `accumulator_fill_trigger` §4.4 lacks **`on-passive-tick`** (d4-dread-claws-warlock: timed passive generator).
+2. AM `accumulator_fill_trigger` §4.4 lacks **`on-resource-overflow`** (poe2-walking-calamity: Rage-at-cap overflow).
+3. RS `reservation_resource` §3.4 lacks **`spirit`** (poe2-archmage-totems: PoE2 Spirit reservation pool).
+Recorded in the affected rows' `econ-recrawl-applied` flag notes for traceability.
+
+### Scoreboard shift (LIKE-match kit-grain positives — census NOT rerun this pass; V9 picks it up)
+- `econ:UNKNOWN` **33 → 16** (−17: 16 econ classifies + 1 snipe-editorial; only d2-wl-void-rift remains UNKNOWN
+  among the 20 targets, honestly).
+- `econ:PC` **44 → 47** (+3) · `econ:RS` **42 → 43** (+1) · `econ:AM` **16 → 19** (+3, matching the charge's
+  "~18/19" upper hedge — 16 pre-run LIKE-match baseline + 3).
+Do NOT rerun the census; V9 fires after Wave-B Gate-2 and reflects all of it.
+
+### Iron-law asserts (held identical PRE + POST — byte-stable except the 20+1 intended rows + schema-meta ledger)
+total_corpus 585 · total_engine_key 585 · kit_grain 566 · null_grain 19 · cell_key_resolved 562 · bt_sentinel 1 ·
+orphans engine→corpus 0 · orphans corpus→engine 0 · dossier_owed 4 (UNTOUCHED). PRE econ:UNKNOWN=33 asserted;
+POST=16 asserted; per-bin PC=47 / RS=43 / AM=19 asserted. `cell_key` slot-7-vs-column consistency verified on all
+17 econ-resolved rows; full-DB pre-existing `'blank'`-vs-NULL slot-7 mismatch (38 rows, unrelated older lineage)
+confirmed byte-identical PRE↔POST (0 introduced, 0 resolved — out of scope).
+
+### ADR-004 + reversibility
+No engine-telemetry change; star-lord-side MIGRATION.md unaffected (econ classification is corpus-curation, my
+seam). Reversible: `corpus.db.pre-econ-recrawl-2026-07-16-backup` restores exact PRE state; the script is
+deterministic + ledger-aware idempotent (re-run = verified no-op). `corpus_schema_meta` version
+`econ-recrawl-apply-2026-07-16` records the migration. Auto-committed per project discipline (Matt-authorized
+charge). **NO push — gandalf pushes.**
+
+---
