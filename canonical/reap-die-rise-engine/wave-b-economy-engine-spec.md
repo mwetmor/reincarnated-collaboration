@@ -1,6 +1,6 @@
 # Wave-B Engine Spec — Reservation / Persistent-Cost / Attunement-Meter / Recharge (+ Life-Cost / Drain triage)
 
-**STATUS:** GATE-1 PASS-WITH-AMENDMENTS (jack-ryan 2026-07-16 — verdict stamp below the DRIFT-CRITIC stamp). GATED by gandalf-prime DRIFT-CRITIC 2026-07-16 (PASS-WITH-NOTES); five §10 escalations RULED-veto-open under Matt's autonomous-run authority — Gate-1 audited all five for internal consistency + code-grounding: **all five stand as ruled** (no reversal, no flag). Amendments (10, enumerated in verdict stamp) ride into the rocket/gamora implementation charges. Ready for build-slice dispatch per §12.2 sequencing.
+**STATUS:** GATE-1 PASS-WITH-AMENDMENTS (jack-ryan 2026-07-16 — verdict stamp below the DRIFT-CRITIC stamp). GATED by gandalf-prime DRIFT-CRITIC 2026-07-16 (PASS-WITH-NOTES); five §10 escalations RULED-veto-open under Matt's autonomous-run authority — Gate-1 audited all five for internal consistency + code-grounding: **all five stand as ruled** (no reversal, no flag). Amendments (10, enumerated in verdict stamp) ride into the rocket/gamora implementation charges — **plus 2 post-Gate-1 SPEC-AUTHOR enum deltas** (legolas `4abe140f`, additive-only: §4.4 `accumulator_fill_trigger` += `on-passive-tick`/`on-resource-overflow`; §3.4 `reservation_resource` += `spirit`). Ready for build-slice dispatch per §12.2 sequencing.
 **Date:** 2026-07-16
 **Author:** gandalf (SPEC-AUTHOR work unit, autonomous atlas-parity run cycle 2)
 **Authority:** Matt autonomous-run delegation 2026-07-16 (sub-agents iterate engine toward 100% atlas mechanical parity) + S2 census V7 THE SCOREBOARD ranking Wave B the #2 parity lever after in-flight ailment layer. **The five §10 escalation rulings this doc records are gandalf-prime rulings under Matt's autonomous-run authority — veto-open, Matt may overturn on read.** (The four §X.1 bin-family definitions are governed by those rulings, not separately ruled.)
@@ -259,7 +259,11 @@ reservation_resource:        # WHICH pool is taxed
   min: null
   max: null
   default: "mana"
-  # one of: {"mana", "focus", "stamina-as-resource", "rage"}
+  # one of: {"mana", "focus", "stamina-as-resource", "rage", "spirit"}
+  # `spirit` ADDED post-Gate-1 (gandalf SPEC-AUTHOR delta, legolas re-crawl `4abe140f`):
+  # poe2-archmage-totems reserves the PoE2 Spirit pool (75/totem, Ancestral Bond) —
+  # first RS corpus case where the taxed pool is a dedicated reservation resource,
+  # not mana/focus. Additive; bin semantics unchanged.
 # INVARIANT: Σ reservation_percent per pool < 0.90 (LOCKED — never allow >90% reservation total)
 # INVARIANT: Σ reservation_flat per pool ≤ 0.75 × max_pool (LOCKED — same 75% ceiling in flat units)
 ```
@@ -367,7 +371,15 @@ accumulator_fill_trigger:    # NEW
   min: null
   max: null
   default: "on-kill"
-  # one of: {"on-kill", "on-hit-taken", "on-hit-dealt", "on-evolution-condition-met", "on-corpse-consume"}
+  # one of: {"on-kill", "on-hit-taken", "on-hit-dealt", "on-evolution-condition-met", "on-corpse-consume",
+  #          "on-passive-tick", "on-resource-overflow"}
+  # Last two ADDED post-Gate-1 (gandalf SPEC-AUTHOR delta, legolas re-crawl `4abe140f`) — corpus-attested:
+  #   on-passive-tick      → d4-dread-claws-warlock (Terror Demon: 4 Shadowform stacks/second — timed
+  #                          passive generator; the demon IS the external event source)
+  #   on-resource-overflow → poe2-walking-calamity (Rage-at-max + further Rage gain converts to Glory —
+  #                          resource-overflow conversion)
+  # Bin definition (AM = fills from external events, discharges on activation) already covered both;
+  # the enum was incomplete, not the bin. Additive; no existing value's semantics change.
 accumulator_fill_amount:     # NEW
   min: 1
   max: 25
