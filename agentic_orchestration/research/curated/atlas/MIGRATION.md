@@ -6,6 +6,69 @@
 
 ---
 
+## s1-data-completion-post-e4-2026-07-16 — S1 data-completion delta pass: era_year backfill on the 61 post-E4 rows (LA + MCD + 3 pull re-keys); other payloads NULL-honest — 2026-07-16 — **APPLIED (gandalf autonomous atlas-parity run, S1 charge; iron-law asserts all held PRE + POST)**
+
+### One line
+Executed the S1 delta pass on the post-Edition-IV corpus (585 rows, 566 kit-grain + 19 system-records, 562 cell_key-resolved incl. 1 `-bt` sentinel). Filled `era_year` for the 61 rows that landed after the 2026-07-13 S1 pass (53 LA + 5 MCD + 3 pull re-keys d3/d4/di); all other S1 payloads (roster mob/amp/commit, delivery_value mint kits, poe2 movement-unknowns, void-rift amp, stabilization_patch) yielded ZERO delta fills — each honest-NULL under iron law 3 (no engine source of record, no probe evidence, no live-URL provenance). Row count 585 held; kit/NULL grain 566/19 held; cell_key 562 resolved held; -bt sentinel 1 held; engine_key 1:1 zero orphans held.
+
+### S1 scope per wind-down doc (§3, verbatim; the brief's headline reconciled)
+Wind-down doc scope: *"45-roster backfill (movement + amp + commit from engine sources of record — bc_target_cell_sampler.py CellDefs + battle-sim configs); delivery.value probe→keyed column; 6 poe2 movement-unknowns; void-rift amp if resolvable; era_year + stabilization_patch columns (public-register naming feed, §7.1 — era from per-game meta ×19 already landed; patch pin from probe sources_used where present, NULL-honest otherwise)."*
+
+Brief headline (*"45-roster backfill · delivery.value completion · poe2 unknowns · era_year/stabilization_patch columns"*) is a SUBSET — it omits the void-rift amp resolution attempt (a legitimate S1 sub-item; also NULL-honest by evidence) and frames the era_year/stabilization_patch columns as "new" when they were added in the 2026-07-13 pass (Edition-2 era). Doc wins; brief's scope is a compatible subset. **Iron law 6 not tripped:** neither text materially expands or contracts what S1 owes — this pass is the incremental fill on the post-E4 delta population.
+
+### Backup + scripts
+- **Backup-first (iron law 1):** `../corpus.db.pre-s1-data-completion-2026-07-16-backup` (created 2026-07-16 pre-run; `integrity_check=ok`; git-ignored). No pending WAL at run time (`lsof` clean).
+- **Script:** `../scripts/corpus_s1_data_completion_2026_07_16.py`. Idempotent; guarded by `WHERE era_year IS NULL` predicates; transactional (rolls back on assert breach, does not commit). Parent script: `corpus_completion_s1_2026_07_13.py` (established schema + initial 524-row fill; this script extends `GAME_ERA_YEAR` with LA=2018 + MCD=2024 and runs the 61-row incremental).
+
+### Per-payload fill results
+| Payload | Filled (delta) | NULL-remaining (post) | Total | Disposition |
+|---|---|---|---|---|
+| **P1a** roster_atlas.amp_val         | 0 | 19 | 45 | NULL-honest — CellDefs only supply amp for K1–K25 (26 rows already populated 2026-07-13); K26–K29/H*/B* have no CellDef mapping |
+| **P1b** roster_atlas.commit_val      | 0 | 40 | 45 | NULL-honest — only 3 CellDef commitment pins (K1/K7/K19) + 2 roster-explicit (B12/H6) exist; unpinned cells are ROLLED at S7 generation, not fixed at S1 |
+| **P1c** roster_atlas.mob_policy_while_casting | 0 | 45 | 45 | NULL-honest — NO S1 engine source of record for movement policy; emitted per-skill at S7 (`per_skill_emitter._MOVE_*`) |
+| **P2**  canon_engine_key.delivery_value | 0 | 13  | 585 | 572/585 populated at Edition-IV; 13 NULLs = 6 mint kits (hand-auth provenance owed) + 4 dossier-owed (HANDS-OFF; legolas dossier batch owes fill) + 3 system-records (NULL by design; all axes abstain) |
+| **P3**  6 poe2 movement-unknowns     | 0 | 6  | 6   | NULL-honest — probe evidence explicitly *"POST-CUTOFF: live verification required"*; iron law 3 forbids fabrication |
+| **P4**  d2-wl-void-rift amp_val      | 0 | 1  | 1   | NULL-honest — probe evidence *"mechanics unharvested"*; no source resolves |
+| **P5a** canon_corpus.era_year        | **+61** | 0  | 585 | **585/585 populated post-run.** Delta: d3=+1 (`d3-wizard-black-hole`), d4=+1 (`d4-spiritborn-vortex`), di=+1 (`di-cyclone-strike-monk-base`), la=+53, mcd=+5 |
+| **P5b** canon_corpus.stabilization_patch | 0 | 568 | 585 | 17/585 populated (10 chronicon 1.52 + 7 mint hand-authored); no delta fill — `sources_used` probe field carries source-name tags (kb/iv/ph/dw/maxroll), NOT patch pins; LA/MCD 9.19 harvest's v2.13.0 = HARVEST cadence, NOT game patch. NULL-honest per iron law 3; naming-law display contract (§7.1 refinement 5) omits the patch segment where absent |
+
+### Provenance convention
+- **Column `era_year`** (INTEGER, no separate provenance column on `canon_corpus` for this axis): fills carry implicit provenance via the schema-meta ledger entry `corpus_schema_meta` v2.2 (this pass) — recording that era_year values are the per-game canonical release-year canon (source: `matt_notes_handoff_docs/gemini-steam-mothership-research-and-kit-naming-advice-for-devlog` §7.1 naming-law feed + per-game public-release timelines; LA=2018 Smilegate/Amazon Games release, MCD=2024 publisher release). The existing pattern (S1 v2.1 pass 2026-07-13) records era_year provenance at the schema-meta ledger level, NOT per-row — matched.
+- **Post-cutoff claims:** wind-down doc §7.1 refinement 5 requires patch pins to derive from probe `sources_used` where present — none available. LA/MCD live-URL provenance for stabilization_patch was not carried in the 9.19 harvest (harvest cadence tag ≠ game patch); a future legolas Mode-B pass or Matt-authorized live-web mission would be required. This pass files the gap rather than inventing.
+
+### Asserts (iron law 4 — held PRE + POST)
+| Assert | Expected | PRE | POST |
+|---|---|---|---|
+| total_corpus | 585 | 585 | 585 |
+| total_engine_key | 585 | 585 | 585 |
+| kit_grain | 566 | 566 | 566 |
+| null_grain | 19 | 19 | 19 |
+| cell_key_resolved (incl. 1 `-bt` sentinel) | 562 | 562 | 562 |
+| bt_sentinel | 1 | 1 | 1 |
+| orphans engine→corpus | 0 | 0 | 0 |
+| orphans corpus→engine | 0 | 0 | 0 |
+| dossier_owed=1 | 4 | 4 | 4 |
+
+**Zero drift.** Wildsoul ×2 + Valkyrie ×2 (dossier_owed=1) untouched per brief.
+
+### Schema-meta bump
+`corpus_schema_meta` v2.2 inserted (`2026-07-16T00:00:00Z`) with note: *"S1 data-completion delta pass (elrond, post-E4). era_year +61 fills (LA=2018, MCD=2024, 3 pull re-key stragglers). P1/P2/P3/P4/P5-patch NULL-honest (no engine/probe/live source; iron law 3 preserved). Row counts hold at 585 corpus + 585 engine_key + 45 roster + 4780 probe_facts + 562 cell_keys."*
+
+### Iron laws honored
+1. **Backup-first**: `corpus.db.pre-s1-data-completion-2026-07-16-backup` created before any write; filename in return.
+2. **Data-completion ONLY**: no row inserts/deletes, no cell_key touches, no atlas artifact writes, no served-surface changes, no dossier_owed flag changes (4 held).
+3. **Provenance + NULL-honest**: every value filled carries provenance (schema-meta ledger convention matched); every unfillable value NULL + counted + named. Zero fabrication.
+4. **Asserts fail-loud**: 9 asserts checked PRE, executed as barrier BEFORE any writes; POST recheck + transactional; no drift. Script self-halts on breach with `sys.exit` non-zero.
+5. **MIGRATION.md entry**: this entry.
+6. **HALT discipline**: brief-vs-doc reconciliation surfaced (brief headline is compatible subset; iron law 6 not tripped). No partial commit; all writes gated on POST asserts pass.
+
+### ADR compliance
+- **ADR-004**: this entry on the atlas MIGRATION.md. No engine-telemetry change; star-lord side unaffected. Parallel corpus/register `../MIGRATION.md` unaffected (this is a fit-input-adjacent completion, kept adjacent to the E4 entry it depends on).
+- **Reversibility**: full run reproducible from backup + `corpus_s1_data_completion_2026_07_16.py`; idempotent (WHERE IS NULL predicates); pure UPDATEs from a stated canonical table (`GAME_ERA_YEAR`).
+- **Auto-committed** per project discipline (Matt-authorized S1 charge under gandalf-prime's autonomous atlas-parity run). **Push DEFERRED to gandalf's verify-gates + KR's gate.**
+
+---
+
 ## edition4-run-2026-07-16 — Edition IV emitted: curated LA/MCD + 3 pull re-keys admitted as supplementary points into the frozen Edition-I basis (Path A) — 2026-07-16 — **APPLIED (spec RATIFIED "Agreed, path A"; gates ALL PASS; NOTHING SERVED — gandalf verify-gates → galadriel render → Matt ratifies before cutover)**
 
 ### One line
