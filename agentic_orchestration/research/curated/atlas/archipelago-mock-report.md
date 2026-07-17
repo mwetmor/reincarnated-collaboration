@@ -7,6 +7,8 @@
 
 > **THROWAWAY-CLASS EXHIBIT — NOTHING SERVED, NOTHING VENDORED.** Memberships are **computed** (clustering + label propagation in full 14-dim MCA space). Island **seating is designed-for-legibility** (MDS on cluster centroids), **not a measured coordinate** — disclosed as such in the JSON. **G1/G2/G3 ratification gates are NOT run** in this mock (they are charter-run + pre-registered, later). Do not read this mock as ratified.
 
+> **⚠ SHELVED 2026-07-16 (Matt wave-4 ruling) — RECOGNITION RECORD.** The archipelago **territory-map surface is shelved**; Edition IV proceeds as anchored-E3 (see decision file `canonical/matt_decision_needed/2026-07-16-edition3-vs-refit-candidate-1-adoption.md` § WAVE 4). **Re-entry criterion (empirical):** a per-sub-cluster-τ propagation passing names-level design review at ≥80% precision over ≥20 proposals. **Census caveat (post-mortem):** the "core" counts below CONFLATE gateA-ratified members with τ-propagated proposals — ratified truth is WHIRLWIND 15+0 · CHANNELED-BEAM 9+0 · MINION-PET 7+0 · AURA 8+2 · TOTEM-SENTRY 24+**22** · TRAP-MINE 23+**20**, and the 44 proposals ran ~1/3 precision (global-τ umbrella defect over multi-cluster families). The full-space **derivation layer survives unserved** (Leiden, U-n queue, ghost affinity, propagation-as-queue).
+
 ## 1. ASHORE / AT-SEA CENSUS (the answer to Matt's membership question)
 
 | stratum | count | of 469 |
