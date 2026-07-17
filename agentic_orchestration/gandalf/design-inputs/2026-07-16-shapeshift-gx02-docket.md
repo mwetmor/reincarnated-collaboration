@@ -60,6 +60,8 @@ Five exhibits with dated attestations; three fresh (2026-07-16 Legolas dossiers 
 - **TEMPORAL-WINDOW** — form is a super-mode you occasionally enter (PBA, Archon, GD Wereforms, Demonize).
 - **STANCE-DANCE** — form is skill-implied and shifts in-flight (D4 Druid). Debatably a persistent-loop sub-variant with implicit swap-triggers instead of explicit ones.
 
+> **ANNEX (post-gate, 2026-07-16 legolas econ re-crawl — evidence only, forks untouched):** the re-crawl's `gd-berserker-wereforms` row (grimdawn.com official mastery page) refines the GD exhibit two ways. (1) **Fork-B evidence:** *"Transformations are temporary, and Berserker has means to extend their duration or even to make them permanent"* — the GD exhibit sits on a TEMPORAL-WINDOW→PERSISTENT-LOOP **slider**, not a fixed point; direct corpus support for the B3 lean (support both persistence models). Econ-side it classified `persistent-condition / activation-toggle` (Wave-B PC bin), consistent with ruling 10's SS→this-docket routing (shapeshift owns form-lock econ). (2) **Form-name discrepancy flagged:** this table says "Werebear + Wereboar"; the official mastery page says **werewolf / wereraven** (wereraven = ranged + ice magic). Official-source wording wins pending the docket-to-spec pass; the geometry (cooldown-gated timed window, extendable) is unaffected.
+
 ### 1.2 Skill-slot semantics under form (how the loadout reacts)
 
 | Semantics | Exhibit | Mechanic |
