@@ -1,6 +1,6 @@
 # Wave-D Engine Spec — DR-lift · Wave-C Fidelity Ledger · Slice-0 Vocab-Loader Repoint
 
-**STATUS:** **DRAFT — GATE-1 NOT YET FIRED** (SPEC-AUTHOR complete 2026-07-17; DRIFT-CRITIC + jack-ryan Gate-1 pending; open-escalation surface at §11; **empirical evidence divergence on DR shape flagged LOUD at §4 and §11.a — Gate-1 must adjudicate before build**.)
+**STATUS:** **DRIFT-CRITIC PASSED — CONCUR-WITH-CORRECTIONS (2026-07-17) — GATE-1 FIRED** (SPEC-AUTHOR complete 2026-07-17; DRIFT-CRITIC independent verification + rulings annex at §11 tail; gate corrections folded in-place pre-build per Wave-C precedent; jack-ryan Gate-1 in flight; **all rulings veto-open at Gate-1 + Matt**.)
 **Date:** 2026-07-17
 **Author:** gandalf (SPEC-AUTHOR work unit, autonomous atlas-parity run cycle 4 — the LAST engineering wave)
 **Authority:** Matt autonomous-run delegation 2026-07-16 (sub-agents iterate engine toward 100% atlas mechanical parity) + S2 census V11 THE SCOREBOARD (`agentic_orchestration/research/curated/atlas/s2-readiness-census-v11-2026-07-17.md`) ranking the final residue tail post-Wave-C-landed. **This spec MINTS NO RULINGS; open questions in §11 route to gandalf-prime DRIFT-CRITIC + jack-ryan Gate-1 for veto-open adjudication.**
@@ -11,7 +11,7 @@
 - `./ailment-layer-engine-spec.md` — canonical-names discipline · fear ailment registry entry Wave-D's §5.a extends at the sim consumer (the flee-AI fidelity item)
 - `../../agentic_orchestration/research/curated/atlas/s2-readiness-census-v11-2026-07-17.md` — THE SCOREBOARD (558/564 = 98.94% expressible-now; DR is the last econ bin; Wave-D projection 560/564 = 99.29%)
 - `../../agentic_orchestration/research/curated/corpus.db` — DB truth for the 2-kit DR roster (single-writer = elrond; this spec writes ZERO rows)
-- `../../agentic_orchestration/legolas/research/econ-recrawl-2026-07-16/application-sheet-2026-07-16.md` — the classification sheet where DR was assigned to `hot-norseman-frost-avalanche` + `vs-queen-sigma` (the sheet cross-references + the mech_note "DR in old vocab = draft/pool-management" surface at §4)
+- `../../agentic_orchestration/legolas/research/megaprobe-2026-07-12/hot-facts.jsonl` (:8) + `.../vs-facts.jsonl` (:17) — the megaprobe facts where DR was assigned to `hot-norseman-frost-avalanche` + `vs-queen-sigma` and where the mech_note verbatims originate ("DR in old vocab = draft/pool-management"; "DR = draft/pre-converged. The build economy is CHOOSING WHAT NOT TO TAKE") — **GATE CORRECTION 2026-07-17 (DRIFT-CRITIC): DR provenance is the 07-12 megaprobe, NOT the econ-recrawl-2026-07-16 application sheet (independent grep: zero hits for either kit in that sheet)**
 - `../../agentic_orchestration/jack-ryan/notes/2026-07-17-wave-c-gate2.md` — the Wave-C Gate-2 finding whose CONCUR-with-NOTE deferrals populate Wave-D's §5 fidelity ledger
 - `/Users/admin/Games/reincarnated-engine/src/reincarnated/foundation/grouping_vocabulary_loader.py` — the vocab-loader whose `_REL_CANDIDATES` seeks the DISSOLVED `canonical/story/` path (Wave-D slice-0 target)
 - `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/bc_target_composer.py` — `_DEFERRED_ECON_BINS` frozenset (currently empty post-Wave-C; Wave-D §4 must NOT re-populate it) + `_ECON_BIN_COST_TYPE_MAP`
@@ -93,7 +93,7 @@ Per current engine survey (2026-07-17 pass on Wave-C post-landing state at engin
 | 972-assert QD lattice | `bc_target_cell_sampler.py:395` | LOCKED. Wave-D touches ZERO lattice surface. |
 | Byte-neutrality opt-in pattern | Wave-C MAJOR-3 (§9.1 §6+§7 rows in Wave-C spec) | Precedent for Wave-D §7 opt-in clause on any new emission field: existing kits' bytes UNCHANGED; opt-in = the specific roster only (2 DR kits IF lifted). |
 | Vocab-loader `_REL_CANDIDATES` | `grouping_vocabulary_loader.py:190-203` | Seeks `canonical/story/historical/` + `canonical/story/` — BOTH DISSOLVED in 2026-07-01 canonical reorg (commit `5fc2890b` swept 98 already-demoted historical docs INCLUDING `grouping-layer-vocabulary.md`). 4 test files fail collection: `test_cosmological_vocabulary.py`, `test_cp8_gear_naming.py`, `test_naming.py`, `test_no_canonical_four_in_llm_prompts.py`. **Wave-D slice-0 target.** |
-| Live-runtime consumers of vocab doc | `naming.py`, `cosmological_vocabulary.py`, `season_writer.py` | These read the YAML at boot. Loss of the doc breaks runtime, not just test collection. The doc is a live-runtime dependency, NOT dead reference — Slice-0 must restore or re-home. |
+| Live-runtime consumers of vocab doc | Direct: `llm/naming.py`, `llm/cosmological_vocabulary.py`. Transitive (via cosmological_vocabulary import): `llm/spirit_guide_voice.py`, `export/kit_space_emitter.py`, `generation/kit_space_skill_naming.py`, **`generation/season_generation_pipeline.py` — the emission pipeline itself**. | These read the YAML at boot. Loss of the doc breaks runtime, not just test collection. The doc is a live-runtime dependency, NOT dead reference — Slice-0 must restore or re-home. **GATE CORRECTION 2026-07-17: `season_writer.py` (named in the loader's own docstring at :168) exists only in a stale agent worktree, not main tree — the stale docstring is the claim's source; rocket updates it at slice-0. Dependency set is BROADER than drafted.** |
 
 **Existing extension points (no new subsystems required for Wave-D):**
 - DR IF-LIFT = new emission-surface fields on `resource_economy` + new cost_type map entry (`drain → ["hp"]` or similar per §11.a) + new sim consumer at `damage_resolver` (drain-tick branch) OR collapse-into-LC via `hp_cost_slope="continuous-drain"` extension.
@@ -113,7 +113,7 @@ Per current engine survey (2026-07-17 pass on Wave-C post-landing state at engin
 1. `canonical/story/historical/grouping-layer-vocabulary.md` (post-restructure 93b8427)
 2. `canonical/story/grouping-layer-vocabulary.md` (pre-restructure fallback)
 
-Both paths DISSOLVED in commit `5fc2890b` "gandalf: reorg Tranche 1b — sweep 98 already-demoted historical docs (git holds lineage)" on 2026-07-01. The doc is git-lineage only; NO on-disk file exists post-reorg. The engine still boots with this loader as a live-runtime dependency (naming.py, cosmological_vocabulary.py, season_writer.py all consume the YAML). Current fallback: the loader raises `RuntimeError` UNLESS `GROUPING_VOCAB_DOC_PATH` env-var is set.
+Both paths DISSOLVED in commit `5fc2890b` "gandalf: reorg Tranche 1b — sweep 98 already-demoted historical docs (git holds lineage)" on 2026-07-01. The doc is git-lineage only; NO on-disk file exists post-reorg. The engine still boots with this loader as a live-runtime dependency (direct: naming.py, cosmological_vocabulary.py; transitive: spirit_guide_voice.py, kit_space_emitter.py, kit_space_skill_naming.py, season_generation_pipeline.py — per §1 gate correction). Current fallback: the loader raises `RuntimeError` UNLESS `GROUPING_VOCAB_DOC_PATH` env-var is set.
 
 **Impact (verified against Wave-C Gate-2 item 10):**
 - 4 test files fail COLLECTION: `test_cosmological_vocabulary.py`, `test_cp8_gear_naming.py`, `test_naming.py`, `test_no_canonical_four_in_llm_prompts.py`.
@@ -125,7 +125,7 @@ Both paths DISSOLVED in commit `5fc2890b` "gandalf: reorg Tranche 1b — sweep 9
 The 4 test files collect again (no RuntimeError at import time). Equivalent success conditions:
 1. `pytest --collect-only tests/test_cosmological_vocabulary.py tests/test_cp8_gear_naming.py tests/test_naming.py tests/test_no_canonical_four_in_llm_prompts.py` exits 0.
 2. The vocab-loader `_locate_grouping_vocab_doc()` (or equivalent name; verify at rocket authoring) returns a Path to an existing file on ALL supported hosts + repo layouts.
-3. `naming.py`, `cosmological_vocabulary.py`, `season_writer.py` import cleanly with NO env-var override needed on a fresh clone.
+3. `naming.py`, `cosmological_vocabulary.py`, and the transitive consumer set (§1 gate-corrected row, incl. `season_generation_pipeline.py`) import cleanly with NO env-var override needed on a fresh clone. Loader docstring's stale `season_writer.py` reference updated in the same slice.
 
 ### 2.3 SPEC-AUTHOR path recommendation (Gate-1 may prefer alternative)
 
@@ -134,7 +134,7 @@ Two options for the doc's new home. Both are rocket-seam decisions within Thrust
 **Option A (RECOMMENDED — engine-internal owned artifact):** Copy the git-lineage doc content (commit `5fc2890b:canonical/story/historical/grouping-layer-vocabulary.md`) into the engine repo at `src/reincarnated/foundation/vocab/grouping-layer-vocabulary.md` (or similar path adjacent to the loader). Update `_REL_CANDIDATES` to seek engine-internal path FIRST + retain the collab path as fallback for backward compat.
 
 - **Pros:** eliminates cross-repo runtime dependency (a live-runtime doc SHOULD live with its runtime consumer per Discipline #13 drift-check); resilient to future canonical-repo reorgs; test-collection self-contained per engine repo.
-- **Cons:** requires deciding which repo "owns" the YAML source-of-truth (see §11.d rider — could be routed as a governance question); adds one file to engine repo.
+- **Cons:** requires deciding which repo "owns" the YAML source-of-truth (rocket-seam sub-choice within Thrust 0 per §11 count-check; Gate-1 may elevate to escalation (h) if governance ratification wanted); adds one file to engine repo.
 
 **Option B (fallback — restore to canonical/reap-die-rise-story/):** Restore the doc to `canonical/reap-die-rise-story/historical/grouping-layer-vocabulary.md` (or `canonical/reap-die-rise-story/grouping-layer-vocabulary.md` if the story folder does not gain a historical/ subfolder). Update `_REL_CANDIDATES` to seek `canonical/reap-die-rise-story/historical/` FIRST + retain pre-reorg fallback.
 
@@ -338,7 +338,8 @@ Per V11 census `s2-readiness-census-v11-2026-07-17.md`:
 | (A) LIFT drain bin | +2 (both DR kits) | 560 | 99.29% | +0.35pp |
 | (B) COLLAPSE into LC | +2 (both DR kits) | 560 | 99.29% | +0.35pp |
 | (C) DEFER (SPEC-AUTHOR LEAN) | +0 | 558 | 98.94% | 0.00pp |
-| (C.1) DEFER + elrond re-classify | +0 to expressible; -2 from denominator | 558 | 100.00% (of 558) | denominator −2 |
+| (C.1) DEFER + elrond re-classify (as-drafted: OUT-lane) | +0 to expressible; -2 from denominator | 558 | 100.00% (of 558) | denominator −2 |
+| **(C.1-REFINED, DRIFT-CRITIC 2026-07-17)** DEFER engine build + elrond classifies PER-FIGHT econ in landed vocab (NR candidate per vs-phieraggi precedent) | **+2 via data-truth** | **560** | **99.29%** | **+0.35pp; denominator UNCHANGED at 564** |
 
 **Wave-D fidelity ledger (Thrust 2):** flips **ZERO** census kits under every §11.a ruling.
 - fear flee-AI: the 4 fear kits are ALREADY expressible (Wave-C Gate-2 §5 row 3 CONCUR); Wave-D upgrades presentation fidelity, no census impact.
@@ -576,7 +577,7 @@ Per-tick check (dt in seconds):
 
 - **Options:** (1) analytic extension per §5.c Model 1; (2) simulated sub-projectiles per §5.c Model 2.
 - **Tradeoffs:** (1) preserves Wave-C's LOCKED analytic-damage contract + adds positional fidelity for VFX/telemetry; lower per-tick compute; matches Wave-C damage-check semantics. (2) full per-tick per-sub-projectile state tracking; matches PoE1 orbit-skill VFX/damage-timing precedent; higher compute; risks state-explosion.
-- **Genre precedent:** PoE1 Herald of Ice / Arctic Armour orbits are analytic (aggregate annulus damage); D3 Storm Armor arc/orbit is simulated per-arc; D4 Frozen Orb sub-projectiles are simulated. Roughly split by genre; PoE-lineage favors analytic.
+- **Genre precedent (amended at DRIFT-CRITIC — Herald of Ice is not an orbit skill):** **D2 Hurricane is the canonical analytic orbit** (aggregate pulse damage in radius, zero discrete sub-projectiles, shipped that way for 20+ years); D3 Storm Armor arc/orbit is simulated per-arc; D4 Frozen Orb sub-projectiles are simulated. Roughly split by genre; Diablo-lineage's longest-lived orbit is analytic.
 - **SPEC-AUTHOR LEAN: (1) analytic extension (Model 1).** Preserves Wave-C damage contract + adds positional fidelity for downstream consumers; §5.c + §10.2 are the reservations.
 
 ### (g) Placed-lane collider scope — persistent collider vs LOS occlusion vs both
@@ -590,6 +591,21 @@ Per-tick check (dt in seconds):
 
 ---
 
+### DRIFT-CRITIC RULINGS — 2026-07-17 (gandalf-prime; ALL veto-open at Gate-1 + Matt)
+
+**Verdict: CONCUR-WITH-CORRECTIONS.** Independent verification performed at prime before ruling: (i) DB truth re-derived for both DR kits (`econ_meter_type=n/a` + `economy_model=unknown` both; mech_note verbatims confirmed in `canon_corpus` AND traced to origin in megaprobe-07-12 facts); (ii) vocab-doc deletion confirmed (`D canonical/story/historical/grouping-layer-vocabulary.md` at `5fc2890b`; no live-tree copy; `_REL_CANDIDATES` seeks exactly the two dissolved paths); (iii) consumer set re-derived (BROADER than drafted — season_generation_pipeline.py transitive; stale `season_writer.py` name traced to loader docstring :168). **The drafter's refutation of the charge-instruction's "continuous drain-while-active" framing is UPHELD — the charge was wrong, the spec is right.** Corrections folded in-place pre-build (Wave-C precedent): DR-provenance citation (§ header + §12), consumer-set rows (§1, §2.1, §2.2), §2.3 governance pointer, §11.f precedent line, §6.2 C.1-REFINED row.
+
+- **(a) DR — CONCUR (C), REFINED to C.1-REFINED.** DEFER all engine build: no drain bin (A), no LC collapse (B). Neither kit has a per-fight resource loop — building either option is authoring a mechanic to satisfy a label, the AC-2 STRIKE anti-pattern; WC-19's "no engine field owed" is STRENGTHENED by the new evidence, not reopened. **Refinement on the re-classify signal:** do NOT presume the as-drafted OUT-lane/denominator-drop. The void-rift denominator adjustment was principled (phantom kit — the skill does not exist); these are REAL kits with real per-fight behavior and belong in the denominator as EXPRESSIBLE. Charge elrond to classify the PER-FIGHT economy in landed vocab from existing megaprobe facts. **Evidence-indicated candidate: `NR`** — both kits are survivor-genre auto-fire (`movement.verbs=auto-fire-while-moving`; "avalanche fires on cooldown" / VS auto-swing), and the **vs-phieraggi precedent (econ-recrawl-2026-07-17: NR ruled for VS auto-fire, "genre-typical for VS / bullet-heavens generally")** is the same genre + same shape. The draft-meta shape (offer-pool-hygiene / pre-converged-draft) records as a **descriptor overlay** — the SS form-lock precedent from the same batch ("descriptive lineage / gx metadata, not a bin"). Census consequence IF elrond lands NR: **560/564 = 99.29% via data-truth, denominator UNCHANGED.** Fallback = C.2 (stay blocked, census-honest at 558/564) if the per-fight econ won't land in landed vocab — elrond's classification authority, not presumed here. Elrond eval FIRED IN PARALLEL with Gate-1: it is data-truth classification, not build; useful under every ruling; reversible by documented UPDATE; corpus single-writer free.
+- **(b) — CONCUR (III) not-applicable** under (a). §4.3 stands as dead reservation; Gate-1 strikes or keeps.
+- **(c) — CONCUR (III) not-applicable** under (a). §4.4 same.
+- **(d) — CONCUR (1) Wave-D §5 sections.** Wave-C is closed at Gate-2 PASS; ERRATA blockquotes are for post-build errata, not forward continuation. Correct house-protocol reading.
+- **(e) — CONCUR (1) Model 1 velocity-vector-away.** Genre-native (D2 Terror, D3 Fear, Chronicon all flee-away); deterministic; waypoint-flee (2) reads as a pathing bug half the time in genre practice (funnel-into-applier corner case named in §5.a is real); disengage-timer (3) over-engineers a single-actor sim.
+- **(f) — CONCUR (1) analytic extension.** Stands on the Wave-C-LOCKED-analytic-damage-contract ground alone; the amended D2 Hurricane precedent (20+ years shipped analytic) reinforces. Model 2 is over-engineering at a 6-kit roster.
+- **(g) — CONCUR (B) LOS occlusion only.** Wave-C §5.2 ruled it verbatim; (A)/(C) are re-litigations, not fidelity extensions.
+- **Slice-0 target — CONCUR Option A (engine-internal home), speaking as the agent who deleted the doc at `5fc2890b`:** the deletion was correct canon-lifecycle (the doc was demoted-historical); the DEFECT was an engine live-runtime dependency on a collab-repo canon-lifecycle artifact — the loader's own docstring documents the fragility ("self-heals if gandalf relocates the doc"). Option B re-couples engine boot to every future canon reorg. Engine owns its runtime data (Discipline #13); the collab git-lineage copy remains the historical record; CANON-STEWARD raises no objection because the YAML was never live canon — it is runtime data that happened to live in a canon doc. Remains a rocket-seam sub-choice; not elevated to (h).
+
+---
+
 ## §12 — Cross-references
 
 **Sibling specs consulted (pattern + house model):**
@@ -600,7 +616,8 @@ Per-tick check (dt in seconds):
 **Substrate evidence:**
 - `../../agentic_orchestration/research/curated/atlas/s2-readiness-census-v11-2026-07-17.md` — the scoreboard
 - `../../agentic_orchestration/research/curated/corpus.db` — DB truth (raw_json + notes + flags + canon_engine_key for both DR kits)
-- `../../agentic_orchestration/legolas/research/econ-recrawl-2026-07-16/application-sheet-2026-07-16.md` — the sheet where DR was assigned (Wave-D re-reads at §4)
+- `../../agentic_orchestration/legolas/research/megaprobe-2026-07-12/hot-facts.jsonl` (:8) + `.../vs-facts.jsonl` (:17) — where DR was assigned + mech_note verbatims originate (GATE CORRECTION 2026-07-17; Wave-D re-reads at §4)
+- `../../agentic_orchestration/legolas/research/econ-recrawl-2026-07-17/00-index.md` — the vs-phieraggi NR precedent + SS form-lock descriptor-overlay precedent cited by the DRIFT-CRITIC §11.a refinement
 
 **Engine code touched or referenced:**
 - `src/reincarnated/foundation/grouping_vocabulary_loader.py:190-203` — slice-0 target
