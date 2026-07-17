@@ -6,6 +6,123 @@
 
 ---
 
+## s2-census-v7-and-kb-backfill-2026-07-16 — S2 readiness census V7 (THE SCOREBOARD; §F.5(1) pool) + kb-URL backfill rider (52 rows from legolas sheet) — 2026-07-16 — **APPLIED (gandalf autonomous atlas-parity run, cycle 2, S2 charge; iron-law asserts all held PRE + POST)**
+
+### One line
+Executed the migration-readiness census V7 (headline: **45.4% expressible-now** = 258/568 across the §F.5(1) candidate pool = 523 corpus positives at kit grain + 45 founding roster; 4 dossier_owed held-out flagged) and applied the legolas kb-URL backfill sheet in one transactional pass. Wave-A CLOSED (proxy family SU/HV expressible) drives roster to 45/45 = 100% and lifts summon economies from the corpus block; ailment layer IN FLIGHT (rocket+gamora cycle 2 bg — spec + Gate-1 c8fcf5b2 landed; implementation NOT LANDED) → 5 in-flight ailment buckets remain BLOCKED (V8 delta after Gate-2). Backfill: 33 confirm + 4 correct writes to `canon_corpus.source_urls`; 15 unverifiable rows flagged `kb-only-backfill-attempted-2026-07-16` (audit-legible, not guessed). Row counts hold at 585 corpus / 585 engine_key 1:1 / 566 kit-grain / 19 NULL-grain / 562 cell_key resolved incl. 1 `-bt` sentinel / 4 dossier_owed UNTOUCHED.
+
+### S2 scope per gandalf-prime charter (verbatim §1 governing-body):
+*"Parity is measured kit-by-kit: can the engine express this kit's keyed mechanics? (= the S2 migration-readiness census, run's scoreboard.)"* + §F.5(1) pool = combat positives at kit grain + mint-list + founding roster; negatives govern by exclusion; system-records (19, grain=NULL) EXCLUDED. Doc-authority rule: 2 mint kits are grain=NULL (already excluded via the NULL-grain rule); 1 mint is negative (excluded); the other 6 mints are already inside the 523 kit-grain positives. Denominator collapses cleanly to **523 + 45 = 568**. 4 dossier_owed IN pool, flagged.
+
+### Backup + scripts
+- **Backup-first (iron law 1):** `../corpus.db.pre-s2-census-v7-2026-07-16-backup` (created 2026-07-16 pre-run; `integrity_check=ok`; git-ignored). `lsof` clean at run time (single-writer per S1 handoff).
+- **Script:** `../scripts/corpus_s2_census_v7_and_kb_backfill_2026_07_16.py`. Idempotent (backfill guarded by `WHERE source_urls IS NULL OR ''` predicate + flag idempotency); transactional (rolls back on any assert breach). Census is READ; only backfill writes.
+
+### Payload 1 — readiness census V7 (THE SCOREBOARD)
+
+**Headline: 258/568 = 45.4% expressible-now** (Wave-A LANDED delta; ailment layer + reservation family still blocked).
+
+| Segment | Total | Expressible-now | % |
+|---|---|---|---|
+| Corpus positives (kit-grain, negative=0) | 523 | 213 | 40.7% |
+| Founding roster (K1–K29 + H* + B*) | 45 | 45 | 100.0% |
+| **POOL TOTAL** | **568** | **258** | **45.4%** |
+| — of which held-out (dossier_owed=1) | 4 | 0 | 0.0% |
+
+**Top blocked-on buckets (ranked):**
+| # | Bucket | Kits |
+|---|---|---|
+| 1 | `ailment-in-flight:damage-amp` (= `sunder`, ruling 5) | 97 |
+| 2 | `econ:PC` (persistent-cost — Wave B) | 44 |
+| 3 | `ailment-in-flight:freeze` (chill-escalation + shatter) | 42 |
+| 4 | `econ:RS` (reserved-slot — Wave B reservation/aura) | 42 |
+| 5 | `econ:UNKNOWN` (unclassified — audit re-crawl candidate) | 38 |
+| 6 | `ailment-in-flight:poison-dot` (independent-stack DoT) | 36 |
+| 7 | `ailment-in-flight:stun` (short hard CC + boss resist) | 36 |
+| 8 | `econ:AM` (attunement-meter — Wave B) | 16 |
+| 9 | `econ:RC` (recharge — Wave B) | 16 |
+| 10 | `ailment-in-flight:taunt` (proxy-AI directive) | 11 |
+| 11 | `ailment-wave-c+:blind` | 8 |
+| 12 | `econ:BT` (block-trigger — small-add) | 8 |
+| 13 | `geometry:orbit` (gx-candidate 25th-geo — small-add) | 6 |
+| 14 | `ailment-wave-c+:curse/hex` | 4 |
+| 15 | `ailment-wave-c+:fear` | 4 |
+| 16 | `econ:LC` (life-cost) | 3 |
+| 17 | `geometry:walls-placed-lane` (small-add) | 3 |
+| 18 | `mechanic:shapeshift` (GX-02 docket bg) | 3 |
+| 19–22 | `ailment-wave-c+:{deflect, unknown-ailment, instant-kill}` + `econ:DR` | 2/2/1/2 |
+
+**Reading:** ailment layer (buckets 1/3/6/7/10) is the biggest expressible-now delta available — cycle-2 Gate-2 will flip 5 buckets (222 kits touched) into expressible. After that, Wave-B family (buckets 2/4/8/9/16 = 121 kits) is the next-biggest lever; then small-adds (orbit/walls/BT = 17 kits) + shapeshift (3 kits + 1 held-out Wildsoul).
+
+### Delta vs V6
+
+V6 was gandalf's mental scoreboard entering the run (not a live artifact). This V7 is the first LIVE-EXECUTED scoreboard. Named deltas from V6-implied baseline:
+- **Wave A LANDED delta:** SU + HV econ bins flipped to expressible; the 48 SU-mechanics-demand kits + harvest-economy kits no longer count as blocked on economy family gate. Direct evidence: 33 rows in `canon_engine_key` carry `econ_gaps` containing SU or HV (or unions with them); those unions have been reclassified per Wave-A-landed set.
+- **Ailment layer NOT LANDED delta:** 5 in-flight ailment buckets (222 kit-touches, since kits can carry >1 ailment) remain BLOCKED in V7; post-Gate-2 rerun (V8) will show the flip.
+- **Small-adds surfaced:** orbit (6), walls (3), BT (8), shapeshift (3) — empirically loaded for pause-2/V3 sequencing.
+- **Roster ceiling:** 45/45 at 100% (Wave-A close covers the proxy-hosted H-cells).
+
+### Payload 2 — kb-URL backfill rider
+
+Applied from `agentic_orchestration/legolas/research/la-postcutoff-dossiers-2026-07-16/kb-url-backfill-sheet.md`:
+
+| Disposition | Sheet-summary | Sheet-rows | Applied |
+|---|---|---|---|
+| confirm | 35 | 34 | 33 |
+| correct | 4 | 3 | 4 |
+| unverifiable (flagged) | 13 | 15 | 15 |
+| TOTAL | 52 | 52 | 52 |
+
+**Doc-authority tension surfaced (iron law 6):** the sheet's summary counts (35/4/13) do NOT reconcile with its own row-level `**disposition**` markers (34/3/15). One row (`d4-blazing-abyss-warlock`) has row-marker=`confirm` but is called out in the sheet's Notes-for-Elrond as a correct-class row (meta-name rename "Blazing Scream"). I applied it under **correct** disposition (URL + `backfill-correct-2026-07-16:<rename>` flag) to preserve the correction signal. The 15 unverifiable count (row markers) supersedes the 13 summary count — all 15 got the `kb-only-backfill-attempted-2026-07-16` flag. Sheet summary discrepancy filed as an audit note back to legolas (not blocking; write set is auditable via flags + schema-meta).
+
+**Applied effects on canon_corpus:**
+- `source_urls` populated for 37 rows (verbatim URLs from sheet; JSON-array encoded). All 37 had NULL/empty prior state (verified against pre-run backup) — no destructive overwrites.
+- `flags` appended (idempotent): `kb-only-backfill-attempted-2026-07-16` on 15 unverifiable rows; `backfill-correct-2026-07-16:<summary-of-note>` on 4 correct rows.
+- `dossier_owed=1` UNTOUCHED (4 rows: Wildsoul ×2 + Valkyrie ×2 stay flagged, per brief — the flip is a later charge behind E-next admission).
+
+**Provenance:** every URL sourced verbatim from legolas backfill sheet (2026-07-16 Mode-A analytical backfill; commissioner gandalf-prime). Every unverifiable row flagged for future audit (auditable via SQL: `SELECT kit_id FROM canon_corpus WHERE flags LIKE '%kb-only-backfill-attempted-2026-07-16%'`).
+
+### Asserts (iron law 4 — held PRE + POST)
+| Assert | Expected | PRE | POST |
+|---|---|---|---|
+| total_corpus | 585 | 585 | 585 |
+| total_engine_key | 585 | 585 | 585 |
+| kit_grain | 566 | 566 | 566 |
+| null_grain | 19 | 19 | 19 |
+| cell_key_resolved (incl. 1 `-bt` sentinel) | 562 | 562 | 562 |
+| bt_sentinel | 1 | 1 | 1 |
+| orphans engine→corpus | 0 | 0 | 0 |
+| orphans corpus→engine | 0 | 0 | 0 |
+| dossier_owed | 4 | 4 | 4 |
+
+**Zero drift.** All 9 iron-law asserts held BEFORE and AFTER the pass. Wildsoul ×2 + Valkyrie ×2 held-out untouched.
+
+### Schema-meta bump
+`corpus_schema_meta` `s2-census-v7-2026-07-16` inserted (`2026-07-16T00:00:00Z`) with the census+backfill summary note. `integrity_check=ok` post-commit.
+
+### Iron laws honored
+1. **Backup-first**: `corpus.db.pre-s2-census-v7-2026-07-16-backup` created + integrity_check=ok before any write.
+2. **Data-completion ONLY**: no row inserts/deletes, no cell_key touches, no dossier_owed flag changes, no atlas-artifact overwrites, no schema mutation. Census is a READ; only writes are `source_urls` + `flags` columns from the legolas sheet.
+3. **Provenance + audit-legibility**: every URL traceable to sheet row; every unverifiable flagged; every corrected row carries note-flag.
+4. **Asserts fail-loud**: PRE + POST barriers on 9 invariants; script `sys.exit` non-zero on breach; transactional (rolls back).
+5. **MIGRATION.md entry**: this entry.
+6. **HALT discipline**: sheet-vs-summary doc-authority tension surfaced explicitly (doc wins on row-level markers); no partial commit; all writes gated on POST asserts pass.
+
+### Artifact
+`../s2-readiness-census-v7-2026-07-16.md` — census artifact beside prior atlas artifacts. Headline % + per-bucket ranked + delta-vs-V6 note + backfill totals + held-out list + reproducibility.
+
+### Consumers
+- **S5 corpus→engine migration staging** (`current-to-end-state-serial-content-emission.md` §F.5): expressible-now kits migrate immediately; wave-gated kits queue behind their bucket.
+- **Wave-B/C sequencing** takes cues from bucket ranking (damage-amp/sunder 97 kits = highest single lever after ailment Gate-2; then RS reserved-slot + PC persistent-cost = Wave-B's biggest exhibits).
+- **Next re-run:** V8 after ailment Gate-2 (rocket+gamora cycle 2 return + jack-ryan verify) — will show the sunder+freeze+stun+poison-dot+taunt cohort flip.
+
+### ADR compliance
+- **ADR-004**: this entry on the atlas MIGRATION.md. No engine-telemetry change; star-lord side unaffected. Parallel corpus/register `../MIGRATION.md` unaffected (source_urls + flags updates are catalogue-side).
+- **Reversibility**: full run reproducible from backup + script; idempotent (empty-source-urls predicate + flag idempotency); pure UPDATEs from a stated legolas sheet.
+- **Auto-committed** per project discipline (Matt-authorized S2 charge under gandalf-prime's autonomous atlas-parity run). **Push DEFERRED to gandalf's verify-gates + KR's gate.**
+
+---
+
 ## s1-data-completion-post-e4-2026-07-16 — S1 data-completion delta pass: era_year backfill on the 61 post-E4 rows (LA + MCD + 3 pull re-keys); other payloads NULL-honest — 2026-07-16 — **APPLIED (gandalf autonomous atlas-parity run, S1 charge; iron-law asserts all held PRE + POST)**
 
 ### One line
