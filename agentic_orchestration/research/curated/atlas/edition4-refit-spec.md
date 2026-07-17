@@ -1,6 +1,8 @@
-# Edition IV spec — admitting the curated LA/MCD to the atlas (DRAFT FOR RATIFICATION)
+# Edition IV spec — admitting the curated LA/MCD to the atlas (RATIFIED — RUN AUTHORIZED)
 
-**Status:** DRAFT — pre-registered, awaiting Matt ratification of the P-parameters (§ 12) before the run fires
+> **RULING (Matt, 2026-07-16, same session — verbatim: *"Agreed, path A"*).** **P-0 = Path A, supplementary admission** into the frozen E1 basis. Ruled against the full § 12 table as presented; the stated leans stand ratified with it: **P-1** hold out the 4 dossier-owed · **P-2** ≥ 0.85 seats as the E5 Path-B law · **P-3** two-arm trigger as amended (`408bae4c`). Path B machinery is now formally the **pre-registered Edition-V refit law** behind the § 9 trigger. Run fires per § 11: elrond executes §§ 3–10 → gandalf verify-gates → galadriel side-by-side → Matt reviews + ratifies Edition IV before any serving change.
+
+**Status:** RATIFIED 2026-07-16 — P-parameters ruled; run authorized and fired (elrond charge: `agentic_orchestration/gandalf/briefs/2026-07-16-elrond-e4-run-brief.md`)
 **Date:** 2026-07-16 · **Author:** gandalf (SPEC-AUTHOR)
 **Authority:** Matt WAVE-4 ruling 2026-07-16 (`canonical/matt_decision_needed/2026-07-16-edition3-vs-refit-candidate-1-adoption.md` § WAVE 4): *"Edition IV = anchored-E3 + curated LA/MCD"* behind pre-registered gates. This spec replaces the shelved archipelago charter as the atlas forward artifact.
 **Companions:** `MIGRATION.md` (GRAIN LAW · INGEST CLASS RULE · la-mcd-curation entry) · `atlas-edition3.json` (served truth) · `archipelago-mock-report.md` (SHELVED recognition record) · curation brief + ruling (`agentic_orchestration/gandalf/briefs/2026-07-16-elrond-la-mcd-curation-brief.md`)
