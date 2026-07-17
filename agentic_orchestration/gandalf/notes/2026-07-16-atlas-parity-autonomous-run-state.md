@@ -79,4 +79,18 @@
 
 Wakeup/notification → read THIS doc → check slots (T1–T5) → verify-gate any returns (trust-but-verify, artifact-level) → fire next charges per tracks → update this doc + trackers → commit + push → re-schedule. Seam-typed opus agents; judgment banked with gandalf-prime; corpus.db single-writer discipline; engine code always via Gate-1/Gate-2 discipline; NO serving-surface writes without Matt ratification.
 
-**Signed:** gandalf — cycle 1 closed clean: the body verified, the plate rendered, the first wave gated, the debt paid. Cycle 2 climbs.
+## §7 SERVING-LANE LEDGER (E4 ratification wave, 2026-07-17 — live)
+
+| # | Charge | State |
+|---|---|---|
+| 1 | E4 ratification recorded (adoption doc WAVE 5 · roster §A struck · README Q32 · tracker/run-doc sync) | ✓ DONE `cec44709` (pushed) |
+| 2a | **galadriel E4 render head + plates** (`atlas-edition4-render.mjs` + 4 plates + provenance, capture dir `2026-07-17-atlas-edition4-serving/`) | ✓ DONE `56ccb83b` (pushed) — **prime-VERIFIED at artifact level:** 52/52 acceptance · hard asserts H-1..H-4 (edition IV; Path-A basis; **G-3 re-assert PASS 0-moved/0-missing on 506 E3 kit_ids**; counts 562=469+93) · SVG structure (50× `data-el="positive"` · 562 `data-kit` hooks · reserved empty `<g id="layer-family-candidates">` · Edition IV titles) · instrument PNG visually confirmed (LA wing in PERFORM-EMBODY corner; family legend; dagger grammar) |
+| 3 | **TRIPLE-LAW register refresh** (mechanical-reality Codex parity stamp V13 99.47% + waves A–D truth rows; substrate-coordinates §7 step-1 EXECUTED + economy substrate BUILT + geometry 25; projection-atlas §4 named-face edition ladder E-IV + S3 unblocked) | ✓ DONE `828bd2f0` (pushed) — parse GREEN, MALFORMED 0 |
+| 2b | **drax glance-app cutover** (stage-assets repoint · builder E4 schema + guard flip · sidecar re-exports post-deletion/post-ruling-17 from `research/curated/corpus.db` · app edition literals · full local build battery) | ⏳ IN FLIGHT (bg, opus) — commit-no-push; prime verifies |
+| 4 | **elrond family-candidate rosters** (dockets 1–6, per-sub-cluster-τ, ratified-seed\|proposed discipline, `atlas-e4-family-candidates.json`) | ⏳ IN FLIGHT (bg, opus) — READ-ONLY corpus, md5-proof required |
+| 5 | galadriel pass-2 islands layer (`layer-family-candidates` population, PRE-NAMES-REVIEW visual tier) | GATED on #4 verify |
+| 6 | Vercel PRD deploy (root-deploy law, `npx vercel deploy --prod --yes`) + post-deploy capture verification | GATED on #2b (+#5 if timing allows; two-deploy split acceptable) |
+
+Notes: both known phantoms in BOTH editions → zero serving regression (cleanup at E-next re-mint). Stray 0-byte `research/curated/atlas/corpus.db` flagged to elrond-seam for disposal (real DB = `research/curated/corpus.db`). Stale 08:04 GATE-WATCH wakeup: guard-clause → re-purpose to this lane; do not stack.
+
+**Signed:** gandalf — cycle 1 closed clean: the body verified, the plate rendered, the first wave gated, the debt paid. Cycle 2 climbs. §7 lane: the Horizon goes public.

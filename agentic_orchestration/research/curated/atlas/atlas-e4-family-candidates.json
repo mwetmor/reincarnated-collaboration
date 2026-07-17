@@ -1,0 +1,3835 @@
+{
+  "schema_version": 1,
+  "artifact": "atlas-e4-family-candidates",
+  "derived_from": {
+    "atlas": "Edition-IV",
+    "emitted_at": "2026-07-17T02:42:46.614907+00:00",
+    "corpus_md5": "48a1f90c407826e438aa5f53ef45215f"
+  },
+  "provisional": true,
+  "names_review_pending": true,
+  "provisional_layer_disclosure": "Provisional families derived by per-sub-cluster tau propagation on ratified corpus mech-axis fingerprints. NAMES are working labels pending Matt's one-sitting names review. Members carry status in {ratified-seed | proposed}. Kits already ratified in a different gateA family are NEVER re-proposed; near-hits are conflict-flagged.",
+  "method_summary": {
+    "full_space": "one-hot mech fingerprint over canon_engine_key {geometry_value, delivery_value, ctrl_function, ctrl_treatment, def_bin, economy_model, activation_val, dependency_val} + canon_corpus {geo_raw, mob_raw}; L2-normalized per axis",
+    "sub_clusters": "E1 leiden_cluster (2026-07-14 derivation, resolution 0.3 consensus) forward-extended to 56 post-E1 kits via mech-fingerprint nearest-neighbor",
+    "tau_calibration": "per-sub-cluster tau = P75 of intra-chain seed-seed distance (P50 of ALL intra-docket seed-seed distances for single-seed chains), capped at GLOBAL_TAU_CEIL=1.05. NEVER propagates across Leiden chains \u2014 the fix for the wave-4 shelving defect where global tau=0.80 across families of wildly different spatial extent produced umbrella swallows for TRAP-MINE/TOTEM-SENTRY.",
+    "conflict_rule": "kit in a ratified gateA family (different from the docket's target) \u2192 NEVER proposed; near-hits conflict-flagged",
+    "leiden_extension": "469 in E1 map / 93 extended via NN"
+  },
+  "dockets": [
+    {
+      "docket_id": 1,
+      "working_label": "MELEE-STRIKE",
+      "seed_criterion": "canon_engine_key.geometry_value = 'melee_strike'",
+      "axis_signature_description": "geometry_value = 'melee_strike'",
+      "method_note": "seeds = ratified geometry_value='melee_strike' kits from canon_engine_key (n=37 in E4, 34 after removing ratified-gateA members); the axis signature is REQUIRED for propagation admits, so a close-neighbor without melee_strike is NOT admitted",
+      "self_scored_precision": 0.899,
+      "self_score_method": "LOO x coherence (1 - conflict_rate)",
+      "self_score_detail": {
+        "loo_admit_rate": 0.952,
+        "loo_total": 21,
+        "loo_admitted": 20,
+        "coherence_precision": 0.944,
+        "conflict_flagged_proposals": 2,
+        "proposals_total": 36
+      },
+      "chains": {
+        "121": {
+          "tau": 0.8944,
+          "n_seeds": 1,
+          "seed_ids": [
+            "hades1-beowulf-cast"
+          ]
+        },
+        "18": {
+          "tau": 0.8944,
+          "n_seeds": 3,
+          "seed_ids": [
+            "gd-righteous-fervor-dervish",
+            "tli-erika3-vendetta",
+            "tq-onslaught-assassin"
+          ]
+        },
+        "57": {
+          "tau": 0.7035,
+          "n_seeds": 3,
+          "seed_ids": [
+            "gd-belgothian-blademaster",
+            "tli-rosa-unsullied",
+            "tq-warlock-poison-vitality"
+          ]
+        },
+        "11": {
+          "tau": 0.8944,
+          "n_seeds": 1,
+          "seed_ids": [
+            "d2-fireclaw-wolf"
+          ]
+        },
+        "40": {
+          "tau": 0.8944,
+          "n_seeds": 1,
+          "seed_ids": [
+            "gd-cadence-witchblade"
+          ]
+        },
+        "29": {
+          "tau": 0.6325,
+          "n_seeds": 4,
+          "seed_ids": [
+            "chr-bleed-berserker",
+            "tq-dream-harbinger",
+            "tq-rune-weapon-thunderer",
+            "tq-thane-storm-warfare"
+          ]
+        },
+        "69": {
+          "tau": 0.8944,
+          "n_seeds": 1,
+          "seed_ids": [
+            "d2-smiter"
+          ]
+        },
+        "148": {
+          "tau": 0.8944,
+          "n_seeds": 1,
+          "seed_ids": [
+            "tl2-wolf-shade-berserker"
+          ]
+        },
+        "14": {
+          "tau": 0.8944,
+          "n_seeds": 1,
+          "seed_ids": [
+            "tq2-stormblade-ice-shards"
+          ]
+        },
+        "10": {
+          "tau": 0.8944,
+          "n_seeds": 1,
+          "seed_ids": [
+            "hades1-aspect-chiron"
+          ]
+        },
+        "85": {
+          "tau": 0.6325,
+          "n_seeds": 2,
+          "seed_ids": [
+            "d2-zealot",
+            "poe2-rake-ritualist"
+          ]
+        },
+        "102": {
+          "tau": 0.8944,
+          "n_seeds": 1,
+          "seed_ids": [
+            "d2-daggermancer"
+          ]
+        },
+        "43": {
+          "tau": 0.4472,
+          "n_seeds": 2,
+          "seed_ids": [
+            "d3-raiment-shenlong",
+            "gd-savagery-warder"
+          ]
+        },
+        "15": {
+          "tau": 0.7746,
+          "n_seeds": 5,
+          "seed_ids": [
+            "d2-avenger",
+            "d2-berserker",
+            "d2-conc-barb",
+            "d3-invoker-thorns",
+            "gd-retaliation-warlord"
+          ]
+        },
+        "48": {
+          "tau": 0.8944,
+          "n_seeds": 1,
+          "seed_ids": [
+            "vs-thunder-loop"
+          ]
+        },
+        "149": {
+          "tau": 0.8944,
+          "n_seeds": 1,
+          "seed_ids": [
+            "tli-carino2-lethal-flash"
+          ]
+        },
+        "46": {
+          "tau": 0.8944,
+          "n_seeds": 1,
+          "seed_ids": [
+            "d2-maul-bear"
+          ]
+        },
+        "77": {
+          "tau": 0.8944,
+          "n_seeds": 1,
+          "seed_ids": [
+            "d3-s6-impale"
+          ]
+        },
+        "103": {
+          "tau": 0.8944,
+          "n_seeds": 1,
+          "seed_ids": [
+            "d2-enchantress"
+          ]
+        },
+        "52": {
+          "tau": 0.7746,
+          "n_seeds": 2,
+          "seed_ids": [
+            "poe2-snipe-mirage-deadeye",
+            "tq-ranger-hunting-nature"
+          ]
+        }
+      },
+      "member_count": 36,
+      "member_count_by_status": {
+        "proposed": 36
+      },
+      "member_count_conflict_flagged": 2,
+      "abstain": false,
+      "members": [
+        {
+          "kit_id": "hades1-beowulf-cast",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8591,
+            "all": {
+              "AURA": 1.1292,
+              "CHANNELED-BEAM": 1.1244,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 1.1374,
+              "TRAP-MINE": 0.8591,
+              "WHIRLWIND": 1.0646
+            }
+          },
+          "leiden_subcluster": 121,
+          "mech_one_liner": "geo=melee_strike | deliv=projectile | ctrl=stun/damage | econ=finite | dep=one-shot | act=triggered | note: \"Ammo economy (AM): the bloodstone becomes ammunition. Retrieval loop = melee-bass the lodged enemy to get bloodstone back. Distinctive: ammo-retrieve forces engagement with the target...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "hades1-beowulf-cast",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tq-onslaught-assassin",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8229,
+            "all": {
+              "AURA": 1.1619,
+              "CHANNELED-BEAM": 1.0423,
+              "MINION-PET": 1.0671,
+              "TOTEM-SENTRY": 0.98,
+              "TRAP-MINE": 0.8229,
+              "WHIRLWIND": 1.077
+            }
+          },
+          "leiden_subcluster": 18,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=spend | dep=build\u2192spend | act=triggered | note: \"Onslaught = Warfare mastery's signature melee skill (3 rapid strikes per activation). Dual-wield synergizes with Rogue's dual-wield bonuses. Warfare STR + Rogue DEX = Assassin...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "tq-onslaught-assassin",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tli-rosa-unsullied",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8478,
+            "all": {
+              "AURA": 0.922,
+              "CHANNELED-BEAM": 0.8549,
+              "MINION-PET": 0.9835,
+              "TOTEM-SENTRY": 0.8478,
+              "TRAP-MINE": 0.9272,
+              "WHIRLWIND": 0.8641
+            }
+          },
+          "leiden_subcluster": 57,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"A hero that doesn't exist in my training \u2014 Rosa's Unsullied Blade trait tops the current Supreme Showdown data across three regions, with Ho\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "tli-rosa-unsullied",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tq-warlock-poison-vitality",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8329,
+            "all": {
+              "AURA": 1.0,
+              "CHANNELED-BEAM": 0.893,
+              "MINION-PET": 0.8595,
+              "TOTEM-SENTRY": 0.8329,
+              "TRAP-MINE": 0.884,
+              "WHIRLWIND": 0.9452
+            }
+          },
+          "leiden_subcluster": 57,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Econ=RS in old code = 'reserve-sustain' (hybrid). Spirit tree may add reserve-based aura (Phantom Lancer) or vitality leech. Vitality in folk_name captures Spirit's life steal....\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "tq-warlock-poison-vitality",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-fireclaw-wolf",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.7597,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.8427,
+              "TOTEM-SENTRY": 0.7597,
+              "TRAP-MINE": 0.8386,
+              "WHIRLWIND": 0.9238
+            }
+          },
+          "leiden_subcluster": 11,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=unknown | dep=one-shot | act=active | note: \"Werewolf whose claws deal fire via Fire Claws synergy stack \u2014 form-shift melee wearing an elemental damage identity.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-fireclaw-wolf",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "gd-cadence-witchblade",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.7202,
+            "all": {
+              "AURA": 1.0607,
+              "CHANNELED-BEAM": 0.9763,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.7202,
+              "TRAP-MINE": 0.8938,
+              "WHIRLWIND": 1.0198
+            }
+          },
+          "leiden_subcluster": 40,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=finite | dep=apply\u2192detonate | act=active | note: \"Every third swing DETONATES \u2014 Cadence's rhythm melee under Occultist curses, the 2016 launch's definitive physical bruiser and the template \"",
+          "tau_chain": 0.0,
+          "nearest_seed": "gd-cadence-witchblade",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tq-thane-storm-warfare",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.7813,
+            "all": {
+              "AURA": 0.9487,
+              "CHANNELED-BEAM": 0.8805,
+              "MINION-PET": 0.908,
+              "TOTEM-SENTRY": 0.7813,
+              "TRAP-MINE": 0.8791,
+              "WHIRLWIND": 0.8246
+            }
+          },
+          "leiden_subcluster": 29,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=knockback/damage | econ=spend | dep=one-shot | act=active | note: \"Thane is Warfare+Storm \u2014 the lightning-infused warrior archetype. Thunderous Strike = proc-based lightning burst on melee hits (proc model). Old econ code MT may mean...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "tq-thane-storm-warfare",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-smiter",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8437,
+            "all": {
+              "AURA": 1.0124,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.98,
+              "TRAP-MINE": 0.8437,
+              "WHIRLWIND": 1.0646
+            }
+          },
+          "leiden_subcluster": 69,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=stun/damage | econ=free | dep=one-shot | act=active | note: \"Smite shield-bashes with auto-hit, stun, and crushing-blow percent-HP shred \u2014 THE uber-boss executioner role build.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-smiter",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "gd-righteous-fervor-dervish",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.7919,
+            "all": {
+              "AURA": 1.0724,
+              "CHANNELED-BEAM": 0.9648,
+              "MINION-PET": 0.9835,
+              "TOTEM-SENTRY": 0.7919,
+              "TRAP-MINE": 0.9319,
+              "WHIRLWIND": 1.0328
+            }
+          },
+          "leiden_subcluster": 18,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=generator-spender | dep=build\u2192spend | act=active | note: \"The Oathkeeper's stacking default attack \u2014 Righteous Fervor ramps a fervor meter as you swing, acid conversions and WPS filling the gaps; ra\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "gd-righteous-fervor-dervish",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tl2-wolf-shade-berserker",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8015,
+            "all": {
+              "AURA": 1.0368,
+              "CHANNELED-BEAM": 1.0529,
+              "MINION-PET": 1.04,
+              "TOTEM-SENTRY": 0.9365,
+              "TRAP-MINE": 0.8015,
+              "WHIRLWIND": 0.9165
+            }
+          },
+          "leiden_subcluster": 148,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=knockback/damage | econ=generator-spender | dep=one-shot | act=triggered | note: \"Economy=meter with builder_source=on_hit captures the Charge mechanic precisely. 'Multi-trigger' (MT old code) = proc on Charge activation \u2014 Wolf Shade appearance is a proc event....\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "tl2-wolf-shade-berserker",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tq-dream-harbinger",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "MINION-PET",
+            "distance": 0.7902,
+            "all": {
+              "AURA": 0.8515,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.7902,
+              "TOTEM-SENTRY": 0.8178,
+              "TRAP-MINE": 0.8691,
+              "WHIRLWIND": 0.8485
+            }
+          },
+          "leiden_subcluster": 29,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=stun/damage | econ=reserve | dep=one-shot | act=active | note: \"RS old code = 'reserve-sustain'; captured as reserve here for Dream passive buffs. Sustain-leech in defense captures Dream's Dream Steal (life drain component). Harbinger is...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "tq-dream-harbinger",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tq-rune-weapon-thunderer",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.7317,
+            "all": {
+              "AURA": 0.7746,
+              "CHANNELED-BEAM": 0.8418,
+              "MINION-PET": 0.7902,
+              "TOTEM-SENTRY": 0.7317,
+              "TRAP-MINE": 0.8281,
+              "WHIRLWIND": 0.7832
+            }
+          },
+          "leiden_subcluster": 29,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=reserve | dep=one-shot | act=active | note: \"Ragnarok expansion class. Rune Weapon = reserve-economy toggle that enchants physical attacks with lightning. Economy model = reserve (ongoing EPS cost). The 'Thunderer' name labels...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "tq-rune-weapon-thunderer",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tq2-stormblade-ice-shards",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9532,
+            "all": {
+              "AURA": 1.0368,
+              "CHANNELED-BEAM": 0.9532,
+              "MINION-PET": 0.9689,
+              "TOTEM-SENTRY": 1.001,
+              "TRAP-MINE": 0.9907,
+              "WHIRLWIND": 1.0263
+            }
+          },
+          "leiden_subcluster": 14,
+          "mech_one_liner": "geo=melee_strike | deliv=projectile | ctrl=hard-stop/damage | econ=spend | dep=one-shot | act=active | note: \"POST-CUTOFF: TQ2 EA (2025+). Conf \u22640.50. Cold projectile caster; 'Stormblade' suggests Storm/Blade mastery combo in TQ2. All details from atlas key provenance.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "tq2-stormblade-ice-shards",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "hades1-aspect-chiron",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8938,
+            "all": {
+              "AURA": 1.1726,
+              "CHANNELED-BEAM": 1.0634,
+              "MINION-PET": 1.1571,
+              "TOTEM-SENTRY": 1.1002,
+              "TRAP-MINE": 0.8938,
+              "WHIRLWIND": 1.1314
+            }
+          },
+          "leiden_subcluster": 10,
+          "mech_one_liner": "geo=melee_strike | deliv=projectile | ctrl=none/damage | econ=finite | dep=build\u2192spend | act=triggered | note: \"Mark-consume loop: attack \u2192 mark \u2192 specials auto-seek \u2192 repeat. The bow's aiming becomes irrelevant once mark is established; specials find the target regardless. AM...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "hades1-aspect-chiron",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-zealot",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8229,
+            "all": {
+              "AURA": 0.9874,
+              "CHANNELED-BEAM": 0.9648,
+              "MINION-PET": 0.9236,
+              "TOTEM-SENTRY": 0.9048,
+              "TRAP-MINE": 0.8229,
+              "WHIRLWIND": 0.9933
+            }
+          },
+          "leiden_subcluster": 85,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=free | dep=one-shot | act=active | note: \"Zeal locks a five-hit melee flurry per click under self-Fanaticism; commitment-locked swing sequence, weapon-scaled.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-zealot",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-daggermancer",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8576,
+            "all": {
+              "AURA": 0.9487,
+              "CHANNELED-BEAM": 0.893,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.8576,
+              "TRAP-MINE": 0.913,
+              "WHIRLWIND": 0.9798
+            }
+          },
+          "leiden_subcluster": 102,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Poison Dagger melee necromancer made semi-real by 2.4 \u2014 a shallow-canon curiosity proving the buff-promotes-build pattern.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-daggermancer",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d3-raiment-shenlong",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.7919,
+            "all": {
+              "AURA": 1.0724,
+              "CHANNELED-BEAM": 0.9648,
+              "MINION-PET": 0.9835,
+              "TOTEM-SENTRY": 0.7919,
+              "TRAP-MINE": 0.9319,
+              "WHIRLWIND": 1.0328
+            }
+          },
+          "leiden_subcluster": 43,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=generator-spender | dep=build\u2192spend | act=active | note: \"Lightning-punch generator monk under Shenlong's spirit-dump rhythm \u2014 build spirit to the cap, the fist weapons ignite it into a damage windo\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d3-raiment-shenlong",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "gd-retaliation-warlord",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "AURA",
+            "distance": 0.8515,
+            "all": {
+              "AURA": 0.8515,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.9048,
+              "TRAP-MINE": 0.9595,
+              "WHIRLWIND": 0.9381
+            }
+          },
+          "leiden_subcluster": 15,
+          "mech_one_liner": "geo=melee_strike | deliv=aura-pulse | ctrl=none/damage | econ=unknown | dep=one-shot | act=active | note: \"Damage by BEING HIT \u2014 stacked retaliation stats reflected on every enemy swing, plus 'retaliation added to attack' converting the thorns wal\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "gd-retaliation-warlord",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "gd-belgothian-blademaster",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.872,
+            "all": {
+              "AURA": 1.0124,
+              "CHANNELED-BEAM": 0.9648,
+              "MINION-PET": 0.8921,
+              "TOTEM-SENTRY": 0.872,
+              "TRAP-MINE": 0.9225,
+              "WHIRLWIND": 0.9933
+            }
+          },
+          "leiden_subcluster": 57,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=generator-spender | dep=one-shot | act=active | note: \"The dual-wield auto-attacker whose damage lives in the WPS pool \u2014 weapon-pool skills firing off default swings while the Belgothian set auth\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "gd-belgothian-blademaster",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "vs-thunder-loop",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.9412,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9532,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 0.9629,
+              "TRAP-MINE": 0.9412,
+              "WHIRLWIND": 0.973
+            }
+          },
+          "leiden_subcluster": 48,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=stun/damage | econ=finite | dep=one-shot | act=active | note: \"Double-hit per bolt ('loop') is the evolved mechanic: base Lightning Ring hits once; Thunder Loop hits twice per bolt. 'Off-screen artillery you neither aim nor...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "vs-thunder-loop",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tli-carino2-lethal-flash",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9763,
+            "all": {
+              "AURA": 1.0124,
+              "CHANNELED-BEAM": 0.9763,
+              "MINION-PET": 0.998,
+              "TOTEM-SENTRY": 0.9843,
+              "TRAP-MINE": 0.9819,
+              "WHIRLWIND": 0.9866
+            }
+          },
+          "leiden_subcluster": 149,
+          "mech_one_liner": "geo=melee_strike | deliv=projectile | ctrl=none/damage | econ=finite | dep=one-shot | act=active | note: \"The Lunaria rework gave Carino's projectiles AUTOMATIC RETURN and an AMMO economy \u2014 shotgun volleys that fly back through the pack while res\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "tli-carino2-lethal-flash",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-conc-barb",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.7317,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.8418,
+              "MINION-PET": 0.908,
+              "TOTEM-SENTRY": 0.7317,
+              "TRAP-MINE": 0.8938,
+              "WHIRLWIND": 0.8944
+            }
+          },
+          "leiden_subcluster": 15,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Uninterruptible defensive single-target swing; the safe-melee identity and hardcore staple.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-conc-barb",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d3-invoker-thorns",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "AURA",
+            "distance": 0.8515,
+            "all": {
+              "AURA": 0.8515,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.9048,
+              "TRAP-MINE": 0.9595,
+              "WHIRLWIND": 0.9381
+            }
+          },
+          "leiden_subcluster": 15,
+          "mech_one_liner": "geo=melee_strike | deliv=aura-pulse | ctrl=none/damage | econ=unknown | dep=one-shot | act=active | note: \"Damage BY being hit \u2014 Invoker converts the Thorns stat into the whole offense; stand in the crowd, punish every swing against you; the defen\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d3-invoker-thorns",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-maul-bear",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.6316,
+            "all": {
+              "AURA": 1.0247,
+              "CHANNELED-BEAM": 1.0208,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 0.9048,
+              "TRAP-MINE": 0.6316,
+              "WHIRLWIND": 0.9661
+            }
+          },
+          "leiden_subcluster": 46,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=free | dep=one-shot | act=triggered | note: \"Bear form stacks Maul damage charges per hit; slow heavy swings, tank identity, the other half of the form-shift family.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-maul-bear",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe2-rake-ritualist",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8624,
+            "all": {
+              "AURA": 1.0124,
+              "CHANNELED-BEAM": 0.893,
+              "MINION-PET": 0.9236,
+              "TOTEM-SENTRY": 0.8624,
+              "TRAP-MINE": 0.9412,
+              "WHIRLWIND": 0.9381
+            }
+          },
+          "leiden_subcluster": 85,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"prov=kb. mech_note: 'Rake dash-slash stacks aggravated bleeds while Ritualist blood mechanics multiply the bleed count per dash.' damage_mode=dot (bleed is the primary damage, not initial...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe2-rake-ritualist",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-avenger",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8576,
+            "all": {
+              "AURA": 0.9487,
+              "CHANNELED-BEAM": 0.893,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.8576,
+              "TRAP-MINE": 0.913,
+              "WHIRLWIND": 0.9798
+            }
+          },
+          "leiden_subcluster": 15,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Vengeance melee converts each swing into tri-element damage under Conviction \u2014 the immunity-proof melee answer.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-avenger",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d3-s6-impale",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8229,
+            "all": {
+              "AURA": 1.0124,
+              "CHANNELED-BEAM": 0.893,
+              "MINION-PET": 0.8921,
+              "TOTEM-SENTRY": 0.8229,
+              "TRAP-MINE": 0.9225,
+              "WHIRLWIND": 0.9522
+            }
+          },
+          "leiden_subcluster": 77,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Shadow's Mantle turns Impale into a single-target execution profession \u2014 melee-range knife throws deleting elites while trash is someone els\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d3-s6-impale",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-berserker",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.8418,
+            "all": {
+              "AURA": 1.0,
+              "CHANNELED-BEAM": 0.8418,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.8576,
+              "TRAP-MINE": 0.9178,
+              "WHIRLWIND": 0.9798
+            }
+          },
+          "leiden_subcluster": 15,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Berserk converts to magic damage at the cost of zero defense while swinging \u2014 the all-in single-target trade.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-berserker",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-enchantress",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8768,
+            "all": {
+              "AURA": 1.0124,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.8768,
+              "TRAP-MINE": 0.9225,
+              "WHIRLWIND": 1.0132
+            }
+          },
+          "leiden_subcluster": 103,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=cooldown | dep=one-shot | act=active | note: \"Enchant converts the sorceress (and party/mercenary) into fire-melee attackers; self-buff-as-build plus external scaling \u2014 the buff-economy \"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-enchantress",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe2-snipe-mirage-deadeye",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.893,
+            "all": {
+              "AURA": 1.0124,
+              "CHANNELED-BEAM": 0.893,
+              "MINION-PET": 0.998,
+              "TOTEM-SENTRY": 0.9715,
+              "TRAP-MINE": 0.9863,
+              "WHIRLWIND": 0.9798
+            }
+          },
+          "leiden_subcluster": 52,
+          "mech_one_liner": "geo=melee_strike | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"POST-CUTOFF. prov=kb. mech_note ref: 'Snipe's channeled shot one-taps bosses while Mirage Deadeye lets clones continue sniping.' Full dossier required.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe2-snipe-mirage-deadeye",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tq-ranger-hunting-nature",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "MINION-PET",
+            "distance": 0.8256,
+            "all": {
+              "AURA": 0.9354,
+              "CHANNELED-BEAM": 0.9296,
+              "MINION-PET": 0.8256,
+              "TOTEM-SENTRY": 0.9672,
+              "TRAP-MINE": 0.9685,
+              "WHIRLWIND": 0.9592
+            }
+          },
+          "leiden_subcluster": 52,
+          "mech_one_liner": "geo=melee_strike | deliv=projectile | ctrl=none/damage | econ=reserve | dep=one-shot | act=active | note: \"Light proxy (L) distinguishes from Petmaster (heavy proxy): Ranger's arrows are the primary damage source; wolves supplement. SU economy in old code = sustain/nature; here...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "tq-ranger-hunting-nature",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "chr-bleed-berserker",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.6785,
+            "all": {
+              "AURA": 0.8803,
+              "CHANNELED-BEAM": 0.8012,
+              "MINION-PET": 0.939,
+              "TOTEM-SENTRY": 0.6785,
+              "TRAP-MINE": 0.8691,
+              "WHIRLWIND": 0.7832
+            }
+          },
+          "leiden_subcluster": 29,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Damage_mode=dot (bleed is the damage engine). Low tempo (L) is the key distinction \u2014 fewer but harder strikes that each apply max bleed stacks efficiently....\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "chr-bleed-berserker",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "gd-savagery-warder",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8023,
+            "all": {
+              "AURA": 1.0607,
+              "CHANNELED-BEAM": 0.9648,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.8023,
+              "TRAP-MINE": 0.8938,
+              "WHIRLWIND": 1.0263
+            }
+          },
+          "leiden_subcluster": 43,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=generator-spender | dep=build\u2192spend | act=active | note: \"The two-handed lightning ramp \u2014 Savagery charges stack with every swing until the maul hums; Shaman's auto-attack identity under Soldier's s\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "gd-savagery-warder",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tli-erika3-vendetta",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9672,
+            "all": {
+              "AURA": 1.1726,
+              "CHANNELED-BEAM": 0.9988,
+              "MINION-PET": 1.0262,
+              "TOTEM-SENTRY": 0.9672,
+              "TRAP-MINE": 1.0336,
+              "WHIRLWIND": 1.0893
+            }
+          },
+          "leiden_subcluster": 18,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=hard-stop/damage | econ=spend | dep=build\u2192spend | act=active | note: \"POST-CUTOFF: TLI ss11-12-2026. Erika Season 3 variant (2026 season content). All conf \u22640.50. Cold melee kit per atlas key. Details unverified.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "tli-erika3-vendetta",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-frenzy-barb",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.7032,
+            "all": {
+              "AURA": 1.1292,
+              "CHANNELED-BEAM": 1.0634,
+              "MINION-PET": 1.1066,
+              "TOTEM-SENTRY": 0.9454,
+              "TRAP-MINE": 0.7032,
+              "WHIRLWIND": 1.0646
+            }
+          },
+          "leiden_subcluster": 18,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=free | dep=build\u2192spend | act=triggered | note: \"Dual-wield attack-speed stacker: Frenzy hits ramp self-haste; momentum melee limited by physical-immune density.\"",
+          "conflict_ratified_family": "TRAP-MINE",
+          "tau_chain": 0.8944,
+          "nearest_seed": "tq-onslaught-assassin",
+          "distance_to_nearest_seed": 0.7746
+        },
+        {
+          "kit_id": "le-smite-paladin",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.6106,
+            "all": {
+              "AURA": 1.084,
+              "CHANNELED-BEAM": 1.0841,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.9542,
+              "TRAP-MINE": 0.6106,
+              "WHIRLWIND": 1.0066
+            }
+          },
+          "leiden_subcluster": 46,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=stun/damage | econ=free | dep=one-shot | act=triggered | note: \"prov=let;kb. mech_note ref: 'Bolts of holy lightning called down on every trigger the tree can wire \u2014 smite-on-hit, smite-on-throw, smite raining from procs.' LI suffix...\"",
+          "conflict_ratified_family": "TRAP-MINE",
+          "tau_chain": 0.8944,
+          "nearest_seed": "d2-maul-bear",
+          "distance_to_nearest_seed": 0.6325
+        }
+      ]
+    },
+    {
+      "docket_id": 2,
+      "working_label": "IDENTITY-GAUGE",
+      "seed_criterion": "canon_engine_key.economy_model = 'identity-gauge'",
+      "axis_signature_description": "economy_model = 'identity-gauge' (the LA-cohort archetype)",
+      "method_note": "seeds = ratified economy_model='identity-gauge' kits (n=31, 31 after ratified-gateA removal); the tight LA-identity-gauge signature; broader dependency_val='build\u2192spend' would balloon to 100+ and drown one-sitting review",
+      "self_scored_precision": 0.967,
+      "self_score_method": "LOO x coherence (1 - conflict_rate)",
+      "self_score_detail": {
+        "loo_admit_rate": 0.967,
+        "loo_total": 30,
+        "loo_admitted": 29,
+        "coherence_precision": 1.0,
+        "conflict_flagged_proposals": 0,
+        "proposals_total": 31
+      },
+      "chains": {
+        "20": {
+          "tau": 0.6325,
+          "n_seeds": 15,
+          "seed_ids": [
+            "la-death-strike-sharpshooter",
+            "la-demonic-impulse-shadowhunter",
+            "la-esoteric-skill-wardancer",
+            "la-full-moon-souleater",
+            "la-grace-empress-arcanist",
+            "la-hunger-reaper",
+            "la-loyal-companion-sharpshooter",
+            "la-lunar-voice-reaper",
+            "la-order-emperor-arcanist",
+            "la-perfect-suppression-shadowhunter",
+            "la-pinnacle-glaivier",
+            "la-remaining-energy-deathblade",
+            "la-surge-deathblade",
+            "la-wind-fury-aeromancer",
+            "mcd-dynamo-torment"
+          ]
+        },
+        "8": {
+          "tau": 0.6325,
+          "n_seeds": 6,
+          "seed_ids": [
+            "la-asuras-path-breaker",
+            "la-energy-overflow-soulfist",
+            "la-rage-hammer-destroyer",
+            "la-robust-spirit-soulfist",
+            "la-shock-training-scrapper",
+            "la-taijutsu-scrapper"
+          ]
+        },
+        "9": {
+          "tau": 0.0,
+          "n_seeds": 9,
+          "seed_ids": [
+            "la-barrage-enhancement-artillerist",
+            "la-berserkers-technique",
+            "la-brawl-king-storm-breaker",
+            "la-deathblow-striker",
+            "la-esoteric-flurry-striker",
+            "la-igniter-sorceress",
+            "la-mayhem-berserker",
+            "la-predator-slayer",
+            "la-punisher-slayer"
+          ]
+        },
+        "31": {
+          "tau": 0.4472,
+          "n_seeds": 1,
+          "seed_ids": [
+            "la-gravity-training-destroyer"
+          ]
+        }
+      },
+      "member_count": 31,
+      "member_count_by_status": {
+        "proposed": 31
+      },
+      "member_count_conflict_flagged": 0,
+      "abstain": false,
+      "members": [
+        {
+          "kit_id": "la-grace-empress-arcanist",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.1066,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9863,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=single_target | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Stacks 4 Ruin marks on a target via normal skills then detonates with Ruin Skill for amplified burst; draws Card Deck between stacks to gain...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-grace-empress-arcanist",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-wind-fury-aeromancer",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0671,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 1.0081,
+              "WHIRLWIND": 1.0954
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Sun Shower lasts 8 seconds and boosts ally attack/move speed by 12%; Supersonic Breakthrough skill requirement makes Wind Fury sharper for coordinated burst windows and...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-wind-fury-aeromancer",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-taijutsu-scrapper",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.0607,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9863,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 8,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Taijutsu emphasizes direct skill uptime using TS identity bonuses (rather than Shock Training's gauge-spend structure); faster animations and consistent mobile damage; the 'simpler' Scrapper identity...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-taijutsu-scrapper",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-rage-hammer-destroyer",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 1.0298,
+            "all": {
+              "AURA": 1.1292,
+              "CHANNELED-BEAM": 1.0841,
+              "MINION-PET": 1.1066,
+              "TOTEM-SENTRY": 1.0298,
+              "TRAP-MINE": 1.0586,
+              "WHIRLWIND": 1.1662
+            }
+          },
+          "leiden_subcluster": 8,
+          "mech_one_liner": "geo=vortex_pull | deliv=at-target | ctrl=pull/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Same 3-core builder-spender loop as Gravity Training but identity use is optional and forfeited for sustained Gravity Release skill damage; Seismic Hammer, Perfect Swing, Earth...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-rage-hammer-destroyer",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-berserkers-technique",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9907,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 9,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Fills Fury Meter through normal skills then enters timed Burst Mode for +30% crit rate, +20% attack speed, +36% damage, immune to Exhaustion on exit;...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-berserkers-technique",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-death-strike-sharpshooter",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.1066,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9863,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=single_target | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Builds Hawk Meter rapidly via Death Strike passive to deploy Silverhawk Assault (Z) frequently, maintaining a damage debuff on target for maximum uptime; burst cycle...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-death-strike-sharpshooter",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-order-emperor-arcanist",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.1066,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9863,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=single_target | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Boosts Card Deck meter gain and adds Emperor, Royal, Chancellor cards; constant card draws amplify normal skill damage rather than Ruin detonations; faster APM than...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-order-emperor-arcanist",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-asuras-path-breaker",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.0607,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9863,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 8,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Alternates Stamina/Shock skills to generate meter and enter Asura Destruction state, unleashing a rush of punches; Defensive Speculation shield unique to Asura's Path provides survivability;...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-asuras-path-breaker",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-igniter-sorceress",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9907,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 9,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Fills Arcane Meter via generator skills then releases Arcane Rupture (Z) burst window granting shortened cast times and +18% elemental skill damage; burst window demands...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-igniter-sorceress",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-deathblow-striker",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9907,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 9,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Generates 3 Esoteric Orbs via skill use then consumes all 3 for Deathblow Esoteric Skills dealing maximum burst damage; strict 3-orb gate makes every cycle...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-deathblow-striker",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-predator-slayer",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9907,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 9,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Builds Fatigue stacks during Burst Mode to reduce Exhaustion duration, enabling prolonged Burst Mode uptime; Swiftness-based back-attack playstyle with spammy rotations while in Burst; the...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-predator-slayer",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-surge-deathblade",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0671,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 1.0081,
+              "WHIRLWIND": 1.0954
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Enters Death Trance (Z), stacks Surge charges via multi-hit skills during the window, then fires Surge skill for massive burst damage scaled by stacks accumulated;...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-surge-deathblade",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "mcd-dynamo-torment",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.1066,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 1.0081,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=single_target | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Dynamo enchantment stacks damage bonuses with each consecutive roll (up to 20\u00d7); the loop is ROLL to stack Dynamo, then ATTACK to unload \u2014 every...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "mcd-dynamo-torment",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-perfect-suppression-shadowhunter",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0671,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 1.0081,
+              "WHIRLWIND": 1.0954
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Perfect Suppression completely disables Demonize in exchange for +30% normal skill damage and +50% Shadowburst Meter generation; normal Cruel Cutter and Demolition become the damage...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-perfect-suppression-shadowhunter",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-brawl-king-storm-breaker",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9907,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 9,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Uses Stamina skills to generate Shock gauge, expends all Shock at once for powerful burst blows; non-positional (attacks from any angle); burst compressed into a...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-brawl-king-storm-breaker",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-lunar-voice-reaper",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0804,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 1.0038,
+              "WHIRLWIND": 1.0954
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=single_target | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Persona Mode (Z) grants immediate Swoop damage boost without needing Chaos stacks; identity fires on demand with consistent returns; the smoother, more mobile Reaper path...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-lunar-voice-reaper",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-robust-spirit-soulfist",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.0607,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9863,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 8,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Robust Spirit allows bursting into Level 3 Hype immediately, making all damage buffs available in a short window; maintains steady DPS between windows with Hype...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-robust-spirit-soulfist",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-energy-overflow-soulfist",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.0607,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9863,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 8,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Inner Energy never drops below 1 with Energy Overflow so skills never shut down mid-rotation; high attack and move speed enable constant aggressive uptime; forgiving...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-energy-overflow-soulfist",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-shock-training-scrapper",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.0607,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9863,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 8,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Generates Shock Gauge via normal skills then spends it on powerful Shock Skills for burst damage; the builder-spender Scrapper versus Taijutsu's identity-uptime approach; more gauge...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-shock-training-scrapper",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-remaining-energy-deathblade",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0671,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 1.0081,
+              "WHIRLWIND": 1.0954
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Activates Death Trance identity immediately consuming Death Orbs to cast Deathblade Surge and grant 30s of attack/move speed buffs; consistent uptime damage cycling the identity...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-remaining-energy-deathblade",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-barrage-enhancement-artillerist",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9907,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 9,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Removes Exhaustion from exiting Barrage Mode, allowing consistent re-entry for massive burst damage; blasts all damage in a few seconds like Igniter/Full Moon Souleater; non-positional...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-barrage-enhancement-artillerist",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-punisher-slayer",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9907,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 9,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Maximizes damage within Burst Mode while accepting shorter Burst Mode duration; Specialization-scales more aggressively than Predator for burst payoffs; the build-spend Slayer versus Predator's sustained...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-punisher-slayer",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-gravity-training-destroyer",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9276,
+            "all": {
+              "AURA": 1.1402,
+              "CHANNELED-BEAM": 1.0423,
+              "MINION-PET": 1.0671,
+              "TOTEM-SENTRY": 0.9276,
+              "TRAP-MINE": 1.042,
+              "WHIRLWIND": 1.0954
+            }
+          },
+          "leiden_subcluster": 31,
+          "mech_one_liner": "geo=vortex_pull | deliv=at-target | ctrl=pull/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Generates 3 Gravity Cores via blue Concentration skills, spends them with purple Gravity Release skills to fill the Gravity Gauge, then activates Hypergravity Mode (60%...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-gravity-training-destroyer",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-mayhem-berserker",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9907,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 9,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Enters permanent Burst Mode locking HP at 25% of max for -60% healing, gaining 18% damage and 15% attack/move speed; rotation delivers burst inside the...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-mayhem-berserker",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-esoteric-skill-wardancer",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0671,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 1.0081,
+              "WHIRLWIND": 1.0954
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Generates Esoteric Orbs through skills and expends them on powerful Esoteric Skills; high mobility fast-animation burst in orb windows; consistent orb generation keeps Esoteric Skills...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-esoteric-skill-wardancer",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-hunger-reaper",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0804,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 1.0038,
+              "WHIRLWIND": 1.0954
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=single_target | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Hunger engraving focuses on generating maximum Chaos Meter for enhanced damage in Chaos Mode; builds Chaos stacks through skill use, dealing more damage the higher...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-hunger-reaper",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-pinnacle-glaivier",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0671,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 1.0081,
+              "WHIRLWIND": 1.0954
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Alternates between Focus (spear) and Flurry (glaive) stances at maxed Dual Meter to gain powerful self-buffs on each switch: +20% damage/+50% crit damage for Focus...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-pinnacle-glaivier",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-loyal-companion-sharpshooter",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.1066,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9863,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=single_target | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Silverhawk companion contributes a significant portion of damage and provides massive buffs; more consistent and relaxed playstyle than Death Strike with fewer timing demands; rated...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-loyal-companion-sharpshooter",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-esoteric-flurry-striker",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 0.9907,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 9,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Esoteric Flurry enables spending single Esoteric Orbs for enhanced multi-hit skill barrages rather than Deathblow's 3-orb all-or-nothing gate; higher orb generation and more consistent sustained...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-esoteric-flurry-striker",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-full-moon-souleater",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0671,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 1.0081,
+              "WHIRLWIND": 1.0954
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Generates and consumes Soul Stones to fill Possession Meter; enters Deathlord Mode for massive burst damage in seconds (Deathlord skill cooldown resets on entry; +15%...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-full-moon-souleater",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-demonic-impulse-shadowhunter",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0671,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 1.0081,
+              "WHIRLWIND": 1.0954
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Builds Shadowburst Meter using Intrude skills (Demon Vision, Demon's Grip) then Demonizes \u2014 transforming into demon form for +20% move speed, +30% crit rate, specialized...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-demonic-impulse-shadowhunter",
+          "distance_to_nearest_seed": 0.0
+        }
+      ]
+    },
+    {
+      "docket_id": 3,
+      "working_label": "SHAPESHIFT",
+      "seed_criterion": "canon_corpus.mech_note or folk_name contains werewolf/werebear/wereform/shapeshift/demonize/demon-form/wildsoul/shadowhunter/ferality/spirit-form/shape-form",
+      "axis_signature_description": "mech_note or folk_name contains a shape-form token",
+      "method_note": "seeds = corpus shape-token match (n=15 in E4, 14 after ratified-gateA removal); propagation halo REQUIRES the shape token (no engine-key shape axis exists yet \u2014 rocket dispatch pending per docket-3 sequencing)",
+      "self_scored_precision": 0.8,
+      "self_score_method": "LOO x coherence (1 - conflict_rate)",
+      "self_score_detail": {
+        "loo_admit_rate": 0.8,
+        "loo_total": 5,
+        "loo_admitted": 4,
+        "coherence_precision": 1.0,
+        "conflict_flagged_proposals": 0,
+        "proposals_total": 14
+      },
+      "chains": {
+        "17": {
+          "tau": 1.0,
+          "n_seeds": 1,
+          "seed_ids": [
+            "gd-berserker-wereforms"
+          ]
+        },
+        "11": {
+          "tau": 0.7746,
+          "n_seeds": 3,
+          "seed_ids": [
+            "d2-fireclaw-wolf",
+            "d2-fury-wolf",
+            "d2-rabies-wolf"
+          ]
+        },
+        "2": {
+          "tau": 1.0,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe2-shaman-bear"
+          ]
+        },
+        "20": {
+          "tau": 0.0,
+          "n_seeds": 2,
+          "seed_ids": [
+            "la-demonic-impulse-shadowhunter",
+            "la-perfect-suppression-shadowhunter"
+          ]
+        },
+        "53": {
+          "tau": 1.0,
+          "n_seeds": 1,
+          "seed_ids": [
+            "d4-rabies-lacerate"
+          ]
+        },
+        "21": {
+          "tau": 1.0,
+          "n_seeds": 1,
+          "seed_ids": [
+            "di-spiritform-druid-pvp"
+          ]
+        },
+        "140": {
+          "tau": 1.0,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe2-demon-form"
+          ]
+        },
+        "19": {
+          "tau": 1.0,
+          "n_seeds": 1,
+          "seed_ids": [
+            "d4-pulverize"
+          ]
+        },
+        "49": {
+          "tau": 1.0,
+          "n_seeds": 1,
+          "seed_ids": [
+            "d4-tornado-werewolf"
+          ]
+        },
+        "91": {
+          "tau": 1.0,
+          "n_seeds": 1,
+          "seed_ids": [
+            "le-werebear-druid"
+          ]
+        },
+        "46": {
+          "tau": 1.0,
+          "n_seeds": 1,
+          "seed_ids": [
+            "d2-maul-bear"
+          ]
+        }
+      },
+      "member_count": 14,
+      "member_count_by_status": {
+        "proposed": 14
+      },
+      "member_count_conflict_flagged": 0,
+      "abstain": false,
+      "members": [
+        {
+          "kit_id": "gd-berserker-wereforms",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8069,
+            "all": {
+              "AURA": 0.9487,
+              "CHANNELED-BEAM": 0.9415,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.8527,
+              "TRAP-MINE": 0.8069,
+              "WHIRLWIND": 0.8944
+            }
+          },
+          "leiden_subcluster": 17,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=hard-stop/damage | econ=free | dep=one-shot | act=active | note: \"Grim Dawn's tenth mastery \u2014 a shapeshifter who transforms into 'vicious beastlike forms,' dual-wields between forms, and infuses weapons wit\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "gd-berserker-wereforms",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-fireclaw-wolf",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.7597,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.8427,
+              "TOTEM-SENTRY": 0.7597,
+              "TRAP-MINE": 0.8386,
+              "WHIRLWIND": 0.9238
+            }
+          },
+          "leiden_subcluster": 11,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=unknown | dep=one-shot | act=active | note: \"Werewolf whose claws deal fire via Fire Claws synergy stack \u2014 form-shift melee wearing an elemental damage identity.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-fireclaw-wolf",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-rabies-wolf",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8741,
+            "all": {
+              "AURA": 0.9487,
+              "CHANNELED-BEAM": 0.9648,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.8956,
+              "TRAP-MINE": 0.8741,
+              "WHIRLWIND": 1.0066
+            }
+          },
+          "leiden_subcluster": 11,
+          "mech_one_liner": "geo=chain | deliv=at-target | ctrl=none/damage | econ=unknown | dep=one-shot | act=active | note: \"Werewolf bite spreads a contagious poison that jumps target-to-target; DoT plague delivered by a shapeshifted melee body.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-rabies-wolf",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-fury-wolf",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.7597,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.8427,
+              "TOTEM-SENTRY": 0.7597,
+              "TRAP-MINE": 0.8229,
+              "WHIRLWIND": 0.9238
+            }
+          },
+          "leiden_subcluster": 11,
+          "mech_one_liner": "geo=single_target | deliv=at-target | ctrl=none/damage | econ=unknown | dep=one-shot | act=active | note: \"Shapeshift into werewolf form \u2014 a different stat-and-skill body \u2014 then Fury multi-bite at extreme attack speed; the form IS the kit.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-fury-wolf",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe2-shaman-bear",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "WHIRLWIND",
+            "distance": 0.8246,
+            "all": {
+              "AURA": 0.9747,
+              "CHANNELED-BEAM": 0.9296,
+              "MINION-PET": 0.9835,
+              "TOTEM-SENTRY": 0.9002,
+              "TRAP-MINE": 0.8437,
+              "WHIRLWIND": 0.8246
+            }
+          },
+          "leiden_subcluster": 2,
+          "mech_one_liner": "geo=circle | deliv=self-origin | ctrl=none/damage | econ=free | dep=build\u2192spend | act=active | note: \"POST-CUTOFF. prov=kb. mech_note ref: 'Druid shapeshifts into bear \u2014 built-in armour tank body, Rampage momentum clear.' Full dossier required.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe2-shaman-bear",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-perfect-suppression-shadowhunter",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0671,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 1.0081,
+              "WHIRLWIND": 1.0954
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Perfect Suppression completely disables Demonize in exchange for +30% normal skill damage and +50% Shadowburst Meter generation; normal Cruel Cutter and Demolition become the damage...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-perfect-suppression-shadowhunter",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d4-rabies-lacerate",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.7651,
+            "all": {
+              "AURA": 0.9747,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.939,
+              "TOTEM-SENTRY": 0.7651,
+              "TRAP-MINE": 0.8938,
+              "WHIRLWIND": 0.9309
+            }
+          },
+          "leiden_subcluster": 53,
+          "mech_one_liner": "geo=chain | deliv=at-target | ctrl=none/damage | econ=generator-spender | dep=one-shot | act=active | note: \"Werewolf contagion returns \u2014 RABIES, the D2 wolf's plague bite, resurfaces as a D4 S-tier paired with Lacerate's shred ultimate; a twenty-ye\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d4-rabies-lacerate",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "di-spiritform-druid-pvp",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "WHIRLWIND",
+            "distance": 0.6928,
+            "all": {
+              "AURA": 0.8803,
+              "CHANNELED-BEAM": 0.8805,
+              "MINION-PET": 0.876,
+              "TOTEM-SENTRY": 0.8279,
+              "TRAP-MINE": 0.9035,
+              "WHIRLWIND": 0.6928
+            }
+          },
+          "leiden_subcluster": 21,
+          "mech_one_liner": "geo=circle | deliv=self-origin | ctrl=none/damage | econ=cooldown | dep=one-shot | act=active | note: \"PHANTOM (mob-harvest v3 mis-naming) \u2014 DI Druid class IS real (launched 2025-07-03, Blizzard official) but 'spirit form' mechanic does NOT exist; real transformations = Werewolf/Werebear/Stag...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "di-spiritform-druid-pvp",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe2-demon-form",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9885,
+            "all": {
+              "AURA": 1.0724,
+              "CHANNELED-BEAM": 1.0098,
+              "MINION-PET": 0.998,
+              "TOTEM-SENTRY": 0.9885,
+              "TRAP-MINE": 1.021,
+              "WHIRLWIND": 1.0
+            }
+          },
+          "leiden_subcluster": 140,
+          "mech_one_liner": "geo=circle | deliv=self-origin | ctrl=none/damage | econ=self-cost | dep=build\u2192spend | act=active | note: \"prov=kb. mech_note: 'Transform into a demon \u2014 a DIFFERENT body with its own skill economy \u2014 gaining scaled fire power.' Era=0.1;0.2-dawn;0.4. Variable amp (V): the...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe2-demon-form",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d4-pulverize",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.7027,
+            "all": {
+              "AURA": 0.9487,
+              "CHANNELED-BEAM": 0.8549,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.7027,
+              "TRAP-MINE": 0.9035,
+              "WHIRLWIND": 0.8869
+            }
+          },
+          "leiden_subcluster": 19,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Werebear ground-slam shockwaves rolling forward off overpower windows \u2014 the launch druid's identity build; slow, wide, and satisfying, form-\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d4-pulverize",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d4-tornado-werewolf",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8229,
+            "all": {
+              "AURA": 0.9747,
+              "CHANNELED-BEAM": 0.8678,
+              "MINION-PET": 0.939,
+              "TOTEM-SENTRY": 0.8229,
+              "TRAP-MINE": 0.973,
+              "WHIRLWIND": 0.8794
+            }
+          },
+          "leiden_subcluster": 49,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"A WEREWOLF casting storm magic \u2014 Grizzly Rage swapped for wolf-form tornado spam via the Stormchaser aspect steering the twisters; form-shif\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d4-tornado-werewolf",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "le-werebear-druid",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "WHIRLWIND",
+            "distance": 0.7659,
+            "all": {
+              "AURA": 0.9354,
+              "CHANNELED-BEAM": 0.9415,
+              "MINION-PET": 0.8427,
+              "TOTEM-SENTRY": 0.9454,
+              "TRAP-MINE": 0.913,
+              "WHIRLWIND": 0.7659
+            }
+          },
+          "leiden_subcluster": 91,
+          "mech_one_liner": "geo=circle | deliv=self-origin | ctrl=hex/damage | econ=generator-spender | dep=one-shot | act=active | note: \"prov=mx-le;eg;kb. mech_note ref: 'The bear form with its own bar \u2014 swipe, roar, maul on rage-drain fuel, massive built-in tankiness; the Season 4 bossing king.'...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "le-werebear-druid",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "la-demonic-impulse-shadowhunter",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9585,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.0671,
+              "TOTEM-SENTRY": 0.9585,
+              "TRAP-MINE": 1.0081,
+              "WHIRLWIND": 1.0954
+            }
+          },
+          "leiden_subcluster": 20,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=identity-gauge | dep=build\u2192spend | act=active | note: \"Builds Shadowburst Meter using Intrude skills (Demon Vision, Demon's Grip) then Demonizes \u2014 transforming into demon form for +20% move speed, +30% crit rate, specialized...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "la-demonic-impulse-shadowhunter",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-maul-bear",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.6316,
+            "all": {
+              "AURA": 1.0247,
+              "CHANNELED-BEAM": 1.0208,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 0.9048,
+              "TRAP-MINE": 0.6316,
+              "WHIRLWIND": 0.9661
+            }
+          },
+          "leiden_subcluster": 46,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=free | dep=one-shot | act=triggered | note: \"Bear form stacks Maul damage charges per hit; slow heavy swings, tank identity, the other half of the form-shift family.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-maul-bear",
+          "distance_to_nearest_seed": 0.0
+        }
+      ]
+    },
+    {
+      "docket_id": 4,
+      "working_label": "DOT-AILMENT",
+      "seed_criterion": "canon_engine_key.ctrl_function IN ('poison','hex') OR mech_note/folk_name contains DoT/poison/bleed/rabies/toxic-rain/blight/plague tokens",
+      "axis_signature_description": "ctrl_function IN ('poison','hex') OR mech_note carries a DoT token",
+      "method_note": "seeds = ratified ctrl_function poison/hex + corpus DoT-token match (n=42, 35 after ratified-gateA removal)",
+      "self_scored_precision": 0.972,
+      "self_score_method": "LOO x coherence (1 - conflict_rate)",
+      "self_score_detail": {
+        "loo_admit_rate": 1.0,
+        "loo_total": 11,
+        "loo_admitted": 11,
+        "coherence_precision": 0.972,
+        "conflict_flagged_proposals": 1,
+        "proposals_total": 36
+      },
+      "chains": {
+        "84": {
+          "tau": 0.7746,
+          "n_seeds": 2,
+          "seed_ids": [
+            "d2-poison-javazon",
+            "poe1-lacerate-glad"
+          ]
+        },
+        "135": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe1-hoag"
+          ]
+        },
+        "41": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "vs-vlad-dracula"
+          ]
+        },
+        "53": {
+          "tau": 0.6325,
+          "n_seeds": 2,
+          "seed_ids": [
+            "d4-rabies-lacerate",
+            "gd-bloody-pox-conjurer"
+          ]
+        },
+        "64": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "gd-blight-fiend-ritualist"
+          ]
+        },
+        "48": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "chr-plague-curse-warlock"
+          ]
+        },
+        "120": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "hades1-ares-doom"
+          ]
+        },
+        "42": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "hot-warlock"
+          ]
+        },
+        "137": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe1-scourge-arrow"
+          ]
+        },
+        "63": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "le-shield-throw-time-rot-vk"
+          ]
+        },
+        "50": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe1-hexblast-mines"
+          ]
+        },
+        "119": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "gd-wendigo-totem-ritualist"
+          ]
+        },
+        "24": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe1-bane"
+          ]
+        },
+        "115": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "d4-shadowblight"
+          ]
+        },
+        "47": {
+          "tau": 0.7035,
+          "n_seeds": 3,
+          "seed_ids": [
+            "poe1-caustic-arrow",
+            "poe1-edc",
+            "poe1-toxic-rain"
+          ]
+        },
+        "55": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe1-viper-poison"
+          ]
+        },
+        "92": {
+          "tau": 0.8944,
+          "n_seeds": 2,
+          "seed_ids": [
+            "poe1-pconc",
+            "poe1-venom-gyre"
+          ]
+        },
+        "34": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "gd-doom-bolt-sentinel"
+          ]
+        },
+        "93": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "tq-druid-squall-caster"
+          ]
+        },
+        "11": {
+          "tau": 0.6325,
+          "n_seeds": 2,
+          "seed_ids": [
+            "d2-rabies-wolf",
+            "poe1-dark-pact"
+          ]
+        },
+        "141": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe2-erasure-edc-lich"
+          ]
+        },
+        "67": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "d2-poison-nova-necro"
+          ]
+        },
+        "126": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "le-chthonic-fissure-warlock"
+          ]
+        },
+        "27": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "d2-ghost-pvp"
+          ]
+        },
+        "136": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe1-poison-bv"
+          ]
+        },
+        "37": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe1-ward-loop"
+          ]
+        },
+        "29": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "chr-bleed-berserker"
+          ]
+        },
+        "28": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe2-acolyte-darkness"
+          ]
+        },
+        "91": {
+          "tau": 1.05,
+          "n_seeds": 1,
+          "seed_ids": [
+            "le-werebear-druid"
+          ]
+        }
+      },
+      "member_count": 36,
+      "member_count_by_status": {
+        "proposed": 36
+      },
+      "member_count_conflict_flagged": 1,
+      "abstain": false,
+      "members": [
+        {
+          "kit_id": "d2-poison-javazon",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8075,
+            "all": {
+              "AURA": 1.0368,
+              "CHANNELED-BEAM": 0.9648,
+              "MINION-PET": 1.0936,
+              "TOTEM-SENTRY": 0.8075,
+              "TRAP-MINE": 0.973,
+              "WHIRLWIND": 1.0708
+            }
+          },
+          "leiden_subcluster": 84,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=spend | dep=apply\u2192detonate | act=active | note: \"Plague Javelin blankets areas in overlapping poison clouds; damage-over-time identity with delayed kill confirmation.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-poison-javazon",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-lacerate-glad",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8624,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9054,
+              "MINION-PET": 1.04,
+              "TOTEM-SENTRY": 0.8624,
+              "TRAP-MINE": 0.8938,
+              "WHIRLWIND": 0.9798
+            }
+          },
+          "leiden_subcluster": 84,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=spend | dep=build\u2192spend | act=active | note: \"Physical bleed DoT stacking with max-block defense; hit once, watch them bleed out while blocking everything.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-lacerate-glad",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-hoag",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.7452,
+            "all": {
+              "AURA": 1.0124,
+              "CHANNELED-BEAM": 1.0423,
+              "MINION-PET": 0.998,
+              "TOTEM-SENTRY": 0.9454,
+              "TRAP-MINE": 0.7452,
+              "WHIRLWIND": 0.9238
+            }
+          },
+          "leiden_subcluster": 135,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=hex/damage | econ=generator-spender | dep=one-shot | act=triggered | note: \"YOUR poison hits do nothing but feed virulence stacks to a scorpion crawler pet who does ALL the killing \u2014 the player is the pet's...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-hoag",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "vs-vlad-dracula",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8478,
+            "all": {
+              "AURA": 1.0,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.8478,
+              "TRAP-MINE": 0.9458,
+              "WHIRLWIND": 0.9798
+            }
+          },
+          "leiden_subcluster": 41,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=hex/damage | econ=unknown | dep=one-shot | act=active | note: \"DLC character (Castlevania / Operation Guns DLC). Secret unlock. Provenance = VV (video/wiki), limited documentation. Reduced conf for DLC content. Era: dlc-era + s11-2025+ (s11...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "vs-vlad-dracula",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d4-rabies-lacerate",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.7651,
+            "all": {
+              "AURA": 0.9747,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.939,
+              "TOTEM-SENTRY": 0.7651,
+              "TRAP-MINE": 0.8938,
+              "WHIRLWIND": 0.9309
+            }
+          },
+          "leiden_subcluster": 53,
+          "mech_one_liner": "geo=chain | deliv=at-target | ctrl=none/damage | econ=generator-spender | dep=one-shot | act=active | note: \"Werewolf contagion returns \u2014 RABIES, the D2 wolf's plague bite, resurfaces as a D4 S-tier paired with Lacerate's shred ultimate; a twenty-ye\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d4-rabies-lacerate",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "gd-blight-fiend-ritualist",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.5181,
+            "all": {
+              "AURA": 0.9354,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 0.998,
+              "TOTEM-SENTRY": 0.872,
+              "TRAP-MINE": 0.5181,
+              "WHIRLWIND": 0.8563
+            }
+          },
+          "leiden_subcluster": 64,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=none/damage | econ=free | dep=one-shot | act=triggered | note: \"Summon the rotting horror that EXPLODES on death and gets resummoned INTO packs \u2014 the disposable-bomber pet whose corpse is the payload; pet\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "gd-blight-fiend-ritualist",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "chr-plague-curse-warlock",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 1.0577,
+            "all": {
+              "AURA": 1.2247,
+              "CHANNELED-BEAM": 1.1044,
+              "MINION-PET": 1.1321,
+              "TOTEM-SENTRY": 1.0577,
+              "TRAP-MINE": 1.0708,
+              "WHIRLWIND": 1.222
+            }
+          },
+          "leiden_subcluster": 48,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=hex/control | econ=finite | dep=build\u2192spend | act=active | note: \"Control centrality=CORE: curses ARE the purpose of this kit (debuff-centric playstyle). Ammo economy = curse charges (limited stock, accumulates over time). Shadow element from shadow/dark...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "chr-plague-curse-warlock",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "hades1-ares-doom",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8229,
+            "all": {
+              "AURA": 1.2145,
+              "CHANNELED-BEAM": 1.144,
+              "MINION-PET": 1.1194,
+              "TOTEM-SENTRY": 1.1374,
+              "TRAP-MINE": 0.8229,
+              "WHIRLWIND": 1.1776
+            }
+          },
+          "leiden_subcluster": 120,
+          "mech_one_liner": "geo=single_target | deliv=at-target | ctrl=hex/control | econ=free | dep=one-shot | act=triggered | note: \"Tag-bank-payout grammar: the 'bank' is the Doom window; the 'payout' is detonation. Wind-up commit because the damage is temporally decoupled from the hit \u2014 you...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "hades1-ares-doom",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "hot-warlock",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.8678,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.8678,
+              "MINION-PET": 0.998,
+              "TOTEM-SENTRY": 0.9276,
+              "TRAP-MINE": 0.9412,
+              "WHIRLWIND": 0.9381
+            }
+          },
+          "leiden_subcluster": 42,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=hex/damage | econ=spend | dep=one-shot | act=active | note: \"'The SEVENTH game in the corpus to ship a caster-summoner archetype' \u2014 Elrond/Gandalf note: convergence data point for summoner-caster pattern. Corpus cites this explicitly as...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "hot-warlock",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-scourge-arrow",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 1.0208,
+            "all": {
+              "AURA": 1.118,
+              "CHANNELED-BEAM": 1.0208,
+              "MINION-PET": 1.0804,
+              "TOTEM-SENTRY": 1.0378,
+              "TRAP-MINE": 1.0789,
+              "WHIRLWIND": 1.1136
+            }
+          },
+          "leiden_subcluster": 137,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=hex/damage | econ=spend | dep=build\u2192spend | act=active | note: \"Channel to grow thorn charge stages, release a spore-pod fan \u2014 bow channel-and-release with poison stacking.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-scourge-arrow",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "le-shield-throw-time-rot-vk",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.9504,
+            "all": {
+              "AURA": 1.1832,
+              "CHANNELED-BEAM": 1.0841,
+              "MINION-PET": 1.1446,
+              "TOTEM-SENTRY": 1.119,
+              "TRAP-MINE": 0.9504,
+              "WHIRLWIND": 1.0708
+            }
+          },
+          "leiden_subcluster": 63,
+          "mech_one_liner": "geo=chain | deliv=projectile | ctrl=hex/control | econ=spend | dep=one-shot | act=triggered | note: \"POST-CUTOFF. 1.4-omens only; conf=0.40 in atlas. prov=mx-le. mech_note ref: 'Ricocheting shield throws carrying Time Rot void stacks \u2014 the captain-america delivery finally earning a tier...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "le-shield-throw-time-rot-vk",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-hexblast-mines",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.7215,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 1.0943,
+              "MINION-PET": 1.1194,
+              "TOTEM-SENTRY": 0.914,
+              "TRAP-MINE": 0.7215,
+              "WHIRLWIND": 1.0263
+            }
+          },
+          "leiden_subcluster": 50,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=hex/damage | econ=free | dep=apply\u2192detonate | act=triggered | note: \"Hexblast consumes the curse on the target for a huge chaos hit; mine cadence automates the curse-then-consume loop \u2014 ailment mark-and-detona\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-hexblast-mines",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "gd-wendigo-totem-ritualist",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.6661,
+            "all": {
+              "AURA": 1.1292,
+              "CHANNELED-BEAM": 1.0841,
+              "MINION-PET": 1.1321,
+              "TOTEM-SENTRY": 0.6661,
+              "TRAP-MINE": 0.8691,
+              "WHIRLWIND": 1.0583
+            }
+          },
+          "leiden_subcluster": 119,
+          "mech_one_liner": "geo=totem | deliv=at-target | ctrl=none/damage | econ=cooldown | dep=apply\u2192detonate | act=triggered | note: \"Plant hungering totems that LEECH the room for you while bleed stacks tick \u2014 the totem-warfare strand where furniture does the drinking and \"",
+          "tau_chain": 0.0,
+          "nearest_seed": "gd-wendigo-totem-ritualist",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "gd-bloody-pox-conjurer",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8127,
+            "all": {
+              "AURA": 1.0488,
+              "CHANNELED-BEAM": 0.9763,
+              "MINION-PET": 0.939,
+              "TOTEM-SENTRY": 0.8127,
+              "TRAP-MINE": 0.9504,
+              "WHIRLWIND": 0.9866
+            }
+          },
+          "leiden_subcluster": 53,
+          "mech_one_liner": "geo=chain | deliv=at-target | ctrl=expose/damage | econ=cooldown | dep=one-shot | act=active | note: \"Infect one target and watch the PLAGUE JUMP \u2014 Bloody Pox spreads body to body on proximity, fumble transmuters making whole screens miss whi\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "gd-bloody-pox-conjurer",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-bane",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9002,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9054,
+              "MINION-PET": 0.908,
+              "TOTEM-SENTRY": 0.9002,
+              "TRAP-MINE": 0.913,
+              "WHIRLWIND": 0.9309
+            }
+          },
+          "leiden_subcluster": 24,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=hex/damage | econ=spend | dep=one-shot | act=active | note: \"One cast applies chaos DoT AND every linked curse simultaneously \u2014 the curse-bundler damage spell.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-bane",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d4-shadowblight",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.7374,
+            "all": {
+              "AURA": 1.118,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 0.998,
+              "TOTEM-SENTRY": 0.7374,
+              "TRAP-MINE": 0.9595,
+              "WHIRLWIND": 1.0392
+            }
+          },
+          "leiden_subcluster": 115,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=blind/damage | econ=spend | dep=apply\u2192detonate | act=active | note: \"Stacked shadow damage-over-time detonating Shadowblight key-passive pulses \u2014 the darkness-plague necro promoted from tail to tier rows by th\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d4-shadowblight",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-caustic-arrow",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8938,
+            "all": {
+              "AURA": 1.084,
+              "CHANNELED-BEAM": 1.0634,
+              "MINION-PET": 1.0804,
+              "TOTEM-SENTRY": 1.0811,
+              "TRAP-MINE": 0.8938,
+              "WHIRLWIND": 1.052
+            }
+          },
+          "leiden_subcluster": 47,
+          "mech_one_liner": "geo=circle | deliv=projectile | ctrl=hex/damage | econ=spend | dep=one-shot | act=triggered | note: \"Arrow leaves a caustic ground cloud ticking chaos DoT \u2014 the original ground-DoT bow archetype, TR's ancestor.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-caustic-arrow",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-edc",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8986,
+            "all": {
+              "AURA": 1.0954,
+              "CHANNELED-BEAM": 1.0529,
+              "MINION-PET": 1.1194,
+              "TOTEM-SENTRY": 1.1115,
+              "TRAP-MINE": 0.8986,
+              "WHIRLWIND": 1.0583
+            }
+          },
+          "leiden_subcluster": 47,
+          "mech_one_liner": "geo=chain | deliv=projectile | ctrl=hex/damage | econ=spend | dep=one-shot | act=triggered | note: \"Essence Drain ticks chaos DoT; Contagion makes the DoT JUMP to neighbors on death \u2014 a two-button plague that clears rooms by spreading. The \"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-edc",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-viper-poison",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.9365,
+            "all": {
+              "AURA": 1.118,
+              "CHANNELED-BEAM": 0.9988,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 0.9365,
+              "TRAP-MINE": 0.9863,
+              "WHIRLWIND": 1.1195
+            }
+          },
+          "leiden_subcluster": 55,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=hex/damage | econ=spend | dep=build\u2192spend | act=active | note: \"Fast poison-stacking strikes where kills burst remaining poison to neighbors \u2014 DoT melee with contagion pops.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-viper-poison",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-pconc",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "AURA",
+            "distance": 0.9354,
+            "all": {
+              "AURA": 0.9354,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 0.9835,
+              "TOTEM-SENTRY": 1.0298,
+              "TRAP-MINE": 0.973,
+              "WHIRLWIND": 0.973
+            }
+          },
+          "leiden_subcluster": 92,
+          "mech_one_liner": "geo=circle | deliv=projectile | ctrl=hex/damage | econ=finite | dep=one-shot | act=active | note: \"UNARMED flask-thrower: lobs exploding poison vials whose damage scales off LIFE FLASK charges \u2014 the consumable-charge pool as ammunition; le\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-pconc",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "gd-doom-bolt-sentinel",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8075,
+            "all": {
+              "AURA": 1.0247,
+              "CHANNELED-BEAM": 0.9763,
+              "MINION-PET": 0.8427,
+              "TOTEM-SENTRY": 0.8075,
+              "TRAP-MINE": 0.8741,
+              "WHIRLWIND": 0.973
+            }
+          },
+          "leiden_subcluster": 34,
+          "mech_one_liner": "geo=single_target | deliv=at-target | ctrl=hex/damage | econ=cooldown | dep=one-shot | act=active | note: \"The chaos hammer from the sky on a hard cooldown \u2014 Doom Bolt deletes one target per cast while acid-chaos DoTs carry the between-time; nuke-\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "gd-doom-bolt-sentinel",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tq-druid-squall-caster",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.6599,
+            "all": {
+              "AURA": 0.9487,
+              "CHANNELED-BEAM": 0.9054,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.6599,
+              "TRAP-MINE": 0.9272,
+              "WHIRLWIND": 0.9661
+            }
+          },
+          "leiden_subcluster": 93,
+          "mech_one_liner": "geo=totem | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Tempo=low is the distinguishing characteristic here \u2014 Squall ticks at a slow rate but persistently. This is a 'place-and-move' zone kit rather than an active-spam...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "tq-druid-squall-caster",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-rabies-wolf",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8741,
+            "all": {
+              "AURA": 0.9487,
+              "CHANNELED-BEAM": 0.9648,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.8956,
+              "TRAP-MINE": 0.8741,
+              "WHIRLWIND": 1.0066
+            }
+          },
+          "leiden_subcluster": 11,
+          "mech_one_liner": "geo=chain | deliv=at-target | ctrl=none/damage | econ=unknown | dep=one-shot | act=active | note: \"Werewolf bite spreads a contagious poison that jumps target-to-target; DoT plague delivered by a shapeshifted melee body.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-rabies-wolf",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe2-erasure-edc-lich",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9415,
+            "all": {
+              "AURA": 1.0724,
+              "CHANNELED-BEAM": 0.9415,
+              "MINION-PET": 0.998,
+              "TOTEM-SENTRY": 1.0176,
+              "TRAP-MINE": 1.0336,
+              "WHIRLWIND": 1.0328
+            }
+          },
+          "leiden_subcluster": 141,
+          "mech_one_liner": "geo=chain | deliv=projectile | ctrl=expose/damage | econ=spend | dep=one-shot | act=active | note: \"prov=kb. mech_note: 'The ED-and-Contagion plague loop reborn in PoE2's Lich chassis with the Erasure-[mechanic] amplifying spread.' Era=0.2-dawn through 0.5-ancients. The Lich ascendancy (Sorceress path) enables...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe2-erasure-edc-lich",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-poison-nova-necro",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "WHIRLWIND",
+            "distance": 0.8485,
+            "all": {
+              "AURA": 0.9354,
+              "CHANNELED-BEAM": 0.9054,
+              "MINION-PET": 0.939,
+              "TOTEM-SENTRY": 0.9231,
+              "TRAP-MINE": 0.9366,
+              "WHIRLWIND": 0.8485
+            }
+          },
+          "leiden_subcluster": 67,
+          "mech_one_liner": "geo=ring | deliv=self-origin | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Poison Nova blankets the whole screen in an expanding DoT ring on cooldown cadence, Lower Resist amplifying; sweep-and-move plague caster.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-poison-nova-necro",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "le-chthonic-fissure-warlock",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9532,
+            "all": {
+              "AURA": 1.0368,
+              "CHANNELED-BEAM": 0.9532,
+              "MINION-PET": 0.9689,
+              "TOTEM-SENTRY": 0.9927,
+              "TRAP-MINE": 1.0252,
+              "WHIRLWIND": 1.0132
+            }
+          },
+          "leiden_subcluster": 126,
+          "mech_one_liner": "geo=line | deliv=line | ctrl=hex/damage | econ=spend | dep=one-shot | act=active | note: \"prov=gg;lw;kb. mech_note ref: 'Tear the ground open \u2014 the fissure crawls forward belching chaos SPIRITS that seek and burn while curse stacks multiply damage.' Correction...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "le-chthonic-fissure-warlock",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-ghost-pvp",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8672,
+            "all": {
+              "AURA": 1.084,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.04,
+              "TOTEM-SENTRY": 0.8672,
+              "TRAP-MINE": 0.9907,
+              "WHIRLWIND": 1.0198
+            }
+          },
+          "leiden_subcluster": 27,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=stun/damage | econ=spend | dep=apply\u2192detonate | act=active | note: \"Authoritative D2 PvP Ghost = Assassin WW/Trap archetype: Mind Blast stun (Shadow Discipline) + Fade DR + Open Wounds bleed stacking on Whirlwind weapons +...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-ghost-pvp",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-venom-gyre",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "MINION-PET",
+            "distance": 1.0122,
+            "all": {
+              "AURA": 1.0247,
+              "CHANNELED-BEAM": 1.0423,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 1.0772,
+              "TRAP-MINE": 1.0503,
+              "WHIRLWIND": 1.0646
+            }
+          },
+          "leiden_subcluster": 92,
+          "mech_one_liner": "geo=dash_attack | deliv=projectile | ctrl=hex/damage | econ=generator-spender | dep=one-shot | act=active | note: \"Thrown poison projectiles that RETURN and are caught, then re-released in a burst via Whirling Blades \u2014 catch-and-release ammo economy on a \"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-venom-gyre",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-toxic-rain",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8437,
+            "all": {
+              "AURA": 1.084,
+              "CHANNELED-BEAM": 1.0634,
+              "MINION-PET": 1.0671,
+              "TOTEM-SENTRY": 0.9843,
+              "TRAP-MINE": 0.8437,
+              "WHIRLWIND": 1.052
+            }
+          },
+          "leiden_subcluster": 47,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=hex/damage | econ=spend | dep=one-shot | act=triggered | note: \"Arrows rain pods that slow and tick chaos DoT in overlapping zones \u2014 the perennial low-budget league-start king.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-toxic-rain",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-poison-bv",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 1.0316,
+            "all": {
+              "AURA": 1.0368,
+              "CHANNELED-BEAM": 1.0316,
+              "MINION-PET": 1.1194,
+              "TOTEM-SENTRY": 1.0695,
+              "TRAP-MINE": 1.0586,
+              "WHIRLWIND": 1.077
+            }
+          },
+          "leiden_subcluster": 136,
+          "mech_one_liner": "geo=unknown | deliv=orbit | ctrl=hex/damage | econ=generator-spender | dep=build\u2192spend | act=active | note: \"Stacks up to ten spinning blades ORBITING the body, each hitting everything nearby on rotation \u2014 maintain the stack, walk into packs, everyt\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-poison-bv",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-ward-loop",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "MINION-PET",
+            "distance": 0.954,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 1.0423,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 1.0734,
+              "TRAP-MINE": 1.042,
+              "WHIRLWIND": 0.9592
+            }
+          },
+          "leiden_subcluster": 37,
+          "mech_one_liner": "geo=multi_projectile | deliv=self-origin | ctrl=hex/damage | econ=self-cost | dep=one-shot | act=active | note: \"Skeletons die instantly, Heartbound Loop self-damages you, CWDT recasts skeletons, Olroth's ward absorbs it all \u2014 a PERPETUAL MOTION cast en\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-ward-loop",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "chr-bleed-berserker",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.6785,
+            "all": {
+              "AURA": 0.8803,
+              "CHANNELED-BEAM": 0.8012,
+              "MINION-PET": 0.939,
+              "TOTEM-SENTRY": 0.6785,
+              "TRAP-MINE": 0.8691,
+              "WHIRLWIND": 0.7832
+            }
+          },
+          "leiden_subcluster": 29,
+          "mech_one_liner": "geo=melee_strike | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Damage_mode=dot (bleed is the damage engine). Low tempo (L) is the key distinction \u2014 fewer but harder strikes that each apply max bleed stacks efficiently....\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "chr-bleed-berserker",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-dark-pact",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.9225,
+            "all": {
+              "AURA": 1.0,
+              "CHANNELED-BEAM": 1.0208,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.9629,
+              "TRAP-MINE": 0.9225,
+              "WHIRLWIND": 1.052
+            }
+          },
+          "leiden_subcluster": 11,
+          "mech_one_liner": "geo=chain | deliv=at-target | ctrl=hex/damage | econ=self-cost | dep=one-shot | act=active | note: \"Chaining chaos nova that SACRIFICES skeleton life to fuel its damage \u2014 or your own life if no skeletons; minions as batteries, the self-dama\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-dark-pact",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe2-acolyte-darkness",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 1.0378,
+            "all": {
+              "AURA": 1.084,
+              "CHANNELED-BEAM": 1.0634,
+              "MINION-PET": 1.04,
+              "TOTEM-SENTRY": 1.0378,
+              "TRAP-MINE": 1.0503,
+              "WHIRLWIND": 1.0583
+            }
+          },
+          "leiden_subcluster": 28,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=hex/control | econ=generator-spender | dep=one-shot | act=active | note: \"prov=kb. mech_note: 'Chaos monk who trades spirit for the Waking Dream darkness resource, converting [Spirit] into chaos-skill powered attacks.' Era=0.1;0.2-dawn only \u2014 earlier PoE2 version...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe2-acolyte-darkness",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "le-werebear-druid",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "WHIRLWIND",
+            "distance": 0.7659,
+            "all": {
+              "AURA": 0.9354,
+              "CHANNELED-BEAM": 0.9415,
+              "MINION-PET": 0.8427,
+              "TOTEM-SENTRY": 0.9454,
+              "TRAP-MINE": 0.913,
+              "WHIRLWIND": 0.7659
+            }
+          },
+          "leiden_subcluster": 91,
+          "mech_one_liner": "geo=circle | deliv=self-origin | ctrl=hex/damage | econ=generator-spender | dep=one-shot | act=active | note: \"prov=mx-le;eg;kb. mech_note ref: 'The bear form with its own bar \u2014 swipe, roar, maul on rage-drain fuel, massive built-in tankiness; the Season 4 bossing king.'...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "le-werebear-druid",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-forbidden-rite",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.6847,
+            "all": {
+              "AURA": 1.118,
+              "CHANNELED-BEAM": 1.0529,
+              "MINION-PET": 0.998,
+              "TOTEM-SENTRY": 0.6847,
+              "TRAP-MINE": 1.0336,
+              "WHIRLWIND": 1.077
+            }
+          },
+          "leiden_subcluster": 50,
+          "mech_one_liner": "geo=totem | deliv=at-target | ctrl=hex/damage | econ=self-cost | dep=apply\u2192detonate | act=active | note: \"Forbidden Rite: chaos spell that costs life to cast (in addition to mana), dealing chaos damage plus launching seeking chaos projectiles that home on enemies....\"",
+          "conflict_ratified_family": "TOTEM-SENTRY",
+          "tau_chain": 1.05,
+          "nearest_seed": "poe1-hexblast-mines",
+          "distance_to_nearest_seed": 1.0
+        }
+      ]
+    },
+    {
+      "docket_id": 5,
+      "working_label": "MULTI-PROJECTILE-VOLLEY",
+      "seed_criterion": "membership in U-1 islet from shelved archipelago mock (largest unseeded coherent cluster, size 20)",
+      "axis_signature_description": "geometry_value = 'multi_projectile' (U-1 seeds are 100% multi_projectile)",
+      "method_note": "seeds = U-1 islet from 2026-07-16 archipelago mock (retained derivation layer); 20 of 20 in E4 after ratified-gateA removal; the U-1 axis signature is geometry_value='multi_projectile' (20/20 seeds); propagation halo REQUIRES this axis, so cross-family drift is prevented",
+      "self_scored_precision": 1.0,
+      "self_score_method": "LOO x coherence (1 - conflict_rate)",
+      "self_score_detail": {
+        "loo_admit_rate": 1.0,
+        "loo_total": 15,
+        "loo_admitted": 15,
+        "coherence_precision": 1.0,
+        "conflict_flagged_proposals": 0,
+        "proposals_total": 20
+      },
+      "chains": {
+        "4": {
+          "tau": 0.6325,
+          "n_seeds": 7,
+          "seed_ids": [
+            "d4-quill-volley",
+            "hot-archer",
+            "hot-sorceress-splinters",
+            "poe1-spark",
+            "poe1-split-arrow-bleed",
+            "poe1-tornado-shot",
+            "poe1-wander"
+          ]
+        },
+        "58": {
+          "tau": 0.6325,
+          "n_seeds": 2,
+          "seed_ids": [
+            "d2-bowazon",
+            "poe1-kinetic-fusillade"
+          ]
+        },
+        "74": {
+          "tau": 0.6325,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe1-molten-strike"
+          ]
+        },
+        "55": {
+          "tau": 0.4472,
+          "n_seeds": 2,
+          "seed_ids": [
+            "poe1-frost-blades",
+            "poe1-lightning-strike"
+          ]
+        },
+        "16": {
+          "tau": 0.6325,
+          "n_seeds": 1,
+          "seed_ids": [
+            "ud-spread-rapid-dex"
+          ]
+        },
+        "49": {
+          "tau": 0.6325,
+          "n_seeds": 2,
+          "seed_ids": [
+            "d2-wind-druid",
+            "d4-tornado-werewolf"
+          ]
+        },
+        "78": {
+          "tau": 0.6325,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe2-spiral-volley"
+          ]
+        },
+        "23": {
+          "tau": 0.6325,
+          "n_seeds": 1,
+          "seed_ids": [
+            "poe1-sst"
+          ]
+        },
+        "14": {
+          "tau": 0.6325,
+          "n_seeds": 2,
+          "seed_ids": [
+            "d2-frozen-orb-sorc",
+            "d4-frozen-orb"
+          ]
+        },
+        "129": {
+          "tau": 0.6325,
+          "n_seeds": 1,
+          "seed_ids": [
+            "le-umbral-blades"
+          ]
+        }
+      },
+      "member_count": 20,
+      "member_count_by_status": {
+        "proposed": 20
+      },
+      "member_count_conflict_flagged": 0,
+      "abstain": false,
+      "members": [
+        {
+          "kit_id": "d4-quill-volley",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8229,
+            "all": {
+              "AURA": 0.9747,
+              "CHANNELED-BEAM": 0.8678,
+              "MINION-PET": 0.939,
+              "TOTEM-SENTRY": 0.8229,
+              "TRAP-MINE": 0.973,
+              "WHIRLWIND": 0.8794
+            }
+          },
+          "leiden_subcluster": 4,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Eagle-spirit feather volleys that pierced, returned, and multiplied through bugged interactions into damage ORDERS OF MAGNITUDE past every o\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d4-quill-volley",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-kinetic-fusillade",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9176,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 0.9672,
+              "TRAP-MINE": 1.0038,
+              "WHIRLWIND": 0.973
+            }
+          },
+          "leiden_subcluster": 58,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"New wand attack from the 3.27 wand rework, holding tier-list placement into 3.28 Mirage. SEARCH-DERIVED (post-cutoff); mechanics thin \u2014 doss\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-kinetic-fusillade",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-molten-strike",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8576,
+            "all": {
+              "AURA": 0.9487,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.9689,
+              "TOTEM-SENTRY": 0.8576,
+              "TRAP-MINE": 0.9595,
+              "WHIRLWIND": 0.973
+            }
+          },
+          "leiden_subcluster": 74,
+          "mech_one_liner": "geo=multi_projectile | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Melee hit sprays fire projectiles that rain back down around the target \u2014 strike-emits-projectiles; the Uber Elder era's boss-killer throne.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-molten-strike",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-lightning-strike",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8229,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.939,
+              "TOTEM-SENTRY": 0.8229,
+              "TRAP-MINE": 0.9458,
+              "WHIRLWIND": 0.9661
+            }
+          },
+          "leiden_subcluster": 55,
+          "mech_one_liner": "geo=multi_projectile | deliv=at-target | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Melee strike that also fires converted-lightning projectiles forward \u2014 melee and ranged in one button; the modern era's dominant strike skil\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-lightning-strike",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "ud-spread-rapid-dex",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9648,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9648,
+              "MINION-PET": 1.0537,
+              "TOTEM-SENTRY": 0.9715,
+              "TRAP-MINE": 1.0586,
+              "WHIRLWIND": 1.0456
+            }
+          },
+          "leiden_subcluster": 16,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=build\u2192spend | act=active | note: \"The 'launch floor' of Undecember: Multishot as a LINK rune attaches to a base attack, multiplying projectile count. Spread Shot + Rapid Shot under the...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "ud-spread-rapid-dex",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-wind-druid",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9176,
+            "all": {
+              "AURA": 0.9487,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 0.9672,
+              "TRAP-MINE": 1.0038,
+              "WHIRLWIND": 0.973
+            }
+          },
+          "leiden_subcluster": 49,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Tornado throws erratic-path physical-magic twisters while Hurricane spins a cold aura around the body; the wandering-rotator archetype with \"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-wind-druid",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-frost-blades",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8956,
+            "all": {
+              "AURA": 1.0368,
+              "CHANNELED-BEAM": 0.9763,
+              "MINION-PET": 0.939,
+              "TOTEM-SENTRY": 0.8956,
+              "TRAP-MINE": 0.9907,
+              "WHIRLWIND": 1.0198
+            }
+          },
+          "leiden_subcluster": 55,
+          "mech_one_liner": "geo=multi_projectile | deliv=at-target | ctrl=hard-stop/damage | econ=spend | dep=one-shot | act=active | note: \"Cold strike whose hits throw icy projectiles to targets behind \u2014 the cold sibling of the strike-plus-projectiles family.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-frost-blades",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-spark",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9176,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 0.9715,
+              "TRAP-MINE": 1.0038,
+              "WHIRLWIND": 0.973
+            }
+          },
+          "leiden_subcluster": 4,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Sprays duration projectiles that wander randomly, bouncing off walls until they find flesh \u2014 corridor-flooding stochastic swarm; reborn as t\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-spark",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe2-spiral-volley",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9176,
+            "all": {
+              "AURA": 1.0124,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.9835,
+              "TOTEM-SENTRY": 0.9365,
+              "TRAP-MINE": 1.0167,
+              "WHIRLWIND": 0.9661
+            }
+          },
+          "leiden_subcluster": 78,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"POST-CUTOFF. prov=kb. mech_note ref: 'Spear projectiles on spiraling flight paths, named among 0.4's top-tier archetypes.' Full dossier required.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe2-spiral-volley",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "hot-sorceress-splinters",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.8678,
+            "all": {
+              "AURA": 0.9874,
+              "CHANNELED-BEAM": 0.8678,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 0.9715,
+              "TRAP-MINE": 1.0038,
+              "WHIRLWIND": 0.9661
+            }
+          },
+          "leiden_subcluster": 4,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Projectile-count platform: 'stacked for range and screen coverage' \u2014 the scaling axis is splinter count, not per-hit amplitude. Forum-paired with Ring Blades (hot-sage-ring-blades) as the...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "hot-sorceress-splinters",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-sst",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9176,
+            "all": {
+              "AURA": 0.9487,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.954,
+              "TOTEM-SENTRY": 0.9454,
+              "TRAP-MINE": 0.9549,
+              "WHIRLWIND": 0.9592
+            }
+          },
+          "leiden_subcluster": 23,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Throws a copy of the shield that shatters into shrapnel; damage scales off shield defenses \u2014 gear-stat-as-weapon oddity.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-sst",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-frozen-orb-sorc",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9296,
+            "all": {
+              "AURA": 1.084,
+              "CHANNELED-BEAM": 0.9296,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 1.0338,
+              "TRAP-MINE": 1.0545,
+              "WHIRLWIND": 1.0263
+            }
+          },
+          "leiden_subcluster": 14,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=hard-stop/damage | econ=spend | dep=one-shot | act=active | note: \"Frozen Orb travels then shatters, spraying radial ice bolts along its whole path; low-invest one-point wonder and the projectile-that-emits \"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-frozen-orb-sorc",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "le-umbral-blades",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.914,
+            "all": {
+              "AURA": 1.1068,
+              "CHANNELED-BEAM": 0.9763,
+              "MINION-PET": 1.0537,
+              "TOTEM-SENTRY": 0.914,
+              "TRAP-MINE": 1.0586,
+              "WHIRLWIND": 1.0456
+            }
+          },
+          "leiden_subcluster": 129,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=apply\u2192detonate | act=active | note: \"Two-phase mechanic (throw-lodge-recall) means a single cast applies damage on the way out AND on recall. Scale via cast speed + projectile count nodes. mech_note...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "le-umbral-blades",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d2-bowazon",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TRAP-MINE",
+            "distance": 0.8986,
+            "all": {
+              "AURA": 0.9354,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 1.0093,
+              "TRAP-MINE": 0.8986,
+              "WHIRLWIND": 1.0066
+            }
+          },
+          "leiden_subcluster": 58,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=free | dep=one-shot | act=active | note: \"Pure physical ranged attacker: Multishot fans arrows for density, Strafe autotargets sequential shots; damage entirely weapon-and-attack-spe\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d2-bowazon",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-split-arrow-bleed",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9176,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 0.9835,
+              "TOTEM-SENTRY": 0.9365,
+              "TRAP-MINE": 0.9907,
+              "WHIRLWIND": 0.9661
+            }
+          },
+          "leiden_subcluster": 4,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Wide arrow fan applying stacked bleeds with Gladiator explosion pops \u2014 physical DoT at range.\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-split-arrow-bleed",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "hot-archer",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.8678,
+            "all": {
+              "AURA": 0.9874,
+              "CHANNELED-BEAM": 0.8678,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 0.9715,
+              "TRAP-MINE": 1.0038,
+              "WHIRLWIND": 0.9661
+            }
+          },
+          "leiden_subcluster": 4,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"'The projectile-count platform of the roster, the Diablo-3-Demon-Hunter homage' per mech_note. EA-2023 anchor = solid pre-cutoff provenance. Multistrike + Pierce traits = the Archer's two...\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "hot-archer",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-tornado-shot",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9176,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 0.9715,
+              "TRAP-MINE": 1.0038,
+              "WHIRLWIND": 0.973
+            }
+          },
+          "leiden_subcluster": 4,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Arrow flies to a point then bursts into secondary arrows in all directions \u2014 projectile-spawns-projectiles; the endgame magic-find throne fo\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-tornado-shot",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d4-frozen-orb",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8956,
+            "all": {
+              "AURA": 1.0488,
+              "CHANNELED-BEAM": 0.9296,
+              "MINION-PET": 0.939,
+              "TOTEM-SENTRY": 0.8956,
+              "TRAP-MINE": 1.0167,
+              "WHIRLWIND": 0.9381
+            }
+          },
+          "leiden_subcluster": 14,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=hard-stop/damage | econ=spend | dep=one-shot | act=active | note: \"The D2 heirloom in D4 clothes \u2014 orb travels and sprays radial bolts, Fractured Winterglass recursion spawning free orbs from conjuration pro\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d4-frozen-orb",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "poe1-wander",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "CHANNELED-BEAM",
+            "distance": 0.9176,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9176,
+              "MINION-PET": 1.0122,
+              "TOTEM-SENTRY": 0.9715,
+              "TRAP-MINE": 1.0038,
+              "WHIRLWIND": 0.973
+            }
+          },
+          "leiden_subcluster": 4,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"Wand shots explode in clustered secondary blasts around impact \u2014 screen-paint clearing; the named wander MF archetype, refreshed by the 3.27\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "poe1-wander",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "d4-tornado-werewolf",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "TOTEM-SENTRY",
+            "distance": 0.8229,
+            "all": {
+              "AURA": 0.9747,
+              "CHANNELED-BEAM": 0.8678,
+              "MINION-PET": 0.939,
+              "TOTEM-SENTRY": 0.8229,
+              "TRAP-MINE": 0.973,
+              "WHIRLWIND": 0.8794
+            }
+          },
+          "leiden_subcluster": 49,
+          "mech_one_liner": "geo=multi_projectile | deliv=projectile | ctrl=none/damage | econ=spend | dep=one-shot | act=active | note: \"A WEREWOLF casting storm magic \u2014 Grizzly Rage swapped for wolf-form tornado spam via the Stormchaser aspect steering the twisters; form-shif\"",
+          "tau_chain": 0.0,
+          "nearest_seed": "d4-tornado-werewolf",
+          "distance_to_nearest_seed": 0.0
+        }
+      ]
+    },
+    {
+      "docket_id": 6,
+      "working_label": "MINION-PET",
+      "seed_criterion": "gateA-ratified MINION-PET (7 members, atlas_gateA_labels_2026_07_14)",
+      "axis_signature_description": "ctrl_function='taunt' AND economy_model='reserve' AND dependency_val='one-shot' (all 7 seeds share this signature)",
+      "method_note": "seeds = ratified gateA MINION-PET family (n=7); axis signature is ctrl_function='taunt' + economy_model='reserve' + dependency_val='one-shot' (7/7 seeds); this is the seed-poverty case \u2014 same-family propagation to find the ~12 obvious members",
+      "self_scored_precision": 0.8,
+      "self_score_method": "LOO x coherence (1 - conflict_rate)",
+      "self_score_detail": {
+        "loo_admit_rate": 0.8,
+        "loo_total": 5,
+        "loo_admitted": 4,
+        "coherence_precision": 1.0,
+        "conflict_flagged_proposals": 0,
+        "proposals_total": 1
+      },
+      "chains": {
+        "3": {
+          "tau": 0.6325,
+          "n_seeds": 3,
+          "seed_ids": [
+            "chr-demon-legion-warlock",
+            "chr-pet-warden",
+            "di-minion-necro"
+          ]
+        },
+        "147": {
+          "tau": 0.7746,
+          "n_seeds": 1,
+          "seed_ids": [
+            "tl2-shadowling-outlander"
+          ]
+        },
+        "30": {
+          "tau": 0.7746,
+          "n_seeds": 1,
+          "seed_ids": [
+            "tq-petmaster-summoner"
+          ]
+        },
+        "6": {
+          "tau": 0.4472,
+          "n_seeds": 2,
+          "seed_ids": [
+            "tl2-bot-engineer",
+            "tli-moto-bots"
+          ]
+        }
+      },
+      "member_count": 8,
+      "member_count_by_status": {
+        "ratified-seed": 7,
+        "proposed": 1
+      },
+      "member_count_conflict_flagged": 0,
+      "abstain": false,
+      "members": [
+        {
+          "kit_id": "chr-demon-legion-warlock",
+          "status": "ratified-seed",
+          "nearest_family": {
+            "label": "MINION-PET",
+            "distance": 0.4738,
+            "all": {
+              "AURA": 0.9874,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 0.4738,
+              "TOTEM-SENTRY": 1.0458,
+              "TRAP-MINE": 0.973,
+              "WHIRLWIND": 0.9309
+            }
+          },
+          "leiden_subcluster": 3,
+          "mech_one_liner": "geo=circle | deliv=self-origin | ctrl=taunt/damage | econ=reserve | dep=one-shot | act=active | note: \"EA-2015-2019 + 1.0-2020 (early archetype, kb confirmed). Shadow element from demon/dark magic. D1: shield-absorb = Warlock has arcane/dark barrier defense. Heavy proxy = the defining...\"",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "di-minion-necro",
+          "status": "ratified-seed",
+          "nearest_family": {
+            "label": "MINION-PET",
+            "distance": 0.4738,
+            "all": {
+              "AURA": 0.9874,
+              "CHANNELED-BEAM": 0.9876,
+              "MINION-PET": 0.4738,
+              "TOTEM-SENTRY": 1.0458,
+              "TRAP-MINE": 0.973,
+              "WHIRLWIND": 0.9309
+            }
+          },
+          "leiden_subcluster": 3,
+          "mech_one_liner": "geo=circle | deliv=self-origin | ctrl=taunt/damage | econ=reserve | dep=one-shot | act=active | note: \"D1: Bone Armor (shield-absorb) is the primary defense layer on top of HP-stack; not a melee-dodge kit. Heavy proxy = the defining feature \u2014 Necro...\"",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tl2-shadowling-outlander",
+          "status": "ratified-seed",
+          "nearest_family": {
+            "label": "MINION-PET",
+            "distance": 0.6292,
+            "all": {
+              "AURA": 1.0124,
+              "CHANNELED-BEAM": 1.0208,
+              "MINION-PET": 0.6292,
+              "TOTEM-SENTRY": 0.9365,
+              "TRAP-MINE": 0.9994,
+              "WHIRLWIND": 1.0132
+            }
+          },
+          "leiden_subcluster": 147,
+          "mech_one_liner": "geo=ground_targeted_circle | deliv=at-target | ctrl=taunt/damage | econ=reserve | dep=one-shot | act=active | note: \"Shadowlings spawn from killed enemies (proc economy on kill events) rather than via direct summon skill. This is a kill-to-summon proxy model \u2014 proxy=heavy because...\"",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tq-petmaster-summoner",
+          "status": "ratified-seed",
+          "nearest_family": {
+            "label": "MINION-PET",
+            "distance": 0.5031,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9532,
+              "MINION-PET": 0.5031,
+              "TOTEM-SENTRY": 0.9454,
+              "TRAP-MINE": 0.9549,
+              "WHIRLWIND": 0.8406
+            }
+          },
+          "leiden_subcluster": 30,
+          "mech_one_liner": "geo=self_buff | deliv=self-origin | ctrl=taunt/damage | econ=reserve | dep=one-shot | act=active | note: \"Heavy proxy is the defining characteristic. Economy=reserve captures the continuous pet upkeep cost. TQ summoner can use Nature (wolves + call of the wild), Spirit...\"",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tli-moto-bots",
+          "status": "ratified-seed",
+          "nearest_family": {
+            "label": "MINION-PET",
+            "distance": 0.5307,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9763,
+              "MINION-PET": 0.5307,
+              "TOTEM-SENTRY": 0.7027,
+              "TRAP-MINE": 0.9412,
+              "WHIRLWIND": 0.9452
+            }
+          },
+          "leiden_subcluster": 6,
+          "mech_one_liner": "geo=totem | deliv=at-target | ctrl=taunt/damage | econ=reserve | dep=one-shot | act=active | note: \"TLI live-2022+ only (no 2026 content); moderate conf. Moto is TLI's mechanical/bot commander hero \u2014 TL2 Bot Engineer archetype adapted to TLI's hero system. SU...\"",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "chr-pet-warden",
+          "status": "ratified-seed",
+          "nearest_family": {
+            "label": "MINION-PET",
+            "distance": 0.5307,
+            "all": {
+              "AURA": 1.0124,
+              "CHANNELED-BEAM": 0.9988,
+              "MINION-PET": 0.5307,
+              "TOTEM-SENTRY": 1.0378,
+              "TRAP-MINE": 1.0081,
+              "WHIRLWIND": 0.9165
+            }
+          },
+          "leiden_subcluster": 3,
+          "mech_one_liner": "geo=circle | deliv=self-origin | ctrl=taunt/damage | econ=reserve | dep=one-shot | act=active | note: \"'Pet Zoo' = maximum pet diversity build. Heavy proxy is the defining feature. The 'range=melee' (M in pos 2) is unusual for a pet master...\"",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tl2-bot-engineer",
+          "status": "ratified-seed",
+          "nearest_family": {
+            "label": "MINION-PET",
+            "distance": 0.6061,
+            "all": {
+              "AURA": 0.9747,
+              "CHANNELED-BEAM": 0.9763,
+              "MINION-PET": 0.6061,
+              "TOTEM-SENTRY": 0.7374,
+              "TRAP-MINE": 0.9951,
+              "WHIRLWIND": 0.9592
+            }
+          },
+          "leiden_subcluster": 6,
+          "mech_one_liner": "geo=totem | deliv=at-target | ctrl=taunt/damage | econ=reserve | dep=one-shot | act=active | note: \"Heavy proxy (H) = bot army delivers all damage; Engineer is the commander. SU old code = sustain (reserve maintenance). TL2 Bot Engineer mirrors TQ...\"",
+          "distance_to_nearest_seed": 0.0
+        },
+        {
+          "kit_id": "tl1-alchemist-summoner",
+          "status": "proposed",
+          "nearest_family": {
+            "label": "MINION-PET",
+            "distance": 0.6061,
+            "all": {
+              "AURA": 0.9618,
+              "CHANNELED-BEAM": 0.9532,
+              "MINION-PET": 0.6061,
+              "TOTEM-SENTRY": 0.9672,
+              "TRAP-MINE": 1.0038,
+              "WHIRLWIND": 0.8563
+            }
+          },
+          "leiden_subcluster": 30,
+          "mech_one_liner": "geo=self_buff | deliv=self-origin | ctrl=taunt/damage | econ=reserve | dep=one-shot | act=active | note: \"Commit=channel is unusual for a summoner but captures the TL1 Alchemist's casting animations \u2014 raising Zombie minions or summoning Golem requires a brief channel animation...\"",
+          "tau_chain": 0.7746,
+          "nearest_seed": "tq-petmaster-summoner",
+          "distance_to_nearest_seed": 0.4472
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "proposals": 138,
+    "ratified_seeds": 7,
+    "conflict_flagged": 3,
+    "dockets": 6,
+    "e4_corpus_size": 562,
+    "canon_corpus_row_count": 585
+  }
+}
