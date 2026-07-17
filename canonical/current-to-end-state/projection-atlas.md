@@ -89,14 +89,14 @@ Codex, carries **no address** here, and is exempt from the §3 alarm.
 | Damage geometry (5-class) | BC-MEASURED | Axis 2 — emergent from templates (R-3) | axes-lock |
 | Control density | BC-MEASURED | Axis 2B (R-3) | axes-lock |
 | Defensive profile | BC-MEASURED | Axis 4 (R-3) | axes-lock |
-| Resource economy (behavior) | BC-MEASURED | Axis 5 · cost-TYPE = same dimension at design grain, 3 bins RESERVED (R-4) | batch2 §8 R1 |
+| Resource economy (behavior) | BC-MEASURED | Axis 5 · cost-TYPE = same dimension at design grain — substrate **BUILT** Wave-B 2026-07-17 (R-4 promotion EXECUTED; arity unchanged) | batch2 §8 R1 · Wave-B economy spec |
 | Primary element | IDENTITY | L3 factor (16 valid pairs) — **never a coordinate (R-1)** | placement test |
 | Secondary element | IDENTITY | L4 factor (7; not pool-constrained — the Spellsword door) | element addendum |
 | `element_application` structures + `rate_band` | IDENTITY | L4 factor (393/pair) — barred from BC space by the placement test | canonized doc Part C |
 | Hook/trigger entries (binder-stamped) | IDENTITY (derived carrier) | project through source structure → L4 | hook-layer design note |
 | `naming_flavor_element` | WITHIN-CELL CONFIG | none — naming texture only (Do-Not-Regress) | tracker ⑧ |
 | Skill slots · `composition_mode` · per-ability `canonical_element` | WITHIN-CELL CONFIG | §5 expression grain | `skill_schema.py:9` |
-| `geometry_type` (24) · `spatial_geometry_type` (6) · params | WITHIN-CELL CONFIG | texture within the Axis-2 class | `ability_schema.py:20-29` |
+| `geometry_type` (25 — orbit added Wave-C/D) · `spatial_geometry_type` (6) · params | WITHIN-CELL CONFIG | texture within the Axis-2 class | `ability_schema.py:20-29` |
 | Per-chain ailments | WITHIN-CELL CONFIG (derived from IDENTITY) | follows chain element | `per_skill_emitter.py:772` |
 | Motion-frame bundles · emission slot (kernel) | WITHIN-CELL CONFIG — element-blind capability; behavior registers on EXISTING axes (adjudicated: Bucket-B re-ratified **0 new axes**) | §5 grain; fingerprint-visible | motion-frame amendment F1–F6 |
 | T4 capstones + `(commitment_bin, amplitude_delta)` transforms | CONSTRAINT/TRANSFORM | moves EXPRESSED coordinate; cert at expressed | E4 design note |
@@ -134,18 +134,31 @@ Codex, carries **no address** here, and is exempt from the §3 alarm.
 - **State:** HARNESS NOT BUILT — the archive exists; the occupancy/frontier emission pass does
   not. Until it lands, this page carries NO occupancy numbers (that is the honesty, not a gap to
   hand-patch). Harness = a named build-ladder candidate AFTER the emission primitive (ladder #5);
-  KR sequences.
-- **Named face — THE PERIODIC TABLE OF KITS (registered 2026-07-11, GO · plane re-based
-  2026-07-14):** the harness's first display consumer — Matt's mobile-track chart concept.
-  **Plane = the Edition-I DERIVED basis** per
-  `../reap-die-rise-engine/atlas-derivation-charter-2026-07-14.md` (statistical derivation +
-  four validation gates; PENDING pipeline execution) — Matt rejected all governance-history-picked
+  KR sequences. **S3 periodic-table harness UNBLOCKED at the E4 ratification (2026-07-17) — parked
+  for its own session.**
+- **Named face — THE PERIODIC TABLE OF KITS / THE BUILD HORIZON (registered 2026-07-11, GO ·
+  plane re-based 2026-07-14 · SHIPPED + SERVING on the canon side):** Matt's mobile-track chart
+  concept, realized first as the CANON-corpus atlas. **Plane = the Edition-I DERIVED basis** per
+  `../reap-die-rise-engine/atlas-derivation-charter-2026-07-14.md` (statistical derivation + four
+  validation gates — **EXECUTED; basis frozen**) — Matt rejected all governance-history-picked
   planes (both the original geometry × commitment sketch and the Q19 movement × delivery × amp
   lock, the latter demoted to a census-dashboard view; identity-key register lock untouched).
-  Explored-vs-unexplored renders as the ghost field (charter §4); remaining axes fold into
-  per-hex depth badges + click-through to exact tuples. Same law as everything on this page:
-  `chart = render(atlas.json)` — **emitted, never hand-drawn**; two skins (instrument +
-  "The God's Archive" devlog) off ONE renderer. Repairs + seam split at §5 arrival #3.
+  Ghost field + per-mark depth render live; same law as everything on this page:
+  `chart = render(atlas-edition json)` — **emitted, never hand-drawn**; two skins (instrument +
+  "The God's Archive") off ONE renderer, serving at Glance `/atlas`. **Edition ladder:** E-III
+  served 2026-07-16 (506 canon kits + 11,160-ghost field) → **E-IV RATIFIED 2026-07-17, serving
+  cutover executing** — anchored-E3 camera (Procrustes; 0/506 E-III points moved, byte-identity),
+  **562 points = 469 active + 93 supplementary** (Path-A admission law), the Lost Ark wing landing
+  inside the PERFORM-EMBODY corner behind pre-registered gates G-1..G-4 ALL PASS. Corpus laws
+  bound 2026-07-16 (Matt): **GRAIN LAW** (`grain='kit'` in every fit-stage predicate) · **INGEST
+  CLASS RULE + BEST-ONLY floor** (harvest spec §9.19); the two known phantom rows ride
+  `negative=1` in both editions (cleanup at E-next re-mint). **Provisional build-family islands**
+  = Matt-authorized PRE-NAMES-REVIEW display tier (ratified-members-only coloring — families grow
+  by ratification waves, never by τ); the full-space archipelago territory map is SHELVED with
+  criterion (per-sub-cluster-τ propagation at ≥80% precision over ≥20 proposals, names-level
+  review). **Grain honesty unchanged:** this face plots CANON kits; emitted-kit lattice occupancy
+  (the REALIZED ATLAS proper) still waits on the harness above. Repairs + seam split at §5
+  arrival #3.
 
 ## §5 — Fold obligations (mobile-track arrivals)
 
@@ -176,7 +189,9 @@ Codex, carries **no address** here, and is exempt from the §3 alarm.
    for exactly this artifact). **Renderer spec AUTHORED**
    (`agentic_orchestration/gandalf/notes/2026-07-11-atlas-chart-renderer-spec.md` — repairs bound
    as renderer laws; atlas.json contract; deterministic Python→SVG, two skins one layout engine;
-   seam table; 8 acceptance checks; harness-gated build order). **The reserved plane-FREEZE ruling
+   seam table; 8 acceptance checks; harness-gated build order). **Glance `/atlas` since SHIPPED
+   for the canon-corpus face** (§4 edition ladder — the harness-gated half that remains is the
+   emitted-kit occupancy overlay). **The reserved plane-FREEZE ruling
    is now AT MATT** against his pre-stated criteria (*"purposeful and sensible for the
    search/exploration of the space"*): spec §2 makes the case — 15-cell frame, both arities
    already ratified (geometry 5 = axes-lock W-C.5 · commitment 3 = Q-E4-4b); rows

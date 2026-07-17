@@ -80,7 +80,7 @@ analysis is L4 ≈ 1.28B**; the number of record for behavior-space is **L2 = 20
 | Damage tempo | 3 | ✓ | ✓ Axis 3A | LIVE |
 | Amplitude variance | 3 (flat/variable/spiky) | ✓ | ✓ Axis 3B | LIVE |
 | Defensive profile | 4 (tank/mitigator/dodger/glass) | ✗ (R-3) | ✓ Axis 4 | LIVE (dodger sub-cases partial-defer) |
-| Resource economy | 7 bins (behavior) ↔ cost-TYPE substrate (design lever) — **ONE dimension, two grains; do not double-count** | ~ mana-only; 3 structural bins `reserved, empty-by-ruling` (R-4, batch2 §8 R1) | ✓ Axis 5 (structural-priority detection) | LIVE behavior / RESERVED substrate |
+| Resource economy | 7 bins (behavior) ↔ cost-TYPE substrate (design lever) — **ONE dimension, two grains; do not double-count** | ✓ substrate **BUILT** (Wave-B economy 2026-07-17: PC · RS · AM · RC · charge-stack + commitment-state split; the R-4 `reserved, empty-by-ruling` promotion EXECUTED; **arity UNCHANGED — no lattice widen, 972-assert verified live at Wave-C gate**) | ✓ Axis 5 (structural-priority detection) | LIVE behavior / **BUILT substrate** (engine `cec8f12..b850800`) |
 | `bc_commitment` | 3 (instant/wind-up/channel) | ✓ (6th coordinate, Q-E4-4b) | ⚑ ninth axis — stress-test gated, PRIORITIZED | RULED (E4) |
 | Hybridity structure-set | mono ∪ {×1..2 of 7 structures} = 29 sets | ✗ — placement test BARS it from BC space; lives at `element_application` block | ✗ (realized-share joins fingerprint columns instead) | RULED (E3); v1 ships partitions |
 | Rate band | 2 (splash 10–25% / co_equal 40–60% realized share) | per-kit emission draw + per-cell pins | certified by attribution spine | RULED (E3) |
@@ -131,7 +131,7 @@ These vary per-skill/per-entity; they do NOT multiply the kit lattice, EXCEPT wh
 |---|---|---|
 | Motion-frame (7): `reference_frame` 5 · ω banded · dr/dt 3-class · count+phase · `persistence_mode` 4 · `collision_mode` 3 · `emission_hook` 5 | shape ⊗ motion-frame ⊗ temporal-envelope | frame · dr/dt class · persistence · collision class · hook presence = DEFINING; rest flavor |
 | Proxy-behavior (5): `proxy_archetype` 4 · `lifecycle` (shared enum) · `scaling_channel` 3 · `command_verb` 4 · attribution keys | staged P0/P1/P2 | archetype/lifecycle define the eight proxy cells |
-| Skill composition: `composition_mode` 4 · per-ability `canonical_element` · `layer2_trigger` 8 · geometry_type 24 / spatial 6 | emission vocabulary | no (kit geometry bin is the measure) |
+| Skill composition: `composition_mode` 4 · per-ability `canonical_element` · `layer2_trigger` 8 · geometry_type 25 (orbit = 25th, Wave-C/D) / spatial 6 | emission vocabulary | no (kit geometry bin is the measure) |
 
 **Reserved expression re-entries (named, never silent):** boomerang dr/dt sign-flip · epicycle
 (`parent_entity` live, no v1 cell) · spiral-in collapse · `target_entity` frame · `block_incoming`
@@ -161,6 +161,22 @@ lattice EXPANSION, not counted in L4).
 3. **Multi-axis alteration with learned rules.** After single-axis exhaustion, compose moves under
    rules learned along the way — the E4 coupling laws (§4) are the first entries in that rulebook;
    step-2 produces more (which axis-steps preserve fun from which anchors).
+
+**STEP-1 STATE (atlas-parity autonomous run, closed 2026-07-17 — EXECUTED; all numbers
+emission-derived):** the canon-kit → coordinate table EXISTS — corpus.db carries **563 kit-grain
+canon candidates** (518 corpus positives + 45 founding roster) with cell_key resolved and
+engine-key 1:1 (full L4 addresses; census V13,
+`agentic_orchestration/research/curated/atlas/s2-readiness-census-v13-2026-07-17.md`). **Engine
+parity against Canon: 560/563 = 99.47% expressible** (trajectory V7 45.4% → V13 99.47% via the
+ailment/economy/trigger/fidelity waves; residue 3 = `mechanic:shapeshift`, at Matt's GX-02 forks).
+The occupied region of Canon RENDERS as **THE BUILD HORIZON** (`projection-atlas.md` §4 named
+face): Edition-I derived basis (charter gates, frozen) → **Edition IV ratified 2026-07-17** (562 =
+469 active + 93 supplementary, anchored to the E3 camera). Two corpus laws learned en route (Matt
+rulings 2026-07-16): **the GRAIN LAW** — corpus grain = emission grain; the engine emits KITS, so
+every fit-stage predicate carries `grain='kit'` (never a class, never an item list) — and **the
+INGEST CLASS RULE + BEST-ONLY floor** (harvest-pipeline spec §9.19: no game enters the corpus
+except through the spec; Rank-1-attested or unambiguously folk-canonical only). Step 2 remains
+NOT-NOW by ruling; the FUN-instrument ladder below is unchanged.
 
 ### The FUN-instrument derivation ladder (Matt doctrine, 2026-07-11 — supersedes the "candidates" framing)
 
