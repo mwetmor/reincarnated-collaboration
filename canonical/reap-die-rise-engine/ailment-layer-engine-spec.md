@@ -1,6 +1,6 @@
 # Ailment-Layer Engine Spec — damage-amp + freeze + stun + poison-dot (+ taunt annex)
 
-**STATUS:** CURRENT — draft-for-Gate-1 (jack-ryan next). Not yet build-authorized; specialists build after Gate-1 clears.
+**STATUS:** CURRENT — Gate-1 PASS-WITH-AMENDMENTS (jack-ryan 2026-07-16). 8 text-level amendments applied inline (see §2.6, §3.6, §5.7, §5.9, §6.3, §6.5.1, §7, §11). Specialists may build; five §10 escalation rulings stand veto-open pending Matt read.
 **Date:** 2026-07-16
 **Author:** gandalf (SPEC-AUTHOR work unit, autonomous run)
 **Authority:** pause-2 convening 2026-07-12 item 4 (ailment-layer design session commissioned; damage-amp + freeze + stun + poison-dot as the first tranche, taunt rides Wave A, GX-15 folded) · autonomous-run delegation Matt 2026-07-16 (sub-agents iterate engine toward 100% atlas mechanical parity). **Six delegated rulings this doc records are gandalf-prime rulings under Matt's autonomous-run authority — veto-open, Matt may overturn on read.**
@@ -128,13 +128,14 @@ Rocket authorship touchpoint: `element_biases.py` gets a NEW element-ailment map
 
 ### 2.6 Stacking / refresh law
 
-- **Single-instance-per-target** — sunder is NOT stack-additive (unlike poison §5.5). Multiple sunder applications refresh duration (max(existing, incoming)) and take the **max damage_taken_percent** (mirrors `_add_or_refresh`'s F3 DoT-refresh law — the LATER application does not weaken the LIVE stronger amp; consistent with the max-tick preservation for DoTs).
-- **Cross-source stacking capped at `max_amp_cap=0.50`** — if multiple sunder sources land on the same target (multi-caster / multi-skill), the effective damage amp is `min(max_amp_cap, sum_of_active_amps)`. Runaway-guard invariant.
+- **Single-instance-per-target** — sunder is NOT stack-additive (unlike poison §5.5). Only ONE sunder `ActiveEffect` ever coexists on a defender. Re-application refreshes duration to `max(existing, incoming)` and takes the **max damage_taken_percent** (mirrors `_add_or_refresh`'s F3 DoT-refresh law at `damage_resolver.py:1075-1087` — the LATER application does not weaken the LIVE stronger amp; consistent with the max-tick preservation for DoTs).
+- **Cap invariant** — because sunder is single-instance-per-target, the per-target effective amp is `min(max_amp_cap, current_amp)`. Since `damage_taken_percent.max = 0.50` and `max_amp_cap = 0.50`, the cap is a defense-in-depth invariant against parameter drift; it does NOT compose across multiple simultaneous sunder ActiveEffects (there is only ever one). Multi-caster / multi-skill scenarios follow the max-magnitude refresh rule above — the stronger amp wins for the union of durations.
 - **Duration composition** — `attacker.ability_modifiers["control_duration_bonus"]` (already applied at `damage_resolver.py:1039`) applies to sunder duration.
+- **Amendment note (jack-ryan Gate-1 2026-07-16):** original wording proposed a `min(cap, sum_of_active_amps)` cross-source sum-cap that CONTRADICTED single-instance-per-target. Resolved to (option 2) single-instance + max-magnitude refresh + cap-as-invariant. §7 "sunder × sunder | REFRESHES + summed cap" amended to reflect this.
 
 ### 2.7 Name shortlist (delegated ruling 2 — gandalf-prime picks at verify)
 
-Three launder-clean candidates. gandalf-prime selects one at verify gate; other two archive.
+Three launder-clean candidates. **RULED at verify-gate (gandalf-prime, 2026-07-16, veto-open): `sunder`.** Grounds beyond the lean below: the broader action-RPG-adjacent lineage ("Sunder Armor"-class stacking take-more-damage debuffs) makes "sunder = you take more damage now" instantly legible to veterans while **no ARPG in our corpus owns it as ailment identity**; the PoE1 skill named Sunder is a slam attack — a skill-name-layer collision, not an ailment-vocabulary one (RDR skill names are per-kit LLM-generated; ailment vocabulary is engine-internal). It also bridges the lightning primary home to the physical armor-break secondary home (§2.5) in one word. `expose` carries real PoE-Exposure adjacency (a named late-PoE1 mechanic — more laundering risk than first rated); `weaken` actively misleads D2 veterans via the invert-flip. Other two archive.
 
 | Candidate | Lineage note (proves launder-clean) |
 |---|---|
@@ -264,7 +265,7 @@ Rocket authorship: extend `element_biases.py` — ice element maps to `[chill (p
 - **Application:** `damage_resolver._try_apply_ailment` — no change; freeze is a standard hard-control add via the existing gate.
 - **Immobilization enforcement:** NEW consumer in `combatant.py` — while `active_effects` contains `name=="freeze"`, defender's movement_factor=0 AND action_ready=false. Analogous to how `slow_percent` composes at `combatant.py:375`; freeze is the terminal case (full lock).
 - **Shatter hook (ESCALATION b):** where does shatter damage resolve?
-  - **(i) `effect_resolver.tick_effects` expiry path** — when freeze's `duration_remaining` hits 0, check `defender.hp / defender.max_hp < shatter_threshold_fraction`; if true, apply `shatter_damage_percent * defender.max_hp` as damage event.
+  - **(i) `effect_resolver.tick_effects` expiry path** — when freeze's `duration_remaining` hits 0, check `defender.hp / defender.max_hp < shatter_threshold_fraction`; if true, apply `shatter_damage_percent * defender.max_hp` as damage event. **Placement precision (jack-ryan Gate-1 2026-07-16):** the shatter check must fire when freeze's decrement inside the tick loop (`effect_resolver.py:59`) drops `duration_remaining <= 0`, BEFORE the expiry cull at line 95 (`combatant.active_effects = [e for e in ... if e.duration_remaining > 0]`). Otherwise the effect is culled before the check reads it. Concretely: after line 59's decrement, if `effect.name == "freeze"` and `effect.duration_remaining <= 0` and `combatant.hp / combatant.max_hp < shatter_threshold_fraction`, apply shatter damage.
   - **(ii) `damage_resolver` on-hit trigger** — a heavy cold hit on a frozen target consumes the freeze and triggers shatter immediately (PoE2 Ice Strike model).
   - **gandalf lean: (i)** — cleaner architecturally; keeps shatter as an ailment-lifecycle event (parallels how DoTs tick in effect_resolver). (ii) mixes concerns and creates a two-seam interaction (Discipline #11). But (ii) is more player-satisfying (immediate feedback vs delayed expiry burst).
   - **ESCALATION b — Matt/KR ruling owed:** ratify (i) or (ii) or hybrid before gamora builds. Impact: which module owns shatter; whether shatter is expiry-triggered or hit-triggered.
@@ -469,7 +470,7 @@ Rocket authorship: extend `element_biases.py` — physical `[bleed (primary), po
 ### 5.7 Gen-side emission surface
 
 - `element_biases.py` — new secondary-ailment routing (see §5.4).
-- `geometry_derivation.py` — poison enters `_damage_effects` set (line 239) alongside burn/bleed. New rules: `poison + role=damage_over_time + physical tag=venom → melee_strike`; `poison + role=area_damage + shadow → ground_targeted_circle` (poison cloud narrative).
+- `geometry_derivation.py` — poison enters `_damage_effects` set (line 239) alongside burn/bleed. New rules: `poison + role=damage_over_time + physical tag=venom → melee_strike`; `poison + role=area_damage + shadow → ground_targeted_circle` (poison cloud narrative). **Note (jack-ryan Gate-1 2026-07-16):** the existing `_control_effects` set at line 238 currently contains `drain` (a DoT), inherited from a pre-Wave-A precedent where the set doubles as a "disqualify pure_utility_effects" filter. Rocket authorship: DO NOT add poison to `_control_effects` — poison is a DoT with `is_control: none`, matches burn/bleed treatment. The drain-in-control-set inconsistency is pre-existing and out of scope.
 - `substrate_templates.py` — new templates: `venom_strike` (per-hit poison-carrier), `toxic_cloud` (area poison-ground), `corrupting_touch` (shadow poison rider).
 
 ### 5.8 Calibration guardrails
@@ -480,7 +481,7 @@ Rocket authorship: extend `element_biases.py` — physical `[bleed (primary), po
 
 ### 5.9 DL-03 conformance
 
-Poison-cloud (`toxic_cloud` template) is a placed ground zone. If authored as a stream/channel (caster holds cloud active), DL-03 binds: stream must not tax movement. Author as non-stream (place-and-forget cloud) OR verify cloud-channel geometry passes DL-03. Rocket authorship note.
+Poison-cloud (`toxic_cloud` template) is a placed ground zone. If authored as a stream/channel (caster holds cloud active), DL-03 binds: stream must not tax movement. **jack-ryan Gate-1 ruling (2026-07-16, per §11 explicit deferral):** `toxic_cloud` MUST be authored place-and-forget — use `tags=["placed"]` following the existing precedent set by `bomb_mine`, `turret`, `totem`, `zone_teleport_shadow`, `sentinel`, `wall`, `wind_cyclone_zone`, `holy_sanctify_zone` in `substrate_templates.py`. Do NOT use `tags=["channel"]` (the `hp_cost_channel_*` family shape) — that would create a caster-held cloud that taxes caster movement, violating DL-03. Rocket authorship binding.
 
 ### 5.10 Interaction highlights
 
@@ -512,7 +513,7 @@ Taunt rides this machinery as a **parameter, not a new subsystem.** No new ailme
 Two possible representations:
 
 **Representation A — Proxy-AI directive (LEAN):**
-Add `taunt_priority: float [0.0, 1.0]` field to `PROXY_TYPE_BEHAVIOR` mapping in `proxy_vocabulary_bridge.py`. Enemy nav-selection consumers (in `spatial_engine.py`) read taunt_priority to weight target selection: higher = enemy more likely to target this proxy.
+Add `taunt_priority: float [0.0, 1.0]` in `proxy_vocabulary_bridge.py`. **Post-Wave-A code shape (verified 2026-07-16 jack-ryan Gate-1):** the existing maps are `PROXY_TYPE_TIER` (int) and `PROXY_TYPE_TARGETING` (string, one of `nearest|player_target|taunt|intercept|positional|proximity|none`). There is NO `PROXY_TYPE_BEHAVIOR` map by that name. `golem_construct` already carries `targeting_behavior="taunt"`. Rocket authorship: add a NEW parallel map `PROXY_TAUNT_PRIORITY: dict[str, float]` keyed by `proxy_type` (default 0.0 for absent entries); do NOT extend `PROXY_TYPE_TARGETING` to a dict-value shape (would break existing string-consumers). Enemy nav-selection consumers in `spatial_engine.py` read `PROXY_TAUNT_PRIORITY.get(proxy_type, 0.0)` to weight target selection: higher = enemy more likely to target this proxy.
 
 **Representation B — Target-side ailment:**
 Add `taunt` as a new ailment in `ailments.yaml` (is_control: soft, category: hard_control or debuff — unclear; ARCHITECTURAL ESCALATION e). Enemies with `taunt` ActiveEffect on them are forced to target the taunt-source until expiry.
@@ -530,7 +531,7 @@ Add `taunt` as a new ailment in `ailments.yaml` (is_control: soft, category: har
 
 ### 6.5 Small delta owed to Wave A (assuming ruling A)
 
-1. **rocket:** extend `PROXY_TYPE_BEHAVIOR` map in `proxy_vocabulary_bridge.py` with `taunt_priority: float` field. Default 0.0 (no taunt). Proxy types tagged with `taunt` (e.g., `melee_tank_pet`, `thorns_barrier_summon`) get taunt_priority > 0.
+1. **rocket:** add NEW map `PROXY_TAUNT_PRIORITY: dict[str, float]` to `proxy_vocabulary_bridge.py` (parallel to existing `PROXY_TYPE_TIER` and `PROXY_TYPE_TARGETING`). Default 0.0 (absent = no taunt). Proxy types with tank-adjacent identity (e.g., `golem_construct` — already has `targeting_behavior="taunt"`; new `melee_tank_pet`, `thorns_barrier_summon`) get `PROXY_TAUNT_PRIORITY[proxy_type] > 0`. Note: keep `PROXY_TYPE_TARGETING` string-valued unchanged.
 2. **gamora:** enemy nav-selection consumers in `spatial_engine.py` (`_navigate_entity` and target-selection paths) read taunt_priority to weight target scoring. Higher taunt_priority = enemy prefers that proxy over the player.
 3. **Tank-self-taunt exception** — Thorns-Templar-style: player carries `taunt_self_priority` as a build modifier; enemies weight player-targeting up (rather than proxy-targeting). Small extension; SAME nav-selection consumer.
 
@@ -562,10 +563,15 @@ The full post-spec registry becomes 12 ailments (8 existing + 4 new + taunt-if-B
 | freeze × shatter | shatter fires at freeze expiry IF HP < threshold. On-hit-shatter (ESCALATION b variant) fires immediately. |
 | poison × poison | STACKS (up to cap per attacker; evict oldest on overflow). |
 | burn × burn | REFRESHES (single-instance; max-tick preserved). |
-| sunder × sunder | REFRESHES + summed cap. Multi-source composes to max_amp_cap. |
+| sunder × sunder | REFRESHES (single-instance-per-target). Max-magnitude wins; cap enforced as invariant, not as sum. |
+| freeze × sunder | The tentpole combo — freeze locks target, sunder amps every hit during the lock window. This is the pattern §10 ruling (b) rationale names ("unload while locked"). Watch DPS composition guard §2.11 boss check. |
+| stun × sunder | Short-window analog of freeze × sunder. Amp fires during the ≤1.5s interrupt. |
+| root × sunder | Positional-lock analog. Target rooted, amp fires on incoming hits. |
+| shock × sunder | Shock's paralysis-on-arc + sunder amp — lightning-kit natural pairing (both ride lightning per §2.5/§4.4). Watch S6 CC-density §4.9. |
+| poison × freeze | Poison ticks continue while target frozen (freeze locks movement/action, not DoT). §5.10. |
 | stun × stun-immunity | new stun DROPPED if within immunity_after_seconds window. |
 | any 2+ non-sunder ailments × sunder | sunder synergy_bonus_percent applies (GX-15 fold-in §2.10). |
-| consecrate × sunder | consecrate is holy amplification zone; sunder is per-target debuff. Coexist; if target is shadow AND sundered AND in consecrate zone, receives amp × consecrate DoT. Composed multiplicatively — verify S6 DPS bands. |
+| consecrate × sunder | consecrate is holy amplification zone (zone DoT ticks in `effect_resolver`); sunder is per-target debuff (amp applied in `damage_resolver.resolve_skill`). Coexist. If target is shadow AND sundered AND in consecrate zone: consecrate's shadow-DoT tick is amplified by sunder at tick-time (§2.8 says sunder applies at damage composition AND at DoT tick path). Composition is DOUBLE-multiplicative (consecrate tick × sunder amp), not triple — the shadow-target amp is consecrate's own valenced rule, not a separate multiplier. Verify S6 DPS bands. |
 | taunt × any ailment | taunt does not clear or interact with other ailments; changes target-selection only. |
 | root × freeze | both movement-lock. Coexist; expiry independent. |
 | knockback × freeze | knockback displaces; freeze locks. If freeze applied to knocked-back target mid-flight, freeze fires post-landing (existing knockback resolution behavior; verify with gamora). |
@@ -626,17 +632,22 @@ The full post-spec registry becomes 12 ailments (8 existing + 4 new + taunt-if-B
 
 ---
 
-## §10 — ESCALATIONS (5 total — do not self-authorize; route to jack-ryan Gate-1 next, then Matt/KR)
+## §10 — ESCALATIONS (5 total — RULED at gandalf verify-gate 2026-07-16; veto-open; Gate-1 stress-tests)
 
-**These are ARCHITECTURAL choices with two or more valid options, beyond the six delegated rulings. gandalf leans stated; Matt/KR rules.**
+> **RULINGS (gandalf-prime, 2026-07-16 verify-gate, under Matt's autonomous-run delegated authority — all five ratify the drafter's leans, each on named grounds; one word from Matt reverses any):**
+> - **a → `debuff`.** The RESERVED slot exists for exactly this class; `amplification` stays zonal-valenced (consecrate), `debuff` = per-target timed multiplier. No new category.
+> - **b → (i) expiry-under-threshold.** Decisive DESIGN ground beyond the architectural one: on-hit shatter would make freeze a pseudo-amp-window and **collide with sunder's niche**. Expiry-under-threshold keeps the verbs distinct — sunder = amp window, freeze = **execute-setup** (unload while locked; the burst is earned by pushing the target under threshold during the freeze — the PoE2 Ice Strike Invoker two-phase loop, with death-during-freeze preserving the D2 shatter beat). Player consequence: freeze-then-unload feels authored; freeze-then-idle earns nothing.
+> - **c → (c) hybrid.** Universal immunity-after-expiry (anti-stunlock floor) + boss duration multiplier — the solo-ARPG genre shape (D3 elite CC-reduction / LE boss CC resist), not MMO stack-DR.
+> - **d → (a) independent-stack.** The PoE1 poison model is the deepest build-craft realization of "stack-additive, distinct from burn" (the delegated ruling's core); cap + evict-oldest guard stands (§7).
+> - **e → (A) proxy-AI directive.** 10/11 gap kits are proxy-hosted; taunt is pet-aggro, not target-status. Thorns-class self-taunt = player build-modifier on the SAME nav-selection consumer (§6.5.3). ailments.yaml does not grow a behavior-override no other ailment has.
 
-1. **ESCALATION a (sunder §2.3)** — category choice: `debuff` (reuse reserved) OR `amplifier` (new category). *gandalf lean: `debuff`.*
-2. **ESCALATION b (freeze §3.6)** — shatter resolution site: (i) `effect_resolver.tick_effects` expiry path (clean; deferred feedback) OR (ii) `damage_resolver` on-hit trigger (immediate feedback; two-seam mixing) OR hybrid. *gandalf lean: (i).*
-3. **ESCALATION c (stun §4.6)** — boss-resistance model: (a) flat multiplier only OR (b) stack-tracker DR OR (c) hybrid (multiplier + universal immunity-after-expiry). *gandalf lean: (c).*
-4. **ESCALATION d (poison §5.5)** — stacking architecture: (a) independent-stack (PoE1 model) OR (b) rolling-aggregate OR (c) per-attacker cap + global tick sum. *gandalf lean: (a).*
-5. **ESCALATION e (taunt §6.4)** — model choice: (A) proxy-AI directive (small delta to Wave A) OR (B) target-side ailment entry (symmetric with other ailments). *gandalf lean: (A).*
+1. **ESCALATION a (sunder §2.3)** — category choice: `debuff` (reuse reserved) OR `amplifier` (new category). **RULED: `debuff`.**
+2. **ESCALATION b (freeze §3.6)** — shatter resolution site: (i) `effect_resolver.tick_effects` expiry path OR (ii) `damage_resolver` on-hit trigger OR hybrid. **RULED: (i).**
+3. **ESCALATION c (stun §4.6)** — boss-resistance model: (a) flat multiplier only OR (b) stack-tracker DR OR (c) hybrid (multiplier + universal immunity-after-expiry). **RULED: (c).**
+4. **ESCALATION d (poison §5.5)** — stacking architecture: (a) independent-stack (PoE1 model) OR (b) rolling-aggregate OR (c) per-attacker cap + global tick sum. **RULED: (a).**
+5. **ESCALATION e (taunt §6.4)** — model choice: (A) proxy-AI directive (small delta to Wave A) OR (B) target-side ailment entry. **RULED: (A).**
 
-Count check: 5. Matches §0 TL;DR.
+Count check: 5, all RULED veto-open. Matches §0 TL;DR.
 
 ---
 
@@ -646,7 +657,7 @@ DL-03 (Matt 2026-07-12 design law: streams never tax movement) binds specificall
 - Sunder: N/A (debuff).
 - Freeze: taxes TARGET movement; DL-03 addresses CASTER movement. Non-collision.
 - Stun: same as freeze.
-- Poison: `toxic_cloud` template MAY collide if authored as a caster-held channel — rocket authors as place-and-forget cloud per DL-03; verify at Gate-1.
+- Poison: `toxic_cloud` template MAY collide if authored as a caster-held channel — RESOLVED at Gate-1 (§5.9): rocket authors as `tags=["placed"]` per existing zone-template precedent. DL-03 conformance passes.
 - Taunt: N/A.
 
 DL-03 explicitly satisfied.
