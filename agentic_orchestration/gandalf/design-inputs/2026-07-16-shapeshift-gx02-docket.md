@@ -1,9 +1,14 @@
 # SHAPESHIFT (GX-02) — Design Docket (ELICITOR-shaped; fork-surfacing)
 
-**STATUS:** DRAFT DOCKET — forks OPEN, no closed spec sections.
+**STATUS:** GATED DOCKET — forks OPEN for Matt; gandalf-prime DRIFT-CRITIC **PASS-WITH-NOTES** (2026-07-16, same session).
 **Date:** 2026-07-16
 **Author:** gandalf (sub-agent, ELICITOR role; atlas-parity autonomous run under Matt authorization 2026-07-16)
-**Route:** gandalf-prime DRIFT-CRITIC gate → Matt rulings → then a SPEC-AUTHOR docket-to-spec pass.
+**Route:** ✓ gandalf-prime DRIFT-CRITIC gate (below) → Matt rulings (docket-3 sitting or earlier at his pleasure) → then a SPEC-AUTHOR docket-to-spec pass.
+
+> **DRIFT-CRITIC GATE STAMP (gandalf-prime, 2026-07-16):**
+> 1. **Verdict: PASS-WITH-NOTES.** Fork discipline, evidence triangulation, engine grounding, and DL-03 check all sound. All six leans are **PRIME-CONCURRED** as design priors — A2 (decision-cadence is the honest family boundary; AURA/TOTEM-SENTRY split logic; kit grain = loop identity, and Ferality vs PBA ARE different loops) · B3 · C1+C2 pairing (C4 rides temporal-window as config variant) · **D5-with-D3-Wave-1-slice especially** (the docket's sequencing insight: cooldown-lockout has zero new-economy dependency; gauge-coupled entry waits for GX-19, which outranks shapeshift on the family docket anyway) · E5 compositional (Wave-A side-clock discipline; commit_state stays per-cast) · F2. **Forks remain OPEN — Matt rules.**
+> 2. **NAMING RULED (gandalf-prime seam — style register / vocabulary stewardship; veto-open):** §3.4's collision resolves as option 2 — **shapeshift renames; the in-fight state noun is `shape`** (`shape_active`, `shape_gate`, `shape_state_machine.py`, "Bear shape" / "Fox shape" at player surface). **"Form" stays EXCLUSIVELY the ascended-lineage / Court-of-Forms / form-library concept** — that is core meta-layer story vocabulary (Earth-Self form library; spirit-guide-as-future-self) and outranks. Grounds: `shape` is the honest genre word with D2 lineage (the tree is literally "Shape Shifting"); launder-clean in the engine namespace; `stance` is RESERVED for a possible STANCE-DANCE family label (A3/F3 vocabulary orthogonality); `body` collides with seasonal body-swap; `vessel`/`guise` fail common-vocab (the D1 element-name lesson). Renaming Court instead = HIGH churn on story canon that is correct as-is; namespacing both = permanent ambiguity. The class fantasy may still say "shapeshift" freely — the STATE is `shape`.
+> 3. **Stale-line correction:** §Fork F's "the E4 refit is currently running" is superseded — E4 COMPLETED + verified this session; it sits at Matt's ratification gate. The substantive point survives: shape families queue for a future edition's admission via the docket-3 review sitting, never E4.
 **Authority:** GX-02 form-shift ratified keystone gap, ranked #3 on the family discovery docket (`canonical/current-to-end-state/current-to-end-state-engine.md` §Ranked-docket — after MELEE-STRIKE, GAUGE/BUILDER-SPENDER). Evidence debt just paid — three fresh attestations (LA Wildsoul Ferality + PBA, GD Berserker Wereforms) join the accumulated exhibits (D2 Druid, D4 Druid, LA Shadowhunter Demonize).
 **Companion docs:**
 - `agentic_orchestration/legolas/research/la-postcutoff-dossiers-2026-07-16/01-la-ferality-wildsoul.md` — attestation 1 (STRONG, persistent-form)
