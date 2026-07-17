@@ -146,14 +146,20 @@ Codex, carries **no address** here, and is exempt from the §3 alarm.
   Ghost field + per-mark depth render live; same law as everything on this page:
   `chart = render(atlas-edition json)` — **emitted, never hand-drawn**; two skins (instrument +
   "The God's Archive") off ONE renderer, serving at Glance `/atlas`. **Edition ladder:** E-III
-  served 2026-07-16 (506 canon kits + 11,160-ghost field) → **E-IV RATIFIED 2026-07-17, serving
-  cutover executing** — anchored-E3 camera (Procrustes; 0/506 E-III points moved, byte-identity),
-  **562 points = 469 active + 93 supplementary** (Path-A admission law), the Lost Ark wing landing
+  served 2026-07-16 (506 canon kits + 11,160-ghost field) → **E-IV SERVING IN PRODUCTION
+  2026-07-17** (cutover complete: galadriel plates + islands pass-2, drax builder/sidecar rebuild,
+  `.vercelignore` E4 repoint) — anchored-E3 camera (Procrustes; 0/506 E-III points moved,
+  byte-identity, re-asserted at the serving layer: builder `e3_carried_check` 506/0),
+  **562 points = 469 active + 93 supplementary** (Path-A admission law: 50 new positives carry
+  `supplementary:true` + null `death_class` — NOT graveyard; the E3 supplementary↔graveyard
+  synonymy is retired at the serving layer), the Lost Ark wing landing
   inside the PERFORM-EMBODY corner behind pre-registered gates G-1..G-4 ALL PASS. Corpus laws
   bound 2026-07-16 (Matt): **GRAIN LAW** (`grain='kit'` in every fit-stage predicate) · **INGEST
   CLASS RULE + BEST-ONLY floor** (harvest spec §9.19); the two known phantom rows ride
   `negative=1` in both editions (cleanup at E-next re-mint). **Provisional build-family islands**
-  = Matt-authorized PRE-NAMES-REVIEW display tier (ratified-members-only coloring — families grow
+  = Matt-authorized PRE-NAMES-REVIEW display tier, **SERVING on the E4 plate** (78 dashed islets ·
+  135 proposed rings + 7 ratified-seed ticks + 3 conflict marks · 6 candidate dockets awaiting the
+  names sitting; ratified-members-only coloring — families grow
   by ratification waves, never by τ); the full-space archipelago territory map is SHELVED with
   criterion (per-sub-cluster-τ propagation at ≥80% precision over ≥20 proposals, names-level
   review). **Grain honesty unchanged:** this face plots CANON kits; emitted-kit lattice occupancy
