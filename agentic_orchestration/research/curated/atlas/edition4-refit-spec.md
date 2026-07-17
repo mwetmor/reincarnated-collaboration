@@ -42,7 +42,7 @@ Everything below is written to execute under either path; path-specific sections
 **Expected E4 plate (under P-1 holdout):** 506 + 53 = **559** = 469 active-basis + 90 supplementary (37 legacy tombstones + 47 new positives + 6 new tombstones) — subject to run reconciliation, fail-loud.
 
 **Reconciliation items (elrond names these in the run report; no silent disposition):**
-- **R-1:** 509 keyed kit rows vs 506 E3 points — **3 keyed rows are not E3 citizens.** Name them, state why (staged out? era? never admitted?), disposition explicitly.
+- **R-1 (RESOLVED at spec-time, 2026-07-16):** the 3 keyed-not-in-E3 rows are the **pull re-keys** — `d4-spiritborn-vortex`, `d3-wizard-black-hole`, `di-cyclone-strike-monk-base` (`source_date=2026-07-15`, post-E3-freeze additions from the refit-candidate staging era; the "3 pull re-keys (d3/di/d4)" of the comparison report §8). Disposition: **admit as supplementary IF T2 provenance passes at run** (elrond verifies their ingest lineage — d3/di/d4 are speced-corpora games, expected PASS).
 - **R-2:** the 6 new LA negatives need `death_class` seating per the tombstone convention before plate admission.
 - **R-3:** exactly one pre-existing kit row carries `unresolved=1` WITH a cell_key — name it, state what its flag means, disposition.
 
@@ -62,6 +62,7 @@ A row enters the E4 plate iff ALL hold:
 The curated 57 carry `unresolved=1`, `cell_key=NULL` by design — this stage resolves them:
 
 - **D1:** derive each row's mechanical coordinates from its §9.19 `proj` axes (verbatim jsonl preserved per-row in `canon_engine_key.raw_json`) using **the same code-path that produced the existing 509 cell_keys.** No new mapping rules minted mid-run; if a §9.19 axis has no existing mapping, the row abstains (T3) and the gap is reported — mapping extensions are a spec amendment, not a run improvisation.
+- **D1-fidelity (added 2026-07-16, Matt's pull probe):** the derivation target is the **full loadings-block vocabulary** (`delivery / geometry / function / economy / commit / defense / dependency / proxy / amp / activation / treatment / movement` — the camera's actual input coordinates), at parity with the probe-facts fidelity of the existing 509 — **not** just the §9.19 role-level axes. The §9.19 form under-specifies the verb layer (exhibit: both Destroyer records carry `ctrl: damage-pure` while their gravity-pull lives only in mech prose) — D1 must extract verb/geometry vocabulary from prose + `core_skills`, or abstain loudly per-coordinate. Acceptance exemplar: **both `la-*-destroyer` rows derive `geometry=vortex_pull`** (prediction P-E4-5).
 - **D2:** derivation coverage reported (n/57 resolved; target 57, honest short-fall named).
 - **D3:** post-derivation, `unresolved` flips 1→0 for resolved rows; corpus.db is the only mutation surface at this stage.
 
@@ -92,14 +93,26 @@ The curated 57 carry `unresolved=1`, `cell_key=NULL` by design — this stage re
 - **P-E4-2:** LA gauge-melee identities (Wardancer/Striker/Breaker-class records) **mutually condense** — mean pairwise full-space distance below corpus mean. *(Proto-GAUGE; docket-2.)*
 - **P-E4-3:** each of the 6 LA negative twins lands **nearer its positive twin** than the corpus median nearest-neighbor distance. *(Tombstone-beside-parent, F-1 extension.)*
 - **P-E4-4 (Path A diagnostic + P-3 input):** the 53 supplementary points' median representation quality (cos² in the frozen basis) falls within **2×** of the E1-actives' median — i.e., E1's axes can express LA/MCD variance without a refit.
+- **P-E4-5 (D1-fidelity acceptance, from Matt's pull probe 2026-07-16):** both `la-*-destroyer` rows derive **`geometry=vortex_pull`** at D1 — the fitted E1 level their §9.19 role axes flatten to `damage-pure`. If D1 can't recover a verb the camera already knows from prose, the derivation layer fails its fidelity bar before projection is even attempted.
+- **P-E4-6 (new-level census, § 9):** the § 9 NEW-LEVEL CENSUS flags **identity-gauge economy** as absent-from-basis with the largest exhibit mass of any new level (~30 LA rows mention gauge; no `economy_model` level exists for it). Registered so the flattening is *predicted and disclosed*, not discovered — and so P-3 arm 2 has its first live test.
 
 ## 9. Representation-quality disclosure + the E5 refit trigger (P-3)
 
-Path A's honest cost, made empirical: per-point **cos² (squared cosine / communality) in the frozen basis** is computed for all 53 admitted points and disclosed in the artifact + gate report. **REFIT TRIGGER (pre-registered):** if the admitted cohort's median cos² < **0.5×** the E1-active median, the frozen basis is declared unable to express the grown corpus, and **Edition V fires as a Path-B refit** (§ 6, gates already registered). Relative threshold — self-calibrating against the basis's own baseline, no invented absolute. Until triggered, supplementary admission remains the standing method for future corpora (post-dossier LA records, future §9.19 games).
+Path A's honest cost, made empirical — in **two instruments**, because supplementary projection fails in two distinct ways:
+
+**(a) cos² disclosure (weak expression of KNOWN levels):** per-point **cos² (squared cosine / communality) in the frozen basis** is computed for all admitted points and disclosed in the artifact + gate report.
+
+**(b) NEW-LEVEL CENSUS (silent flattening of ABSENT levels — added 2026-07-16, Matt's pull probe):** a supplementary point projects **only through category levels that exist in the frozen indicator matrix**. A genuinely new level (no E1 column) contributes *nothing* — the point seats by its remaining known levels, and **cos² cannot see the loss** (there is no column to be under-represented; the blind spot is structural). So the stage computes, per admitted point, the set of D1-derived levels **absent from the frozen basis's level vocabulary**, publishes the census (level → exhibit count) in the artifact + gate report, and stamps each affected point `level_flattened: [levels]`. Known-expected hit: **identity-gauge economy** (P-E4-6). The census is disclosure, not a gate — but it feeds the trigger:
+
+**REFIT TRIGGER (pre-registered, either arm fires E5 as a Path-B refit — § 6, gates already registered):**
+1. **Expression arm:** admitted cohort's median cos² < **0.5×** the E1-active median — the frozen basis expresses new citizens poorly even through known levels.
+2. **Vocabulary arm:** any single absent level accumulates **≥ 20 admitted exhibits** — the corpus now speaks a word the camera has no column for, at family-scale mass (20 ≈ gateA seed-scale; cf. WHIRLWIND 15, TRAP-MINE 23).
+
+Relative/structural thresholds — self-calibrating against the basis's own baseline, no invented absolutes. Until triggered, supplementary admission remains the standing method for future corpora (post-dossier LA records, future §9.19 games). *Honest forecast: if the LA cohort admits with the gauge census at ~30, arm 2 is already near its line — E5 refit pressure is real and near-term, which is an argument FOR Path A (derive → project safely → inspect derivation quality → refit with trusted inputs), not against it: Path B now would compound a novel derivation and a novel refit in one step.*
 
 ## 10. Emission + artifact contract
 
-- `atlas-edition4.json` (this dir): E3's full key set (`edition: 4`, basis per path, points, loadings ref, counts, ghost_field, badge fields, `p_df_1_verdict`) + `edition_admitted` field + § 9 cos² table + gate report block.
+- `atlas-edition4.json` (this dir): E3's full key set (`edition: 4`, basis per path, points, loadings ref, counts, ghost_field, badge fields, `p_df_1_verdict`) + `edition_admitted` field + § 9 cos² table + **§ 9 new-level census + per-point `level_flattened`** + gate report block.
 - Emitter: extend `agentic_orchestration/research/scripts/build_atlas_json_edition3.py` lineage (new script `build_atlas_json_edition4.py`; cite parent in header).
 - **Nothing served at emission.** Serving cutover is a separate post-ratification wave (§ 11).
 - corpus.db mutations limited to § 4 D3 (`cell_key`, `unresolved`). MIGRATION entry records the run + gate results.
@@ -120,7 +133,7 @@ Path A's honest cost, made empirical: per-point **cos² (squared cosine / commun
 | **P-0** | E4 architecture | **Path A — supplementary admission** (house method; camera immovable by construction; refit machinery seated as E5 law) | Path B — true refit + Procrustes now (basis learns LA/MCD variance immediately; heavier; anchoring corrects rotation, not distortion) |
 | **P-1** | 4 dossier-owed records | **Hold out** until dossiers pay (BEST-ONLY spirit: when in doubt, leave out) | Admit at c=0.4 with confidence disclosed |
 | **P-2** | Path-B congruence threshold | **≥ 0.85** on ratified 86 (mirrors the 0.860 full-space stability that held while the plane rotated) | Matt sets other |
-| **P-3** | E5 refit trigger | **median cos² of admitted cohort < 0.5× E1-active median** | Matt sets other |
+| **P-3** | E5 refit trigger (two arms, § 9) | **arm 1: median cos² of admitted cohort < 0.5× E1-active median · arm 2: any absent level ≥ 20 admitted exhibits** (identity-gauge already ~30 → arm 2 likely fires post-E4; that is the designed path, not a defect) | Matt sets other arms/thresholds |
 
 ---
 
