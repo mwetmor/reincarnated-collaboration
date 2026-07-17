@@ -56,9 +56,9 @@ Corpus expressible: **515/518 (99.42%)**  ·  Roster expressible: **45/45 (100.0
 
 | Scoreboard | Pool expressible | % | Corpus | Roster |
 |---|---|---|---|---|
-| V7 (Wave-B baseline) | 517/565 | 91.5% | 472/520 | 45/45 |
-| V8 (post-source-truth pass) | 528/565 | 93.5% | 483/520 | 45/45 |
-| V9 (post-econ-audit) | 542/565 | 95.9% | 497/520 | 45/45 |
+| V7 (Wave-B baseline) | 258/568 | 45.4% | 213/523 | 45/45 |
+| V8 (post-Gate-2 + econ-audit) | 385/568 | 67.8% | 340/523 | 45/45 |
+| V9 (post-Wave-B + reclass) | 509/565 | 90.1% | 464/520 | 45/45 |
 | V10 (post-Wave-C landed + corpus-align) | 551/565 | 97.50% | 506/520 | 45/45 |
 | V11 (post-econ-recrawl application + phantom ruling) | 558/564 | 98.94% | 513/519 | 45/45 |
 | V12 (post-Wave-D-landing + DR reclassify) | 560/564 | 99.29% | 515/519 | 45/45 |
@@ -66,7 +66,9 @@ Corpus expressible: **515/518 (99.42%)**  ·  Roster expressible: **45/45 (100.0
 | **Δ vs V12** | **+0 (denominator −1)** | **+0.18pp** | **+0 (denominator −1)** | 0 |
 | — phantom denominator contribution | denominator −1 | | denominator −1 | 0 |
 | — flip contribution | 0 | | 0 | 0 |
-| **Δ vs V7** | **+43** | **+7.97pp** | **+43** | 0 |
+| **Δ vs V7** | **+302** | **+54.07pp** | **+302** | 0 |
+
+_Trajectory table corrected 2026-07-17 (same-day): V7-V9 rows misstated in the initial commit; corrected against the minting artifacts. See git lineage._
 
 **Headline movement: V12 99.29% → V13 99.47% (+0.18pp; via phantom denominator −1, zero flip).**
 
