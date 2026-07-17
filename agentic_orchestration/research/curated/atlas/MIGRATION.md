@@ -6,6 +6,63 @@
 
 ---
 
+## la-mcd-curation-9.19-2026-07-16 — curate the 58 §9.19 re-harvest records into `corpus.db` (catalogue-only; 57 kit-grain + 1 system-record) + WAVE-4 supersession of the staging law's holdout clause — 2026-07-16 — **APPLIED (gandalf Option-A ruling, post-HALT execute pass)**
+
+### What was curated (one line)
+The 58 spec-valid successors of the deleted 182 (`dual-hard-delete-2026-07-16`) — Legolas's §9.19 five-stage re-harvest of both games — entered `corpus.db` as **catalogue citizens**: **57 at `grain='kit'`** (LA 46 positive + 6 negative twins + MCD 5 positive → `row_class='combat-kit'`) + **1 system-record** `la-monetization-confound` (`grain=NULL`, `row_class='system-record'`; precedent = the 18 existing, e.g. `tli-sage-elixir`). **Catalogue-only**: every new `canon_engine_key.cell_key = NULL` (NO fit input; the fit gate is `cell_key IS NOT NULL`), `unresolved=1` (cell_key derivation owed to E4). NO refit, NO leiden/affinity, NO `atlas-coordinates-*`, NO served-artifact touch. `corpus.db` was the ONLY mutation surface.
+
+### HALT → ruling lineage (one line)
+A prior elrond run HALTed per iron law 7 (zero writes; corpus quiescent) — correctly: `la-monetization-confound` is a **system-record** (`class="system archetype"`, all emission axes abstain, `econ='spend-as-progression'` rider anchor — gandalf-verified vs jsonl + run report), not a kit, and the brief's original asserts (kit=567 · NULL=18) double-counted it among the "47 positive." gandalf **RULED Option A** (curate 57 kit + 1 system-record; corrected asserts **total=585 · kit=566 · NULL=19 · gear=0 · class=0**), rationale: the anchor is mandated content (the LA run's monetization-confound rider) and the E4 refit's `grain='kit'` predicate auto-excludes it — GRAIN LAW filtering at consumption, exactly as designed. *This HALT is the grain law's first live catch — of its own author's arithmetic.* This entry is the execute pass of that ruling.
+
+### Authority
+Matt **WAVE 4** ruling 2026-07-16 (`canonical/matt_decision_needed/2026-07-16-edition3-vs-refit-candidate-1-adoption.md § WAVE 4`, verbatim): *"Edition IV = anchored-E3 + curated LA/MCD … LA/MCD enter via elrond curation then the E4 refit behind pre-registered gates (grain='kit' predicate + source-exclusion + congruence-to-E3-camera on ratified members)."* This charge is the **curation half**; the E4 refit is a separate, later charge. gandalf's reconciliation ruling authorizes the 57+1 split (brief top-blockquote, `agentic_orchestration/gandalf/briefs/2026-07-16-elrond-la-mcd-curation-brief.md`).
+
+### Provenance (source-anchored + reversible)
+- **Sources:** `claude-mobile-session-docs/ARPG-canonical-kit-research/final-docs-v3/canon-corpus-la.jsonl` (53 records, run commit `da003065`) + `canon-corpus-mcd.jsonl` (5 records, run commit `14abd361`), both §9.19 five-stage (pipeline-spec v2.13), both gandalf verify-gated + pushed. Run reports beside them.
+- **Per row:** `source='canon'`, `provenance_tag='canon-harvest-9.19-{la|mcd}-2026-07-16'`, `source_date='2026-07-16'`, `prov='legolas-mode-b-9.19;elrond-curated'`, run commit + spec recorded in `flags` + `provenance_json`. The provenance chain makes these legible as the spec-valid replacements of the deleted 182.
+- **Prefix coords** (`attr/range/tempo/amp/proxy/commit` on `canon_corpus`): taken from `proj.<axis>.v` IFF the axis does not abstain; abstain (`v='n/a'`) → NULL. Surveyed: ZERO non-abstain `proj` values are out-of-enum, so the rule reduces to write-v-or-NULL. The system-record abstains on all six → all NULL.
+- **Raw JSONL row preserved verbatim** in `canon_engine_key.raw_json` (NOT NULL) — nothing destructively transformed; fully reversible.
+- **Negatives:** the 6 LA negative twins carry the corpus `negative=1` convention (same as the 38-negative trap-skills). Not dropped; not counted as positives (new-negative count asserted = 6).
+
+### Pos / neg / system split
+| corpus | positive-kit | negative-kit (`negative=1`) | system-record | total |
+|---|---|---|---|---|
+| LA (`la-`) | 46 | 6 | 1 (`la-monetization-confound`) | 53 |
+| MCD (`mcd-`) | 5 | 0 | 0 | 5 |
+| **kit-grain inserted** | **51** | **6** | — | **57** |
+| **system-record inserted** | — | — | **1** | **1** |
+
+### Pre-insert collision check (fail-loud; brief iron law 5 — re-verified, cheap)
+Incoming 58 ids all distinct; **0** id-collisions in `canon_corpus`, **0** in `canon_engine_key`; **0** `la-`/`mcd-` residue in `canon_corpus`, **0** in `canon_engine_key`, **0** in `canon_probe_facts`. The dual-delete left zero residue (confirmed). HALT-guarded (would abort before backup on any collision).
+
+### Backup-first + transactional (no partial writes)
+- **Pre-curation backup:** `../corpus.db.pre-la-mcd-curation-2026-07-16-backup` (527 rows, `integrity_check=ok`; taken BEFORE any write). git-ignored (binary DB), on disk.
+- **Single BEGIN/COMMIT** wrapping both-table inserts + the schema-meta marker + all post-asserts; on ANY assert failure the txn ROLLS BACK and the DB is restored from the backup — no partial writes survive. (Validated on a scratch copy before the live run.)
+
+### Post-curation asserts (fail-loud; ruling-corrected — all PASSED, independently re-queried)
+- **Grain census:** total=**585** · `kit`=**566** · NULL=**19** · `gear`=**0** · `class`=**0**. ✓ (509→566 kit = +57; 18→19 NULL = +1.)
+- **`canon_engine_key`:** 527→**585** rows; clean **1:1** with `canon_corpus` — forward orphans **0**, reverse orphans **0** (every corpus row has exactly one engine-key child; the ratified never-orphan invariant preserved).
+- **NO fit input:** all 58 new `canon_engine_key` rows carry `cell_key=NULL` (asserted new-rows-with-cell_key = 0). Fit-excluded by the served predicate `row_class='combat-kit' AND cell_key IS NOT NULL AND negative=0` (verified in `../scripts/atlas_refit_candidate_2026_07_16.py`).
+- **grain↔row_class partition intact:** `kit`↔`combat-kit` (566), `NULL`↔`system-record` (19); 0 rows violate.
+- **Additive:** the 527 survivors' `kit_id|grain|negative` signature byte-unchanged before/after. `PRAGMA integrity_check=ok`.
+
+### THE STAGING LAW — WAVE-4 supersession (recorded per brief iron law 6)
+The `dual-hard-delete-2026-07-16` STAGING LAW's **archipelago-holdout clause is SUPERSEDED** by Matt's WAVE 4 ruling (decision file § WAVE 4). The no-admission-without-a-passed-gate **intent survives**, re-attached to the **E4 refit** behind **pre-registered gates** (`grain='kit'` predicate + source-exclusion + congruence-to-E3-camera on ratified members). Re-harvested LA/MCD no longer wait on an archipelago hold-out pass; they land catalogued-only (this entry) and enter atlas fits ONLY at the E4 refit through those gates. THE GRAIN LAW + INGEST CLASS RULE entries below **stand unchanged** — grain still makes the exclusion structural; the E4 gates make re-admission explicit.
+
+### Iron laws honored
+- **Edition III + every served artifact READ-ONLY** — byte-verified untouched (`atlas-edition3.json`, `atlas-refit-candidate-1.json`, `atlas-frozen-fit-cellkeys-edition1.csv`, `atlas-archipelago-mock.json` all `git diff HEAD` clean).
+- **NO re-fit / NO re-emission / NO leiden/affinity recompute / NO atlas-coordinate write.** `corpus.db` was the ONLY mutation (58 additive INSERTs into `canon_corpus` + `canon_engine_key`).
+- **Catalogue-only:** atlas admission is deferred to the E4 refit behind WAVE-4 gates (a separate charge).
+
+### Reversibility + reproducibility
+Executed by `../scripts/corpus_curation_la_mcd_2026_07_16.py` (idempotent additive upsert keyed on `kit_id`; backup-first; transactional with restore-on-failure; fail-loud asserting the pre-state 527/509/18/527, the collision/residue = 0, and the post census 585/566/19/0/0 + 1:1 engine-key + no-cell_key + partition + additive-survivor + `integrity_check`). Fully reversible from `../corpus.db.pre-la-mcd-curation-2026-07-16-backup` + the verbatim JSONL preserved in `raw_json`.
+
+### ADR compliance
+- **ADR-004:** this entry. No engine-telemetry change; star-lord-side `MIGRATION.md` unaffected. Collab-side curation only (elrond data layer).
+- Auto-committed per project discipline (Matt-authorized curation under the WAVE-4 ruling + gandalf's reconciliation ruling). **Push deferred to gandalf's verify-then-push gate.**
+
+---
+
 ## dual-hard-delete-2026-07-16 — IMMEDIATE hard-delete of all 182 spec-orphaned rows (62 LA + 120 mcd) from `corpus.db` + ingest-provenance census + THE STAGING LAW — 2026-07-16 — **APPLIED (Matt-ruled; never-purge carve-out EXERCISED — real DELETE)**
 
 ### THE STAGING LAW (ratified — recorded alongside THE GRAIN LAW below)
