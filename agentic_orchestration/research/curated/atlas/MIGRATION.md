@@ -6,6 +6,106 @@
 
 ---
 
+## s2-census-v8-2026-07-16 — S2 readiness census V8 (THE SCOREBOARD, post-Gate-2 rerun; §F.5(1) pool) — PURE CENSUS, corpus.db READ-ONLY — 2026-07-16 — **APPLIED (gandalf-prime autonomous atlas-parity run, cycle 2, CENSUS V8 charge; iron-law asserts all held PRE + POST; DB byte-stable)**
+
+### One line
+Reran the migration-readiness scoreboard now that the **ailment layer LANDED** (jack-ryan Gate-2 PASS-WITH-AMENDMENTS; engine commit `cec8f12` PUSHED; decisions-log 5796–5844) and the **econ:UNKNOWN audit landed** (elrond own return, top-level `../MIGRATION.md` `econ-unknown-audit-2026-07-16`, commit `93233d18`; 5 fills already in DB). Headline: **385/568 = 67.8% expressible-now** (V7 published baseline was 258/568 = 45.4% → **+127, +22.4pp**). Corpus 340/523 (65.0%); roster 45/45 (100%). This was a **pure census — corpus.db READ-ONLY** (no backfill rider, no schema-meta INSERT, no column writes); DB md5 identical PRE→POST (`20e9ddfdb61c74f48087355befbbaf06`). All 9 iron-law asserts held: 585 corpus / 585 engine_key 1:1 / 566 kit-grain / 19 NULL-grain / 562 cell_key resolved incl. 1 `-bt` sentinel / 0+0 orphans / 4 dossier_owed UNTOUCHED.
+
+### The V7 promise, kept
+V7 §2 promised: *"Post-Gate-2 rerun (V8) will show the sunder+freeze+stun+poison-dot+taunt cohort flip."* V8 delivers that flip and — per iron law 2 — decomposes it HONESTLY at kit grain rather than reporting the token-touch ceiling.
+
+### Payload — readiness census V8 (THE SCOREBOARD, post-Gate-2)
+
+| Segment | Total | Expressible-now | % |
+|---|---|---|---|
+| Corpus positives (kit-grain, negative=0) | 523 | 340 | 65.0% |
+| Founding roster (K/H/B) | 45 | 45 | 100.0% |
+| **POOL TOTAL** | **568** | **385** | **67.8%** |
+| — of which held-out (dossier_owed=1) | 4 | 0 | 0.0% |
+
+### Multi-blocker honesty (iron law 2) — the ailment flip decomposed
+
+**A kit blocked on ailment AND econ:PC does NOT flip just because ailment landed.** The census unions ALL blockers per kit; expressible IFF the entire blockset is empty.
+
+| Ailment-cohort accounting | Count |
+|---|---|
+| Distinct kits carrying ≥1 now-landed ailment token (the **cohort**) | 191 |
+| — **flipped** to expressible (ailment was SOLE remaining blocker) | **122** |
+| — **multi-blocker residue** (still blocked on a non-ailment gate) | **69** |
+
+**The real flip is 122, not 227.** The charter's ≤227 ceiling = 222 in-flight-ailment TOKEN-TOUCHES + 5 econ. The kit-grain flip is 122 because (a) the 191 cohort kits collectively hold 222 ailment token-touches (many carry >1 ailment), and (b) 69 cohort kits remain gated by a non-ailment blocker. The 5 econ-audit fills are NOT part of this flip — they already landed in the DB (pre-V8), lifting corpus from V7-published 213 → the 218 this V8 read starts from. Cross-check enforced in-script: net corpus flip (V7-rule→V8-rule) == ailment-cohort flip == 122 (ailment is the ONLY classification delta).
+
+**Multi-blocker residue lands on Wave-B:** the 69 residue kits are dominantly re-blocked on the econ reservation/persistent-cost family (`econ:PC`=22 + `econ:RS`=21 token-touches lead; then UNKNOWN=7 / AM=6 / RC=4 / BT=4 / LC=1 / DR=1), plus a few on wave-c+ ailments (blind/curse-hex/fear/deflect), small-add geometry (orbit/walls), and shapeshift. The ailment flip HANDS OFF directly to Wave-B as the next lever.
+
+### Delta vs V7 (published baseline 258/568 = 45.4%)
+
+| Scoreboard | Pool | % | Corpus |
+|---|---|---|---|
+| V7 (published, pre-econ-audit) | 258/568 | 45.4% | 213/523 |
+| **V8 (post-Gate-2 + econ-audit)** | **385/568** | **67.8%** | **340/523** |
+| **Δ** | **+127** | **+22.4pp** | +127 |
+
+Decomposition of +127: **+5 econ-audit fills** (258→263: 2 native/spend + 3 SU/Wave-A-landed, already in DB) **+ 122 ailment flip** (263→385).
+
+**Per-bucket flips (V7 blocked → V8):** `ailment-in-flight:damage-amp` 97→0 · `:freeze` 42→0 · `:poison-dot` 36→0 · `:stun` 36→0 · `:taunt` 11→0 (all LANDED, `cec8f12`); `econ:UNKNOWN` 38→33 (−5, econ-audit); `econ:SU` 6→9 (+3, econ-audit reclass, Wave-A landed → expressible); `econ:PC/RS/AM/RC/LC/DR/BT` FROZEN.
+
+### New blocked-bucket ranking (top 5 — feeds Wave-B sequencing, Wave-B spec at Gate-1 NOW)
+
+| Rank | Bucket | Kits |
+|---|---|---|
+| 1 | `econ:PC` (persistent-cost) | 44 |
+| 2 | `econ:RS` (reserved-slot) | 42 |
+| 3 | `econ:UNKNOWN` (audit residue) | 33 |
+| 4 | `ailment-wave-c+` (blind/curse-hex/fear/deflect/unknown/instant-kill) | 21 |
+| 5 | `econ:AM` (attunement-meter) 16 · `econ:RC` (recharge) 16 | 16/16 |
+
+With the ailment cohort cleared, the reservation/persistent-cost family (PC 44 + RS 42) is the single biggest remaining expressible-now lever. **This exactly matches the charter's expected top-5** (econ:PC 44 / econ:RS 42 / econ:UNKNOWN 33 / ailment-wave-c+ 21 / econ:AM 16 / econ:RC 16).
+
+### Ailment-wave-c+ stays blocked (iron law 3 — 21 token-touches)
+blind 8 / curse-hex 4 / fear 4 / deflect 2 / unknown-ailment 2 / instant-kill 1 — NOT in the landed spec. `unknown-ailment` (2: di-warlock-launch, di-spiritform-druid-pvp) under active legolas re-crawl (in flight, read-only — no contention). Note: `vs-gorgeous-moon` carries a duplicated `instant-kill` token in `ctrl_ailment_gaps`; set-based accounting yields 1 distinct kit (matches V7). Resolution path for unknown-ailment is a re-crawl, not a rule.
+
+### Held-out (4 dossier_owed — UNCHANGED, iron law 5)
+`la-ferality-wildsoul` + `la-phantom-beast-awakening-wildsoul` (both additionally shapeshift-gated, GX-02); `la-liberator-valkyrie` + `la-shining-knight-valkyrie` (mechanically expressible, held by dossier gate). E-next admission behind Matt E4 ratification. All 4 flagged NOT-YET-EMISSIBLE, in-pool, unchanged from V7.
+
+### Asserts (iron law — held PRE + POST; DB byte-stable)
+| Assert | Expected | PRE | POST |
+|---|---|---|---|
+| total_corpus | 585 | 585 | 585 |
+| total_engine_key | 585 | 585 | 585 |
+| kit_grain | 566 | 566 | 566 |
+| null_grain | 19 | 19 | 19 |
+| cell_key_resolved (incl. 1 `-bt`) | 562 | 562 | 562 |
+| bt_sentinel | 1 | 1 | 1 |
+| orphans engine→corpus | 0 | 0 | 0 |
+| orphans corpus→engine | 0 | 0 | 0 |
+| dossier_owed | 4 | 4 | 4 |
+
+**Zero drift. DB md5 byte-identical PRE→POST (`20e9ddfdb61c74f48087355befbbaf06`).** In-script cross-checks additionally enforced: net-flip==ailment-flip==122, ailment-wave-c+==21.
+
+### Iron laws honored
+1. **corpus.db READ-ONLY** — pure census; no backfill, no schema-meta INSERT, no column writes; DB byte-stable (md5 verified). Backup `../corpus.db.pre-s2-census-v8-2026-07-16-backup` (integrity_check=ok) taken pre-run as safety net; `lsof` clean.
+2. **Multi-blocker honesty** — flip decomposed at kit grain (191 cohort → 122 flip + 69 residue); residue named by re-block gate. Real flip 122 ≤ 227 ceiling; ceiling explained as token-touch upper bound.
+3. **Ailment-wave-c+ stays blocked** — 21 token-touches, NOT in landed spec; legolas re-crawl noted (read-only, no contention).
+4. **§4 delta vs V7 45.4%** — headline +22.4pp, per-bucket flips, new top-5 ranking (feeds Wave-B at Gate-1).
+5. **Held-out 4 dossier_owed unchanged; roster 45/45 expressible.**
+6. **MIGRATION.md entry** — this entry. Auto-commit collab repo per project discipline (Matt-authorized CENSUS V8 charge under gandalf-prime's autonomous run). **NO push (gandalf pushes).**
+
+### Artifacts
+- **Census:** `../s2-readiness-census-v8-2026-07-16.md`
+- **Script:** `../scripts/corpus_s2_census_v8_2026_07_16.py` (idempotent; pure read; in-script asserts + cross-checks)
+- **Backup:** `../corpus.db.pre-s2-census-v8-2026-07-16-backup` (integrity_check=ok)
+
+### Consumers
+- **S5 corpus→engine migration staging** (`current-to-end-state-serial-content-emission.md` §F.5): the 385 expressible-now kits migrate immediately; 183 wave-gated queue behind their bucket.
+- **Wave-B spec (at Gate-1 NOW)** takes its exhibit sequencing from the §4 top-5 (PC 44 + RS 42 lead; then UNKNOWN 33 / AM 16 / RC 16).
+- **Next re-run:** V9 after Wave-B lands (the PC/RS/AM/RC family flips).
+
+### ADR compliance
+- **ADR-004:** this entry on the atlas MIGRATION.md. No engine-telemetry change; star-lord side unaffected. Parallel corpus/register `../MIGRATION.md` unaffected (no writes this run).
+- **Reversibility:** trivially reproducible (pure read; re-run yields identical artifact + asserts). Backup retained as belt-and-braces.
+
+---
+
 ## s2-census-v7-and-kb-backfill-2026-07-16 — S2 readiness census V7 (THE SCOREBOARD; §F.5(1) pool) + kb-URL backfill rider (52 rows from legolas sheet) — 2026-07-16 — **APPLIED (gandalf autonomous atlas-parity run, cycle 2, S2 charge; iron-law asserts all held PRE + POST)**
 
 ### One line
