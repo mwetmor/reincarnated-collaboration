@@ -1,6 +1,6 @@
 # Wave-B Engine Spec — Reservation / Persistent-Cost / Attunement-Meter / Recharge (+ Life-Cost / Drain triage)
 
-**STATUS:** DRAFT-FOR-GATE-1 — GATED by gandalf-prime DRIFT-CRITIC 2026-07-16 (PASS-WITH-NOTES, stamp below); queued for jack-ryan Gate-1 (fires on ailment Gate-2 return — QA single-instance); five §10 escalations RULED-veto-open under Matt's autonomous-run authority.
+**STATUS:** GATE-1 PASS-WITH-AMENDMENTS (jack-ryan 2026-07-16 — verdict stamp below the DRIFT-CRITIC stamp). GATED by gandalf-prime DRIFT-CRITIC 2026-07-16 (PASS-WITH-NOTES); five §10 escalations RULED-veto-open under Matt's autonomous-run authority — Gate-1 audited all five for internal consistency + code-grounding: **all five stand as ruled** (no reversal, no flag). Amendments (10, enumerated in verdict stamp) ride into the rocket/gamora implementation charges. Ready for build-slice dispatch per §12.2 sequencing.
 **Date:** 2026-07-16
 **Author:** gandalf (SPEC-AUTHOR work unit, autonomous atlas-parity run cycle 2)
 **Authority:** Matt autonomous-run delegation 2026-07-16 (sub-agents iterate engine toward 100% atlas mechanical parity) + S2 census V7 THE SCOREBOARD ranking Wave B the #2 parity lever after in-flight ailment layer. **The five §10 escalation rulings this doc records are gandalf-prime rulings under Matt's autonomous-run authority — veto-open, Matt may overturn on read.** (The four §X.1 bin-family definitions are governed by those rulings, not separately ruled.)
@@ -10,6 +10,20 @@
 > 1. **§4.3 ↔ §4.8 cost_type contradiction — EMISSION SURFACE WINS.** §4.3's lean parenthetical ("both need same cost_type_map = `[]` — the meter IS the resource") contradicts §4.8/§12.1 (`charge-stack: ["mana", "focus", "stamina-as-resource"]`). Ruling: the §4.8 non-empty map is correct — `resolve_cost_type` must return a resolvable family for an ACTIVE bin; zero-marginal-cost kits (D2 Throw Barb, VS auto-fire) express via near-zero `cost_scale` in `resource_economy`, not via an empty map (an empty map is DEFERRED semantics). Gate-1: verify against `resolve_cost_type` code path + strike the §4.3 parenthetical.
 > 2. **Wave-C trigger-boundary** — PC proc-loop sub-shape builds the single-trigger PRIMITIVE (CWDT/CoC/Poet's Pen as one armed trigger, no chains); Wave-C's trigger + mark-consume family owns chain-of-triggers grammar. The e=(B) `persistent_trigger` commitment-state is the deliberate extension hook. Gate-1: stress-test that nothing in §2.4's `proc_trigger_condition` enum forecloses chain-grammar (it must stay per-trigger, never per-chain).
 > 3. **Minor:** Authority-line "six rulings" normalized to five (fixed in this stamp's commit); §8 table HP-economy kit-touch "3 (LC + 2 overlap)" is loose (DR's 2 kits are not HP-economy-mapped — drain's Wave-C home is an open §7.3 question, not pre-assigned). Gate-1 tidies.
+>
+> **⚖ GATE-1 VERDICT STAMP (jack-ryan, 2026-07-16) — PASS-WITH-AMENDMENTS.** Stress-tested against live engine code (read-only) + corpus rosters. **Escalation audit: all five §10 rulings (a–e) are internally consistent AND code-grounded; NONE reversed, NONE flagged.** Roster spot-check: 14/14 named exemplar kits verified present in corpus; PC/RS/AM/RC/LC/DR any-occurrence counts (45/42/18/18/3/2) reproduce, scoreboard primary buckets (44/42/16/16/3/2) are the authority and match §0. Ten amendments (all corrections/reconciliations/path-fixes — NO BLOCK, NO ruling reversal, NO code defect):
+> 1. **[note #1 — cost_type CONTRADICTION resolved, EMISSION-SURFACE-WINS, code-confirmed]** `resolve_cost_type` (`bc_target_composer.py:274`) returns `role_priority[0]` (=mana) on an empty `[]` map — empty ≠ "no cost." §4.3 parenthetical STRUCK; §4.8/§12.1 `["mana","focus","stamina-as-resource"]` is correct. Zero-marginal-cost via `cost_scale`, not empty map.
+> 2. **[note #2 — trigger-boundary CONFIRMED clean]** `proc_trigger_condition` enum is all single-trigger primitives; no chain leakage; boundary sound as written (no edit).
+> 3. **[note #3 — §8 table tidied]** `HP-economy` = LC×3 exact; DR not HP-mapped.
+> 4. **[ruling-10 TH rider — §8 `damage-taken-converts` corrected 0→3]** Retaliation Warlord (gd) / Thorns Barbarian (d4) / Thorns Invoker (d3) are a REAL passive-reflect roster sitting in `econ:UNKNOWN`; Wave-C park stands, count is 3 not 0.
+> 5. **[ruling-10 NR rider — RULED steady-absorbs, no new bin]** NR carries 0 corpus tokens; routes to `steady` via `cost_scale≈0` (§5.3).
+> 6. **[WARN — `combatant.py:tick` consumer-site is WRONG]** `combatant.py` is state-only (no `tick` method); the per-tick loop is `spatial_gauntlet/spatial_engine.py` (:2326/:2189) + `effect_resolver.tick_effects` (:55). §1 table + §12.1 corrected; §2.8/§3.7/§4.7 inherit the §1 correction.
+> 7. **[WARN — `commitment_state_machine.py` PATH wrong + extension mis-modeled]** module is under `spatial_gauntlet/`, NOT bare `simulation/`; it is a stateless `commitment_bin ∈ {snap,wind-up,channel}` parser (`skill_schema.py:222`), NOT a state registry. Ruling (e)=(B) stands; extension = enum-widen by 2 (Discipline #12), corrected at §2.6 + companion-docs path.
+> 8. **[INFO — `substrate_templates.py` under-claimed]** `W1_4_CHARGE_STACK` (~25 templates) ALREADY exists (Cycle-12 L3); rocket EXTENDS/REUSES, does not greenfield. §4.8 annotated.
+> 9. **[INFO — `ActiveEffect.category` is a PROPOSED field, not existing]** `ActiveEffect` (`combatant.py:109`) has `name/params/duration_remaining/source_element/tick_accumulated` only; new sub-shape state lands in `params`. §1 table annotated (§2.3/§4.3 `.category` reads as a proposed add).
+> 10. **[INFO — primary-vs-any-occurrence count discipline]** §0 "42 primary / 44 primary" are SCOREBOARD bucket-attributions (authority), which differ from naive single-token `econ_gaps` exact counts (PC `["PC"]`=43, AM `["AM"]`=17, RC `["RC"]`=18) by the scoreboard's overlap primary-attribution logic. Not an error — flagged so implementers read counts from the scoreboard, not raw token grep.
+>
+> Disciplines/Principles applied: #1 (math-before-code — build charges must cite pre-code math notes, as ailment/Wave-A did), #8 (schema-at-boundary — new fields into frozen `resource_economy`/`summon_economy` key tuples via their `_validate` gates), #11 (E4 nav/commitment-spine VERIFY — pure-read confirmation of the commitment machine), #12 (semantic-shift = additive widening — commitment_bin enum + charge-stack templates), #13 (drift-check — escalation rulings held, no scope creep). Review Principles #2 (smoke-gate — S6 gauntlet cert required pre-lift, §12.2), #3 (cross-seam impact — MIGRATION owed at each gen→sim boundary), #4 (decisions-log as truth — companion DL entry logged). ADR-002 (jack-ryan-tier: Gate-1 findings + spec-doc edits + decisions-log write). **Finding:** `agentic_orchestration/jack-ryan/reviews/2026-07-16-wave-b-economy-gate1.md`.
 **Companion docs:**
 - `../../agentic_orchestration/research/curated/atlas/s2-readiness-census-v7-2026-07-16.md` — THE SCOREBOARD (bin counts, ranking, denominator)
 - `../../agentic_orchestration/gandalf/design-inputs/wave-a-engine-spec-2026-07-13.md` — Wave-A form model (§9 gate-lift pattern, §2 A3 reservation precedent, §11 routing template)
@@ -17,7 +31,7 @@
 - `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/bc_target_composer.py` — the composer this spec extends (`_DEFERRED_ECON_BINS`, `_ECON_BIN_COST_TYPE_MAP`, `resolve_cost_type`)
 - `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/summon_economy.py` — the Wave-A A3 reservation precedent (`ECONOMY_RESERVED`, `reservation_per_proxy`, `reservation_resource`) — RS builds on this
 - `/Users/admin/Games/reincarnated-engine/src/reincarnated/generation/resource_economy.py` — the per-kit cost-shaping config surface Wave B extends
-- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/commitment_state_machine.py` — player commitment axis (extension point for PC toggle-state)
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/spatial_gauntlet/commitment_state_machine.py` — player commitment axis (E4; extension point for PC toggle-state). **[Gate-1 path-fix: module is under `spatial_gauntlet/`, NOT bare `simulation/`; it is the E4 stateless `commitment_bin ∈ {snap, wind-up, channel}` parser, not a state registry — see §2.6 amendment.]**
 
 ---
 
@@ -64,7 +78,8 @@ Per current engine survey (2026-07-16 pass on `bc_target_composer.py`, `summon_e
 | A3 reservation precedent | `summon_economy.py:39,59-60,73,120-137` | `ECONOMY_RESERVED = "reserved"` + `reservation_per_proxy` (regen-cap tax) + `reservation_resource` (which pool taxed). **RS extends this pattern to non-summoner auras** — same regen-cap-tax mechanic, different consumer (§3.4) |
 | Per-kit resource_economy | `resource_economy.py:15-25` | Kit-declared `{cost_scale, cost_slope, regen_magnitude, on_kill_frac, ramp_per_s, cadence_scale}`. Wave-B PC extends this with `persistent_tick_cost` / `activation_cost` fields (§2.5); AM extends with `accumulator_state` (§4.5) |
 | Commitment state | `commitment_state_machine.py` | Player-only commitment (instant/wind-up/channel). Wave-B extension: **PC is a fourth commitment shape** — the "persistent-toggle" — where the player is neither casting nor idle but paying a slow tick while an aura ticks (§2.6, ESCALATION e) |
-| Active-effects consumer | `damage_resolver._add_or_refresh` / `effect_resolver.tick_effects` | The Wave-A ailment substrate — new PC and AM state-carriers plug in as ActiveEffect entries with new `.category` values (see §2.3, §4.3) |
+| Active-effects consumer | `damage_resolver._add_or_refresh` (:1156) / `effect_resolver.tick_effects` (:55) | VERIFIED — the Wave-A ailment substrate; new PC and AM state-carriers plug in as `ActiveEffect` entries (`combatant.py:109`; fields `name`/`params`/`duration_remaining`/`source_element`/`tick_accumulated`). NOTE any new sub-shape field lands in the `params` dict — `ActiveEffect` has no `.category` attr today (§2.3/§4.3's `.category` is a proposed add, not an existing field) |
+| Per-tick loop (consumer SITE) | `spatial_gauntlet/spatial_engine.py` (channel tick loop :2326; `_step_proxy_population` :2189) | **[Gate-1 correction]** the per-tick fight loop lives HERE, NOT at `combatant.py:tick` — `combatant.py` is a state dataclass (`CombatantState`) with NO `tick` method. Every "combatant.py:tick" consumer-site citation below (§2.8, §3.7, §4.7, §12.1) should read "`spatial_engine` per-tick loop + `effect_resolver.tick_effects`." gamora wires PC/AM/RC consumers into the spatial-engine tick + `effect_resolver.tick_effects`, mirroring the E4 channel-tick and D4 proxy-population precedents |
 | Gauntlet cert path | S6 matchup gate | Wave-A precedent: `proxy-light` + `proxy-heavy` certified at gauntlet. Wave-B parallel: `charge-stack` (lifted), `reservation`, `persistent-condition` all pass S6 gauntlet before gate-lift ships |
 
 **Existing extension points these mechanics plug into (no new subsystems required for 3 of 4):**
@@ -134,6 +149,8 @@ proc_trigger_condition:      # NEW — for shape="proc-loop" only
 
 **Calibration ranges (gamora tunes within rails):** `persistent_tick_cost` default 1.0/s is a conservative floor; adjust to 0.5–2.0/s based on S6 gauntlet response. `activation_cost` default 20 is D2-Auradin-analog (~10% max mana at low levels).
 
+> **⚑ Gate-1 TRIGGER-BOUNDARY CONFIRMATION (jack-ryan 2026-07-16, note #2 — PASS, no chain leakage):** stress-tested `proc_trigger_condition`'s enum `{on-hit-threshold, on-crit, on-cast-linked, on-kill, on-damage-taken}` for chain-grammar leakage. **CLEAN.** Every value is a SINGLE-trigger primitive (one armed condition → one linked cast). None encodes a trigger-of-a-trigger, a chain depth, a mark-consume, or a "on-linked-cast-fire re-trigger" back-door. `on-cast-linked` is the closest risk (Poet's-Pen "on cast of a linked spell") but it is the ARMING condition read from the player's own cast, not a chain link — it fires ONE bonded spell, terminal. §2.2(iii), §9 ("CWDT trigger-chain semantics DEFERRABLE — proc-loop covers primitive; chain-of-triggers is Wave-C"), and the e=(B) `persistent_trigger` commitment-state (the deliberate extension HOOK) all hold the boundary correctly. Chain-of-triggers grammar remains Wave-C's `trigger + mark-consume` family. **No spec edit needed — boundary is sound as written.**
+
 ### 2.5 Element/element-neutral bias (which skills roll it)
 
 - **Holy / Consecrate skills** — aura-toggle sub-shape natively; consecrate's existing ampification-zone already implies this. `element_biases.py` NEW map: holy-primary skills roll PC as secondary rider at rate 0.35.
@@ -153,6 +170,8 @@ Rocket authorship touchpoint: `element_biases.py` gets a NEW `PERSISTENT_CONDITI
 - **gandalf lean: (B).** Grounds: proc-loops have a **fundamentally different player-input profile** — the player builds the trigger meta, then the game plays itself (CWDT / CoC / Poet's Pen are notorious afk-friendly builds in PoE1). Toggle-auras and charge-states require **active player choice per encounter** (which aura to have on, when to Frenzy up). If commitment_state_machine.py collapses these, the sim's per-tick AI cannot distinguish "player is deciding aura choice" from "trigger meta is firing autonomously." Split the commitment_state; keep the econ_bin unified.
 
 **Impact:** commitment_state_machine.py gains two new values; gamora's AI logic branches on `commitment_state`; rocket sets it per kit at emission.
+
+> **⚑ Gate-1 CODE-SHAPE NOTE (jack-ryan 2026-07-16, note #2-adjacent — WARN, non-blocking):** the extension point is viable but the spec's mental model of it is imprecise against actual code. There is NO `commitment_state` enum-registry to "add two values to." The E4 machine (`spatial_gauntlet/commitment_state_machine.py`) is a **stateless `.get`-based parser**: `commitment_bin` is a per-SKILL field on `skill_schema.py:222–223` with enum `{snap, wind-up, channel}` (None = exempt). "Add `persistent_toggle` + `persistent_trigger`" means **extending that `commitment_bin` enum by two values** and teaching the parser + `spatial_engine` player-action phase to honor them — a real change, but shaped as (enum-widen + new branch in the E4 consumer at `spatial_engine.py:~2220+`), NOT "new states in a machine." rocket owns the `skill_schema.py` enum widen; gamora owns the `spatial_engine`/`commitment_state_machine` branch. **The ruling (B) stands; only the extension-point description is corrected.** Discipline #12 (semantic-shift = additive widening) governs — same pattern as Wave-A's `PROXY_TYPE_TARGETING → PROXY_TYPE_BEHAVIOR` widen.
 
 **ESCALATION e — Matt/KR ruling owed:** ratify (A) or (B) before gamora writes the commitment-state consumer. Impact: 1 vs 2 new commitment_state values; sim AI complexity.
 
@@ -322,7 +341,9 @@ Rocket authorship: `element_biases.py` gains a `RESERVATION_BIAS` map keyed by e
 **Options:**
 - **(A) ONE bin `charge-stack`, sub_shape ∈ {"accumulator", "cycle"}** — matches existing engine reality (`charge-stack` already exists as deferred bin); minimal composer change; sim consumer branches on sub_shape.
 - **(B) TWO bins — `accumulator` + `cycle`** — semantic clarity; two composer entries; two consumer sites.
-- **gandalf lean: (A) one bin.** Grounds: the composer already carries `charge-stack` as a deferred bin — lifting it and adding a sub_shape field is a SMALLER engine change than adding two brand-new bins. The mechanical difference (fill-from-world vs cycle-with-cooldown) is significant for sim consumer but not for composer routing (both need same cost_type_map = `[]` — neither pays a mana/rage cost per use; both use the meter itself as the resource). ESCALATION c can revisit if S6 gauntlet reveals divergent balance needs.
+- **gandalf lean: (A) one bin.** Grounds: the composer already carries `charge-stack` as a deferred bin — lifting it and adding a sub_shape field is a SMALLER engine change than adding two brand-new bins. The mechanical difference (fill-from-world vs cycle-with-cooldown) is significant for sim consumer but not for composer routing (both route through the SAME `charge-stack` cost_type map). ESCALATION c can revisit if S6 gauntlet reveals divergent balance needs.
+
+> **⚑ Gate-1 STRIKE (jack-ryan 2026-07-16, note #1 resolved — EMISSION SURFACE WINS):** the original lean-parenthetical here read "both need same cost_type_map = `[]` — the meter IS the resource." **STRUCK — code-refuted.** `resolve_cost_type` (`bc_target_composer.py:247`) returns `role_priority[0]` (a valid family, e.g. `mana`) when the feasible map is `[]` (:274) — an empty map does NOT express "no cost," it silently resolves to mana. An empty map is DEFERRED semantics (the bin never reaches the resolver at all while it sits in `_DEFERRED_ECON_BINS`). A LIFTED active bin MUST carry a resolvable non-empty map. §4.8/§12.1's `["mana", "focus", "stamina-as-resource"]` is therefore the correct emission surface; zero-marginal-cost kits (D2 Throw Barb auto-fire, VS evo auto-cast) express near-zero cost via `cost_scale` in `resource_economy.py`, NOT via an empty cost_type map.
 
 **ESCALATION c — Matt/KR ruling owed:** ratify (A) or (B) before rocket extends composer. Impact: 1 bin lift + 1 sub_shape field vs 2 new bins + 2 composer entries.
 
@@ -397,7 +418,7 @@ recharge_source:             # NEW
 - **`bc_target_composer._DEFERRED_ECON_BINS`** — DROP `"charge-stack"` from the frozenset (mirroring Wave-A `_DEFERRED_PROXY_BINS` drain to `frozenset()`).
 - **`bc_target_composer.check_infeasibility`** — remove the `charge-stack → DEFERRED` branch (already implicit once bin is dropped from `_DEFERRED_ECON_BINS`).
 - **`resource_economy.py`** — add 7 new fields per §4.4.
-- **`substrate_templates.py`** — new templates listed in §4.5.
+- **`substrate_templates.py`** — new templates listed in §4.5. **[Gate-1 note: `substrate_templates.py` ALREADY carries a `W1_4_CHARGE_STACK` family of ~25 templates (`charge_up_*`, `stack_builder_*`, `charge_decay_*`, `multi_charge_*`, `charge_on_hit_*`, `overdrive_*`) from Cycle-12 Layer-3. rocket EXTENDS/REUSES that family (add the AM/RC sub-shape routing + any missing `evolution_meter`/`ammo_meter`/`throwing_reload` templates), NOT greenfield-authors — the charge-stack substrate scaffold predates this lift. Verify overlap before authoring to avoid duplicate template_ids.]**
 
 ### 4.9 DL-03 conformance
 
@@ -440,6 +461,8 @@ recharge_source:             # NEW
 - **Cross-bin exclusivity**: a kit is emitted with ONE econ_bin per composer contract. Wave-B introduces NO new cross-bin composition rules. A player build may have multiple kits with different econ_bin values (mana-spender + reservation-aura + charge-stack), but each kit's own emission is single-bin.
 - **Composer route preservation**: existing `generator-spender`, `starved`, `overflow`, `steady` behavior UNCHANGED. Wave B is additive.
 
+> **⚑ Gate-1 RULING (jack-ryan 2026-07-16, ruling-10 NR rider — `steady`-absorbs, NO new bin):** the "NR no-resource ×4" question is ruled: **NR kits route to the existing `steady` bin with near-zero cost expressed via `resource_economy.cost_scale ≈ 0`, NOT a new econ_bin.** Grounds: (1) NR is NOT a scoreboard bucket and carries ZERO `econ_gaps` tokens in the corpus (`SELECT COUNT WHERE econ_gaps LIKE '%NR%'` = 0) — there is no ranked NR roster to amortize a bin against, unlike PC/RS/AM/RC. (2) `steady` (`["mana","focus","stamina-as-resource"]`) already resolves a valid cost_type; `resource_economy`'s DEFAULT-corner + `cost_scale` range `(0.60, 1.60)` already spans near-zero-effective-cost when scaled down, and the sim treats a near-zero per-cast cost as a no-op on the pool (the byte-reproduction default-corner logic, `resource_economy.py:50`). (3) A dedicated "no-resource" bin would carry the SAME empty-map hazard §4.3 was struck for — the resolver returns mana on `[]` anyway, so "no cost" is a `cost_scale` concern, not a bin concern. **Disposition: no Wave-B action. If a future census surfaces a ranked NR roster (>~10 kits), reopen as a Wave-C `cost_scale`-floor calibration item, not a new bin.**
+
 ### 5.4 DL-03 CRITICAL cross-check (whole spec)
 
 DL-03 (Matt 2026-07-12 design law: streams never tax movement) binds specifically:
@@ -460,9 +483,9 @@ DL-03 explicitly satisfied for Wave B.
 - 1 hard-infeasible (HP-economy per LC-030)
 
 **After Wave B** (post gate-lift):
-- 9 keys: 2 DEFERRED (HP-economy [WAVE-C], damage-taken-converts [WAVE-C]), 7 ACTIVE (generator-spender, starved, overflow, steady, **charge-stack** [lifted], **reservation** [NEW], **persistent-condition** [NEW])
+- 9 keys: 2 DEFERRED (HP-economy [WAVE-C], damage-taken-converts [WAVE-C — 3 TH thorns-reflect kits currently in `econ:UNKNOWN`, re-tag owed]), 7 ACTIVE (generator-spender, starved, overflow, steady, **charge-stack** [lifted], **reservation** [NEW], **persistent-condition** [NEW])
 - 2 in `_DEFERRED_ECON_BINS`
-- 1 hard-infeasible (HP-economy — LC/DR would-be-here per §7 deferral)
+- 1 hard-infeasible (HP-economy — LC would-be-here per §7 deferral; DR's home is the open §7.3 question)
 
 **Delta:** +2 new bins; −1 lifted bin; +1 new sub-shape tag on charge-stack. Kit-touch: +118 (44 PC + 42 RS + 16 AM + 16 RC).
 
@@ -509,13 +532,15 @@ Full econ_bin registry becomes 9 bins:
 | Bin | Status | Kit-touch | Composer entry | Sim consumer |
 |---|---|---|---|---|
 | `mana` / `focus` / `stamina-as-resource` families (existing) | ACTIVE | (existing base) | existing 4 bins | existing |
-| `persistent-condition` | ACTIVE (NEW) | 44 | `["mana", "focus", "rage"]` | combatant.py:tick + damage_resolver stat-mod composition |
-| `reservation` | ACTIVE (NEW) | 42 | `["mana", "focus"]` | combatant.py pool-regen tick (extends Wave-A A3) |
-| `charge-stack` | ACTIVE (LIFTED) | 32 (16 AM + 16 RC) | `["mana", "focus", "stamina-as-resource"]` | combatant.py:tick per sub-shape |
-| `HP-economy` | DEFERRED (Wave C) | 3 (LC + 2 overlap) | `[]` | (Wave-C build) |
-| `damage-taken-converts` | DEFERRED (Wave C) | 0 (potentially covered by PC proc-loop) | `[]` | (verify at S6 cert) |
+| `persistent-condition` | ACTIVE (NEW) | 44 | `["mana", "focus", "rage"]` | spatial_engine per-tick loop + `effect_resolver.tick_effects` + `damage_resolver.resolve_skill` stat-mod composition |
+| `reservation` | ACTIVE (NEW) | 42 | `["mana", "focus"]` | spatial_engine pool-regen tick (extends Wave-A A3 `reservation_per_proxy`) |
+| `charge-stack` | ACTIVE (LIFTED) | 32 (16 AM + 16 RC) | `["mana", "focus", "stamina-as-resource"]` | spatial_engine per-tick loop + `effect_resolver.tick_effects` per sub-shape |
+| `HP-economy` | DEFERRED (Wave C) | 3 (LC×3: 2 `["LC"]` + 1 `["RS","LC"]` overlap) | `[]` | (Wave-C build) |
+| `damage-taken-converts` | DEFERRED (Wave C) | 3 (TH thorns-retaliation, econ_gaps=`["UNKNOWN"]`, NOT yet bin-tagged) | `[]` | (Wave-C build) |
 
 Total Wave-B unblock: **118 kits**.
+
+> **⚑ Gate-1 CORRECTION (jack-ryan 2026-07-16, note #3 + ruling-10 TH rider):** two prior-row errors fixed. **(1) `HP-economy` kit-touch** was loosely "3 (LC + 2 overlap)" — corrected to LC×3 exactly (corpus: `["LC"]`×2 + `["RS","LC"]`×1). DR's 2 kits are NOT HP-economy-mapped (drain's Wave-C home is the open §7.3 question, not pre-assigned to HP-economy). **(2) `damage-taken-converts` kit-touch** was "0" — corrected to **3**. The "0" was the count of the `damage-taken-converts` *econ_gaps token*, which is genuinely 0, but a real thorns-retaliation roster EXISTS mechanically: corpus folk_names *Retaliation Warlord* (gd), *Thorns Barbarian* (d4), *Thorns Invoker* (d3) all carry econ_gaps=`["UNKNOWN"]` (they sit in the scoreboard's `econ:UNKNOWN=38` bucket, §3 row 5) and are damage-taken-converts-family (retaliation = passive reflect keyed off damage-taken, NOT a trigger-cast — so PC proc-loop does NOT cover them). A 4th thorns kit (*Thorns Barrier Templar*, chronicon) is already tagged `["PC","BT"]` and rides PC. **Wave-C park stands** — the 3 stay deferred to Wave C — but the count is 3, not 0, and the park rationale is "unclassified thorns-reflect roster needs a `damage-taken-converts` re-tag pass + a passive-reflect sim consumer, neither in Wave-B scope."
 
 ---
 
@@ -580,11 +605,11 @@ DL-03 explicitly satisfied for the whole spec.
 - `substrate_templates.py` — new templates per §2.9, §3.8, §4.8 (~9 new templates total).
 - `commitment_state_machine.py` — add 2 new commitment_states (`persistent_toggle`, `persistent_trigger`) per ESCALATION e ruling (B).
 
-**gamora (sim / resolution / calibration):**
-- `combatant.py:tick` — PC state consumer (per-sub-shape branching); AM/RC state consumers (per-sub-shape branching).
-- `combatant.py` pool-regen tick — extend Wave-A A3 regen-cap enforcement to non-proxy reservations (generalize `summon_economy.reservation_per_proxy × active_count` to sum-over-all-active-reservation-carriers).
-- `damage_resolver.resolve_skill` — PC stat-modifier composition step (aura's +damage buff, frenzy stack's +attack speed apply pre-mitigation).
-- `effect_resolver.tick_effects` — PC tick_cost drain; AM accumulator fill on events; RC recharge timer.
+**gamora (sim / resolution / calibration):** *(Gate-1 path-fix: consumer SITE is `spatial_gauntlet/spatial_engine.py`'s per-tick loop + `effect_resolver.tick_effects`; `combatant.py` is state-only, no `tick` method — see §1 EXISTS table.)*
+- `spatial_engine.py` per-tick loop (near the E4 channel-tick service :2326 / D4 `_step_proxy_population` :2189) — PC state consumer (per-sub-shape branching); AM/RC state consumers (per-sub-shape branching).
+- `spatial_engine.py` pool-regen tick — extend Wave-A A3 regen-cap enforcement to non-proxy reservations (generalize `summon_economy.reservation_per_proxy × active_count` to sum-over-all-active-reservation-carriers). NO NEW ALGORITHM.
+- `damage_resolver.resolve_skill` (:345) — PC stat-modifier composition step (aura's +damage buff, frenzy stack's +attack speed apply pre-mitigation).
+- `effect_resolver.tick_effects` (:55) — PC tick_cost drain; AM accumulator fill on events; RC recharge timer. New per-sub-shape state carried in `ActiveEffect.params`.
 - Calibration bands for all 4 new mechanisms — S6 gauntlet pass required post-emission (parallels Wave-A `proxy-light`/`proxy-heavy` cert).
 
 ### 12.2 Sequencing (LEAN — KR sequences)
