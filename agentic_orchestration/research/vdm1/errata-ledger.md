@@ -556,3 +556,72 @@ sweep inputs.
   in b07 — a partition-analysis input, not an errata; its floor and later bands are
   CONFIRMED, so the multi-band stamp `3.0-3.6;3.7-3.13;3.14-3.19;3.20+` is retained
   unchanged.)
+
+---
+
+## ERRATA-14 — poe1-tectonic-slam era floor correction (3.0 -> 3.2; D-2a uniform-law retro)
+
+- **kit_id:** `poe1-tectonic-slam`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `3.0-3.6` -> `3.2-3.6`
+- **verdict basis:** stage-3 **D-2a uniform law** — an era floor that predates the
+  skill's introduction patch is **CONTRADICTED**, regardless of back-half meta
+  presence. This RETIRES the earlier policy split under which b07 graded the floor
+  CONFIRMED (see REGISTER-ANNOT wave 4 above, "genuine back-half presence").
+- **batch:** b07 (attestation source); applied at ingest wave 6.
+- **date applied:** 2026-07-18 (ingest wave 6)
+- **verify_ledger:** **NO `errata_applied` flag set, and the b07 verdict rows are
+  NOT retro-edited** — they KEEP their historical **CONFIRMED** grade (dispatch
+  law). The `errata_applied=1` convention is reserved for CONTRADICTED-era verify
+  rows; this kit has no such row. The data restamp + this ledger entry are the sole
+  audit trail (same provenance shape as ERRATA-9 / BACKFILL-1: data change, no flag).
+  Post-wave errata_applied total STAYS 12. (Verified: tectonic-slam has 0
+  `errata_applied=1` rows post-ingest; its era verify row remains CONFIRMED,
+  errata_applied=0.)
+- **source anchor (verbatim, from the b07 era CONFIRMED verify row):** "Tectonic
+  Slam was introduced in patch 3.2.0 as a new Strength Skill Gem" — the debut patch
+  3.2.0 sits inside the `3.0-3.6` bucket; the bucket floor 3.0 predates it by two
+  patches. Under D-2a the floor is narrowed 3.0 -> 3.2, yielding `3.2-3.6`.
+- **class:** debut-inside-bucket (same shape as ERRATA-1/3/4/5/6/7/10) BUT reached
+  under the NEW uniform law rather than a fresh CONTRADICTED crawl — the b07 floor
+  grade was CONFIRMED under the retired split; D-2a re-classes the floor as
+  contradicted-by-rule and applies the standard floor-narrowing.
+- **supersedes:** the wave-4 REGISTER-ANNOT for tectonic-slam ("3.2.0 sits inside
+  3.0-3.6, floor confirmed"). That annotation reflected the retired policy; the
+  floor is now moved. The b07 CONFIRMED verdict row is nonetheless preserved
+  unedited per dispatch law.
+- **not-corrected fields:** `era_year` (=2013 bulk-fill artifact) untouched (out of
+  this dispatch's scope; a systematic era_year backfill remains a stage-3 candidate).
+
+---
+
+## ERRATA-15 — poe1-toxic-rain era floor correction (3.0 -> 3.4; D-2a uniform-law retro)
+
+- **kit_id:** `poe1-toxic-rain`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `3.0-3.6;3.7-3.13;3.14-3.19;3.20+` -> `3.4-3.6;3.7-3.13;3.14-3.19;3.20+`
+- **verdict basis:** stage-3 **D-2a uniform law** (as ERRATA-14). Floor predates the
+  skill's debut -> CONTRADICTED-by-rule; the earlier CONFIRMED-with-note grade under
+  the retired split is retired.
+- **batch:** b07 (attestation source); applied at ingest wave 6.
+- **date applied:** 2026-07-18 (ingest wave 6)
+- **verify_ledger:** **NO `errata_applied` flag set; b07 verdict rows NOT retro-edited**
+  (KEEP CONFIRMED, per dispatch law). Same provenance shape as ERRATA-14. Post-wave
+  errata_applied total STAYS 12. (Verified: toxic-rain retains its CONFIRMED era
+  verdict rows with errata_applied=0; the earlier `3.7-3.13` UNSUPPORTED partition
+  row is likewise untouched.)
+- **source anchor (verbatim, from the b07 era CONFIRMED verify row):** "Toxic Rain
+  was introduced in version 3.4.0 (Delve league)" — the debut patch 3.4.0 sits
+  inside the leftmost `3.0-3.6` bucket; the floor 3.0 predates it by four patches.
+  Under D-2a the leftmost floor is narrowed 3.0 -> 3.4, yielding `3.4-3.6`.
+- **scope of the correction (ONLY the leftmost bucket's floor moves):** the three
+  later buckets are UNTOUCHED. `3.7-3.13` is retained as-is — its b07 UNSUPPORTED
+  grade is a partition-analysis input, NOT an errata basis (per the wave-4
+  REGISTER-ANNOT note); `3.14-3.19` and `3.20+` are CONFIRMED and untouched. So the
+  corrected stamp is `3.4-3.6;3.7-3.13;3.14-3.19;3.20+`.
+- **class:** debut-inside-bucket under the NEW uniform law (as ERRATA-14).
+- **supersedes:** the wave-4 REGISTER-ANNOT for toxic-rain ("3.4.0 sits inside
+  3.0-3.6; back-half presence confirmed; multi-band stamp retained unchanged"). The
+  leftmost floor is now moved 3.0 -> 3.4; the three later bands remain unchanged as
+  that annotation described. The b07 CONFIRMED verdict rows are preserved unedited.
+- **not-corrected fields:** `era_year` (=2013 bulk-fill artifact) untouched.
