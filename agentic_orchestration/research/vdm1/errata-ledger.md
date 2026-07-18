@@ -1414,3 +1414,54 @@ ZERO CONTRADICTED verdict in ANY family, AND the kit HAS probe facts.
 - **NULL-field kits post-backfill:** ring-of-shields + shift-bladedancer are gate-PASS (id+mech
   CONFIRMED, zero-contra) but carry ZERO probe facts even after the era backfill (backfill adds
   era stamps, not probe rows) -> they land in the zero-fact bucket; nothing to promote. Correct.
+
+# ===== VDM-1 BASIN-2 (ingest-12, 2026-07-18) — third-store resource sweep + umbral precision =====
+
+## ERRATA-41 — canon_engine_key WRONG-RESOURCE third-store sweep (extends ERRATA-38) [SYSTEMATIC CLASS]
+
+- **scope:** the THIRD store flagged (but deliberately NOT swept) at ERRATA-38 —
+  `canon_engine_key.resource_verbatim` for all `gd-*` rows reading `spirit`, `focus`, or lowercase
+  `mana`. Same error class as ERRATA-38: GD's universal resource is **Energy** ("Spirit" is a GD
+  STAT name — the confusion source). **Authorized:** steward Ruling 1 at ingest-11 verification
+  (the ingest-11 MIGRATION + ERRATA-38 both recorded this store for a steward-directed follow-up;
+  Ruling 1 lifted the no-silent-scope-expansion hold for this specific store).
+- **store + field:** `canon_engine_key.resource_verbatim` — **16 gd rows** (measure-first readonly
+  SELECT == expected 16; matches the ERRATA-38 probe-store split exactly). Guarded exact-prior
+  UPDATEs, rowcount==1 each, single txn.
+  - `mana` -> `energy` (14 rows).
+  - `mana (reserve)` -> `energy (reserve)` (1: gd-skeleton-ritualist — reserve qualifier preserved,
+    per the ERRATA-38 probe-store precedent).
+  - `spirit/focus` -> `energy` (2: gd-belgothian-blademaster, gd-fire-strike-purifier).
+- **date:** 2026-07-18 (wave 12) · **verdict:** policy-driven sweep, NOT a verify contradiction —
+  **NO `errata_applied` flag** (consistent with ERRATA-38, which set no verify flags for the sweep
+  itself; the flag is reserved for CONTRADICTED-era verify rows). No `verify_ledger` row is a
+  resource-family contradiction for these kits.
+- **NOT touched (safety-asserted post-write):** `canon_engine_key.econ_meter_type` (belgothian +
+  fire-strike still read `focus`) — the ERRATA-38 sweep scope was `resource_verbatim` ONLY, and the
+  probe store's own post-ERRATA-38 state LEAVES belgothian `meter_type=focus` (fire-strike
+  `meter_type=n/a` was the separate per-kit ERRATA-35 model correction, not the sweep). Matching
+  that store-state keeps the three stores consistent — the entire point of the sweep. ALL `le-*`
+  rows untouched (0 LE `resource_verbatim` set to energy — asserted; LE Mana is correct). `economy_model`
+  / `econ_status` carry 0 gd residue (asserted). d3/di Monk Spirit remains GENUINE, out of scope.
+- **outcome:** post-sweep the three stores (`canon_corpus.econ_raw` · `canon_probe_facts` economy ·
+  `canon_engine_key.resource_verbatim`) AGREE on the resource label for these 16 gd kits — the
+  ERRATA-38 documented divergence is now resolved. Residual gd `resource_verbatim`
+  spirit/focus/lowercase-mana == 0 (asserted post-write).
+
+## ERRATA-42 — le-umbral-blades mech_note annotation-precision fix (CIRCULAR clause reword) [ANNOTATION CLASS]
+
+- **kit_id:** `le-umbral-blades`
+- **field:** `canon_corpus.mech_note` (the ingest-11 ANNOT-BASIN2 (h) ALIAS-ARTIFACT annotation).
+- **issue:** the ingest-11 annotation claimed *"fetched text attests Umbral Blades as physical/cold
+  (probe element already reads 'Physical / Cold')"* — the attestation is CIRCULAR to probe-class
+  (the m07-audit store-grep found ZERO cold tokens in `kit_dossier`/`verify_ledger`; the "physical/
+  cold" reading comes from the probe element, not fetched text). Re-verified at ingest-12
+  measure-time: dossier-cold=0, verify-cold=0.
+- **old -> new (clause only; rest of mech_note preserved verbatim):**
+  `fetched text attests Umbral Blades as physical/cold (probe element already reads 'Physical /
+  Cold'), NOT void` -> `probe element reads Physical/Cold; fetched text is element-silent, NOT void`.
+- **verdict:** annotation-precision (no value/grade change; the mapping already ships null/null
+  element correctly). **NO `errata_applied` flag** (annotation class, per ANNOT-BASIN2 convention).
+  Guarded rowcount==1, exact-prior match. `date:` 2026-07-18 (wave 12).
+- **source anchor:** m07 audit finding — "probe element reads 'Physical / Cold'; fetched text is
+  element-silent (zero cold tokens in either store)."
