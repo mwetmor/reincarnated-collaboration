@@ -367,3 +367,192 @@ Steward: elrond (single writer, corpus.db). Run: vdm1.
   that seeds it). The batch-06 dossier `variants` row is the citation. Until the
   roster owner acts, the corpus.db landing zone correctly records the anchored
   evidence and this REVIEW note; no corpus.db field is silently changed.
+
+---
+
+## ERRATA-10 — poe1-venom-gyre era floor correction (3.7 -> 3.8 within bucket)
+
+- **kit_id:** `poe1-venom-gyre`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `3.7-3.13;3.20+` -> `3.8-3.13;3.20+`
+- **verdict:** CONTRADICTED (batch-08 verify, `era` claim family) on the 3.7-3.13
+  band; paired with a CONFIRMED positive `era` row on the 3.20+ band.
+- **batch:** 08
+- **date applied:** 2026-07-18 (ingest wave 4)
+- **verify_ledger:** `errata_applied=1` set on the ingested venom-gyre 3.7-3.13 `era`
+  CONTRADICTED row (exactly one such row; the 3.20+ CONFIRMED row is NOT flagged).
+- **provenance note:** EXCLUDED from promotion (carried a CONTRADICTED era). Venom
+  Gyre has 0 probe facts in corpus.db regardless (zero-probe kit), so its promotion
+  effect is moot; it is excluded on principle.
+- **class:** debut-inside-bucket (same class as ERRATA-1/3/4/5/6/7). Venom Gyre
+  debuted at patch **3.8.0**, inside the `3.7-3.13` bucket whose floor 3.7 predates
+  it by one patch. Narrow the floor 3.7 -> 3.8, yielding `3.8-3.13;3.20+`; the
+  `3.20+` band is untouched (it is independently attested — see anchor).
+- **source anchors (verbatim):**
+  - CONTRADICTED: "'[3.8] Venom Gyre Assassin done right' posted September 2019 —
+    Venom Gyre introduced in patch 3.8.0; era floor 3.7 predates skill introduction"
+    — pathofexile forum.
+  - CONFIRMED (positive, 3.20+): "'[3.22] Vaal Venom Gyre - Pathfinder' forum
+    thread; [3.23] league starter Venom Gyre Deadeye YouTube guide; Deadeye most
+    prominent class 3.20-3.23."
+
+---
+
+## ERRATA-11 — poe1-viper-poison DROP unattested 3.0-3.6 bucket (RESTAMP under ERRATA-8 precedent)
+
+- **kit_id:** `poe1-viper-poison`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `3.0-3.6;3.7-3.13` -> `3.7-3.13`
+- **verdict:** CONTRADICTED (batch-08 verify, `era` claim family) on the 3.0-3.6
+  band; **corroborated by a paired CONFIRMED positive `era` row on the 3.7-3.13
+  band** (both rows landed via the granular one-row-per-band split).
+- **batch:** 08
+- **date applied:** 2026-07-18 (ingest wave 4)
+- **verify_ledger:** `errata_applied=1` set on the ingested viper-poison 3.0-3.6
+  `era` CONTRADICTED row (exactly one such row; the 3.7-3.13 CONFIRMED row is NOT
+  flagged).
+- **provenance note:** EXCLUDED from promotion (carried a CONTRADICTED era).
+  viper-poison has 0 probe facts (zero-probe kit); promotion effect is moot; excluded
+  on principle.
+- **ADJUDICATION (drop-vs-restamp, per ERRATA-8 seismic-trap precedent):** The
+  dispatch flagged this as a **combined-kit impossibility** — the ENTIRE 3.0-3.6
+  bucket precedes co-skill **Pestilent Strike's 3.8.0 debut**. The stamped identity
+  is the *dual-skill Poison Assassin* archetype (Viper Strike + Pestilent Strike);
+  Viper-Strike-alone is a DIFFERENT claim and is not what is stamped. So the
+  combined kit as stamped **cannot exist** before 3.8.0, which invalidates the
+  entire 3.0-3.6 bucket (not just its floor). The ERRATA-8 rule is: *if no in-bucket
+  attestation of the combined kit, DROP the bucket; RESTAMP only if the b08 anchors
+  attest a specific later window.* Here the b08 anchors **DO attest a specific later
+  window** — a CONFIRMED positive `era` row on **3.7-3.13**, anchored by the "[3.8]
+  Pestilent Strike & Viper Strike Poison Assassin" thread by tylam6746 documenting
+  the combined build from patch 3.8. Therefore this is a **RESTAMP, not a blanket
+  DROP**: drop only the unattested 3.0-3.6 bucket and KEEP the attested 3.7-3.13
+  window, yielding `3.7-3.13`. (Note: the surviving 3.7-3.13 band's floor 3.7 is one
+  patch below the 3.8.0 co-skill debut; the band is retained as-is because the
+  attestation is a *3.8-band* build inside that bucket and the bucket is the
+  attested unit — no sub-band floor-narrowing is applied within an attested wide
+  bucket, consistent with wave-3 register semantics.)
+- **source anchors (verbatim):**
+  - CONTRADICTED: "Pestilent Strike 'Added a new Dexterity/Intelligence Skill Gem -
+    Pestilent Strike' in version 3.8.0; skill did not exist in 3.0-3.6. Viper Strike
+    existed but the dual-skill Assassin archetype as stamped requires both." —
+    poedb.tw.
+  - CONFIRMED (positive, 3.7-3.13): "'[3.8] Pestilent Strike & Viper Strike Poison
+    Assassin | Fast & Deadly | 6M Shaper DPS' thread by tylam6746 documents the build
+    from patch 3.8." — pathofexile forum.
+- **contrast with ERRATA-8 (seismic-trap DROP):** seismic-trap had NO attested band
+  in the fetched sources except a *different* later floor (3.16 in the 3.14-3.19
+  bucket), so its 3.7-3.13 bucket was dropped with no restamp needed (the 3.14-3.19
+  band already stood on its own). viper-poison differs: the impossibility is at
+  3.0-3.6 and a *specific* adjacent later band (3.7-3.13) IS positively attested, so
+  the surviving stamp is that attested band. Both are the "band-unattested" class;
+  the discriminator (DROP-only vs DROP-and-keep-attested) turns on whether a distinct
+  later band carries positive evidence.
+
+---
+
+## ERRATA-12 — poe1-ward-loop era floor correction (3.14 -> 3.15 within bucket)
+
+- **kit_id:** `poe1-ward-loop`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `3.14-3.19;3.20+` -> `3.15-3.19;3.20+`
+- **verdict:** CONTRADICTED (batch-08 verify, `era` claim family) on the 3.14-3.19
+  band; paired with a CONFIRMED positive `era` row on the 3.20+ band.
+- **batch:** 08
+- **date applied:** 2026-07-18 (ingest wave 4)
+- **verify_ledger:** `errata_applied=1` set on the ingested ward-loop 3.14-3.19 `era`
+  CONTRADICTED row (exactly one such row; the 3.20+ CONFIRMED row is NOT flagged).
+- **provenance note:** EXCLUDED from promotion (carried a CONTRADICTED era).
+- **class:** debut-inside-bucket. The **Ward mechanic** debuted at patch **3.15
+  (Expedition)**, inside the `3.14-3.19` bucket whose floor 3.14 predates Ward's
+  existence in the game (the build is literally impossible in 3.14). Narrow the floor
+  3.14 -> 3.15, yielding `3.15-3.19;3.20+`; the `3.20+` band is untouched (attested).
+- **source anchors (verbatim):**
+  - CONTRADICTED: "Ward mechanic 'introduced in content patch 3.15 (Expedition)';
+    era floor 3.14 predates Ward's existence in the game; build impossible in 3.14."
+  - CONFIRMED (positive, 3.20+): "Multiple guides for 3.21, 3.22, 3.23, 3.26, 3.27,
+    3.28 document Ward Loop as an active build with ongoing balance adjustments."
+
+---
+
+## ERRATA-13 — poe1-winter-orb era floor correction (3.0 -> 3.5 within bucket)
+
+- **kit_id:** `poe1-winter-orb`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `3.0-3.6` -> `3.5-3.6`
+- **verdict:** CONTRADICTED (batch-08 verify, `era` claim family) on the 3.0-3.6
+  band.
+- **batch:** 08
+- **date applied:** 2026-07-18 (ingest wave 4)
+- **verify_ledger:** `errata_applied=1` set on the ingested winter-orb 3.0-3.6 `era`
+  CONTRADICTED row (exactly one such row).
+- **provenance note:** EXCLUDED from promotion (carried a CONTRADICTED era).
+  winter-orb has 0 probe facts (zero-probe kit); promotion effect is moot; excluded
+  on principle.
+- **class:** debut-inside-bucket. Winter Orb debuted at patch **3.5.0 (Betrayal)**,
+  inside the `3.0-3.6` bucket whose floor 3.0 predates it by five patches. Narrow the
+  floor 3.0 -> 3.5, yielding `3.5-3.6` (the sole band collapses to the two-patch
+  window 3.5-3.6). poe.ninja records 9% representation at 3.5, corroborating Betrayal
+  as the genuine debut/adoption league.
+- **source anchor (verbatim):** "Winter Orb 'introduced in version 3.5.0' patch
+  notes; era floor 3.0 predates skill introduction by five patches; Betrayal (3.5)
+  is first era. '9% representation in Betrayal league' per poe.ninja."
+
+---
+
+## BACKFILL-1 — poe1-vaal-blade-vortex era fill (NULL -> attested crawl value; NOT errata)
+
+- **kit_id:** `poe1-vaal-blade-vortex`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `NULL` -> `3.0-3.6;3.7-3.13`
+- **verdict:** the `era` verify row is **CONFIRMED** (batch-07). This is a **FILL of
+  an EMPTY (NULL) column**, NOT a correction of a contradicted value — VBV is a
+  DB-only census kit that carried NO era stamp. The b07 crawl established the window
+  with citations.
+- **batch:** 07
+- **date applied:** 2026-07-18 (ingest wave 4)
+- **verify_ledger:** **NO `errata_applied` flag set.** The flag is reserved for
+  CONTRADICTED-era-row corrections; VBV's era row is CONFIRMED and there was no prior
+  value to contradict. This ledger + the MIGRATION doc are the sole audit trail of the
+  fill (no-silent-transformation). Verified: VBV has 0 `errata_applied=1` rows.
+- **provenance note:** this is a **fill-from-verified-crawl**. VBV has 0 probe facts
+  (zero-probe kit) so it is in the promote set but promotes 0 rows (nothing to
+  promote); the era fill does not gate promotion.
+- **source anchor (verbatim):** "Vaal Blade Vortex has been added to the game
+  (3.3.0); '[3.8 Video Guide] Blade Vortex Inpulsa Clear Speed Build [Inquisitor]'
+  confirms 3.7-3.13 era presence." — the 3.3.0 debut lands in the `3.0-3.6` bucket
+  and the 3.8 guide confirms the `3.7-3.13` bucket, so the filled value is
+  `3.0-3.6;3.7-3.13`. Guarded UPDATE `eras IS NULL` -> value, rowcount==1.
+
+---
+
+## REGISTER-ANNOT (wave 4) — Unattested Register + floor-based bucket-audit intro-patch notes
+
+Not data changes; recorded for the stage-3 systematic bucket-audit sweep. The
+floor-based bucket-audit register (wave-3 doc) **empties to 0** this wave: all 12
+wave-3 register kits were individually crawled in batches 07-08, so none remains an
+audit candidate. The three annotations below attach to now-verified rows as stage-3
+sweep inputs.
+
+- **UNATTESTED REGISTER — `poe1-totem-hierophant`:** era **UNSUPPORTED** (batch-07);
+  eras unrecoverable from search. DB `eras` stays **NULL** (no data write — no
+  attested window to fill; contrast BACKFILL-1 where VBV's window WAS attested). The
+  landing-zone verify row ("Era stamps absent from DB — cannot verify era claims") is
+  the record. Enters the **Unattested Register** per charter stream-1
+  (UNSUPPORTED/SOURCE-NOT-FOUND on an unrecoverable axis). Note: totem-hierophant is a
+  zero-probe kit; it is in the promote set but promotes 0 rows.
+- **INTRO-PATCH ANNOT — `poe1-tectonic-slam` (intro 3.2.0):** b07 graded its
+  `3.0-3.6` floor stamp **CONFIRMED** (genuine back-half presence: "Tectonic Slam
+  introduced 3.2.0 … a very solid melee skill since its release"). NO errata basis
+  (the floor is attested). The attested introduction patch **3.2.0** is attached to
+  its floor-based bucket-audit register row for the stage-3 sweep — 3.2.0 sits inside
+  the `3.0-3.6` bucket, so a future debut-vs-floor scrutiny would confirm the floor
+  is correct (skill present AND meta-attested in the back half of the bucket).
+- **INTRO-PATCH ANNOT — `poe1-toxic-rain` (intro 3.4.0):** b07 graded its `3.0-3.6`
+  floor stamp **CONFIRMED** (genuine back-half presence: "Toxic Rain introduced 3.4.0
+  Delve"). NO errata basis. The attested introduction patch **3.4.0** is attached to
+  its register row for the stage-3 sweep — 3.4.0 sits inside `3.0-3.6`; back-half
+  presence confirmed. (Note: toxic-rain's `3.7-3.13` mid-band was graded UNSUPPORTED
+  in b07 — a partition-analysis input, not an errata; its floor and later bands are
+  CONFIRMED, so the multi-band stamp `3.0-3.6;3.7-3.13;3.14-3.19;3.20+` is retained
+  unchanged.)
