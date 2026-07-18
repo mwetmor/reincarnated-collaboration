@@ -88,3 +88,19 @@ None. All 6 kits returned usable sources. Young-season LE kits (1.2-woven, 1.4-o
 - **Warpath**: forum guide at 0.8.1E and 0.8.3C (confirmed). Era stamps include beta-0.8-0.9. No D-2a issue.
 - **Werebear Form**: forum guide at 0.7.2 (confirmed). Era stamps include beta-0.8-0.9. No D-2a issue.
 - **Summon Wraith / Wraithlord's Harbour**: 1.0-launch context confirmed. No beta-era evidence found. Era stamps start at 1.0-launch — consistent with intro. No D-2a issue.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18)
+
+**Recount (D-2c):** file truth **30C / 3U / 0X / 0SNF = 33 rows** (identity 6 · mechanics 8 · era 18 · negative_canon 1). Advisory (29C) drifted by one — seventh consecutive agent-return drift; files govern. **Zero contradictions VERIFIED at file level** — legitimately declared loudly; the intro-check table above shows all six floors post-intro, so the D-2a instrument had nothing to fire on. No edits needed — all verdicts UPHELD.
+
+**Per-component splitting extended to MECHANICS (accepted):** umbral-blades mechanics ×2 (resource sub-claim honest-U where fetched text silent; core-skills C) · wraithlord mechanics ×2. Same logic as the per-era-token ruling (b03/b04) — each component judged on its own evidence; schema-legal. Era family runs 18 rows / 6 kits — fully per-token.
+
+**Claim-vs-claim law WORKED IN THE WILD:** the tempest-strike class-field inconsistency (spec "Shaman (Primalist+Acolyte)" — Acolyte wrong; Shaman is a Primalist mastery) was correctly routed to red-flags, NOT verdicted. First unprompted field application of the b01-minted law. → elrond erratum: fix class field.
+
+**Negative-canon nuance — ERA-SCOPED negative (new class for the review book):** tempest-strike negative_canon CONFIRMED with verbatim beta-era anchor ("fixed attack speed... falls off a bit at end game"), BUT crawler attests a post-1.0 rework substantially addressed the ceiling; 1.2-woven sources treat it viable-with-investment. The negative label is REAL but era-bounded. Contrast pair now complete: stun-jacks = negative UNATTESTED (b03) · tempest-strike = negative attested-but-era-bounded (b07) → kb negative labels may need era-bounds as a schema concept. Elrond annotation: negative-era-scope note on tempest-strike.
+
+**Erratum queue additions:** tempest-strike class field (drop Acolyte) · umbral-blades "void blade Rogue" alias = probe artifact (fetched: physical/cold, not void) · WATCH: wraithlord 1.1-harbingers + 1.2-woven era stamps unattested (prune/backfill candidate — sources cluster at 1.0-launch; possible post-1.0 rotation).
+
+**Citations:** 20 / 0 quarantined / 0 banned-domain (forum.lastepoch.com 13 · maxroll.gg 7). **Dossier:** 36/36 rows · 2 abstained strictly-null ✓ (tempest-strike item_alterations + author_credit) · 34/36 = **94.4%** · conf floats ✓ · anchors ≤40w ✓ · negative_canon emitted ONLY for the slice negative ✓ · boardman21 credited ×2 (LE forum-era author lineage).
