@@ -1,5 +1,7 @@
 # VDM-1 Stage-3 calibration protocol (V-0 gate) — PRE-REGISTERED
 
+> **✓ EXECUTED 2026-07-18 — verdict GO w/ amendments.** Results + D-rulings: `2026-07-18-vdm1-stage3-gate-result.md`. This doc remains the pre-registration record (methods were fixed before final data landed).
+
 > Drafted 2026-07-18 while mapping 05-06 + ingest-4 in flight, BEFORE final PoE1 data lands — measurement methods fixed now so the self-check cannot grade its own homework. Charter §6; run-state ledger is the data source of record. Executor: gandalf (steward). Output: GO / AMEND / NO-GO for the ~490-kit scale-out + brief amendments.
 
 ## A. Measurements (each = predicted vs actual + one-line verdict)
