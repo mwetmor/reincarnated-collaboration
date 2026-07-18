@@ -67,3 +67,26 @@ ELEMENT_CONVERSION_MONO ×4 · ZONE_CONTROL ×3 · PERSISTENCE_ENGINE_uptime ×3
 - §0.3 payload-nulls: Maul (eor) · WPS individual payloads (fire-strike) · Krieg's Wrath (krieg) · devotion procs (devastation, foi, doom-bolt) · Wind Devil (pet-conjurer) · Time Dilation (devastation, §A residual).
 - R-M5 never negated; applied once (doom-bolt), "considered, not applicable" elsewhere.
 - DB read-only throughout; probe facts used for orientation only; zero probe-cited tokens.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18 — D-2c recount from committed files)
+
+**Recount at commit: 12 rows · 2 EXACT / 7 CLOSE / 2 APPROX / 1 GAPPED — advisory EXACT, zero drift.** R-M7 clean (pet-conjurer sole DOCKET). All doors enum-legal (incl. ELEMENT_CONVERSION_PHYSICAL / _HYBRID, DUAL_PROXY firsts). **POST-AUDIT histogram: 2E / 8C / 1A / 1G** — forcewave regraded APPROX→CLOSE in-place under ruling #1 below. **Zero strips; one steward ADDITION** (basin-1 precedent: audits add attested tokens as well as strip leaks).
+
+**Ailment audit (6 emissions verified against dossier fetched language):** dee poison ×2 ("bursts into poison pools" behavioral; Bloody Pox tie via sentence-adjacency — see micro-ruling) · devastation + doom-bolt `curse:sap` (RR named; hex/zone shapes; "Curse of Frailty" literally a curse) · drain-essence `drain` — **the name-vs-behavior poster case done RIGHT:** cited channel + "built-in life leech" behavior, not the skill name (§0.3 navigated exactly) · FoI `burn` — **decisively attested: "50% of FoI damage is burn"** (verbatim WITH magnitude; steward's flavor-worry dissolved at full-note depth).
+
+**Steward rulings on the 7 filed questions:**
+1. **GD Internal Trauma → `bleed` — ADJUDICATED YES** (§A row added). Phys-DoT lineage; joins §2 bleed/lacerate/rupture; THE PHYSICAL RULE names bleed as the phys ailment-substrate. Retro-applied: `bleed` emitted on Forcewave (named in fetched text), grade APPROX→CLOSE (the stated deviation was solely the pending row).
+2. **GD fumble → `blind` — ADJUDICATED YES** (§A row added; blind's vision register widened to accuracy-tax semantics, which IS engine blind). **Adjacency micro-ruling:** skill-level emission requires sentence-level adjacency between status language and skill (dee's "fumble curses" is cross-phrase compression → kit-level note only, no retro-emission; contrast Bloody Pox's poison, tied by sentence chain "Bloody Pox applied… stacks acid/poison DoT").
+3. **GD confusion — NO row.** Genuine registry no-home (wander ≠ fear/flee). Joins the review-book ailment-gap list: GD electrocute · frostburn · confusion (all withhold-correct).
+4. **Forcewave ZONE_CONTROL — ACCEPTED-WEAK.** No §5 row fits a spam lane-wave; nearest-door with the weakness flagged beats improvisation. No rule change.
+5. **Panettis secondary = lightning — RATIFIED.** ERRATA-36's corrected read is "tri-elemental, shock-downstream" — the erratum's own downstream emphasis breaks the tie toward lightning. Tri→2-slot squeeze noted as model constraint.
+6. **Judgment minimal `circle` — ACCEPTED.** Shape-underspecified casts default to the minimal token (R-M6 spirit); honest.
+7. **Timer-proc enum gap — R-M5 IS the bridge** (`timed-cooldown-refund-pulse` greppable, consequence resource-fill, never negated — compliance exact). An on-timer enum value is an ENGINE-facing trigger-enum question → review-book qualitative line, not a mint.
+
+**Convention refinement (from pet-conjurer null geometry, harmonizing with the m03 ruling):** the pet-geometry convention is TWO-LANE, mirroring §B's totem-vs-companion split at the geometry layer — **placement-attested summons → `totem` projection (m03 skeleton army "at target positions"); follow/companion summons with no placement language → null geometry is honest** (pet-conjurer "pets fight autonomously while player kites" — no placement attested). Pet-conjurer's null STANDS; WAVE-PLAN ruling line updated to the two-lane form for W2/W3.
+
+**Discipline attestations verified:** ERRATA-35 economy in-row (fire-strike) · ERRATA-36 honored with shock near-missed not emitted (panettis) · Call-of-the-Beast correction carried (pet-conjurer) · §0.3 payload-nulls ×7 incl. the Maul poster child · probe-cited tokens ZERO. Candidates side-filed clean; accruals numberless. **Two-tier-accumulator standing (steward-owned): mechanism #3 = Cadence, now in-corpus-evidenced by krieg (belgothian m01 joins the same mechanism's evidence list, does not raise the count).**
+
+**Verdict: ACCEPTED (with one steward addition + regrade).** W1 running tally: m02+m03 = 24 kits · 7E/11C/2A/4G · zero leak-class strips across both.

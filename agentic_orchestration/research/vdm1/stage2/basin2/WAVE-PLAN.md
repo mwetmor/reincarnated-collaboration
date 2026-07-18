@@ -34,7 +34,8 @@
 Families: out-and-return · placed-proxy-count (+2 at m03 audit: army-count, recast-count) · two-tier-accumulator (WATCH-ITEM FIRED at 2; cadence would be #3) · stat-as-damage-substrate cluster (4 mechanisms incl. GD retaliation — m03 filed the anticipated own-row docket).
 
 ## Post-W1 audit rulings (PASTE into W2/W3 spawning prompts)
-- **Gapped-pet geometry convention (m03-audit ruling, binding):** GAPPED pet-core skills carry nearest-shape PLACEMENT projection (`totem` for summons — placement is attested evidence), NEVER null. The autonomy gap lives in grade + deviation_notes + docket per R-M7. Applies to m05 skeleton-necro/wraithlord-adjacent, m06 squirrel-bm/skeleton-necro/storm-totem, m07 wraithlord.
+- **Gapped-pet geometry convention (m03-audit ruling, REFINED at m02 audit — two-lane, binding):** placement-ATTESTED summons ("at target positions") → `totem` PLACEMENT projection; follow/companion summons with NO placement language → null geometry is honest. Mirrors §B totem-vs-companion at the geometry layer. Either way the autonomy gap lives in grade + deviation_notes + docket per R-M7. Applies to m05 skeleton-necro/wraithlord-adjacent, m06 squirrel-bm/skeleton-necro/storm-totem, m07 wraithlord.
+- **Two §A rows ADDED at m02 audit (binding):** GD Internal Trauma → `bleed` (phys-DoT lineage) · GD fumble/attack-miss curses → `blind` (register widened to accuracy-tax) with the sentence-adjacency micro-ruling for skill-level emission. GD confusion/electrocute/frostburn = NO-HOME withholds (review-book list).
 - **§2 RR-branch reminder:** curse:sap vs sunder picks need an application-shape anchor word in fetched text (aura/presence/entity-anchor → curse:sap; hit-proc window → sunder); shape-silent = WITHHOLD (m03 exercised 5×, consistent).
 
 **Lifecycle:** steward instantiates spawning prompts from the TEMPLATE + this plan at each wave fire; audits every return (D-2c recount); §A/§B extend at audits if NEW mechanisms attest.
