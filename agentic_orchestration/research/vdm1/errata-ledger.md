@@ -1465,3 +1465,220 @@ ZERO CONTRADICTED verdict in ANY family, AND the kit HAS probe facts.
   Guarded rowcount==1, exact-prior match. `date:` 2026-07-18 (wave 12).
 - **source anchor:** m07 audit finding — "probe element reads 'Physical / Cold'; fetched text is
   element-silent (zero cold tokens in either store)."
+
+---
+
+# ===== VDM-1 BASIN-3 (ingest-13, 2026-07-18) — basin-3 crawl ingest + backfill-3 overlay + errata-43..55 + promotions =====
+
+## ERRATA-43 — FALSIFIED-NEGATIVE annotations ×5 (ANNOTATE ONLY; negative flag NOT flipped) [ANNOTATION + VERIFY-FLAG CLASS]
+
+- **scope:** five kits whose `negative_canon` claims were CONTRADICTED by verified fetched text, but whose
+  `negative=1` flag is RETAINED pending Matt review-book decision.
+- **root cause:** kb models base-kit/dedicated-set only, blind to blanket-set/aspect/unique redemption
+  paths. This is the dominant systematic kb-authoring blind spot of basin-3 (5/18 negatives falsified = 27.8%,
+  one root cause).
+- **kits:**
+  1. `d3-spectral-blade` — negative falsified by Delsere's Magnum Opus 6pc blanket Slow-Time coverage
+     (negative_canon_target rewrite candidate: "no dedicated set; DMO coverage exists; non-meta holds")
+  2. `d3-wave-of-force` — negative falsified by DMO 6pc (+12,500% covers WoF; 2.4.1 build documented);
+     same root cause as spectral-blade
+  3. `d4-incinerate` — "no burst window" falsified by Overheating unique (2s channel → x[75-100%] for 5s)
+  4. `d4-kick` — "never received set-equivalent amplification" falsified by Crown of Lucion (×105% S12)
+     + Ring of Red Furor; era-bounded (launch→S11 weakness was real; redeemed by S12)
+  5. `d4-wind-shear` — "no proc identity or ramping mechanic" falsified by Aspect of the Calm Breeze
+     (poison DoT) + Storm/Basic tag-inheritance scalars (Moonrise/Adaptability/Thunderstruck)
+- **action:** `mech_note` PREPEND annotation per kit (rationale + rewrite candidate) + `errata_applied=1`
+  on each kit's `negative_canon` CONTRADICTED verify row. No `negative` flag flip (Matt review-book).
+- **verify rows flagged:** 5 (one per kit, claim_family=negative_canon, verdict=CONTRADICTED).
+- **date:** 2026-07-18 (wave 13).
+
+## ERRATA-44 — di resource WRONG-RESOURCE sweep (ERRATA-38 class) [SYSTEMATIC ANNOTATION CLASS]
+
+- **scope:** ALL 23 di-kit `canon_probe_facts.economy` rows — resource_verbatim fields are d3-analog
+  imports, uniformly UNSUPPORTED in fetched di text.
+- **attested post-launch resource picture (basin-3 fetched evidence):**
+  - Druid = **Primal Power** (official Blizzard class-intro page; b14 CONTRADICTED)
+  - Blood Knight = **Anger** (official "Consume all your Anger"; b13)
+  - Tempest = **cooldown-only** (no resource builders or spenders; b15 CONTRADICTED)
+  - Warlock = **cooldown-only** ("no resource builders or spenders" — mmorpg.com hands-on; b15 CONTRADICTED)
+  - Launch-class d3-analog names (Fury/Spirit/Hatred/Arcane Power/Essence/Wrath) uniformly UNSUPPORTED
+- **action:** annotate `_prior_ingest13_di_resource` into each of the 23 probe economy `facts_json` objects;
+  VALUE LEFT AS-IS (do not invent replacements). Note attested equivalents where known.
+- **NO `errata_applied` flag** (sweep/annotation class; no verify-family contradiction for resource as a claim).
+- **count:** 23 di economy probe rows annotated.
+- **date:** 2026-07-18 (wave 13).
+
+## ERRATA-45 — d4 Paladin/Warlock resource CONTESTED + wing-strike-arbiter debut correction [CONTESTED + ANNOTATION CLASS]
+
+- **Paladin resource:** icy-veins uses both "Faith" and "Resolve"; maxroll uses "Faith" verbatim. Variance
+  annotation added to `d4-wing-strike-arbiter` economy probe (`_prior_ingest13_paladin_resource`). DO NOT
+  populate probe resource for auradin, hammerdin, wing-strike-arbiter, blazing-abyss, dread-claws.
+- **Warlock meter:** Shadowform buff-stack framing unclear. DO NOT populate.
+- **Paladin debut correction:** Paladin debuted **Season 11** (Divine Intervention, patch 2.5.0), not
+  loh-s13-14. `mech_note` annotation on `d4-wing-strike-arbiter` (fetched text confirmed by b13 agent
+  trusting fetched over steward brief — the discipline working).
+- **NO `errata_applied` flag** (annotation class; no verify contradiction from these resource-claim decisions).
+- **date:** 2026-07-18 (wave 13).
+
+## ERRATA-46 — Probe-fabrication series consolidated renumber (13 items) [PROBE-FABRICATION CLASS; VALUE + ANNOTATION]
+
+- **series scope (consolidated from b01..b15 ADDENDA local numbering):**
+
+| # | kit_id | family | old value | new value | note |
+|---|--------|--------|-----------|-----------|------|
+| 1 | `d3-god-hungering` | economy | `spirit/focus` | `Hatred+Discipline` | DH resource; model=dual-resource |
+| 2 | `d3-inna-allies` | economy | `mana (reserve)` | `Spirit` | d3 Monk |
+| 3 | `d3-uliana-ep` | economy | `mark+execute` | `Spirit` | Monk; model=meter/focus |
+| 4 | `d3-trag-nova` | economy | `life+mana` | `Essence` | Necro; self-cost mechanic ≠ meter name |
+| 5 | `d3-raiment-shenlong` | economy | `ignite stack` | `Spirit` | Monk; focus-dump rhythm |
+| 6 | `d4-bash` | economy | `spirit/focus` | `Fury` | d4 Barbarian; generator-spender |
+| 7 | `d4-heartseeker` | economy | `spirit/focus` | `Energy` | d4 Rogue; generator |
+| 8 | `d4-evade-sb` | economy | `evade charges` | `Vigor` | d4 Spiritborn; eagle-spirit mechanic ≠ meter name |
+| 9 | `d4-dance-of-knives` | economy | `charge` | `Energy` | d4 Rogue; movement-channel mechanic ≠ meter name |
+| 10 | `d4-payback-sb` | delivery | `Retaliation counter-strike` (evidence) | `Spammable Core->Basic via Rod of Kepeleke` | NOT reactive-proc |
+| 11 | `d3-frenzy-h90` | economy | `on-hit stacks` | `Fury` | d3 Barbarian; Bastion's Revered stack ≠ resource |
+| 12 | `d4-hammerdin-paladin` | element | (no probe row) | annotation only | `holy` = d2-lineage import; d4 has no holy damage type |
+| 13 | `d2-blaze-sorc` | delivery | (no probe row) | annotation only | `channeled` = fabrication; fetched = movement-trail |
+
+- **also annotated:** `d2-wl-echoing-strike` footprint/geometry (melee→ranged artifact); `d3-firebomb`
+  negative_canon_target framing (ground-targeted→lobbed projectile).
+- **errata_applied flag:** `di-warlock-launch` mechanics CONTRADICTED verify row flagged (b15 X confirmed).
+- **count:** 11 value corrections (probe economy/delivery rows); 2 mech_note-only annotations (no probe rows).
+- **raw priors preserved:** `_prior_ingest13_fab` key added to each corrected `facts_json` object.
+- **date:** 2026-07-18 (wave 13).
+
+## ERRATA-47 — d3-lod-archetype era floor: `set-era` dropped (LoD gem = S18, Patch 2.6.6) [ERA RESTAMP D-2a CLASS]
+
+- **kit_id:** `d3-lod-archetype`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `set-era;late-sets;s39` -> `late-sets;s39`
+- **reason:** LoD (Legacy of Dreams) gem introduced Patch 2.6.6 / Season 18 = post-set-era floor. The
+  `set-era` token encodes the S1-17 era; the LoD gem was NOT present then.
+- **source anchor (b07 addendum):** "Diablo 3 Season 18 adds the Legacy of Dreams Legendary gem"
+  (headline-only, after splice-trim).
+- **errata_applied flag:** `d3-lod-archetype` era CONTRADICTED verify row flagged.
+- **date:** 2026-07-18 (wave 13).
+
+## ERRATA-48 — d3-ww-wastes era floor: `vanilla` dropped, `ros-early` added [ERA RESTAMP D-2a CLASS]
+
+- **kit_id:** `d3-ww-wastes`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `vanilla;set-era;late-sets;s39` -> `ros-early;set-era;late-sets;s39`
+- **reason:** Wrath of the Wastes set added Patch 2.2.0 (RoS-S2 = `ros-early`). Kit-as-specified rides
+  the Wastes set. WW-barb the archetype was vanilla-meta, but the SET-KIT is ros-early at earliest.
+  Annotation: steward routing note for review-book (archetype lineage vs set-kit distinction).
+- **source anchor (b09 addendum):** "Wrath of the Wastes set was added in patch 2.2.0"
+- **errata_applied flag:** `d3-ww-wastes` era CONTRADICTED verify row flagged.
+- **date:** 2026-07-18 (wave 13).
+
+## ERRATA-49 — d3-raekor-boulder era floor: `set-era` dropped, `s26-rework` added [ERA RESTAMP D-2a CLASS]
+
+- **kit_id:** `d3-raekor-boulder`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `set-era;late-sets;s39` -> `s26-rework;late-sets;s39`
+- **reason:** Raekor CHARGE archetype existed set-era; but the BOULDER-TOSS kit is the S26 rework
+  ("reworked again in Season 26... Boulder Toss being the skill rune of choice"). ik-hota law: kit-as-specified
+  dates from rework, not archetype debut.
+- **source anchor (b08 addendum):** "[S26] reworked again in Season 26… Boulder Toss being the skill rune of choice"
+- **errata_applied flag:** `d3-raekor-boulder` era CONTRADICTED verify row flagged.
+- **date:** 2026-07-18 (wave 13).
+
+## ERRATA-50 — d4-wing-strike-arbiter era extension: `s7-s12` prepended (item-17 floor-too-late class) [ERA EXTENSION]
+
+- **kit_id:** `d4-wing-strike-arbiter`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `loh-s13-14` -> `s7-s12;loh-s13-14`
+- **reason:** backfill item-17 (Wayback retry, OVERLAY EXCEPTION — no verify write): wowhead "Season 11"
+  title attests meta presence S11–S12. Batch era row (loh-s13-14) was already CONFIRMED and NOT superseded.
+  Extension lands as era restamp only (ERRATA-17 precedent: floor-too-late class, add earlier band).
+- **source anchor (backfill-3 item-17):** wowhead page title "Season 11 [Paladin Wing Strike build]"
+- **NO errata_applied flag** (era row is CONFIRMED, not CONTRADICTED — extension only).
+- **also annotated:** Paladin debut S11 correction in mech_note (see ERRATA-45).
+- **date:** 2026-07-18 (wave 13).
+
+## ERRATA-51 — core_skills errata ×5 [CONTENT FIX CLASS; HIGH]
+
+- **d2-fishyzon:** `["Guided Arrow","Valkyrie"]` -> `["Lightning Fury","Charged Strike","Frozen Arrow"]`
+  (Nightfish lineage — kb misattribution; fishyzon IS the LF/CS/FA build. Also: alias "Guided Arrow build"
+  is misattribution of a different archetype entirely. errata_applied=1 on mechanics CONTRADICTED row.)
+- **d3-rathma-aotd:** `["Army of the Dead","Skeletal Mage"]` -> `["Army of the Dead","Command Skeletons","Revive"]`
+  ("Skeletal Mages don't work for this set bonus" from fetched text. errata_applied=1 on mechanics X row.)
+- **d4-blazing-abyss-warlock:** `["Blazing Abyss"]` -> `["Blazing Scream"]`
+  (skill IS "Blazing Scream" in fetched text; kb name = stale-prior guess. errata_applied=1 on mechanics X row.)
+- **d4-shadowblight:** `["Blight","Decompose","Shadowblight"]` -> `["Blight","Decompose","Reap","Shadowblight"]`
+  (Reap added per b13 addendum; no verify contradiction — mech_note annotation only.)
+- **d3-frenzy-h90:** `["Frenzy"]` -> `["Frenzy","Sprint"]`
+  (Sprint is part of the Horde H90 high-speed loop per b08 addendum; no contradiction — annotation only.)
+- **verify rows flagged:** 3 (fishyzon/mechanics X, rathma/mechanics X, blazing-abyss/mechanics X).
+- **date:** 2026-07-18 (wave 13).
+
+## ERRATA-52 — alias/element errata ×3 [ALIAS + ELEMENT FIX CLASS]
+
+- **d3-god-hungering alias:** "Grace of Inarius DH" is a set-name confabulation — fetched text uniformly
+  "Gears of Dreadlands." folk_name/lineage cleaned; mech_note annotation added. errata_applied=1 on
+  identity CONTRADICTED verify row (b06 X).
+- **di-frenzy-barb alias + core_skills:** "DI Frenzy Sprint Barb" alias and `core_skills Sprint` UNATTESTED —
+  fetched di text shows Furious Charge, not Sprint (d3-analog import). Medium-confidence erratum. Annotation only.
+- **di-tempest element + core_skills:** `elem_raw` "physical" -> "wind/water" (official: "Command Wind and Sea");
+  `core_skills` "Mist Touched(clone passive)" -> "Zephyr(shade conjuration, not clone-passive)". errata_applied=1
+  on mechanics CONTRADICTED verify row (b15 X).
+- **verify rows flagged:** 2 (god-hungering/identity X, di-tempest/mechanics X).
+- **date:** 2026-07-18 (wave 13).
+
+## ERRATA-53 — Kit-level flag annotations ×4 (ANNOTATION ONLY — Matt review-book) [KIT-LEVEL FLAG CLASS]
+
+- **d2-wl-void-rift:** UNATTESTED KIT-LEVEL, search-derived-seed-harvest-failed class (first of run).
+  All four families honest-negative. Spec-error candidate. Review-book: keep-as-registered-ghost vs excise.
+- **di-bombardment-wizard-pvp:** d3→di misapplication candidate. Honest 3×U. Bombardment absent from
+  icy-veins full di Wizard skill list. Review-book: relabel vs excise.
+- **d4-spiritborn-vortex:** component-not-archetype. Vortex = passive/triggered component inside Soar/Quill-Volley
+  builds. Review-book: relabel vs excise.
+- **di-spiritform-druid-pvp:** negative-on-mis-specified-mechanic sub-class (minted b15). "Spirit form" not a
+  named di Druid skill. Negative flag RETAINED. Review-book: relabel (sustain-denial CC) vs excise.
+- **NO errata_applied flags** (annotation class; no verify contradiction driving these).
+- **date:** 2026-07-18 (wave 13).
+
+## ERRATA-54 — NULL-era backfills ×7 (BACKFILL-1 class; never overwrite non-NULL) [NULL-ERA BACKFILL CLASS]
+
+| kit_id | new eras | evidence source |
+|--------|----------|-----------------|
+| `d2-sacrifice` | `lod` | Arreat Summit lod skill-page; backfill-3 item-8 era CONFIRMED |
+| `d2-teleport-sorc` | `lod;d2r-2.4+` | b03 roster: Teleport present at lod; D2R retained |
+| `d3-call-of-the-ancients` | `vanilla;set-era;late-sets;s39` | b06 summary: attested continuous from vanilla IK set |
+| `d3-dashing-strike-monk` | `vanilla;set-era;late-sets;s39` | b06 summary: Dashing Strike present from vanilla Monk |
+| `d3-wizard-black-hole` | `vanilla;set-era` | b09 summary: utility-only, no primary-build era; late-sets/s39 omitted |
+| `d4-spiritborn-vortex` | `voh-s6+` | b13 summary: Spiritborn launched VoH S6 |
+| `di-cyclone-strike-monk-base` | `di-launch-2022` | backfill-3 item-26: icy-veins June-2022 guide |
+
+- **NO `errata_applied` flags** (NULL-fill class; no existing verify contradiction).
+- **guarded on `eras IS NULL OR eras=''`** — 7 rows updated; 0 overwrites.
+- **date:** 2026-07-18 (wave 13).
+
+## ERRATA-55 — Unattested Register annotations ×2 [ANNOTATION CLASS]
+
+- **d2-grim-ward-barb (PARTIAL RECOVERY):** era now CONFIRMED via backfill-3 item-2 (Arreat Summit
+  lod skill-page attests Grim Ward). Identity + negative_canon remain retry-exhausted UNSUPPORTED —
+  "Grim Ward Barbarian" as a standalone archetype is unattested as a community folk name. Stays in
+  Unattested Register as partial recovery. Annotation: era grounded; identity/negative unresolved.
+- **d2-wl-tainted-summoner (folk-name unattested):** "Tainted Summoner" is not a named archetype in
+  fetched maxroll/icy-veins/wl-build sources — maxroll's Summoner Warlock uses Goatman/Defiler framing.
+  Mechanics + era confirmed; identity remains honest-U (folk-name unattested). Annotation prepended.
+- **NO `errata_applied` flags** (annotation class; no verify contradictions in scope).
+- **date:** 2026-07-18 (wave 13).
+
+## Additional era errata applied at ingest-13 (outside ERRATA-47..55 main series) [ERA CLASS]
+
+- **d3-natalya-rov:** `eras` `set-era;late-sets;s39` -> `set-era;late-sets` (s39 token removed —
+  "no longer relevant in Patch 2.7.5"; b08 X; ERRATA-17 precedent). errata_applied=1 on era X row.
+- **d4-mighty-throw:** `eras` `s7-s12` -> `voh-s6+;s7-s12` (voh-s6+ floor added — S6 tier-list attests
+  era before s7-s12; b12 X originally; backfill item-11 superseded the X row to CONFIRMED `voh-s6+`).
+  canon_corpus.eras restamp = the erratum action.
+- **d4-lightning-spear:** era in-token floor note only (S5 inception within loot-reborn-s4-5 token;
+  annotation in mech_note). errata_applied=1 on era X row (b12 CONTRADICTED row for loot-reborn-s4-5).
+- **d2-summon-druid:** `eras` `lod;d2r-2.4+` -> `lod;rotw;d2r-2.4+` (rotw era-token added; tmGrunty
+  "3.2 RotW Summon Druid Guide" attests; fill-class, not a contradiction).
+- **annotations only (no restamp):** d3-ik-hota (vanilla floor-too-early D-2a candidate; adjudication deferred);
+  d4-shadowblight (s7 floor unattested, earliest changelog S8; annotated); d2-mosaic-sin (rotw-s13+ NL-only
+  nuance); d2-leap-attack-barb (era-bounded negative corroboration: "just a movement skill pre-2.4");
+  d4-mighty-throw (voh-s6+/s7-s12 token-overlap scheme note).
+- **date:** 2026-07-18 (wave 13).
