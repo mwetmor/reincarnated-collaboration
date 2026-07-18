@@ -43,3 +43,24 @@ TEMPORAL_CHARGE 3 · PERSISTENCE_ENGINE_saturation 3 · ELEMENT_CONVERSION_PHYSI
 - **3 GAPPED in one batch** (vs b04's 2): not grade drift — two were spawner-flagged as structurally weak/loop-locked (ward-loop, wormblaster) and wild-strike is a pre-registered accrual to an existing docket family. All three fail the R-M7 player test cleanly.
 
 **PoE1 mapping now complete through batch-08 (final PoE1 batch).**
+
+---
+
+## STEWARD AUDIT (DRIFT-CRITIC, 2026-07-18) — ACCEPTED as-is
+
+Enum/law sweep CLEAN (geometry / element / ailment-16 / curse-variant / t4 ∪ Layer-2 / chain_count / R-M7 pairing 1:1). Deep-sample 5/10 (the three GAPPED + whispering-ice + venom-gyre). Self-report histogram = file truth. Zero re-grades.
+
+**Three-GAPPED scrutiny — all UPHELD, not grade drift:**
+- **ward-loop:** exemplary R-M7 articulation ("full cast throughput in an EMPTY ROOM — perpetual motion is the identity"). MAX_CHAIN_DEPTH=1 template law respected — no depth mint attempted; the reactive half honestly credited as expressible. Also accrues **hp_cost_scale 0.3 at-ceiling instance** to the review-book accumulator.
+- **wild-strike:** trap-canon mapped without laundering (negative flag stays on the corpus row); fixed-element approximation would fail "not that build" — correct.
+- **wormblaster:** graded on the attested worm-fodder invariant only, UNSUPPORTED mechanics not smuggled into the mapping, conf-caveat per heavy-strike-stun precedent. Model weakest-facts honesty.
+
+**Steward corrections — cross-batch family arithmetic** (root cause: mappers can't see sibling batches; definitive counts live here):
+1. **R-M5 TIMED-WHILE-ACTIVE:** whispering-ice's token appears in a NEGATION ("does not apply — storm duration is skill-native"). True accrual count = **2** (seismic-trap b06, storm-brand b07); graduation threshold ≥3 NOT reached. **Brief-amendment candidate (D-3):** greppable tokens must never be emitted in negated form — write "R-M5 considered, not applicable" without the literal token.
+2. **stack-parameterizes-geometry family:** venom-gyre = forcing kit **#3** (crackling-lance b02 founding · pizza-sticks b06 · venom-gyre b08), not #2 → graduation case STRENGTHENED at D-4.
+3. **entity-as-consumable-resource-pool family:** wormblaster = member **#7** (animate-weapon, bladefall, dark-pact, detonate-dead, minion-pact-bv, reaper, + wormblaster conf-caveated), not 5th.
+4. **RNG-element-pool family:** wild-strike = accrual **#3** (elemental-hit founding · skeleton-mages b06 · wild-strike b08).
+
+**Law-reading vindications:** winter-orb's explicit NOT-R-M6 distinction (self-anchored turret vs travelling drift-orb) is a correct reading — CLOSE upheld. woc-ignite base-token PERSISTENCE_ENGINE per R-M1 (variant unclear) correct. `self_buff`-as-trigger-chassis-carrier (CWDT/CoC) accepted as least-bad convention → **R-M8+ wording candidate at D-3** for D2-D4/LE basins. Wander impact-cluster logged as watch-item (2nd/3rd accrual → quantitative widen question).
+
+**Candidates:** docket 3 + mint 1 ACCEPTED as filings (ratification at stage-3 D-4).

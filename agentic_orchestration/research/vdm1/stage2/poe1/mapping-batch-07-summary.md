@@ -56,3 +56,23 @@ All base tokens verified present in `t4_catalog_v2.py`; the three Layer-2 varian
 - **Toxic-rain earth-over-shadow:** chaos-poison fork resolved by spore/plant imagery per §1's nature rule; a chaos-DoT purist would have picked shadow — the alternative is noted in fidelity_notes.
 - **VBV graded APPROX not GAPPED:** flag (a) marks chase geometry load-bearing; player test says a non-seeking 5s blade storm still reads 'Vaal BV, worse' (burst window intact via accumulator+duration), so identity is approximated, not absent. Steward may reasonably re-rule toward GAPPED if chase is judged the whole identity.
 - **Self-caught JSONL defect (repaired pre-return):** rows 2-12 were emitted missing the `}` closing `mapping_json` before `"grade"` (same defect class as b04's stray-`}`); caught by the parse sweep, repaired via targeted single-brace insert, full re-validation CLEAN (parse + enum + R-M7 pairing + chain_count).
+
+---
+
+## STEWARD AUDIT (DRIFT-CRITIC, 2026-07-18) — ACCEPTED as-is; VBV re-rule UPHELD APPROX
+
+Enum/law sweep CLEAN (geometry / element / ailment-16 / curse-variant / t4 ∪ Layer-2 / chain_count / R-M7 pairing). Deep-sample 3/12 (spectres, vaal-blade-vortex, storm-brand) + candidate files. Zero re-grades.
+
+**VBV APPROX-vs-GAPPED (mapper-requested re-rule): UPHELD APPROX/MAPPED.** Four grounds:
+1. **The mapper's own player-test articulation decides it** — "a non-seeking 5s blade storm still reads 'Vaal BV, worse'" is the R-M7 APPROX test passing verbatim. The burst-window identity (souls → 5s screen-clearing storm) survives in engine coordinates: on-kill accumulator + TEMPORAL_CHARGE + circle.
+2. **No expression-collapse:** poison-bv (b06) occupies `orbit` (player-anchored); VBV occupies detached `circle`. The two kits remain distinct engine expressions — "this is not that build" would require VBV to have no distinct landing spot, and it has one.
+3. **R-M6 extension, ladder honored:** passive-drift orbs → circle + note is settled law; active chase is the delta, and the filed qualitative mint-candidate (autonomous enemy-seeking mobile AoE) names exactly that delta. Map → approx+note → qual-candidate, graded as if un-minted = APPROX. The parsimony ladder worked as designed.
+4. **Contrast-case discipline:** spectres GAPPED because the absent mechanism IS the identity (world-monster capture); VBV's absent mechanism refines an identity that still lands.
+
+→ **R-M8 candidate (stage-3 D-3):** *pursuit/seeking behavior on a mobile AoE entity is a behavioral delta (approx + note + qualitative candidate), not an identity void — unless pursuit is the kit's sole identity-bearing loop.*
+
+**Spectres GAPPED UPHELD** — the docket's ruling fork (capture-class proxy mint vs permanent proxy-approximation with future re-grade) is correctly framed for stage-3/review-book.
+
+**R-M5 accrual arithmetic (steward-corrected):** storm-brand = accrual **#2** (seismic-trap b06 = #1). The b08 whispering-ice token hit is a NEGATION, not an accrual — threshold ≥3 NOT reached; watch continues into remaining basins.
+
+**Mint 4 ACCEPTED as filings** (ratification at stage-3 D-4). SRS `accumulator`-for-live-minion-count is R-M4 include+note honored; if minion games recur (D2 necro basin ahead), a dedicated entity-count economy key is a D-3 wording candidate. **Docket 1 ACCEPTED.** Minion-swarm-on-`totem`-lane observation logged as stage-3 watch-item (mobile-proxy geometry distinction) — not minted now.
