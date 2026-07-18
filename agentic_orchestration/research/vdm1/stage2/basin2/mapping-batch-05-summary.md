@@ -81,3 +81,28 @@ All single-door (R-M1: engine tokens only). No door assigns >2 — a spread batc
 
 ## Cross-batch note for the steward
 low-life-ward and fire-aura-spellblade are LINKED (fire-aura is a Low-Life-Ward host variant per fetched item_alterations) — the ward-inversion docket has two evidence kits inside this single batch, strengthening the consolidation with basin-1 overheal-above-cap.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18 — D-2c recount from committed files + corpus.db)
+
+**Recount:** advisory histogram 0E/8C/1A/2G · 9 MAPPED / 2 DOCKET = **EXACT match** against the committed JSONL (mapping-agent advisory drift now **0-for-5**: m01–m05 all exact). SKIP annotation (harvest-lich CHIMERA) verbatim-correct vs WAVE-PLAN; correctly an annotation line, NOT an empty-shell row (the m01 empty-projection convention applies to all-abstain kits, not chimera-deferrals). Docket side-file verified: 2 rows, both well-formed, destinations + evidence lists intact.
+
+**VERDICT: ACCEPTED with 5 in-place corrections** (applied to mapping-batch-05.jsonl, audit-stamped). Post-audit histogram: **0E/9C/0A/2G · 9 MAPPED / 2 MAPPED_DOCKET.**
+
+### Corrections
+1. **healing-hands Vengeance `element_primary physical→null`** — THE PHYSICAL RULE (§1 line 30): physical is element-NEUTRAL, never an element token. Null is the honest physical carrier.
+2. **hammer-throw `t4_doors GEOMETRY_PROPAGATION_cascade→PERSISTENCE_ENGINE_uptime`** — an orbit propagates nothing on-kill; `_cascade` is pinned to on-kill propagation (m04 ruling). The dominant loop is walking-damage-field uptime — the RF-class exemplar door. **The T4-door frequency table above shifts accordingly** (GEOMETRY_PROPAGATION_cascade 1→0; PERSISTENCE_ENGINE_uptime 1→2).
+3. **fire-aura core row `ailments [freeze]→[]` + `element_secondary water→null`** — cold-conversion (Freezing Aura) is a listed VARIANT; fetched core is "fire (default)". Variant-scoped attributes do not ride the core row (§7.2 dominant loop; hammer-throw-bleed parity — the mapper enforced this discipline on hammer-throw and broke it here; the mapper's own flag #2 invited the null). **ELEMENT_CONVERSION_MONO door KEPT** — the conversion-capable identity is the T4 hint; the core row stays mono-fire.
+4. **ghostflame `grade APPROX→CLOSE`** — the mapper's flag #1 resolved by the **damage-type-over-time RULING** (m04 audit, binding): "fire and necrotic damage over time" attests delivery TIMING, not a status — burn/decay withholds are UPHELD (the ruling does NOT admit burn), but the DoT payload IS carried by element_primary/secondary + delivery_notes, so nothing is mechanically understated → the APPROX rationale ("payload uncarried") dissolves. Forcewave-regrade precedent. Disdain + Bone Curse riders are minor, noted.
+5. **manifest-armor Forge Strike `element_secondary fire→null`** — "fire and metal" is construct-APPEARANCE flavor (the mapper's own near-miss note says so); appearance never routes an element token.
+
+### Upheld (exercised clean this batch)
+- **§B ward-from-missing-health first exercise** — low-life-ward GAPPED/DOCKET honest (R-M7 "not that build"); WITH-items core per §B; null geometry on no-rankable-skill. Inversion docket consolidation with basin-1 overheal-above-cap ACCEPTED as filed (steward-held; no merge with retaliation-substrate/armour cluster).
+- **§B Reowyn ward-burst rider first attestation** — lightning-blast trigger_grammar rider with DEFENSE payload; clean.
+- **Withhold discipline** — lightning-blast shock (claim_text INADMISSIBLE; Spark Charge = name, §0.3/§0.4) · hammer-throw bleed (variant-scoped) · flame-reave/judgement burn (unnamed) all correct. **LE Frostbite → NO-HOME list** (joins GD confusion/electrocute/frostburn; review-book).
+- **consecrate/holy CONFIRMED LEGAL** — steward's own flag withdrawn on law-check: holy IS the 6th of 7 families (§1 line 15); consecrate is holy-only (§2 line 58) and judgement carries holy secondary. Mapper right, steward flag wrong.
+- **Geometry judgment calls** — healing-hands `ring` (burst-around-melee-target) · judgement ZONE_CONTROL over PERSISTENCE (stacking-placement IS the §7.2 dominant loop) · manifest-armor null geometry (two-lane convention: "pursues enemies," zero placement language) + chain_count=3 (R-M2, three load-bearing actives). All upheld.
+- **gear-stat-as-minion-scaling docket** — own-row separation from the generic pet gap is correct (§A pet-stat lane ≠ player-stat lane); rides with summoner-deferral resolution.
+
+**W2 wave verdict:** m04 ACCEPTED w/ 4 corrections + m05 ACCEPTED w/ 5 corrections → **W2 CLOSED: 22/22 mapped kits (2 SKIPs annotated) · post-audit 1E/18C/1A/2G · 20 MAPPED / 2 MAPPED_DOCKET.**
