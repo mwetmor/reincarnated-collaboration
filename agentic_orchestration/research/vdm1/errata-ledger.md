@@ -829,3 +829,240 @@ kits' `core_skills`; all four notes start with the `[VDM-1 basin-1 2026-07-18]` 
   Diablo tokens — `d3`/`diablo-3`, `d4`/`diablo-4`, `di`/`diablo-immortal` (one long-form
   singleton each). A normalization concern (gamecode-normalize territory), flagged for a
   future roster-hygiene pass; not touched this wave.
+
+---
+
+# ============ BASIN-1 (PoE2/hades2/tq2) — ingest wave 9 ============
+
+Ingest-9 lands basin-1 batches 03+04 (kits 25-48 across poe2/hades2/tq2) into the
+landing zone and applies a six-item adjudication docket. **These are the run's FIRST
+CONTENT-field errata** (identity/mechanics/class corrections) — all prior errata
+(ERRATA-1..18) were era-family band corrections. Errata numbering continues the ledger
+sequence in DOCKET ORDER: walking-calamity = 19, warbringer = 20, tq2 ×3 = 21/22/23.
+File-truth counts (steward recount, agent summaries drifted — D-2c): b03 verify = 31
+CONFIRMED / 3 CONTRADICTED / 3 UNSUPPORTED / 0 SNF; b04 = 35 C / 4 X / 0 U / 0 SNF.
+
+---
+
+## ERRATA-19 — poe2-walking-calamity CONTENT correction (identity folk_name + mechanics core_skills) [FIRST CONTENT-FIELD ERRATUM]
+
+- **kit_id:** `poe2-walking-calamity`
+- **fields:** `canon_corpus.folk_name` (identity) AND `canon_corpus.core_skills` (mechanics)
+- **old -> new (folk_name):** `Walking Calamity Autobomber` -> `Walking Calamity Shaman`
+- **old -> new (core_skills):** `["herald/retaliation procs", "Molten Crash(weapon)"]` ->
+  `["Walking Calamity", "Herald of Ice", "Polcirkeln"]` (`core_skills_prov` restamped
+  `jsonl-stage0-backfill-2026-07-18` -> `verified-v1.1-errata19`)
+- **verdict:** **2 CONTRADICTED verify rows** (batch-03 verify lines 28-29: BOTH `identity`
+  AND `mechanics` claim families contradicted; the `era` row is CONFIRMED and untouched).
+- **batch:** 03 (basin-1)
+- **date applied:** 2026-07-18 (ingest wave 9)
+- **verify_ledger:** `errata_applied=1` set on BOTH the `identity` and `mechanics`
+  CONTRADICTED rows (exactly 2; the CONFIRMED `era` row is NOT flagged). This is the
+  SECOND kit in the run to flag 2 rows (cf. ERRATA-18 grim-feast, which flagged 2 era
+  bands); it is the FIRST to flag an identity-family row and the FIRST identity/mechanics
+  CONTENT contradiction.
+- **class:** **identity-family CONTENT contradiction (NEW class; all prior errata were
+  era-band).** The kb row MISDESCRIBED the kit: the mobile-harvest framed Walking Calamity
+  as a "herald/retaliation autobomber" whose core skills were herald procs + a weapon
+  named "Molten Crash". The fetched sources attest a completely different kit — a
+  **Rage/Glory-driven meteor-shower skill on the Shaman ascendancy (Druid class)**, paired
+  with Herald of Ice + Polcirkeln for pack propagation. Fetched language governs (charter
+  epistemics wall). The folk_name "Walking Calamity" itself is correct (the skill IS named
+  Walking Calamity); only the "Autobomber/herald" qualifier was wrong, so the identity fix
+  restamps the descriptor to the attested class "Shaman". The core_skills were flatly
+  wrong (neither "herald/retaliation procs" nor "Molten Crash(weapon)" is the kit's actual
+  core) and are replaced with the attested triad.
+- **source anchors (verbatim, read BEFORE writing per dispatch):**
+  - identity CONTRADICTED: "Walking Calamity is a skill that summons a meteor to crash into
+    the surrounding area while you move... [Shaman ascendancy, Druid class]... paired with
+    Herald of Ice and Polcirkeln" — maxroll.gg walking-calamity-shaman-build-guide.
+  - mechanics CONTRADICTED: "Walking Calamity: Generate Glory by gaining Rage while at
+    maximum Rage. Activate it to cause large meteors to constantly rain down from the sky
+    for over 20 seconds." — maxroll.gg walking-calamity-shaman-build-guide.
+- **not-corrected fields:** `eras` (=`0.5-ancients`, CONFIRMED) untouched. `mech_note`
+  (the "~20K armor ... Rite of Passage" harvest note) left as-is — it is not one of the two
+  contradicted fields and does not itself carry the wrong identity/mechanics claim; a fuller
+  mech_note reconcile is a stage-later concern. `lineage` remains empty.
+- **quarantine note:** walking-calamity's `mmoexp.com` citation is quarantined (=1) and
+  correctly backs NO verify/dossier row (all its anchors are maxroll/poe2db/ezg). Clean.
+
+---
+
+## ERRATA-20 — poe2-warbringer-totems era restamp (drop pre-debut 0.1 band; D-2a)
+
+- **kit_id:** `poe2-warbringer-totems`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `0.1;0.2-dawn;0.3-edict;0.4;0.5-ancients` -> `0.2-dawn;0.3-edict;0.4;0.5-ancients`
+- **verdict:** CONTRADICTED (batch-03 verify line 37, `era` claim family). The single era
+  row covers the full stamped span; the crawl contradicts the 0.1 floor band.
+- **batch:** 03 (basin-1)
+- **date applied:** 2026-07-18 (ingest wave 9)
+- **verify_ledger:** `errata_applied=1` set on the warbringer-totems `era` CONTRADICTED row
+  (exactly 1; identity + mechanics are CONFIRMED and NOT flagged).
+- **class:** **D-2a (floor-too-early) — drop the single pre-debut band.** Ancestral Warrior
+  Totem's poe2db version history BEGINS at v0.2.0; there is no record of the skill in v0.1.0
+  or earlier. The 0.1 band predates the debut, so it is dropped; the four attested bands
+  (0.2-dawn through 0.5-ancients) are retained as-is. This is the same shape as the PoE1
+  debut-inside-bucket errata (ERRATA-1/3/4/5/6/7) and the basin-1 ERRATA-16 (acolyte),
+  but here only the single leftmost band is dropped and the residual is already a clean
+  band sequence (no floor-narrow within a wide bucket needed — PoE2 bands are single-patch
+  tokens, not X-Y ranges).
+- **source anchor (verbatim, read BEFORE writing):** "Ancestral Warrior Totem version
+  history begins at 0.2.0 — there is no record of this skill existing in version 0.1.0 or
+  earlier." — poe2db.tw/us/Ancestral_Warrior_Totem.
+- **not-corrected fields:** identity/mechanics CONFIRMED, untouched. `era_year` untouched.
+
+---
+
+## ERRATA-21 — tq2-whirlwind-rogue CLASS correction (Rogue -> Warfare) [CONTENT-FIELD; mech_note home]
+
+- **kit_id:** `tq2-whirlwind-rogue`
+- **field:** `canon_corpus.mech_note` (PREPEND a dated class-correction clause; original
+  harvest note preserved verbatim after it — no-silent-transformation).
+- **verdict:** CONTRADICTED (batch-04 verify line 37, **`identity`** claim family — NOTE:
+  whirlwind's contradiction is IDENTITY-family, unlike elementalist/stormblade whose
+  contradictions are mechanics-family; the folk-name "Whirlwind Rogue" is the contradicted
+  identity claim).
+- **batch:** 04 (basin-1)
+- **date applied:** 2026-07-18 (ingest wave 9)
+- **verify_ledger:** `errata_applied=1` set on the whirlwind-rogue **`identity`**
+  CONTRADICTED row (exactly 1; era + mechanics are CONFIRMED and NOT flagged).
+- **STRUCTURAL NOTE (why mech_note, not a `class` column):** `canon_corpus` has **no
+  `class` column.** The only class-bearing column in corpus.db is `roster_atlas.class_v4r2`,
+  and **tq2-whirlwind-rogue has NO row in `roster_atlas`** (verified: 0 rows). This mirrors
+  REVIEW-2 poets-pen-vd (ingest-3): no in-scope writable class column exists. The wrong-class
+  assertion physically lives in `mech_note` ("TQ2 rogue class mechanic details unverified")
+  and `folk_name` ("Whirlwind Rogue"). Per the established annotation home for class/lineage
+  notes (the `di-spiritform-druid-pvp` PHANTOM + PoE1 demon-form precedents; ANNOT-BASIN1
+  wave-8), the correction is recorded as a `mech_note` PREPEND. The `folk_name`/`kit_id`
+  slug are LEFT AS-IS per dispatch (the slug is an identifier, not a truth claim; changing it
+  would break references).
+- **class:** **CLASS-field content contradiction (NEW; kb-WRONG class).** Whirlwind is a
+  **Warfare** mastery skill, NOT Rogue. Attested build = Warfare (+ 2nd mastery, commonly
+  Earth). The folk-name coinage "Rogue" is a mis-attribution.
+- **source anchor (verbatim, read BEFORE writing):** "Warfare - Sweeping Strikes 17 -
+  Whirlwind 1/1... what 2nd mastery for whirlwind? (warfare+?)" —
+  steamcommunity.com/app/1154030/discussions/0/591778884098532299/.
+
+---
+
+## ERRATA-22 — tq2-elementalist CLASS correction (standalone -> Storm+Earth PAIRING) [CONTENT-FIELD; mech_note home]
+
+- **kit_id:** `tq2-elementalist`
+- **field:** `canon_corpus.mech_note` (PREPEND dated clause; original preserved verbatim).
+- **verdict:** CONTRADICTED (batch-04 verify line 28, **`mechanics`** claim family; the
+  "Elementalist is a standalone mastery class" claim is contradicted).
+- **batch:** 04 (basin-1)
+- **date applied:** 2026-07-18 (ingest wave 9)
+- **verify_ledger:** `errata_applied=1` set on the elementalist **`mechanics`** CONTRADICTED
+  row (exactly 1; the OTHER mechanics row (core skills Roiling Magma/Call Lightning),
+  identity, and era rows are all CONFIRMED and NOT flagged).
+- **STRUCTURAL NOTE:** as ERRATA-21 — no `class` column; **0 `roster_atlas` rows** for this
+  kit; correction lives in `mech_note`.
+- **class:** **CLASS-field content contradiction.** "Elementalist" is a mastery PAIRING =
+  **Storm + Earth**, NOT a standalone mastery. The class *name* Elementalist IS the pairing
+  (TQ2 combo-class naming). The kb "dual-mastery nuker archetype" framing was directionally
+  aware of dual-mastery but the "standalone mastery class" reading in the verify claim is
+  what's contradicted; the mech_note clause pins the specific pairing (Storm+Earth).
+- **source anchor (verbatim, read BEFORE writing):** "Elementalist using two masteries:
+  Storm and Earth" — steamcommunity.com/sharedfiles/filedetails/?id=3541374759.
+- **cross-ref:** this kit ALSO received the ADJ-5 alias spelling fix (Rolling -> Roiling
+  Magma) in the same ingest — see ANNOT-BASIN1 (wave 9) below.
+
+---
+
+## ERRATA-23 — tq2-stormblade-ice-shards CLASS correction (Storm-solo -> Rogue+Storm dual) [CONTENT-FIELD; mech_note home]
+
+- **kit_id:** `tq2-stormblade-ice-shards`
+- **field:** `canon_corpus.mech_note` (PREPEND dated clause; original preserved verbatim).
+- **verdict:** CONTRADICTED (batch-04 verify line 35, **`mechanics`** claim family; the
+  "Stormblade is a Storm mastery solo class" claim is contradicted).
+- **batch:** 04 (basin-1)
+- **date applied:** 2026-07-18 (ingest wave 9)
+- **verify_ledger:** `errata_applied=1` set on the stormblade **`mechanics`** CONTRADICTED
+  row (exactly 1; the OTHER mechanics row (Ice Shards = cold projectile), identity, and era
+  rows are CONFIRMED and NOT flagged).
+- **STRUCTURAL NOTE:** as ERRATA-21/22 — no `class` column; **0 `roster_atlas` rows**;
+  correction lives in `mech_note`.
+- **class:** **CLASS-field content contradiction.** "Stormblade" = **Rogue + Storm** dual
+  mastery, NOT a Storm-mastery solo class. Ice Shards is the Storm-mastery cold projectile
+  primary (the "Blade" in the folk-name suggested a Storm/Blade combo in the kb note — wrong;
+  the attested combo-class name resolves to Rogue+Storm).
+- **source anchor (verbatim, read BEFORE writing):** "Stormblade - Ice Shards Build 0.6.0...
+  Stormblade = Rogue+Storm per mastery combo class names guide" —
+  steamcommunity.com/sharedfiles/filedetails/?id=3540989801.
+
+---
+
+## ANNOT-BASIN1 (wave 9) — movement probe-fact correction + alias spelling + Erasure re-verify + quarantine-anchor REVIEW + promotion-policy note
+
+Not new era/class errata; recorded here for provenance. Guarded single-row writes with the
+raw prior value preserved.
+
+- **ADJ-4 `hades2-omega-magick` — movement probe-fact correction (STATIONARY):** the kb
+  `canon_probe_facts` movement family carried `{"verbs": ["sprint-while-charging"],
+  "policy_while_casting": "full-move", ...}`. batch-04 verify line 21 CONTRADICTED the
+  sprint-integration claim: "You are vulnerable while channeling... she must remain
+  stationary to channel the charge" (neonlightsmedia.com). Guarded UPDATE of
+  `facts_json` -> `verbs=["stationary-while-charging"]`, `policy_while_casting="stationary"`;
+  the raw prior values are PRESERVED inside the same JSON under a `_prior_ingest9` key (with
+  a note) per no-silent-transformation. **NO `errata_applied` flag** — the convention
+  reserves `errata_applied=1` for CONTRADICTED-**era** rows; this is a mechanics/movement
+  contradiction on a CONFIRMED-era kit (mirrors how the omega mechanics-sprint verify row is
+  itself a non-era CONTRADICTED). NOTE: the kit's `mech_note` also asserts "Sprint
+  integration is the movement innovation" — this free-text was NOT restamped (out of the ADJ-4
+  named scope, which is the `canon_probe_facts.facts_json` movement family only); it is a
+  stage-later mech_note reconcile candidate, flagged here.
+- **ADJ-5 `tq2-elementalist` — alias spelling fix (Rolling -> Roiling Magma):** exactly ONE
+  basin-1 row carried the misspelling "Rolling Magma" (in `core_skills`
+  `["Rolling Magma", "Call Lightning"]`); the correct spelling "Roiling Magma" coexisted
+  nowhere. Guarded UPDATE -> `["Roiling Magma", "Call Lightning"]`. Anchor (b04 fetched text):
+  "Roiling magma has extremely high energy cost" (tq2-elementalist mechanics CONFIRMED row)
+  and citation title "Is Roiling magma supposed to light me on fire whenever I cast it?"
+  (steamcommunity discussion 591778624388989110). No `errata_applied` flag (spelling fix, not
+  a verdict correction). Same kit as ERRATA-22 (both writes landed in one transaction).
+- **ADJ-6 `poe2-erasure-edc-lich` — Erasure annotation RE-VERIFIED intact (NO action):** the
+  ingest-8 REVIEW-2 annotation still stands untouched. Asserted in-script: `core_skills` still
+  carries `["Essence Drain lineage", "Contagion", "Erasure"]`; `mech_note` still leads with
+  the `[VDM-1 basin-1 2026-07-18]` PHANTOM-CANDIDATE clause. "Erasure" is annotated
+  unverified-possible-phantom, NOT deleted. No data change this wave. (Had it been
+  missing/altered, the ingest would have HALTED — ingest-8 invariant.)
+- **REVIEW-3 (basin-1) — poe2-temporalis-blink QUARANTINE/ANCHOR CONFLICT (source-file
+  inconsistency; NO data change; steward eyes needed):** the `mobalytics.gg/.../
+  blink-autobomber-jungroan` citation is flagged `quarantined=1` in the b03 citation stream,
+  YET the SAME URL is used by the crawler as the `source_url` anchor for temporalis-blink's
+  **identity CONFIRMED verify row** AND its **variants dossier row** (both faithfully
+  ingested from file-truth). This violates the dispatch rule that quarantined rows "must never
+  surface as verify/dossier sources" — but the conflict originates IN the source JSONL
+  (Legolas both quarantined the domain and used it as an evidence anchor), not in the ingest.
+  Per no-silent-transformation, elrond did NOT rewrite the crawler's anchor attribution nor
+  invent a substitute source (no alternate in-file source backs the identity claim; the other
+  temporalis source — the pathofexile forum — backs only era+mechanics). **Notable
+  discriminator:** the mobalytics citation is `cite_class='authored'` (a NAMED build author,
+  jungroan), NOT a junk-tail domain — quarantine is meant for junk-tail domains, so the
+  quarantine FLAG itself may be the error rather than the anchor usage. **Recommended steward
+  (gandalf) action:** either (a) UN-quarantine the mobalytics citation (if judged a legitimate
+  authored source mis-flagged), which resolves the conflict with zero re-crawl, or (b) a
+  targeted re-crawl to re-anchor the identity/variants rows to a non-quarantined source. Until
+  ruled, the faithful file-truth ingest stands and this REVIEW is the record. (Contrast
+  walking-calamity's quarantined mmoexp citation, which correctly backs NO verify/dossier
+  row — the clean case.)
+- **PROMOTION-POLICY NOTE (basin-1 non-promotion; matches ingest-8):** the dispatch's
+  "standard promotions for clean kits per the established gate (mechanics-CONFIRMED &
+  zero-CONTRADICTED; identity-UNSUPPORTED does not block — minion-pact-bv precedent)" was
+  applied at the VERDICT level (18 of 24 kits are verdict-clean; 6 carry a CONTRADICTED
+  verdict — walking-calamity, warbringer-totems, hades2-omega-magick, tq2-elementalist,
+  tq2-stormblade-ice-shards, tq2-whirlwind-rogue — and are EXCLUDED). **No `fact_provenance`
+  probe-fact promotion to `verified-v1.1` was written this ingest**, matching the immediate
+  and only prior basin-1 precedent: ingest-8's clean PoE2 probe-fact-bearing kits (demon-form,
+  minion-infernalist, infernal-legion) were likewise left `kb-legacy`, NOT promoted. The 720
+  verified-v1.1 facts remain exactly the 72 clean PoE1 kits promoted at ingest-4 (the last
+  promoting ingest; ingests 5-8 promoted nothing — ingest-5 MIGRATION: "NO promotions this
+  wave, those all landed at ingest-4"). The `minion-pact-bv` precedent named in the dispatch
+  is a PoE1 promotion (mechanics-CONFIRMED + identity-UNSUPPORTED -> verified-v1.1) done at
+  ingest-4; it governs the GATE LOGIC (identity-UNSUPPORTED is honest silence, does not block)
+  but the basin-1 execution precedent (ingest-8) does not write PoE2/hades2/tq2 probe-fact
+  promotions. **If a basin-1 probe-fact promotion sweep was intended, it is a distinct
+  steward-directed action** (would promote the 17 clean probe-fact-bearing b03/b04 kits ×10 =
+  170 facts, mirroring ingest-8's 15 clean kits if those are swept too) — flagged here so the
+  steward can rule; not written speculatively.
