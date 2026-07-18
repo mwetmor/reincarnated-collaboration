@@ -68,3 +68,19 @@ Overall non-abstained dossier rows: ~32/72 = ~44%
 6. **di-hota-wotb-barb capstone source note.** The Lasting Hate / Broken Soul legendary data was surfaced via a web search summary (gamerdigest.com returned 500). The anchor quote was reconstructed from the search result snippet. The source URL is flagged as conf=0.65 — lower confidence due to no direct fetch verification.
 
 7. **di-cyclone-strike-monk-base (NULL-era kit):** Steward backfill recommendation — di-launch-2022 minimum confirmed by icy-veins guide dated June 2022 featuring Cyclone Strike as an active Monk skill.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18)
+
+**Batch ACCEPTED with corrections** (1 re-anchor, 3 verdict-downgrades). Post-correction file truth: **34 rows = 20C/13U/1X**. Advisory drift #22 (advisory 22C/11U vs pre-correction file 23C/10U).
+
+1. **TOOLTIP-AS-ANCHOR pattern (new anchor-relevance sub-class, b12 non-probative lineage):** skill-tooltip text ("Generate a vortex of wind…", "Detonate all corpses…") was used to ground identity (folk-name usage) and era (meta presence) claims it cannot support — a tooltip attests the SKILL exists, never that the community uses a folk name or that a build was era-meta. Downgraded C→U ×3: di-cyclone-monk-pvp identity + era · di-corpse-explosion-necro era. CW5-closing note: this joins gloss-anchors (b07) and splices (b08) in the anchor-failure taxonomy.
+2. **Re-anchor (b08 spectral-blade precedent):** di-corpse-explosion-necro identity C STANDS re-grounded on the same fetched page's title "Diablo Immortal: Best Corpse Explosion Necromancer Build" — title-as-identity-ground (bouldercane/b02 lineage; gamerant = journalism, admissible for identity/era, never mechanics).
+3. **TOLERATED-amber:** di-cyclone-strike-monk-base identity C — base-kit constructed label ("DI Monk — Cyclone Strike (base)"): identity reduces to skill-existence; tooltip verbatim under the skill's class-page listing attests it. Base-kit identity ≠ folk-name identity (ruling noted for the book).
+4. **SCOPING RULING minted:** the b02 journalism prohibition targets BUILD-meta mechanics paraphrase. A dedicated system-explainer (blizzardwatch essence-transfer, 2022-06-13 launch coverage) with verbatim functional description is **communal-admissible for SYSTEM-kit identity/mechanics/era** — di-essence-transfer 3C KEEP.
+5. **di-druid-bear mechanics X STANDS — strongest ground class of the run:** OFFICIAL Blizzard class-intro page affirmatively names the Druid resource "Primal Power" vs kb "Spirit (Druid)". Official first-party sources were never in the journalism prohibition. → **erratum HIGH: di Druid resource = Primal Power.**
+6. **BATCH-WIDE di resource-fabrication finding (agent red-flag 1 RATIFIED):** all di `resource_verbatim` probe fields inherited d3 names; none attested by fetched di text; druid-bear is the clean contradiction. → INGEST-13: flag ALL di resource probe rows unreliable (joins the ~10-item fabrication series; consolidated renumber pending).
+7. **di-bombardment-wizard-pvp = kit-level SPEC-ERROR CANDIDATE #2 (void-rift class):** honest 3×U; Bombardment absent from icy-veins' full Wizard skill list — likely d3→di misapplication at kb-generation. → Unattested Register KIT-LEVEL + review-book Matt keep-vs-excise decision (with void-rift).
+8. **Smaller errata:** di-frenzy-barb alias "DI Frenzy Sprint Barb" + core_skills Sprint unattested (fetched shows Furious Charge) — MEDIUM. di-cyclone-strike-monk-base NULL-era backfill: di-launch-2022 attested (icy-veins June-2022 guide) — roster-hygiene row delivered ✓; its mechanics row was NOT emitted (coverage miss) → BACKFILL-3 micro-task.
+9. **Praise:** anchors formally clean (0 gloss, 0 splice, 0 >40w); abstain-null law HELD 42/42; zero commerce-SEO citations needed quarantining (the aggression warning landed); dossier 41.7% is the run's lowest but was predicted in-prompt for di — honest abstention over stretch.
