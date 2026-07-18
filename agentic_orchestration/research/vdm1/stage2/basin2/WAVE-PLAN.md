@@ -58,3 +58,15 @@ Families: out-and-return · placed-proxy-count (+2 at m03 audit: army-count, rec
 - **§2 RR-branch reminder:** curse:sap vs sunder picks need an application-shape anchor word in fetched text (aura/presence/entity-anchor → curse:sap; hit-proc window → sunder); shape-silent = WITHHOLD (m03 exercised 5×, consistent).
 
 **Lifecycle:** steward instantiates spawning prompts from the TEMPLATE + this plan at each wave fire; audits every return (D-2c recount); §A/§B extend at audits if NEW mechanisms attest.
+
+## INGEST-12 SPEC (pre-staged at W2 close; FIRES only after W3 audits close — post-audit file truth is the ingest source)
+
+Commission elrond (single-writer). Three payloads, one ingest:
+
+1. **kit_mapping ingestion — 76 rows** from `stage2/basin2/mapping-batch-01..07.jsonl` (post-audit versions; steward-corrected in-place, audit stamps inline). Exact-count contract: **76** (36 W1 + 22 W2 + 18 W3; SKIPs bomb-lance/harvest-lich are annotation lines in summaries, NOT rows — do not expect 78). Terminal states MAPPED/MAPPED_DOCKET only; grades EXACT/CLOSE/APPROX/GAPPED. W1 8E/20C/2A/6G · W2 1E/18C/1A/2G · W3 at audit close.
+2. **b05 author-credit backfill — 10 rows** from `stage1/basin2/batch-05-dossier-authorcredit-backfill.jsonl` (legolas `6c14ed8f`, steward-recounted clean). ⚠ Zaodon caveat rides as annotation: QUESTION-thread OP, NOT build author (conf 0.75, disclosed in-row) — review-book author-lineage must not count it as authored-guide credit; Aayron IS genuine (1.0-era build-guide OP).
+3. **canon_engine_key WRONG-RESOURCE third-store sweep — 16 gd rows** (extends ERRATA-38; authorized at ingest-11 steward verification — Ruling 1).
+
+**NOT ingested:** mint-candidates / docket-candidates side-files (file-based → THE REVIEW BOOK consolidation) · batch summaries (git artifacts).
+
+**Disciplines:** clean-backup before write + md5 chain (MIGRATION §Execution-integrity — the ingest-11 dry-run-wrote-live-db lesson is banked; no dry-run harness against the live path) · exact-count contract per payload · errata ledger entries for payload 3 · steward D-2c verification battery on return (readonly-SQL recount: kit_mapping row count + grade/terminal histograms vs post-audit file truth + spot-join 5 kits + backfill rows present + 16 sweep rows changed). Basin-2 checkpoint row appends to the run-state ledger after verification.
