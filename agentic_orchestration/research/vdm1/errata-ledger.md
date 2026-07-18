@@ -625,3 +625,207 @@ sweep inputs.
   leftmost floor is now moved 3.0 -> 3.4; the three later bands remain unchanged as
   that annotation described. The b07 CONFIRMED verdict rows are preserved unedited.
 - **not-corrected fields:** `era_year` (=2013 bulk-fill artifact) untouched.
+
+---
+
+# ============ BASIN-1 (PoE2) — ingest wave 8 ============
+
+The entries below are the FIRST basin-1 (PoE2) adjudications (ingest wave 8, batches
+01-02, kits 1-24). PoE2 uses the era-band vocabulary `0.1 | 0.2-dawn | 0.3-edict | 0.4
+| 0.5-ancients` (Early-Access patch bands), NOT the PoE1 `3.x` bands. The same
+adjudication classes carry over.
+
+---
+
+## ERRATA-16 — poe2-acolyte-darkness era restamp (drop pre-debut bands; D-2a-to-limit)
+
+- **kit_id:** `poe2-acolyte-darkness`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `0.1;0.2-dawn` -> `0.3-edict;0.4;0.5-ancients`
+- **verdict:** CONTRADICTED (batch-01 verify, `era` claim family). The single era row
+  covers both stamped bands (claim "Build present/meta in eras 0.1, 0.2-dawn").
+- **batch:** 01 (basin-1)
+- **date applied:** 2026-07-18 (ingest wave 8)
+- **verify_ledger:** `errata_applied=1` set on the ingested acolyte-darkness `era`
+  CONTRADICTED row (exactly 1 such row).
+- **class:** **D-2a (floor-too-early) taken to its limit.** Into the Breach's poe2db
+  version history STARTS at v0.3.0 and runs through v0.5.0. BOTH stamped bands (0.1,
+  0.2-dawn) predate the 0.3.0 debut, so a naive D-2a floor-narrow would empty the
+  stamp entirely. Under the ERRATA-11 rule (drop unattested bands AND restamp to the
+  crawl-attested later window), the corrected value is the attested 0.3-0.5 window
+  `0.3-edict;0.4;0.5-ancients`. The Acolyte of Chayula ascendancy existed from launch,
+  but the specific Into the Breach skill gem — the kit's core skill — was added at 0.3.0.
+- **source anchor (verbatim, from the b01 era CONTRADICTED verify row):** "version
+  history starting from v0.3.0, with updates continuing through v0.5.0" —
+  poe2db.tw/us/Into_the_Breach. Crawler's anchor verified in `batch-01-verify.jsonl`
+  BEFORE restamping (dispatch requirement).
+- **contrast with the PoE1 D-2a errata (14/15):** those narrowed only the leftmost
+  floor and kept later attested bands in place. Here there are NO later bands in the
+  DB stamp beyond the two pre-debut bands, so the restamp is a full drop-and-replace
+  with the attested window (ERRATA-11 shape) rather than an in-place floor-narrow.
+- **not-corrected fields:** identity + mechanics verify rows are UNSUPPORTED (folk name
+  "Darkness Acolyte" and the chaos-conversion mechanic unattested; honest silence, no
+  data change — the class is "Acolyte of Chayula" in all sources). `era_year` untouched.
+
+---
+
+## ERRATA-17 — poe2-concoction era floor EXTENSION (floor-too-LATE — NEW class)
+
+- **kit_id:** `poe2-concoction`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `0.2-dawn;0.3-edict;0.4;0.5-ancients` -> `0.1;0.2-dawn;0.3-edict;0.4;0.5-ancients`
+- **verdict:** CONTRADICTED (batch-01 verify, `era` claim family). The era row claims
+  "Build present/meta in eras 0.2-dawn, 0.3-edict, 0.4, 0.5-ancients"; the crawl found
+  the build ALSO present one band earlier (0.1), making the stamped floor internally
+  inconsistent with attested presence.
+- **batch:** 01 (basin-1)
+- **date applied:** 2026-07-18 (ingest wave 8)
+- **verify_ledger:** `errata_applied=1` set on the ingested concoction `era` CONTRADICTED
+  row (exactly 1 such row).
+- **class:** **floor-too-LATE (NEW; the inverse of the D-2a floor-too-early class).** The
+  stamped floor 0.2-dawn POSTDATES attested presence: a maxroll Poisonous Concoction guide
+  carries "Adjusted build for patch 0.1.0e Hotfix 6" — the skill and build were active in
+  0.1, one band below the stamped floor.
+- **RULING (extend-floor vs leave+annotate):** **EXTEND the floor to 0.1**
+  (fill-from-verified-crawl, BACKFILL-1 VBV precedent) rather than leave the stamp +
+  annotate. The attestation is a specific, dated hotfix guide (0.1.0e Hotfix 6), so the
+  floor fill is evidence-grounded, not speculative. Prepend the `0.1` band; the later four
+  bands are untouched (all independently attested).
+- **flag discriminator vs BACKFILL-1:** BACKFILL-1 (poe1-vaal-blade-vortex) FILLED an
+  EMPTY (NULL) column from a CONFIRMED era row and set NO `errata_applied` flag. This case
+  differs: the column was NON-empty and a CONTRADICTED era verify row DID land (the stamp
+  is contradicted as internally inconsistent re: 0.1 presence). Per the flag convention
+  ("errata_applied is set on CONTRADICTED-era verify rows"), the flag IS set here. So the
+  RULING shares BACKFILL-1's *data shape* (fill a band from a verified crawl) but takes the
+  ERRATA *flag treatment* (a CONTRADICTED row exists). This is the discriminator recorded
+  for the floor-too-LATE class going forward: **extend + flag when the verify row is
+  CONTRADICTED; extend + no-flag (BACKFILL) when the verify row is CONFIRMED/empty-fill.**
+- **source anchor (verbatim, from the b01 era CONTRADICTED verify row):** "Adjusted build
+  for patch 0.1.0e Hotfix 6. This patch fixes a bug where Chaos Inoculation was counted as
+  being on Low Life." — maxroll.gg Poisonous Concoction Pathfinder build guide.
+- **not-corrected fields:** the negative_canon UNSUPPORTED row (corpus-triage metadata,
+  not a testable game-state claim) is landed but not acted on; identity + mechanics are
+  CONFIRMED. `negative=1` on this kit is unchanged.
+
+---
+
+## ERRATA-18 — poe2-grim-feast era trim to 0.2-dawn (ES-overleech died at the 0.3.0 rework)
+
+- **kit_id:** `poe2-grim-feast`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `0.2-dawn;0.3-edict;0.4` -> `0.2-dawn`
+- **verdict:** **2 CONTRADICTED** era rows (batch-02 verify: bands 0.3-edict AND 0.4),
+  **corroborated by a paired CONFIRMED positive** era row on the 0.2-dawn band (all three
+  landed via the batch-02 granular one-row-per-band split).
+- **batch:** 02 (basin-1)
+- **date applied:** 2026-07-18 (ingest wave 8)
+- **verify_ledger:** `errata_applied=1` set on BOTH the 0.3-edict and 0.4 CONTRADICTED era
+  rows (exactly 2 such rows; the 0.2-dawn CONFIRMED row is NOT flagged). **FIRST errata to
+  flag 2 rows on one kit** — a paired-band drop. (Contrast ERRATA-8 seismic-trap, which
+  flagged 1 because only 1 band was contradicted.)
+- **class:** ERRATA-8/11 trim ("mechanic death — stamped bands postdate the mechanic's
+  existence"). Grim Feast was **"completely reworked and re-enabled" at 0.3.0** (poe2db):
+  the ES-overleech mechanic the kit describes (a Spirit-reserved buff that vacuums life
+  remnants into energy-shield overleech) existed ONLY in 0.2-dawn; the reworked 0.3.0+
+  skill is a DIFFERENT mechanic (collect remnants from dead Reviving Minions — a
+  minion-revival layer). The 0.3-edict and 0.4 stamps therefore postdate the ES-overleech
+  identity's death. TRIM to the attested ES window `0.2-dawn`.
+- **RULING (trim vs split-kit):** **TRIM** the eras to `0.2-dawn` only. **Split-kit** (an
+  ES-overleech variant 0.1-0.2 vs a post-rework "Grim Resurrection" minion variant 0.3+)
+  was CONSIDERED and REJECTED as overkill for a single cross-build defensive-layer kit —
+  the trim + a `mech_note` annotation (recording the 0.3.0 rework boundary) capture the
+  transition losslessly without minting a second corpus row (which would also break the
+  585-conservation invariant, cf. the di-druid ruling).
+- **source anchor (verbatim, from both b02 CONTRADICTED era rows):** "Grim Feast has been
+  completely reworked and re-enabled. Instead of granting energy shield, it now allows you
+  to collect remnants from your dead Reviving Minions" — poe2db.tw/us/Grim_Feast.
+- **not-corrected fields:** identity + mechanics CONFIRMED (the ES-overleech description is
+  accurate for 0.2-dawn); untouched. A `mech_note` annotation records the rework boundary.
+
+---
+
+## REVIEW-2 (basin-1) — poe2-erasure-edc-lich "Erasure" phantom-mechanic (UNADJUDICATED; NO data change)
+
+- **kit_id:** `poe2-erasure-edc-lich`
+- **field:** `canon_corpus.core_skills` (carries `["Essence Drain lineage", "Contagion",
+  "Erasure"]`) + `mech_note` (references "Erasure = PoE2-specific mechanic").
+- **status:** REVIEW — **unadjudicated. NO data change / NO delete this wave.** Needs
+  steward (gandalf) / Matt eyes. (The basin-1 parallel to REVIEW-1 earthshatter.)
+- **batch:** 01 (basin-1)
+- **date noted:** 2026-07-18 (ingest wave 8)
+- **observation:** batch-01's crawl reports "Erasure" **404s on poe2db** and is **absent
+  from all lich/witch sources fetched**. The Lich ascendancy overview lists 8 nodes — none
+  named Erasure. Essence Drain + Contagion are CONFIRMED real. "Erasure" — the kit's
+  distinguishing named mechanic — is either a wrong/mis-transcribed skill name (possible
+  kb fabrication) or a very obscure node with no guide coverage. The era verify row is
+  CONFIRMED (the ED/Contagion Lich build genuinely existed 0.2-0.5); identity + mechanics
+  are UNSUPPORTED (blank-anchor honest silences).
+- **investigation result:** "Erasure" IS present in the `core_skills` array of the
+  canon_corpus row (confirmed by direct query). Per the dispatch, it is annotated as
+  unverified-possible-phantom in `mech_note` (a prepended `[VDM-1 basin-1 2026-07-18]`
+  clause) and **NOT deleted**.
+- **why not deleted:** the no-silent-edits law forbids removing the skill on a mere
+  not-found. A 404 / source-not-found is honest silence, not a contradiction — "Erasure"
+  is NOT disproven, only un-located. Deleting it would destroy a datum a later/wider crawl
+  might attest. Preserved verbatim in core_skills; flagged in mech_note + here for
+  adjudication. **Mirrors exactly how earthshatter's phantom alias (REVIEW-1) and the
+  di-spiritform-druid-pvp PHANTOM mis-naming were handled** (annotate-not-delete;
+  `errata_applied` NOT set — the flag is for CONTRADICTED-era rows, and this is a
+  mechanics/core_skills question with a CONFIRMED era row).
+- **recommended action for steward/Matt:** either (a) a targeted re-crawl to attest or
+  refute "Erasure" (checking whether it is a mis-transcription of a real Lich node), or
+  (b) a ruling to demote/strike it if judged a kb fabrication. Until then it stays in the
+  corpus unchanged. `eras` (`0.2-dawn;0.3-edict;0.4;0.5-ancients`) untouched.
+
+---
+
+## ANNOT-BASIN1 (wave 8) — mech_note annotations (NO data restamps)
+
+Not data changes to `eras`/`core_skills`; recorded here for provenance. Each is a
+guarded single-row `UPDATE canon_corpus SET mech_note=?` that PREPENDS a dated
+`[VDM-1 basin-1 2026-07-18]`-tagged clause; the original harvest note is preserved
+verbatim after it (no-silent-transformation). The annotation home is `mech_note`
+(established for phantom/lineage notes — cf. the `di-spiritform-druid-pvp` PHANTOM note
+and the PoE1 demon-form-class notes; the dispatch's named mechanism).
+
+- **`poe2-demon-form` — element framing MISLEADING:** Demon Form is element-AGNOSTIC
+  (Spark/lightning + cold + fire variants all attested per fetched sources); "fire spells
+  in-form" is NOT the defining/exclusive mechanic (fire nodes exist in the Infernalist
+  ascendancy but the form itself does not lock element). The mechanics verify row is
+  UNSUPPORTED for the fire-exclusive claim. NO `element`/`eras` column restamp this wave —
+  the element correction is a stage-later concern; the annotation records the finding.
+- **`poe2-minion-infernalist` — (a) lineage shift + (b) alias correction:** (a) the
+  Infernalist→Lich ascendancy lineage shift (Infernalist hosted 0.1/0.2; Lich dominant
+  0.3+; the `class` field understates lineage complexity); (b) the **"Loyal Hellhound"**
+  alias in `core_skills` is UNSUPPORTED — the actual skill name is **"Summon Infernal
+  Hound"** (a.k.a. "Infernal Hound") across all guides. The alias is **NOT deleted** (same
+  no-silent-edits discipline as the erasure phantom); its b02 mechanics verify row is
+  UNSUPPORTED (landed in verify_ledger).
+- **`poe2-infernal-legion` — lineage shift:** Infernalist→Lich from 0.3+ (Infernalist
+  dominant 0.1/0.2 per Kripp Dec2024/Jan2025; current maxroll guide = Lich). Era stamps
+  CONFIRMED (untouched); the `class` field understates lineage complexity. Annotation only.
+- **`poe2-erasure-edc-lich`** — carries the REVIEW-2 phantom clause (see REVIEW-2 above).
+
+Preservation verified post-write: "Erasure" and "Loyal Hellhound" both remain in their
+kits' `core_skills`; all four notes start with the `[VDM-1 basin-1 2026-07-18]` tag.
+
+---
+
+## ROSTER-HYGIENE-1 (wave 8) — le-ring-of-shields corpus_bucket fix + basin-2 NULL-left notes
+
+- **`le-ring-of-shields`:** `corpus_bucket` **`'poe1'` -> `'le'`** (provenance error; the
+  kit is Last Epoch, id-prefix `le-`). Verified before fixing: the correct sibling bucket
+  value is `'le'` (36 of 37 `le-` rows carry `'le'`; this kit was the SOLE outlier at
+  `'poe1'`). Guarded single-row `UPDATE ... WHERE kit_id=? AND corpus_bucket='poe1'`
+  (rowcount==1). Post-write: 0 `le-` rows remain non-`le`. This is a provenance-field
+  correction, not an era/mechanic errata — no `errata_applied` flag (no verify row).
+  eras + core_skills are NULL and the mobile-JSONL kb source has NO row for this kit
+  (17 files searched; absent) -> **left NULL** per the dispatch honest-fill rule (basin-2
+  crawl verifies what exists).
+- **`le-shift-bladedancer`:** bucket already `'le'` (correct — no write). eras +
+  core_skills NULL; kb source also absent -> **left NULL**. Documented as
+  verified-correct-bucket + intentional-NULL-left; asserted unchanged in-script.
+- **carry-forward anomaly (out of scope):** `corpus_bucket` carries both short + long
+  Diablo tokens — `d3`/`diablo-3`, `d4`/`diablo-4`, `di`/`diablo-immortal` (one long-form
+  singleton each). A normalization concern (gamecode-normalize territory), flagged for a
+  future roster-hygiene pass; not touched this wave.
