@@ -46,6 +46,7 @@ Grades: `EXACT` · `CLOSE` (minor drift, note it) · `APPROX` (crosswalks §7.3;
 Dir: `agentic_orchestration/research/vdm1/stage2/basin2/`: `mapping-batch-NN.jsonl` (+ candidate files only if non-empty) + `mapping-batch-NN-summary.md` (grade histogram · per-kit one-liners · T4-door frequency · candidates · **§0 near-misses: statuses you WANTED to emit but could not attest, per kit** · anything that felt forced).
 
 ## Laws
+- **Emit INCREMENTALLY (m01-overflow lesson):** build the batch JSONL by appending ≤3 kit-rows per tool call (heredoc/python append); build the summary in 2–3 appends; keep every single tool-call payload well under ~15k tokens. A monolithic 12-row Write killed the first m01 attempt at the 32k output ceiling.
 - Commit PATHSPEC-ONLY, message `gandalf-seam: VDM-1 basin-2 mapping batch-NN (<n> kits)`. **Do NOT push.** index.lock → wait 30s, retry 3×.
 - Grade honesty over grade optimism — the steward audits ≥25% of every batch and RECOUNTS from committed files; your returned histogram is ADVISORY (D-2c).
 - Competing crosswalk rows → §7.2 dominant loop wins; note the alternative.
