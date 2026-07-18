@@ -87,3 +87,23 @@ TEMPORAL_CHARGE dominant (9/11 kits) — LA gauge-identity kits almost universal
 ---
 
 **Signed:** gandalf (mapping-author) · 11/11 roster coverage confirmed · batch committed as `gandalf-seam: VDM-1 basin-4 mapping batch-n01 (11 kits)`
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf-as-steward, 2026-07-18) — n01 CANARY, 100% DEPTH
+
+**Verdict: PASS (with 2 in-place corrections).** n01 is the basin-4 canary — audited at **100% depth** (11/11 kits, not the ≥25% floor) because it validates the freshly-authored basin-4 mapping law + MAPPING-BRIEF-TEMPLATE before the n02–n05 scale wave. Recounted from the committed file (advisory NEVER trusted, D-2c).
+
+**Histogram — ZERO DRIFT.** File-truth recount == advisory exactly: EXACT 1 / CLOSE 8 / GAPPED 2; MAPPED 9 / MAPPED_DOCKET 2. R-M7 biconditional HOLDS on all 11 (both GAPPEDs are MAPPED_DOCKET; zero APPROX+MAPPED_DOCKET hybrids). Post-correction re-parse: 11 rows clean, grades unchanged.
+
+**Element discipline — PERFECT (the marquee canary success).** ZERO element emissions across 11 kits; every candidate withheld under the D4 NAME-ONLY LAW. The deathblow-striker Lightning-Tiger-Strike withholding — despite the crawl's "highest-prob lightning" hot-fact staring the mapper in the face — is the textbook proof the law is TEACHABLE on a non-Diablo engine. Economy keys all native (battery / asura_energy / barrage_meter / fury_meter / piety_meter / hawk_meter / esoteric_orbs / shadowburst_meter + dual-gauge stamina/shock). burst_window PERMANENT-vs-TIMED correctly discriminated (berserkers/asuras TIMED → burst_window; demonic-impulse PERMANENT → self_buff steady-state). Boss-break Stagger/Shock/Destruction correctly NOT mapped to stun/sunder (§LA row 4 held).
+
+**TWO corrections — both damage-modification-DIRECTION confusion (the LA-dominant ailment trap), both steward-caught, both corrected in-place, ZERO grade impact:**
+- **STRIKE #1 (hard) — death-strike-sharpshooter, Silverhawk Assault:** store "27% Increased Damage to the Boss" (enemy-directed damage-taken amplification) mapped `curse:sap` → **corrected to `curse:amplify`**. Grounds: b01 Despair precedent (crosswalk §2 line 52/53) — damage-taken amp ≠ defense shred. sap is defense/resist/armor SHRED only. JSONL edits A (ailment token) + B (fidelity_notes rationale) applied.
+- **STRIKE #2 (soft) — blessed-aura-paladin, Holy Aura:** store "+10% damage dealt to enemies [by party]" (an ally/party BUFF) mis-emitted `curse:amplify` → **corrected to `[]`**. Grounds: solo projection — party = player, so a party-damage buff is a self_buff, NOT an enemy curse. JSONL edit C applied. The same kit's Sword-of-Justice row ("target to receive +10% Damage from party" = enemy-directed) correctly KEPT curse:amplify — one kit carrying BOTH directions is the textbook teaching case.
+
+**Inoculation applied BEFORE scale wave:** the §LA DEBUFF-DIRECTION LAW pre-existed (addendum §LA row 5) but was buried and did not fire salient. Hardened into a dedicated `### §LA DEBUFF-DIRECTION LAW` block (3-way direction test + b01 precedent + n01 evidence) AND named as an explicit hot-fact in the n02–n05 re-fire prompts. **Canary purpose FULFILLED** — one systematic gap surfaced + closed before scale.
+
+**Contiguity battery — CLEAN on load-bearing quotes.** blessed-aura "sword_of_justice_effect" ("…target to receive +10% Damage from party"), death-strike "27% Increased Damage to the Boss", arthetinean "Machinist: B Tier" (CONTRADICTED-negative), communication-overflow UNSUPPORTED-with-no-anchor (correct empty-projection) — all verified contiguous in-store. One minor paraphrase-in-quotes noted (death-strike "maintaining damage debuff on target" — non-fabricated, flavor paraphrase, noted only, no strike).
+
+**Signed:** gandalf (steward) · n01 canary PASS · 100% depth · 2 corrections in-place · addendum hardened · scale wave (n02–n05) authorized + fired.
