@@ -24,9 +24,9 @@
 |---|---|---|---|
 | 01 | 1–12 | ✓ DONE | 40 CONFIRMED / 0 CONTRA / 12 UNSUP (all filler negative_canon on negative=0 — dropped at ingest) / 0 SNF · dossier 71/72 · 14 author handles · anchors 100% |
 | 02 | 13–24 | ✓ DONE | 34 C / **1 CONTRADICTED** / 17 U / 0 SNF · **ERRATA-1: crackling-lance era 3.7-3.13 → 3.12-3.13 (skill debuted 3.12 Heist)** · cleave death_class flagged inference-not-attested (honest UNSUP) · dossier 93% |
-| 03 | 25–36 | ⏳ fired | — |
+| 03 | 25–36 | ✓ DONE | 32 C / **1 CONTRADICTED** / 3 U / 0 SNF · **ERRATA-2 candidate: deaths-oath era floor 2.x → 1.x (item attested v1.0.2, Nov-2013 forum)** · dossier 65% (capstone_alterations universally source-silent) · 5 author handles · anchors 100% |
 | 04 | 37–48 | ⏳ fired | — |
-| 05 | 49–60 | ○ | — |
+| 05 | 49–60 | ⏳ fired | — |
 | 06 | 61–72 | ○ | — |
 | 07 | 73–84 | ○ | — |
 | 08 | 85–94 | ○ | — |
@@ -39,7 +39,8 @@ Batch discipline: agents commit pathspec-only, do NOT push (steward pushes after
 - poewiki.net Anubis-403-blocked, fandom paywalled → domain order re-led with poedb.tw/poe-vault (template updated).
 - Abstain-law refinement: 2 rows (b01 autobomber/author_credit, b02 blood-magic/variants) carried `{"note":...}` payloads on abstained=1 — DB CHECK rejects; elrond logs at ingest-1, re-insert with null payload at ingest-2; template hardened for 05+.
 - Ingest-1 fired (batches 01-02 + ERRATA-1 + fact_provenance promotions to `verified-v1.1` for clean kits).
-- Running tally after 24/94 kits: 74 CONFIRMED / 1 CONTRADICTED / 29 UNSUPPORTED / 0 SNF · 0 quarantined-domain hits · anchors 100% on C/C verdicts.
+- Batch-03 flags for ingest-2: (a) ERRATA-2 candidate deaths-oath era floor (elrond review); (b) earthshatter alias "Foulborn Ghostwrithe zerker(3.28)" unfindable in any source — phantom-alias candidate; (c) `capstone_alterations` structurally source-silent from guide-tier fetches (universal abstention b03) → targeted poedb gem-level backfill pass queued as stage-4 candidate.
+- Running tally after 36/94 kits: 106 CONFIRMED / 2 CONTRADICTED / 32 UNSUPPORTED / 0 SNF · 0 quarantined-domain hits · anchors 100% on C/C verdicts. Era remains the weakest family (both contradictions are era-floor errors, opposite directions) — prior ~.85 tracking true.
 
 ## Pre-registered priors (grade at stage 3)
 
