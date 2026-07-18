@@ -75,3 +75,7 @@ All 12 kits: `terminal_state: MAPPED`. No GAPPED/MAPPED_DOCKET this batch.
 - **Daggermancer earth vs shadow:** Poison Dagger is venom-themed physical melee (not bone/necrotic lineage) → earth per §1 venom-themed branch.
 - **Bowazon Valkyrie:** pet-rider noted in scaffold; does not elevate to GAPPED because bow-shot loop maps fully.
 - **d2-berserker fear attestation:** Howl 'panic tool to scatter mobs' attests flee/fear behavior per §2 (fear = boss-immune).
+
+
+## STEWARD AUDIT ADDENDUM (2026-07-18, MW1 close)
+Recount CONFIRMED 1E/9C/2A/0G, roster 12/12, contiguity CLEAN. AUDIT-EDIT: blizzard-sorc Ice Blast chill→freeze (store attests 'freeze utility' — adjacent-status substitution, leak strike #1 basin-3; grade unchanged). Element rulings RATIFIED: berserker magic-tag = element-neutral; bonemancer bone→shadow = main-law table row (no new law). Docket filings (loot-economy-identity + spatial-consumable-resource-node) accepted → review-book consolidation.

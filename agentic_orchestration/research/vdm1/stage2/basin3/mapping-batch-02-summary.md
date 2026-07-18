@@ -67,3 +67,7 @@ None. All R-M7 biconditionals satisfied (MAPPED, not GAPPED). No docket-candidat
 
 ---
 *Histogram advisory (D-2c). Steward audits ≥25% + full contiguity battery.*
+
+
+## STEWARD AUDIT ADDENDUM (2026-07-18, MW1 close)
+Recount CONFIRMED 3E/9C/0A/0G, roster 12/12, contiguity CLEAN, fishyzon ERRATA-51 inversion verified honored (LF/CS/FA). ghost-pvp 'gandalf-ruling-17' citation adjudicated: provenance-echo (corpus field carries the re-key ruling note) — LEGAL per GX-register precedent.

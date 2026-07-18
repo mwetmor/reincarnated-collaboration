@@ -77,3 +77,7 @@ No `mint-candidates-batch-03.jsonl` required (no new mint candidates — all mec
 - **§A.5 maul-bear stack law:** Maul ramp confirmed as sustain-stack (§A.5), NOT two-tier-accumulator. No accrual filing.
 - **§CROSS row 2 hydra totem-vs-companion:** Hydra is duration-capped stationary emitter → totem lane. NOT summoner GAP (correct two-lane application).
 
+
+
+## STEWARD AUDIT ADDENDUM (2026-07-18, MW1 close)
+Recount CONFIRMED 3E/3C/3A/3G, roster 12/12, contiguity CLEAN, GAPPED⟺MAPPED_DOCKET biconditional holds. AUDIT-EDIT: t4_doors []→null on grim-ward-barb/horker/impale-zon (template null-where-N/A). GAPPED trio honest per R-M7 (d2-golemancer, d2-grim-ward-barb, d2-horker). 4 docket filings accepted.

@@ -8,7 +8,7 @@ m01–m05 = d2 (b01–b05, 60 kits) · m06–m09 = d3 (b06–b09, 48 kits) · m1
 
 ## Waves (3 batches each; MW5 = m13–m15)
 
-- **MW1:** m01 + m02 + m03 (d2 L1–36)
+- **MW1:** m01 + m02 + m03 (d2 L1–36) — **✓ CLOSED 2026-07-18: 7E/21C/5A/3G · 33 MAPPED/3 DOCKET · drift 0-for-3 · contiguity clean · strike #1 chill→freeze · doors-null ×3**
 - **MW2:** m04 + m05 + m06 (d2 L37–60 + d3 L61–72)
 - **MW3:** m07 + m08 + m09 (d3 L73–108)
 - **MW4:** m10 + m11 + m12 (SEAM + d4 L110–144)
@@ -17,6 +17,8 @@ m01–m05 = d2 (b01–b05, 60 kits) · m06–m09 = d3 (b06–b09, 48 kits) · m1
 Spawns: gandalf-seam mapping authors, `model: sonnet`, `run_in_background: true` (Matt credit directive). Steward: roster recount before every fire · D-2c recount + ≥25% deep-audit + FULL-BATCH contiguity battery on every return (mapping agents ran 0-drift in basin-2 — audits stay mandatory anyway). Commit law: agents pathspec-only, never push; steward pushes at wave closes.
 
 ## Per-batch hot-facts (paste into spawning prompts; steward amends at each close)
+
+- **MW1-close amendments (PASTE into every m04+ prompt):** d2 magic-damage weapon-tag = element-NEUTRAL (berserker ratified; coheres §A.6) · bone/necrotic → shadow per main-law element table (bonemancer followed table) · 'freeze' language attests freeze NOT chill (adjacent-status substitution = leak class, strike #1) · GAPPED/doorless kits emit t4_doors null, never [].
 
 - **m01 (b01):** auradin/avenger = item-defined-archetype + aura-pulse/curse:sap rows (§A.2, §CROSS.4) · blade-sin synergy=scaffold (§A.1) · blaze-sorc NOT-channeled ("player moves freely while trail persists" — movement-trail, probe "channeled" is an erratum artifact) · berserker Find-Item loot-economy docket (§A.4) · charger traversal-strike (§A.3) · bonemancer/summonmancer-adjacent pet language → §CROSS.2.
 - **m02 (b02):** wereform kits (fireclaw/fury-wolf) = economy-agnostic form law (§CROSS.3) · Feral-Rage/Frenzy stack-ramp ≠ two-tier-accumulator (§A.5) · fishyzon core_skills ERRATUM governs (LF/CS/FA — kb Guided-Arrow/Valkyrie is FALSE) · ghost-pvp Sentry kits = placed-proxy (totem lane) + PvP context note · fire-strike-class WPS precedent is basin-2 SHAPE only.
