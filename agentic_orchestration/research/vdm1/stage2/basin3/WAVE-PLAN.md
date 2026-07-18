@@ -1,0 +1,43 @@
+# VDM-1 basin-3 MAPPING wave plan (steward-owned; authored 2026-07-18 in the INGEST-13 window)
+
+**Gate:** mapping fires after INGEST-13 is steward-verified (D-2c readonly-SQL battery green) — mappers consume post-ingest DB state (supersedes + ERRATA-43+ govern). Template: `stage2/basin3/MAPPING-BRIEF-TEMPLATE.md` (template-as-brief). Basin law: `gandalf/design-inputs/2026-07-18-vdm1-crosswalks-basin3-addendum.md` (POPULATED + BINDING).
+
+## Batch↔roster map (mNN ⟷ crawl bNN roster, from `stage1/basin3/batch-NN-verify.jsonl` kit sets)
+
+m01–m05 = d2 (b01–b05, 60 kits) · m06–m09 = d3 (b06–b09, 48 kits) · m10 = SEAM d3 L109 + d4 (b10, 12) · m11–m12 = d4 (24) · m13 = SEAM d4 + di blood-knight (12) · m14–m15 = di (23; m15=11 kits). **Denominator 179/179 — no SKIPs at fire time** (basin-3 has no bomb-lance-class SNF-no-evidence kit; d2-wl-void-rift b05 MAPS on its honest sparse evidence per addendum §E.5 kit-level-flag law).
+
+## Waves (3 batches each; MW5 = m13–m15)
+
+- **MW1:** m01 + m02 + m03 (d2 L1–36)
+- **MW2:** m04 + m05 + m06 (d2 L37–60 + d3 L61–72)
+- **MW3:** m07 + m08 + m09 (d3 L73–108)
+- **MW4:** m10 + m11 + m12 (SEAM + d4 L110–144)
+- **MW5:** m13 + m14 + m15 (SEAM + di L145–179) — FINAL
+
+Spawns: gandalf-seam mapping authors, `model: sonnet`, `run_in_background: true` (Matt credit directive). Steward: roster recount before every fire · D-2c recount + ≥25% deep-audit + FULL-BATCH contiguity battery on every return (mapping agents ran 0-drift in basin-2 — audits stay mandatory anyway). Commit law: agents pathspec-only, never push; steward pushes at wave closes.
+
+## Per-batch hot-facts (paste into spawning prompts; steward amends at each close)
+
+- **m01 (b01):** auradin/avenger = item-defined-archetype + aura-pulse/curse:sap rows (§A.2, §CROSS.4) · blade-sin synergy=scaffold (§A.1) · blaze-sorc NOT-channeled ("player moves freely while trail persists" — movement-trail, probe "channeled" is an erratum artifact) · berserker Find-Item loot-economy docket (§A.4) · charger traversal-strike (§A.3) · bonemancer/summonmancer-adjacent pet language → §CROSS.2.
+- **m02 (b02):** wereform kits (fireclaw/fury-wolf) = economy-agnostic form law (§CROSS.3) · Feral-Rage/Frenzy stack-ramp ≠ two-tier-accumulator (§A.5) · fishyzon core_skills ERRATUM governs (LF/CS/FA — kb Guided-Arrow/Valkyrie is FALSE) · ghost-pvp Sentry kits = placed-proxy (totem lane) + PvP context note · fire-strike-class WPS precedent is basin-2 SHAPE only.
+- **m03 (b03):** grim-ward = corpse-node + placed fear-emitter (fear attested: "fear totem; monsters flee") — identity/negative stay honest-U context · golemancer = summoner GAP + gear-stat-as-minion-scaling accrual (§CROSS.2) · horker loot-economy docket + R-M7 honest call (§A.4) · hammerdin spiral-orbit row (§A.6; element-neutral, "holy" is probe fabrication — never import) · inferno-sorc rooted channel (§CROSS.5 contrast).
+- **m04 (b04):** summonmancer army GAP + corpse-raise (§CROSS.1/.2) + Amp Damage → curse:amplify (main law) · poison-nova timing = DoT-timing ruling · teleport-sorc NULL-era backfilled — map normally.
+- **m05 (b05):** ww-barb moving-channel (§CROSS.5) · wl-void-rift kit-level flag (§E.5 — map sparse honest) · wl-abyss Terror-Zone language is CONTENT context, not fear attestation (§0.4 discipline).
+- **m06 (b06):** set-multiplier=scaler + akkhan Phalanx trigger-avatars (§B.1/.4) · CoE R-M5 token (§B.2) · arachyr rooted channel cone (§B.5) · CoTA + helltooth-garg army GAP + garg-split placed-proxy-count accrual (§CROSS.2) · firebomb lob-framing erratum governs.
+- **m07 (b07):** inarius bone-storm orbit (§A.6 shape sibling, own language) · invoker-thorns → stat-as-damage-substrate cluster (retaliation-substrate SHAPE precedent, OWN candidate per C.2 no-merge) · masquerade Essence builder-spender native.
+- **m08 (b08):** pestilence corpse-consumption (§CROSS.1) · sotl-hammer 30-orbit + PERSISTENCE precedent · shield-bash/spectral-blade negatives: verdicts govern, map the redeemed/attested forms.
+- **m09 (b09):** ww-wastes Dust-Devils = R-M6 drift lane + set-granted mechanism (§B.3) · ue-multishot ×2339 = scaler-only · rathma ERRATUM governs (Skeletal-Mages line FALSE) · zero-dogs sacrifice-loop = minion-consumption-harvest accrual (basin-2 docket class, first d3 attestation — verify fetched language first).
+- **m10 (b10):** zuni-carnevil fetish army GAP · d4 blood-lance echo-mark rider (§C.2) · blood-surge Overpower burst_window (§C.3) · andariel-flurry post-backfill verdicts govern · Paladin/Warlock kits fetched-only + resource do-not-populate (§C.5).
+- **m11 (b11):** heartseeker seeking + Paingorger echo (§C.1/.2) · hota Overpower item-stack · chain-lightning Crackling Energy = pickup-orb note (R-M6-adjacent only if fetched behavior supports) · bouldercane YouTube-grounded rows legal.
+- **m12 (b12):** ice-shards conditional re-seek (§C.1) · infinimist lucky_hit condition + cooldown_refresh economy (§C.4) · lightning-spear post-backfill X governs (Ice Blades OUT of the 6-slot bar) · incinerate/kick falsified-negatives → map redeemed aspect-forms (§CROSS.4).
+- **m13 (b13):** wing-strike Arbiter trigger-form (§CROSS.3) + S11-extension erratum eras · rabies-lacerate Mad-Wolf economy-rewrite = item-defined-archetype · d4 ww-dust-devils sibling maps own language · shadowblight corpse+Reap erratum · spiritborn-vortex kit-level flag · blood-knight essence-transform + drain attested (§D.2).
+- **m14 (b14):** essence-transfer SYSTEM convention (§D.3) · cyclone-monk-pvp PvP context note (§D.4) · cyclone-strike-monk-base mechanics row is the BACKFILL insert · di dossier-sparse: honest empty-projection over stretch.
+- **m15 (b15):** resonance-awakening SYSTEM convention · Tempest/Warlock cooldown-only economy (§D.1) · tempest element = Wind/Water per official X (water/lightning-family call per main-law element table — file if torn) · spiritform kit-level flag · meteor-wizard PvP variant context.
+
+## Standing counts at fire time
+
+Post-INGEST-13 expected: verify_ledger 1512 · basin-3 effective 681 = 576C/85U/19X/1SNF · kit_mapping 218 (94 PoE1 + 48 basin-1 + 76 basin-2) → target 218+179 = **397** at basin-3 mapping close. Negative series 18/18 = 8C/5U/5X (5 falsified — mapping treats redeemed forms per §CROSS.4).
+
+## Lifecycle
+
+Steward audits every return → wave close commits+push → hot-facts amended → next wave. After MW5: basin-3 checkpoint row → INGEST-14 (mapping rows) → LE 53 → tail → Stage 5 blind rider → THE REVIEW BOOK.
