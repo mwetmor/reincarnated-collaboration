@@ -60,3 +60,10 @@ No EXACT: every kit carried at least one behavioral/numeric property with no enu
 
 ## Batch-specific flag compliance
 (a) seismic errata honored (3.14–3.19 only, in-row + here); (b) poets-pen mechanics mapped, class caveat fidelity_notes-only; (c) reaper mapped normally + honestly, negative flag corpus-side; (d) granular dossier rows read in full per kit (one row per family this batch; abstains respected — capstone_alterations abstained for all 12, so every t4_doors routing is identity-derived and says so).
+
+## Steward audit addendum (DRIFT-CRITIC, 2026-07-18)
+- **ACCEPTED as-is.** Enum sweep 12/12 CLEAN (geometry/t4/chain_count vs engine source; ailments vs the 16-entry `config/ailments.yaml` registry — all seven tokens used are registry-valid). R-M7 conformant (0 GAPPED ⟺ 0 MAPPED_DOCKET).
+- Three hard calls upheld: **seismic-trap** double-APPROX honest (R-M5 greppable token present; corpus-wide TIMED-WHILE-ACTIVE-APPROX accrual = 2, one short of the ≥3 graduation) · **siege-ballista** APPROX/MAPPED + scaling-substrate docket is the right split — the turret-battery archetype is engine-native (totem geometry), the DEX→army-count coupling is docket-shaped, not archetype-missing · **reaper** APPROX/MAPPED per dark-pact precedent; its proxy-consumes-proxy docket = entity-as-consumable-resource-pool family accrual #4.
+- **pizza-sticks mint = 2nd forcing kit** for b02's stack-driven-geometry-morph qualitative class → GRADUATION-READY at stage-3 D-4 (b02 audit ruling: graduate at 2nd accrual).
+- skeleton-mages docket = accrual #2 on the b03 elemental-hit RNG-element-pool class.
+- Mapper self-caught + repaired an authoring defect (missing mapping_json close-brace, all rows) pre-commit; steward parse sweep confirms clean. Format discipline held.
