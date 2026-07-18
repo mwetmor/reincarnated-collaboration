@@ -52,3 +52,31 @@ MOMENTUM_CASCADE 3 (swarmblade, warpath, werebear) · PERSISTENCE_ENGINE_uptime 
 5. **Wraithlord era thinness:** 1.0-launch CONFIRMED but 1.1/1.2 UNSUPPORTED — the archetype may be era-bounded (pre-nerf Aberrant Call context in items); annotation only.
 
 **Commit:** pathspec-only, `gandalf-seam: VDM-1 basin-2 mapping batch-07 (6 kits)`. No push.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18 — D-2c recount + full contiguity battery)
+
+**Recount:** advisory 0E/3C/2A/1G · 5 MAPPED / 1 MAPPED_DOCKET = **EXACT** (mapping-agent advisory drift now **0-for-6**). R-M7 biconditional exact. All 7 T4 doors verified legal against §5 (first **PROXY_FISSION** exercise — shadow-clone mirror-discharge, line-99 proxy row; fit accepted).
+
+**VERDICT: ACCEPTED with 4 in-place corrections (2 anchor-splice strikes + re-grounds; 1 geometry null; 1 deviation rewrite). Grades/terminals UNCHANGED.**
+
+### LEAKS #3 + #4 of the run — TWO ANCHOR-SPLICES in one batch (contiguity battery's first live catches)
+1. **swarmblade Swarm Strike:** "a 360 degree heavy spin attack that also rallies your summoned bugs around you…" exists in NO store. Legal fragment: skill_loop "Swarm Strike as 360-degree heavy AoE finisher". STRUCK + re-grounded; `ring` survives. **Cascade damage:** the spliced "rallies…bugs" text ALSO grounded the Locust Swarm `aura` row and its bugs-are-texture no-GAP stance → **Locust Swarm aura→null** (shape-silent AND behavior-silent post-strike; no GAP claim, no texture claim; dominant loop untouched — CLOSE stands).
+2. **werebear Aftershock:** Title-Case "affix/idol verbatim" ("Chance To Create An Aftershock Under A Nearby Enemy On Melee Attack") exists in NO store — memory-styled as tooltip text. Every mapped FACT independently attested (skill_geometry "Aftershocks appear under nearby enemies" · item_alterations "Adorned Heorot Idols for Aftershock chance" · anchor "Spam Swipe to deal damage and trigger Aftershocks"). STRUCK + re-grounded on the three fragments cited separately; ground_slam/trigger/grade unchanged.
+
+**Splice signature (review book):** both are memory-CONTINUATIONS of a REAL store fragment, styled to mimic a store class (guide prose; tooltip Title-Case). Store-not-style in splice form. Contiguity checks on the batch's other load-bearing quotes: swarm-rage · bear-rage · wraithlord-cap ×2 · tempest-combo · warpath-drain · umbral-throw/geo/bladestorm — ALL CONTIGUOUS. **m06 audit gets the full-batch splice-grep battery** (2-in-one-batch escalation).
+
+### Umbral-blades cold — mapper UPHELD; steward error acknowledged
+Store-grep confirms **zero cold/frost/ice tokens** in kit_dossier + verify_ledger for this kit. The steward hot-fact ("fetched: physical/cold") propagated an imprecision from the ingest-11 mech_note annotation, which is itself CIRCULAR to probe-class ("probe element already reads 'Physical / Cold'"). Cold was never store-attested. **null/null is correct; the mapper obeying store law over the steward's own brief is the discipline working.** Erratum queued for INGEST-12 (LOW, annotation-precision): mech_note should read "probe element reads Physical/Cold; fetched text is element-silent."
+
+### Upheld (exercised clean)
+- **warpath** — cascade-pin check performed textbook: no on-kill fetched → PERSISTENCE_ENGINE_uptime primary (RF-class); R-M6 "considered, not applicable" D-2d-compliant; probe void-corruption withheld.
+- **werebear** — BASE GEOMETRY_PROPAGATION "exactly as the pin directs" (trigger-driven, neither _cascade nor _overkill); stun/chill withholds correct.
+- **tempest-strike** — all three hot-facts honored (class corrected; era-scoped negative as annotation; beta cold variant-scoped off core); shock withhold correct.
+- **wraithlord** — triple ruling composed cleanly (two-lane null ["autonomously seeks" = follow-class, zero placement language] + item-defined-archetype WITH-item core + folk-name avoidance); **first unprompted mapper application of the damage-type-over-time RULING** (Aura of Decay "DoT + buff" → poison withheld); Drain Life name-collision guard held. `harvest_economy` descriptive key TOLERATED (self-identifies as the docketed gap — not fabricated engine vocabulary).
+- **Rage-in-form law ×2** (swarmblade, werebear) — in-form economy as kit economy, swap in fidelity_notes, exactly per §B; permanent-form-dissolves-swap-docket reasoning accepted both kits.
+- **Accrual filing-vehicle discipline LANDED** — first batch to file accruals correctly in the mint side-file (two-tier-accumulator ← tempest [TWO fetched shapes, both contiguity-verified] · out-and-return ← umbral). Steward counts updated: two-tier-accumulator gains an LE evidence kit; out-and-return gains its first LE attestation.
+- **Docket accepted:** minion-consumption harvest economy (sibling of §A pet-death-payload, no merge) — cap quote verified in both stores.
+- **R-M5 greppable-token trio** (AUTOCAST_ON_MOVE · COMBO_BEAT_NTH · MINION_CONSUME) — review-book trigger-enum gap list.
+- **Steward-side watch (no action):** tempest fixed-attack-speed→crit overflow = stat-to-stat conversion, single attestation, NOT a stat-as-damage-substrate member; watch only.
