@@ -101,3 +101,22 @@ Abstained families: d4-ice-shards variants · d4-incinerate variants · d4-kick 
 ## 0-contradiction notice
 
 This batch has 5 contradictions (NOT zero). See above.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18 — CW4, audited on return)
+
+**ACCEPTED with 1 VERDICT DOWNGRADE.** File truth AFTER correction: **51 rows = 31C/4X/16U/0SNF** (agent-filed 31C/5X/15U; advisory "28C/5X/17U" — drift #20, C off 3). Kits 12 ✓, families 12/12/25/2 ✓, negatives exactly 2 per roster ✓. Citations 22/0 quarantined — pure maxroll+icy-veins. Dossier 72 rows, 62 non-abstained = 86.1%; abstain-null HELD 10/10; honest era-U walls on post-cutoff tokens said loudly ✓.
+
+**RULING MINTED (anchor law refinement):** **SAME-PAGE ellipsis-marked joins = TOLERATED-amber** (transparent, single-source, one-fetch-verifiable); **CROSS-SOURCE joins = leak-class, trimmed** (b08 spectral-blade precedent). Three of b12's X anchors are same-page marked joins — tolerated under the minted distinction, ambered here, CW5 prompts told to prefer contiguous.
+
+**Steward rulings on the five filed X's:**
+1. **incinerate negative_canon X STANDS** (same-page join tolerated) — "After channeling Incinerate for 2 seconds it deals x [75-100%] increased damage for 5 seconds" affirmatively falsifies "no burst window" (Overheating IS the burst window). "Persistently below meta" fragment stays honest — B-Tier is below meta; the X rests on the mechanism ground. **Falsified negative #3.**
+2. **kick negative_canon X STANDS** (same-page join tolerated) — "Crown of Lucion: Highest damage multiplier (x105% with the S12 changes)" + Ring of Red Furor falsify the kb's unbounded "never received set-equivalent amplification." **ERA-BOUNDED NUANCE for the erratum rewrite:** falsifying evidence is S12-era; the weakness was plausibly REAL launch→s6 — rewrite as era-bounded negative (leap-attack class), redeemed by S12 unique buffs. **Falsified negative #4.**
+3. **lightning-spear mechanics X → DOWNGRADED U** (verdict-law enforcement, b08 symmetry) — the filed anchor (Chain Lightning/Charged Bolts uselessness + Mana line) is NON-PROBATIVE on the actual claim fragment "Ice Blades(battery)"; the agent's grounds were guide-absence = silence. STRONG U→X BACKFILL candidate: d4 skill bars are 6-slot complete enumerations — one refetch quoting the bar without Ice Blades flips this affirmative. Erratum ("Ice Blades(battery)" + alias "Ice Blades Battery Sorc" unattested; Ball Lightning is the proc-trigger) stays queued as CANDIDATE pending backfill.
+4. **lightning-spear era X STANDS** — "the strongest Sorcerer build from its very inception in Season 5" = affirmative S5 inception; S4 half of `loot-reborn-s4-5` predates it. D-2a floor-too-early; erratum = in-token floor note (build S5-only within the token).
+5. **mighty-throw era X STANDS (amber)** — S6 VoH tier-list page attests S-tier presence BEFORE the recorded `s7-s12` floor = floor-too-late (ERRATA-17 class). Anchor is a triple same-page join (build name · tier · page title) — tolerated-amber; BACKFILL refetch for a contiguous tier-list line queued. Erratum: era floor add `voh-s6+`.
+
+**Negative-series impact:** basin-3 negatives 15 of 18 = **8C/3U/4X**. All four X's are falsified-REASON negatives; root-cause family now spans games: d3 DMO-blanket (spectral-blade · wave-of-force) + **d4 unique/aspect-amplification blindness (incinerate Overheating · kick Crown-of-Lucion)** — the kb systematically under-models item-redemption paths when writing negatives. Review-book headline material.
+
+**Erratum queue adds (INGEST-13):** kick negative era-bounded rewrite · incinerate negative mechanism fix (burst window exists; B-tier framing) · lightning-spear era in-token floor note · lightning-spear mechanics/alias CANDIDATE (backfill-gated) · mighty-throw era floor add voh-s6+ · **payback-sb probe "retaliation counter-strike" fabrication** (Payback is spammable Core→Basic via Rod of Kepeleke — first non-resource probe-mechanics fabrication in d4) · **minion-necro probe `mana (reserve)` → Essence (resource series #10)** · quill-volley "The Hunter" core_skill unattested (guide Ultimate = The Protector) — erratum candidate.

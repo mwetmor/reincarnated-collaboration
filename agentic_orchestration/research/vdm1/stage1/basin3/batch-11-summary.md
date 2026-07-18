@@ -114,3 +114,18 @@ None. 0 contradictions this batch.
 - Warlock and Paladin debuted Lord of Hatred expansion (Season 13, April 28, 2026 per MSN journalism). Era instrument validated.
 - reddit remained blocked throughout; no fetch attempts made.
 - diabloimmortal.fandom.com not applicable (d4 batch).
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18 — CW4, audited on return)
+
+**ACCEPTED with 1 VERDICT DOWNGRADE + 1 retroactive quarantine + 2 abstain-null fixes.** File truth AFTER corrections: **44 rows = 39C/5U/0X/0SNF** (agent-filed 40C/4U; advisory "34C/4U" — drift #19, C off 6). Kits 12 ✓, families 12/12/20/0 — zero negative rows per roster ✓. Anchors C/X present, zero >40w, zero gloss suspects (CW3 anchor-discipline prompt line WORKED — cleanest anchor set of the run). Dossier 72 rows, 70 non-abstained = 97.2%.
+
+**Steward rulings:**
+1. **heartseeker era C → DOWNGRADED U + wowcarry.com QUARANTINED (retroactive).** Sole era ground was wowcarry ("…tier 133 benchmark for Season 4") — a CARRY/BOOST-service SEO blog = junk-tail commercial class (sky/u4/aoeah sibling; smite precedent: domain legality governs admissibility — a boost-seller page can never ground a verdict). Anchor nulled (preserved here). **BACKFILL-3 upgrade candidate:** S4 Heartseeker presence is near-certainly re-attestable (maxroll guide lineage — current title "Season 14"; icy-veins S12 guide) — honest-U until an admissible dated source is fetched.
+2. **Abstain-null law: 2 violations FIXED in-place** (flame-shield-immortal capstone + author_credit carried `{"notes":…}` on abstained rows — b02-firewall class). Notes preserved: capstone "Launch-era build; specific aspect list not recoverable from fetched sources without a dedicated launch-era guide page"; author_credit "No bylined author recovered from accessible sources for the launch-era immortal build specifically." First violations since CW1 (CW2/CW3 ran clean) — law re-pasted into CW5 prompts.
+3. **Off-order-site admissibility rulings (all others STAND):** mobalytics.gg ADMISSIBLE-dataset-class (profile/build URLs are planner-class per the maxroll planner rule — era-presence evidence OK, never author_credit) · primagames + dexerto ADMISSIBLE-journalism (b02 release-journalism era-anchor precedent; dexerto hota nerf-news attests era presence) · fextralife ADMISSIBLE-communal. Weight-noted in-row where used.
+
+**ZERO CONTRADICTIONS said loudly by the agent and CONFIRMED by recount** — pre-cutoff-stable d4 tokens + living-guide coverage; the 5 U are honest era-walls (rolled-forward guides: cataclysm/chain-lightning/earthquake/frozen-orb + heartseeker downgrade).
+
+**Erratum queue adds (INGEST-13):** **Paladin resource = Faith · Warlock resource = Wrath (fetched-confirmed — populates probe `unknown` fields)** · probe fabrications #7–9, ALL resource-class: heartseeker "spirit/focus" → Energy HIGH · evade-sb "evade charges" → Vigor HIGH · dance-of-knives "charge/meter" → Energy MED (series now 9) · **hammerdin probe element "holy" — NEW probe-artifact class: d2-LINEAGE IMPORT (d4 has no holy damage type)** · cataclysm S13-LoH archived-legacy note (era spec stops voh-s6+ — consistent, note only).
