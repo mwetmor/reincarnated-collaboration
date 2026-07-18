@@ -1,4 +1,4 @@
-# VDM-1 Stage-1 PoE1 batch brief — TEMPLATE (batches 03–08)
+# VDM-1 Stage-1 PoE1 batch brief — TEMPLATE (batches 03–08; **basin-1+ forks generalize from this file** — spec-gen replaces the slice source + domain order per basin, all LAWS carry)
 
 You are legolas (Mode B — systematic crawl) executing VDM-1 Stage-1 PoE1 for YOUR BATCH (the spawning prompt names your batch number NN and spec-line slice). VDM-1 = the autonomous verify+dossier+map run (charter: `agentic_orchestration/gandalf/design-inputs/2026-07-18-vdm1-charter.md`, steward gandalf). HARD DEADLINE: all 94 PoE1 kits before July 24 (3.29 churns sources).
 
@@ -12,7 +12,7 @@ Pull the record READ-ONLY: `sqlite3 -readonly .../agentic_orchestration/research
 Four claim families, judged against FETCHED TEXT only (never memory):
 - `identity` — folk name + aliases are real community usage
 - `mechanics` — core skills / key items / resource mechanism / delivery are as recorded
-- `era` — build present/meta in the stamped eras (⚠ known-weakest field; check skill INTRODUCTION patch vs era floor — batch-02 caught an era stamped before the skill existed)
+- `era` — build present/meta in the stamped eras (⚠ known-weakest field; check skill INTRODUCTION patch vs era floor — batch-02 caught an era stamped before the skill existed). **UNIFORM LAW (stage-3 D-2a, binding):** an era floor predating the skill/co-skill's introduction patch = **CONTRADICTED**, even when the build genuinely existed in the back half of the window — never CONFIRMED-with-note (the b07 policy split is retired; PoE1 precedent ERRATA-14/15)
 - `negative_canon` — **ONLY for negative=true kits. For negative=false kits emit NOTHING for this family** (no filler UNSUPPORTED rows — they pollute the partition analysis)
 
 **Verdicts (exact strings):** `CONFIRMED` · `CONTRADICTED` · `UNSUPPORTED` (source silent — honest, expected) · `SOURCE_NOT_FOUND`. anchor_quote (verbatim, ≤40 words) MANDATORY for CONFIRMED/CONTRADICTED.
@@ -40,4 +40,4 @@ Dir: `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/resear
 ## Laws
 - Commit PATHSPEC-ONLY (`git add` the 4 files exactly; never -A), message `legolas: VDM-1 stage-1 PoE1 batch-NN — verify+citations+dossier (kits <START>-<END>)`. **Do NOT push** (steward pushes; parallel pushes race). If `git commit` hits index.lock: wait 30s, retry up to 3×.
 - 0 contradictions across the batch → say so LOUDLY in the summary. >30% kits SOURCE_NOT_FOUND → stop grinding, report.
-- Return: verdict histogram, contradictions (one line each), SNF kits, dossier coverage %, red flags. Under 400 words.
+- Return: verdict histogram, contradictions (one line each), SNF kits, dossier coverage %, red flags. Under 400 words. **Your returned histogram is ADVISORY — file truth is the count** (stage-3 D-2c; the steward recounts from your committed files; b06/b07/b08 self-reports all drifted).
