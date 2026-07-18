@@ -82,3 +82,8 @@ EXACT=2 · CLOSE=7 · APPROX=2 · GAPPED=2 · Total=12 (MAPPED=10 · MAPPED_DOCK
 - ERRATA-46 (wl-echoing-strike probe geometry): probe 'melee' contradicted by fetched 'ranged projectile' — fetched text authoritative; line geometry used
 - ERRATA-55 (wl-tainted-summoner folk-name): honest-U register governs
 - BACKFILL-3 / INGEST-13: all dossier rows read as post-ingest state
+
+
+## STEWARD AUDIT ADDENDUM (2026-07-18, MW2 close)
+
+Recount CORRECTS advisory: **2E/6C/2A/2G** (advisory said 7 CLOSE — off-by-one; files govern) · 10 MAPPED/2 DOCKET · roster 12/12. **No audit edits.** Kept-after-scrutiny: wind-druid Hurricane chill — store attests 'passive cold aura… sustained cold damage and slow' → chill per law row 41 (chill/slow/cripple); wl-abyss fear-block verified in-file (§0.4 honored, no fear token); wl-void-rift kit-level flag row shape verified (all surfaces empty, t4_doors null, GAPPED⟺DOCKET legal).

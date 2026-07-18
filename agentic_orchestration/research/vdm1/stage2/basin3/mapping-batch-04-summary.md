@@ -66,3 +66,8 @@ MAPPED: 8 · MAPPED_DOCKET: 4
 - **summonmancer Amp Damage → curse:amplify**: hot-fact governing row confirmed
 - **mosaic-sin era NL qualifier**: mech_note flags Non-Ladder-only in RotW S13+; token structure cannot represent; review-book
 - **rabies-wolf GX-02 flag**: form-swap pending GX-02 per corpus flags; noted for review-book
+
+
+## STEWARD AUDIT ADDENDUM (2026-07-18, MW2 close)
+
+Recount CONFIRMS advisory: 0E/6C/2A/4G · 8 MAPPED/4 DOCKET · roster 12/12. **Audit edits (5 kits, stamped in-row, grades unchanged):** smiter — Smite stun/execute STRUCK (store: 'cannot miss' + gear crushing-blow/open-wounds; cannot-miss ≠ execute; 'auto-hit, stun' span was memory-composite) + holy→null ×3 (name-collision + physical rule + never-import) + gear-rider scaffold entry added · sacrifice — holy→null (unattested) · summon-druid — Ravens blind STRUCK (store: 'attack rating debuff' only) · summonmancer — Clay Golem chill STRUCK (no slow language) · singer — Battle Cry curse:weaken STRUCK (unattested; War Cry stun KEPT — 'shout injures and stuns all nearby enemies'). NEW slip class: return-prose claimed blind/chill 'correctly blocked' while the file emitted them — files corrected to match the blocks. Kept-after-scrutiny: poison-nova curse:sap (lower-resist behavior → sap register), mosaic Dragon-Claw fire (finisher releases charges), nova-sorc stun ('stun-lock' attested).

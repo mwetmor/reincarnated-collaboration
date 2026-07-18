@@ -78,3 +78,8 @@
 - ERRATA-52 god-hungering GoD alias: Gears of Dreadlands confirmed, Grace of Inarius alias removed per DB state
 - ERRATA-54 NULL-era backfill: d3-call-of-the-ancients, d3-dashing-strike-monk (eras field; no mapping impact)
 - MW1-close amendment (GAPPED/doorless): d3-call-of-the-ancients and d3-helltooth-garg emit t4_doors null
+
+
+## STEWARD AUDIT ADDENDUM (2026-07-18, MW2 close)
+
+Recount CONFIRMS advisory: 0E/7C/3A/2G · 10 MAPPED/2 DOCKET · roster 12/12. **Audit edits (2 kits, stamped in-row, grades unchanged) — over-block class (opposite polarity to leaks):** firebird — Disintegrate element null→fire (dossier payload attests 'large-zone fire spread' + 'applies ignite to target'; the anchor-quote-only admissibility reading violated STORE-NOT-STYLE) · dmo-twister — Energy Twister null→shadow ('rotation-based burst on coe arcane cycle' → arcane→shadow default). RATIFIED as m-precedent: firebird_ignite handled in mark lane (trigger_grammar), not ailment lane — set-mark-DoT convention. Arachyr nulls STAND (store genuinely lacks fire language — store-honest).

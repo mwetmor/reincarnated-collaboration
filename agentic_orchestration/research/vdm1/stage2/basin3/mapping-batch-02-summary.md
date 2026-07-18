@@ -71,3 +71,8 @@ None. All R-M7 biconditionals satisfied (MAPPED, not GAPPED). No docket-candidat
 
 ## STEWARD AUDIT ADDENDUM (2026-07-18, MW1 close)
 Recount CONFIRMED 3E/9C/0A/0G, roster 12/12, contiguity CLEAN, fishyzon ERRATA-51 inversion verified honored (LF/CS/FA). ghost-pvp 'gandalf-ruling-17' citation adjudicated: provenance-echo (corpus field carries the re-key ruling note) — LEGAL per GX-register precedent.
+
+
+## STEWARD RETRO ADDENDUM (2026-07-18, MW2 close — battery v3 retro-run)
+
+MW1's contiguity battery was VACUOUS (double-quote regex vs single-quote citing convention — steward-error #3). Battery v3 retro-run over this batch: only 5/20 spans store-grounded (style-poor batch; most quoted spans were self-coinage one-liners — quote-hygiene notes, not leaks). **One RETRO strike (stamped in-row, grade unchanged):** fishyzon — Freezing Arrow 'freeze' STRUCK; all 10 freeze-family occurrences in the kit's OWN store are the skill name (§0-UNIVERSAL name-collision); the 'attested explicitly' fidelity claim was FALSE (cross-kit splice from frost-bowazon, whose own 'freezing all enemies in radius' keeps ITS freeze).
