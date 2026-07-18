@@ -96,3 +96,12 @@ Terminal states: 10 × MAPPED · 2 × MAPPED_DOCKET
 1. **d3-invoker-thorns** — stat-as-damage-substrate architecture has no engine lane; RETRIBUTION_ENGINE is the best approximation but the Thorns-stat-IS-the-weapon identity requires a new family; C.2 no-merge discipline forces honest APPROX rather than stretch.
 2. **d3-manald-heal** — depth-2 proc chain (attack → Paralysis stun → ring proc) is a genuine chain-depth violation; RESONANCE_LOOP covers the loop shape but the depth limit forces APPROX; high-attack-speed-as-proc-density axis has no engine expression.
 3. **d3-lod-archetype** — meta-archetype wrapper with zero fixed skill identity; R-M7 biconditional forces GAPPED honestly despite the kit being a real and popular D3 system.
+
+---
+
+## STEWARD AUDIT ADDENDUM (2026-07-18 MW3-close)
+
+- **STRIKE #14 — m6-sentries fire→null ×4** (Sentry/Cluster Arrow/Strafe/Vengeance). The row's cited grounds were (a) `corpus elem_raw` — probe-side = ILLEGAL grounds, and (b) a quoted "'Bindings of the Lesser Gods (+600% for Fire)' in item_alterations" line that does NOT exist in m6's store — that text is inna-allies (monk) material: **first cross-kit splice inside fidelity_notes** (fishyzon was in-row; same mapper handled both kits). m6's own store 'fire' tokens are all auto-fire/fires verb + Spitfire NAME contexts; zero fire-damage language. Physical rule applied.
+- **jade-harvester elements KEPT, routing ground stamped:** shadow/earth stands on attested registers ('poisoned spirit' rune, resentful-spirits language) via main-law line-22 per-kit split — NOT on the self-coined quote 'deals shadow damage over time' (hygiene note).
+- **Battery v3: 35 STORE / 8 ECHO / 6 TRUE-MISS** — misses beyond the m6 splice adjudicated as self-coinage/paraphrase hygiene (mundunugu's mechanics independently store-grounded via verbatim phantasm loop language; two-tier-accumulator accrual stands).
+- Grade histogram unchanged: 0E/8C/2A/2G · 10 MAPPED/2 MAPPED_DOCKET · biconditional clean (inna-allies, lod-archetype).

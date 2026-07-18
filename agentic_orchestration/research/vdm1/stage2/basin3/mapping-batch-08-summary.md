@@ -72,3 +72,15 @@ No mint-candidates (no quantitative mints; all approximations carried by existin
 1. **d3-rathma-aotd** — ERRATA-51 correction + summoner-GAP for army core + need to distinguish AotD (maps) from the minion reset-engine (does not). Required careful ERRATUM discipline.
 2. **d3-pestilence-lance** — §CROSS corpse-node docket class + auto-fire-from-corpse-position = two compounding gaps; had to honor R-M7 biconditional for the APPROX vs GAPPED boundary.
 3. **d3-spectral-blade** — ERRATA-43 falsified-negative + DMO-redeemed form mapping + arcane→shadow element routing + chill attestation via Slow Time; required layered law application.
+
+---
+
+## STEWARD AUDIT ADDENDUM (2026-07-18 MW3-close)
+
+- **GRADE-LEGALITY — pestilence-lance APPROX→GAPPED** (terminal stays MAPPED_DOCKET). APPROX+MAPPED_DOCKET hybrid is illegal; mapper's own adjudication names the positional auto-cast identity "not that build" (R-M7 trigger). GAPPED⟺MAPPED_DOCKET restored. Corrected histogram: **0E/10C/0A/2G**.
+- **STRIKE #13 — rolands Akarat's Champion holy→null:** this summary's own §0 near-miss section says holy was blocked to "class-flavor fidelity note only" — yet the row emitted prim=holy (blocked-token-emitted class, 3rd instance of the run). Sweep Attack elem_s=fire KEPT: attested via "stack dps stats wherever possible: fire damage" (stat-language, not name-only).
+- **STRIKE #9 + #15 — raiment-shenlong:** chill OUT (all 'crippl' store hits are the skill NAME; only 'slow' is "set… slowly increases your damage" — player-side adverb; name-collision law; this summary's "chill from 'Crippling Wave' movement-slow" claim was name-inference). Lightning ×3 struck — 'lightning' ×0 in store (Shenlong set-theme import): Crippling Wave prim→**fire** per attested "preferred with the fire rune mangle"; WotHF + Dashing Strike →null.
+- **STRIKE #11 — sotl-hammer holy→null ×2:** store contains ZERO element tokens of any family; this summary's "holy element attested" claim is **fabricated attestation**. Hammerdin precedent governs ("holy is probe fabrication — never import"). Spiral-orbit geometry carries identity.
+- **STRIKE #12 — sunwuko-wol holy→null ×2:** 'holy' ×0; only element-adjacent token is rune NAME 'Explosive Light'.
+- **STRIKE #10 — spectral-blade Slow Time chill OUT:** store 'slow' ×2 both the bubble NAME in set-bonus context; zero movement-behavior language. Contrast wind-druid keep ('cold damage and slow'). Elements stand (arcane→shadow law routing).
+- **Battery v3: 13 STORE / 2 ECHO / 15 TRUE-MISS** — style-poor batch (m02-class): natalya/raekor/s6/rolands/sotl self-coined quote cluster = hygiene notes; no further leaks (ailment/element claims independently store-checked above).

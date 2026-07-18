@@ -72,3 +72,13 @@ None minted this batch. No mechanism encountered that lacks a lane AND clears th
 - **d3-zero-dogs** — MAPPED_DOCKET grade driven honestly: CDR-zero summon→sacrifice loop identity is approximated only; minion-consumption harvest has no engine lane.
 - **d3-wave-of-force** — APPROX grade per R-M7: kit is negative=1 and non-meta; engine maps raw mechanics only; falsified-negative errata annotation noted.
 - **d3-vyr-archon two-tier-accumulator** — accrual filed; not forced into mapping_json. The Chantodo bank/spend structure qualifies as a genuine accumulate-tier → spend-tier structure (distinct from Frenzy ramp which is sustain, not spend).
+
+---
+
+## STEWARD AUDIT ADDENDUM (2026-07-18 MW3-close)
+
+- **GRADE-LEGALITY — zero-dogs APPROX→GAPPED** (terminal stays MAPPED_DOCKET). File-slip: this summary's own correction block + the return adjudicate GAPPED; the committed file carried APPROX (return-vs-file contradiction, resolved toward the mapper's stated adjudication). Advisory drift #3 of the basin. Corrected histogram: **0E/9C/2A/1G**.
+- **STRIKE #8 — znec Frailty curse:amplify OUT:** no amplify register in store — "brittle touch increases a monster's chance to be critically hit by 5%" is a crit-chance debuff (on Corpse Lance besides). Frailty's attested register is "provides execution threshold" → execute KEPT.
+- **REGISTER-SWAP (first of run) — zbarb Falter curse:weaken→curse:amplify:** store attests "50% additive damage debuff" inside the damage-TAKEN amp trio ("90-100% total additive damage comprising: 50% falter, 30% strongarm bracers, 10% efficacious toxin"). Weaken = damage-dealt reduction (unattested); the attested register is amplify.
+- **Battery v3: 55 STORE / 11 ECHO / 16 TRUE-MISS** — misses = paraphrase/law-paraphrase hygiene (vyr 'arcane: shadow default' quotes law with punctuation drift; ue-multishot process-notes-in-quotes); no further leaks.
+- Kept-after-scrutiny: znec water/freeze (Frozen Lands + "freezing entire screens" — behavior language) · znec execute (×3 attestations) · trag-nova drain BLOCK honored · ww-wastes bleed BLOCK honored (probe-only) · wizard-black-hole knockback BLOCK honored.
