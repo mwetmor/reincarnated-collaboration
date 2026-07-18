@@ -22,16 +22,24 @@
 
 | Batch | Spec lines | State | Outcome |
 |---|---|---|---|
-| 01 | 1–12 | ⏳ fired 2026-07-18 | — |
-| 02 | 13–24 | ⏳ fired 2026-07-18 | — |
-| 03 | 25–36 | ○ | — |
-| 04 | 37–48 | ○ | — |
+| 01 | 1–12 | ✓ DONE | 40 CONFIRMED / 0 CONTRA / 12 UNSUP (all filler negative_canon on negative=0 — dropped at ingest) / 0 SNF · dossier 71/72 · 14 author handles · anchors 100% |
+| 02 | 13–24 | ✓ DONE | 34 C / **1 CONTRADICTED** / 17 U / 0 SNF · **ERRATA-1: crackling-lance era 3.7-3.13 → 3.12-3.13 (skill debuted 3.12 Heist)** · cleave death_class flagged inference-not-attested (honest UNSUP) · dossier 93% |
+| 03 | 25–36 | ⏳ fired | — |
+| 04 | 37–48 | ⏳ fired | — |
 | 05 | 49–60 | ○ | — |
 | 06 | 61–72 | ○ | — |
 | 07 | 73–84 | ○ | — |
 | 08 | 85–94 | ○ | — |
 
-Batch discipline: agents commit pathspec-only, do NOT push (steward pushes after artifact-level verification — parallel pushes would race). Outputs: `research/vdm1/stage1/poe1/batch-NN-{verify,citations,dossier}.jsonl` + `batch-NN-summary.md`. Elrond ingest fires every ~2-3 completed batches.
+Batch discipline: agents commit pathspec-only, do NOT push (steward pushes after artifact-level verification — parallel pushes would race). Outputs: `research/vdm1/stage1/poe1/batch-NN-{verify,citations,dossier}.jsonl` + `batch-NN-summary.md`. Elrond ingest fires every ~2-3 completed batches. Briefs by reference: `stage1/poe1/BATCH-BRIEF-TEMPLATE.md` (batches 03+).
+
+**Run notes (stage-0/1 operational):**
+- Stale-flag reclass DONE (elrond `c806bcda`): 402 STALE-LANDED archived → `mobile_blocking_mechanics_archived` (LANDED-<wave> prefix), live flag → `expressible-now`; partition exact 402+79+18+16=515; residual live blockers 113; form-swap 10 + union/recipe 6 verifiably untouched.
+- **Infra: corpus.db journal_mode WAL → DELETE (steward, data-neutral).** WAL + last-connection-cleanup deleted -shm/-wal, and readonly connections can't recreate them → SQLITE_CANTOPEN(14) for every crawler between elrond sessions. DELETE mode restores universal readonly access; elrond instructed to keep it.
+- poewiki.net Anubis-403-blocked, fandom paywalled → domain order re-led with poedb.tw/poe-vault (template updated).
+- Abstain-law refinement: 2 rows (b01 autobomber/author_credit, b02 blood-magic/variants) carried `{"note":...}` payloads on abstained=1 — DB CHECK rejects; elrond logs at ingest-1, re-insert with null payload at ingest-2; template hardened for 05+.
+- Ingest-1 fired (batches 01-02 + ERRATA-1 + fact_provenance promotions to `verified-v1.1` for clean kits).
+- Running tally after 24/94 kits: 74 CONFIRMED / 1 CONTRADICTED / 29 UNSUPPORTED / 0 SNF · 0 quarantined-domain hits · anchors 100% on C/C verdicts.
 
 ## Pre-registered priors (grade at stage 3)
 
