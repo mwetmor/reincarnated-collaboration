@@ -87,3 +87,19 @@
 ## Resource artifact check
 
 No `spirit` or `focus` resource language found in any of the 12 kits' probe_facts rows or fetched sources. All GD kits show "cooldown", "cooldown+leech", or "mana" (lowercase); all LE kits show "Mana." Clean pass.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18)
+
+**Recount (D-2c):** file truth PRE-audit **42C / 1X / 9U / 0SNF** = **52 rows** (identity 12 · mechanics 12 · era 28), not the advisory's 49. Advisory drifted TWICE: CONFIRMED undercounted by 6, AND the 3 bomb-lance rows were WRITTEN as UNSUPPORTED while the summary (correctly) calls them "Honest SNF." Era family = 28 rows: **per-era-token verdicts on 10 kits** — b03's duplicate pattern now pervasive; steward-ACCEPTED run-wide (schema-legal; better resolution for the D-2a floor law).
+
+**Steward ruling — bomb-lance-falconer ×3 RECLASSED UNSUPPORTED → SOURCE_NOT_FOUND (in-place edit):** no usable source found on ANY domain (playerauctions SEO = quarantine-class, never a source). Template vocab: SNF = no source after honest search; U = a fetched source SILENT on the claim. Files now match the crawler's own stated intent. POST-audit file truth: **42C / 1X / 6U / 3SNF = 52.** le-bomb-lance-falconer enters the **Unattested Register** + the re-crawl queue (S4 guide-lag; BACKFILL-class alongside gd-berserker-wereforms).
+
+**Upheld:** vitality-conjurer era X — the run's first **floor-TOO-LATE** D-2a (aom-2017 floor vs "Conjurer (Shaman + Occultist) class is available since base game," verbatim-fetched ✓); restamp → base-2016. **D-2a harvest now 9 kits** (b01 ×2 · b02 ×4 · b03 ×2 · b04 ×1 — 8 floor-too-early + 1 floor-too-late). · Honest-U era tokens (trozan base+aom · vitality fg · detonating-arrow 1.2-woven · erasing-strike beta · explosive-trap 1.1-harbingers) — corpus gaps, not evidence-of-absence; no action; trozan wayback chase NOT fired (era floor rides the erratum/review-book only if downstream logic needs it).
+
+**Identity ruling — detonating-arrow-mm C STANDS (contrast-case to stormbox):** its anchor attests the actual skill proccing on the actual class from fetched text ("proc Detonating Arrow with Explosive Trap... through the Arrow Traps Node," maxroll Blast Rain Marksman guide) — components attested together; weak only on folk-name-as-headline. WATCH annotation queued (identity-intent, alongside stormbox): dominant maxroll expression is Blast Rain; demote candidate iff elrond curation later requires primary-skill-anchored identities.
+
+**Erratum queue additions:** chthonic-fissure probe label "Void / Fire" → fetched "fire & necrotic" (void unattested — generation artifact) · word-of-pain elem_raw=fire vs fetched chaos/lightning/pierce variants (descriptive-field artifact). ⚠ **The "clean pass" framing above is too narrow:** lowercase "mana" on GD kits IS the b03-broadened wrong-resource class (GD = Energy) — the gd-wide elrond sweep covers b04's GD rows too.
+
+**Citations:** 23 / 0 quarantined / 0 banned-domain (crate 10 · maxroll 10 · massivelyop 2 [era-anchor class ✓] · LE forum 1 — official 5 / authored 8 / communal 10). **Dossier:** 72 rows exact · 12 abstained strictly-null ✓ (crawler prose "18 abstained / 75%" — advisory drift; files govern) · 60/72 = **83.3%** · conf floats ✓ · first maxroll-authored credit set of the basin (LizardIRL · Volca · Terek) + mad_lee (crate).
