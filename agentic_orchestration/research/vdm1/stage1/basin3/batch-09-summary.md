@@ -81,3 +81,15 @@ Attested eras from fetched text: Black Hole functions as a utility skill embedde
 7. **d3-typhon-hydra: Typhon's Veil introduced Season 20 (attested).** Kit era is `late-sets` only — consistent with Season 20 introduction. Era floor appears correct.
 
 8. **Advisory-drift disclosure.** Returned histogram is advisory. Steward recounts from committed files. Series 15-for-15 drift; expect this batch to drift.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18 — CW3, audited on return)
+
+**ACCEPTED, 0 corrections.** File truth: **42 rows = 40C/2X/0U/0SNF** — advisory "~40C/~2X" matches exactly: **first non-drifting crawl return of the run** (delivered with hedge-tildes; drift-series entry #17 = EXACT). Kits 12 ✓, families 12/12/17/1 ✓ (NULL-era wizard-black-hole contributed ZERO era rows ✓ roster-hygiene law held). Negative exactly 1 per roster ✓. Anchors C/X all present, zero >40w; one "described as" suspect resolved at deep-audit as plausibly-verbatim communal text (gamefaqs board — off-domain-order but communal-class ADMISSIBLE; weight noted). Citations 22/0 quarantined (maxroll 10 · icy-veins 5 · official blizzard 3 · diablofans 2 · slashnblast.wordpress 1 — era-authentic 2013 byline blog, LEGAL per CW2 hot-fact · blizzard forums 1). Dossier 72 rows, 67 non-abstained = 93.1%; abstains all honest (black-hole utility-skill wall ×4 + wave-of-force no-byline). Abstain-null HELD 5/5.
+
+**BOTH X's are real and HIGH-value:**
+1. **ww-wastes era `vanilla` — D-2a floor-too-early X** ("Wrath of the Wastes set was added in patch 2.2.0"). Kit-as-specified rides the Wastes set → floor tracks set intro (2.2.0/RoS-S2 = `ros-early`). **ADJUDICATION NOTE for INGEST-13:** WW-barb the ARCHETYPE was famously vanilla-meta — if the kb's vanilla token encodes archetype lineage rather than the set-kit, the fix is an annotation/rename, not just a floor bump. Steward routes both readings to INGEST-13; X stands on kit-as-specified.
+2. **wave-of-force negative_canon X — FIRST FALSIFIED-NEGATIVE of the run:** spec claim "no set multiplier path across any era" falsified by Delsere's Magnum Opus 6pc (+12,500% covers WoF; 2.4.1 build documented). Agent's nuance is correct: no WoF-DEDICATED set exists and WoF stays non-meta — the negative's CONCLUSION holds, its stated MECHANISM was wrong. **New negative sub-class: reason-falsified (X) vs framing-imprecise (firebomb C) vs era-bounded (leap-attack C).** Series: basin-3 negatives 11 = 8C/2U/1X.
+
+**Erratum queue adds (INGEST-13):** ww-wastes era floor HIGH (w/ archetype-lineage adjudication) · wave-of-force negative_canon_target rewrite HIGH ("no dedicated set; DMO coverage exists; non-meta") · **probe fabrications #4 + #5:** uliana-ep `meter_type: "focus"` → Spirit (Monk) · trag-nova `resource_verbatim: "life+mana"` → Essence (Necro; life-SPEND mechanic ≠ meter name) — series now 5 (gd · GoD-DH · inna · uliana · trag), class-resource instrument caught every one · wizard-black-hole NULL-era BACKFILL: attested "utility-only, no primary-build era" — steward proposes annotation-not-population · zero-dogs single-source amber (Thander 2013, credible-thin; era-authentic law applied correctly).

@@ -50,6 +50,18 @@
 - **Archived icy-veins patch-content is LEGAL for era verification** (b06 dashing-strike patch-2.4 precedent) — historical guide text attests set-era presence; say so in the row, don't treat archive-age as inadmissibility.
 - **Set-rework era nuance (ik-hota lesson):** a set EXISTING at vanilla ≠ the BUILD existing at vanilla. When the kit's identity rides a reworked 6pc mechanic, the era floor tracks the REWORK patch, not the set's debut. Check set-history language before confirming early floors.
 
+## Post-CW3 amendments (PASTE-relevant for CW4/CW5 spawning prompts)
+
+**CW3 CLOSED (b07 `22cbee1e` · b08 `869c694b` · b09 + steward audit): 36/36 kits · file truth 145 rows = 128C/7X/10U** (b07 49C/1X · b08 39C/4X/10U after 2 steward X→U downgrades · b09 40C/2X first-exact-advisory). THE CONTRADICTION WAVE — 7 real errata incl. 3 D-2a era floors (lod-archetype/ww-wastes/raekor-boulder), 1 floor-too-late (natalya s39), 1 core_skills HIGH (rathma), 2 falsified negatives (DMO-blanket root cause). Dossier 96.3% best-wave; b07 100% first-full-coverage. Probe resource-fabrication series 6.
+
+**Hot-fact adds for CW4/CW5 prompts (binding):**
+- **ANCHOR DISCIPLINE REINFORCED (b07 gloss cluster + b08 splices):** anchor_quote = copy-paste verbatim CONTIGUOUS text from ONE fetched page. Never merge sentences from two sources under one URL (splice = leak-class). Never wrap in framing ("described as…", "The guide notes…", "— introduced with…", parenthetical dates). If you cannot quote it contiguously, the row is U.
+- **VERDICT LAW REINFORCED (b08 downgrades):** X requires the anchor to AFFIRMATIVELY contradict the claim. "Not attested/not found" = U. Absence of a current-season stamp on a guide = SILENCE (guide titles lag seasons — proven in-wave), never X. An anchor that SUPPORTS the claim's substance can never ground an X on that claim.
+- **Negative-claim care (DMO-blanket lesson, generalizes to d4):** a kb negative claiming "no set/aspect/multiplier path" needs affirmative falsification care — check blanket/class-wide multipliers (d4 aspects + Paragon glyphs are blanket-prone) before confirming OR contradicting.
+- **d4 class-resource instrument (probe fabrications are ALL resource-class, 6-for-6):** Barbarian Fury · Druid Spirit · Necromancer Essence · Rogue Energy(+Combo Points) · Sorcerer Mana · Spiritborn Vigor. di uses d3-style class resources (Barb Fury · Monk Spirit · DH Hatred · Wiz Arcane Power · Necro Essence · Crusader Wrath · Blood Knight Essence¹ — verify from fetched text). Probe resource fields are NEVER trustworthy.
+- **reddit BLOCKED by crawler policy (all games)** — d4 order effectively maxroll.gg/d4 → icy-veins → wowhead/diablo-4; di order icy-veins → (fandom 403-dead; expect thin sources + SEO tail — quarantine aggressively).
+- **Era instruments d4:** Spiritborn debuted VoH (pre-VoH floor = D-2a candidate); `launch-s1-3`/`loot-reborn-s4-5` pre-cutoff-stable; `voh-s6+`/`s7-s12`/`loh-s13-14` post-cutoff (fetched text only — expect era-U walls on older seasonal tokens; honest-U beats stretch-reading, say so in summary).
+
 ## Standing counts at fire time (steward-owned)
 
 verify_ledger in-DB post-ingest-11: **831 rows** (pre-basin-2 519 [poe1 + basin-1; basin-1 census 150C/11X/13U/0SNF = 174] + basin-2 312 [250C/13X/46U/3SNF]). Basin-2 D-2a harvest: 10 kits. Basin-2 kb-negative tally: 6 = 2 attested + 1 era-bounded (tempest-strike) + 3 unattested (stun-jacks · shield-bash · soul-feast). Unattested Register carries: bomb-lance ×3 SNF · harvest-lich CHIMERA (split erratum HIGH). Basin-3 has its own 18-negative roster (template §claims) — the negative-canon reliability series continues.

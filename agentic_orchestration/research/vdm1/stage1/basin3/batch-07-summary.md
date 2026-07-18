@@ -99,3 +99,15 @@ All 6 dossier families yielded payload for all 12 kits. No source-silent abstent
 - Necromancer debut confirmed: Rise of the Necromancer, June 27, 2017. inarius-bonestorm floors at late-sets; masquerade-spear floors at late-sets. Both are post-2017 — no D-2b violation.
 - Mundunugu's Regalia confirmed: introduced Season 20 (Patch 2.6.8). DB stamps late-sets — correct.
 - M6 Marauder Sentry confirmed pre-Seasons / Season 1 (ros-early floor). DB stamps ros-early · set-era · late-sets — all confirmed.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18 — CW3, audited on return)
+
+**ACCEPTED, 6 anchor trims.** File truth: **50 rows = 49C/1X/0U/0SNF** (advisory "50C/1X" — drift series #16, C off by 1; kits 12 ✓, families 12/12/26/0 — zero negative rows per roster ✓). Citations 16/0 quarantined (maxroll 14 · blizzardwatch 1 — release-journalism era anchor, LEGAL per b02 precedent · icy-veins 1). Dossier **72/72 non-abstained = 100% — first full-coverage batch of the run** (d3 living-guide density ceiling; zero abstain-null exposure). No illegal payloads, conf all numeric.
+
+**Content-class gloss/splice cluster TRIMMED at audit (anchor law: glosses trimmed, splices are leaks — 6 rows corrected in-place, verdicts UNCHANGED):** inna-allies identity (mis-truncated title "Season 38" → title-exact "Season 38/39" — steward citation-title check RESOLVED the apparent S38-vs-S39 discrepancy: the page title carries both; s39 attestation REAL) · inna-allies mechanics (composite gloss → verbatim embedded fragment "most commonly used generator"; THIN anchor noted, C corroborated by same-page fetch) · inna-allies era-s39 (date-gloss → title-exact) · invoker-thorns era (framing → embedded verbatim S22 Bombardment quote) · **lod-archetype X anchor** (headline+body splice → headline-only "Diablo 3 Season 18 adds the Legacy of Dreams Legendary gem" — X STANDS) · manald-heal era (three-fragment splice → verbatim Patch-2.4 emergence line, which supports `set-era` directly). b07 = gloss-offender batch (5 of 6 trims one agent-pattern); watch item for CW4+ prompts.
+
+**The X is a clean D-2a floor-too-early:** d3-lod-archetype `set-era` floor CONTRADICTED — LoD gem introduced Patch 2.6.6 / Season 18 (post-set-era). → **ERRATUM HIGH (INGEST-13): era floor `set-era` → `late-sets`.** The LoD-vs-LoN identity split held clean across lod-archetype / lod-bazooka / lon-bombardment (agent RF-3 verified — no blur; lon-bombardment rides the ring set, lod-* the gem).
+
+**Erratum queue adds (INGEST-13):** lod-archetype era floor HIGH (above) · **inna-allies probe `resource_verbatim: "mana (reserve)"` FABRICATION — Monk is Spirit** (probe-fabrication series #3: gd basin-2 · GoD-DH b06 · inna b07 — class-resource instrument caught all three) · advisories CONFIRMED-correct: manald-heal `set-era`-only (build retired S22, never late-sets) · lod-bazooka `late-sets`-only (LoD version S17/18+).
