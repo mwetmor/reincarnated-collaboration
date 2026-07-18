@@ -86,3 +86,19 @@ All 6 families attempted for all 12 kits = 72 potential dossier rows.
 6. **le-low-life-ward "host-flexible" economy discrepancy:** DB records resource_verbatim as "Life (intentionally depleted)" and model as "self-cost." Fetched text confirms this is accurate — Exsanguinous/Last Steps drain HP continuously. No contradiction, but the archetype abstraction (no single skill to verify, no rankable skill) means era claims are harder to pin; era UNSUPPORTED rows for 1.2-woven are honest gaps not SNF.
 
 7. **No junk-tail quarantine events in this batch:** SEO gold-seller domains did not appear in any search results for this batch. Zero quarantined citations.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18)
+
+**Recount (D-2c):** file truth **44C / 14U / 1X / 0SNF = 59 rows** (identity 12 · mechanics 14 · era 33). Advisory (35C/17U/1X = 53) drifted on BOTH axes — C undercounted by 9, U overcounted by 3 — eighth consecutive agent-return drift; files govern. Per-component splitting standard: mechanics runs 14 rows / 12 kits; era fully per-token at 33 rows.
+
+**Healing-hands X UPHELD — the run's second floor-TOO-LATE D-2a** (1.1-harbingers stamp vs maxroll reveal: skill tree debuted at 1.0 launch; 1.0-era forum guide corroborates). **D-2a harvest → 10 kits** (8 too-early + 2 too-late). **ANCHOR TRIMMED in-place:** crawler gloss ("— skill tree introduced at 1.0 launch…") was appended INSIDE anchor_quote after the verbatim text — content-class violation; trimmed to the pure 20-word verbatim. Contrast: ghostflame era anchor at 42 words is length-class only (pure verbatim; trimming without source access risks misquote) — tolerated-with-note. ERRATA: add `1.0-launch` to healing-hands eras.
+
+**Harvest-lich CHIMERA ruling — new kit class minted:** all-U UPHELD (identity + mechanics + all eras). The kb folk name "Harvest Death Seal Lich" conflates TWO real maxroll builds (Harvest Flay Lich, cold/HP-leech · Death Seal Lich, necrotic/low-life) — different core skills, damage types, economies. Strongest identity-assembly artifact of the run. → **Unattested Register** + HIGH erratum: split into two kit records or re-anchor to one attested build. The all-U wall is the instrument WORKING, not a crawl failure.
+
+**1.2-woven speculative-stamp cluster strengthens:** 5 kits in this batch U on 1.2-woven (hammer-throw · judgement · lightning-blast · low-life-ward · manifest-armor) — kb era stamps beyond living-guide coverage; review-book pattern.
+
+**Erratum queue additions:** harvest-lich chimera split (HIGH) · manifest-armor resource "Forge Stacks" = probe-fact fabrication (fetched: Mana-based) · fire-aura-spellblade core-skill framing (aura is passive-emergent, NOT Flame Ward — Flame Ward is a defensive cooldown) · ghostflame geo_text beam→cone review · WATCH: hammer-throw "Sigils of Hope"→"Symbols of Hope" rename (era-scoped name note, not erratum — b07 tempest-strike era-scope precedent).
+
+**Citations:** 31 / 0 quarantined / 0 banned-domain (maxroll 19 · forum.lastepoch 12; official 3 / communal 28). **Dossier:** 72 rows · 15 abstained strictly-null ✓ · 57/72 = **79.2%** — lowest coverage of the basin, driven by author_credit ×10 ("maxroll does not expose handles"). ⚠ **b06 falsifies that premise** — same-site pages yielded Volca/McFluffin/BinaQc handles. Crawler-behavior variance, not a site property → author_credit backfill candidate (cheap re-crawl of 10 pages); review-book note on author-credit coverage split.

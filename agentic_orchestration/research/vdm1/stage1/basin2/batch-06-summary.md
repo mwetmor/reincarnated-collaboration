@@ -100,3 +100,23 @@ Abstentions (source silent):
 5. **le-ring-of-shields and le-shift-bladedancer NULL fields**: Both carry empty era/core_skills fields at ingest. Recommended backfill values provided above in "Attested eras for NULL-field kits" section.
 
 6. **dotesports.com domain**: The Runic Invocations article URL (dotesports.com/last-epoch/news/last-epoch-all-runic-invocations-listed) returned a 403 on direct WebFetch. The claim was corroborated by search snippet text which was verbatim enough to serve as anchor. Citation is marked communal/attested-era; steward may wish to flag for re-fetch if the snippet quality is questioned.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18)
+
+**Recount (D-2c):** file truth PRE-audit **37C / 17U / 0X / 0SNF = 54 rows** (identity 12 · mechanics 12 · era 28 · negative_canon 2). Advisory (29C/20U) drifted both axes — ninth consecutive agent-return drift; files govern. POST-audit (smite ruling below): **36C / 18U / 0X / 0SNF = 54.**
+
+**SMITE RULING — first banned-domain enforcement of the run.** le-smite-paladin's 1.2-woven era C was sourced on `lastepochtools.com` with the calc-site's own page title as anchor. Template law: lastepochtools/grimtools are 403-browser-required — NEVER fetched live; build-links quoted in posts are fine as citation URLs, but the VERIFYING TEXT must be the surrounding post. Banned-domain text (title included) cannot ground a verdict. **RECLASSED C→U in-place** (re-sourced to the fetched-and-silent maxroll guide, paralleling the kit's 1.0-launch U row) + **citation QUARANTINED** (`quarantined=1`). Legal sources (maxroll, odealo) are silent on 1.2-woven → honest U. Precedent chain: blade-trap → stormbox → smite (illegal grounds → honest verdict).
+
+**Contrast ruling — runic-invocation dotesports snippet-anchor: C UPHELD, AMBER class.** dotesports is a LEGAL journalism domain that 403'd on this fetch; the crawler honestly disclosed the search-snippet anchor (red-flag 6 above); the claim-core (rune-combination-determines-output) is independently corroborated by fetched maxroll identity text. **Law boundary minted: domain legality governs ADMISSIBILITY (banned-domain snippet = inadmissible — smite); disclosure + independent corroboration governs WEIGHT on legal domains (snippet = second-class evidence, never sole grounds for a contested C).**
+
+**BACKFILL-1 handling EXEMPLARY:** ring-of-shields + shift-bladedancer — zero era rows fabricated against NULL claims ✓; attested eras recorded for steward backfill (ring-of-shields `1.0-launch;1.1-harbingers` · shift-bladedancer `beta-0.8-0.9;1.0-launch;1.1-harbingers;1.4-omens`, 1.2 unverifiable). Backfills ride ingest-11.
+
+**Negative-canon tally FINAL for basin-2:** shield-bash-le + soul-feast both honest-U (sources show viable endgame usage; negative framing unattested — b03 stun-jacks precedent applied cleanly). **Basin-2 kb-negative reliability: 6 negatives = 2 attested (blade-trap, reap-spirit) + 1 era-bounded (tempest-strike) + 3 unattested (stun-jacks, shield-bash-le, soul-feast) → 50% headline for the review book.**
+
+**Era-U wall (13 of 28 era rows):** storm-totem all-3-U · reaper-form beta/1.0 · runic 1.0/1.2 · shadow-bd beta/1.0 · shield-bash beta/1.0 · soul-feast 1.0/1.2 · squirrel 1.2 · smite 1.0 (+1.2 post-ruling) — the "guides only attest current season" pattern joins the 1.2-woven cluster: kb era stamps beyond living-guide coverage are speculative. Review-book pattern, now cross-batch.
+
+**Erratum queue additions:** runic-invocation class field "Runemaster (Mage+Primalist)" — Runemaster is a MAGE mastery; Primalist is an ingest artifact (claim-vs-claim routing ✓, not verdicted) · storm-totem Spriggan-form Rage override note (form-specific resource, mechanics-precision annotation, not contradiction — b07 werebear "Mana replaced by Rage" precedent) · smite lastepochtools resolution (EXECUTED in-place, above).
+
+**Citations:** 25 / **1 quarantined (lastepochtools — steward action)** / broadest tail of the basin: maxroll 13 · LE forum 4 · icy-veins 3 · odealo 1 · dotesports 1 (AMBER) · estnn 1 · progameguides 1 — icy-veins + odealo first appearances, both legal. **Dossier:** 72 rows · 5 abstained strictly-null ✓ (summary prose "3 abstentions / 96%" — advisory drift; files govern) · 67/72 = **93.1%**. Author credits richest of the basin (Volca ×4 · GhazzyTV ×2 · McFluffin · BinaQc ×2 · VisionGL · LizardIRL · boardman21 · Terek) — falsifies b05's "maxroll exposes no handles" premise; b05 author_credit backfill queued.
