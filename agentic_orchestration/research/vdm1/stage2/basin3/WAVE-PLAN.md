@@ -36,7 +36,7 @@ Spawns: gandalf-seam mapping authors, `model: sonnet`, `run_in_background: true`
 
 ## Standing counts at fire time
 
-Post-INGEST-13 expected: verify_ledger 1512 · basin-3 effective 681 = 576C/85U/19X/1SNF · kit_mapping 218 (94 PoE1 + 48 basin-1 + 76 basin-2) → target 218+179 = **397** at basin-3 mapping close. Negative series 18/18 = 8C/5U/5X (5 falsified — mapping treats redeemed forms per §CROSS.4).
+Post-INGEST-13 VERIFIED (D-2c battery GREEN 2026-07-18): verify_ledger 1512 · basin-3 effective 681 = **573C/89U/18X/1SNF** [STEWARD CORRECTION at ingest-close: this line previously carried the dispatch assumption 576C/85U/19X — files govern; items 1/6/7 were already-C in batch files (CW2 anchors → anchor-upgrade only) + item 11 mighty-throw was X→C; elrond reconciliation confirmed by steward batch-file spot-check] · kit_mapping 218 (94 PoE1 + 48 basin-1 + 76 basin-2) → target 218+179 = **397** at basin-3 mapping close. Negative series 18/18 = 8C/5U/5X (5 falsified — mapping treats redeemed forms per §CROSS.4).
 
 ## Lifecycle
 
