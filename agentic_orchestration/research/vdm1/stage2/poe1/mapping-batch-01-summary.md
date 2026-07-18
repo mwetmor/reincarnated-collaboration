@@ -85,3 +85,19 @@ Honest report on brief/crosswalk/schema ambiguities the steward should resolve b
 ---
 
 **Signed:** gandalf-seam mapping author (SPEC-AUTHOR discipline; delegated authoring hand). **For:** gandalf-prime steward audit before Stage-2 scale-out.
+
+---
+
+## Steward audit addendum (DRIFT-CRITIC, 2026-07-18)
+
+25% sample: **arc** (highest grade — optimism check), **aurabot** (sole GAPPED — gap-validity check), **autobomber** (ladder-behavior check) + **bane** spot (curse-notation flag). Mechanical enum sweep: 12/12 rows valid (geometry/elements/ailments/doors/chain_count). False-friend check: sunder used correctly 4/4; engine `shock` leaked 0×.
+
+**Corrections applied in-place (`mapping-batch-01.jsonl`):**
+1. **arc EXACT → CLOSE.** "Per-chain damage growth is a native chain-geometry scaling property" is FALSE of the engine — chain fan-out DECAYS (`damage_resolver.py: _CHAIN_DEFAULT_DECAY = 0.7`, `_CHAIN_DEFAULT_N = 3`); PoE Arc GROWS damage per remaining chain across 7-10 hops. Inverted scaling direction + compressed hop count = identity-relevant numeric drift. First quantitative mint-candidate of the run ledgered (`mint-candidates-batch-01.jsonl`): per-kit chain-decay override permitting >1.0.
+2. **bane: Despair `curse:sap` → `curse:amplify`.** Root cause is a crosswalk §2 LAW GAP (no Despair row — the mapper improvised); the law now carries a binding Despair→amplify row. Despair raises damage taken (Vulnerability-class); sap is defense-shred.
+
+**Post-audit histogram: EXACT 0 · CLOSE 9 · APPROX 2 · GAPPED 1.** Zero EXACT is the honest shape — a foreign engine makes CLOSE the ceiling for most kits. Both corrections trace to law gaps, not author carelessness; aurabot's scope-boundary docket and autobomber's depth-1 truncation are confirmed ladder-correct. Reservation 0.75-cap flex NOT granted — the cap is LOCKED; any flex is a Matt-tier review-book item.
+
+**Rulings R-M1..R-M6** appended to `MAPPING-BRIEF-TEMPLATE.md`, binding batches 02+.
+
+**Verdict: batch-01 ACCEPTED with corrections. Stage-2 scale-out authorized.**

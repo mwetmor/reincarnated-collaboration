@@ -41,6 +41,15 @@ The steward ratifies candidates before any elrond ingest; mint-rate explosion is
 ## Outputs
 Dir: `agentic_orchestration/research/vdm1/stage2/poe1/` (mkdir -p): `mapping-batch-NN.jsonl` (+ the two candidate files, only if non-empty) + `mapping-batch-NN-summary.md` (grade histogram · per-kit one-liners · T4-door frequency · mint/docket candidates · anything that felt forced).
 
+## Batch-01 calibration rulings (steward — BINDING for batches 02+)
+- **R-M1 t4_doors vocabulary:** members must be ENGINE tokens — the 26 base strategies OR the 4 defined Layer-2 variant tokens (`GEOMETRY_PROPAGATION_{cascade,overkill}`, `PERSISTENCE_ENGINE_{uptime,saturation}`). A variant token is a HINT (scoring signal), never a generation-time pin; use the base token when the source doesn't clearly pick the variant.
+- **R-M2 chain_count:** default 2. Use 3 ONLY when the dossier skill_loop shows ≥3 load-bearing linked actives in the dominant rotation (movement/utility filler doesn't count).
+- **R-M3 curse notation:** `curse:<variant>`, variant ∈ {amplify, weaken, decrepify, sap}; curse is the only variant-carrying ailment. PoE routing: Vulnerability/**Despair**→amplify · Enfeeble→weaken · Temporal Chains→decrepify.
+- **R-M4 resource_economy bar:** include a key iff the deviation is identity-load-bearing (author judgment); unsure → include + note. Values native-typed (0.75 the float, not "0.75").
+- **R-M5 timed procs:** no `timed-while-active` enum member exists — approximate to the nearest apply-event member AND put the greppable token `TIMED-WHILE-ACTIVE-APPROX` in fidelity_notes. At ≥3 accrued instances the steward graduates it to a qualitative mint-candidate.
+- **R-M6 drift-tick orbs** (Ball-Lightning-class slow-projectile tick-AoE): geometry `circle` + behavioral note. Do not re-decide.
+- **Audit precedent (arc, b01):** asserting "X is native engine behavior" claims ENGINE truth, not source truth — verify against engine code/config or don't assert. Arc was downgraded EXACT→CLOSE: engine chain DECAYS 0.7×/hop while Arc grows per remaining chain.
+
 ## Laws
 - Commit PATHSPEC-ONLY, message `gandalf-seam: VDM-1 stage-2 PoE1 mapping batch-NN (<n> kits)`. **Do NOT push.** index.lock → wait 30s, retry 3×.
 - Grade honesty over grade optimism: an APPROX called EXACT is drift (the steward audits 25% of every batch). When two crosswalk rows compete, §7.2: the DOMINANT loop (what the player does every 3 seconds) wins; note the alternative.

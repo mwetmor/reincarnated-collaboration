@@ -50,6 +50,7 @@ Registry: burn · chill · root · knockback · bleed · shock · consecrate · 
 | blind / smoke / dim vision | blind | accuracy-tax only |
 | fear / terror / horrify | fear | boss-immune; exclusive with taunt |
 | PoE Vulnerability / D2 Amp Damage | curse:amplify | caster-radius persistent |
+| PoE Despair | curse:amplify | chaos/DoT damage-TAKEN amp — Vulnerability-class. (Steward-audit b01 addition: law had no Despair row; mapper improvised `sap`. Despair raises damage taken; it does not shred defenses.) |
 | PoE Enfeeble / D2 Weaken | curse:weaken | |
 | PoE Temporal Chains / D2 Decrepify | curse:decrepify | |
 | PoE exposure / armor-shred / GD RR | curse:sap (persistent, caster-anchored) OR sunder (timed, on-hit) | pick by application shape: aura/hex → curse; hit-proc window → sunder |
