@@ -66,3 +66,22 @@ ELEMENT_CONVERSION_MONO 5 · ZONE_CONTROL 2 · PROXY_ASCENSION 2 · MOMENTUM_CAS
 1. **gd-retaliation-warlord** — the identity lives entirely in a stat substrate with no delivery token; the work was resisting the aura-pulse stretch while still letting TH economy + EoR/Counter Strike riders carry what honestly maps.
 2. **gd-skeleton-ritualist** — one kit spanning native (Wendigo Totem), gapped (autonomous army), and two candidate classes (maintenance-reservation, count-accrual) without letting the native fragment soften the R-M7 verdict.
 3. **gd-stormbox-elementalist** — enemy-attached persistent tether has no geometry home; deciding chain-APPROX ("that build, worse") over GAPPED under the player test, with the mandatory deviation note carrying the loss.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18 — D-2c recount from committed files)
+
+**Recount: 12 rows · 5 EXACT / 3 CLOSE / 1 APPROX / 3 GAPPED · 9 MAPPED / 3 MAPPED_DOCKET — advisory EXACT, zero drift.** R-M7 biconditional clean (stormbox APPROX stayed MAPPED — not the fourth flip). APPROX carries mandatory deviation_notes. All geometry tokens 26-enum legal; all 12 T4 doors verified against the crosswalk §-list (incl. both PERSISTENCE_ENGINE Layer-2 variants). **ZERO token strips — first mapping batch of the run where the audit removes nothing** (basin-1 audits stripped 22 across 48 kits; the populated-§A/§B + hot-facts + §0-near-miss self-report pattern is the causal candidate — review-book process line).
+
+**Ailment audit (all 5 emissions verified against dossier fetched language):**
+- `drain` (ravenous-earth) — **UPHELD, self-flag resolved.** "ticks vitality rot / vitality decay" = the literal §2 decay→drain row. The mapper's emit-vs-withhold worry is answered by the row being verbatim-listed: 'decay' named in fetched text IS the attestation; zone-delivery does not weaken a named-status row.
+- `curse:sap` ×3 (righteous-fervor Night's Chill "an effect of an aura… decreases resistances 30%" · ravenous-earth Celestial Presence+Spectral Wrath persistent mastery RR · primal-strike Wind Devil entity-anchored RR) — **all three shape-correct** per §2 branch (aura/persistent-anchor → curse; hit-proc window → sunder). The two shape-silent withholds (skeleton-ritualist, stormbox) are the correct branch-refusal. Name-collision guard fired on Night's Chill (zero chill token) — §0.3 generalizing beyond stun-jacks as intended.
+- `bleed` (skeleton-ritualist) — legal: "Rend on skeletons for bleeding" names the status; pet-inflicted status attaches to the emitting summon row (only possible home).
+
+**GAPPED ×3 upheld at dossier depth:** retaliation-warlord (stand-and-tank-return loop-verb verbatim; aura-pulse stretch resisted per §A trap note; TH-reflect-cap econ note consistent with the §A row, no fresh engine-truth assertion) · skeleton-ritualist ("~90% damage via autonomous combatants"; native Wendigo fragment did not soften R-M7) · reap-spirit (recast-spirits flavor). Docket + mint candidates all side-filed, none leaked into mapping_json; accruals numberless; Savagery correctly held single-tier (no two-tier filing).
+
+**STEWARD RULING — gapped-pet geometry convention (mapper question #1):** nearest-shape PLACEMENT projection (`totem` for summons) is CORRECT; null is REJECTED. Rationale: placement IS attested ("summoned entities fight independently **at target positions**") — the 26-enum token carries the attested placement shape; the autonomy gap lives in grade + deviation_notes + docket, which is exactly where R-M7 puts it. A null would discard attested evidence to mark a gap already marked. **Convention carries to m05/m06/m07 pet-core kits** (skeleton-necro, wraithlord, squirrel-bm) — added to WAVE-PLAN.
+
+**Steward-side notes (not mapper errors):** (a) RR-branch load — mapper observation #3 is right that the §2 curse-vs-sunder branch hinges on single anchor words; basin-2 GD kits have exercised it 5× with consistent picks; review-book law-health line, no rule change needed. (b) maintenance-reservation economy-lane class — PARKED for steward adjudication at basin close (single-kit; if LE reserve-pets attest in m06/m07 it may generalize).
+
+**Verdict: ACCEPTED.** Counts (steward-owned): placed-proxy-count +2 accruals (army-count, recast-count) · stat-as-damage cluster holds at 4 mechanisms (retaliation docket = the §A-anticipated own-row filing).

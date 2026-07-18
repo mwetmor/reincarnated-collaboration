@@ -31,6 +31,10 @@
 **m07 (b07 window, le 73–78):** swarmblade + werebear = §B Rage-replaces-Mana-in-form LAW (map in-form economy as kit economy; swap = fidelity_notes) · tempest-strike class CORRECTED (drop Acolyte) + negative is ERA-SCOPED (annotation, not mapping input) · umbral-blades "void blade" alias = probe artifact (fetched: physical/cold) · warpath = channel + mana-per-tick drain (verbatim-confirmed) · wraithlord = pet-core (Wraithlord's Harbour ITEM enables; "Wraithlord" as discrete skill is ambiguous — map the attested summon-harvest loop) → R-M7.
 
 ## Standing counts at fire time (steward-owned; mappers file WITHOUT numbers)
-Families: out-and-return · placed-proxy-count · two-tier-accumulator (WATCH-ITEM FIRED at 2; cadence would be #3) · stat-as-damage-substrate cluster (4 mechanisms incl. GD retaliation).
+Families: out-and-return · placed-proxy-count (+2 at m03 audit: army-count, recast-count) · two-tier-accumulator (WATCH-ITEM FIRED at 2; cadence would be #3) · stat-as-damage-substrate cluster (4 mechanisms incl. GD retaliation — m03 filed the anticipated own-row docket).
+
+## Post-W1 audit rulings (PASTE into W2/W3 spawning prompts)
+- **Gapped-pet geometry convention (m03-audit ruling, binding):** GAPPED pet-core skills carry nearest-shape PLACEMENT projection (`totem` for summons — placement is attested evidence), NEVER null. The autonomy gap lives in grade + deviation_notes + docket per R-M7. Applies to m05 skeleton-necro/wraithlord-adjacent, m06 squirrel-bm/skeleton-necro/storm-totem, m07 wraithlord.
+- **§2 RR-branch reminder:** curse:sap vs sunder picks need an application-shape anchor word in fetched text (aura/presence/entity-anchor → curse:sap; hit-proc window → sunder); shape-silent = WITHHOLD (m03 exercised 5×, consistent).
 
 **Lifecycle:** steward instantiates spawning prompts from the TEMPLATE + this plan at each wave fire; audits every return (D-2c recount); §A/§B extend at audits if NEW mechanisms attest.
