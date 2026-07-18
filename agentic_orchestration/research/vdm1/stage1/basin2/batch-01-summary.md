@@ -81,3 +81,17 @@ None.
 4. **gd-blade-trap wayback**: Wayback availability API returned snapshot at 2023-03-28 (closest to requested 2017-01-01). The forum threads for blade-trap discussion are directly accessible live (fetched successfully). No JS-shell issues encountered on forum threads. Negative canon confirmed from live fetched text; wayback was not needed to establish the verdict.
 
 5. **probe_facts resource field for Belgothian**: `spirit/focus` is not a GD system. This is a probe-facts data quality issue, not a canon_corpus fields issue. Flagged for Elrond review.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18)
+
+**Recount (D-2c):** file truth PRE-audit **32C / 3X / 2U / 0SNF** = 37 rows (12×3 + 1 negative_canon, blade-trap). Return advisory (26C/4X/2U) drifted twice: CONFIRMED undercounted by 6; the listed 4th "contradiction" (`belgothian / probe_facts`) was never a verify row — `probe_facts` is not a claim family; the catch was correctly kept in prose and wrongly counted in the histogram. File truth governs.
+
+**Steward ruling — blade-trap era RECLASSED CONTRADICTED → UNSUPPORTED (in-place edit):** the verdict's grounds were claim-vs-claim (DB era field vs spec era list vs negative_canon_target framing) and its anchor quoted OUR OWN spec text — both illegal for CONTRADICTED (anchor law: verbatim fetched language). Fetched text attests base-game presence + 2017 criticism and is SILENT on the fg-2019/patch-1.1-1.2 span → honest verdict against the 4-era span claim is UNSUPPORTED. The REAL three-way internal inconsistency routes to the elrond erratum queue: restamp era to the attested window `base-2016;aom-2017` (= spec value); negative_canon_target's "mechanism later reworked" clause is itself UNVERIFIED from fetched text — annotate, don't assert. **NEW LAW folded into the basin-2 crawl template body: claim-vs-claim is never contradiction grounds.** POST-audit file truth: **32C / 2X / 3U**.
+
+**Upheld:** aar-spellbinder + callidors-tempest-templar D-2a era floors (fetched mastery-debut anchors ✓) · berserker-wereforms honest-U ×2 + 6 dossier abstentions (FoA ships July 23 — tq2-analog rule held; **BACKFILL-2 queued**: re-crawl post-ship + guide lag) · wayback executed on blade-trap (2 `recovered`-rank citations) · citations 25 / 0 quarantined / 0 banned-domain / crate-forums primary 20/25.
+
+**Systematic flag (with b02):** belgothian `canon_probe_facts.resource_verbatim: "spirit/focus"` + b02 fire-strike-purifier corpus economy `spirit/focus meter` = 2 independent hits of one kb artifact (GD resource is Energy; "Spirit" is a GD STAT name — likely confusion source, per b02 red-flag 4). **Elrond sweep queued (next ingest): grep all gd + le rows, BOTH canon_corpus and canon_probe_facts, for spirit/focus resource labels — systematic erratum class.**
+
+**Coverage recount:** 46/72 populated = **63.9%** (crawler prose "~57% of non-berserker" — actual non-berserker 46/66 = 69.7%; advisory class, no file change). Abstentions strictly null ✓ · conf all float ✓. Coverage split vs b02 (95.8%) noted — b01 skews unshipped/negative kits; honest abstention over stretch-reading.

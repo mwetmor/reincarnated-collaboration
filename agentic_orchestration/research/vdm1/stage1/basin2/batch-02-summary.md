@@ -90,3 +90,15 @@ All build guide authors: handles not recorded in fetched forum post summaries (C
 3. **gd-pet-conjurer Call of the Grave**: A clear data-entry error — the Necromancer skill was likely confused with the Shaman's Call of the Beast. No Conjurer build in the corpus uses or references Call of the Grave. Elrond correction: remove from core_skills, optionally note Call of the Beast as the correct Shaman analog.
 
 4. **gd-fire-strike-purifier economy**: `spirit/focus / meter` is the wrong model for a default attack replacer. The resource is `energy` spent per WPS proc, effectively making it attack-speed-gated rather than meter-gated. The `spirit` label may be a confusion with the stat name in GD (which is called "Spirit" as a stat, not as a resource pool). Correct economy model is `energy / attack-replacer`.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18)
+
+**Recount (D-2c):** file truth **29C / 7X / 0U / 0SNF** = 36 rows (12×3; zero negative_canon — all negative=false ✓). Return advisory (28C/8X, "7 unique — 8 rows") drifted by one: files hold exactly 7 X rows. File truth governs; no edits needed — **all 7 contradictions UPHELD** (4 D-2a era floors: fire-strike→aom · forcewave→fg · mortar→aom · panettis→aom; 3 mechanics: fire-strike spirit/focus economy · panettis mono-lightning→tri-elemental w/ shock-downstream-unreliable · pet-conjurer Call of the Grave→Call of the Beast). Anchors verbatim-fetched ≤40w ✓.
+
+**News-site era-anchoring LEGITIMATED:** all 9 massivelyop/gametyrant/mmos-anchored rows are ERA-family (xpac release dates confirming mastery debuts per the intro-check instrument); ZERO news-sourced dossier rows. Correct division — journalism for release facts, forums for build mechanics. Crawl-lesson banked for the basin-3 template fork.
+
+**Elrond erratum queue (next ingest):** 4 era-floor restamps + panettis element→tri-elemental + pet-conjurer core_skills fix + fire-strike economy→energy/attack-replacer + the spirit/focus systematic sweep (with b01 belgothian probe-facts hit; "Spirit"-stat-name confusion per red-flag 4 above).
+
+**Quality note:** author_credit all-`unknown` (handles not surfaced by summary-model fetches) vs b01's full handle table — honest but thin; low-priority steward backfill candidate; review-book line on author-credit coverage split. Coverage 69/72 = 95.8% ✓ exact · abstentions strictly null ✓ · conf floats ✓ · citations 27 / 0 quarantined / 0 banned-domain ✓.
