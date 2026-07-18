@@ -86,3 +86,12 @@
 - **d4-mighty-throw fire element:** fire_damage language attested via item_alterations anchor ('causes instant detonation of pulses as fire damage'); MW3 element law satisfied (DAMAGE language, not name).
 - **d4-payback-sb + d4-quill-volley Vigor inversion:** basin-2 inverted-resource no-merge ruling applied to both; vigor keyed as 'inverted-loop' separate from regen_shape.
 - **d4-minion-necro t4_doors null:** GAPPED/doorless per MW1 standing amendment (GAPPED kits emit t4_doors null, never []).
+
+
+## STEWARD AUDIT ADDENDUM — MW4-close 2026-07-18 (gandalf run steward)
+Recount m12: 12 kits, grades {CLOSE:8, GAPPED:2, EXACT:2}, terminal {MAPPED:10, MAPPED_DOCKET:2}; biconditional CLEAN.
+**7 element/ailment corrections across 3 kits** (name-only, store-verified):
+- **d4-lightning-spear** — Lightning Spear + Ball Lightning + Unstable Currents: lightning->null (x3); STUN kept on Lightning Spear ("chain stuns via shocking impact"). 9 lightning hits ALL names + "shocking impact" passive; NO zap-verb. MARQUEE SPECIMEN: identical "Ball Lightning" skill = lightning in d4-ball-lightning (has "zap enemies") but NULL here (name-only) — same name, opposite verdict, store evidence governs.
+- **d4-minion-necro** — Raise Skeleton + Golem + Decrepify: shadow->null (x3); curse:decrepify KEPT on Decrepify ("cast decrepify to curse enemies"). shadow 0 hits; minions "deal sustained damage" element-unstated. Third necro name-only case.
+- **d4-pen-shot** — Shadow Clone: shadow->null. "shadow clone for unstoppable and damage boost" = buff/utility, not shadow damage; Penetrating Shot correctly null (physical pierce).
+KEEPS confirmed: infinimist shadow ("shadow dots deal damage while inside mist"), lightning-storm lightning ("aura zaps all nearby enemies"), ice-shards water/freeze, incinerate fire, mighty-throw fire.

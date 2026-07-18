@@ -82,3 +82,13 @@ MAPPED_DOCKET kits: 2 (zuni-carnevil · blade-shift)
 - **Overpower not an ailment**: §C.3 binding applied to blood-surge (burst_window) and blood-lance (fidelity note); never emitted as 16-enum entry.
 - **d4 Vulnerable**: zero attestations confirmed batch-10 — residual OPEN stands.
 
+
+
+## STEWARD AUDIT ADDENDUM — MW4-close 2026-07-18 (gandalf run steward)
+D-2c re-audit from COMMITTED jsonl (advisory never trusted). Recount m10: 12 kits, grades {GAPPED:2, CLOSE:8, EXACT:2}, terminal {MAPPED_DOCKET:2, MAPPED:10}; biconditional CLEAN.
+**8 element/ailment corrections across 5 kits** (store-verified via full-store context dump):
+- **d3-zuni-carnevil** — Poison Dart + Fetish Army: earth->null, poison REMOVED (both). "poison" x5 = ALL skill-name "Poison Dart"; venom/toxic/nature 0 hits. The most poison-thematic build in the corpus fetched ZERO poison-damage behavior = pure name-only. Corpus-quality signal (D3 kit exhibiting d4-class name-heavy pattern). Stays GAPPED/DOCKET.
+- **d4-andariel-flurry** — Flurry: earth->null. Element-bleed: Flurry own-store = "encircling blades / rapidly stabs" (physical); poison-nova element belongs to the separate "Andariel's Visage poison nova" row (KEPT earth/poison — "poison nova" descriptor attested). [judgment call — element-bleed, lower-confidence than name-only strikes]
+- **d4-ball-lightning** — Ball Lightning: null->lightning RESTORE + APPROX->CLOSE. Mapper OVER-blocked; store attests "balls zap all nearby enemies" / "zapping enemies in proximity" = enemy-directed lightning verb. First over-block correction of the run.
+- **d4-bone-spear** — Bone Spear + Bone Storm + Skeleton Mage: shadow->null (x3). "bone" x12 ALL names; "shadow" 0 hits; no necrotic/shadow-damage. bone->shadow routing (crosswalk L24) presupposes an attested register — never triggered on name-only.
+- **d4-bouldercane** — Hurricane: chill ailment REMOVED. chill/cold/freeze 0 hits in store (thematically cold, textually silent).

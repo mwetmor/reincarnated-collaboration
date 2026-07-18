@@ -86,3 +86,15 @@ None. No new quantitative or qualitative mint required.
 - Both APPROX kits (frozen-orb, dread-claws-warlock) reach MAPPED terminal state — no GAPPED row in this batch.
 - MW3 attestation law did the heaviest work: 6 ailment/element slots blocked across multiple kits for name-only grounds.
 - Post-cutoff Paladin and Warlock both handled cleanly under §C.5.
+
+
+## STEWARD AUDIT ADDENDUM — MW4-close 2026-07-18 (gandalf run steward)
+Recount m11: 12 kits, grades {CLOSE:10, APPROX:2}, terminal {MAPPED:12}; biconditional CLEAN (0 GAPPED). Battery 92S/4E/15M contiguous.
+**0 strikes.** 6 element-name flags investigated via full-store context dump; ALL resolve to KEEP:
+- cataclysm lightning — "lightning strikes and twisters" (behavior, not name).
+- chain-lightning — 3 skills lightning w/ "bolt bounces between enemies"; lone "frost" = Frost Nova / Azurewrath season-variant NAMES, no water skill.
+- dread-claws shadow — 8 hits all shadowform-buff / shadow-of-harash-set / aspect-of-deeper-shadows (name/mechanic-only); null correct.
+- earthquake-barb — all null; earthquake / ground-stomp / fissure = effect-names, "physical" mech_note inadmissible; mapper resisted earthquake->earth name trap. [flavor specimen "incendiary fissures" -> review book]
+- flame-shield fire — "Burning damage over 4 seconds to surrounding enemies" (behavior); Teleport correctly null.
+- hota fire — "Fire-based melee" descriptor; shouts correctly null.
+Mapper self-blocked 6 name-only slots proactively (per its own summary) — MW3-close element-name amendments PROPAGATED cleanly into the mapper. m11 = the clean-propagation datapoint.
