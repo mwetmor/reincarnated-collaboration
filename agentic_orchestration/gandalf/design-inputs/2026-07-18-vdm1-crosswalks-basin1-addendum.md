@@ -40,9 +40,34 @@
 8. **poe2-archmage-totems:** the 3-way combo is single-source-unconfirmed (conf 0.45) — map components per dossier, fidelity_note the joint-attestation weakness.
 9. **Ascendancy → t4_doors:** poe2 ascendancy notables route via main-law §5 exactly as PoE1 ascendancies did (capstone identity → 1-3 ENGINE tokens; R-M1 vocabulary law).
 
-## §D — hades2 rows — **PENDING batch-04 fetched language** (do not map hades2 kits before this section lands)
+## §D — hades2 rows (attested b04, LANDED 2026-07-18)
 
-## §E — tq2 rows — **PENDING batch-04 fetched language** (do not map tq2 kits before this section lands)
+| Source mechanism (fetched language) | Engine lane | Notes |
+|---|---|---|
+| **Magick** ("channel +30 additional Magick"; "Magick bar drains on use" — omega-magick, glorious-disaster) | cast-cost resource, mana-register | plain spend/channel pool. NOT reservation, NOT anything engine-magic-adjacent |
+| **God boons** (Zeus/Apollo/Demeter/Hephaestus/Ares lineages) | supports→5-lane by what the boon DOES | Volcanic Strike on-attack blast → proc/trigger lane · Ice Strike freeze-on-hit → ailment-granting · Cold Storage duration → param lane |
+| **Duo boons** (Glorious Disaster, Hail Storm) | capstone-class combo identity → t4_doors | the duo IS the kit's capstone; route via main-law §5 |
+| **Weapon Aspects** (Circe, Medea) + **keepsakes** | capstone/item lanes | aspect = the kit's item-alteration analog |
+| **Omega charge-release** ("Hold any attack input to charge Omega variant") | channel/charge economy + geometry per Omega type | Omega Cast "large AoE around Melinoë, explodes after brief period" → self-origin delayed nova (circle/nova + delay note) |
+| **Freeze→lightning conversion** ("Freeze at enemy position triggers lightning bolt at that location" — hail-storm) | trigger_grammar: proc_trigger_condition on-ailment-apply | native trigger grammar; NOT a meta-gem chassis (R-M9 not needed) |
+| **Winter Harvest** (low-HP frozen enemy explosions) | freeze + execute rows | threshold-burst native |
+| **Static Shock armor removal** | sunder (hit-proc shape) | main-law exposure row |
+| **Throw-retrieve ammo loop** ("throws shells that explode on hit; special is a lunge that retrieves them" — medea-skull) | approximate projectile + note | accrual candidate to the **out-and-return family** (mint-candidate: spectral-throw class) — retrieve is a second ACTION, not auto-return; file accrual WITHOUT number |
+| **Hexes** | — | null-attested in fetched text; no row (§0 rule) |
+
+## §E — tq2 rows (attested b04, LANDED 2026-07-18)
+
+| Source mechanism (fetched language) | Engine lane | Notes |
+|---|---|---|
+| **Dual-mastery class identity** ("Storm+Earth dual mastery (class name: Elementalist)") | BOTH masteries' capstones route t4_doors; the PAIRING is the class identity | ⚠ corpus class-fields for elementalist/stormblade/whirlwind were kb-WRONG (ingest-9 adjudication) — map from the VERIFIED mastery pair, not the corpus class column |
+| **Energy** ("high energy cost") | cast-cost resource | plain pool |
+| **Reserved-energy damage scaling** ("Ice Shards… damage scales with reserved energy" — stormblade) | reservation_percent + damage-coupling fidelity_note | WATCH-ITEM: reservation-as-damage-scaler coupling — if no economy key expresses it, candidate |
+| **Armor-conversion damage** ("Shield Attack (overwrites damage source to current armor)"; "Armor Eruption (converts all armor to AoE damage)" — bastion-tank) | approximate + note | accrual candidate ADJACENT to docket #4 stun-as-damage-substrate — armor→damage is a DISTINCT stat-as-damage-substrate mechanism; file its own candidate, do not merge |
+| **Amplify/Overload stacks** (Roiling Magma) | accumulator | single-tier native |
+| **Sentries/traps placement** ("Sentries: placed at target location, fire at enemies in range (autonomous); traps stack up to 8" — forge-turrets) | `totem`-class placed-proxy geometry (PoE1 minion-swarm precedent) + placed-proxy count economy | count-8 → accrual candidate to the placed-proxy-count family (hiero-6-totem mint class); WITHOUT number |
+| **Homing projectiles** ("9 shards per cast; homing behavior" — ice-shards) | projectile + pursuit note per R-M8 | homing = behavioral delta (delivery flavor), NOT identity void; 9-count → projectile-count economy |
+| **Mobile channel spin** ("mobile during the channel (only skill where you can keep moving while using it)" — whirlwind) | mirror poe1-sweep/cyclone-class spin precedent — query `kit_mapping` for the PoE1 spin geometry token | mobility-while-channeling in fidelity_note |
+| **Rage** (whirlwind "Builds Rage fast") | accumulator | |
 
 ---
-**Lifecycle:** steward extends §A/§B at each crawl-batch audit if new statuses attest; §D/§E land after b04 recount. Mapping batches for poe2 kits (m01-m03) may fire once ingest-8 lands; the b04 mixed batch maps only after §D/§E.
+**Lifecycle:** steward extends §A/§B/§D/§E at each audit if new statuses attest. §D/§E LANDED from b04 fetched language — **all basin-1 mapping batches (m01-m04) may fire** once their kits' dossiers are ingested (m01-m02 gate: ingest-8 ✓ · m03-m04 gate: ingest-9).
