@@ -14,6 +14,10 @@
 | W2 | m04 + m05 | gd 37–41 + le 42–48 (seam) · le 49–60 |
 | W3 | m06 + m07 | le 61–72 · le 73–78 |
 
+**W3 rosters (extracted from batch-verify.jsonl at W2 fire; no SKIPs — 12+6=18):**
+- **m06:** le-reaper-form-lich · le-ring-of-shields · le-runic-invocation · le-shadow-bladedancer · le-shield-bash-le · le-shield-throw-time-rot-vk · le-shift-bladedancer · le-skeleton-necro · le-smite-paladin · le-soul-feast · le-squirrel-bm · le-storm-totem-shaman
+- **m07:** le-swarmblade-druid · le-tempest-strike · le-umbral-blades · le-warpath-vk · le-werebear-druid · le-wraithlord-necro
+
 ## Per-batch hot facts (paste into spawning prompts at fire time)
 
 **m01 (b01 window, gd 1–12):** berserker dossier is THIN by design (FoA unshipped ×6 abstains — map what exists, note the gap; BACKFILL-2 pending) · blade-trap = negative ATTESTED + era restamped `base-2016;aom-2017` ("later reworked" is annotation, never mapping grounds) · belgothian + cadence = §A replacer/WPS row — cadence's Nth-swing detonation FILES an accrual to the two-tier-accumulator family (no numbers; strengthens the fired WATCH-ITEM) · blight-fiend pet-death-payload = pet GAP + own docket-candidate if shape recurs · aar/callidors era-restamped (verify_ledger governs).
