@@ -66,3 +66,9 @@ PERSISTENCE_ENGINE_saturation ×4 · GEOMETRY_PROPAGATION_overkill ×2 · PHASE_
 1. **d4-wind-shear** — FALSIFIED-NEGATIVE handling required careful separation of corpus elem_raw (illegal) from dossier text; "Storm tag" ≠ lightning element; element null counter-intuitive.
 2. **d4-wing-strike-arbiter** — "zaps" verb ruling (MW4 edge 1) does not resolve element; holy remains unattested; resource contested erratum applied; form-trigger grammar required careful §CROSS threading.
 3. **di-blood-knight** — sparse di dossier; shadow element required verify_ledger anchor as the legal ground ("entraps them in deadly shadows"); Anger-meter is a native di resource with no prior engine lane; APPROX grade honest.
+
+
+## STEWARD AUDIT ADDENDUM (MW5-close, gandalf)
+
+Store-context adjudication, batch-13. **4 strikes / 1 kit:**
+- **di-blood-knight** — Siphon Blood / Abomination / Sanguinate / Ravage: `shadow` → **null** ×4. All 3 store `shadow` hits trace to ONE shoulder legendary's bats-tornado visual ("bloody shadowy tornado of bats"; "deadly shadows summoned with cursed strength") — flavor-prose/item-visual, NOT a damage-type descriptor and no enemy-directed shadow verb (review-book flavor-prose flag governs). **drain KEPT** on Siphon Blood ("steals health from enemies all around (aoe drain)" — cleanly attested; carries kit identity). Grade APPROX unchanged (blood-resource/monster-form deviation is element-independent). *Medium-confidence flavor-prose call, andariel-class.*

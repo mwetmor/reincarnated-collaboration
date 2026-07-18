@@ -75,3 +75,11 @@
 - **di-corpse-explosion-necro Bone Spikes element:** shadow from main-law bone/necrotic register (secondary skill only; no shadow damage verb in store — noted in fidelity).
 - **SYSTEM kits (essence-transfer, inferno-ladder):** t4_doors=[] per §D convention.
 - **di-bombardment-wizard-pvp t4_doors:** null (not []) — kit-level-flag with zero store differs from SYSTEM kit convention; SYSTEM convention requires a populated system shape; this kit has none.
+
+
+## STEWARD AUDIT ADDENDUM (MW5-close, gandalf)
+
+Store-context adjudication, batch-14. **5 strikes / 3 kits:**
+- **di-bone-wall-necro-pvp** — Bone Wall + Bone Spear: `shadow` → **null** ×2. `bone` x19 in store ALL as skill/mechanic names; `shadow` 0 hits (identical to MW4 bone-spear name-only pattern). Grade APPROX unchanged.
+- **di-corpse-explosion-necro** — Bone Spikes: `shadow` → **null**. `shadow` 0 hits, `bone` x1 = "bone spikes" (name). Corpse-summoner army GAP unchanged (GAPPED+MAPPED_DOCKET, §CROSS.2).
+- **di-crusader-banner-support** — Holy Banner + Conjuration of Light: `holy` → **null** ×2. Support kit; `holy` appears only as skill names + party-crit-buff + ally-directed "beam of holy light on caster; damage immunity 3s for all nearby allies" — NO enemy-directed holy damage (hammerdin precedent: holy never imported without attestation). Spinning Shield (physical aoe, element null) unchanged. Grade APPROX unchanged.

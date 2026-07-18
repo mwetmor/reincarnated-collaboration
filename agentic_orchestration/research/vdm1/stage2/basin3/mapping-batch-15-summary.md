@@ -85,3 +85,9 @@
 - ERRATA-52 applied to di-tempest (Lightning → Wind/Water).
 - ERRATA-44 sweep applied: di-tempest and di-warlock-launch resource probes suppressed; cooldown-only confirmed from verify_ledger CONTRADICTED anchors.
 - di-spiritform-druid-pvp: all abstained; zero attestation; honest GAPPED with review-book relabel/excise pending.
+
+
+## STEWARD AUDIT ADDENDUM (MW5-close, gandalf)
+
+Store-context adjudication, batch-15. **1 add (over-block restore) / 1 kit:**
+- **di-ray-of-frost-wizard** — Ray of Frost: **+freeze** ailment. Mapper emitted `chill` only and blocked freeze citing "payload_json, no anchor verb" = a MW2-violation (payload_json abstained=0 is EQUALLY admissible). Store attests freeze as mechanical CC outcome: "channel … stacking chill (up to 6 stacks) leading to freeze", core_combo "ray of frost channel -> chill stack -> freeze cc -> burst", "pvp freeze/stun burst". water/chill unchanged; grade CLOSE unchanged. Over-block correction (2nd of run, after MW4 ball-lightning).
