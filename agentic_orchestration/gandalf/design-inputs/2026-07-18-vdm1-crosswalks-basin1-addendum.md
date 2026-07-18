@@ -1,6 +1,6 @@
 # VDM-1 crosswalks — basin-1 (post-cutoff) addendum
 
-> **Authored 2026-07-18, gandalf (steward, SPEC-AUTHOR).** EXTENDS `2026-07-18-vdm1-crosswalks.md` (THE LAW) for the poe2/hades2/tq2 basin. Where this doc is silent, the main law governs unchanged. **§0 attestation rule:** every row here is grounded in basin-1 FETCHED dossier language (batch cited) — never memory of post-cutoff games. A mapper hitting a source status/mechanic covered by NEITHER doc files it to the steward in the batch summary; do not improvise a row (Despair-b01 lesson).
+> **Authored 2026-07-18, gandalf (steward, SPEC-AUTHOR).** EXTENDS `2026-07-18-vdm1-crosswalks.md` (THE LAW) for the poe2/hades2/tq2 basin. Where this doc is silent, the main law governs unchanged. **§0 attestation rule:** every row here is grounded in basin-1 FETCHED dossier language (batch cited) — never memory of post-cutoff games. A mapper hitting a source status/mechanic covered by NEITHER doc files it to the steward in the batch summary; do not improvise a row (Despair-b01 lesson). **§0-UNIVERSAL (m04-audit ruling, BINDING RUN-WIDE):** the no-un-named-status law applies to EVERY game and basin, not only poe2 — an ailment token requires the status NAMED in the kit's FETCHED dossier text; element/theme flavor NEVER implies a status; and `canon_probe_facts` is kb-derived pre-verification data, NEVER attestation (m04 leaked 12 tokens on hades2/tq2 kits, dominantly probe-cited-as-attestation).
 
 ## §A — PoE2 ailment/status rows (attested b01-b02)
 
@@ -13,6 +13,8 @@
 | poe2 **Ignite / Poison / Freeze / Shock** | per main law | unchanged from PoE1 rows (incl. shock→sunder FALSE FRIEND). ⚠ **m01-audit ruling (BINDING):** engine `shock` requires POSITIVE fetched attestation of paralysis/CC behavior; absent that, poe2 shock ALWAYS routes `sunder` — and a status never named in fetched text is not emitted at all (§0). m01 leak taxonomy: un-attested-rider ×2 (priors/kb) · attested-misrouted ×1 ("arc-CC-adjacent" invention) — all corrected at audit |
 
 **Un-attested so far (do NOT map from memory):** electrocute, pin. If b03/b04 fetched text surfaces them, steward adds rows at audit.
+
+⚠ **SKILL-NAME COLLISION (m03-audit ruling, BINDING):** poe2 has a SKILL literally named **"Sunder"** (slam; appears in warbringer-totems + wall-of-shields fetched text as a skill/detonator NAME). A skill NAME is NEVER status attestation — engine-ailment `sunder` requires fetched armour-break / exposure / vulnerability BEHAVIOR language. Supplementing a named skill's mechanics from memory is the name-collision + memory-supplement leak class (warbringer m03).
 
 ## §B — PoE2 resource/economy rows (attested b01-b02)
 
@@ -54,6 +56,7 @@
 | **Static Shock armor removal** | sunder (hit-proc shape) | main-law exposure row |
 | **Throw-retrieve ammo loop** ("throws shells that explode on hit; special is a lunge that retrieves them" — medea-skull) | approximate projectile + note | accrual candidate to the **out-and-return family** (mint-candidate: spectral-throw class) — retrieve is a second ACTION, not auto-return; file accrual WITHOUT number |
 | **Hexes** | — | null-attested in fetched text; no row (§0 rule) |
+| **Daze** (Apollo — "Daze before blast nearly doubles damage", hephaestus-blast b04 item_alterations) | **curse:weaken** (R-M3 notation) + fidelity_note | m04-audit row: daze = enemy-damage-suppression → weaken semantics; support-lane status in the attesting kit (NOT a kit-skill emission there); hit-applied not hex-shaped — note the flavor |
 
 ## §E — tq2 rows (attested b04, LANDED 2026-07-18)
 
@@ -68,6 +71,7 @@
 | **Homing projectiles** ("9 shards per cast; homing behavior" — ice-shards) | projectile + pursuit note per R-M8 | homing = behavioral delta (delivery flavor), NOT identity void; 9-count → projectile-count economy |
 | **Mobile channel spin** ("mobile during the channel (only skill where you can keep moving while using it)" — whirlwind) | mirror poe1-sweep/cyclone-class spin precedent — query `kit_mapping` for the PoE1 spin geometry token | mobility-while-channeling in fidelity_note |
 | **Rage** (whirlwind "Builds Rage fast") | accumulator | |
+| **"Vulnerable on Hit"** (bastion-tank Armor Eruption node — b04 capstone_alterations) | **sunder** (hit-proc) | m04-audit row: main-law exposure reasoning — hit-applied damage-taken amp window |
 
 ---
 **Lifecycle:** steward extends §A/§B/§D/§E at each audit if new statuses attest. §D/§E LANDED from b04 fetched language — **all basin-1 mapping batches (m01-m04) may fire** once their kits' dossiers are ingested (m01-m02 gate: ingest-8 ✓ · m03-m04 gate: ingest-9).
