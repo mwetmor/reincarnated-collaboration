@@ -55,3 +55,17 @@ No EXACT: every poe2 kit carries at least a minor genre-delta from the engine su
 
 ## Cross-references
 Law: `2026-07-18-vdm1-crosswalks.md` + `…-basin1-addendum.md`. Precedents queried live from `kit_mapping`: poe1-flicker (`dash_attack`), poe1-lightning-arrow (`chain`+sunder), poe1-cyclone (`whirlwind`). verify_ledger governed era-trims (grim-feast ERRATA-18; perfect-strike negative_canon).
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, DRIFT-CRITIC) — ACCEPTED w/ corrections
+
+**Recount (file truth):** 0 EXACT / 10 CLOSE / 2 APPROX / 0 GAPPED, all `MAPPED` — self-report matched. Envelope keys verified present on all 12 (the mapper's self-caught rebuild held). R-M7 vacuous-clean · R-M5 tokens 0 (perfect-strike trap correctly avoided, token withheld) · **engine-shock 0× (the m01-audit §A binding rule held on first exposure — lightning kits all routed sunder)** · Spirit FALSE FRIEND: all 3 Spirit kits `reservation_resource: spirit`, zero spirit_guide routing · geometry 12/12 §6-valid · t4 14/14 valid · elements valid.
+
+**Corrections (in-place):**
+1. `ignite` → `burn` ×2 (infernal-legion, minion-infernalist) — `ignite` is source vocabulary, not a 16-registry member; §2 row 1 is deterministic. First enum violation of the basin; both kits stay CLOSE (normalization, not re-grade).
+2. shaman-bear mint filing violated steward-owned-counts ("this is the 2nd two-tier-accumulator instance") — corrected: **shaman-bear is the class's FIRST distinct kit** (the §B row was authored from this kit's own b02 attestation); mint question fires at the 2nd DISTINCT kit, not yet.
+
+**Upheld:** grim-feast APPROX/MAPPED (mapper flagged for audit; deviation note passes R-M7 — the kill→vacuum→intake loop IS expressible, the above-cap ceiling is the docketed payoff-shape; consistent with blood-mage b01) · rake dash_attack mirror (poe1-flicker geometry DB-verified) · ice-strike chain-3 (3 load-bearing actives, R-M2) · poison-pathfinder earth-fork w/ shadow alternative noted (pconc precedent) · howa qualitative mint correctly un-minted CLOSE + correctly its-own-class per §B · docket 1 (ES-above-cap — consolidates with m01's blood-mage filing into ONE class at stage-3).
+
+**D-2d scoping note for stage-3:** 3 rows carry "NOT engine spirit_guide" negated-form compliance prose. D-2d stays scoped to audit TOKENS (R-M5-class grep-count instruments); `spirit_guide` is a module name with no count instrument — rows left as-is, logged here in case a spirit_guide grep instrument is ever built.
