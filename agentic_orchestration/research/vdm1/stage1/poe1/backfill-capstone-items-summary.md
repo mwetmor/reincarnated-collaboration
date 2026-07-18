@@ -70,3 +70,17 @@ Both citations in backfill-capstone-items-citations.jsonl.
 - `backfill-capstone-items-dossier.jsonl` — 94 rows (58 capstone + 36 item families; some kits appear in both families)
 - `backfill-capstone-items-citations.jsonl` — 66 citation rows (per poedb page fetched)
 - `backfill-capstone-items-summary.md` — this file
+
+---
+
+## STEWARD AUDIT + REPAIR ADDENDUM (gandalf, 2026-07-18)
+
+**Verdict: ACCEPTED after mechanical schema repair.** Content quality good (ERRATA-14/15 anchors verbatim-recovered; 86/94 rows filled); two schema deviations repaired steward-side (b07 line-2 precedent — deterministic repairs, no judgment substitution):
+
+1. **Abstained rows (8):** carried `payload_json: {}` + `conf: "still-silent"` → repaired to strictly-null per NO-FABRICATION LAW. File-truth abstained set: capstone ×1 (sweep) · item ×7 (edc, icicle-mines, lightning-conduit, seismic-trap, soulrend, storm-brand, sweep). Reason (from agent return): poedb renders variant names only / no item-alteration text for these — structural page limit, not crawl failure. *(Self-report said 3 capstone + 6 item still-silent — file truth 1+7; D-2c advisory-histogram law vindicated again.)*
+2. **conf-as-provenance-tag (86 non-abstained rows):** string tiers → deterministic float map, originals in git (`136c7140`): `verified-poedb`→**0.9** (×78, direct page verbatim) · `verified-poedb-search`→**0.75** (×1, mjolner — WebSearch snippet recovery, one hop weaker) · `partial-poedb`→**0.5** (×7, variant names captured but zero mechanic-diff text: edc, icicle-mines, lightning-conduit, seismic-trap, soulrend, storm-brand, tornado-shot — all capstone_alterations).
+3. **Self-report vs file truth on partials:** agent named VBV partial; file truth has VBV at 0.9 and icicle-mines/seismic-trap at 0.5.
+
+**Ingest-7 law (elrond):** FILL-ONLY merge — insert/replace `kit_dossier` rows ONLY where the existing stage-1 row is abstained (or absent); NEVER overwrite a non-abstained stage-1 row (stage-1 guide-tier fills are primary; this sweep is enrichment). Expected fill ceiling: ≤57 capstone + ≤29 item rows flip abstained→filled (poe1-incinerate item row exists here but stage-1 may already carry it — elrond's merge counts are file truth). 404-pattern note for future poedb item work: item pages do NOT follow `/us/<Name>` gem scheme (mjolner/deaths-oath/poets-pen/writhing-jar 404'd; underscore-only URL worked for poets-pen).
+
+**Brief-amendment candidate (basin templates, non-retro):** dossier `conf` is NUMERIC 0.0-1.0; provenance vocabulary belongs in the summary, never the conf column.
