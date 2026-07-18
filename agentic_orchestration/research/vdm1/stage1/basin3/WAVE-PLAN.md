@@ -62,6 +62,19 @@
 - **reddit BLOCKED by crawler policy (all games)** — d4 order effectively maxroll.gg/d4 → icy-veins → wowhead/diablo-4; di order icy-veins → (fandom 403-dead; expect thin sources + SEO tail — quarantine aggressively).
 - **Era instruments d4:** Spiritborn debuted VoH (pre-VoH floor = D-2a candidate); `launch-s1-3`/`loot-reborn-s4-5` pre-cutoff-stable; `voh-s6+`/`s7-s12`/`loh-s13-14` post-cutoff (fetched text only — expect era-U walls on older seasonal tokens; honest-U beats stretch-reading, say so in summary).
 
+## Post-CW4 amendments (PASTE-relevant for CW5 spawning prompts — FINAL crawl wave)
+
+**CW4 CLOSED (b11 `5bde38c4` · b12 `80f5fbee` · b10 `b73fb531` re-fire + steward audit): 36/36 kits · file truth 137 rows = 96C/36U/5X post-corrections** (b10 26C/15U/1X after boost-domain downgrades ×3 · b11 39C/5U after heartseeker downgrade · b12 31C/4X/16U after lightning-spear X→U). Headlines: 2 more falsified negatives (incinerate Overheating · kick Crown-of-Lucion — d4 unique/aspect-redemption blindness, family now 4, one root cause) · blazing-abyss "Blazing Scream" stale-prior catch · Paladin/Warlock resource conflict → INGEST-13 gate. Cumulative crawl: 144/179 · 576 rows = 487C/74U/14X/1SNF.
+
+**Hot-fact adds for CW5 prompts (binding):**
+- **BOOST/GOLD-SELLER DOMAINS ARE INADMISSIBLE VERDICT GROUNDS (3 quarantines this wave):** wowcarry · mywowgold · epiccarry class — any carry/boost/gold/leveling-service blog is commerce SEO; never cite, never ground a verdict or dossier row on it. The junk-tail list (sky/u4/aoeah/mmoexp/igvault/g2g/eldorado) is EXAMPLES not an enumeration — judge by class. di is the heaviest commerce-SEO title in the corpus: expect a LIVE thick tail; quarantine aggressively.
+- **YouTube = admissible-communal** (genuine authored build-guide content). MUST capture `author_handle` = channel name (b10 left it null ×2 — hygiene amber). Video title + description are fetched text; a title using the folk name is legal identity ground.
+- **ABSTAIN-NULL LAW (re-paste — b11 violated ×2 after two clean waves):** abstained rows carry `payload_json: null` STRICTLY — never `{"note":...}`/`{"notes":...}`. Abstention reasons go in your batch summary only.
+- **SAME-PAGE ellipsis-joins tolerated (amber); CROSS-SOURCE joins = leak-class.** One URL per anchor; contiguous preferred; if joining fragments from one page, mark the ellipsis explicitly.
+- **Post-cutoff d4 classes (b13 seam kits):** Paladin + Warlock are `loh-s13-14` — priors have NO knowledge of them; fetched text defines everything. **Paladin resource naming is CONTESTED in fetched text (icy-veins "Faith" vs maxroll "Resolve"); Warlock meter unclear (Shadowform buff-stack framing)** — record what YOUR fetched page says verbatim, never harmonize across sites, flag the variance in your summary.
+- **di era-U walls expected:** young-era tokens (di-2024-2026-era/di-druid-2025/di-5.0-2026) are post-cutoff (fetched only); older di tokens may be guide-sparse. Honest-U beats stretch-reading; >30% SNF → stop and report.
+- **di class adds:** Blood Knight (2023) · Tempest (2024) · Druid (2025) are post-launch — `di-launch-2022` floor on them = automatic D-2a candidate (intro-check mandatory).
+
 ## Standing counts at fire time (steward-owned)
 
 verify_ledger in-DB post-ingest-11: **831 rows** (pre-basin-2 519 [poe1 + basin-1; basin-1 census 150C/11X/13U/0SNF = 174] + basin-2 312 [250C/13X/46U/3SNF]). Basin-2 D-2a harvest: 10 kits. Basin-2 kb-negative tally: 6 = 2 attested + 1 era-bounded (tempest-strike) + 3 unattested (stun-jacks · shield-bash · soul-feast). Unattested Register carries: bomb-lance ×3 SNF · harvest-lich CHIMERA (split erratum HIGH). Basin-3 has its own 18-negative roster (template §claims) — the negative-canon reliability series continues.
