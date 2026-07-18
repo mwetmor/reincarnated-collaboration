@@ -54,3 +54,9 @@ Both ran the full ladder (map → approx → quantitative-mint NO → qualitativ
 - **Frost-blades & ice-shot composites:** both are "one skill, two footprints" (FB: melee→projectile-fan; IS: arrow→cone-splash). FB modeled as two geometries (dominant melee leads §7.2); IS modeled with cone as the single dominant identity footprint (arrow folded into the cone-delivery note) — a defensible asymmetry because FB's melee hit is itself a major damage event whereas IS's on-target arrow hit is subordinate to the cone that clears the pack.
 - **Generals-cry linked-cast at DEPTH-1:** the mirages execute the player's linked skill — a genuine trigger→linked-cast, held to one hop (the mirage's hit is terminal, not a further nested trigger) per MAX_CHAIN_DEPTH=1. Did not mint a depth.
 - **Glacial-hammer native shatter (negative kit):** despite the negative flag, the freeze/shatter identity is a *direct* match to the engine's native shatter mechanism — a rare case where a negative=1 kit's core mechanic is cleaner than most. Recorded the identity as it existed; flag stays on the corpus row.
+
+## Steward audit addendum (DRIFT-CRITIC, 2026-07-18)
+- **ACCEPTED with R-M7 normalization.** forbidden-rite + heavy-strike-stun re-graded APPROX→GAPPED in-place (terminals were already MAPPED_DOCKET; grades now match per the new R-M7 1:1 pairing law, appended to the template as binding).
+- Mapper's stray-`}` JSONL defect was self-caught and repaired pre-return; steward parse sweep confirms clean.
+- Enum sweep CLEAN.
+- Post-audit histogram: EXACT 0 / CLOSE 10 / APPROX 0 / GAPPED 2.

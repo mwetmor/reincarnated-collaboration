@@ -48,3 +48,9 @@ Note the SACRIFICE_ASCENDANCY cluster (blood-magic, boneshatter, cwdt-loop, dark
 - **crackling-lance** forced the only mint because the geometry-morph is genuinely un-approximable in either direction — carry the damage-ramp and you lose the beam-tightening; carry the beam and you lose the ramp. The AoE-vs-damage geometry trade IS the skill.
 - **The three self-cost/life-as-fuel kits + the two field-consume kits** made batch-02 feel like a stress test of the engine's resource-substrate expressiveness specifically. The hp_cost_scale 0.30 LOCK appeared as a real magnitude clamp on THREE kits (blood-magic, boneshatter, dark-pact) — worth the steward noting whether 0.30 is the right ceiling given how many canonical PoE identities are uncapped-self-cost.
 - **charged-dash** (negative kit): I deliberately declined a mint. Reproducing a known-bad skill's bespoke awkwardness (non-overlapping pulses, uncancellable teleport) violates parsimony — the negative-canon value is the RECORD of why it failed, not a build target. Flagging this as a general principle for negative-kit mapping: approximate the shape, catalogue the flaw in fidelity_notes, do not mint mechanisms to reproduce failure.
+
+## Steward audit addendum (DRIFT-CRITIC, 2026-07-18)
+- **ACCEPTED as-is.** Both EXACTs legitimate under the engine-owns-archetype pattern (cleave→melee_arc, cyclone→whirlwind; arc-precedent nativeness test applied — no false engine-behavior claims).
+- crackling-lance channel-intensify qualitative mint correctly DEFERRED at 1 forcing kit (steward graduates at a 2nd accrual).
+- Enum sweep 12/12 CLEAN (geometry/element/ailment/t4_doors/chain_count; curse notation R-M3-conformant).
+- Post-audit histogram: EXACT 2 / CLOSE 5 / APPROX 5 / GAPPED 0. R-M7 conformant (bladefall/dark-pact APPROX/MAPPED is the correct side of the line — identity intact, corpse/blade economy approximated).

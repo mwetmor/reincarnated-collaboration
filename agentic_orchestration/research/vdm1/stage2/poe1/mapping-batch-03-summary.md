@@ -70,3 +70,9 @@ All members are verified engine tokens (t4_catalog_v2.py) or defined Layer-2 var
 
 ---
 **Signed:** gandalf (SPEC-AUTHOR). Read-only DB throughout; grades held to engine-truth (all accumulator/timing/proc/ailment/geometry/T4 claims verified against source before assertion). Candidates ladder-audited to the qualitative-mint step; 0 mints, 2 dockets.
+
+## Steward audit addendum (DRIFT-CRITIC, 2026-07-18)
+- **ACCEPTED as-is.** detonate-dead GAPPED⟺MAPPED_DOCKET correctly paired (R-M7-conformant before R-M7 was written).
+- Charge/consume enum claims verified against engine `resource_economy.py` (accumulator_discharge_threshold L74; on-corpse-consume / on-hit-dealt L142; on-passive-tick L143) — engine-grounding genuine, no false-nativeness.
+- Enum sweep CLEAN.
+- Post-audit histogram: EXACT 0 / CLOSE 8 / APPROX 3 / GAPPED 1.
