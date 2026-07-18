@@ -1066,3 +1066,351 @@ raw prior value preserved.
   steward-directed action** (would promote the 17 clean probe-fact-bearing b03/b04 kits ×10 =
   170 facts, mirroring ingest-8's 15 clean kits if those are swept too) — flagged here so the
   steward can rule; not written speculatively.
+
+---
+
+# ===== VDM-1 BASIN-2 (ingest-11, 2026-07-18) — Grim Dawn + Last Epoch, 78 kits =====
+
+Steward: elrond (single writer). Run steward: gandalf. All entries below applied in ONE
+transaction (ingest wave 11); anchors read BEFORE writing; guarded single-row UPDATEs assert
+exact prior value + rowcount==1; raw prior values preserved (probe `_prior_ingest11` key or
+mech_note PREPEND with original verbatim). Files govern (post-audit jsonl truth; batch-summary
+STEWARD AUDIT ADDENDUM sections authoritative for targets).
+
+## ERRATA-24 — gd-aar-spellbinder era floor restamp (drop base-2016; D-2a floor-too-early)
+
+- **kit_id:** `gd-aar-spellbinder`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `base-2016;aom-2017;fg-2019;patch-1.1-1.2` -> `aom-2017;fg-2019;patch-1.1-1.2`
+- **verdict:** CONTRADICTED (batch-01 verify line 3, `era` claim family).
+- **batch:** 01 (basin-2) · **date:** 2026-07-18 (ingest wave 11)
+- **verify_ledger:** `errata_applied=1` set on the aar-spellbinder `era` CONTRADICTED row (1).
+- **class:** D-2a floor-too-early. Spellbinder = Arcanist+**Necromancer**; Necromancer debuted
+  with Ashes of Malmouth (Oct 2017). base-2016 predates the mastery -> drop the band.
+- **source anchor (verbatim):** "Spellbinder has been 'available since Ashes of Malmouth
+  expansion' — Necromancer mastery came with that DLC, not the base game." —
+  forums.crateentertainment.com/t/1-1-9-3-beginners-albrechts-aether-ray-spellbinder/112241.
+
+## ERRATA-25 — gd-callidors-tempest-templar era floor restamp (drop base-2016; D-2a floor-too-early)
+
+- **kit_id:** `gd-callidors-tempest-templar` · **field:** `canon_corpus.eras`
+- **old -> new:** `base-2016;fg-2019;patch-1.1-1.2` -> `fg-2019;patch-1.1-1.2`
+- **verdict:** CONTRADICTED (batch-01 verify line 34, `era`). `errata_applied=1` (1 row).
+- **batch:** 01 · **date:** 2026-07-18 (wave 11)
+- **class:** D-2a floor-too-early. Templar = Arcanist+**Oathkeeper**; Oathkeeper debuted with
+  Forgotten Gods (2019). base-2016 predates the mastery -> drop the band.
+- **source anchor (verbatim):** "Oathkeeper is confirmed new mastery introduced with Forgotten
+  Gods expansion; Templar (Arcanist+Oathkeeper) cannot exist in base-2016 era — era floor
+  predates Oathkeeper introduction." —
+  forums.crateentertainment.com/t/forgotten-gods-what-we-know-about-the-new-mastery/46822.
+
+## ERRATA-26 — gd-fire-strike-purifier era floor restamp (drop base-2016; D-2a floor-too-early)
+
+- **kit_id:** `gd-fire-strike-purifier` · **field:** `canon_corpus.eras`
+- **old -> new:** `base-2016;aom-2017;patch-1.1-1.2` -> `aom-2017;patch-1.1-1.2`
+- **verdict:** CONTRADICTED (batch-02 verify line 18, `era`). `errata_applied=1` (era row).
+- **batch:** 02 · **date:** 2026-07-18 (wave 11)
+- **class:** D-2a floor-too-early. Purifier = **Inquisitor**+Demolitionist; Inquisitor debuted
+  AoM (Oct 11 2017). base-2016 predates the mastery. (The Fire Strike SKILL is base-game
+  Demolitionist, but the Purifier CLASS-COMBO cannot predate AoM.) See ERRATA-35 for the
+  same kit's mechanics/economy correction.
+- **source anchor (verbatim):** "Ashes of Malmouth expansion was released on October 11th 2017
+  … introduced two new Masteries: the Inquisitor and the Necromancer." —
+  mmos.com/news/grim-dawn-ashes-of-malmouth-october-11.
+
+## ERRATA-27 — gd-forcewave-warlord era floor restamp (drop base-2016; D-2a floor-too-early)
+
+- **kit_id:** `gd-forcewave-warlord` · **field:** `canon_corpus.eras`
+- **old -> new:** `base-2016;fg-2019;patch-1.1-1.2` -> `fg-2019;patch-1.1-1.2`
+- **verdict:** CONTRADICTED (batch-02 verify line 24, `era`). `errata_applied=1` (1 row).
+- **batch:** 02 · **date:** 2026-07-18 (wave 11)
+- **class:** D-2a floor-too-early. Warlord = Soldier+**Oathkeeper**; Oathkeeper debuted FG
+  (Mar 27 2019). (Forcewave itself is base-game Soldier, but the Warlord combo cannot predate
+  fg-2019.) -> drop base-2016.
+- **source anchor (verbatim):** "Forgotten Gods expansion has launched with new story chapter
+  and Oathkeeper mastery … released March 27, 2019." —
+  massivelyop.com/2019/03/29/grim-dawns-forgotten-gods-expansion-has-launched-...
+
+## ERRATA-28 — gd-mortar-purifier era floor restamp (drop base-2016; D-2a floor-too-early)
+
+- **kit_id:** `gd-mortar-purifier` · **field:** `canon_corpus.eras`
+- **old -> new:** `base-2016;aom-2017;patch-1.1-1.2` -> `aom-2017;patch-1.1-1.2`
+- **verdict:** CONTRADICTED (batch-02 verify line 30, `era`). `errata_applied=1` (1 row).
+- **batch:** 02 · **date:** 2026-07-18 (wave 11)
+- **class:** D-2a floor-too-early. Purifier = **Inquisitor**+Demolitionist; Inquisitor = AoM
+  2017. (Mortar Trap is base-game Demolitionist; the Purifier combo is aom-2017 at earliest.)
+- **source anchor (verbatim):** "Ashes of Malmouth expansion was released on October 11th 2017
+  … introduced two new Masteries: the Inquisitor and the Necromancer." —
+  mmos.com/news/grim-dawn-ashes-of-malmouth-october-11.
+
+## ERRATA-29 — gd-panettis-mage-hunter era floor restamp (drop base-2016; D-2a floor-too-early)
+
+- **kit_id:** `gd-panettis-mage-hunter` · **field:** `canon_corpus.eras`
+- **old -> new:** `base-2016;aom-2017;patch-1.1-1.2` -> `aom-2017;patch-1.1-1.2`
+- **verdict:** CONTRADICTED (batch-02 verify line 33, `era`). `errata_applied=1` (era row).
+- **batch:** 02 · **date:** 2026-07-18 (wave 11)
+- **class:** D-2a floor-too-early. Mage Hunter = Arcanist+**Inquisitor**; Inquisitor = AoM 2017.
+  See ERRATA-36 for the same kit's mechanics/element correction (tri-elemental).
+- **source anchor (verbatim):** "Ashes of Malmouth expansion was released on October 11th 2017
+  … introduced two new Masteries: the Inquisitor and the Necromancer." —
+  mmos.com/news/grim-dawn-ashes-of-malmouth-october-11.
+
+## ERRATA-30 — gd-primal-strike-vindicator era floor restamp (drop base-2016; D-2a floor-too-early)
+
+- **kit_id:** `gd-primal-strike-vindicator` · **field:** `canon_corpus.eras`
+- **old -> new:** `base-2016;aom-2017;patch-1.1-1.2` -> `aom-2017;patch-1.1-1.2`
+- **verdict:** CONTRADICTED (batch-03 verify line 6, `era`). `errata_applied=1` (1 row).
+- **batch:** 03 · **date:** 2026-07-18 (wave 11)
+- **class:** D-2a floor-too-early. Vindicator = Shaman+**Inquisitor**; Inquisitor = AoM 2017.
+- **source anchor (verbatim):** "Unleash your vengeance upon the enemies of humanity with two
+  new Masteries: the Inquisitor and the Necromancer." (official Steam store, AoM DLC page) —
+  store.steampowered.com/app/642280/Grim_Dawn__Ashes_of_Malmouth_Expansion/.
+
+## ERRATA-31 — gd-shadow-strike-infiltrator era floor restamp (drop base-2016; D-2a floor-too-early)
+
+- **kit_id:** `gd-shadow-strike-infiltrator` · **field:** `canon_corpus.eras`
+- **old -> new:** `base-2016;aom-2017;patch-1.1-1.2` -> `aom-2017;patch-1.1-1.2`
+- **verdict:** CONTRADICTED (batch-03 verify line 29, `era`). `errata_applied=1` (1 row).
+- **batch:** 03 · **date:** 2026-07-18 (wave 11)
+- **class:** D-2a floor-too-early. Infiltrator = **Inquisitor**+Nightblade; Inquisitor = AoM 2017.
+- **source anchor (verbatim):** "Unleash your vengeance upon the enemies of humanity with two
+  new Masteries: the Inquisitor and the Necromancer." (official Steam store, AoM DLC page) —
+  store.steampowered.com/app/642280/Grim_Dawn__Ashes_of_Malmouth_Expansion/.
+
+## ERRATA-32 — gd-vitality-conjurer era floor EXTENSION (ADD base-2016; D-2a floor-too-LATE)
+
+- **kit_id:** `gd-vitality-conjurer` · **field:** `canon_corpus.eras`
+- **old -> new:** `aom-2017;fg-2019;patch-1.1-1.2` -> `base-2016;aom-2017;fg-2019;patch-1.1-1.2`
+- **verdict:** CONTRADICTED (batch-04 verify line 12, `era`; "aom-2017 (floor claim)").
+  `errata_applied=1` (1 row).
+- **batch:** 04 · **date:** 2026-07-18 (wave 11)
+- **class:** D-2a **floor-too-LATE** (2nd of run; cf. ERRATA-17 concoction, ERRATA-33 healing-
+  hands). Conjurer = Occultist+Shaman, BOTH base-game masteries -> the aom-2017 floor is TOO
+  LATE; the correct floor is base-2016. ADD (prepend) the base-2016 band; the residual bands
+  are retained.
+- **source anchor (verbatim):** "Conjurer (Shaman + Occultist) class is available since base
+  game." — forums.crateentertainment.com/t/1-1-6-2-beginners-vitality-caster-conjurer-guide-...
+
+## ERRATA-33 — le-healing-hands-paladin era floor EXTENSION (ADD 1.0-launch; D-2a floor-too-LATE)
+
+- **kit_id:** `le-healing-hands-paladin` · **field:** `canon_corpus.eras`
+- **old -> new:** `1.1-harbingers;1.4-omens` -> `1.0-launch;1.1-harbingers;1.4-omens`
+- **verdict:** CONTRADICTED (batch-05 verify line 35, `era`; "1.1-harbingers"). `errata_applied=1`.
+- **batch:** 05 · **date:** 2026-07-18 (wave 11)
+- **class:** D-2a **floor-too-LATE**. The Healing Hands SKILL TREE debuted at 1.0 launch
+  (Feb 21 2024), not 1.1; 1.1-harbingers is NOT the debut. ADD 1.0-launch as the floor.
+  (First LE floor-too-late erratum.)
+- **source anchor (verbatim):** "With our release of Last Epoch on February 21st, Healing Hands
+  will finally be getting its long awaited skill tree." —
+  maxroll.gg/last-epoch/news/healing-hands-skill-tree-revealed.
+
+## ERRATA-34 — gd-blade-trap era restamp to attested window (steward reclass X->U; "later reworked" UNVERIFIED)
+
+- **kit_id:** `gd-blade-trap`
+- **fields:** `canon_corpus.eras` + `canon_corpus.mech_note` (annotation)
+- **old -> new (eras):** `base-2016;aom-2017;fg-2019;patch-1.1-1.2` -> `base-2016;aom-2017`
+- **verdict:** the batch-01 crawl originally returned this as CONTRADICTED but the STEWARD
+  RECLASSED it CONTRADICTED->UNSUPPORTED in-place (b01 addendum): the grounds were claim-vs-
+  claim (DB era vs spec era vs negative_canon_target framing) and the anchor quoted OUR OWN
+  spec text — both illegal for CONTRADICTED (anchor law: verbatim FETCHED language). Fetched
+  text attests base-game presence + 2017 criticism and is SILENT on the fg-2019/patch-1.1-1.2
+  span -> honest verdict against the 4-era span = UNSUPPORTED. **NEW LAW (basin-2 template):
+  claim-vs-claim is never contradiction grounds.**
+- **verify_ledger:** **NO `errata_applied` flag** — blade-trap's ingested era row is UNSUPPORTED,
+  not CONTRADICTED; the convention reserves the flag for CONTRADICTED rows. (This is why the
+  wave's 13 flagged rows == the 13 CONTRADICTED verdicts, and blade-trap is not among them.)
+- **batch:** 01 · **date:** 2026-07-18 (wave 11)
+- **class:** era restamp to the attested window (= the spec value `base-2016;aom-2017`); the real
+  three-way internal inconsistency routed to this erratum. The negative_canon_target's "mechanism
+  later reworked" clause is itself UNVERIFIED from fetched text — recorded in `mech_note` as an
+  ANNOTATION, **NOT asserted** (no-fabrication).
+- **source anchor:** b01 addendum steward ruling + the fetched blade-trap forum threads (base-game
+  presence + 2017 negative_canon confirmed). The mech_note annotation records: fg-2019/patch-1.1-1.2
+  bands DROPPED (fetched silent on the span); "later reworked" clause UNVERIFIED-annotated.
+
+## ERRATA-35 — gd-fire-strike-purifier mechanics/economy correction (spirit/focus meter -> Energy / attack-replacer)
+
+- **kit_id:** `gd-fire-strike-purifier`
+- **fields:** `canon_probe_facts` economy family `facts_json` (resource_verbatim + model + meter_type).
+- **old -> new (resource_verbatim):** `spirit/focus` -> `energy` (see ERRATA-38 sweep).
+- **old -> new (model):** `meter` -> `attack-replacer`  ·  **(meter_type):** `focus` -> `n/a`.
+- **verdict:** CONTRADICTED (batch-02 verify line 17, **`mechanics`** claim family — the
+  spirit/focus-meter economy model). `errata_applied=1` on the fire-strike mechanics row.
+- **batch:** 02 · **date:** 2026-07-18 (wave 11)
+- **class:** CONTENT (mechanics/economy). Fire Strike is a DEFAULT-ATTACK REPLACER (auto-attack
+  based; attack-speed-gated), NOT a meter/resource-pool skill (b02 addendum). Two corrections in
+  one: the resource LABEL (spirit/focus->energy, part of the ERRATA-38 sweep) AND the economy
+  MODEL (meter->attack-replacer). Raw prior preserved under `_prior_ingest11`.
+- **source anchor (verbatim):** "Fire Strike functions as a ranged auto-attack ability …
+  attack-based (auto-attack focused) … around 180% Attack speed …" —
+  forums.crateentertainment.com/t/1-0-7-1-the-burning-devil-full-set-ulzuin-fire-strike-purifier/48352.
+
+## ERRATA-36 — gd-panettis-mage-hunter mechanics/element correction (mono-lightning -> tri-elemental; shock downstream-unreliable)
+
+- **kit_id:** `gd-panettis-mage-hunter`
+- **fields:** `canon_corpus.elem_raw` + `canon_probe_facts` element family `label_verbatim`.
+- **old -> new (elem_raw):** `lightning` -> `mixed(fire/cold/lightning)`.
+- **old -> new (probe element label):** `lightning` (implied) -> `mixed / fire+cold+lightning
+  (PRM tri-elemental base; shock-downstream-unreliable)`.
+- **verdict:** CONTRADICTED (batch-02 verify line 32, **`mechanics`**). `errata_applied=1`.
+- **batch:** 02 · **date:** 2026-07-18 (wave 11)
+- **class:** CONTENT. Panetti's Replicating Missile base damage is TRI-ELEMENTAL (1/3 fire, 1/3
+  cold, 1/3 lightning); the `lightning` label reflects a lightning-converted-build bias, and the
+  `shock` ailment is a downstream artifact of the mono-lightning assumption -> unreliable.
+  Probe raw prior preserved under `_prior_ingest11`.
+- **source anchor (verbatim):** "Elemental damage is dealt as 1/3 fire, 1/3 cold, 1/3 lightning
+  … tri-elemental focus converting aether damage to fire, lightning, and cold." —
+  forums.crateentertainment.com/t/1-1-8-1-shaper-of-elements-elemental-prm-mage-hunter/106609.
+
+## ERRATA-37 — gd-pet-conjurer mechanics correction (core_skills Call of the Grave -> Call of the Beast)
+
+- **kit_id:** `gd-pet-conjurer` · **field:** `canon_corpus.core_skills`
+- **old -> new:** `["Summon Briarthorn", "Summon Familiar", "Call of the Grave"]` ->
+  `["Summon Briarthorn", "Summon Familiar", "Call of the Beast"]`
+- **verdict:** CONTRADICTED (batch-02 verify line 35, **`mechanics`**). `errata_applied=1`.
+- **batch:** 02 · **date:** 2026-07-18 (wave 11)
+- **class:** CONTENT. Call of the Grave is a **Necromancer** mastery skill; Conjurer =
+  Occultist+Shaman has no Necromancer and cannot take it. The correct Shaman buff analog is
+  **Call of the Beast** (a clear data-entry confusion Grave<->Beast).
+- **source anchor (verbatim):** "Call of the Grave is not listed in the guide's skill
+  recommendations … Occultist and Shaman masteries [only] … Call of the Grave is exclusive to
+  the Necromancer mastery." — steamcommunity.com/sharedfiles/filedetails/?id=473961455.
+
+## ERRATA-38 — WRONG-RESOURCE-GENERALLY sweep (Grim Dawn resource = Energy; "Spirit" is a GD STAT name) [SYSTEMATIC CLASS]
+
+- **scope:** ALL `gd-*` rows in the two dispatch-named stores whose RESOURCE FIELD read
+  `spirit`, `focus`, or lowercase `mana`. GD's universal resource is **Energy**; the confusion
+  source is that "Spirit" is a GD **stat** name (not a resource pool).
+- **stores + hit-counts (guarded, exact-prior UPDATEs):**
+  - `canon_probe_facts` economy family `facts_json.resource_verbatim` (+ leading `plain_text`
+    token reconciled; raw prior under `_prior_ingest11`): **16 gd rows.** Values mapped
+    `mana`->`energy` (14), `mana (reserve)`->`energy (reserve)` (1: skeleton-ritualist),
+    `spirit/focus`->`energy` (2: fire-strike, belgothian-blademaster).
+  - `canon_corpus.econ_raw` (descriptor resource label): **13 gd rows.** `mana`->`energy`
+    substring (all were `mana-...` compounds; zero spirit/focus in econ_raw — asserted).
+- **batch:** 01-04 origins (belgothian b01 · fire-strike b02 · phantasmal/primal/skeleton b03 ·
+  broadened gd-wide by b03/b04 addenda) · **date:** 2026-07-18 (wave 11)
+- **NOT touched (safety-asserted):** all `le-*` rows (LE Mana is CORRECT, capital-M; 0 LE
+  resource fields relabelled). d3/di Monk Spirit is GENUINE (basin-3 concern) — not in scope.
+- **NOT swept — FLAGGED for steward (scope discipline):** `canon_engine_key.resource_verbatim`
+  is a THIRD store carrying the SAME 16 gd artifacts (14 `mana` + 2 `spirit/focus`) but the
+  dispatch named only `canon_corpus` + `canon_probe_facts`. Per no-silent-scope-expansion,
+  `canon_engine_key` was NOT swept this wave; it is recorded here + in the MIGRATION for a
+  steward-directed follow-up erratum. (See MIGRATION-vdm1-ingest11 § canon_engine_key flag.)
+- **source anchors:** b01 belgothian probe-fact hit + b02 fire-strike economy hit (2 independent
+  hits of one kb artifact; "Spirit"-stat-name confusion, b02 red-flag 4); b03 broadened to the
+  3 lowercase-`mana` hits; steward addenda (b03/b04) ratified the gd-wide sweep. Fetched GD
+  sources consistently say "energy" for the resource. fire-strike additionally carries the
+  ERRATA-35 model correction.
+
+## ERRATA-39 — le-chthonic-fissure-warlock probe element label ("Void / Fire" -> "fire / necrotic")
+
+- **kit_id:** `le-chthonic-fissure-warlock`
+- **field:** `canon_probe_facts` element family `facts_json.label_verbatim`.
+- **old -> new:** `Void / Fire (FI suffix)` -> `fire / necrotic`
+- **verdict:** NOT a verify contradiction (claim-vs-claim: probe-fact vs fetched; routed to erratum
+  per b04 addendum, NOT verdicted). NO `errata_applied` flag.
+- **batch:** 04 · **date:** 2026-07-18 (wave 11)
+- **class:** CONTENT (probe artifact). `Void` is unattested (generation artifact); fetched forum
+  text states fire & necrotic tags by default. `canon_corpus.elem_raw='fire'` is partially correct
+  (fire attested) and LEFT as-is. Raw prior preserved under `_prior_ingest11`.
+- **source anchor:** b04 red-flag 2 + summary: forum source states "fire & necrotic tags by
+  default"; damage tags fire+necrotic verbatim, NOT void.
+
+## ERRATA-40 — le-manifest-armor probe resource fabrication ("Forge Stacks" -> "Mana")
+
+- **kit_id:** `le-manifest-armor`
+- **field:** `canon_probe_facts` economy family `facts_json.resource_verbatim`.
+- **old -> new:** `Forge Stacks` -> `Mana`
+- **verdict:** NOT a verify contradiction (probe-fact fabrication routed to erratum per b05 addendum).
+  NO `errata_applied` flag.
+- **batch:** 05 · **date:** 2026-07-18 (wave 11)
+- **class:** CONTENT (probe artifact). "Forge Stacks" is a probe-fact fabrication as the RESOURCE
+  model — fetched maxroll text is Mana-based ("Primary Mana cost for initial summon"). Only the
+  `resource_verbatim` field is corrected (dispatch scope: "resource -> Mana"); the `model`
+  (harvest) + `builder_source` ("melee kills generate Forge Stacks") are PRESERVED under
+  `_prior_ingest11` (Forge Stacks is a real game concept, just not the resource-pool model).
+  NOTE: this is an LE kit and the target value is **Mana** (LE resource) — it is NOT part of the
+  gd->Energy sweep (ERRATA-38); LE Mana is correct.
+- **source anchor:** b05 red-flag 2 + summary: "Fetched maxroll guide describes the build as
+  Mana-based for the initial summon; no Forge Stacks mechanic is attested [as the resource] in
+  fetched text."
+
+## ANNOT-BASIN2 (wave 11) — annotations (no value change), BACKFILL-1, promotion census
+
+Not new value-changing errata; recorded for provenance. Annotations are dated `mech_note`
+PREPENDs (`[VDM-1 basin-2 2026-07-18 ingest-11]`) preserving the original note verbatim after
+`[original mech_note follows]`. No verify `errata_applied` flags (none are CONTRADICTED-era).
+
+**Class/alias/framing annotations (spec-field corrections; no DB `class` column — mech_note home,
+ERRATA-21/22/23 pattern):**
+- **le-tempest-strike (g):** spec class "Shaman (Primalist+Acolyte)" — DROP Acolyte (Shaman is a
+  PRIMALIST mastery; Acolyte is a separate base class = ingest artifact; fetched: Primalist/
+  Shaman). PLUS negative_canon ERA-SCOPE note: beta-attested "falls off at end-game" (fixed
+  attack-speed ceiling) is REAL but era-bounded — post-1.0 rework substantially addressed it
+  (viable-with-investment at 1.2-woven). New review-book class (ERA-SCOPED negative).
+- **le-runic-invocation (l):** spec/folk class "Runemaster (Mage+Primalist)" — Runemaster is a
+  MAGE mastery; "Primalist" is an ingest artifact (Runemaster not available to Primalist).
+  folk_name slug LEFT as-is (identifier).
+- **le-umbral-blades (h):** spec alias "void blade Rogue" is a probe artifact — fetched attests
+  physical/cold (probe element already reads "Physical / Cold"), NOT void. Identity CONFIRMED on
+  the real folk name.
+- **le-fire-aura-spellblade (j):** core_skills "Flame Ward/aura suite" MISFRAMES the delivery —
+  Flame Ward is a DEFENSIVE COOLDOWN, not the aura; the fire aura radiates PASSIVELY via a passive
+  node (emergent, unnamed). core_skills token LEFT as-is (framing note, no unilateral restamp).
+- **le-ghostflame-warlock (k):** geo_text/delivery "beam" REVIEW toward "cone" — fetched describes
+  a "channeled jet"/"hellish torrent" covering a widening CONE projection; the probe geo_text prose
+  already captures the cone nuance. `delivery.value='beam'` LEFT as-is pending steward review
+  (dispatch verb = "review", not hard-restamp).
+
+**Descriptive-field / negative / era WATCH annotations (value LEFT as-is):**
+- **gd-word-of-pain-tactician (f):** elem_raw='fire' is a descriptor artifact — fetched WoP
+  Tactician builds show chaos/lightning/pierce variants (fire is a burn/secondary). Value LEFT
+  (descriptive field, not verify-family).
+- **le-harvest-lich (m) — CHIMERA (HIGH; Unattested Register; EXCLUDED from promotion):** folk
+  name "Harvest Death Seal Lich" CONFLATES two real maxroll builds (Harvest Flay Lich, cold/
+  HP-leech · Death Seal Lich, necrotic/low-life) — different core skills, damage types,
+  economies. All identity/mechanics/era claims for the COMBINED form are UNSUPPORTED (the all-U
+  wall is the instrument WORKING). **Steward ruling: do NOT split the kit record mid-run**
+  (schema surgery deferred to review book). Identity annotated UNATTESTED/chimera.
+- **gd-stun-jacks (n):** negative_canon "trap-skill over-centralization" UNATTESTED (fetched
+  sources are POSITIVE about the skill's damage ceiling; verdict was honest-U). kb-negative-list
+  reliability signal.
+- **gd-stormbox-elementalist (n):** IDENTITY-INTENT WATCH — dominant Storm Box expression is
+  VINDICATOR, not Elementalist; identity reclassed CONFIRMED->UNSUPPORTED (steward, b03). Demote
+  candidate iff curation later requires primary-skill-anchored identities.
+- **le-detonating-arrow-mm (n):** IDENTITY-INTENT WATCH — dominant maxroll expression is Blast
+  Rain (which procs DA); no standalone DA Marksman guide. Identity C STANDS (components attested
+  together) but weak on folk-name-as-headline; demote candidate under the same rule as stormbox.
+- **le-wraithlord-necro (n):** ERA WATCH (prune/backfill candidate) — 1.1-harbingers + 1.2-woven
+  era stamps UNATTESTED (sources cluster at 1.0-launch; possible post-1.0 rotation). Value LEFT
+  pending steward prune/backfill.
+- **le-hammer-throw-paladin (n):** PATCH RENAME NOTE — "Sigils of Hope" (beta/1.0 era name,
+  correct at stamp) renamed "Symbols of Hope" in current Season 4; era-scoped name note, not a
+  contradiction. Value LEFT.
+- **le-storm-totem-shaman (n):** FORM-SPECIFIC RESOURCE NOTE — Spriggan Form variant replaces
+  Mana with Rage ("Mana is replaced by Rage while Transformed"); form-specific override, NOT a
+  base-resource contradiction. Value LEFT.
+
+**BACKFILL-1 (steward-ratified NULL-field era backfills):** guarded on eras NULL/empty; raw
+prior (empty) recorded in the mech_note backfill annotation under `_prior_ingest11`.
+- **le-ring-of-shields:** eras NULL -> `1.0-launch;1.1-harbingers`.
+- **le-shift-bladedancer:** eras NULL -> `beta-0.8-0.9;1.0-launch;1.1-harbingers;1.4-omens`
+  (1.2-woven unverifiable — OMITTED).
+
+**PROMOTION (whole-kit gate; ratified at ingest-10):** a kit's probe facts promote
+`kb-legacy`/`named-source-unfetched` -> `verified-v1.1` IFF mechanics=CONFIRMED-with-anchor AND
+ZERO CONTRADICTED verdict in ANY family, AND the kit HAS probe facts.
+- **Promoted: 56 kits × 10 = 560 facts.** `verified-v1.1` 1040 -> 1600 (+560; -50 kb-legacy,
+  -510 named-source-unfetched).
+- **Excluded — 22 kits:** 11 CONTRADICTED-somewhere (the ERRATA-24..37 carriers: aar,
+  callidors, fire-strike, forcewave, mortar, panettis, pet-conjurer, primal-strike,
+  shadow-strike, vitality-conjurer, healing-hands) + 3 clean-but-mechanics-NOT-CONFIRMED
+  (gd-berserker-wereforms mech-U/unshipped-FoA · le-bomb-lance-falconer mech-SNF [full SNF ->
+  Unattested Register + re-crawl queue] · le-harvest-lich mech-U [CHIMERA, per (m)]) + 8
+  gate-pass-but-ZERO-probe-facts (nothing to flip; NOT excluded-for-cause): gd-blade-trap,
+  gd-reap-spirit, gd-stun-jacks, le-ring-of-shields, le-shield-bash-le, le-shift-bladedancer,
+  le-soul-feast, le-tempest-strike. Census: 56 + 11 + 3 + 8 = 78 ✓.
+- **NULL-field kits post-backfill:** ring-of-shields + shift-bladedancer are gate-PASS (id+mech
+  CONFIRMED, zero-contra) but carry ZERO probe facts even after the era backfill (backfill adds
+  era stamps, not probe rows) -> they land in the zero-fact bucket; nothing to promote. Correct.
