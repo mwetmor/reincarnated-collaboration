@@ -10,7 +10,7 @@
 | poe2 **armour break** ("Armour Piercing Rounds" — galvanic-shards b01) | **sunder** (hit-proc) | main-law exposure row governs: hit-proc window → sunder; only aura/hex-shaped shred → curse:sap |
 | poe2 **Time Freeze** ("stopping time for all enemies for 3 seconds" — chronomancer b01) | **stun** (mass, duration-capped) + fidelity_note | NOT freeze — freeze is cold-thematic shatter-carrier; time-stop is element-neutral hard CC. Approximation, note the flavor loss |
 | poe2 **aggravated Bleed** (rake-ritualist b02) | **bleed** | variant magnitude in param_ranges; no new ailment |
-| poe2 **Ignite / Poison / Freeze / Shock** | per main law | unchanged from PoE1 rows (incl. shock→sunder FALSE FRIEND — verify per-kit whether fetched text means damage-amp or arc-CC before routing) |
+| poe2 **Ignite / Poison / Freeze / Shock** | per main law | unchanged from PoE1 rows (incl. shock→sunder FALSE FRIEND). ⚠ **m01-audit ruling (BINDING):** engine `shock` requires POSITIVE fetched attestation of paralysis/CC behavior; absent that, poe2 shock ALWAYS routes `sunder` — and a status never named in fetched text is not emitted at all (§0). m01 leak taxonomy: un-attested-rider ×2 (priors/kb) · attested-misrouted ×1 ("arc-CC-adjacent" invention) — all corrected at audit |
 
 **Un-attested so far (do NOT map from memory):** electrocute, pin. If b03/b04 fetched text surfaces them, steward adds rows at audit.
 

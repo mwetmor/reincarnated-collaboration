@@ -55,3 +55,18 @@ All 12 `terminal_state: MAPPED` (no GAPPED → no MAPPED_DOCKET row; kits graded
 - **chronomancer** — also APPROX-bordering-GAPPED: BOTH signature mechanics (literal time-STOP, and the cooldown-reset engine) degrade — stun≠time-stop, and cadence_scale≠cooldown-zero. Two identity-level losses on one kit.
 - **archmage-totems** — the joint attestation is genuinely weak (conf 0.45, "not confirmed in a single source"); if the Oracle+Archmage+Totem synergy is a phantom-combo the kit is really just totem-Spark. Mapped components honestly, flagged.
 - **demon-form element** — corpus says fire; dossier says attested fetched builds run Spark (lightning) in-form and "element is not locked to fire." Honored corpus fire per the row but a lightning override would be equally legal — steward may prefer the attested-build element.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, DRIFT-CRITIC) — ACCEPTED w/ corrections
+
+**Recount (file truth):** 0 EXACT / 7 CLOSE / 5 APPROX / 0 GAPPED, all `MAPPED` — **self-report MATCHED file truth** (first exact self-report of the basin). R-M7 vacuous-clean · R-M5 tokens 0 · geometry 9/9 valid §6 tokens · t4_doors 13/13 valid (bare-base per R-M1) · elements valid · docket file shape valid.
+
+**CORRECTION — engine-`shock` leak ×3 (the §2 FALSE FRIEND in its subtle form), fixed in-place:**
+1. `poe2-archmage-totems` ailments `['shock']` → `[]` — **un-attested rider from stale priors**; the mapper's own fidelity note conceded "fetched text does not name a status" and emitted the token anyway (§0 violation by admission).
+2. `poe2-gemling-stacker` `['shock','freeze']` → `['freeze']` — **kb-derived rider**; corpus "Lightning hybrid" is not fetched attestation (the basin's headline finding is exactly that post-cutoff kb content is unreliable). Freeze retained (Three Dragons fetched-attested).
+3. `poe2-galvanic-shards` `['shock']` → `['sunder']` — **attested-but-misrouted**; "arc-CC-adjacent" was mapper invention, no CC behavior in the fetched quote; §2 deterministic row governs. Shockburst apply-consume preserved in trigger_grammar. Double-sunder kit (shock + armour-break) — honest.
+
+Post-correction: engine-shock emitted **0×** across PoE1 + basin-1 mappings. Leak taxonomy (un-attested-rider / kb-derived-rider / attested-misrouted) folded into addendum §A as a binding ruling for m02-audit + m03/m04 briefs.
+
+**Upheld without change:** Erasure C.6 map-around (ED+Contagion only, graded as-if-nonexistent) · demon-form GX-02 + hp_cost_scale clamp · archmage conf-0.45 joint-attestation flag + chain_count=3 (3 load-bearing actives — R-M2 conformant) · chronomancer double-identity-loss honesty (negative kit unlaundered) · gemling APPROX-not-GAPPED (melee shell maps; stat→damage gap docket-able — R-M7 player test: "that build, worse") · all 3 docket filings (blood-mage overheal → steward consolidates w/ grim-feast b02 at stage-3; chronomancer cooldown-reset; gemling stat→damage w/ howa cross-ref).
