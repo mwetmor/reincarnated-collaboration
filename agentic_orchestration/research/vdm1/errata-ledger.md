@@ -160,3 +160,210 @@ Steward: elrond (single writer, corpus.db). Run: vdm1.
   earthshatter REMAINS in the stage-3 bucket-audit register (its stamp still floors
   the 3.7-3.13 bucket though the skill debuted 3.11 — a soft register-candidate the
   dispatch explicitly excluded from correction this wave).
+
+---
+
+## ERRATA-5 — poe1-icicle-mines era floor correction (3.7 -> 3.8 within bucket)
+
+- **kit_id:** `poe1-icicle-mines`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `3.7-3.13` -> `3.8-3.13`
+- **verdict:** CONTRADICTED (batch-05 verify, `era` claim family)
+- **batch:** 05
+- **date applied:** 2026-07-18 (ingest wave 3)
+- **verify_ledger:** `errata_applied=1` set on the ingested icicle-mines `era` row.
+- **provenance note:** icicle-mines is EXCLUDED from this wave's `fact_provenance`
+  promotion (it carried a CONTRADICTED era). Its 10 probe facts remain legacy
+  (verified 0 `verified-v1.1`).
+- **source anchor (verbatim):** "Icicle Mine was introduced in patch 3.8.0
+  (originally as 'Freeze Mine,' which was completely reworked and renamed)" —
+  poedb.tw/us/Icicle_Mine.
+- **adjudication:** Same shape as ERRATA-1/3/4 (debut-inside-bucket). The skill
+  debuted at patch **3.8.0**, inside the `3.7-3.13` bucket. The build cannot have
+  been meta during 3.7 (the sole patch below the debut in-bucket). Narrow the
+  bucket floor from `3.7` to the debut `3.8`, yielding `3.8-3.13`. The identity
+  (Saboteur Icicle Mine build) and mechanics (throw-and-detonate mine, converging
+  icicle volleys) are both CONFIRMED and untouched.
+- **not-corrected fields:** none. Only the patch-band `eras` floor bucket changed.
+  Note the DB `era_year` (=2013) is a separate mint-era artifact, left untouched
+  on this kit (only kinetic-fusillade's era_year was rekeyed this wave — ERRATA-9).
+
+---
+
+## ERRATA-6 — poe1-lightning-conduit era floor correction (3.14 -> 3.19 within bucket)
+
+- **kit_id:** `poe1-lightning-conduit`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `3.14-3.19;3.20+` -> `3.19;3.20+`
+- **verdict:** CONTRADICTED (batch-05 verify, `era` claim family)
+- **batch:** 05
+- **date applied:** 2026-07-18 (ingest wave 3)
+- **verify_ledger:** `errata_applied=1` set on the ingested lightning-conduit `era` row.
+- **provenance note:** EXCLUDED from promotion (carried a CONTRADICTED era). 10
+  probe facts remain legacy.
+- **source anchor (verbatim):** "Lightning Conduit was introduced in patch 3.19.0
+  (Lake of Kalandra). Three new skill gems themed around lightning damage and
+  shock" — poe-vault.com/guides/lake-of-kalandra-league-new-skill-gems.
+- **adjudication:** The skill debuted at patch **3.19.0 (Lake of Kalandra)**, at
+  the very top of the `3.14-3.19` bucket. The bucket floor 3.14 predates the skill
+  by five patches; the only attestable in-bucket patch is 3.19 itself. Narrow the
+  `3.14-3.19` bucket to the single debut patch `3.19`, yielding `3.19;3.20+`
+  (the collapsed single-patch token `3.19` denotes the debut patch alone; the
+  `3.20+` bucket is untouched). Convention note: where a debut lands on the
+  top-most patch of a wide bucket, the bucket collapses to that single patch token
+  rather than a `X-Y` range (contrast ERRATA-5/7 where the debut is mid-bucket and
+  a residual range remains).
+
+---
+
+## ERRATA-7 — poe1-pconc era floor correction (3.14 -> 3.16 within bucket)
+
+- **kit_id:** `poe1-pconc`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `3.14-3.19;3.20+` -> `3.16-3.19;3.20+`
+- **verdict:** CONTRADICTED (batch-05 verify, `era` claim family)
+- **batch:** 05
+- **date applied:** 2026-07-18 (ingest wave 3)
+- **verify_ledger:** `errata_applied=1` set on the ingested pconc `era` row.
+- **provenance note:** EXCLUDED from promotion (carried a CONTRADICTED era). 10
+  probe facts remain legacy.
+- **source anchor (verbatim):** "Poisonous Concoction was introduced in patch
+  3.16.0 Scourge League, described as a new Dexterity Skill Gem" —
+  poedb.tw/us/Poisonous_Concoction.
+- **adjudication:** The skill debuted at patch **3.16.0 (Scourge)**, inside the
+  `3.14-3.19` bucket. The bucket floor 3.14 predates the skill by two patches.
+  Narrow the bucket floor from `3.14` to the debut `3.16`, yielding
+  `3.16-3.19;3.20+`. The `3.20+` bucket is untouched. Same league as ERRATA-8's
+  positive-evidence window (Scourge 3.16), an independent corroboration that 3.16
+  is the correct floor for skills of that cohort.
+
+---
+
+## ERRATA-8 — poe1-seismic-trap DROP unattested 3.7-3.13 bucket (distinct root-cause class)
+
+- **kit_id:** `poe1-seismic-trap`
+- **field:** `canon_corpus.eras`
+- **old -> new:** `3.7-3.13;3.14-3.19` -> `3.14-3.19`
+- **verdict:** CONTRADICTED (batch-06 verify, `era` claim family) on the 3.7-3.13
+  bucket; corroborated by a paired CONFIRMED positive-evidence `era` row on the
+  3.14-3.19 bucket (both rows landed in verify_ledger via the batch-06 granular
+  one-row-per-band split).
+- **batch:** 06
+- **date applied:** 2026-07-18 (ingest wave 3)
+- **verify_ledger:** `errata_applied=1` set on the ingested seismic-trap 3.7-3.13
+  `era` CONTRADICTED row (exactly one such row; the 3.14-3.19 CONFIRMED row is NOT
+  flagged).
+- **provenance note:** EXCLUDED from promotion (carried a CONTRADICTED era). 10
+  probe facts remain legacy.
+- **DISTINCT ROOT-CAUSE CLASS:** **"patch-buff-seeded stamp, no adoption evidence."**
+  This is NOT the debut-inside-bucket class of ERRATA-1/3/4/5/6/7. Seismic Trap
+  **existed since patch 3.3.0** — so the skill predates the entire `3.7-3.13`
+  bucket and a naive debut-floor correction would WRONGLY keep the bucket (the
+  skill was present). But *presence of the skill* is not *presence of the build in
+  meta*. The crawl found **no guide, thread, or attestation** of a Seismic Trap
+  meta build during 3.7-3.13; the earliest confirmed meta is **3.16 (Scourge)**,
+  with 3.16 and 3.18 forum guides anchoring the 3.14-3.19 window. A 3.13-era
+  patch-buff to the skill most plausibly **seeded the era stamp** in the original
+  mobile-harvest (a data-entry inference from "buffed in 3.13" to "meta in
+  3.7-3.13") **without any adoption evidence**. The correction therefore DROPS the
+  entire unattested `3.7-3.13` bucket rather than narrowing its floor, leaving only
+  the attested meta window `3.14-3.19`.
+- **source anchors (verbatim):**
+  - CONTRADICTED: "Seismic Trap introduced 3.3.0; all found meta guides begin at
+    3.16 (Scourge). No guide or attestation found for 3.7-3.13 meta. Earliest
+    confirmed meta is 3.16+." — poedb.tw/us/Seismic_Trap.
+  - CONFIRMED (positive, 3.14-3.19): "'[3.16] Seismic/Exsanguinate Trap Build |
+    Saboteur | Scourge' forum post; '[3.18] Seismic Trap / Exsanguinate Saboteur'
+    guide confirm 3.16-3.18 active" — pathofexile.com/forum/view-thread/3179858.
+- **register effect:** dropping the `3.7-3.13` bucket removes the literal token,
+  and the corrected floor becomes `3.14-3.19` — seismic-trap is now floored in the
+  `3.14-3.19` bucket. It is individually verified this wave regardless, so it is
+  NOT a stage-3 register member.
+- **methodology note for stage-3:** this class ("skill present but build unattested
+  in a stamped band") is distinct from debut-floor errata and is likely to recur.
+  The discriminator is: *does the skill's debut predate the bucket?* If YES and the
+  bucket is still unattested, suspect a patch-buff-seeded stamp and require positive
+  meta evidence for EACH stamped band, not just skill existence. Recommend stage-3
+  apply this test to every multi-band PoE1 stamp.
+
+---
+
+## ERRATA-9 — poe1-kinetic-fusillade era_year rekey (2013 -> 2024; NON-eras column)
+
+- **kit_id:** `poe1-kinetic-fusillade`
+- **field:** `canon_corpus.era_year` (NOT `eras` — a distinct mint/introduction-year
+  column)
+- **old -> new:** `2013` -> `2024`
+- **verdict:** the `era` verify row is **CONFIRMED** (stamped `3.20+` is correct;
+  Kinetic Fusillade was added in version 3.27.0, which is in the 3.20+ band). The
+  era_year=2013 is a **bulk-fill artifact** (every kit in batches 05/06 carries the
+  identical placeholder 2013 in `era_year`), not a verified value. This errata
+  corrects the artifact; it does NOT touch `eras`.
+- **batch:** 05
+- **date applied:** 2026-07-18 (ingest wave 3)
+- **verify_ledger:** **NO `errata_applied` flag set.** The `errata_applied=1`
+  convention is reserved for CONTRADICTED-era-row corrections. kinetic-fusillade's
+  era row is CONFIRMED; flagging it would falsely imply the era stamp was wrong.
+  The era_year correction is recorded here (ledger) as the sole audit trail, per
+  no-silent-transformation. (Verified: kinetic-fusillade has 0 `errata_applied=1`
+  rows post-ingest.)
+- **provenance note:** kinetic-fusillade **IS PROMOTED** to `verified-v1.1` (10
+  facts) — its era verdict is CONFIRMED and it carries no CONTRADICTED verdict; only
+  the non-eras era_year artifact was rekeyed, which does not gate promotion.
+- **source anchors (verbatim):**
+  - verify era row: "Kinetic Fusillade was Added a new Intelligence Skill Gem in
+    version 3.27.0" — poedb.tw/us/Kinetic_Fusillade.
+  - citation titles anchoring the year: "[3.27] Kinetic Fusillade, the build of the
+    league (Elementalist/Olroth)" (pathofexile.com forum) and "Kinetic Fusillade
+    Ballista Hierophant League Starter (3.28)" (maxroll.gg). PoE 3.27/3.28 shipped
+    in **2024**, establishing the introduction year as 2024, not 2013.
+- **not-corrected fields:** `eras` (=`3.20+`, CONFIRMED) untouched. Only `era_year`.
+- **red-flag origin:** batch-05 flagged era_year=2013 as a bulk-fill artifact. The
+  batch-05 citations anchor the true introduction (3.27/3.28 = 2024), so this is
+  applied as an errata (not deferred to a REVIEW row). NOTE: the identical 2013
+  bulk-fill placeholder persists on the OTHER 23 batch-05/06 kits and on prior-wave
+  kits; those were NOT individually rekeyed this wave (only kinetic-fusillade was
+  in-scope per the dispatch red flag). A systematic era_year backfill is a stage-3
+  candidate — see MIGRATION-vdm1-ingest3 § era_year-artifact.
+
+---
+
+## REVIEW-2 — poe1-poets-pen-vd class field (Berserker/Inquisitor vs stamped Elementalist/Necromancer) — NO in-scope column to correct
+
+- **kit_id:** `poe1-poets-pen-vd`
+- **field:** ascendancy/class — **NOT a `canon_corpus` column.** The class value
+  lives in `roster_atlas.class_v4r2` (mirrored in `roster_lineage_enrichment`),
+  which is OUTSIDE elrond's landing-zone write scope AND — critically —
+  **`poe1-poets-pen-vd` has NO row in `roster_atlas` at all** (verified: 0 rows in
+  both roster_atlas and roster_lineage_enrichment for this kit_id). There is no
+  writable class column in `corpus.db` for this kit. The "DB class field says
+  Elementalist/Necromancer" premise in the dispatch refers to a value in the
+  upstream mobile-harvest source / a stage-3 mapping not present in corpus.db.
+- **status:** REVIEW — **NO data change this wave.** The class evidence IS captured
+  and anchored in the landing zone (verify identity rows CONFIRMED + the batch-06
+  `variants` dossier row, both ingested), but there is no in-scope column to
+  correct. Routed to the `roster_atlas` owner via knight-rider for adjudication.
+- **batch:** 06
+- **date noted:** 2026-07-18 (ingest wave 3)
+- **positive evidence (anchored, ingested into kit_dossier / verify_ledger):** the
+  batch-06 `variants` dossier row for poets-pen-vd carries payload
+  `["Berserker/Marauder (3.1 original)", "Inquisitor Templar (3.2+ after Berserker
+  nerf)", "Occultist", "Scion Ascendant (3.10)"]` with verbatim anchor "as of Patch
+  3.2, this build is no longer supported. Berserker class is no longer viable
+  choice... leading to the Templar[/Inquisitor]" (pathofexile.com forum). The
+  identity CONFIRMED rows cite the odealo guide title "Poet's Pen Volatile Dead
+  **Berserker/Marauder** Patch 3.1 Build". So the primary sources attest the class
+  lineage **Berserker (3.1) -> Inquisitor Templar (3.2+)** — NOT Elementalist or
+  Necromancer.
+- **why not corrected here:** (1) no-silent-transformation forbids inventing a
+  class column; (2) the authoritative class store (`roster_atlas`) is not elrond's
+  seam and, in any case, lacks a row for this kit. Correcting the upstream value
+  requires the roster_atlas owner (per ADR-004 cross-seam coordination) — elrond
+  authors the request; another agent applies the roster-side change.
+- **recommended action for steward/Matt/roster owner:** rekey the poets-pen-vd
+  class from Elementalist/Necromancer to the attested `Inquisitor` (3.2+ canonical
+  peak) with the Berserker (3.1 original) lineage noted, WHEREVER that value is
+  authoritatively stored (roster_atlas.class_v4r2 and/or the mobile-harvest source
+  that seeds it). The batch-06 dossier `variants` row is the citation. Until the
+  roster owner acts, the corpus.db landing zone correctly records the anchored
+  evidence and this REVIEW note; no corpus.db field is silently changed.
