@@ -25,9 +25,9 @@
 | 01 | 1–12 | ✓ DONE | 40 CONFIRMED / 0 CONTRA / 12 UNSUP (all filler negative_canon on negative=0 — dropped at ingest) / 0 SNF · dossier 71/72 · 14 author handles · anchors 100% |
 | 02 | 13–24 | ✓ DONE | 34 C / **1 CONTRADICTED** / 17 U / 0 SNF · **ERRATA-1: crackling-lance era 3.7-3.13 → 3.12-3.13 (skill debuted 3.12 Heist)** · cleave death_class flagged inference-not-attested (honest UNSUP) · dossier 93% |
 | 03 | 25–36 | ✓ DONE | 32 C / **1 CONTRADICTED** / 3 U / 0 SNF · **ERRATA-2 candidate: deaths-oath era floor 2.x → 1.x (item attested v1.0.2, Nov-2013 forum)** · dossier 65% (capstone_alterations universally source-silent) · 5 author handles · anchors 100% |
-| 04 | 37–48 | ⏳ fired | — |
+| 04 | 37–48 | ✓ DONE | 34 C / **2 CONTRADICTED** / 1 U / 0 SNF · **ERRATA-3: generals-cry era floor 3.7 → 3.11 · ERRATA-4: hexblast-mines era floor 3.7 → 3.12 (both skill-introduction violations)** · dossier 83% (capstone_alterations uniform abstain) · glacial-hammer negative_canon CONFIRMED · anchors 100% |
 | 05 | 49–60 | ⏳ fired | — |
-| 06 | 61–72 | ○ | — |
+| 06 | 61–72 | ⏳ fired | — |
 | 07 | 73–84 | ○ | — |
 | 08 | 85–94 | ○ | — |
 
@@ -40,7 +40,9 @@ Batch discipline: agents commit pathspec-only, do NOT push (steward pushes after
 - Abstain-law refinement: 2 rows (b01 autobomber/author_credit, b02 blood-magic/variants) carried `{"note":...}` payloads on abstained=1 — DB CHECK rejects; elrond logs at ingest-1, re-insert with null payload at ingest-2; template hardened for 05+.
 - Ingest-1 fired (batches 01-02 + ERRATA-1 + fact_provenance promotions to `verified-v1.1` for clean kits).
 - Batch-03 flags for ingest-2: (a) ERRATA-2 candidate deaths-oath era floor (elrond review); (b) earthshatter alias "Foulborn Ghostwrithe zerker(3.28)" unfindable in any source — phantom-alias candidate; (c) `capstone_alterations` structurally source-silent from guide-tier fetches (universal abstention b03) → targeted poedb gem-level backfill pass queued as stage-4 candidate.
-- Running tally after 36/94 kits: 106 CONFIRMED / 2 CONTRADICTED / 32 UNSUPPORTED / 0 SNF · 0 quarantined-domain hits · anchors 100% on C/C verdicts. Era remains the weakest family (both contradictions are era-floor errors, opposite directions) — prior ~.85 tracking true.
+- Running tally after 48/94 kits: 140 CONFIRMED / 4 CONTRADICTED / 33 UNSUPPORTED / 0 SNF · 0 quarantined-domain hits · anchors 100% on C/C verdicts. ALL 4 contradictions are era-family (prior ~.85 named it weakest — tracking true; era contra rate ~8% vs ~15% predicted).
+- **SYSTEMATIC FINDING (batch-04 red flag): the `3.7-3.13` era bucket is a contamination vector** — 3 of 4 era contradictions are kits stamped at that bucket's floor before the skill debuted (crackling-lance 3.12, generals-cry 3.11, hexblast-mines 3.12). Ingest-2 emits a bucket-audit register (all 585 kits using the bucket) for stage-3; batch-05+ briefs carry an explicit introduction-patch check addendum.
+- Ingest-2 fired (batches 03-04 + ERRATA-2/3/4 adjudication + earthshatter phantom-alias REVIEW row + bucket-audit register + v1.1 promotions). Stage-4 candidate queued: targeted poedb pass for capstone_alterations (structurally guide-silent: b03 100% abstain, b04 uniform abstain) — pairs with the bucket audit as one poedb sweep.
 
 ## Pre-registered priors (grade at stage 3)
 
