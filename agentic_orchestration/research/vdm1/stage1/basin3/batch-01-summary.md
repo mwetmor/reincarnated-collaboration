@@ -101,3 +101,7 @@ Abstention reasons:
 - Direct Wayback fetch via web.archive.org is BLOCKED by WebFetch tool.
 - Arreat Summit is LIVE at classic.battle.net — fetched sorceress-fire.shtml successfully (HTTP 200), returning Blaze official description. No Wayback snapshot needed for LoD-era claims as live site serves them.
 - Blade Fury Assassin: Arreat Summit assassin-traps.shtml was not needed for the Blade Fury verdict; diablo2.io skill page served equivalent mechanical data.
+
+---
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18 — CW1 close)
+**ACCEPTED, 0 corrections.** File truth: **48 rows = 47C/1U** (advisory "~44C/1U" — crawl-drift series #10; kits 12 ✓, families 12/12/22/2). Negatives 2/2 CONFIRMED (blade-sin "one point wonder" · blaze-sorc "glaring weakness") — both attested. Anchors: C/X all present, ≤40w. rpgstash quarantined correctly (RF-02 discipline ✓). Dossier 68/72 non-abstained = 94.4%, abstain payloads strictly-null ✓. Deep-audit: blaze mechanics anchor (maxroll, verbatim movement-trail text) CONFIRMS RF-01 — **PROBE-ARTIFACT erratum queued: probe "channeled" is wrong; fetched text = movement-trail** (rides INGEST-13). daggermancer 2.4-era-U honest. purediablo-403 → CW2+ domain-order amendment banked. Wayback: 0 archive_url rows (see b03 addendum — steward probe proved the service LIVE; instrument failure class).

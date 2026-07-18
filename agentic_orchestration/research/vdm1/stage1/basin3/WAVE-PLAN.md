@@ -27,6 +27,18 @@
 - **Anchor discipline:** anchor_quote ≤40 words, verbatim, CONTIGUOUS in the fetched page — content-class glosses (paraphrase presented as quote) get TRIMMED at audit and repeat-offenders reclassed. Length-class overruns are tolerated; splices are leaks.
 - **maxroll planner-link rule:** a maxroll build-PLANNER link (d3planner/planner URLs) is a dataset-class citation, not an authored-guide attestation; author_credit needs a byline on a guide page.
 
+
+## Post-CW1 amendments (PASTE-relevant for CW2+ spawning prompts)
+
+**CW1 CLOSED (b01 `4c061224` · b02 `0fedaf21` · b03 `e3ca05b1` + steward audit commit): 36/36 d2 kits · file truth 149 verify rows = 137C/11U/1X/0SNF** (b01 48=47C/1U · b02 47=46C/1X · b03 54=44C/10U). Advisory drift #10-12 — crawl series now **12-for-12**. Citations 71 (1 quarantined). Dossier 216 rows, 187 non-abstained = 86.6% (1 abstain-payload correction b02 firewall). Negatives 7 = **6C (1 era-bounded leap-attack) / 1U (grim-ward)** — contrast basin-2's 50%: d2 old-consensus negatives are densely documented; reliability tracks community-documentation density, not game (review-book register). Erratum queue for INGEST-13: **fishyzon core_skills+aliases HIGH** · blaze-sorc probe "channeled"→movement-trail artifact · grim-ward-barb → Unattested Register.
+
+**Hot-fact adds for CW2+ prompts (binding):**
+- **purediablo.com is 403 for direct fetches** — d2 domain order effectively opens at diablo2.io; recover PureDiablo attributions from search snippets only.
+- **Wayback instrument protocol:** the service is LIVE (steward-verified). Use the availability API FIRST (`http://archive.org/wayback/available?url=<URL>&timestamp=<YYYYMMDD>`), then fetch the returned `http://web.archive.org/web/<ts>/<url>` snapshot URL exactly. If your fetch tool still errors, RECORD the availability-API JSON (snapshot URL + timestamp) in your summary as retry evidence and file the era row honest-U — do not silently drop the instrument.
+- Blogspot/era-authentic archives (narkive usenet, 2009 blogspots) are LEGAL authored/communal-class d2 sources when byline-bearing — age is not inadmissibility (d2 canon is old).
+
+**BACKFILL-3 — WAYBACK-RETRY queue (era-U rows on wayback-flagged kits, upgrade candidates):** b01 blade-sin/blaze-sorc (era attested live — no retry needed unless classic tokens U) · b02 firewall-sorc (era confirmed via alternate live source — low priority) · b03 golemancer · grim-ward-barb · impale-zon · inferno-sorc · leap-attack-barb (classic/lod-token U rows). Retry vehicle: steward or micro-agent post-CW5, pre-INGEST-13; availability-API-first protocol.
+
 ## Standing counts at fire time (steward-owned)
 
 verify_ledger in-DB post-ingest-11: **831 rows** (pre-basin-2 519 [poe1 + basin-1; basin-1 census 150C/11X/13U/0SNF = 174] + basin-2 312 [250C/13X/46U/3SNF]). Basin-2 D-2a harvest: 10 kits. Basin-2 kb-negative tally: 6 = 2 attested + 1 era-bounded (tempest-strike) + 3 unattested (stun-jacks · shield-bash · soul-feast). Unattested Register carries: bomb-lance ×3 SNF · harvest-lich CHIMERA (split erratum HIGH). Basin-3 has its own 18-negative roster (template §claims) — the negative-canon reliability series continues.
