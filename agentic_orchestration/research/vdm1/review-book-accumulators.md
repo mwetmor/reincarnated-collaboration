@@ -1,6 +1,6 @@
 # VDM-1 REVIEW BOOK — accumulator staging index (steward, gandalf)
 
-> **STATUS: STAGING, non-authoritative.** This is the thematic index for THE REVIEW BOOK (charter R-8b, stage 6) — assembled 2026-07-18 during the W3 window from committed audit addenda + the run-state ledger (`agentic_orchestration/gandalf/notes/2026-07-18-vdm1-run-state.md`). Every line traces to a committed artifact. The review book supersedes this file at stage 6; nothing here is a new ruling. **State as-of: W3 CLOSED — BASIN-2 MAPPING COMPLETE (76/76 · 9E/43C/13A/11G · 65M/11D)  · INGEST-12 VERIFIED (`17b56acb` · kit_mapping 218 · ERRATA-41/42 · md5 `8c5e816e…`) · basin-3 CW1 next.** Update at each wave close.
+> **STATUS: STAGING, non-authoritative.** This is the thematic index for THE REVIEW BOOK (charter R-8b, stage 6) — assembled 2026-07-18 during the W3 window from committed audit addenda + the run-state ledger (`agentic_orchestration/gandalf/notes/2026-07-18-vdm1-run-state.md`). Every line traces to a committed artifact. The review book supersedes this file at stage 6; nothing here is a new ruling. **State as-of: basin-2 FULLY CLOSED (checkpoint row banked) · basin-3 crawl CW1+CW2 CLOSED (72/179 kits · 294 verify rows = 263C/28U/2X/1SNF) · CW3 next (d3 L73–108).** Update at each wave close.
 
 ## 1. Leak-class registry (mapping-side)
 
@@ -74,10 +74,11 @@ Basin-2: blight-fiend pet-death-payload (§A-anticipated, discharged m01) · war
 - gd-berserker-wereforms empty-shell (all-abstain honest; doors=[]) — BACKFILL-2
 - **harvest-lich CHIMERA** (kb folk name conflates Harvest Flay + Death Seal Lich) — split erratum HIGH; mapping SKIP annotated
 - Unattested negatives: stun-jacks · shield-bash-le · soul-feast (crawl honest-U)
+- **Basin-3 adds (CW1–CW2):** d2-grim-ward-barb (negative honest-U) · **d2-wl-void-rift KIT-LEVEL — search-derived-seed-harvest-failed class, first of run** (all four families honest-negative; canon_corpus mech_note self-declares "SEARCH-DERIVED; dossier owed"; harvest performed b05 and FAILED → review-book Matt decision keep-as-ghost vs excise) · wl-tainted-summoner folk-name (identity-U) · BACKFILL-3 WAYBACK-RETRY queue open (incl. d2-sacrifice CDX-probe upgrade)
 
 ## 12. Negative-canon reliability series
 
-Basin-2 FINAL: 6 kb-negatives = 2 attested + 1 era-bounded (tempest-strike — era-scoped-negative class minted) + 3 unattested = **50% reliability headline**. Basin-3 roster: 18 negatives pending (template §claims). Series continues into the book as the kb-negative-reliability finding.
+Basin-2 FINAL: 6 kb-negatives = 2 attested + 1 era-bounded (tempest-strike — era-scoped-negative class minted) + 3 unattested = **50% reliability headline**. Basin-3 through CW2: **10 of 18 = 8C/2U (80%)** — CW1 6C(incl. era-bounded leap-attack)/1U(grim-ward) + CW2 sacrifice-C, firebomb-C, void-rift-U. Cross-basin finding firming: reliability tracks community-documentation density, not game. Series continues into the book as the kb-negative-reliability finding.
 
 ## 13. Mapping rulings index (minted; live homes = stage2 WAVE-PLAN Post-W1/W2 sections + template §A/§B — the book INDEXES, does not restate)
 
@@ -92,6 +93,8 @@ tempest attack-speed→crit overflow (stat-to-stat conversion, not stat-as-damag
 **INGEST-12 delta (2026-07-18, `17b56acb`):** kit_mapping 142→**218** (+76 basin-2; corpus-wide grade census now PoE1 94 + basin-1 48 + basin-2 76). b05 author_credit backfill 10 in-corpus (abstained=0). canon_engine_key WRONG-RESOURCE sweep 16 = ERRATA-41; umbral mech_note circular-clause reword = ERRATA-42. errata_applied 35→37. md5 `25a812c4…`→`8c5e816e…`. **Seam-reliability register update: elrond 3-for-3 EXACT + first CROSS-SEAM catch of a steward arithmetic slip** (W1 rollup 20C/2A vs file-truth 19C/3A — 1 row; steward file-recount confirmed; no grade conformed to the dispatch target). **Steward-error class now 2 entries** (umbral circular-brief · W1 rollup slip) — review-book gets a steward-fallibility register: the audit chain catches steward errors in BOTH directions (steward catches mappers; elrond+files catch steward).
 
 verify_ledger **831** post-ingest-11 (pre-basin-2 519 [basin-1 census 150C/11X/13U/0SNF = 174 + poe1] + basin-2 312 [250C/13X/46U/3SNF]). Basin-1 contradiction split 5 era / 4 mechanics / 2 identity. Basin-2 D-2a harvest 10 kits (8 floor-too-early + 2 floor-too-late [vitality-conjurer, healing-hands]). Promotions cum **1600 facts / 160 kits** verified-v1.1. Basin-2 mapping denominator 76/78 (2 SKIPs annotated). W1 post-audit 8E/19C/3A/6G [corrected at INGEST-12 battery — steward rollup slip, elrond-caught] · 30M/6D. W2 post-audit 1E/18C/1A/2G · 20M/2D. W3 post-audit 0E/6C/9A/3G · 15M/3D (m07 6 kits + m06 12 kits). **BASIN-2 MAPPING COMPLETE: 76/76 · 9E/43C/13A/11G · 65 MAPPED / 11 MAPPED_DOCKET.** T4 first-exercises at m06: 9 doors incl. COMPANION_CONTRACT on its §5-named exemplar class.
+
+**Basin-3 crawl through CW2 (2026-07-18):** 72/179 kits · **294 verify rows = 263C/28U/2X/1SNF** (CW1 149=137C/11U/1X · CW2 145=126C/17U/1X/1SNF). Both X are identity errata (fishyzon core-skills/aliases · god-hungering "Grace of Inarius"→Gears of Dreadlands). Citations 143 (71+72), 1 quarantined. Dossier 432 rows, 355 non-abstained = 82.2% (d2 floor 62.5% b04 · d3 ceiling 95.8% b06). Crawl advisory-drift series 15-for-15; abstain-null violations CW1 1 → CW2 0 (prompt amendment landed). INGEST-13 erratum queue: 12 items accumulated (fishyzon HIGH · GoD-DH spirit/focus probe fabrication [basin-2 gd pattern in d3] · ik-hota vanilla D-2a · alias/framing/probe fixes · summon-druid rotw backfill · void-rift + grim-ward + tainted-summoner register annotations).
 
 ---
 **Provenance:** run-state ledger bullets + audit addenda in `mapping-batch-0N-summary.md` (N=1..5,7) + crawl batch summaries b01–b07 + ingest MIGRATION docs. Assembled during the m06 re-fire window; W3-close update applied. Next update: INGEST-12 verification + basin-2 checkpoint.

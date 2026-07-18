@@ -117,3 +117,13 @@ The spec records `core_skills: ["Disintegrate", "Ignite(set mechanic)"]`. Modern
 - diablowiki.net returned 403 for Immortal King's Call page; diablo.fandom.com returned 402 for two pages. Used available Blizzard official pages and maxroll/icy-veins as substitutes.
 - Icy-veins Dashing Strike Monk guide is archived Patch 2.4 content — acknowledged as historical, not current meta. Valid for set-era era verification.
 - All junk/SEO domains quarantined; none cited.
+
+---
+
+## STEWARD AUDIT ADDENDUM (gandalf, 2026-07-18 — CW2, audited on return)
+
+**ACCEPTED, 0 corrections.** File truth: **47 rows = 43C/3U/1X/0SNF** (advisory "43C/1X/4U" — near-exact; drift series #15, U off by 1: the agent's own U-list double-counted ik-hota vanilla; kits 12 ✓, families 12/12/22/1, negative_canon exactly 1 per roster — d3-firebomb ✓). Anchors: C/X all present, zero >40w. Abstain-null law HELD 3/3. Citations 16/0 quarantined (maxroll 10 · icy-veins 4 · blizzard official 2). Dossier 72 rows, 69 non-abstained = **95.8%** — best coverage of the run so far (d3's living maxroll/icy-veins guide layer is dense; contrast b04 d2's 62.5%).
+
+**The X is REAL and valuable:** d3-god-hungering identity CONTRADICTED — "Grace of Inarius DH" alias is a set-name confabulation; fetched text is uniformly **"Gears of Dreadlands"** ("Gears of Dreadlands Hungering Arrow Demon Hunter has made its entry…"). → ERRATUM (alias removal) INGEST-13. Second basin-3 X after b02 fishyzon.
+
+**Erratum queue adds (INGEST-13):** GoD-DH probe `resource_verbatim: "spirit/focus"` FABRICATION — DH is Hatred+Discipline (the basin-2 gd spirit/focus pattern REAPPEARS in d3 — probe-artifact watch vindicated; template's d3 class-resource table was the catch instrument) · d3-ik-hota `vanilla` floor-too-early D-2a CANDIDATE (earliest attested Season 4 set-era; IK set existed at vanilla but the CotA/WotB 6pc synergy is a set-era rework — vanilla row honest-U in files; steward routes to D-2a adjudication at INGEST-13, not a unilateral X) · d3-firebomb negative_canon_target "ground-targeted" → "lobbed projectile" framing fix (official "Lob an explosive skull…"; substance of the negative CONFIRMED) · d3-frenzy-h90 probe `resource_verbatim: "on-hit stacks"` → Fury (Bastion's Revered stack mechanic ≠ resource). NULL-era roster clean: call-of-the-ancients + dashing-strike-monk zero era rows ✓ (attested eras in summary for backfill); firebird S39-evolution note (Disintegrate=trigger, Explosive Blast=payload) is good evolution-not-contradiction judgment.

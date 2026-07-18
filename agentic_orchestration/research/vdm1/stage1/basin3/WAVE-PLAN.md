@@ -39,6 +39,17 @@
 
 **BACKFILL-3 — WAYBACK-RETRY queue (era-U rows on wayback-flagged kits, upgrade candidates):** b01 blade-sin/blaze-sorc (era attested live — no retry needed unless classic tokens U) · b02 firewall-sorc (era confirmed via alternate live source — low priority) · b03 golemancer · grim-ward-barb · impale-zon · inferno-sorc · leap-attack-barb (classic/lod-token U rows). Retry vehicle: steward or micro-agent post-CW5, pre-INGEST-13; availability-API-first protocol.
 
+## Post-CW2 amendments (PASTE-relevant for CW3+ spawning prompts)
+
+**CW2 CLOSED (b04 `def9979f` · b05 `2ef27621` · b06 `67c68bf3` + steward audit commit): 36/36 kits · file truth 145 verify rows = 126C/17U/1X/1SNF** (b04 51=44C/7U · b05 47=39C/7U/1SNF · b06 47=43C/3U/1X). Drift #13–15 — series 15-for-15. Abstain-null HELD 48/48. Headlines: **VOID-RIFT kit-level spec-error candidate** (search-derived-seed-harvest-failed, Unattested Register KIT-LEVEL) · **god-hungering "Grace of Inarius" alias X** (fetched = Gears of Dreadlands) · negatives sacrifice-C + firebomb-C + void-rift-U → basin-3 series 8C/2U (80%). Erratum queue: GoD-DH probe spirit/focus fabrication · ik-hota vanilla floor-too-early (D-2a at INGEST-13) · firebomb lob-framing · frenzy-h90 Fury · summon-druid rotw backfill · mosaic NL-nuance · echoing-strike probe ranged · tainted-summoner register.
+
+**Hot-fact adds for CW3+ prompts (binding, d3-specific):**
+- **reddit.com is BLOCKED by crawler policy** — d3 domain order is effectively maxroll.gg/d3 → icy-veins.com only. Do not burn fetches on reddit.
+- **d3 probe-fabrication watch CONFIRMED LIVE:** the basin-2 gd "spirit/focus" resource fabrication reappeared on a d3 DH kit. The template's d3 class-resource table (Barb Fury · Monk Spirit · DH Hatred+Discipline · Wiz Arcane Power · Crusader Wrath · Necro Essence) is your instrument — verify resources against IT + fetched text, never against probe facts.
+- **diablowiki.net 403 · diablo.fandom.com 402** — skip both; Blizzard official skill pages are LEGAL substitutes (official cite_class) and good era/mechanics anchors.
+- **Archived icy-veins patch-content is LEGAL for era verification** (b06 dashing-strike patch-2.4 precedent) — historical guide text attests set-era presence; say so in the row, don't treat archive-age as inadmissibility.
+- **Set-rework era nuance (ik-hota lesson):** a set EXISTING at vanilla ≠ the BUILD existing at vanilla. When the kit's identity rides a reworked 6pc mechanic, the era floor tracks the REWORK patch, not the set's debut. Check set-history language before confirming early floors.
+
 ## Standing counts at fire time (steward-owned)
 
 verify_ledger in-DB post-ingest-11: **831 rows** (pre-basin-2 519 [poe1 + basin-1; basin-1 census 150C/11X/13U/0SNF = 174] + basin-2 312 [250C/13X/46U/3SNF]). Basin-2 D-2a harvest: 10 kits. Basin-2 kb-negative tally: 6 = 2 attested + 1 era-bounded (tempest-strike) + 3 unattested (stun-jacks · shield-bash · soul-feast). Unattested Register carries: bomb-lance ×3 SNF · harvest-lich CHIMERA (split erratum HIGH). Basin-3 has its own 18-negative roster (template §claims) — the negative-canon reliability series continues.
