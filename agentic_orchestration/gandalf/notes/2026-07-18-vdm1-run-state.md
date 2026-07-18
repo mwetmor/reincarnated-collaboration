@@ -105,6 +105,8 @@ identity ~.97 · core skills ~.90 · key items ~.85 · era ~.85 · negative-cano
 
 _(empty at launch)_
 
+- **BASIN-3 CW1 FIRED (3× legolas Mode B, background): b01 L1-12 · b02 L13-24 · b03 L25-36 — all d2, 36 kits.** Spawn = TEMPLATE-as-brief (agents read the file) + slice + steward-verified rosters + 8 hot-facts pasted. Roster truth recounted from spec file pre-fire: **wayback 9** (b01 ×2 blade-sin/blaze-sorc · b02 ×2 firewall-sorc/fishyzon · b03 ×5 golemancer/grim-ward/impale-zon/inferno-sorc/leap-attack) — the CW1 plan-line gloss "8 of 10" was a 1-count slip, template §37 + spec file govern (lesson of the day applied); **negatives 7** ✓ (b01 2 + b03 5; b02 ZERO — 0-contra-loudly law flagged in its prompt). b03 prompt carries the 50%-kb-negative-reliability headline + attested/era-bounded/unattested distinction. NEXT: CW1 returns → D-2c recounts + ≥25% deep-audit (anchor-vs-store) → CW2 (b04-06, wayback tail + sacrifice triple + d3 opens).
+
 ## Basin checkpoints
 
 _(rows appended per basin: date · basin · kits · verdict histogram · citations · dossier coverage · mapping grades · mints · dockets · commit)_
