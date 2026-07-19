@@ -17,7 +17,7 @@
 
 VDM-1 fact-checked, sourced, dossiered, and **engine-mapped every canonical ARPG kit in the corpus** — 574 kits across 21 games, five basins, in one autonomous run. You are the single reviewer. The book is organized so you can rule everything from **§ 2 (THE DECISION SURFACE)** alone; §§ 3–9 are the evidence chapters behind each ruling; the roster appendices are the per-kit ground truth.
 
-Reading order: **§ 1** (one screen) → **§ 2** (the ten rulings, D-1…D-10) → dip into §§ 3–9 as each ruling needs. Nothing was silently applied mid-run except ingest-time errata with anchor citations (all indexed, § 6); everything judgment-shaped waited for this book.
+Reading order: **§ 1** (one screen) → **§ 2** (the eleven rulings, D-1…D-11; D-11 added mid-review on Matt's one-representation ask) → dip into §§ 3–9 as each ruling needs. Nothing was silently applied mid-run except ingest-time errata with anchor citations (all indexed, § 6); everything judgment-shaped waited for this book.
 
 ---
 
@@ -59,7 +59,7 @@ Reading order: **§ 1** (one screen) → **§ 2** (the ten rulings, D-1…D-10) 
 
 ---
 
-## 2. THE DECISION SURFACE — the ten rulings (D-1 … D-10)
+## 2. THE DECISION SURFACE — the eleven rulings (D-1 … D-11)
 
 Everything below is **requested**, with my lean stated. Rule inline (a margin "yes/no/fork-b" per item is enough); I execute post-ratification as a single errata/ratification pass.
 
@@ -122,6 +122,19 @@ The devlog citation export is ready to generate from `kit_citations` (1,285 rows
 ### D-10 — Corpus v1.1 stamp + tracker registration
 
 **Lean: stamp the corpus `v1.1-verified` on your ratification of D-1/D-7/D-8**, then register the delta in `canonical/current-to-end-state/…-serial-content-emission.md` (the corpus is the serial-content substrate) and `…-engine.md` (docket → engine-gap intake). Tracker-delta lines are pre-drafted in § 10.
+
+### D-11 — ONE-REPRESENTATION CONSOLIDATION (added mid-review on Matt's ask, 2026-07-18)
+
+Matt's requirement: **one representation per kit — the most complete version, with URL + authorship citations attached.** Measured state (steward, readonly): **horizontal duplication does NOT exist** (0 same-game folk-name collisions; `kit_id` is PK across 585 rows). The real fragmentation is **vertical** (a kit's truth spans `canon_corpus` ⊕ `kit_dossier` ⊕ `verify_ledger` ⊕ `kit_citations` ⊕ `kit_mapping`, plus 3 markdown renders, plus frozen jsonl lineage — and no existing view joins mapping + citations), **temporal** (D-1 errata pending in this book), and **residual mobile-harvest-era schema** (dead parallel columns; a redundant URL home). Citation coverage is near-total: 573/574 mapped kits carry ≥1 live citation (avg 2.2/kit; 385 kits with `author_handle`; 274 with authored-class cites). Sub-rulings:
+
+- **D-11a — `kit_master` view + regenerated compendium.** Create the assembled-record VIEW in `corpus.db` (identity ⋈ mapping grade/terminal/elements/ailments/deviations ⋈ citation aggregate `{url, archive_url, site, author_handle, cite_class}` non-quarantined ⋈ verify C/X/U tallies ⋈ dossier row-count) — the ONE query surface, computed live, cannot drift. Then regenerate the human/machine render FROM it post-errata (per-game `.md` + one `.jsonl`, stamped with corpus.db md5 + `v1.1`), **superseding the four review rosters** (which carry no citations); rosters retire to git once Matt's review closes. **Lean: YES.**
+- **D-11b — drop the dead parallel columns.** `canon_corpus.motion_frame` / `t4_doors` / `option_c_substrate_flags` = **0 rows populated** (the pre-VDM-1 "Layer-3 re-key" plan that `kit_mapping` superseded). Dropping loses zero data and permanently removes the second home for engine-native truth. **Lean: DROP.**
+- **D-11c — deprecate `canon_corpus.source_urls`.** All 60 populated rows belong to kits already covered by `kit_citations` (0 orphan URLs at kit level) — a fully-redundant second URL home. Freeze + comment-deprecate; `kit_citations` is the sole citation authority. **Lean: DEPRECATE.**
+- **D-11d — normalize `suffix_rekey_status`** (107 rows still 'awaiting-rekey'; the awaited re-key IS `kit_mapping`, now complete) — folds into D-8's normalization batch. **Lean: YES.**
+- **D-11e — close the citation orphan.** `ud-snowstorm-frost` (undecember, GAPPED) is the SOLE mapped kit with zero live citations; one targeted legolas micro-fetch closes citation coverage at 574/574. **Lean: YES.**
+- **D-11f — THE INVERSION RULE (the load-bearing one).** During the run, **files governed** (D-2c: advisory never trusted, DB≡files at every ingest gate). At the v1.1 stamp, authority **INVERTS: `corpus.db` + the compendium govern; every `stage*/` jsonl freezes as immutable pipeline lineage** (stays in git, referenced by the errata-ledger; a README at `research/vdm1/` root declares the inversion so no future reader trusts a pre-errata file). Mobile-era raw descriptors (`elem_raw` + suffix raws, 'descriptor-final') remain provenance-only — never read for truth; `kit_master` does not expose them. **Lean: RATIFY.**
+
+All of D-11 executes in the **same post-ratification batch** already promised (one elrond migration + one steward commit) — no new machinery.
 
 ---
 
