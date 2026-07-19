@@ -1682,3 +1682,59 @@ ZERO CONTRADICTED verdict in ANY family, AND the kit HAS probe facts.
   nuance); d2-leap-attack-barb (era-bounded negative corroboration: "just a movement skill pre-2.4");
   d4-mighty-throw (voh-s6+/s7-s12 token-overlap scheme note).
 - **date:** 2026-07-18 (wave 13).
+
+## ERRATA-56 — d2-avenger element +water [BLIND-RIDER / ELEMENT-ATTESTATION CLASS]
+
+- **d2-avenger element +water:** attested set `{fire,lightning}` → `{fire,lightning,water}`. Anchor:
+  *"Fire, lightning **and cold** damage are added to each successful attack"* (Vengeance) — explicit
+  tri-element; cold → engine WATER. At map-time cold was dropped to a `delivery_notes` texture under the
+  top-2 hybrid rule; the blind rider (§7.2 / D-1) confirmed the third element attests. Applied via
+  `Vengeance.attested_elements_errata += ["water"]` in `mapping_json` (primary=fire / secondary=lightning
+  provenance PRESERVED; the D-11a `kit_master` view unions primary+secondary+errata into the attested set).
+- **grade:** unchanged (CLOSE) — an attestation-set completion, not an identity change; the set change does
+  not cross a grade boundary.
+- **errata_applied:** 0 verify rows flipped (no driving CONTRADICTED row on the element axis — this is a
+  blind-rider attestation completion, not a verify contradiction; mirrors the annotation-class no-flip
+  convention of ERRATA-53/55). Ledger is authoritative (D-8.3).
+- **anchor:** `stage5/BLIND-RIDER-DIVERGENCE-REPORT.md` §1, ★ orig-miss +water.
+- **date:** 2026-07-19 (post-review ratification; Matt: "apply all 4").
+
+## ERRATA-57 — le-runic-invocation element +fire +water [BLIND-RIDER / ELEMENT-ATTESTATION CLASS]
+
+- **le-runic-invocation element +fire +water:** attested set `{lightning}` → `{lightning,fire,water}`.
+  Anchor: Runic Invocation outputs *"fire burst, ice storm, lightning fork"* — explicit multi-element
+  damage; ice → engine WATER. At map-time the multi-element output range was kept as fidelity texture with
+  the corpus lightning primary carrying the row; the blind rider confirmed fire+water attest as damage.
+  Applied via `Runic Invocation.attested_elements_errata += ["fire","water"]` (lightning primary preserved).
+- **grade:** unchanged (per roster) — attestation completion, not identity change; no grade-boundary cross.
+- **errata_applied:** 0 verify rows flipped (blind-rider attestation completion; no CONTRADICTED driver).
+- **anchor:** `stage5/BLIND-RIDER-DIVERGENCE-REPORT.md` §1, ★ orig-miss +fire+water.
+- **date:** 2026-07-19 (post-review ratification).
+
+## ERRATA-58 — d2-ghost-pvp element −shadow [BLIND-RIDER / NAME-ONLY OVER-ATTEST CLASS]
+
+- **d2-ghost-pvp element −shadow:** attested set `{lightning,shadow}` → `{lightning}`. The "shadow"
+  attestation was the *Shadow Discipline* **TREE NAME** on Mind Blast — a name-only over-attestation under
+  the D4 name-only law (moderate confidence). No shadow-damage descriptor exists; Mind Blast attests `stun`
+  (kept), Lightning Sentry attests lightning, Whirlwind is physical. Applied via
+  `Mind Blast.element_primary: "shadow" → null` in `mapping_json`.
+- **grade:** unchanged (per roster) — removing a name-only over-attest tightens attestation; identity intact,
+  no grade-boundary cross.
+- **errata_applied:** 0 verify rows flipped (no CONTRADICTED driver; the over-attest was mapper-side, caught
+  by the blind rider — same class as the audit-caught `ud-lightning-vortex` shock removal in MAP-ERRATA-1).
+- **anchor:** `stage5/BLIND-RIDER-DIVERGENCE-REPORT.md` §1, ★ orig over-attest −shadow.
+- **date:** 2026-07-19 (post-review ratification).
+
+## ERRATA-59 — gd-bwc-demolitionist ailment +burn [BLIND-RIDER / AILMENT-ATTESTATION CLASS]
+
+- **gd-bwc-demolitionist ailment +burn:** attested set `{blind,curse:sap}` → `{blind,curse:sap,burn}`
+  (UNION, not replace). The burning-tar ground-DoT carpet is an explicitly attested engine BURN; at map-time
+  it was withheld ("burning tar" ruled a zone description, not a named status). The blind rider (§2) ruled
+  the burning-tar DoT a genuine `burn`; the withhold is reversed. Applied via
+  `Blackwater Cocktail.ailments += ["burn"]` in `mapping_json` (existing `blind` from the OA-reduction row
+  preserved; `curse:sap` from Thermite RR unchanged — it lives in the scaffold, not a skill `ailments[]`).
+- **grade:** unchanged (per roster) — attestation completion; no grade-boundary cross.
+- **errata_applied:** 0 verify rows flipped (blind-rider attestation completion; the complementary catch —
+  blind rater missed the OA→blind mapping while the original missed burn — resolves to the fuller UNION).
+- **anchor:** `stage5/BLIND-RIDER-DIVERGENCE-REPORT.md` §2, ★ orig-miss +burn.
+- **date:** 2026-07-19 (post-review ratification).

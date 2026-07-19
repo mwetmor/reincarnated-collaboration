@@ -18,6 +18,15 @@ catalogue.db-shm
 *-backup-wal
 *-backup-shm
 
+# Timestamped / named DB backups whose `.db` is not the final extension (so `*.db` misses them):
+#   corpus.db.bak-<UTC>, corpus.db.pre-<label>-<UTC>, and their `.md5.txt` md5 sidecars.
+# These are local regenerable safety nets (the migration scripts guarantee rebuild); never committed.
+corpus.db.bak-*
+corpus.db.pre-*
+*.db.bak-*
+*.db.pre-*
+*.md5.txt
+
 # Archive directory exception — historical SQLite snapshots are intentional, durable, and committed.
 # Filename pattern: archive/<store>-<as-of-date>.db (immutable historical records).
 !archive/*.db
