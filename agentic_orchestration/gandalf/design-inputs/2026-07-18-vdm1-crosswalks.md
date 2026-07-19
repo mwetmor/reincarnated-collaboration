@@ -117,6 +117,26 @@ nova/burst-around-self → `ring` · pool/patch/ground DoT → `ground_targeted_
 
 ---
 
+## §8 — Post-review ratifications (2026-07-19, Matt-ratified via THE REVIEW BOOK D-2 + D-6)
+
+Standing crosswalk law amendments, ratified at end-of-run review. These refine (do not overwrite) the §1/§2 rows above.
+
+**D-2 — three crosswalk refinements:**
+
+1. **Paralysis → `shock`** (d3-manald-heal). A D3 mechanic *named* "Paralysis" maps to engine `shock` — it IS the engine's paralyze. Generic "stunned" prose stays `stun`. This is the single prose-bar that reaches `shock`; it is why the registry's `shock` count is deliberately the strictest (1 across 574 kits). Refines the §2 shock/false-friend rows.
+2. **Cold-damage → `chill`/`freeze`: KEEP STRICT.** L3 forbids element→ailment inference. Cold *damage* alone (frost-blades, winter-orb, tq-ice-shard-oracle) does **not** attest chill/freeze — the status requires explicit prose (named or clearly described). The engine's water kits carry chill natively regardless; the corpus records only what sources attest. (Blind-rider confirmed the strict reading is defensible; both readings existed, strict is the corpus rule.)
+3. **Summoner element-silence** (skeleton-necro et al.). When the DAMAGE is minion-sourced, the kit stays **element-silent**; record the pet/minion element in `delivery_notes`/`fidelity_note` only, never as the kit's attested element. **This survives D-5's summoner un-deferral** — un-deferring the summoner *docket* (a gap-disposition change) does not touch the *element-attribution* convention. Mapped summoners remain element-silent.
+
+**D-6 — six no-home statuses (permanent footnotes; registry stays 16-closed, NO expansion):**
+
+The 16-closed ailment registry survived all 574 kits with every family exercised. Six source-native statuses had no home and correctly never leaked into a mapping. Ratified disposition — record as crosswalk footnotes, do NOT expand the registry:
+
+- **GD confusion · GD electrocute · GD frostburn · LE Frostbite** — identity covered by 16-registry near-neighbors; map to nearest family + `fidelity_note`.
+- **LE Time Rot** (named, build-defining, stack-capped with dedicated multipliers — the loudest) — ≈ **drain + chill compound**; map as compound + `fidelity_note`, no new ailment.
+- **LE Shadow Daggers** (×2 bladedancer kits) — **NOT an ailment.** It is stack-payoff = **D-3 two-tier-accumulator mint territory**; route to the mint lane, never the ailment registry.
+
+---
+
 **Cross-references:** charter §3/§5/§7 · run-state ledger `notes/2026-07-18-vdm1-run-state.md` · elrond schema `research/curated/MIGRATION-vdm1-schema-2026-07-18.md` · Wave-B/C specs (reap-die-rise-engine) for enum lineage.
 
 Tracker-delta: none (run-internal working reference; tracker registration lands with THE REVIEW BOOK per charter §8).
