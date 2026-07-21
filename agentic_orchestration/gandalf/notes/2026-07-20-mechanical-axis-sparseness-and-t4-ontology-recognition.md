@@ -23,6 +23,28 @@ We capture kits richly on *some* axes (the 12 `mint_ledger` primitives = the *no
 
 **Concrete proof from the pinnacle mapping (same session):** to find the autonomous-emitter family I had to **keyword-sweep dossier prose** ("wander/erratic/moves-toward") because "self-locomotion / autonomy" **is not a captured axis.** Had it been a column, the mapping is a `SELECT`, not a text-sweep. The under-anchoring of mints #8/#10 (four unlinked roaming kits) is a direct symptom: without a locomotion axis, the substrate can't cluster what it can't name.
 
+## Empirical backing — census from the frozen 574-kit export (gandalf, 2026-07-20)
+
+Computed directly from elrond's vendored `kits-export/` (the frozen SoT the glance page renders — so these are *what the page will show*, not a private query). Decomposes into **three buckets that must not be conflated:**
+
+| finding | count | bucket |
+|---|---|---|
+| every kit has a coordinate mapping | 574 (100%) | **floor** — the one axis we have universally |
+| no attested element | 302 (53%) | **mixed — see element note below** |
+| ≥1 abstained ("source silent") dossier fact | 339 (59%) | **real mechanical sparseness** → this doc's thesis |
+| lineage_enrichment null | 574 (100%) | **structural, NOT sparseness** |
+| atlas-grouped (has a plane group) | 85 (15%) | **structural** (labeling coverage) |
+| forces ≥1 mint | 21 (4%) | expected — mints are rare *by design* |
+
+- **The 59%-abstained is the quantified proof of (1).** Better than pre-VDM-1, still sparse — exactly Matt's read. Abstention is *honest* (the agent correctly recorded "source didn't say"), so it's a clean diagnostic, not corruption.
+- **The 100%-lineage-null + 15%-atlas-grouped are structural, not thinness.** `roster_lineage_enrichment` FKs `roster_atlas` (the 45 engine-generated B*/H* kits), a **universe disjoint from the 574 corpus kits.** Lineage is null for *all* corpus kits by construction. This confirms the **atlas-refresh-on-corpus-universe gate** — the same gate blocking the pinnacle decision. The per-kit page rendering null lineage on every kit is the diagnostic *surfacing* that gate, not a bug.
+
+### The element sub-finding (course-corrects the "historical element per kit" plan)
+
+The 53%-no-element is **mostly not a capture gap.** Name-heuristic split of the 302 blanks: only **~27 (9%)** are elementally-named-but-blank (candidate true misses: "Lightning Spear Sorcerer", "Snowstorm Frost Caster"). The other **~275 (91%)** are *correctly* non-elemental — Whirlwind Barbarian, Golemancer, Split-Arrow-Bleed, Blessed Hammer, Corpse-Explosion Necro. **A blind element backfill would falsely paint a whirlwind barb "fire."**
+
+Deeper: under the Archive-Frame **element-as-reader-signature** ruling (`matt_notes_handoff_docs/rdr-archive-frame-narrative-spine.md` §3.2), the kit's *source-game* element is **lineage flavor, not a mechanical property** — in RDR the element comes from the *player/reader*, not the record. So "historical element per kit" is a **small (~27-kit) lineage-color pass, not a corpus-wide mechanical fill**, and it must classify three ways (attested / correctly-non-elemental / true-miss), never two (has / missing).
+
 ## The unifying fix (VDM-2 candidate — NOT committed now)
 
 (1) and (2) resolve to **one** move: **replace the confused "alterations" extraction with a proper structured mechanical-axis schema, where the kit's T4/defining identity becomes axis-VALUES, not a separate "alteration" record.**
