@@ -7,13 +7,14 @@
     "parse": "node ../parser/parse.mjs",
     "parse:report": "node ../parser/parse.mjs --report",
     "stage-assets": "node scripts/stage-assets.mjs",
+    "stage-kits": "node scripts/stage-kits.mjs",
     "build:atlas": "node scripts/atlas/build-atlas-interactive.mjs",
     "verify:atlas-guard": "node scripts/atlas/verify-build-fail-guard.mjs",
     "dev": "vite",
-    "build": "npm run parse && npm run stage-assets && tsc -b && vite build",
-    "build:preview": "node ../parser/parse.mjs || true && node scripts/stage-assets.mjs && tsc -b && vite build",
+    "build": "npm run parse && npm run stage-assets && npm run stage-kits && tsc -b && vite build",
+    "build:preview": "node ../parser/parse.mjs || true && node scripts/stage-assets.mjs && node scripts/stage-kits.mjs && tsc -b && vite build",
     "preview": "vite preview",
-    "pretest": "node scripts/stage-assets.mjs",
+    "pretest": "node scripts/stage-assets.mjs && node scripts/stage-kits.mjs",
     "test": "vitest run"
   },
   "dependencies": {

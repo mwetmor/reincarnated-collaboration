@@ -16,6 +16,13 @@ import { RowLine } from './components';
 // projection-atlas tracker card (TRIPLE-LAW cross-links + quiet FLOW) stays below it. The
 // v1.11 static Edition-I plate/plane lead (AtlasEdition1View + AtlasPlaneView) retired here.
 import { AtlasInstrument } from './pages/AtlasInstrument';
+// Per-kit "single source of truth" (spec 2026-07-20-glance-per-kit-join-spec.md · drax
+// deliverable): the browsable corpus index + full per-kit detail render. Static assets
+// (public/kits/index.json + <kit_id>.json), staged at build time by scripts/stage-kits.mjs
+// — same law as /atlas (no DB / no server / no API in glance's live truth path). NOTE the
+// route is `corpus` (NOT `kits` — that name is taken by the PART-F serial roster page).
+import { CorpusIndex } from './pages/CorpusIndex';
+import { CorpusKit } from './pages/CorpusKit';
 
 // ---------------------------------------------------------------------------
 // Routing — hash-based, zero dependency (§7.4). The SPA rewrite in vercel.json
@@ -23,11 +30,23 @@ import { AtlasInstrument } from './pages/AtlasInstrument';
 // preview + prod with no 404 risk (the May-12 lesson). Routes (v1.8 — six pages):
 //   #/                     → the slim seven-card landing index (the original glance)
 //   #/engine #/story #/game #/content-emission #/kits #/minigames  → six domain pages
+//   #/corpus               → the browsable per-kit corpus index (single-source-of-truth)
+//   #/corpus/<kit_id>      → the full per-kit detail (10 sections)
 // ---------------------------------------------------------------------------
-type Route = { kind: 'landing' } | { kind: 'page'; page: PageId };
+type Route =
+  | { kind: 'landing' }
+  | { kind: 'page'; page: PageId }
+  | { kind: 'corpus' }
+  | { kind: 'corpus-kit'; id: string };
 
 function parseHash(): Route {
   const h = window.location.hash.replace(/^#\/?/, '').trim();
+  // per-kit detail: #/corpus/<kit_id> (id may contain hyphens; decode it once).
+  if (h === 'corpus') return { kind: 'corpus' };
+  if (h.startsWith('corpus/')) {
+    const id = decodeURIComponent(h.slice('corpus/'.length)).trim();
+    return id ? { kind: 'corpus-kit', id } : { kind: 'corpus' };
+  }
   const p = PAGE_ORDER.find((x) => x === h);
   return p ? { kind: 'page', page: p } : { kind: 'landing' };
 }
@@ -105,6 +124,11 @@ export default function App() {
   // max-w-5xl exactly as before. The clamp only binds ≥1024px, so 375/mobile is
   // unchanged. Scope: this one route (the D1-f law is route-scoped).
   const isAtlas = route.kind === 'page' && route.page === 'atlas';
+  // The per-kit corpus surfaces (index + detail) also go fluid — the detail's two-column
+  // section grid reads far better with the extra width (the /atlas D7-a precedent). The
+  // clamp only binds ≥1024px, so 375/mobile is unchanged (single-column there anyway).
+  const isCorpus = route.kind === 'corpus' || route.kind === 'corpus-kit';
+  const fluid = isAtlas || isCorpus;
 
   return (
     <div className="min-h-full">
@@ -112,16 +136,20 @@ export default function App() {
           one-screen glance survives the split). D7-a: the header band tracks the same
           route-conditional width so /atlas reads as ONE full-width surface (header edges
           align with the fluid content edges). */}
-      <HeaderStrip state={state} route={route} fluid={isAtlas} />
+      <HeaderStrip state={state} route={route} fluid={fluid} />
       <main
         className={
-          isAtlas
+          fluid
             ? 'mx-auto w-full px-3 pb-24 pt-4 sm:px-4'
             : 'mx-auto max-w-5xl px-3 pb-24 pt-4 sm:px-4'
         }
       >
         {route.kind === 'landing' ? (
           <Landing state={state} watermark={watermark} />
+        ) : route.kind === 'corpus' ? (
+          <CorpusIndex />
+        ) : route.kind === 'corpus-kit' ? (
+          <CorpusKit id={route.id} />
         ) : (
           <DomainPage state={state} page={route.page} />
         )}
@@ -143,6 +171,8 @@ function HeaderStrip({ state, route, fluid = false }: { state: State; route: Rou
   const gateClosed = sa != null && sa.total > 0 && sa.agreed === sa.total;
   const ledger = state.trackers.find((t) => t.id === 'surface-ledger');
   const activePage = route.kind === 'page' ? route.page : null;
+  // the per-kit corpus surfaces (index + detail) share one nav tab, highlighted on both.
+  const isCorpusRoute = route.kind === 'corpus' || route.kind === 'corpus-kit';
 
   return (
     // The <header> band (border + bg) ALWAYS spans full width; only the inner content
@@ -209,7 +239,7 @@ function HeaderStrip({ state, route, fluid = false }: { state: State; route: Rou
             end (coordinates → atlas → mechanics) behind a subtle divider: they are a
             distinct kind (kit-design reference registers), not domain/process pages. */}
         <nav className="mt-2 flex flex-wrap items-center gap-1 text-xs">
-          <TabButton label="Overview" active={activePage === null} onClick={() => go(null)} />
+          <TabButton label="Overview" active={route.kind === 'landing'} onClick={() => go(null)} />
           {PAGE_ORDER.map((p, i) => {
             const isFirstRef = REFERENCE_PAGES[0] === p;
             return (
@@ -229,6 +259,23 @@ function HeaderStrip({ state, route, fluid = false }: { state: State; route: Rou
               </span>
             );
           })}
+          {/* per-kit corpus (single source of truth) — its own tab, seated after the
+              reference trio behind a divider. Distinct kind: it's the DB-derived per-kit
+              drill-down (D-11 kit_master consolidation), not a tracker/reference doc page. */}
+          <span className="flex items-center gap-1">
+            <span
+              aria-hidden
+              title="per-kit corpus"
+              className="mx-1 hidden h-4 w-px bg-slate-700 sm:inline-block"
+            />
+            <TabButton
+              label="Corpus"
+              active={isCorpusRoute}
+              onClick={() => {
+                window.location.hash = '#/corpus';
+              }}
+            />
+          </span>
           {ledger && (
             <button
               onClick={() => setLedgerOpen((v) => !v)}
